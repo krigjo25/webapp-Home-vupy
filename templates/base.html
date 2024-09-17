@@ -1,0 +1,76 @@
+<!DOCTYPE html> 
+<html lang="en">
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <link rel='stylesheet' href='static/css/forms.css'>
+        <link rel='stylesheet' href='static/css/cssetc.css'>
+        <link rel='stylesheet' href='static/css/style.css'>
+        <link rel='stylesheet' href='static/css/profile.css'>
+        <link rel='stylesheet' href='static/css/btrapicons.css'>
+        <link rel='stylesheet' href='static/css/expertise.css'>
+        <title>krigjo25 | Home</title>
+    </head>
+    <body>
+        <header>
+            <a href='/'>
+                <h1>
+                    <span>Creative</span>
+                    <span>Mind</span>
+                    <span>with</span>
+                    <span>Logical</span>
+                    <span>Ways</span>
+                </h1>
+            </a>
+            <nav>
+                <a href="#journey">
+                    <div class="btn-links" onclick="journey()">
+                        <h3>The Journey</h3> 
+                    </div> 
+                </a>
+                <a href="#profiles">
+                    <div class="btn-links" onclick="profile()">
+                        <h3>Personal & Work Profile</h3> 
+                    </div> 
+                </a>
+                <a href="#personal">
+                    <div class="btn-links" onclick="biography()">
+                        <h3>About me</h3> 
+                    </div> 
+                </a>
+            </nav>
+        </header>
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+
+        <footer class="mb-5">
+            <form action="https://validator.w3.org/check" class="text-center" enctype="multipart/form-data" method="post" target="_blank">
+                <!-- https://validator.w3.org/ -->
+                <input name="doctype" type="hidden" value="HTML5">
+                <input name="fragment" type="hidden">
+                <input alt="Validate" src="lib/img/I_heart_validator.png" type="image"> 
+            </form>
+            <script>    
+                //  HTML Validator FROM W3C validation services
+                //  Adapted from https://stackoverflow.com/a/10162353
+                document.addEventListener('DOMContentLoaded', function() {
+                    const html = '<!DOCTYPE ' + document.doctype.name +
+                        (document.doctype.publicId ? ' PUBLIC "' + document.doctype.publicId + '"' : '') +
+                        (!document.doctype.publicId && document.doctype.systemId ? ' SYSTEM' : '') +
+                        (document.doctype.systemId ? ' "' + document.doctype.systemId + '"' : '') +
+                        '>\n' + document.documentElement.outerHTML;
+    
+                    //  Checks for HTML validations
+                    document.querySelector('form[action="https://validator.w3.org/check"] > input[name="fragment"]').value = html;
+    
+                    });
+            </script>
+        </footer>
+        <script src="static/js/modal.js"></script>
+        <script src="static/js/view.js"></script>
+        <script src="static/js/controller.js"></script>
+    </body>
+
+</html>

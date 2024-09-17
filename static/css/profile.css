@@ -1,0 +1,72 @@
+main article nav.ext-bar, .btn-links a:visited, .btn-links a:link {
+  color: rgb(254, 254, 254);
+  text-decoration: none;
+  background-color: #a1bfc9;
+}
+
+main article nav.ext-bar, main article div.img-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+main article div.img-container div.img-btn button.prev-btn, main article div.img-container div.img-btn button.next-btn {
+  opacity: 0.1;
+  border: none;
+  font-size: 2vw;
+  cursor: pointer;
+  color: #fefefe;
+  background-color: transparent;
+}
+
+main article div.img-container div.img-btn button.prev-btn:hover, main article div.img-container div.img-btn button.next-btn:hover {
+  opacity: 1;
+}
+
+.btn-links {
+  font-size: 4vh;
+  margin-inline: 1em;
+  inline-size: 40vh;
+  text-align: center;
+  border-radius: 1vh;
+  background-color: #3c4bab;
+  background-color: rgb(179, 193, 211);
+}
+main article div#carosel img.css-img {
+  block-size: 100vh;
+}
+main article div#carosel div.caption {
+  color: #fefefe;
+  z-index: 1;
+  bottom: 3vh;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+main article div.img-container {
+  block-size: 100%;
+  inline-size: 100%;
+  align-content: center;
+  flex-direction: column;
+  justify-content: center;
+}
+main article div.img-container div.img-btn {
+  z-index: 1;
+  bottom: 69vh;
+  display: flex;
+  cursor: pointer;
+  position: relative;
+  justify-content: space-between;
+}
+main article nav.ext-bar {
+  margin-block-start: 2vh;
+  justify-content: center;
+  border-bottom: 1px groove black;
+}
+main article nav.ext-bar span {
+  padding: 1vw;
+  font-size: 5vw;
+}
+
+.btn-links:hover {
+  background-color: #626ebb;
+}/*# sourceMappingURL=profile.css.map */

@@ -1,0 +1,127 @@
+Eventyret mitt så langt
+Har hatt en interesse for koding siden tidlig i tenårene,
+meldte meg da meg inn i et samfunn dedikert til koding.
+Lærte mer om basic koding som HTML, CSS følte meg litt
+fram mot JavaScript, men var ikke klar for å ta i mot
+den kunnskapen på det nivået, senere i voksen alder
+begynte reisen med å programmere back-end, valgte å
+fordype meg i Python og databasehåndtering.
+
+
+Nåtid
+I denne perioden er jeg Student på getAcademy,
+tilgjengelig for arbeid under utdanningen.
+Arbeid som jeg holder på med nå gjennom GetAcademy
+Satser stort på at det finnes bedrifter der ute,
+som er villig til å lære opp nye mennesker.
+
+Fremtidig suksesshistorie
+Drømmearbeidsplassen til Kristoffer
+er en arbeidsplass der teamet forstår
+viktigheten av samarbeid og er flinke
+på å arbeide med framfor å arbeide imot. 
+Kristoffer drømmer om å bli data scientist
+og starte en familie.
+
+Om Kristoffer
+
+Familie informasjon
+Har en familie på 4 biologiske søsken, 3 halvsøsken.
+Familien er spredt utover landet fra den kjente og
+gode byen Ålesund helt øst til Indre Østfold og opp
+nord til Trondheim og helt ned sør til Stavanger.
+
+Personlig informasjon
+Det er kjent blant både venner, klassekamerater og
+kollegaer at Kristoffer er dedikert til det som gjøres
+og er tilstede i øyeblikket, som person viser han
+forståelse for andre, og ser alltid etter styrken
+hos andre og Kristoffer bruker det meste av tiden
+sin for øyeblikket til GetAcademy.
+
+Videre i fritiden går tiden for det meste til å
+utvikle ferdighetene sine i både python bibliotek,
+database håndtering,  piano opplæring, filosofi og
+styrke både de sidene som er kjent for å være mindre
+sterke og de sterke.
+
+Bevisste sider
+Kristoffer er bevist på at har en tedens til å forsvare seg selv,
+under press. Kristoffer har en tedens til å være forsiktig,
+ikke på grunn av frykt, men ønsker å være ydmyk oven for andre.
+Gjennom erfaring med andre skole og arbeidsliv har erfart SÅTE (Samarbeid Åpenhet Tålmodighet og Ærlighet )
+
+
+
+Relevante Kompetanse Informasjon
+GetAcademy, der han blir bedre kjent
+med både frontend og backend, i
+nøkkelkompetanser får han opplæring
+i samarbeid, arbeidsrefleksjoner og
+muligheter til å utvikle seg selv.
+
+Gjennom edX, har Kristoffer fått en
+solid kompetanse i Python der har
+studentene fått kjennskap til bruk
+av de mest vanlige bibliotekene.
+(flask, pytest, sys)
+Programmeringsmessig har det gått
+mye til OOP som har gjort at det
+er kjempeviktig for Kristoffer og
+holde på den strukturen, siden
+koden blir lettere lest og forstått.
+
+C ++  i 
+
+SQL har Kristoffer fått kjennskap
+til databasehåndtering, på si har
+Kristoffer brukt mye MariaDB, mest
+fordi at de er fokusert på at koden
+hører til verden og ikke et enkelt
+selskap. Samtidig fyller de det meste
+som er på ønsk
+
+           <div class='profile-item'>
+                <h3>Eventyret mitt så langt</h3>  
+                <p>
+                    
+                    Har hatt en interesse for koding siden tidlig i tenårene,
+                    meldte meg da meg inn i et samfunn dedikert til koding.
+                    Lærte mer om basic koding som HTML, CSS følte meg litt
+                    fram mot JavaScript, men var ikke klar for å ta i mot
+                    den kunnskapen på det nivået, senere i voksen alder
+                    begynte reisen med å programmere back-end, valgte å
+                    fordype meg i Python og databasehåndtering.
+                </p>
+                <h3> Nåtid </h3>
+                <p>
+                    I denne perioden er jeg Student på getAcademy,
+                    tilgjengelig for arbeid under utdanningen.
+                    Arbeid som jeg holder på med nå gjennom GetAcademy
+                    Satser stort på at det finnes bedrifter der ute,
+                    som er villig til å lære opp nye mennesker.
+                </p>
+
+                <h3>Fremtidig suksesshistorie</h3>
+                <p>
+                    
+                    Drømmearbeidsplassen til Kristoffer
+                    er en arbeidsplass der teamet forstår
+                    viktigheten av samarbeid og er flinke
+                    på å arbeide med framfor å arbeide imot. 
+                    Kristoffer drømmer om å bli data scientist
+                    og starte en familie.
+                </p>
+            </div>
+            <div class="profile-item">
+                <h3>Family Information</h3>
+                <p></p>
+            </div>
+            <div class="profile-item">
+                <h3>Personal details</h3>
+                <p></p>
+            </div>
+            <div class="profile-item">
+                <h3>Consious sides</h3>
+                <p></p>
+            </div>

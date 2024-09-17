@@ -1,0 +1,26 @@
+.cnn-ctr {
+  text-align: center;
+}
+
+.pp {
+  flex-wrap: wrap;
+  font-size: 5vh;
+  block-size: 15vh;
+  inline-size: 46vh;
+  display: inline-flex;
+  align-items: flex-start;
+  border: 1px solid black;
+  justify-content: space-around;
+  flex-direction: column-reverse;
+}
+.pp i {
+  font-size: 6vh;
+}
+.pp span {
+  font-size: 1em;
+  -webkit-user-select: none;
+          user-select: none;
+  font-weight: bold;
+  margin-inline: 1em;
+  -moz-user-select: none;
+}/*# sourceMappingURL=cssetc.css.map */
