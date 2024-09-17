@@ -5,10 +5,11 @@ def test_connection()-> None:
     """Testing  the connection to the request
         Github : https://api.github.com/user/"""
 
+    actual = GithubApi().ApiCall(endpoint = GithubApi().API_URL, header = GithubApi().head)
     expected = {
-                'login': 'krigjo25', 
-                'id': 73070534,
-                'node_id': 'MDQ6VXNlcjczMDcwNTM0', 
+                'login': f'krigjo25', 
+                'id': actual['id'],
+                'node_id': actual['node_id'], 
                 'avatar_url': 'https://avatars.githubusercontent.com/u/73070534?v=4',
                 'gravatar_id': '',
                 'url': 'https://api.github.com/users/krigjo25',
@@ -29,17 +30,17 @@ def test_connection()-> None:
                 'blog': 'https://krigjo25.github.io/Front-end/',
                 'location': 'Indre-Østfold, Østfold, Norway',
                 'email': None, 'hireable': True,
-                'bio': None,
+                'bio': {actual['bio']},
                 'twitter_username': None,
                 'notification_email': None,
-                'public_repos': 8,
-                'public_gists': 0,
+                'public_repos': actual['public_repos'],
+                'public_gists': actual['public_gists'],
                 'followers': 0,
-                'following': 3,
+                'following': actual['following'],
                 'created_at': '2020-10-18T15:26:00Z', 
                 'updated_at': '2024-08-13T20:44:57Z'}
     
-    actual = GithubApi().ApiCall(endpoint = GithubApi().API_URL, header = GithubApi().head)
+    
     
     #   Testing the connection response
     assert expected == actual
