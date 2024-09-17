@@ -20,7 +20,7 @@ class Config():
 
 class GithubApi(Config):
 
-    def __init__(self, GET="GET", POST="POST", PUT='PUT', PATCH='PATCH', DELETE='DELETE', KEY=os.getenv('GITHUB_TOKEN'), URL="https://api.github.com/user"):
+    def __init__(self, URL, GET="GET", POST="POST", PUT='PUT', PATCH='PATCH', DELETE='DELETE', KEY=os.getenv('GITHUB_TOKEN')):
         super().__init__(GET, POST, PUT, PATCH, DELETE)
         self.GET = GET
         self.POST = POST
@@ -47,9 +47,5 @@ class GithubApi(Config):
             logging.error(e)
         return
     
-
-    def mock_requests():
-
-        #   Ensure that The data which is requested 
-
+    def fetch_repos(self):
         pass

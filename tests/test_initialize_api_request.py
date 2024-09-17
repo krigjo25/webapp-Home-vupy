@@ -4,8 +4,8 @@ from core import GithubApi
 def test_connection()-> None:
     """Testing  the connection to the request
         Github : https://api.github.com/user/"""
-
-    actual = GithubApi().ApiCall(endpoint = GithubApi().API_URL, header = GithubApi().head)
+    api = GithubApi(URL="https://api.github.com/user")
+    actual = api.ApiCall(endpoint = api.API_URL, header = api.head)
     expected = {
                 'login': f'krigjo25', 
                 'id': actual['id'],
@@ -28,9 +28,9 @@ def test_connection()-> None:
                 'name': 'Kristoffer Gjøsund',
                 'company': None,
                 'blog': 'https://krigjo25.github.io/Front-end/',
-                'location': {actual['location']},
+                'location': actual['location'],
                 'email': None, 'hireable': True,
-                'bio': {actual['bio']},
+                'bio': actual['bio'],
                 'twitter_username': None,
                 'notification_email': None,
                 'public_repos': actual['public_repos'],
@@ -38,7 +38,7 @@ def test_connection()-> None:
                 'followers': 0,
                 'following': actual['following'],
                 'created_at': '2020-10-18T15:26:00Z', 
-                'updated_at': {actual['updated_at']}}
+                'updated_at': actual['updated_at']}
     
     
     
