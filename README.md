@@ -38,7 +38,7 @@ It's maybe easy to use, but the difference between the other databases it doesnt
 
 
 **test_connection**
-During the connection test with the reposory i found out that i could expect a change in some of the fields in the api, as a consequence of using Github, The only thing i expect in the test_connection, is to get a response from the API which is not an error at this moment. so as long as the API responds with some similar, it passes.
+During the connection test with the reposory i found out that i could expect a change in some of the fields in the api, as a consequence of using Github, The only thing i expect in the test_connection, is to get a response from the API which is not an error at this moment. so as long as the API responds with some similar, it passes.  Test is also used to write cleaner code
 
 **moc_requests**
 By mocking the url i expect to find my repositories avialable

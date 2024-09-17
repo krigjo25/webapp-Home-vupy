@@ -1,56 +1,72 @@
 #   Import the responsories
 import sqlite3
-import requests as req
 import os
+import json
+import logging
+
+import requests as req
+from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestException
 
     
-class APIS():
-    def __init__(self, **args):
+class APIConfig():
+    def __init__(self, URL, KEY=None, GET = "GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE'):
+        self.GET = GET
+        self.POST = POST
+        self.PUT = PUT
+        self.PATCH = PATCH
+        self.DELETE = DELETE
+        self.API_KEY = KEY
+        self.API_URL = URL
 
-        for head, url in args.items():
-            self.head = head
-            self.url = url
 
-        
+class Github(APIConfig):
+
+    def __init__(self, URL, KEY=None, GET = "GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE'):
+        super().__init__(self, URL, KEY=None, GET = "GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE')
+
+        self.API_KEY = KEY
+        self.API_URL = URL
+        self.head = {'Content-Type': 'application/json','Authorization': f"{self.API_KEY}"}
+
         return
+    
+    def ApiCall(self, endpoint: str, header: dict | str = None) -> str:
+        """
+         Calling the API
+        """
+        try:
+            r = req.get(f"{endpoint}", timeout=30, headers=header)
 
-class Github(APIS):
-
-    def __init__(self, head, parse):
-        super().__init__(head, parse)
-        
-
+            if r.status_code in [200, 201]: return r.json()
+            elif r.status_code in [401, 403]: return json.dumps({"Error": "Encountered an AUTHORIZATION Error"})
+            
+        except (HTTPError, ConnectionError, Timeout, RequestException) as e: 
+            logging.error(e)
         return
-
+    
     def fetch_repos(self):
 
         #   Initialize a list
         repo = []
 
         #   Create a connection to github
-        #response = req.get(self.url, headers=self.head).json()
+        response = self.ApiCall(self.API_URL, headers=self.head)
         
         #   Fetch repo languages
-        def fetch_languages(repo, parse):
+        def fetch_languages(repo: list, parse: str):
 
             #   Request a languages
-            response = req.get(parse, headers= {'Authorization':f'Bearer {os.getenv('GITHUB_TOKEN')}'}).json()
+            response = self.ApiCall(parse, headers= self.head)
 
-            if response:
-                for lang, value in response.items():
-
-                    if lang:
-                        repo['lang'] += [lang]
-            else:
-                return False
-
+            for lang, value in response.items():
+                if lang: repo['lang'] += [lang] 
             return
 
         for i in range(len(response)):
 
             #   Structure the items from github
             repo += [{"name":response[i]['name'], "url":response[i]['html_url'], 'owner':response[i]['owner']['login'], 'lang': []}]
-
+            #lambda?
             #   Fetch repo languages
             fetch_languages(repo[i], f"https://api.github.com/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
 

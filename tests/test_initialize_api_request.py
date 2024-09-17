@@ -1,10 +1,12 @@
 import pytest
 from core import GithubApi
-
+from lib.modal import Github
 def test_connection()-> None:
     """Testing  the connection to the request
         Github : https://api.github.com/user/"""
+
     api = GithubApi(URL="https://api.github.com/user")
+    
     actual = api.ApiCall(endpoint = api.API_URL, header = api.head)
     expected = {
                 'login': f'krigjo25', 

@@ -8,8 +8,8 @@ from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestExce
 
 load_dotenv()
 
-class Config():
-    def __init__(self, GET = "GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE', KEY = None, URL = None):
+class APIConfig():
+    def __init__(self, URL, KEY=None, GET = "GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE'):
         self.GET = GET
         self.POST = POST
         self.PUT = PUT
@@ -18,7 +18,7 @@ class Config():
         self.API_KEY = KEY
         self.API_URL = URL
 
-class GithubApi(Config):
+class GithubApi(APIConfig):
 
     def __init__(self, URL, GET="GET", POST="POST", PUT='PUT', PATCH='PATCH', DELETE='DELETE', KEY=os.getenv('GITHUB_TOKEN')):
         super().__init__(GET, POST, PUT, PATCH, DELETE)
