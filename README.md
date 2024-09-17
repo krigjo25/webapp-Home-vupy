@@ -15,13 +15,38 @@ The puropose of this website is to use it as a biography of whom i am,  what's b
 
 ####    HTML
 ####    CSS
+
+Thorugh CSS RWD has been the primary Intention
 ####    Javascript
+
+-   Created a automatic Slider function for the webpage
+-    
 ####    Flask
+
 
 While creating the modal i encounted a challange to store the information which was recieved by the API
 I choosed to use SQLite, as there is no need for a huge database or a rational one.
 
-During the connection test with the reposory i found out that i could expect a change in some of the fields in the api, as a consequence of using Github, The only thing i expect in the test_connection, is to get something back which is not an error at this moment 
+####    SQLite
+
+It's maybe easy to use, but the difference between the other databases it doesnt require a server to operate, nor a license to use. As i don't expect heavy Traffic in HTTP Requests it suits well for personal and educative usage.
+
+
+
+
+### Tests
+
+
+**test_connection**
+During the connection test with the reposory i found out that i could expect a change in some of the fields in the api, as a consequence of using Github, The only thing i expect in the test_connection, is to get a response from the API which is not an error at this moment. so as long as the API responds with some similar, it passes.
+
+**moc_requests**
+By mocking the url i expect to find my repositories avialable
+
+
+**test_insertion**
+**test_update**
+
 ##  Credits
 
 [flask, flask_session - by the pallets project]()
@@ -31,8 +56,16 @@ During the connection test with the reposory i found out that i could expect a c
 
 ## Project summary
 
--   While creating the modal, i encounted a challange to store information from APIs
--   -   I choose to solve this issue using SQLite, to store api information from github,
+- While creating the application i encountered some challanges in
+> The modal - Storing information from APIs
+>   >   the solution for the issue would be to have a database with the stored information.
+>   >   The data is stored, and we do not have to call the API unless there is a update in the GITHUB
+>   >   The data can be used in other projects or converted into another database management system,
+
+>   Testing the API function - Automated testing 
+> > During the tests  i had to figure out a way to store the expected results with out sharing any sensitive information about the account.
+> > I chose to use the request to add the sensitive information, as later on i do not need to hard code the expected result, and then still
+> > Ensure the connection to the API. 
 -   During the tests of the API function i encounted a challange to test the API with out sharing any sensitive information about the account which was tested
 -   -   
 -   

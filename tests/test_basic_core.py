@@ -28,7 +28,7 @@ def test_connection()-> None:
                 'name': 'Kristoffer Gjøsund',
                 'company': None,
                 'blog': 'https://krigjo25.github.io/Front-end/',
-                'location': 'Indre-Østfold, Østfold, Norway',
+                'location': {actual['location']},
                 'email': None, 'hireable': True,
                 'bio': {actual['bio']},
                 'twitter_username': None,
@@ -38,7 +38,7 @@ def test_connection()-> None:
                 'followers': 0,
                 'following': actual['following'],
                 'created_at': '2020-10-18T15:26:00Z', 
-                'updated_at': '2024-08-13T20:44:57Z'}
+                'updated_at': {actual['updated_at']}}
     
     
     
