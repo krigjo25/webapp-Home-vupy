@@ -1,6 +1,5 @@
 import pytest
 from core import GithubApi
-from lib.modal import Github
 def test_connection()-> None:
     """Testing  the connection to the request
         Github : https://api.github.com/user/"""
