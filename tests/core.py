@@ -60,10 +60,11 @@ class SQL(Databases):
             
 
             return print('Established connection to the Database')
-        
+
         def selectRecords(self, table:str, statement:str, columns:tuple):
             return self.cur.execute(self.configure_query(self, table, statement, columns))
-
+        
+        
 class APIConfig():
     def __init__(self, URL, KEY=None, GET = "GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE'):
         self.GET = GET
