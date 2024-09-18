@@ -74,4 +74,4 @@ class GithubApi(APIConfig):
             repo += [{"name":response[i]['name'], "url":response[i]['html_url'], 'owner':response[i]['owner']['login'], 'lang': []}]
             #lambda?
             #   Fetch repo languages
-            fetch_languages(repo[i], self.API_URL + "{repo[i]['owner']}/{repo[i]['name']}/languages")
+            ##fetch_languages(repo[i], self.API_URL + "{repo[i]['owner']}/{repo[i]['name']}/languages")
