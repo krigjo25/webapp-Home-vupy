@@ -1,4 +1,4 @@
-# Finance
+# krigjo25 | Home
 
 ## About this project
 
@@ -16,11 +16,11 @@ The puropose of this website is to use it as a biography of whom i am,  what's b
 ####    HTML
 ####    CSS
 
-Thorugh CSS RWD has been the primary Intention
+During this project i've learned alot about RWD what should be prefered to be used during projects,
+
 ####    Javascript
 
 -   Created a automatic Slider function for the webpage
--    
 ####    Flask
 
 Github:
@@ -29,6 +29,8 @@ Implemented a API which fetches repositories data from GITHUB.
 
 While creating the modal i encounted a challange to store the information which was recieved by the API
 I choosed to use SQLite, as there is no need for a huge database or a rational one.
+
+During this project i refreshed memories by using what has been learned on the cs50x course.
 
 ####    SQLite
 
@@ -39,6 +41,8 @@ It's maybe easy to use, but the difference between the other databases it doesnt
 
 ### Tests
 
+####    Requests
+Tests are based on the [GITHUB REST API](https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28)
 
 **test_connection**
 During the connection test with the reposory i found out that i could expect
@@ -49,9 +53,12 @@ dictionary to pass values into the expected json, as the requests returns an
 json file if the code is 200, and to hide "sensitive information about a user.
 
 **moc_requests**
-By mocking the url i expect to find my repositories avialable
+By mocking the url from [GITHUB REST API](https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#get-a-repository) i expect to find my repositories avialable
 
 
+####    Databases
+
+Tests are based on the [documentation for unit tests](https://python-basics-tutorial.readthedocs.io/en/24.1.0/test/sqlite.html)
 **test_insertion**
 **test_update**
 
@@ -60,27 +67,48 @@ In order to visualize the test, i created a test report. So its easier to view t
 ##  Credits
 
 [flask, flask_session - by the pallets project]()
-[pytest, sqlite, os -]()
+[pytest, sqlite, os - Python built in responsories]()
 [dotenv - ]()
+
+### License
+see license file
 
 
 ## Project summary
 
-- While creating the application i encountered some challanges in
-> The modal - Storing information from APIs
->   >   the solution for the issue would be to have a database with the stored information.
->   >   The data is stored, and we do not have to call the API unless there is a update in the GITHUB
->   >   The data can be used in other projects or converted into another database management system,
+### Modal
+While creating the application i encountered some challanges with futures such as API,  database manangement
 
+### Github API
+
+I wanted to create an request to the API so i could automate the process to update the database with new projects.
+
+> I created multiple functions to handle multiple requests, so i could fetch the desired data from Github. And i wanted to automate the process, so the server searches after given updates in Github once a month or when there is a new project available at Github. 
+> Some tests was created in the process to confirm the autentity for the functions, to make the process easier. If necessary in the future it is possible to convert the database into another database management system
+>
+
+
+### SQLite database management system
+#### Purpose of SQLite
+
+## Tests
+
+During the tests i learned alot about how to use Python's built-in pytest and Unit testing frameworks.
+
+I learned to test an API using requests and pytest repository
+i learned basic database testing using Unit testing repository
+
+#### Github API
 >   Testing the API function - Automated testing 
 > > During the tests  i had to figure out a way to store the expected results with out sharing any sensitive information about the account.
 > > I chose to use the request to add the sensitive information, as later on i do not need to hard code the expected result, and then still
 > > Ensure the connection to the API. 
--   During the tests of the API function i encounted a challange to test the API with out sharing any sensitive information about the account which was tested
--   -   
--   
+>
+> During the tests of the API function i encounted a challange to test the API with out sharing any sensitive information about the account which was tested
 
--   During this project i've learned alot about RWD what should be prefered to be used during projects
--   During this project i refreshed memories by using what has been learned on the cs50x course.
+#### Database Management system SQLite3
+
+
+
 Sincerely,
 @krigjo25
