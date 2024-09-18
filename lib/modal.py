@@ -6,6 +6,7 @@ import logging
 
 import requests
 from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestException
+from sqlite3 import sqlite_ERR
 
     
 class APIConfig():
@@ -99,26 +100,19 @@ class Github(APIConfig):
         return 
 
 class Databases():
+    def __init__(self, database:str, port:int | int=None, host:str | str=None):
 
-    def __init__(self, database=None, **args):
+        #   Ensure there is one value
+        self.host = host
+        self.port = port
+        self.db = database
 
-
-        #   Ensure the arguments has value
-        if bool(args):
-
-            #   Ensure there is one value
-            for host, port in args.items():
-                self.host = host
-                self.port = port
-            
-            self.db = database
-    
-        del args, database
+        del host, database, port
         return
 
 class SQL(Databases):
-    def __init__(self, database, **args):
-        super().__init__(database, **args)
+    def __init__(self, database:str, port:int | int=None, host:str | str=None):
+        super().__init__(self, database, port = None, host=None)
         
         #   Establish the connection to the database
         try:

@@ -2,11 +2,67 @@ import os
 import json
 import logging
 import requests
+import sqlite3
 
 from dotenv import load_dotenv
 from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestException
 
 load_dotenv()
+
+class Databases():
+    def __init__(self, database:str, port:int | int=None, host:str | str=None, statement:str | str = None):
+
+        #   Ensure there is one value
+        self.host = host
+        self.port = port
+        self.db = database
+        self.method = statement
+        self.connected = False
+
+        del host, database, port, statement
+        return
+    
+    def configure_query(self,  table:str, statement:str, columns: tuple | tuple=None):
+
+        column = ""
+        
+        if bool(columns):
+            for i in range(len(columns)):
+                column += f"{columns[i]}"
+
+                #   Ensure that the tuple does not exceed its limits
+                if i < len(columns): column += ", "
+
+                else: columns = '*'
+
+        if statement.upper() == "SELECT":
+            
+            query = f"{statement}{columns} FROM {table}"
+
+        return query
+
+class SQL(Databases):
+        def __init__(self, database:str, port:int | int=None, host:str | str=None, method:str | str = None):
+            super().__init__(database, port, host, method)
+        
+            #   Establish the connection to the database
+            try:
+
+                self.conn = sqlite3.connect(self.db)
+                if not self.conn: raise Exception('Could not establish a connection to the database')
+
+            except Exception as e: return e
+
+            self.connected = True
+
+            #   Initializing the sqlite cursor
+            self.cur = self.conn.cursor()
+            
+
+            return print('Established connection to the Database')
+        
+        def selectRecords(self, table:str, statement:str, columns:tuple):
+            return self.cur.execute(self.configure_query(self, table, statement, columns))
 
 class APIConfig():
     def __init__(self, URL, KEY=None, GET = "GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE'):
@@ -74,4 +130,4 @@ class GithubApi(APIConfig):
             repo += [{"name":response[i]['name'], "url":response[i]['html_url'], 'owner':response[i]['owner']['login'], 'lang': []}]
             #lambda?
             #   Fetch repo languages
-            ##fetch_languages(repo[i], self.API_URL + "{repo[i]['owner']}/{repo[i]['name']}/languages")
+
