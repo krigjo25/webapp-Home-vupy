@@ -1,8 +1,6 @@
-import os
-import json
-import logging
-import requests
-import sqlite3
+#   Importing repositories
+import os, json, sqlite3
+import logging, requests
 
 from dotenv import load_dotenv
 from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestException
