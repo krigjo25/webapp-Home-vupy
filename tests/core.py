@@ -18,6 +18,20 @@ class APIConfig():
         self.API_KEY = KEY
         self.API_URL = URL
 
+    def ApiCall(self, endpoint: str, header: dict | str = None) -> str:
+        """
+            Calling the API
+        """
+        try:
+            r = requests.get(f"{endpoint}", timeout=30, headers=header)
+
+            if r.status_code in [200, 201]: return r.json()
+            elif r.status_code in [401, 403]: return json.dumps({"Error": "Encountered an AUTHORIZATION Error"})
+            
+        except (HTTPError, ConnectionError, Timeout, RequestException) as e: 
+            logging.error(e)
+        return
+
 class GithubApi(APIConfig):
 
     def __init__(self, URL, GET="GET", POST="POST", PUT='PUT', PATCH='PATCH', DELETE='DELETE', KEY=os.getenv('GITHUB_TOKEN')):
@@ -33,19 +47,7 @@ class GithubApi(APIConfig):
 
         return
 
-    def ApiCall(self, endpoint: str, header: dict | str = None) -> str:
-        """
-         Calling the API
-        """
-        try:
-            r = requests.get(f"{endpoint}", timeout=30, headers=header)
 
-            if r.status_code in [200, 201]: return r.json()
-            elif r.status_code in [401, 403]: return json.dumps({"Error": "Encountered an AUTHORIZATION Error"})
-            
-        except (HTTPError, ConnectionError, Timeout, RequestException) as e: 
-            logging.error(e)
-        return
     
     def fetch_repos(self):
         
@@ -72,4 +74,4 @@ class GithubApi(APIConfig):
             repo += [{"name":response[i]['name'], "url":response[i]['html_url'], 'owner':response[i]['owner']['login'], 'lang': []}]
             #lambda?
             #   Fetch repo languages
-            fetch_languages(repo[i], f"https://api.github.com/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
+            fetch_languages(repo[i], self.API_URL + "{repo[i]['owner']}/{repo[i]['name']}/languages")

@@ -21,5 +21,6 @@ def test_connection()-> None:
                 'bio': actual['bio'], 'twitter_username': actual['twitter_username'], 'notification_email': actual['notification_email'],
                 'public_repos': actual['public_repos'],'public_gists': actual['public_gists'], 'followers': actual['followers'],
                 'following': actual['following'], 'created_at': actual['created_at'], 'updated_at': actual['updated_at']}
+
     #   Testing the connection response
     assert expected == actual
