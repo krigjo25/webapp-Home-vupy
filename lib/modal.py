@@ -4,12 +4,12 @@ import os
 import json
 import logging
 
-import requests as req
+import requests
 from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestException
 
     
 class APIConfig():
-    def __init__(self, URL, KEY=None, GET = "GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE'):
+    def __init__(self, URL: str, KEY :dict = None, GET ="GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE'):
         self.GET = GET
         self.POST = POST
         self.PUT = PUT
@@ -17,35 +17,40 @@ class APIConfig():
         self.DELETE = DELETE
         self.API_KEY = KEY
         self.API_URL = URL
+    
+    def ApiCall(self, endpoint: str, head: dict = None) -> str:
+        """
+         Calling the API
+        """
+        try:
+            #   Request something from endpoint
+            r = requests.get(f"{endpoint}", timeout=30, headers=head)
+
+            #   Ensure that the r.status_code has a specified code
+            if r.status_code in [200, 201]: return r.json()
+            elif r.status_code in [401, 403]: return json.dumps({"Error": "Encountered an AUTHORIZATION Error. You do not have the Autorized permission to process"})
+            elif r.status_code == 400: return json.dumps({"Client Error": "The server would not process the request due to the request is considered to be a client error. It could be one of the following : Malformed request syntax, invalid request message framing, or deceptive request routing"})
+            
+        except (HTTPError, ConnectionError, Timeout, RequestException) as e: 
+            logging.error(e)
+
+        return
 
 
 class Github(APIConfig):
 
-    def __init__(self, URL, KEY=None, GET = "GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE'):
-        super().__init__(self, URL, KEY=None, GET = "GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE')
-
+    """Configure the API to fetch apis from Github"""
+    def __init__(self, URL: str, KEY: dict = None, GET="GET", POST="POST", PUT='PUT', PATCH='PATCH', DELETE='DELETE'):
+        super().__init__(URL, KEY, GET, POST, PUT, PATCH, DELETE)
         self.API_KEY = KEY
         self.API_URL = URL
         self.head = {'Content-Type': 'application/json','Authorization': f"{self.API_KEY}"}
 
         return
     
-    def ApiCall(self, endpoint: str, header: dict | str = None) -> str:
-        """
-         Calling the API
-        """
-        try:
-            r = req.get(f"{endpoint}", timeout=30, headers=header)
-
-            if r.status_code in [200, 201]: return r.json()
-            elif r.status_code in [401, 403]: return json.dumps({"Error": "Encountered an AUTHORIZATION Error"})
-            
-        except (HTTPError, ConnectionError, Timeout, RequestException) as e: 
-            logging.error(e)
-        return
-    
     def fetch_repos(self):
 
+        """ Fetches repositories data"""
         #   Initialize a list
         repo = []
 

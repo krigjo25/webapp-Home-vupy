@@ -48,4 +48,28 @@ class GithubApi(APIConfig):
         return
     
     def fetch_repos(self):
-        pass
+        
+
+        #   Create a connection to github
+        response = self.ApiCall(self.API_URL, headers=self.head)
+        
+        #   Fetch repo languages
+        def fetch_languages(repo: list, parse: str):
+
+            #   Request a languages
+            response = self.ApiCall(parse, headers= self.head)
+
+            for lang, value in response.items():
+                if lang: repo['lang'] += [lang] 
+            return
+
+         #   Intializing a list
+        repo = []
+
+        for i in range(len(response)):
+
+            #   Structure the items from github
+            repo += [{"name":response[i]['name'], "url":response[i]['html_url'], 'owner':response[i]['owner']['login'], 'lang': []}]
+            #lambda?
+            #   Fetch repo languages
+            fetch_languages(repo[i], f"https://api.github.com/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")

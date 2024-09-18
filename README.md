@@ -23,6 +23,9 @@ Thorugh CSS RWD has been the primary Intention
 -    
 ####    Flask
 
+Github:
+Implemented a API which fetches repositories data from GITHUB.
+
 
 While creating the modal i encounted a challange to store the information which was recieved by the API
 I choosed to use SQLite, as there is no need for a huge database or a rational one.
@@ -38,7 +41,12 @@ It's maybe easy to use, but the difference between the other databases it doesnt
 
 
 **test_connection**
-During the connection test with the reposory i found out that i could expect a change in some of the fields in the api, as a consequence of using Github, The only thing i expect in the test_connection, is to get a response from the API which is not an error at this moment. so as long as the API responds with some similar, it passes.  Test is also used to write cleaner code
+During the connection test with the reposory i found out that i could expect
+agruments in the fields in the api, as a consequence of using Github REST API,
+it's reasonable to believe that if the request is Ok i will recieve the same output
+in expected and actual. Therefore it would be best practise to use the actual
+dictionary to pass values into the expected json, as the requests returns an
+json file if the code is 200, and to hide "sensitive information about a user.
 
 **moc_requests**
 By mocking the url i expect to find my repositories avialable
