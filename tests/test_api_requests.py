@@ -16,11 +16,11 @@ class TestAPI:
                     'gists_url': actual['gists_url'], 'starred_url': actual['starred_url'], 'subscriptions_url': actual['subscriptions_url'],
                     'organizations_url': actual['organizations_url'], 'repos_url': actual['repos_url'], 'events_url': actual['events_url'],
                     'received_events_url': actual['received_events_url'], 'type': actual['type'], 
-                    'site_admin': actual['site_admin'],
-                    'name': actual['name'], 'company': actual['company'], 'blog': actual['blog'],
-                    'location': actual['location'], 'email': actual['email'], 'hireable':actual['hireable'],
-                    'bio': actual['bio'], 'twitter_username': actual['twitter_username'], 'notification_email': actual['notification_email'],
-                    'public_repos': actual['public_repos'],'public_gists': actual['public_gists'], 'followers': actual['followers'],
+                    'site_admin': actual['site_admin'], 'name': actual['name'], 'company': actual['company'],
+                    'blog': actual['blog'], 'location': actual['location'], 'email': actual['email'],
+                    'hireable':actual['hireable'], 'bio': actual['bio'], 'twitter_username': actual['twitter_username'],
+                    'notification_email': actual['notification_email'], 'public_repos': actual['public_repos'],
+                    'public_gists': actual['public_gists'], 'followers': actual['followers'],
                     'following': actual['following'], 'created_at': actual['created_at'], 'updated_at': actual['updated_at']}
 
         #   Testing the connection response
