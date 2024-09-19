@@ -20,26 +20,75 @@ class Databases():
         del host, database, port, statement
         return
     
-    def configure_query(self,  table:str, statement:str, columns: tuple | tuple=None):
+    def configure_columns(self,  table:str, statement:str, columns: dict | dict=None):
 
-        column = ""
-        
+        column = "("
+        data = "("
+
+        #   Ensure columns has a value
         if bool(columns):
-            for i in range(len(columns)):
-                column += f"{columns[i]}"
 
-                #   Ensure that the tuple does not exceed its limits
-                if i < len(columns): column += ", "
+            for key, value in columns.items():
+                column += f"{key}"
+                data += value
 
-                else: columns = '*'
+                column += ',' if list(columns)[-1] != key else ')'
+                data += ',' if list(columns)[-1] != key else ')'
 
+        else:
+            column = "*"
+
+        #
         if statement.upper() == "SELECT":
             
-            query = f"{statement}{columns} FROM {table}"
+            query = f"{statement}{column} FROM {table}"
+
+        #   Ensure the statement equals INSERT
+        if statement.upper() == "INSERT":
+            query = f"{statement} INTO {table}{column} VALUES ={data}"
+
+        return query
+    
+    def configure_table(self, table:str, statement:str, columns: dict | dict=None):
+
+        statements = ['CREATE', "ALTER", 'DROP']
+
+        try:
+            #   Ensure the table exists
+            #   Ensure the statement exist in statements
+            if statement not in statements: raise Exception('Given statement does not exists in SQLite')
+
+
+        except Exception as e: return e
+
+        #   Ensure the statement is a CREATE
+        if statement == 'CREATE':
+
+            query = f"{statement} TABLE IF NOT EXISTS {table}("
+
+            #   Ensure that there is values in columns
+            if bool(columns):
+                for key, value in columns.items():
+
+                    #   Append data
+                    query += f"{key} {value}"
+
+                    #   Ensure the list is not at end
+                    query += ',' if list(columns)[-1] != key else ');'
+
+        #   Ensure the statement is an ALTER
+        elif statement == 'ALTER': pass
+
+        #   Ensure the statements is a DROP
+        elif statement =='DROP': query = f"{statement} TABLE IF EXISTS {table};"
+
+        #   Sweep data
+        del table, statement, columns
 
         return query
 
 class SQL(Databases):
+
         def __init__(self, database:str, port:int | int=None, host:str | str=None, method:str | str = None):
             super().__init__(database, port, host, method)
         
@@ -51,18 +100,29 @@ class SQL(Databases):
 
             except Exception as e: return e
 
-            self.connected = True
-
             #   Initializing the sqlite cursor
             self.cur = self.conn.cursor()
-            
 
             return print('Established connection to the Database')
 
-        def selectRecords(self, table:str, statement:str, columns:tuple):
-            return self.cur.execute(self.configure_query(self, table, statement, columns))
-        
-        
+        #   Creating a table
+        def TableConfigurations(self, table:str, statement:str, columns:dict): 
+            
+            try: 
+                with self.conn:
+                    self.cur.execute(self.configure_table(table, statement, columns))
+            except Exception as e:
+                return e
+        #   Inserting values into a table
+        def insert_into_table(self, table:str, statement:str, column:dict): pass
+
+        #   delete a row
+        def delete_row(self, table:str, column:str, value:str): return self.cur.execute(f"DELETE FROM {table} WHERE {column} = {value};")
+        def drop_table(self, table:str): pass
+        def drop_database(self, db:str): pass  
+
+
+
 class APIConfig():
     def __init__(self, URL, KEY=None, GET = "GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE'):
         self.GET = GET
@@ -102,8 +162,6 @@ class GithubApi(APIConfig):
 
         return
 
-
-    
     def fetch_repos(self):
         
 
