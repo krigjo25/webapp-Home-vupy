@@ -5,61 +5,58 @@ import logging, requests
 from dotenv import load_dotenv
 from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestException
 
-from algorithms import SearchAlgorithm
 load_dotenv()
 
 class Databases():
-    def __init__(self, database:str, port:int | int=None, host:str | str=None, statement:str | str = None):
 
-        #   Ensure there is one value
+    """ Base: What would includes in several databases"""
+    def __init__(self, database:str, port:int | int=None, host:str | str=None):
+
         self.host = host
         self.port = port
         self.db = database
-        self.method = statement
-        self.connected = False
+        self.statements = ['CREATE', "ALTER", 'DROP', 'INSERT', 'SELECT']
 
-        del host, database, port, statement
+        del host, database, port
         return
     
-    def configure_columns(self,  table:str, statement:str, columns: tuple| tuple=None, datas: dict | dict = None):
-
+    def configure_columns(self,  table:str, statement:str, columns:list | list=None, datas: dict | dict = None):
+        
         #   Initialize variables
-        data = "("
-        column = "("
-        search = SearchAlgorithm()
+        data = ""
+        column = ""
 
-        #   Initialize the array
-        statements = ['SELECT', 'INSERT']
+        if statement.upper() in self.statements and bool(datas):
 
-        if statement.upper() == search.linearSearch(statements, len(statements), statement) and bool(datas):
+            for i in range(len(columns)):
+                column += f'{columns[i]}, ' if i +1 < len(columns) else f"{columns[i]}"
+
 
             for key, value in datas.items():
-                
-                column += f"{key}"
-                data += f"\'{value}\'"
+                data += f'\'{value}\',' if list(columns)[-1] != key else f'\'{value}\''
 
-                column += ',' if list(columns)[-1] != key else ')'
-                data += ',' if list(columns)[-1] != key else ')'
+            query = f"{statement} INTO {table} ({column}) VALUES ({data});"
 
+        #   Ensure the select statement
+        elif statement.upper() in self.statements and bool(columns):
 
-            query = f"{statement} INTO {table} {column} VALUES {data};"
+            for i in range(len(columns)):
+                column += f'{columns[i]}, ' if i +1 < len(columns) else f"{columns[i]}"
+
+            query = f"{statement} {column} FROM {table};"
+
+        #   Sweep memory
+        del column, data, table
+        del statement, columns
 
         return query
     
     def configure_table(self, table:str, statement:str, columns: dict | dict=None):
 
-        statements = ['CREATE', "ALTER", 'DROP']
-        search = SearchAlgorithm()
-        try:
-            #   Ensure the table exists
-            #   Ensure the statement exist in statements
-            if not search.linearSearch(statements, len(statements), statement): 
-                raise Exception('Given statement does not exists in SQLite')
-
-        except Exception as e: return e
-
+        print(columns)
         #   Ensure that statement is equal to the listed  statement
-        if statement == search.linearSearch(statements, len(statements), statement) and bool(columns):
+
+        if statement in self.statements and bool(columns):
             query = f"{statement} TABLE IF NOT EXISTS {table}("
 
             #   Ensure that there is values in columns
@@ -71,18 +68,15 @@ class Databases():
                 #   Ensure the list is not at end
                 query += ',' if list(columns)[-1] != key else ');'
 
-        #   Ensure the statements is a DROP
-        elif statement ==search.linearSearch(statements, len(statements), statement): query = f"{statement} TABLE IF EXISTS {table};"
-
         #   Sweep data
         del table, statement, columns
-
+        print(query)
         return query
 
 class SQL(Databases):
 
-        def __init__(self, database:str, port:int | int=None, host:str | str=None, method:str | str = None):
-            super().__init__(database, port, host, method)
+        def __init__(self, database:str, port:int | int=None, host:str | str=None):
+            super().__init__(database, port, host)
         
             #   Establish the connection to the database
             try:
@@ -100,15 +94,34 @@ class SQL(Databases):
         #   Creating a table
         def TableConfigurations(self, table:str, statement:str, columns:dict): 
             
-            try: 
-                with self.conn:
-                    self.cur.execute(self.configure_table(table, statement, columns))
-            except Exception as e:
-                return e
+
+            self.cur.execute(self.configure_table(table, statement, columns))
         
         #   Inserting values into a table
-        def insert_into_table(self, table:str, statement:str, column:tuple, data:dict): 
+        def insert_into_table(self, table:str, statement:str, column:list, data:dict):
+            try:
+
+                if statement not in self.statements:
+                    raise SyntaxError('400 : Given statement does not exists in SQLlite3')
+                
+                if table not in self.cur.execute('SELECT name FROM sqlite_master').fetchall():
+                    raise SyntaxError('404 : Table Does not exists')
+                
+                if not isinstance(column, list):
+                    raise Exception('400: Bad Request, accepts only list as a argument')
+                
+                if not isinstance(data, dict): raise Exception('400, accepts only dictionary as argument')
+    
+            except (SyntaxError, Exception) as e: print(e)
+
             self.cur.execute(self.configure_columns(table, statement, column, data))
+            self.conn.commit()
+            return
+        
+        def select_records(self, table:str, statement:str, columns:tuple | tuple = "*"):
+            return self.cur.execute(self.configure_columns(table, statement, columns)).fetchall()
+            
+
         #   delete a row
         def delete_row(self, table:str, column:str, value:str): return self.cur.execute(f"DELETE FROM {table} WHERE {column} = {value};")
         def drop_table(self, table:str): return self.conn.execute(f'DROP table IF EXISTS {table}')
