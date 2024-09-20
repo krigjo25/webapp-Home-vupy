@@ -5,6 +5,7 @@ import logging, requests
 from dotenv import load_dotenv
 from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestException
 
+from algorithms import SearchAlgorithm
 load_dotenv()
 
 class Databases():
@@ -20,67 +21,58 @@ class Databases():
         del host, database, port, statement
         return
     
-    def configure_columns(self,  table:str, statement:str, columns: dict | dict=None):
+    def configure_columns(self,  table:str, statement:str, columns: tuple| tuple=None, datas: dict | dict = None):
 
-        column = "("
+        #   Initialize variables
         data = "("
+        column = "("
+        search = SearchAlgorithm()
 
-        #   Ensure columns has a value
-        if bool(columns):
+        #   Initialize the array
+        statements = ['SELECT', 'INSERT']
 
-            for key, value in columns.items():
+        if statement.upper() == search.linearSearch(statements, len(statements), statement) and bool(datas):
+
+            for key, value in datas.items():
+                
                 column += f"{key}"
-                data += value
+                data += f"\'{value}\'"
 
                 column += ',' if list(columns)[-1] != key else ')'
                 data += ',' if list(columns)[-1] != key else ')'
 
-        else:
-            column = "*"
 
-        #
-        if statement.upper() == "SELECT":
-            
-            query = f"{statement}{column} FROM {table}"
-
-        #   Ensure the statement equals INSERT
-        if statement.upper() == "INSERT":
-            query = f"{statement} INTO {table}{column} VALUES ={data}"
+            query = f"{statement} INTO {table} {column} VALUES {data};"
 
         return query
     
     def configure_table(self, table:str, statement:str, columns: dict | dict=None):
 
         statements = ['CREATE', "ALTER", 'DROP']
-
+        search = SearchAlgorithm()
         try:
             #   Ensure the table exists
             #   Ensure the statement exist in statements
-            if statement not in statements: raise Exception('Given statement does not exists in SQLite')
-
+            if not search.linearSearch(statements, len(statements), statement): 
+                raise Exception('Given statement does not exists in SQLite')
 
         except Exception as e: return e
 
-        #   Ensure the statement is a CREATE
-        if statement == 'CREATE':
-
+        #   Ensure that statement is equal to the listed  statement
+        if statement == search.linearSearch(statements, len(statements), statement) and bool(columns):
             query = f"{statement} TABLE IF NOT EXISTS {table}("
 
             #   Ensure that there is values in columns
-            if bool(columns):
-                for key, value in columns.items():
+            for key, value in columns.items():
 
-                    #   Append data
-                    query += f"{key} {value}"
+                #   Append data
+                query += f"{key} {value}"
 
-                    #   Ensure the list is not at end
-                    query += ',' if list(columns)[-1] != key else ');'
-
-        #   Ensure the statement is an ALTER
-        elif statement == 'ALTER': pass
+                #   Ensure the list is not at end
+                query += ',' if list(columns)[-1] != key else ');'
 
         #   Ensure the statements is a DROP
-        elif statement =='DROP': query = f"{statement} TABLE IF EXISTS {table};"
+        elif statement ==search.linearSearch(statements, len(statements), statement): query = f"{statement} TABLE IF EXISTS {table};"
 
         #   Sweep data
         del table, statement, columns
@@ -113,13 +105,14 @@ class SQL(Databases):
                     self.cur.execute(self.configure_table(table, statement, columns))
             except Exception as e:
                 return e
+        
         #   Inserting values into a table
-        def insert_into_table(self, table:str, statement:str, column:dict): pass
-
+        def insert_into_table(self, table:str, statement:str, column:tuple, data:dict): 
+            self.cur.execute(self.configure_columns(table, statement, column, data))
         #   delete a row
         def delete_row(self, table:str, column:str, value:str): return self.cur.execute(f"DELETE FROM {table} WHERE {column} = {value};")
-        def drop_table(self, table:str): pass
-        def drop_database(self, db:str): pass  
+        def drop_table(self, table:str): return self.conn.execute(f'DROP table IF EXISTS {table}')
+        def drop_database(self, db:str): return self.cur.execute(f'DROP DATABASE IF EXISTS {self.db}')  
 
 
 
