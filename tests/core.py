@@ -7,7 +7,7 @@ from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestExce
 
 load_dotenv()
 
-class Databases():
+class Base():
 
     """ Base: What would includes in several databases"""
     def __init__(self, database:str, port:int | int=None, host:str | str=None):
@@ -73,7 +73,7 @@ class Databases():
         print(query)
         return query
 
-class SQL(Databases):
+class SQL(Base):
 
         def __init__(self, database:str, port:int | int=None, host:str | str=None):
             super().__init__(database, port, host)
