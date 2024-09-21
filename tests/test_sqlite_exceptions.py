@@ -1,14 +1,23 @@
 import os
 import pytest
-import sqlite3
+
+from sqlite3 import OperationalError
 from core import SQL
+from errorHandler import DuplicatedError
 
 class TestDBExceptions:
 
     #   
     #sql = SQL(database='test_database.db')
-    table = 'test_table'
 
-    #def test_exceptions_table(self):
-        #pass
+
+    def test_duplicateTable(self):
+        
+        __table__ = 'test_table'
+        sql = SQL(database='test_database.db')
+        
+        with pytest.raises(DuplicatedError) as e:
+            sql.TableConfigurations(table=__table__, statement='CREATE', columns='*')
+
+
             

@@ -3,9 +3,14 @@ import os, json, sqlite3
 import logging, requests
 
 from dotenv import load_dotenv
+load_dotenv()
+
+#   Requests repositories
 from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestException
 
-load_dotenv()
+
+#   errorHandler
+from errorHandler import DuplicatedError
 
 class Base():
 
@@ -39,7 +44,6 @@ class Base():
 
         #   Ensure the select statement
         elif statement.upper() in self.statements and bool(columns):
-
             for i in range(len(columns)):
                 column += f'{columns[i]}, ' if i +1 < len(columns) else f"{columns[i]}"
 
@@ -75,7 +79,7 @@ class Base():
 
 class SQL(Base):
 
-        def __init__(self, database:str, port:int | int=None, host:str | str=None):
+        def __init__(self, database:str, port:int | int=None, host:str | str=None): 
             super().__init__(database, port, host)
         
             #   Establish the connection to the database
@@ -94,8 +98,33 @@ class SQL(Base):
         #   Creating a table
         def TableConfigurations(self, table:str, statement:str, columns:dict): 
             
+            tables = []
+            try :
+                sql =  self.select_records('sqlite_master', 'SELECT', ['name'])
+            except: sql = False
+            print(sql)
+            if sql:
+                for i in range(len(sql)):
+                    for j in sql[i]:
+                        tables.append(j)
 
+            #   Ensure that table does not exists
+            try :
+
+                if statement.upper() not in self.statements: 
+                    raise Exception(f'{statement} Not found in array')
+                if table in tables and statement == 'CREATE': 
+                    raise DuplicatedError("Table already exists")
+
+            except ValueError as e: return e
+            
             self.cur.execute(self.configure_table(table, statement, columns))
+            
+            #   Sweep memory
+            del tables, table, columns
+            del statement, sql
+
+            return
         
         #   Inserting values into a table
         def insert_into_table(self, table:str, statement:str, column:list, data:dict):
@@ -118,7 +147,7 @@ class SQL(Base):
             self.conn.commit()
             return
         
-        def select_records(self, table:str, statement:str, columns:tuple | tuple = "*"):
+        def select_records(self, table:str, statement:str, columns:list | list= "*"):
             return self.cur.execute(self.configure_columns(table, statement, columns)).fetchall()
             
 
@@ -126,8 +155,6 @@ class SQL(Base):
         def delete_row(self, table:str, column:str, value:str): return self.cur.execute(f"DELETE FROM {table} WHERE {column} = {value};")
         def drop_table(self, table:str): return self.conn.execute(f'DROP table IF EXISTS {table}')
         def drop_database(self, db:str): return self.cur.execute(f'DROP DATABASE IF EXISTS {self.db}')  
-
-
 
 class APIConfig():
     def __init__(self, URL, KEY=None, GET = "GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE'):
@@ -191,6 +218,29 @@ class GithubApi(APIConfig):
 
             #   Structure the items from github
             repo += [{"name":response[i]['name'], "url":response[i]['html_url'], 'owner':response[i]['owner']['login'], 'lang': []}]
-            #lambda?
+
             #   Fetch repo languages
+            fetch_languages(repo, f"https://api.github/{repo['owner']['login']}/{repo['name']}")
+        return
+
+    def updateDatabase(self, db, table):
+
+        columns = []
+
+        repo = self.fetch_repos()
+        
+        for i in range(len(repo)):
+            for j in range(len(repo[i]['lang'])):
+
+                if repo[i]['lang'][j] not in columns:
+                    columns.append(repo[i]['lang'][j])
+
+
+        columns.sort()
+
+        SQL(db).insert_into_table(table, "INSERT", columns)
+        
+        del columns, repo
+
+        return 
 

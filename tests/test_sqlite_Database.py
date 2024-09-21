@@ -31,7 +31,7 @@ class TestDatabase:
         
         #   Fetch table information
         actual = self.sql.conn.execute('SELECT name FROM sqlite_master;').fetchall()
-        print(actual)
+
         #   Test the data
         assert actual[0][0] == self.table
 

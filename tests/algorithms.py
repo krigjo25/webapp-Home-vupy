@@ -1,9 +1,9 @@
 class Algorithms(object):
     pass
 
-class SearchAlgorithm(Algorithms):
+class Search(Algorithms):
 
-    def linearSearch(self, array:list, n:int, x:str):
+    def linear(self, array:list, n:int, x:str):
         """ Searching through every elements Time Complexity Olog(n)"""
 
         for i in range(0, n):
@@ -11,4 +11,4 @@ class SearchAlgorithm(Algorithms):
             #   Ensure that the array is equal to the known character
             if array[i] == x: return array[i]
 
-        return -1
+        return False
