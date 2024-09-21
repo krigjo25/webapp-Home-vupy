@@ -10,7 +10,7 @@ from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestExce
 
 
 #   errorHandler
-from errorHandler import DuplicatedError
+from errorHandler import DuplicatedError, NotFoundError
 
 class Base():
 
@@ -101,25 +101,21 @@ class SQL(Base):
             tables = []
             try :
                 sql =  self.select_records('sqlite_master', 'SELECT', ['name'])
+                if sql:
+                    for i in range(len(sql)):
+                        for j in sql[i]:
+                            tables.append(j)
+
             except: sql = False
-            print(sql)
-            if sql:
-                for i in range(len(sql)):
-                    for j in sql[i]:
-                        tables.append(j)
 
-            #   Ensure that table does not exists
-            try :
+            #   Ensure that table does not exists and statements is a known keyword
+            if statement.upper() not in self.statements: raise NotFoundError(f'{statement} Not found in array')
+            if table in tables and statement == 'CREATE': raise DuplicatedError("Table already exists")
 
-                if statement.upper() not in self.statements: 
-                    raise Exception(f'{statement} Not found in array')
-                if table in tables and statement == 'CREATE': 
-                    raise DuplicatedError("Table already exists")
 
-            except ValueError as e: return e
-            
             self.cur.execute(self.configure_table(table, statement, columns))
-            
+            self.conn.commit()
+
             #   Sweep memory
             del tables, table, columns
             del statement, sql
@@ -128,20 +124,13 @@ class SQL(Base):
         
         #   Inserting values into a table
         def insert_into_table(self, table:str, statement:str, column:list, data:dict):
-            try:
 
-                if statement not in self.statements:
-                    raise SyntaxError('400 : Given statement does not exists in SQLlite3')
-                
-                if table not in self.cur.execute('SELECT name FROM sqlite_master').fetchall():
-                    raise SyntaxError('404 : Table Does not exists')
-                
-                if not isinstance(column, list):
-                    raise Exception('400: Bad Request, accepts only list as a argument')
-                
-                if not isinstance(data, dict): raise Exception('400, accepts only dictionary as argument')
-    
-            except (SyntaxError, Exception) as e: print(e)
+            #   Ensure table exists
+            if statement not in self.statements: raise NotFoundError('Given statement does not exists in SQLlite3')
+            if table not in self.cur.execute('SELECT name FROM sqlite_master').fetchall(): raise NotFoundError('404 : Table Does not exists')
+
+            if not isinstance(column, list): raise SyntaxError('Bad Request, accepts only list as a argument')
+            if not isinstance(data, dict): raise SyntaxError('accepts only dictionary as argument')
 
             self.cur.execute(self.configure_columns(table, statement, column, data))
             self.conn.commit()

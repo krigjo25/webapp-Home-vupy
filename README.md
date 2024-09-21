@@ -2,25 +2,28 @@
 
 ## About this project
 
+### Requirements
+Please install the dependencies through the requirements.txt
+
+```fish
+pip install -r requirements.txt
+```
+
 ### Purpose
 The puropose of this website is to use it as a biography of whom i am,  what's been done through my journey.
-
-### What must be learned
-
--   - 
--   Creating cookies analysis
--   Server analysis
 
 ### Description
 
 ####    HTML
 ####    CSS
 
+
 During this project i've learned alot about RWD what should be prefered to be used during projects,
 
 ####    Javascript
 
 -   Created a automatic Slider function for the webpage
+
 ####    Flask
 
 Github:
@@ -32,15 +35,20 @@ I choosed to use SQLite, as there is no need for a huge database or a rational o
 
 During this project i refreshed memories by using what has been learned on the cs50x course.
 
-####    SQLite
+####    Database
 
-It's maybe easy to use, but the difference between the other databases it doesnt require a server to operate, nor a license to use. As i don't expect heavy Traffic in HTTP Requests it suits well for personal and educative usage.
-
-
+As a database i chose SQLite as it doesnt require server to operate nor a license to use, as i do not expect heavy traffic in the datase it suits well for minor projects.
 
 
 ### Tests
 
+####    How to run the tests
+
+To run the test, from the root of the repo
+```fish
+pytest -v
+pytest --html=reports.html
+```
 ####    Requests
 Tests are based on the [GITHUB REST API](https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28)
 
@@ -93,21 +101,25 @@ I wanted to create an request to the API so i could automate the process to upda
 
 ## Tests
 
-During the tests i learned alot about how to use Python's built-in pytest and Unit testing frameworks.
+During the tests i learned alot about how to use Python's built-in pytest as unit testing network.
+
+During the testing stage, raising exceptions durng the tests was learned.
 
 I learned to test an API using requests and pytest repository
 i learned basic database testing using Unit testing repository
 
 #### Github API
->   Testing the API function - Automated testing 
-> > During the tests  i had to figure out a way to store the expected results with out sharing any sensitive information about the account.
-> > I chose to use the request to add the sensitive information, as later on i do not need to hard code the expected result, and then still
-> > Ensure the connection to the API. 
+>   **Testing the API function - Automated testing**<br>
+>  During the tests  i had to figure out a way to store the expected results with out sharing any sensitive information about the account.
+>  I chose to use the request to add the sensitive information, as i can expect that information to be added if the test should do succseed.
 >
-> During the tests of the API function i encounted a challange to test the API with out sharing any sensitive information about the account which was tested
+> **Ensure the connection to the API.**<br>
+> During the tests of the API function i encounted a challange to test the API with out sharing any sensitive information about the account which was tested.
 
 #### Database Management system SQLite3
+> **Testing the Database connection**
 
+> **Testing the Exceptions**
 
 
 Sincerely,
