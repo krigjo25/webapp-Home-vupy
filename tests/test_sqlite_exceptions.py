@@ -16,22 +16,26 @@ class TestDBExceptions:
         #   Initialize test variables
         __table__ = 'test_table'
         sql = SQL(database='test_database.db')
+        expected = f"{__table__} already exists in the database"
         
         with pytest.raises(DuplicatedError) as e:
             sql.TableConfigurations(table=__table__, statement='CREATE', columns='*')
         print(e.value)
-        #assert e.value == "Duplicated tables"
+        #assert expected in e.exconly()
 
     def test_notfound(self):
 
         #   Initialize test variables
         __table__ = 'test_table'
         sql = SQL(database='test_database.db')
+        expected ="Kake Not found in array"
 
+        #   Rasing exception
         with pytest.raises(NotFoundError) as e:
             sql.TableConfigurations(table=__table__, statement='Kake', columns='*')
         
-        print(e.value)
+        assert expected in e.exconly()
+
         
 
             

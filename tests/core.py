@@ -98,8 +98,9 @@ class SQL(Base):
         #   Creating a table
         def TableConfigurations(self, table:str, statement:str, columns:dict): 
             
-            tables = []
+            
             try :
+                tables = []
                 sql =  self.select_records('sqlite_master', 'SELECT', ['name'])
                 if sql:
                     for i in range(len(sql)):
@@ -109,13 +110,13 @@ class SQL(Base):
             except: sql = False
 
             #   Ensure that table does not exists and statements is a known keyword
-            if statement.upper() not in self.statements: raise NotFoundError(f'{statement} Not found in array')
-            if table in tables and statement == 'CREATE': raise DuplicatedError("Table already exists")
+            if statement.upper() not in self.statements: raise NotFoundError(f"{statement} Not found in array")
+            if table in tables and statement == 'CREATE': raise DuplicatedError(200)
 
 
             self.cur.execute(self.configure_table(table, statement, columns))
             self.conn.commit()
-
+            
             #   Sweep memory
             del tables, table, columns
             del statement, sql
@@ -125,9 +126,12 @@ class SQL(Base):
         #   Inserting values into a table
         def insert_into_table(self, table:str, statement:str, column:list, data:dict):
 
+            tables = self.cur.execute(f'SELECT name FROM sqlite_master WHERE name = \'{table}\'').fetchone()
+
             #   Ensure table exists
-            if statement not in self.statements: raise NotFoundError('Given statement does not exists in SQLlite3')
-            if table not in self.cur.execute('SELECT name FROM sqlite_master').fetchall(): raise NotFoundError('404 : Table Does not exists')
+            if statement not in self.statements: raise NotFoundError(f'{statement} does not exists in SQLlite3')
+
+            if table not in tables: raise NotFoundError('404 : Table Does not exists')
 
             if not isinstance(column, list): raise SyntaxError('Bad Request, accepts only list as a argument')
             if not isinstance(data, dict): raise SyntaxError('accepts only dictionary as argument')

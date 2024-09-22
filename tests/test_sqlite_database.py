@@ -1,11 +1,10 @@
 import os
 import pytest
 
-from core import SQL
-
+from core import SQL, GithubApi
 class TestDatabase:
 
-    #   
+    #
     sql = SQL(database='test_database.db')
     table = 'test_table'
 
@@ -44,7 +43,7 @@ class TestDatabase:
     def test_insertdata(self):
         
         data = {}
-        columns = ('data', 'data1', 'data2')
+        columns = ['data', 'data1', 'data2']
         mock = ('Sometext', 'image.jpg', 2.0)
 
         for i in range(len(columns)):
@@ -63,5 +62,11 @@ class TestDatabase:
         actual = self.sql.select_records(self.table, 'SELECT', ("data", "data1", "data2"))
         
         assert actual == [mock]
+
+    def test_request_database(self):
+
+        api = GithubApi(URL="https://api.github.com/user/repos")
+        
+        
 
 
