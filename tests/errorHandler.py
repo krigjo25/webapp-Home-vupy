@@ -1,8 +1,10 @@
-class DuplicatedError(Exception):
+class TableError(Exception):
     """ Raises when duplicated is not allowed """
 
     error = {
-        '000': "Duplication found",
+        200:"Duplication found",
+        404:"Table Not Found",
+        500:'Column has to be a type of list'
 
     }
     def __init__(self, code) -> None:
@@ -10,8 +12,4 @@ class DuplicatedError(Exception):
         self.code = code
 
     def __str__(self):
-        return self.error[f"{self.code}"]
-
-class NotFoundError(Exception):
-    """ Raises when the system can't find the argument"""
-    pass
+        return self.error[self.code]

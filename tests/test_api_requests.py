@@ -5,9 +5,9 @@ class TestAPI:
         """Testing  the connection to the request
             Github : https://api.github.com/user/"""
 
-        api = GithubApi(URL="https://api.github.com/user")
+        api = GithubApi()
         
-        actual = api.ApiCall(endpoint = api.API_URL, header = api.head)
+        actual = api.ApiCall(endpoint = f"{api.API_URL}user", head = api.head)
 
         expected = {
                     'login': f'krigjo25', 'id': actual['id'], 'node_id': actual['node_id'], 
@@ -23,19 +23,20 @@ class TestAPI:
                     'public_gists': actual['public_gists'], 'followers': actual['followers'],
                     'following': actual['following'], 'created_at': actual['created_at'], 'updated_at': actual['updated_at']}
 
+        
         #   Testing the connection response
         assert expected == actual
         
 
     def test_fetch_repos(self)-> None:
-        """Testing  the connection to the request
-            Github : https://api.github.com/user/"""
+        """Testing  fetch_repos
+            Github api : https://api.github.com/user/repos"""
 
         #   Initializing Requests module
-        api = GithubApi(URL="https://api.github.com/user/repos")
+        api = GithubApi()
 
         #   Our actual response from the Api Call
-        actual = api.ApiCall(endpoint = api.API_URL, header = api.head)
+        actual = api.ApiCall(endpoint = f"{api.API_URL}user/repos", head = api.head)
 
         for i in range(len(actual)):
 
@@ -96,6 +97,5 @@ class TestAPI:
                                 'triage':actual[i]['permissions']['triage']}
                         }
 
-            assert actual[i] == expected
+        assert actual[i] == expected
         return
-

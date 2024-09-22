@@ -10,7 +10,7 @@ from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestExce
 
 
 #   errorHandler
-from errorHandler import DuplicatedError, NotFoundError
+from errorHandler import TableError
 
 class Base():
 
@@ -30,25 +30,22 @@ class Base():
         #   Initialize variables
         data = ""
         column = ""
-
         if statement.upper() in self.statements and bool(datas):
 
-            for i in range(len(columns)):
-                column += f'{columns[i]}, ' if i +1 < len(columns) else f"{columns[i]}"
-
-
-            for key, value in datas.items():
-                data += f'\'{value}\',' if list(columns)[-1] != key else f'\'{value}\''
+            for key, value in datas.items(): 
+                
+                column += f'\'{key}\',' if list(datas)[-1] != key else f'\'{key}\''
+                data += f'\'{value}\',' if list(datas)[-1] != key else f'\'{value}\''
 
             query = f"{statement} INTO {table} ({column}) VALUES ({data});"
 
         #   Ensure the select statement
         elif statement.upper() in self.statements and bool(columns):
+
             for i in range(len(columns)):
                 column += f'{columns[i]}, ' if i +1 < len(columns) else f"{columns[i]}"
-
+            
             query = f"{statement} {column} FROM {table};"
-
         #   Sweep memory
         del column, data, table
         del statement, columns
@@ -57,7 +54,6 @@ class Base():
     
     def configure_table(self, table:str, statement:str, columns: dict | dict=None):
 
-        print(columns)
         #   Ensure that statement is equal to the listed  statement
 
         if statement in self.statements and bool(columns):
@@ -74,7 +70,6 @@ class Base():
 
         #   Sweep data
         del table, statement, columns
-        print(query)
         return query
 
 class SQL(Base):
@@ -101,7 +96,7 @@ class SQL(Base):
             
             try :
                 tables = []
-                sql =  self.select_records('sqlite_master', 'SELECT', ['name'])
+                sql =  self.select_records('sqlite_master', 'SELECT', ('name'))
                 if sql:
                     for i in range(len(sql)):
                         for j in sql[i]:
@@ -110,9 +105,8 @@ class SQL(Base):
             except: sql = False
 
             #   Ensure that table does not exists and statements is a known keyword
-            if statement.upper() not in self.statements: raise NotFoundError(f"{statement} Not found in array")
-            if table in tables and statement == 'CREATE': raise DuplicatedError(200)
-
+            if statement.upper() not in self.statements: raise TableError(404)
+            if table in tables and statement == 'CREATE': raise TableError(200)
 
             self.cur.execute(self.configure_table(table, statement, columns))
             self.conn.commit()
@@ -124,23 +118,24 @@ class SQL(Base):
             return
         
         #   Inserting values into a table
-        def insert_into_table(self, table:str, statement:str, column:list, data:dict):
+        def insert_into_table(self, table:str, data:dict):
 
-            tables = self.cur.execute(f'SELECT name FROM sqlite_master WHERE name = \'{table}\'').fetchone()
+            tables = self.cur.execute('SELECT name FROM sqlite_master').fetchall()#self.select_records('sqlite_master', 'SELECT', columns=('name'))
+
 
             #   Ensure table exists
-            if statement not in self.statements: raise NotFoundError(f'{statement} does not exists in SQLlite3')
-
-            if table not in tables: raise NotFoundError('404 : Table Does not exists')
-
-            if not isinstance(column, list): raise SyntaxError('Bad Request, accepts only list as a argument')
+            if table not in tables[0]: raise TableError(404)
+            
             if not isinstance(data, dict): raise SyntaxError('accepts only dictionary as argument')
 
-            self.cur.execute(self.configure_columns(table, statement, column, data))
+            self.cur.execute(self.configure_columns(table, 'INSERT', datas= data))
             self.conn.commit()
             return
         
-        def select_records(self, table:str, statement:str, columns:list | list= "*"):
+        def select_records(self, table:str, statement:str, columns:tuple | tuple = tuple("*")):
+            print(type(columns), columns)
+            print(isinstance(columns, tuple))
+            if not isinstance(columns, tuple): raise TableError(500)
             return self.cur.execute(self.configure_columns(table, statement, columns)).fetchall()
             
 
@@ -159,12 +154,12 @@ class APIConfig():
         self.API_KEY = KEY
         self.API_URL = URL
 
-    def ApiCall(self, endpoint: str, header: dict | str = None) -> str:
+    def ApiCall(self, endpoint: str, head: dict):
         """
             Calling the API
         """
         try:
-            r = requests.get(f"{endpoint}", timeout=30, headers=header)
+            r = requests.get(f"{endpoint}", timeout=30, headers=head)
 
             if r.status_code in [200, 201]: return r.json()
             elif r.status_code in [401, 403]: return json.dumps({"Error": "Encountered an AUTHORIZATION Error"})
@@ -175,7 +170,7 @@ class APIConfig():
 
 class GithubApi(APIConfig):
 
-    def __init__(self, URL, GET="GET", POST="POST", PUT='PUT', PATCH='PATCH', DELETE='DELETE', KEY=os.getenv('GITHUB_TOKEN')):
+    def __init__(self, URL="https://api.github.com/", GET="GET", POST="POST", PUT='PUT', PATCH='PATCH', DELETE='DELETE', KEY=os.getenv('GITHUB_TOKEN')):
         super().__init__(GET, POST, PUT, PATCH, DELETE)
         self.GET = GET
         self.POST = POST
@@ -192,48 +187,89 @@ class GithubApi(APIConfig):
         
 
         #   Create a connection to github
-        response = self.ApiCall(self.API_URL, headers=self.head)
+        response = self.ApiCall(f"{self.API_URL}user/repos", head=self.head)
         
         #   Fetch repo languages
         def fetch_languages(repo: list, parse: str):
 
             #   Request a languages
-            response = self.ApiCall(parse, headers= self.head)
-
+            response = self.ApiCall(parse, head=self.head)
             for lang, value in response.items():
-                if lang: repo['lang'] += [lang] 
+                if lang: repo[i]['lang'] += [lang] 
+
+            #   Sweep data
+            del response, repo, parse
             return
 
          #   Intializing a list
         repo = []
 
         for i in range(len(response)):
-
             #   Structure the items from github
-            repo += [{"name":response[i]['name'], "url":response[i]['html_url'], 'owner':response[i]['owner']['login'], 'lang': []}]
+            repo += [{"name":response[i]['name'], "url":response[i]['html_url'], 'owner':response[i]['owner']['login'], 'lang': [], 'date':response[i]['created_at']}]
 
             #   Fetch repo languages
-            fetch_languages(repo, f"https://api.github/{repo['owner']['login']}/{repo['name']}")
-        return
+            fetch_languages(repo, f"{self.API_URL}/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
 
-    def updateDatabase(self, db, table):
+        return repo
+
+    def updateDatabase(self, db:str, table:str):
 
         columns = []
-
+        sql = SQL(db)
         repo = self.fetch_repos()
-        
-        for i in range(len(repo)):
-            for j in range(len(repo[i]['lang'])):
-
-                if repo[i]['lang'][j] not in columns:
-                    columns.append(repo[i]['lang'][j])
 
 
-        columns.sort()
+        x = sql.cur.execute('SELECT name FROM sqlite_master').fetchall()#[i for i in SQL(database=db).select_records("sqlite_master", 'SELECT', ('name'))]
+        print(x,'test')
+        if table in x:
 
-        SQL(db).insert_into_table(table, "INSERT", columns)
+                for i in range(len(repo)):
+                    for j in range(len(repo[i]['lang'])):
+
+                        if repo[i]['lang'][j] not in columns:
+                            columns.append(repo[i]['lang'][j])
+
+                columns.sort()
+                print("columns", columns)
+                sql.insert_into_table(table, repo)
+
+
+        else:
+
+                query = {}
+                
+                for i in range(len(repo)):
+                    for key, lang in repo[i].items():
+                        if key not in columns:
+                            columns.append(key)
+
+                print(columns)
+                for i in range(len(columns)):
+
+                    #   Ensure the columns not equal date nor id
+                    if columns[i] == 'date':
+                        query[columns[i]] = 'DATE NOT NULL DEFAULT CURRENT_DATE'
+                    elif columns[i] == 'id':
+                        query[columns[i]] = 'INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT'
+
+                    else:
+
+                        query[columns[i]] = "TEXT NOT NULL DEFAULT False"
+
+                print(query)
+                columns = query
+                
+                for i in repo:
+                    print(i)
+
+                print("table creation", columns)
+                sql.TableConfigurations(table, "CREATE", columns=columns)
+
+                  
+                del query
+
         
         del columns, repo
 
         return 
-

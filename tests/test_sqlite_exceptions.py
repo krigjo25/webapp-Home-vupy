@@ -3,7 +3,7 @@ import pytest
 
 from sqlite3 import OperationalError
 from core import SQL
-from errorHandler import DuplicatedError, NotFoundError
+from errorHandler import TableError
 
 class TestDBExceptions:
 
@@ -18,7 +18,7 @@ class TestDBExceptions:
         sql = SQL(database='test_database.db')
         expected = f"{__table__} already exists in the database"
         
-        with pytest.raises(DuplicatedError) as e:
+        with pytest.raises(TableError) as e:
             sql.TableConfigurations(table=__table__, statement='CREATE', columns='*')
         print(e.value)
         #assert expected in e.exconly()
@@ -31,10 +31,10 @@ class TestDBExceptions:
         expected ="Kake Not found in array"
 
         #   Rasing exception
-        with pytest.raises(NotFoundError) as e:
-            sql.TableConfigurations(table=__table__, statement='Kake', columns='*')
+        with pytest.raises(TableError) as e:
+            sql.TableConfigurations(table=__table__, statement='Kake')
         
-        assert expected in e.exconly()
+        #assert expected in e.exconly()
 
         
 

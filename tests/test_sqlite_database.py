@@ -43,15 +43,15 @@ class TestDatabase:
     def test_insertdata(self):
         
         data = {}
-        columns = ['data', 'data1', 'data2']
+        columns = ('data', 'data1', 'data2')
         mock = ('Sometext', 'image.jpg', 2.0)
 
         for i in range(len(columns)):
             for j in range(len(mock)):
                 data[columns[i]] = mock[i]
          
-        self.sql.insert_into_table(self.table, 'INSERT', columns, data)
-        actual = self.sql.select_records(self.table, 'SELECT', ("data", "data1", "data2"))
+        self.sql.insert_into_table(self.table, data)
+        actual = self.sql.select_records(self.table, 'SELECT', columns=columns)
         
         assert actual == [mock]
 
@@ -59,14 +59,16 @@ class TestDatabase:
     def test_selectRecord(self):
         
         mock = ('Sometext', 'image.jpg', 2.0)
-        actual = self.sql.select_records(self.table, 'SELECT', ("data", "data1", "data2"))
+        actual = self.sql.select_records(self.table, 'SELECT', columns= ("data", "data1", "data2"))
         
         assert actual == [mock]
 
     def test_request_database(self):
 
-        api = GithubApi(URL="https://api.github.com/user/repos")
-        
+        api = GithubApi()
+        api.updateDatabase('fkh-ps.db', 'git_pro')
+        api.updateDatabase('fkh-ps.db', 'git_pro')
+        #os.remove('fkh-ps.db')
         
 
 
