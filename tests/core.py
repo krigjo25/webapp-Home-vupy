@@ -25,27 +25,33 @@ class Base():
         del host, database, port
         return
     
-    def configure_columns(self,  table:str, statement:str, columns:list | list=None, datas: dict | dict = None):
+    def configure_columns(self,  table:str, statement:str, columns:list):
         
         #   Initialize variables
         data = ""
         column = ""
-        if statement.upper() in self.statements and bool(datas):
+        query = "wew"
+        if statement.upper() == "INSERT":
+            pass
 
-            for key, value in datas.items(): 
-                
-                column += f'\'{key}\',' if list(datas)[-1] != key else f'\'{key}\''
-                data += f'\'{value}\',' if list(datas)[-1] != key else f'\'{value}\''
+            #for i in range(0, len(columns)):
 
-            query = f"{statement} INTO {table} ({column}) VALUES ({data});"
+                #for key, value in column[i].items():
+                    #print(key, value)
+                    #if key not in column:
+                     #   column += f'\'{key}\',' if list(column)[-1] != key else f'\'{key}\''
+                    #data += f'\'{value}\',' if list(column)[-1] != key else f'\'{value}\''
+
+                #query = f"{statement} INTO {table} ({column}) VALUES ({data});"
 
         #   Ensure the select statement
-        elif statement.upper() in self.statements and bool(columns):
+        elif statement.upper() == "SELECT":
 
             for i in range(len(columns)):
                 column += f'{columns[i]}, ' if i +1 < len(columns) else f"{columns[i]}"
             
             query = f"{statement} {column} FROM {table};"
+
         #   Sweep memory
         del column, data, table
         del statement, columns
@@ -118,7 +124,7 @@ class SQL(Base):
             return
         
         #   Inserting values into a table
-        def insert_into_table(self, table:str, data:dict):
+        def insert_into_table(self, table:str, data:list):
 
             tables = self.cur.execute('SELECT name FROM sqlite_master').fetchall()#self.select_records('sqlite_master', 'SELECT', columns=('name'))
 
@@ -126,9 +132,9 @@ class SQL(Base):
             #   Ensure table exists
             if table not in tables[0]: raise TableError(404)
             
-            if not isinstance(data, dict): raise SyntaxError('accepts only dictionary as argument')
+            if not isinstance(data, list): raise SyntaxError('accepts only lists as argument')
 
-            self.cur.execute(self.configure_columns(table, 'INSERT', datas= data))
+            self.cur.execute(self.configure_columns(table, 'INSERT', data))
             self.conn.commit()
             return
         
@@ -220,19 +226,22 @@ class GithubApi(APIConfig):
         repo = self.fetch_repos()
 
 
-        x = sql.cur.execute('SELECT name FROM sqlite_master').fetchall()#[i for i in SQL(database=db).select_records("sqlite_master", 'SELECT', ('name'))]
-        print(x,'test')
-        if table in x:
+        x = sql.cur.execute('SELECT * FROM sqlite_master').fetchall()#[i for i in SQL(database=db).select_records("sqlite_master", 'SELECT', ('name'))]
+        for i in x:
+            if table in i:
 
-                for i in range(len(repo)):
-                    for j in range(len(repo[i]['lang'])):
+                for j in range(len(repo)):
 
-                        if repo[i]['lang'][j] not in columns:
-                            columns.append(repo[i]['lang'][j])
+                    for k in range(len(repo[j]['lang'])):
 
-                columns.sort()
-                print("columns", columns)
-                sql.insert_into_table(table, repo)
+                        if repo[j]['lang'][k] not in columns:
+                            columns.append(repo[j]['lang'][k])
+
+                    columns.sort()
+                    print("columns", repo)
+
+                    #sql.insert_into_table(table, repo)
+                assert print(sql.cur.execute('SELECT * FROM git_pro;'))
 
 
         else:
@@ -244,7 +253,6 @@ class GithubApi(APIConfig):
                         if key not in columns:
                             columns.append(key)
 
-                print(columns)
                 for i in range(len(columns)):
 
                     #   Ensure the columns not equal date nor id
@@ -257,19 +265,13 @@ class GithubApi(APIConfig):
 
                         query[columns[i]] = "TEXT NOT NULL DEFAULT False"
 
-                print(query)
                 columns = query
-                
-                for i in repo:
-                    print(i)
-
-                print("table creation", columns)
                 sql.TableConfigurations(table, "CREATE", columns=columns)
 
                   
                 del query
 
-        
+        #   Sweep data
         del columns, repo
 
         return 
