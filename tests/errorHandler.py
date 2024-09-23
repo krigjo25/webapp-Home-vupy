@@ -2,8 +2,8 @@ class TableError(Exception):
     """ Raises when duplicated is not allowed """
 
     error = {
-        200:"Duplication found",
-        404:"Table Not Found",
+        200:"Table already exists with-in the database",
+        404:"Table does not exist in the database",
         500:'Column has to be a type of list'
 
     }

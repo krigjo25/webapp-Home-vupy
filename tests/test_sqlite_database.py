@@ -32,7 +32,7 @@ class TestDatabase:
         actual = self.sql.conn.execute('SELECT name FROM sqlite_master;').fetchall()
 
         #   Test the data
-        #assert actual[0][0] == self.table
+        assert actual[0][0] == self.table
 
         #   Sweep Data
         del mock, actual
@@ -43,25 +43,27 @@ class TestDatabase:
     def test_insertdata(self):
         
         data = []
-        columns = ['data', 'data1', 'data2']
-        mock = ['Sometext', 'image.jpg', 2.0]
+        columns = ('data', 'data1', 'data2')
+        mock = [('Sometext', 'image.jpg', 2.0), ('Sometext', 'image.jpg', 2.0)]
 
-        for i in range(len(columns)):
-                data.append({columns[i]:mock[i]})
-        print(data)
-        #self.sql.insert_into_table(self.table, data)
+        for i in mock:
+            for j in range(len(columns)):    
+                data.append({columns[j]:i[j]})
 
+        #   Insert the values into the table 
+        self.sql.insert_into_table(self.table, data)
+
+        # Ensure that the response, is equal
         actual = self.sql.select_records(self.table, 'SELECT', columns=columns)
         
-        assert actual == [mock]
+        assert actual == mock
 
     #   Select
     def test_selectRecord(self):
         
-        mock = ('Sometext', 'image.jpg', 2.0)
+        mock = [('Sometext', 'image.jpg', 2.0), ('Sometext', 'image.jpg', 2.0)]
         actual = self.sql.select_records(self.table, 'SELECT', columns= ("data", "data1", "data2"))
-        
-        assert actual == [mock]
+        assert actual == mock
 
     def test_request_database(self):
 

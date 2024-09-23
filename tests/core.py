@@ -25,38 +25,53 @@ class Base():
         del host, database, port
         return
     
-    def configure_columns(self,  table:str, statement:str, columns:list):
+    def configure_columns(self,  table:str, statement:str, columns:list | tuple):
         
         #   Initialize variables
-        data = ""
-        column = ""
-        query = "wew"
+        row = []
+        column = []
+        rows = []
+        outerrow = []
+
         if statement.upper() == "INSERT":
-            pass
 
-            #for i in range(0, len(columns)):
 
-                #for key, value in column[i].items():
-                    #print(key, value)
-                    #if key not in column:
-                     #   column += f'\'{key}\',' if list(column)[-1] != key else f'\'{key}\''
-                    #data += f'\'{value}\',' if list(column)[-1] != key else f'\'{value}\''
+            for data in columns:
 
-                #query = f"{statement} INTO {table} ({column}) VALUES ({data});"
+                for key, value in data.items():
 
-        #   Ensure the select statement
+                    #   Ensure that the key does not exists in column
+                    if key not in column: column.append(key)
+                    
+                    row.append(value)
+
+                    if len(row) == 3:
+                        rows.append(tuple(row))
+                        row = []
+            query = f"{statement} INTO {table}{tuple(column)} VALUES("
+ 
+            for i in range(len(column)): query+= "?," if i+1 < len(column) else "?);"
+
         elif statement.upper() == "SELECT":
 
+
+
             for i in range(len(columns)):
-                column += f'{columns[i]}, ' if i +1 < len(columns) else f"{columns[i]}"
+                column += {columns[i]} if i != columns[-1] else columns[i]
+            
+            columns = column
+            column = ""
+            for i in range(len(columns)):
+                column += columns[i] + "," if i +1 < len(columns) else f"{columns[i]}"
+
             
             query = f"{statement} {column} FROM {table};"
+            return query
 
         #   Sweep memory
-        del column, data, table
-        del statement, columns
-
-        return query
+        del table, statement, columns
+        del column,  row
+        return [query, rows]
     
     def configure_table(self, table:str, statement:str, columns: dict | dict=None):
 
@@ -76,6 +91,7 @@ class Base():
 
         #   Sweep data
         del table, statement, columns
+        
         return query
 
 class SQL(Base):
@@ -102,7 +118,9 @@ class SQL(Base):
             
             try :
                 tables = []
-                sql =  self.select_records('sqlite_master', 'SELECT', ('name'))
+                sql =  self.cur.execute("SELECT name FROM sqlite_master;").fetchall()
+                #self.select_records('sqlite_master', 'SELECT', ('name'))
+                print(sql)
                 if sql:
                     for i in range(len(sql)):
                         for j in sql[i]:
@@ -126,22 +144,22 @@ class SQL(Base):
         #   Inserting values into a table
         def insert_into_table(self, table:str, data:list):
 
-            tables = self.cur.execute('SELECT name FROM sqlite_master').fetchall()#self.select_records('sqlite_master', 'SELECT', columns=('name'))
-
-
+            
+            tables = self.cur.execute('SELECT name FROM sqlite_master').fetchall()
+    
             #   Ensure table exists
             if table not in tables[0]: raise TableError(404)
             
             if not isinstance(data, list): raise SyntaxError('accepts only lists as argument')
 
-            self.cur.execute(self.configure_columns(table, 'INSERT', data))
+            query = self.configure_columns(table, 'INSERT', data)
+
+            self.cur.executemany(query[0],query[1])
             self.conn.commit()
             return
         
         def select_records(self, table:str, statement:str, columns:tuple | tuple = tuple("*")):
-            print(type(columns), columns)
-            print(isinstance(columns, tuple))
-            if not isinstance(columns, tuple): raise TableError(500)
+            #if not isinstance(columns, tuple): raise TableError(500)
             return self.cur.execute(self.configure_columns(table, statement, columns)).fetchall()
             
 
@@ -226,8 +244,9 @@ class GithubApi(APIConfig):
         repo = self.fetch_repos()
 
 
-        x = sql.cur.execute('SELECT * FROM sqlite_master').fetchall()#[i for i in SQL(database=db).select_records("sqlite_master", 'SELECT', ('name'))]
+        x = sql.cur.execute('SELECT name FROM sqlite_master').fetchall()#[i for i in SQL(database=db).select_records("sqlite_master", 'SELECT', ('name'))]
         for i in x:
+            print(table, i)
             if table in i:
 
                 for j in range(len(repo)):
@@ -238,38 +257,37 @@ class GithubApi(APIConfig):
                             columns.append(repo[j]['lang'][k])
 
                     columns.sort()
-                    print("columns", repo)
 
-                    #sql.insert_into_table(table, repo)
-                assert print(sql.cur.execute('SELECT * FROM git_pro;'))
+                    sql.insert_into_table(table, repo)
+        
 
 
-        else:
+            else:
 
-                query = {}
-                
-                for i in range(len(repo)):
-                    for key, lang in repo[i].items():
-                        if key not in columns:
-                            columns.append(key)
+                    query = {}
+                    
+                    for i in range(len(repo)):
+                        for key, lang in repo[i].items():
+                            if key not in columns:
+                                columns.append(key)
 
-                for i in range(len(columns)):
+                    for i in range(len(columns)):
 
-                    #   Ensure the columns not equal date nor id
-                    if columns[i] == 'date':
-                        query[columns[i]] = 'DATE NOT NULL DEFAULT CURRENT_DATE'
-                    elif columns[i] == 'id':
-                        query[columns[i]] = 'INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT'
+                        #   Ensure the columns not equal date nor id
+                        if columns[i] == 'date':
+                            query[columns[i]] = 'DATE NOT NULL DEFAULT CURRENT_DATE'
+                        elif columns[i] == 'id':
+                            query[columns[i]] = 'INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT'
 
-                    else:
+                        else:
 
-                        query[columns[i]] = "TEXT NOT NULL DEFAULT False"
+                            query[columns[i]] = "TEXT NOT NULL DEFAULT False"
 
-                columns = query
-                sql.TableConfigurations(table, "CREATE", columns=columns)
+                    columns = query
+                    sql.TableConfigurations(table, "CREATE", columns=columns)
 
                   
-                del query
+                    del query
 
         #   Sweep data
         del columns, repo
