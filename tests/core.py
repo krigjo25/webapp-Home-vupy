@@ -32,29 +32,37 @@ class Base():
         column = []
         rows = []
         outerrow = []
-
+        tmp = ""
         if statement.upper() == "INSERT":
-
 
             for data in columns:
 
                 for key, value in data.items():
-
                     #   Ensure that the key does not exists in column
                     if key not in column: column.append(key)
-                    
-                    row.append(value)
+                
+            for data in columns:
+                for key, value in data.items():
 
-                    if len(row) == 3:
+                    if type(value) == list or type(value) == tuple:
+                        for i in value:
+                            tmp += i
+                        
+                        row.append(i)
+                    else:
+                        row.append(value)
+
+                    if len(row) == len(column):
                         rows.append(tuple(row))
                         row = []
+
             query = f"{statement} INTO {table}{tuple(column)} VALUES("
  
             for i in range(len(column)): query+= "?," if i+1 < len(column) else "?);"
 
+            for i in rows:
+                print(i)
         elif statement.upper() == "SELECT":
-
-
 
             for i in range(len(columns)):
                 column += {columns[i]} if i != columns[-1] else columns[i]
@@ -67,7 +75,7 @@ class Base():
             
             query = f"{statement} {column} FROM {table};"
             return query
-
+        
         #   Sweep memory
         del table, statement, columns
         del column,  row
@@ -260,8 +268,6 @@ class GithubApi(APIConfig):
 
                     sql.insert_into_table(table, repo)
         
-
-
             else:
 
                     query = {}
@@ -270,7 +276,7 @@ class GithubApi(APIConfig):
                         for key, lang in repo[i].items():
                             if key not in columns:
                                 columns.append(key)
-
+                    if not "id" in columns: columns.append('id')
                     for i in range(len(columns)):
 
                         #   Ensure the columns not equal date nor id
