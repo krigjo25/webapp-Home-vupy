@@ -8,9 +8,188 @@ import requests
 from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestException
 from sqlite3 import sqlite_ERR
 
+from errorHandler import OperationalError
     
+#   Importing repositories
+import os, json, sqlite3
+import logging, requests
+
+from dotenv import load_dotenv
+load_dotenv()
+
+#   errorHandler
+from errorHandler import TableError
+
+#   Requests repositories
+from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestException
+
+class Base():
+
+    """ Base: What would includes in several databases"""
+    def __init__(self, database:str, port:int | int=None, host:str | str=None):
+
+        self.host = host
+        self.port = port
+        self.db = database
+        self.statements = ['CREATE', "ALTER", 'DROP', 'INSERT', 'SELECT']
+
+        del host, database, port
+        return
+    
+    def configure_columns(self,  table:str, statement:str, columns:list | tuple):
+        
+        #   Initialize variables
+        row = []
+        column = []
+        rows = []
+        outerrow = []
+        tmp = ""
+        if statement.upper() == "INSERT":
+
+            for data in columns:
+
+                for key, value in data.items():
+
+                    #   Ensure that the key does not exists in column
+                    if key not in column: column.append(key)
+                    
+                
+            for data in columns:
+                for key, value in data.items():
+
+                    if type(value) == list or type(value) == tuple:
+                        for i in value:
+                            tmp += i
+                        
+                        row.append(i)
+                    else:
+                        row.append(value)
+
+                    if len(row) == len(column):
+                        rows.append(tuple(row))
+                        row = []
+
+
+            query = f"{statement} INTO {table}{tuple(column)} VALUES("
+ 
+            for i in range(len(column)): query+= "?," if i+1 < len(column) else "?);"
+
+        elif statement.upper() == "SELECT":
+
+            for i in range(len(columns)):
+                column += {columns[i]} if i != columns[-1] else columns[i]
+            
+            columns = column
+            column = ""
+            for i in range(len(columns)):
+                column += columns[i] + "," if i +1 < len(columns) else f"{columns[i]}"
+
+            
+            query = f"{statement} {column} FROM {table};"
+            return query
+        
+        #   Sweep memory
+        del table, statement, columns
+        del column,  row
+        return [query, rows]
+    
+    def configure_table(self, table:str, statement:str, columns: dict | dict=None):
+
+        #   Ensure that statement is equal to the listed  statement
+
+        if statement in self.statements and bool(columns):
+            query = f"{statement} TABLE IF NOT EXISTS {table}("
+
+            #   Ensure that there is values in columns
+            for key, value in columns.items():
+
+                #   Append data
+                query += f"{key} {value}"
+
+                #   Ensure the list is not at end
+                query += ',' if list(columns)[-1] != key else ');'
+
+        #   Sweep data
+        del table, statement, columns
+
+        return query
+
+class SQL(Base):
+
+        def __init__(self, database:str, port:int | int=None, host:str | str=None): 
+            super().__init__(database, port, host)
+        
+            #   Establish the connection to the database
+            try:
+
+                self.conn = sqlite3.connect(self.db)
+                if not self.conn: raise Exception('Could not establish a connection to the database')
+
+            except Exception as e: return e
+
+            #   Initializing the sqlite cursor
+            self.cur = self.conn.cursor()
+
+            return print('Established connection to the Database')
+
+        #   Creating a table
+        def TableConfigurations(self, table:str, statement:str, columns:dict): 
+            
+            
+            try :
+                tables = []
+                sql =  self.cur.execute("SELECT name FROM sqlite_master;").fetchall()
+                #self.select_records('sqlite_master', 'SELECT', ('name'))
+                print(sql)
+                if sql:
+                    for i in range(len(sql)):
+                        for j in sql[i]:
+                            tables.append(j)
+
+            except: sql = False
+
+            #   Ensure that table does not exists and statements is a known keyword
+            if statement.upper() not in self.statements: raise TableError(404)
+            if table in tables and statement == 'CREATE': raise TableError(200)
+
+            self.cur.execute(self.configure_table(table, statement, columns))
+            self.conn.commit()
+            
+            #   Sweep memory
+            del tables, table, columns
+            del statement, sql
+
+            return
+        
+        #   Inserting values into a table
+        def insert_into_table(self, table:str, data:list):
+
+            
+            tables = self.cur.execute('SELECT name FROM sqlite_master').fetchall()
+    
+            #   Ensure table exists
+            if table not in tables[0]: raise TableError(404)
+            
+            if not isinstance(data, list): raise SyntaxError('accepts only lists as argument')
+
+            query = self.configure_columns(table, 'INSERT', data)
+
+            self.cur.executemany(query[0],query[1])
+            self.conn.commit()
+            return
+        
+        def select_records(self, table:str, statement:str, columns:tuple | tuple = tuple("*")):
+            
+            #if not isinstance(columns, tuple): raise TableError(500)
+            return self.cur.execute(self.configure_columns(table, statement, columns)).fetchall()
+
+        #   delete a row
+        def delete_row(self, table:str, column:str, value:str): return self.cur.execute(f"DELETE FROM {table} WHERE {column} = {value};")
+        def drop_table(self, table:str): return self.conn.execute(f'DROP table IF EXISTS {table}')
+        def drop_database(self, db:str): return self.cur.execute(f'DROP DATABASE IF EXISTS {self.db}')  
+
 class APIConfig():
-    def __init__(self, URL: str, KEY :dict = None, GET ="GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE'):
+    def __init__(self, URL, KEY=None, GET = "GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE'):
         self.GET = GET
         self.POST = POST
         self.PUT = PUT
@@ -18,217 +197,118 @@ class APIConfig():
         self.DELETE = DELETE
         self.API_KEY = KEY
         self.API_URL = URL
-    
-    def ApiCall(self, endpoint: str, head: dict = None) -> str:
+
+    def ApiCall(self, endpoint: str, head: dict):
         """
-         Calling the API
+            Calling the API
         """
         try:
-            #   Request something from endpoint
             r = requests.get(f"{endpoint}", timeout=30, headers=head)
 
-            #   Ensure that the r.status_code has a specified code
             if r.status_code in [200, 201]: return r.json()
-            elif r.status_code in [401, 403]: return json.dumps({"Error": "Encountered an AUTHORIZATION Error. You do not have the Autorized permission to process"})
-            elif r.status_code == 400: return json.dumps({"Client Error": "The server would not process the request due to the request is considered to be a client error. It could be one of the following : Malformed request syntax, invalid request message framing, or deceptive request routing"})
+            elif r.status_code in [401, 403]: return json.dumps({"Error": "Encountered an AUTHORIZATION Error"})
             
         except (HTTPError, ConnectionError, Timeout, RequestException) as e: 
             logging.error(e)
-
         return
 
+class GithubApi(APIConfig):
 
-class Github(APIConfig):
-
-    """Configure the API to fetch apis from Github"""
-    def __init__(self, URL: str, KEY: dict = None, GET="GET", POST="POST", PUT='PUT', PATCH='PATCH', DELETE='DELETE'):
-        super().__init__(URL, KEY, GET, POST, PUT, PATCH, DELETE)
+    def __init__(self, URL="https://api.github.com/", GET="GET", POST="POST", PUT='PUT', PATCH='PATCH', DELETE='DELETE', KEY=os.getenv('GITHUB_TOKEN')):
+        super().__init__(GET, POST, PUT, PATCH, DELETE)
+        self.GET = GET
+        self.POST = POST
+        self.PUT = PUT
+        self.PATCH = PATCH
+        self.DELETE = DELETE
         self.API_KEY = KEY
         self.API_URL = URL
         self.head = {'Content-Type': 'application/json','Authorization': f"{self.API_KEY}"}
 
         return
-    
-    def fetch_repos(self):
 
-        """ Fetches repositories data"""
-        #   Initialize a list
-        repo = []
+    def fetch_repos(self):
+        
 
         #   Create a connection to github
-        response = self.ApiCall(self.API_URL, headers=self.head)
+        response = self.ApiCall(f"{self.API_URL}user/repos", head=self.head)
         
         #   Fetch repo languages
         def fetch_languages(repo: list, parse: str):
 
             #   Request a languages
-            response = self.ApiCall(parse, headers= self.head)
-
+            response = self.ApiCall(parse, head=self.head)
             for lang, value in response.items():
-                if lang: repo['lang'] += [lang] 
+                if lang: repo[i]['lang'] += f"{lang},"
+
+
+            #   Sweep data
+            del response, repo, parse
             return
 
-        for i in range(len(response)):
+         #   Intializing a list
+        repo = []
 
+        for i in range(len(response)):
             #   Structure the items from github
-            repo += [{"name":response[i]['name'], "url":response[i]['html_url'], 'owner':response[i]['owner']['login'], 'lang': []}]
-            #lambda?
+            repo += [{"name":response[i]['name'], "url":response[i]['html_url'], 'owner':response[i]['owner']['login'], 'lang':"", 'date':response[i]['created_at']}]
+
             #   Fetch repo languages
-            fetch_languages(repo[i], f"https://api.github.com/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
+            fetch_languages(repo, f"{self.API_URL}/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
 
         return repo
-        
-    def updateDatabase(self, db, table):
+
+    def updateDatabase(self, db:str, table:str):
 
         columns = []
-
+        sql = SQL(db)
         repo = self.fetch_repos()
+
+        x = sql.cur.execute('SELECT name FROM sqlite_master;').fetchall()
+
+        if bool(x):
+            if table in x[0]:
+
+                for j in range(len(repo)):
+
+                    for k in range(len(repo[j]['lang'])):
+
+                        print(repo[j]['lang'])
+                        
+                        if repo[j]['lang'][k] not in columns:
+                            columns.append(repo[j]['lang'][k])
+
+                    columns.sort()
+
+                    sql.insert_into_table(table, repo)
         
-        for i in range(len(repo)):
-            for j in range(len(repo[i]['lang'])):
+        else:
+            query = {}
+                    
+            for i in range(len(repo)):
+                for key, lang in repo[i].items():
+                    if key not in columns:
+                        columns.append(key)
+            if "id" not in columns: columns.append("id")
 
-                if repo[i]['lang'][j] not in columns:
-                    columns.append(repo[i]['lang'][j])
+            for i in range(len(columns)):
 
+                #   Ensure the columns not equal date nor id
+                if 'date' == columns[i]:
+                    query[columns[i]] = 'DATE NOT NULL DEFAULT CURRENT_DATE'
+                elif columns[i] == 'id':
+                    query[columns[i]] = 'INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT'
 
-        columns.sort()
+                else:
+                    query[columns[i]] = "TEXT NOT NULL DEFAULT False"
 
-        SQL(db).updateTable(table, "ADD", columns)
-        
+            columns = query
+            sql.TableConfigurations(table, "CREATE", columns=columns)
+
+                  
+            del query
+
+        #   Sweep data
         del columns, repo
 
         return 
-
-class Databases():
-    def __init__(self, database:str, port:int | int=None, host:str | str=None):
-
-        #   Ensure there is one value
-        self.host = host
-        self.port = port
-        self.db = database
-
-        del host, database, port
-        return
-
-class SQL(Databases):
-    def __init__(self, database:str, port:int | int=None, host:str | str=None):
-        super().__init__(self, database, port = None, host=None)
-        
-        #   Establish the connection to the database
-        try:
-
-            self.conn = sqlite3.connect(self.db)
-            if not self.conn: raise Exception('Could not establish a connection to the database')
-
-        except Exception as e: return e
-
-        print('Established connection to the Database')
-        self.cur = self.conn.cursor()
-        #self.conn.close()
-
-        
-        return
-    
-    def createTable(self, table, **args):
-
-        try:
-            if len(args['args']['columns']) != len(args['args']['datatype']):
-                raise Exception('Columns and Datatypes has to have equal value :( ')
-        except Exception as e:
-            return e
-        
-
-        #   Initialize a query
-        query = f"CREATE TABLE IF NOT EXITS {table} ("
-
-
-        for i in range(len(args['args']['columns'])):
-
-            for col in args['args']['columns']:
-
-                for dt in args['args']['datatype']:
-
-                    query += f"{col} {dt}"
-                
-                    if i+1 != len(args['args']['columns']): query +=','
-                    else : query += ");"
-
-        #   Execute the statement
-        self.conn.execute(query)
-
-        return query
-
-    def updateTable(self, table, keyword="add", *arg):
-
-        keyword = keyword.upper()
-        keywords = ['DROP', 'RENAME', 'ADD']
-
-        #   fetch columns
-        sql = self.selectRecord(table)
-    
-        query = f"ALTER TABLE {table} {keyword} COLUMN "
-
-        try:
-            
-            if keyword not in keywords: raise Exception(f'{keyword} not one of {keywords}')
-            if len(arg) != 2: raise Exception('Can only update one column at the time')
-
-            
-        except Exception as e: return e
-        
-        #   Ensure the keyword is equal and ensure there is no duplicates
-        if keyword in keywords and str(arg[0]) not in list(map(lambda x: x[0], self.cur.description)):
-
-            for i in range(len(arg)):
-                print(arg)
-                query += f"{arg[i]} "
-
-        elif keyword in keywords and str(arg[0]) in list(map(lambda x: x[0], self.cur.description)): 
-            print(list(map(lambda x: x[0], self.cur.description)))
-            
-        else: pass
-
-        
-        del table, keyword, arg, sql
-        query += ";"
-        #   Execute the query
-        self.cur.execute(query)
-
-        return
-
-    def selectRecord(self, table, *columns):
-
-
-        query = f"SELECT "
-        # Ensure the columns is false
-        if not bool(columns):
-            query += "*"
-        else:
-            for i in range(len(columns)):
-                query += f"{columns[i]}"
-                if columns[i] != len(columns):
-                    query += ","
-
-        #   Initialize the statement to execute
-        
-        query +=f" FROM {table};"
-
-        #   Execute the SQL statement
-        self.cur.execute(query)
-
-        return
-
-
-        query = f"ALTER TABLE {table} ADD COLUMN "
-        #   fetch table from database
-        sql = self.selectRecord(table)
-        names = list(map(lambda x: x[0], self.cur.description))
-        
-
-        #   Check for duplicates not working
-        for i in range(len(arg)):
-            if arg[i] not in names:
-                query = f"ALTER TABLE {table} ADD COLUMN '{arg[i]}' BOOLEAN NOT NULL DEFAULT False;"
-                self.cur.execute(query)
-
-        return

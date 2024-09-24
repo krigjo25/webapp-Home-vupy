@@ -118,8 +118,12 @@ i learned basic database testing using Unit testing repository
 
 #### Database Management system SQLite3
 > **Testing the Database connection**
+> By testing the database connection, 
+> we can ensure that the database can be connected in a requested way
 
 > **Testing the Exceptions**
+> While testing Exceptions, We can ensure the user to know what excatly went wrong under the operation
+> **Testing the request**
 
 
 Sincerely,

@@ -70,7 +70,7 @@ class TestDatabase:
         api = GithubApi()
         api.updateDatabase('fkh-ps.db', 'git_pro')
         api.updateDatabase('fkh-ps.db', 'git_pro')
-        #os.remove('fkh-ps.db')
+        os.remove('fkh-ps.db')
         
 
 

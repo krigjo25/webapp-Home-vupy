@@ -5,12 +5,11 @@ import logging, requests
 from dotenv import load_dotenv
 load_dotenv()
 
-#   Requests repositories
-from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestException
-
-
 #   errorHandler
 from errorHandler import TableError
+
+#   Requests repositories
+from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestException
 
 class Base():
 
@@ -38,8 +37,10 @@ class Base():
             for data in columns:
 
                 for key, value in data.items():
+
                     #   Ensure that the key does not exists in column
                     if key not in column: column.append(key)
+                    
                 
             for data in columns:
                 for key, value in data.items():
@@ -56,12 +57,11 @@ class Base():
                         rows.append(tuple(row))
                         row = []
 
+
             query = f"{statement} INTO {table}{tuple(column)} VALUES("
  
             for i in range(len(column)): query+= "?," if i+1 < len(column) else "?);"
 
-            for i in rows:
-                print(i)
         elif statement.upper() == "SELECT":
 
             for i in range(len(columns)):
@@ -99,7 +99,7 @@ class Base():
 
         #   Sweep data
         del table, statement, columns
-        
+
         return query
 
 class SQL(Base):
@@ -227,7 +227,8 @@ class GithubApi(APIConfig):
             #   Request a languages
             response = self.ApiCall(parse, head=self.head)
             for lang, value in response.items():
-                if lang: repo[i]['lang'] += [lang] 
+                if lang: repo[i]['lang'] += f"{lang},"
+
 
             #   Sweep data
             del response, repo, parse
@@ -238,7 +239,7 @@ class GithubApi(APIConfig):
 
         for i in range(len(response)):
             #   Structure the items from github
-            repo += [{"name":response[i]['name'], "url":response[i]['html_url'], 'owner':response[i]['owner']['login'], 'lang': [], 'date':response[i]['created_at']}]
+            repo += [{"name":response[i]['name'], "url":response[i]['html_url'], 'owner':response[i]['owner']['login'], 'lang':"", 'date':response[i]['created_at']}]
 
             #   Fetch repo languages
             fetch_languages(repo, f"{self.API_URL}/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
@@ -251,16 +252,17 @@ class GithubApi(APIConfig):
         sql = SQL(db)
         repo = self.fetch_repos()
 
+        x = sql.cur.execute('SELECT name FROM sqlite_master;').fetchall()
 
-        x = sql.cur.execute('SELECT name FROM sqlite_master').fetchall()#[i for i in SQL(database=db).select_records("sqlite_master", 'SELECT', ('name'))]
-        for i in x:
-            print(table, i)
-            if table in i:
+        if bool(x):
+            if table in x[0]:
 
                 for j in range(len(repo)):
 
                     for k in range(len(repo[j]['lang'])):
 
+                        print(repo[j]['lang'])
+                        
                         if repo[j]['lang'][k] not in columns:
                             columns.append(repo[j]['lang'][k])
 
@@ -268,32 +270,31 @@ class GithubApi(APIConfig):
 
                     sql.insert_into_table(table, repo)
         
-            else:
-
-                    query = {}
+        else:
+            query = {}
                     
-                    for i in range(len(repo)):
-                        for key, lang in repo[i].items():
-                            if key not in columns:
-                                columns.append(key)
-                    if not "id" in columns: columns.append('id')
-                    for i in range(len(columns)):
+            for i in range(len(repo)):
+                for key, lang in repo[i].items():
+                    if key not in columns:
+                        columns.append(key)
+            if "id" not in columns: columns.append("id")
 
-                        #   Ensure the columns not equal date nor id
-                        if columns[i] == 'date':
-                            query[columns[i]] = 'DATE NOT NULL DEFAULT CURRENT_DATE'
-                        elif columns[i] == 'id':
-                            query[columns[i]] = 'INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT'
+            for i in range(len(columns)):
 
-                        else:
+                #   Ensure the columns not equal date nor id
+                if 'date' == columns[i]:
+                    query[columns[i]] = 'DATE NOT NULL DEFAULT CURRENT_DATE'
+                elif columns[i] == 'id':
+                    query[columns[i]] = 'INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT'
 
-                            query[columns[i]] = "TEXT NOT NULL DEFAULT False"
+                else:
+                    query[columns[i]] = "TEXT NOT NULL DEFAULT False"
 
-                    columns = query
-                    sql.TableConfigurations(table, "CREATE", columns=columns)
+            columns = query
+            sql.TableConfigurations(table, "CREATE", columns=columns)
 
                   
-                    del query
+            del query
 
         #   Sweep data
         del columns, repo
