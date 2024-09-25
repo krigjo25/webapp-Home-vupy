@@ -13,15 +13,20 @@ class Index(MethodView):
 
     def get(self):
 
+        #   Initialize database
+        GithubApi().updateDatabase('fkh-ps.db', 'git_pro')
+
+
+        #   For every first call this function
         #   Database calls
-        return render_template(name = "index.html", portefolio = self.initialize_database())
+        return render_template("index.html", portefolio = self.initialize_database())
 
     def post(self): pass
 
 
     def initialize_database(self):
             
-            #   Check for updates every month
+            GithubApi().updateDatabase('fkh-ps.db', 'git_pro')
 
-            return GithubApi().updateDatabase('fkh-ps.db', 'git-pro')
+            return GithubApi().updateDatabase('fkh-ps.db', 'git_pro')
 

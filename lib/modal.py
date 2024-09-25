@@ -33,6 +33,7 @@ class Base():
         rows = []
         outerrow = []
         tmp = ""
+
         if statement.upper() == "INSERT":
 
             for data in columns:
@@ -80,12 +81,12 @@ class Base():
         #   Sweep memory
         del table, statement, columns
         del column,  row
+
         return [query, rows]
     
     def configure_table(self, table:str, statement:str, columns: dict | dict=None):
 
         #   Ensure that statement is equal to the listed  statement
-
         if statement in self.statements and bool(columns):
             query = f"{statement} TABLE IF NOT EXISTS {table}("
 
@@ -97,10 +98,11 @@ class Base():
 
                 #   Ensure the list is not at end
                 query += ',' if list(columns)[-1] != key else ');'
-
+            
         #   Sweep data
         del table, statement, columns
 
+        print(query)
         return query
 
 class SQL(Base):
@@ -129,7 +131,6 @@ class SQL(Base):
                 tables = []
                 sql =  self.cur.execute("SELECT name FROM sqlite_master;").fetchall()
                 #self.select_records('sqlite_master', 'SELECT', ('name'))
-                print(sql)
                 if sql:
                     for i in range(len(sql)):
                         for j in sql[i]:
@@ -140,6 +141,7 @@ class SQL(Base):
             #   Ensure that table does not exists and statements is a known keyword
             if statement.upper() not in self.statements: raise OperationalError(404)
             if table in tables and statement == 'CREATE': raise OperationalError(200)
+
 
             self.cur.execute(self.configure_table(table, statement, columns))
             self.conn.commit()
