@@ -1,27 +1,16 @@
 #   Import the responsories
-import sqlite3
-import os
-import json
-import logging
-
-import requests
-from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestException
-from sqlite3 import sqlite_ERR
-
-from errorHandler import OperationalError
-    
-#   Importing repositories
-import os, json, sqlite3
+import sqlite3, os, json
 import logging, requests
+
+
+from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestException
 
 from dotenv import load_dotenv
 load_dotenv()
 
-#   errorHandler
-from errorHandler import OperationalError
 
-#   Requests repositories
-from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestException
+#   errorHandler
+from lib.errorHandler import OperationalError
 
 class Base():
 
@@ -176,13 +165,12 @@ class SQL(Base):
 
             self.cur.executemany(query[0],query[1])
             self.conn.commit()
-
             return
         
         def select_records(self, table:str, statement:str, columns:tuple | tuple = tuple("*")):
-            
             #if not isinstance(columns, tuple): raise OperationalError(500)
             return self.cur.execute(self.configure_columns(table, statement, columns)).fetchall()
+            
 
         #   delete a row
         def delete_row(self, table:str, column:str, value:str): return self.cur.execute(f"DELETE FROM {table} WHERE {column} = {value};")
