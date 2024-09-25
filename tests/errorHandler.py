@@ -1,4 +1,4 @@
-class TableError(Exception):
+class OperationalError(Exception):
     """ Raises when duplicated is not allowed """
 
     error = {

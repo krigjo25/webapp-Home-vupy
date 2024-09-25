@@ -1,15 +1,10 @@
 import os
 import pytest
 
-from sqlite3 import OperationalError
 from core import SQL
-from errorHandler import TableError
+from errorHandler import OperationalError
 
 class TestDBExceptions:
-
-    #   
-    #sql = SQL(database='test_database.db')
-
 
     def test_duplicateTable(self):
         
@@ -22,7 +17,7 @@ class TestDBExceptions:
                 'data1':'BLOB NOT NULL DEFAULT FALSE', 'data2':'REAL NOT NULL DEFAULT 0', 'date':'DATE NOT NULL DEFAULT CURRENT_DATE'}
         
         #   Raise Table Error
-        with pytest.raises(TableError) as e:
+        with pytest.raises(OperationalError) as e:
 
             #   Call function to raise
             sql.TableConfigurations(table=__table__, statement='CREATE', columns=mock)
@@ -37,7 +32,7 @@ class TestDBExceptions:
         expected ="Table does not exist in the database"
 
         #   Rasing exception
-        with pytest.raises(TableError) as e:
+        with pytest.raises(OperationalError) as e:
 
             #   Call function to raise
             sql.TableConfigurations(table=__table__, statement='Kake', columns={"*":"*"})

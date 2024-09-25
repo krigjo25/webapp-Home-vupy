@@ -18,7 +18,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 #   errorHandler
-from errorHandler import TableError
+from errorHandler import OperationalError
 
 #   Requests repositories
 from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestException
@@ -149,8 +149,8 @@ class SQL(Base):
             except: sql = False
 
             #   Ensure that table does not exists and statements is a known keyword
-            if statement.upper() not in self.statements: raise TableError(404)
-            if table in tables and statement == 'CREATE': raise TableError(200)
+            if statement.upper() not in self.statements: raise OperationalError(404)
+            if table in tables and statement == 'CREATE': raise OperationalError(200)
 
             self.cur.execute(self.configure_table(table, statement, columns))
             self.conn.commit()
@@ -168,7 +168,7 @@ class SQL(Base):
             tables = self.cur.execute('SELECT name FROM sqlite_master').fetchall()
     
             #   Ensure table exists
-            if table not in tables[0]: raise TableError(404)
+            if table not in tables[0]: raise OperationalError(404)
             
             if not isinstance(data, list): raise SyntaxError('accepts only lists as argument')
 
@@ -176,11 +176,12 @@ class SQL(Base):
 
             self.cur.executemany(query[0],query[1])
             self.conn.commit()
+
             return
         
         def select_records(self, table:str, statement:str, columns:tuple | tuple = tuple("*")):
             
-            #if not isinstance(columns, tuple): raise TableError(500)
+            #if not isinstance(columns, tuple): raise OperationalError(500)
             return self.cur.execute(self.configure_columns(table, statement, columns)).fetchall()
 
         #   delete a row
