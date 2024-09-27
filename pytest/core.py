@@ -103,6 +103,11 @@ class Base():
         del table, statement, columns
 
         return query
+    
+    #   Adapted from documentations
+    def dict_factory(self, cursor, row):
+        columns = [column[0] for column in cursor.description]
+        return {key: value for key, value in zip(columns, row)}
 
 class SQL(Base):
 
@@ -120,20 +125,17 @@ class SQL(Base):
             
             #   Initializing the sqlite cursor
             self.cur = self.conn.cursor()
+            self.cur.row_factory = self.dict_factory
 
             return print('Established connection to the Database')
-        
-        def dict_factory(self, cursor, row):
-            columns = [column[0] for column in cursor.description]
-            return {key: value for key, value in zip(columns, row)}
-        #   Creating a table
+
         def TableConfigurations(self, table:str, statement:str, columns:dict): 
             
             
             try :
                 tables = []
                 sql =  self.cur.execute("SELECT name FROM sqlite_master;").fetchall()
-                #self.select_records('sqlite_master', 'SELECT', ('name'))
+                self.select_records('sqlite_master', 'SELECT', ('name'))
                 if sql:
                     for i in range(len(sql)):
                         for j in sql[i]:
@@ -146,7 +148,7 @@ class SQL(Base):
             if table in tables and statement == 'CREATE': raise OperationalError(200)
 
             query = self.configure_table(table, statement, columns)
-            print(query)
+
             self.cur.execute(query)
             self.conn.commit()
             
@@ -159,27 +161,21 @@ class SQL(Base):
         #   Inserting values into a table
         def insert_into_table(self, table:str, data:list):
 
-            
-            tables = self.cur.execute('SELECT name FROM sqlite_master').fetchall()
-    
-            #   Ensure table exists
-            if table not in tables[0]: raise OperationalError(404)
-            
+            tables = [i['name'] for i in self.cur.execute('SELECT name FROM sqlite_master').fetchall()]
+
+            if table not in tables: raise OperationalError(404)
             if not isinstance(data, list): raise SyntaxError('accepts only lists as argument')
 
             query = self.configure_columns(table, 'INSERT', data)
-
             self.cur.executemany(query[0],query[1])
             self.conn.commit()
+
+            #   Sweep Memory
+            del query, tables, table, data
             return
         
         def select_records(self, table:str, statement:str, columns:tuple | tuple = tuple("*")):
-
-            self.conn.row_factory = self.dict_factory
-            #   Initialize 
-            data = []
-            sqlData = self.cur.execute(self.configure_columns(table, statement, columns))
-            print(sqlData.fetchall())
+            return self.cur.execute(self.configure_columns(table, statement, columns)).fetchall()
 
         #   delete a row
         def delete_row(self, table:str, column:str, value:str): return self.cur.execute(f"DELETE FROM {table} WHERE {column} = {value};")
