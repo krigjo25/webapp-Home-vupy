@@ -18,8 +18,6 @@ app = Flask(__name__)
 app.config.from_object(DevelopmentConfig)
 Session(app)
 
-#   Database Connection
-#db = SQL(os.getenv("db"))
 
 @app.after_request
 def after_request(response):
@@ -29,4 +27,5 @@ def after_request(response):
     response.headers['Paragma'] = 'no-cache'
     return response
 
+#   Url rules
 app.add_url_rule("/", view_func=Index.as_view(name="index.html"))

@@ -17,6 +17,7 @@ class Index(MethodView):
         #   Initialize database
         self.initialize_database()
         sql = SQL('fkh-ps.db').select_records('git_pro', 'SELECT')
+        print(sql)
 
         #   For every first call this function
         #   Database calls
