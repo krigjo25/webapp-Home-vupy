@@ -98,16 +98,16 @@
                 <i class="bi bi-arrow-right-circle-fill"></i>
                 <p>Showing Python | Flask Projects</p>
                 <div class="siztion">
-                    {%if portefolio%}
+                    {% if portefolio %}
                         {% for pf in portefolio %}
                             <nav class="pp">
-                                <a href="{pf.gurl}">
+                                <a href="{pf['gurl']}">
                                     <i class="bi bi-github"></i>
                                 </a>
-                                <a href="{pf-yurl}">
+                                <a href="{pf['yurl']}">
                                     <i class="bi bi-youtube"></i>
                                 </a>
-                                <span>{pf.name}</span>
+                                <span>{{pf['name']}}</span>
                             </nav>
                         {% endfor %}
                     {% endif %}

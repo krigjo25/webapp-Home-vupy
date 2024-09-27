@@ -30,8 +30,8 @@ class Base():
         row = []
         column = []
         rows = []
-        outerrow = []
         tmp = ""
+
         if statement.upper() == "INSERT":
 
             for data in columns:
@@ -69,16 +69,18 @@ class Base():
             
             columns = column
             column = ""
+
             for i in range(len(columns)):
                 column += columns[i] + "," if i +1 < len(columns) else f"{columns[i]}"
-
             
             query = f"{statement} {column} FROM {table};"
+
             return query
-        
+
         #   Sweep memory
         del table, statement, columns
         del column,  row
+
         return [query, rows]
     
     def configure_table(self, table:str, statement:str, columns: dict | dict=None):
@@ -128,7 +130,6 @@ class SQL(Base):
                 tables = []
                 sql =  self.cur.execute("SELECT name FROM sqlite_master;").fetchall()
                 #self.select_records('sqlite_master', 'SELECT', ('name'))
-                print(sql)
                 if sql:
                     for i in range(len(sql)):
                         for j in sql[i]:
@@ -167,9 +168,29 @@ class SQL(Base):
             return
         
         def select_records(self, table:str, statement:str, columns:tuple | tuple = tuple("*")):
-            #if not isinstance(columns, tuple): raise TableError(500)
-            return self.cur.execute(self.configure_columns(table, statement, columns)).fetchall()
-            
+
+            #   Initialize 
+            data = {}
+            column = []
+            sqlData = self.cur.execute(self.configure_columns(table, statement, columns))
+
+            # Fetch the columns
+            for i in sqlData.description:
+                for j in i:
+
+                    #   Ensure there is values
+                    if j != None: 
+                        column.append(j)
+
+            for row in sqlData.fetchall():
+
+                for i in range(len(row)):
+                    data[column[i]] = row[i]
+
+
+
+                
+            #return sql.fetchall()
 
         #   delete a row
         def delete_row(self, table:str, column:str, value:str): return self.cur.execute(f"DELETE FROM {table} WHERE {column} = {value};")

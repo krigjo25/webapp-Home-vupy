@@ -3,6 +3,7 @@ from lib.modal import GithubApi
 from flask.views import MethodView
 from flask import render_template, request, flash
 
+from lib.modal import SQL
 class Index(MethodView):
 
     #   Initialize methods and database
@@ -14,12 +15,12 @@ class Index(MethodView):
     def get(self):
 
         #   Initialize database
-        GithubApi().updateDatabase('fkh-ps.db', 'git_pro')
-
+        self.initialize_database()
+        sql = SQL('fkh-ps.db').select_records('git_pro', 'SELECT')
 
         #   For every first call this function
         #   Database calls
-        return render_template("index.html", portefolio = self.initialize_database())
+        return render_template("index.html", portefolio = sql)
 
     def post(self): pass
 

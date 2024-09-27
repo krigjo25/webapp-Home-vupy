@@ -63,6 +63,7 @@ class TestDatabase:
         
         mock = [('Sometext', 'image.jpg', 2.0), ('Sometext', 'image.jpg', 2.0)]
         actual = self.sql.select_records(self.table, 'SELECT', columns= ("data", "data1", "data2"))
+
         assert actual == mock
 
     def test_request_database(self):
