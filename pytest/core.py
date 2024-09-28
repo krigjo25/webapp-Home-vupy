@@ -103,11 +103,16 @@ class Base():
         del table, statement, columns
 
         return query
-    
+
     #   Adapted from documentations
     def dict_factory(self, cursor, row):
         columns = [column[0] for column in cursor.description]
         return {key: value for key, value in zip(columns, row)}
+    
+    #   Delete rows / table / database
+    def delete_row(self, table:str, column:str, value:str): return self.cur.execute(f"DELETE FROM {table} WHERE {column} = {value};")
+    def drop_table(self, table:str): return self.cur.execute(f'DROP table IF EXISTS {table}')
+    def drop_database(self, db:str): return self.cur.execute(f'DROP DATABASE IF EXISTS {self.db}')  
 
 class SQL(Base):
 
@@ -130,43 +135,41 @@ class SQL(Base):
             return print('Established connection to the Database')
 
         def TableConfigurations(self, table:str, statement:str, columns:dict): 
-            
-            
-            try :
-                tables = []
-                sql =  self.cur.execute("SELECT name FROM sqlite_master;").fetchall()
-                self.select_records('sqlite_master', 'SELECT', ('name'))
-                if sql:
-                    for i in range(len(sql)):
-                        for j in sql[i]:
-                            tables.append(j)
 
-            except: sql = False
+            #   Initializing the tables
+            tables = [i['name'] for i in self.select_records('sqlite_master', 'SELECT')]
 
             #   Ensure that table does not exists and statements is a known keyword
             if statement.upper() not in self.statements: raise OperationalError(404)
             if table in tables and statement == 'CREATE': raise OperationalError(200)
 
+            #   Initialize the query
             query = self.configure_table(table, statement, columns)
 
+            #   Query execution
             self.cur.execute(query)
             self.conn.commit()
             
             #   Sweep memory
             del tables, table, columns
-            del statement, sql
+            del statement
 
             return
         
         #   Inserting values into a table
         def insert_into_table(self, table:str, data:list):
 
+            #   Initializing tables
             tables = [i['name'] for i in self.cur.execute('SELECT name FROM sqlite_master').fetchall()]
 
+            #   Ensure that table exists
             if table not in tables: raise OperationalError(404)
             if not isinstance(data, list): raise SyntaxError('accepts only lists as argument')
 
+            #   Initialize query
             query = self.configure_columns(table, 'INSERT', data)
+
+            #   Execute query
             self.cur.executemany(query[0],query[1])
             self.conn.commit()
 
@@ -176,11 +179,6 @@ class SQL(Base):
         
         def select_records(self, table:str, statement:str, columns:tuple | tuple = tuple("*")):
             return self.cur.execute(self.configure_columns(table, statement, columns)).fetchall()
-
-        #   delete a row
-        def delete_row(self, table:str, column:str, value:str): return self.cur.execute(f"DELETE FROM {table} WHERE {column} = {value};")
-        def drop_table(self, table:str): return self.conn.execute(f'DROP table IF EXISTS {table}')
-        def drop_database(self, db:str): return self.cur.execute(f'DROP DATABASE IF EXISTS {self.db}')  
 
 class APIConfig():
     def __init__(self, URL, KEY=None, GET = "GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE'):

@@ -16,19 +16,14 @@ class Index(MethodView):
 
         #   Initialize database
         self.initialize_database()
-        sql = SQL('fkh-ps.db').select_records('git_pro', 'SELECT')
-        print(sql)
-
         #   For every first call this function
         #   Database calls
-        return render_template("index.html", portefolio = sql)
+        return render_template("index.html", portefolio = SQL('fkh-ps.db').select_records('git_pro', 'SELECT'))
 
     def post(self): pass
 
 
     def initialize_database(self):
             
-            GithubApi().updateDatabase('fkh-ps.db', 'git_pro')
-
             return GithubApi().updateDatabase('fkh-ps.db', 'git_pro')
 

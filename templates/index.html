@@ -101,13 +101,26 @@
                     {% if portefolio %}
                         {% for pf in portefolio %}
                             <nav class="pp">
-                                <a href="{pf['gurl']}">
-                                    <i class="bi bi-github"></i>
-                                </a>
-                                <a href="{pf['yurl']}">
-                                    <i class="bi bi-youtube"></i>
-                                </a>
+                                <div>
+                                    {% if pf['url']%}
+                                    <a href="{{pf['url']}}">
+                                        <i class="bi bi-github"></i>
+                                    </a>
+                                    {% endif %}
+                                    {% if pf['ytube']%}
+                                    <a href="{{pf['ytube']}}">
+                                        <i class="bi bi-youtube"></i>
+                                    </a>
+                                    {% endif %}
+                                    {% if pf['ytube']%}
+                                    <a href="{{pf['weburl']}}">
+                                        <i class="bi bi-web"></i>
+                                    </a>
+                                    {% endif %}
+                                </div>
                                 <span>{{pf['name']}}</span>
+                                <span>{{pf['description']}}</span>
+                                <small>{{pf['date']}}</small>
                             </nav>
                         {% endfor %}
                     {% endif %}
