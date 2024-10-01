@@ -25,7 +25,7 @@ class TestAPI:
 
         
         #   Testing the connection response
-        #assert expected == actual
+        assert expected == actual
         
 
     def test_fetch_repos(self)-> None:

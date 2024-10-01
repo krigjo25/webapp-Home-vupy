@@ -91,8 +91,8 @@ class TestDatabase:
     def test_request_database(self):
 
         api = GithubApi()
-        api.updateDatabase('fkh-ps.db', 'git_pro')
-        api.updateDatabase('fkh-ps.db', 'git_pro')
+        api.updateDatabase('test_fkh-ps.db', 'git_pro')
+        api.updateDatabase('test_fkh-ps.db', 'git_pro')
         
 
 
