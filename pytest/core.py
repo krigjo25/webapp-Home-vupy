@@ -230,9 +230,9 @@ class GithubApi(APIConfig):
 
             #   Request a languages
             response = self.ApiCall(parse, head=self.head)
+
             for lang, value in response.items():
                 if lang: repo[i]['lang'] += f"{lang},"
-
 
             #   Sweep data
             del response, repo, parse
@@ -243,7 +243,7 @@ class GithubApi(APIConfig):
 
         for i in range(len(response)):
             #   Structure the items from github
-            repo += [{"name":response[i]['name'], "url":response[i]['html_url'], 'owner':response[i]['owner']['login'], 'lang':"", 'date':response[i]['created_at']}]
+            repo += [{"name":response[i]['name'], "description":response[i]['description'], "url":response[i]['html_url'], 'owner':response[i]['owner']['login'], 'lang':"", 'date':response[i]['created_at']}]
 
             #   Fetch repo languages
             fetch_languages(repo, f"{self.API_URL}/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
@@ -264,8 +264,6 @@ class GithubApi(APIConfig):
                 for j in range(len(repo)):
 
                     for k in range(len(repo[j]['lang'])):
-
-                        print(repo[j]['lang'])
                         
                         if repo[j]['lang'][k] not in columns:
                             columns.append(repo[j]['lang'][k])
@@ -278,7 +276,9 @@ class GithubApi(APIConfig):
             query = {}
                     
             for i in range(len(repo)):
+
                 for key, lang in repo[i].items():
+
                     if key not in columns:
                         columns.append(key)
             if "id" not in columns: columns.append("id")

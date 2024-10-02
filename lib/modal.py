@@ -12,6 +12,19 @@ load_dotenv()
 #   errorHandler
 from lib.errorHandler import OperationalError
 
+#   Importing repositories
+import os, json, sqlite3
+import logging, requests
+
+from dotenv import load_dotenv
+load_dotenv()
+
+#   errorHandler
+from errorHandler import OperationalError
+
+#   Requests repositories
+from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestException
+
 class Base():
 
     """ Base: What would includes in several databases"""
@@ -231,9 +244,9 @@ class GithubApi(APIConfig):
 
             #   Request a languages
             response = self.ApiCall(parse, head=self.head)
+
             for lang, value in response.items():
                 if lang: repo[i]['lang'] += f"{lang},"
-
 
             #   Sweep data
             del response, repo, parse
@@ -244,7 +257,7 @@ class GithubApi(APIConfig):
 
         for i in range(len(response)):
             #   Structure the items from github
-            repo += [{"name":response[i]['name'], "url":response[i]['html_url'], 'owner':response[i]['owner']['login'], 'lang':"", 'date':response[i]['created_at']}]
+            repo += [{"name":response[i]['name'], "description":response[i]['description'], "url":response[i]['html_url'], 'owner':response[i]['owner']['login'], 'lang':"", 'date':response[i]['created_at']}]
 
             #   Fetch repo languages
             fetch_languages(repo, f"{self.API_URL}/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
@@ -256,35 +269,33 @@ class GithubApi(APIConfig):
         columns = []
         sql = SQL(db)
         repo = self.fetch_repos()
-        
-        tables = [i['name'] for i in sql.select_records('sqlite_master', 'SELECT')]
-        
-        
-        if table in tables:
 
-            # Fetch values
+        x = sql.cur.execute('SELECT name FROM sqlite_master;').fetchall()
 
-            for j in range(len(repo)):
+        if bool(x):
+            if table in x[0]:
 
-                for k in range(len(repo[j]['lang'])):
+                for j in range(len(repo)):
+
+                    for k in range(len(repo[j]['lang'])):
                         
-                    if repo[j]['lang'][k] not in columns:
-                        columns.append(repo[j]['lang'][k])
+                        if repo[j]['lang'][k] not in columns:
+                            columns.append(repo[j]['lang'][k])
 
                     columns.sort()
 
-            sql.insert_into_table(table, repo)
+                    sql.insert_into_table(table, repo)
         
         else:
             query = {}
                     
             for i in range(len(repo)):
+
                 for key, lang in repo[i].items():
+
                     if key not in columns:
                         columns.append(key)
-            if "id" not in columns: 
-                columns.append("id")
-            if not "ytube" in columns: columns.append("ytube")
+            if "id" not in columns: columns.append("id")
 
             for i in range(len(columns)):
 
