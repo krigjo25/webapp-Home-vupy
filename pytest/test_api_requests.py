@@ -24,7 +24,6 @@ class TestAPI:
                     'following': actual['following'], 'created_at': actual['created_at'], 'updated_at': actual['updated_at']}
         #   Testing the connection response
         assert expected == actual
-        
 
     def test_fetch_repos(self)-> None:
         """Testing  fetch_repos

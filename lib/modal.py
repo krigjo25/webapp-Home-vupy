@@ -266,8 +266,13 @@ class GithubApi(APIConfig):
 
     def updateDatabase(self, db:str, table:str):
 
+        
         columns = []
         sql = SQL(db)
+        data = sql.select_records(table, 'SELECT')
+
+        if data:
+            print(data)
         repo = self.fetch_repos()
 
         x = sql.cur.execute('SELECT name FROM sqlite_master;').fetchall()

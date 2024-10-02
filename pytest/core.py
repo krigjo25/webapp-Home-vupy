@@ -168,7 +168,6 @@ class SQL(Base):
 
             #   Initialize query
             query = self.configure_columns(table, 'INSERT', data)
-
             #   Execute query
             self.cur.executemany(query[0],query[1])
             self.conn.commit()
@@ -243,24 +242,27 @@ class GithubApi(APIConfig):
 
         for i in range(len(response)):
             #   Structure the items from github
-            repo += [{"name":response[i]['name'], "description":response[i]['description'], "url":response[i]['html_url'], 'owner':response[i]['owner']['login'], 'lang':"", 'date':response[i]['created_at']}]
-
+            repo += [{"name":response[i]['name'], "description":str(response[i]['description']), "url":response[i]['html_url'], 'owner':response[i]['owner']['login'], 'lang':"", 'date':response[i]['created_at']}]
+            
             #   Fetch repo languages
             fetch_languages(repo, f"{self.API_URL}/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
-
         return repo
 
     def updateDatabase(self, db:str, table:str):
 
         columns = []
         sql = SQL(db)
+
         repo = self.fetch_repos()
 
         x = sql.cur.execute('SELECT name FROM sqlite_master;').fetchall()
 
         if bool(x):
-            if table in x[0]:
-
+            if table in x[0]['name']:
+                data = sql.select_records(table, 'SELECT')
+                if repo == data:
+                    print(data)
+                    raise OperationalError(000)
                 for j in range(len(repo)):
 
                     for k in range(len(repo[j]['lang'])):
@@ -288,11 +290,12 @@ class GithubApi(APIConfig):
                 #   Ensure the columns not equal date nor id
                 if 'date' == columns[i]:
                     query[columns[i]] = 'DATE NOT NULL DEFAULT CURRENT_DATE'
+
                 elif columns[i] == 'id':
                     query[columns[i]] = 'INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT'
 
                 else:
-                    query[columns[i]] = "TEXT NOT NULL DEFAULT False"
+                    query[columns[i]] = "TEXT NOT NULL"
 
             columns = query
             sql.TableConfigurations(table, "CREATE", columns=columns)
