@@ -127,7 +127,6 @@ class SQL(Base):
 
             except Exception as e: return e
 
-            
             #   Initializing the sqlite cursor
             self.cur = self.conn.cursor()
             self.cur.row_factory = self.dict_factory

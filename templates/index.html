@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% block main %}
+            <article id='about-kristoffer'>
+
+                <div id="carosel-container" class="img-container">      
+                    <div id="carosel">
+                    </div>
+                    <div class="image-caption">
+                    </div> 
+                    <div id="img-btn" class="img-btn">
+                        <button id ="next-btn" class="next-btn" onclick="next()">
+                            <i class="bi bi-arrow-left-square-fill"></i>
+                        </button>
+                        <button id ="prev-btn" class="prev-btn" onclick="prev()"><i class="bi bi-arrow-right-square-fill"></i>
+                        </button>
+                    </div>                 
+                </div>
+                <nav class='ext-bar'>
+                    <a href='#contact-me'>
+                        <span>                           
+                            <i class="bi bi-mailbox"></i>
+                        </span>
+                    </a>
+                    <a href=''>
+                        <span>                           
+                            <i class="bi bi-linkedin"></i>
+                        </span>
+                    </a>
+                    <a href=''>
+                        <span>                           
+                            <i class="bi bi-github"></i>
+                        </span>
+                    </a>
+                </nav>
+                <div id="bio"></div>
+            </article>
+            <section id='expertise'>
+                <h2>Specialization</h2>
+                <div class="siztion">
+                    <div class="btn bi-getacademy">GetAcademy</div>
+                    <h3>Start IT</h3>
+                    <ul>
+                        <li>Grunnleggende Programmering</li>
+                        <ul>
+                            <a href='#'>
+                                <span>JavaScript</span>
+                            </a>
+                            <a href='#'>
+                                <span>Github</span>
+                            </a>
+                            <a href='#'>
+                                <span>Collebrations</span>
+                            </a>
+                        </ul>
+                        <li>IT Utvikling</li>
+                        <ul>
+                            <a href='#'>
+                                <span>Collebrations</span>
+                            </a>
+                            <a href='#'>
+                                <span>Agile</span>
+                            </a>
+                        </ul>
+                        <li>OOP With C#</li>
+                        <ul>
+                            <a href='#'>
+                                <span>OOP</span>
+                            </a>
+                            <a href='#'>
+                                <span>Collebrations</span>
+                            </a>
+                            <a href='#'>
+                                <span>Agile</span>
+                            </a>
+                            <a href='#'>
+                                <span>SQL</span>
+                            </a>
+                        </ul>
+                    </ul>
+                    <div class="btn bi-harvardx" onclick="specialization(this)">HarvardX</div>
+                </div>
+            </section> 
+            <section id='full-stack'>
+                <h2>Full-Stack Solutions</h2>
+                <form>
+                    <label for="title">File type</label>
+                    <label for="filetype">Showcases</label>
+                    <select id="filetype">
+                        <option value="c">C</option>
+                        <option value="c#">C#</option>
+                        <option value="python">Python</option>
+                        <option value="js">JavaScript</option>    
+                    </select>
+
+                    <label for="title">accending or decending</label>
+                    
+                </form>
+                <i class="bi bi-arrow-right-circle-fill"></i>
+                <p>Showing Python | Flask Projects</p>
+                {% if portefolio %}
+                    <div>
+                        <nav class="pp">
+                            {% for pf in portefolio %}
+                                {% if pf.url %}
+                                    <a href="{{pf['url']}}"></a>
+                                        <i class="bi bi-web"></i>
+                                    </a>
+                                {% endif %}
+                                {% if pf.gurl %}
+                                    <a href="{{pf['gurl']}}"></a>
+                                        <i class="bi bi-github"></i>
+                                    </a>
+                                {% endif %}
+                                {% if pf.url %}
+                                    <a href="{{pf['ytube']}}"></a>
+                                        <i class="bi bi-youtube"></i>
+                                    </a>
+                                {% endif %}
+
+                                <span>{pf['name']}</span>
+                                <span>{{pf['description']}}</span>
+                                <span>{{pf['date']}}</span>
+                            {% endfor %}
+
+                        </nav>
+                    </div>
+                
+                {% endif %}
+            </section>
+{% endblock %}
+    </body>
+</html>
