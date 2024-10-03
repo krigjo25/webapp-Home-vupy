@@ -1,4 +1,4 @@
-footer, section, header {
+flex-box, header, section, footer {
   display: flex;
   padding: 1em;
   flex-wrap: wrap;
@@ -21,6 +21,7 @@ nav {
   flex-direction: row;
   align-items: flex-start;
 }
+
 nav h3 {
   margin-block: 3vh;
 }

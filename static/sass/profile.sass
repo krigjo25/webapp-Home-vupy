@@ -1,0 +1,75 @@
+
+
+.btn-links
+  font-size: 4vh
+  inline-size: 40vh
+  margin-inline: 1em
+  text-align: center
+  border-radius: 1vh
+  background-color: #3c4bab
+  background-color: rgb(179, 193, 211)
+
+.btn-links:hover
+    background-color: #626ebb
+
+
+main 
+    article
+        nav.ext-bar
+            display: flex
+            flex-wrap: wrap
+
+        div#carosel
+            img.css-img
+                block-size: 100vh
+            div.caption
+                
+                z-index: 1
+                bottom: 3vh
+                display: flex
+                color: #fefefe
+                position: relative
+                justify-content: center
+                
+        div.img-container
+            display: flex
+            flex-wrap: wrap
+            block-size: 100%
+            inline-size: 100%
+            align-content: center
+            flex-direction: column
+            justify-content: center
+
+            div.img-btn
+                z-index: 1
+                bottom: 69vh
+                display: flex
+                cursor: pointer
+                position: relative
+                justify-content: space-between
+
+                button.prev-btn, button.next-btn
+                    opacity: 0.1
+                    border: none
+                    font-size: 2vw
+                    cursor: pointer
+                    color: #fefefe
+                    background-color: transparent
+
+                button.prev-btn:hover, button.next-btn:hover
+                    opacity: 1
+                
+        nav.ext-bar
+            margin-block-start: 2vh
+            justify-content: center
+            border-bottom: 1px groove black
+
+            span 
+                padding: 1vw
+                font-size: 5vw
+
+        .btn-links a:visited, btn-links a:link
+            
+            text-decoration: none
+            color: rgb(254, 254, 254)
+            background-color: #a1bfc9

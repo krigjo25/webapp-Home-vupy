@@ -3,8 +3,8 @@
 }
 
 .pp {
-  flex-wrap: wrap;
   font-size: 5vh;
+  flex-wrap: wrap;
   block-size: 15vh;
   inline-size: 46vh;
   display: inline-flex;
@@ -18,9 +18,9 @@
 }
 .pp span {
   font-size: 1em;
-  -webkit-user-select: none;
-          user-select: none;
+  user-select: none;
   font-weight: bold;
   margin-inline: 1em;
   -moz-user-select: none;
+  -webkit-user-select: none;
 }/*# sourceMappingURL=cssetc.css.map */
