@@ -260,7 +260,10 @@ class GithubApi(APIConfig):
             if table in x[0]['name']:
                 data = sql.select_records(table, 'SELECT')
                 if repo == data:
-                    raise OperationalError(000)
+                    print(repo)
+                    return
+                
+                
                 for j in range(len(repo)):
 
                     for k in range(len(repo[j]['lang'])):

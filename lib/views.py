@@ -18,6 +18,8 @@ class Index(MethodView):
         self.initialize_database()
         #   For every first call this function
         #   Database calls
+        for i in SQL('fkh-ps.db').select_records('git_pro', 'SELECT'):
+            print(i['name'], i['description'])
         return render_template("index.html", portefolio = SQL('fkh-ps.db').select_records('git_pro', 'SELECT'))
 
     def post(self): pass

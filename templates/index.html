@@ -98,32 +98,34 @@
                 <i class="bi bi-arrow-right-circle-fill"></i>
                 <p>Showing Python | Flask Projects</p>
                 {% if portefolio %}
-                    <div>
-                        <nav class="pp">
+                        <nav>
                             {% for pf in portefolio %}
-                                {% if pf.url %}
-                                    <a href="{{pf['url']}}"></a>
-                                        <i class="bi bi-web"></i>
-                                    </a>
-                                {% endif %}
-                                {% if pf.gurl %}
-                                    <a href="{{pf['gurl']}}"></a>
-                                        <i class="bi bi-github"></i>
-                                    </a>
-                                {% endif %}
-                                {% if pf.url %}
-                                    <a href="{{pf['ytube']}}"></a>
-                                        <i class="bi bi-youtube"></i>
-                                    </a>
-                                {% endif %}
+                                <div class="pp">
+                                    {% if pf.url %}
+                                        <a href="{{pf['url']}}"></a>
+                                            <i class="bi bi-web"></i>
+                                        </a>
+                                    {% endif %}
+                                    {% if pf.gurl %}
+                                        <a href="{{pf['gurl']}}"></a>
+                                            <i class="bi bi-github"></i>
+                                        </a>
+                                    {% endif %}
+                                    {% if pf.url %}
+                                        <a href="{{pf['ytube']}}"></a>
+                                            <i class="bi bi-youtube"></i>
+                                        </a>
+                                    {% endif %}
 
-                                <span>{pf['name']}</span>
-                                <span>{{pf['description']}}</span>
-                                <span>{{pf['date']}}</span>
+                                    <span>{{pf['name']}}</span>
+                                    {% if pf['description'] != "none" %}
+                                        <span>{{pf['description']}}</span>
+                                    {% endif %}
+                                    <span>{{pf['date']}}</span>
+                                </div>
                             {% endfor %}
 
                         </nav>
-                    </div>
                 
                 {% endif %}
             </section>
