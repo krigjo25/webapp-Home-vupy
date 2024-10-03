@@ -93,6 +93,8 @@ class TestDatabase:
         api = GithubApi()
         api.updateDatabase('test_fkh-ps.db', 'git_pro')
         api.updateDatabase('test_fkh-ps.db', 'git_pro')
+
+        
         
 
 

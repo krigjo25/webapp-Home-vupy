@@ -259,6 +259,12 @@ class GithubApi(APIConfig):
         if bool(x):
             if table in x[0]['name']:
                 data = sql.select_records(table, 'SELECT')
+                for i in repo:
+                    print(i)
+
+                for i in data:
+                    print(i)
+
                 if repo == data:
                     print(data)
                     raise OperationalError(000)
