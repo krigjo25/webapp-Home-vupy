@@ -28,8 +28,8 @@ class Base():
         
         #   Initialize variables
         row = []
-        column = []
         rows = []
+        column = []
         tmp = ""
 
         if statement.upper() == "INSERT":
@@ -49,7 +49,8 @@ class Base():
                         for i in value:
                             tmp += i
                         
-                        row.append(i)
+                            row.append(i)
+                        print(tmp, row)
                     else:
                         row.append(value)
 
@@ -214,7 +215,6 @@ class GithubApi(APIConfig):
         self.API_KEY = KEY
         self.API_URL = URL
         self.head = {'Content-Type': 'application/json','Authorization': f"{self.API_KEY}"}
-
         return
 
     def fetch_repos(self):
@@ -249,62 +249,40 @@ class GithubApi(APIConfig):
 
     def updateDatabase(self, db:str, table:str):
 
+        #   Initializing the data
+        data = {}
         columns = []
         sql = SQL(db)
-
         repo = self.fetch_repos()
+        tables = sql.select_records('sqlite_master', 'SELECT')
 
-        x = sql.cur.execute('SELECT name FROM sqlite_master;').fetchall()
+        if tables:
+            if table in tables[0]['name']:
 
-        if bool(x):
-            if table in x[0]['name']:
-                data = sql.select_records(table, 'SELECT')
-                if repo == data:
-                    print(repo)
-                    return
-                
-                
-                for j in range(len(repo)):
+                data = sql.select_records(table, 'SELECT', ('name', 'description', 'url', 'lang', 'owner', 'date'))
+                if len(repo) != len(data):
+                        sql.insert_into_table(table, repo)
 
-                    for k in range(len(repo[j]['lang'])):
-                        
-                        if repo[j]['lang'][k] not in columns:
-                            columns.append(repo[j]['lang'][k])
-
-                    columns.sort()
-
-                    sql.insert_into_table(table, repo)
-        
         else:
-            query = {}
-                    
-            for i in range(len(repo)):
-
-                for key, lang in repo[i].items():
-
-                    if key not in columns:
-                        columns.append(key)
-            if "id" not in columns: columns.append("id")
+           #    Initializing columns
+            columns = [key for key in repo[0].keys()]
 
             for i in range(len(columns)):
 
                 #   Ensure the columns not equal date nor id
+                
+                if not "id" in columns:
+                    data["id"] = 'INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT'
+    
                 if 'date' == columns[i]:
-                    query[columns[i]] = 'DATE NOT NULL DEFAULT CURRENT_DATE'
-
-                elif columns[i] == 'id':
-                    query[columns[i]] = 'INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT'
-
+                    data[columns[i]] = 'INTEGER NOT NULL DEFAULT CURRENT_DATE'
+            
                 else:
-                    query[columns[i]] = "TEXT NOT NULL"
+                    data[columns[i]] = "TEXT NOT NULL DEFAULT 'None'"
 
-            columns = query
-            sql.TableConfigurations(table, "CREATE", columns=columns)
-
-                  
-            del query
+            sql.TableConfigurations(table, "CREATE", columns=data)
 
         #   Sweep data
-        del columns, repo
+        del columns, repo, data
 
         return 

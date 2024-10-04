@@ -28,8 +28,8 @@ class Base():
         
         #   Initialize variables
         row = []
-        column = []
         rows = []
+        column = []
         tmp = ""
 
         if statement.upper() == "INSERT":
@@ -49,7 +49,8 @@ class Base():
                         for i in value:
                             tmp += i
                         
-                        row.append(i)
+                            row.append(i)
+                        print(tmp, row)
                     else:
                         row.append(value)
 
@@ -214,7 +215,6 @@ class GithubApi(APIConfig):
         self.API_KEY = KEY
         self.API_URL = URL
         self.head = {'Content-Type': 'application/json','Authorization': f"{self.API_KEY}"}
-
         return
 
     def fetch_repos(self):
@@ -249,18 +249,19 @@ class GithubApi(APIConfig):
 
     def updateDatabase(self, db:str, table:str):
 
+        #   Initializing the data
         data = {}
-        columns = ["id"]
+        columns = []
         sql = SQL(db)
-
         repo = self.fetch_repos()
+        tables = sql.select_records('sqlite_master', 'SELECT')
 
-        x = sql.select_records('sqlite_master', 'SELECT')
+        if tables:
+            if table in tables[0]['name']:
 
-        if bool(x):
-            if table in x[0]['name']:
-
-                sql.insert_into_table(table, repo)
+                data = sql.select_records(table, 'SELECT', ('name', 'description', 'url', 'lang', 'owner', 'date'))
+                if len(repo) != len(data):
+                        sql.insert_into_table(table, repo)
 
         else:
            #    Initializing columns
@@ -269,14 +270,15 @@ class GithubApi(APIConfig):
             for i in range(len(columns)):
 
                 #   Ensure the columns not equal date nor id
+                
+                if not "id" in columns:
+                    data["id"] = 'INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT'
+    
                 if 'date' == columns[i]:
-                    data[columns[i]] = 'DATE NOT NULL DEFAULT CURRENT_DATE'
-
-                elif columns[i] == 'id':
-                    data[columns[i]] = 'INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT'
-
+                    data[columns[i]] = 'INTEGER NOT NULL DEFAULT CURRENT_DATE'
+            
                 else:
-                    data[columns[i]] = "TEXT NOT NULL"
+                    data[columns[i]] = "TEXT NOT NULL DEFAULT 'None'"
 
             sql.TableConfigurations(table, "CREATE", columns=data)
 
