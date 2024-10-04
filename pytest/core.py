@@ -249,66 +249,38 @@ class GithubApi(APIConfig):
 
     def updateDatabase(self, db:str, table:str):
 
-        columns = []
+        data = {}
+        columns = ["id"]
         sql = SQL(db)
 
         repo = self.fetch_repos()
 
-        x = sql.cur.execute('SELECT name FROM sqlite_master;').fetchall()
+        x = sql.select_records('sqlite_master', 'SELECT')
 
         if bool(x):
             if table in x[0]['name']:
-                data = sql.select_records(table, 'SELECT')
-                for i in repo:
-                    print(i)
 
-                for i in data:
-                    print(i)
+                sql.insert_into_table(table, repo)
 
-                if repo == data:
-                    print(data)
-                    raise OperationalError(000)
-                for j in range(len(repo)):
-
-                    for k in range(len(repo[j]['lang'])):
-                        
-                        if repo[j]['lang'][k] not in columns:
-                            columns.append(repo[j]['lang'][k])
-
-                    columns.sort()
-
-                    sql.insert_into_table(table, repo)
-        
         else:
-            query = {}
-                    
-            for i in range(len(repo)):
-
-                for key, lang in repo[i].items():
-
-                    if key not in columns:
-                        columns.append(key)
-            if "id" not in columns: columns.append("id")
+           #    Initializing columns
+            columns = [key for key in repo[0].keys()]
 
             for i in range(len(columns)):
 
                 #   Ensure the columns not equal date nor id
                 if 'date' == columns[i]:
-                    query[columns[i]] = 'DATE NOT NULL DEFAULT CURRENT_DATE'
+                    data[columns[i]] = 'DATE NOT NULL DEFAULT CURRENT_DATE'
 
                 elif columns[i] == 'id':
-                    query[columns[i]] = 'INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT'
+                    data[columns[i]] = 'INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT'
 
                 else:
-                    query[columns[i]] = "TEXT NOT NULL"
+                    data[columns[i]] = "TEXT NOT NULL"
 
-            columns = query
-            sql.TableConfigurations(table, "CREATE", columns=columns)
-
-                  
-            del query
+            sql.TableConfigurations(table, "CREATE", columns=data)
 
         #   Sweep data
-        del columns, repo
+        del columns, repo, data
 
         return 
