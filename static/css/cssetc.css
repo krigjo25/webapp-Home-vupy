@@ -10,10 +10,10 @@
 }
 
 .pp {
+  margin: 1em;
   display: flex;
   font-size: 3vh;
   flex-wrap: wrap;
-  block-size: 15vh;
   inline-size: 46vh;
   align-items: flex-start;
   border: 1px solid black;
@@ -35,7 +35,7 @@
 .pp details time {
   font-weight: bold;
 }
-.pp div .pro-nav {
+.pp .pro-nav {
   display: flex;
   flex-direction: column;
 }/*# sourceMappingURL=cssetc.css.map */
