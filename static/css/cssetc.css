@@ -1,10 +1,17 @@
+.pp details {
+  user-select: none;
+  margin-inline: 1em;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
 .cnn-ctr {
   text-align: center;
 }
 
 .pp {
   display: flex;
-  font-size: 5vh;
+  font-size: 3vh;
   flex-wrap: wrap;
   block-size: 15vh;
   inline-size: 46vh;
@@ -13,13 +20,22 @@
   justify-content: space-around;
 }
 .pp i {
-  font-size: 6vh;
+  font-size: 3vh;
 }
-.pp span {
-  font-size: 2vh;
-  user-select: none;
+.pp a:link, .pp a:visited {
+  color: inherit;
+}
+.pp details {
+  inline-size: 23vw;
+  font-size: 1.5vw;
+}
+.pp details summary {
   font-weight: bold;
-  margin-inline: 1em;
-  -moz-user-select: none;
-  -webkit-user-select: none;
+}
+.pp details time {
+  font-weight: bold;
+}
+.pp div .nav-pro {
+  display: flex;
+  flex-direction: column;
 }/*# sourceMappingURL=cssetc.css.map */

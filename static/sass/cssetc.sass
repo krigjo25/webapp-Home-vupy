@@ -1,8 +1,14 @@
+
+%userselect
+    user-select: none
+    margin-inline: 1em
+    -moz-user-select: none
+    -webkit-user-select: none  
 .cnn-ctr 
     text-align: center
 .pp
     display: flex
-    font-size: 5vh
+    font-size: 3vh
     flex-wrap: wrap
     block-size: 15vh
     inline-size: 46vh
@@ -11,12 +17,21 @@
     justify-content: space-around
 
     i
-        font-size:6vh
+        font-size:3vh
+    a:link, a:visited
+        color: inherit
 
-    span
-        font-size: 2vh
-        user-select: none
-        font-weight: bold
-        margin-inline: 1em
-        -moz-user-select: none
-        -webkit-user-select: none  
+    details
+        inline-size: 23vw
+        font-size: 1.5vw
+        @extend %userselect
+
+        summary
+            font-weight: bold
+        time
+            font-weight: bold
+
+    div
+        .nav-pro
+            display: flex
+            flex-direction: column

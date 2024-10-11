@@ -101,27 +101,36 @@
                         <nav>
                             {% for pf in portefolio %}
                                 <div class="pp">
-                                    {% if pf.url %}
-                                        <a href="{{pf['url']}}"></a>
-                                            <i class="bi bi-web"></i>
-                                        </a>
-                                    {% endif %}
-                                    {% if pf.gurl %}
-                                        <a href="{{pf['gurl']}}"></a>
-                                            <i class="bi bi-github"></i>
-                                        </a>
-                                    {% endif %}
-                                    {% if pf.url %}
-                                        <a href="{{pf['ytube']}}"></a>
+                                    <div class="pro-nav">
+                                        {% if pf.url %}
+                                            <a href="{{pf['url']}}">
+                                                <i class="bi bi-globe"></i>
+                                            </a>
                                             <i class="bi bi-youtube"></i>
-                                        </a>
-                                    {% endif %}
-
-                                    <span>{{pf['name']}}</span>
+                                        {% endif %}
+                                        {% if pf.gurl %}
+                                            <a href="{{pf['gurl']}}">
+                                                <i class="bi bi-github"></i>
+                                            </a>
+                                        {% endif %}
+                                        {% if pf.yurl %}
+                                            <a href="{{pf['ytube']}}">
+                                                <i class="bi bi-youtube"></i>
+                                            </a>
+                                        {% endif %}
+                                    </div>
                                     {% if pf['description'] != "none" %}
-                                        <span>{{pf['description']}}</span>
+                                        <details>
+                                            <summary>
+                                                {{pf['name']}} <time datatime="{{pf['date']}}">{{pf['date']}}</time>
+                                            
+                                            </summary>
+                                            <p> {{ pf['description']}} </p>
+                                            
+                                        </details>
+                                    {% else %}
+                                        <span>{{pf['name']}} <time datatime="{{pf['date']}}">{{pf['date']}}</time></span>
                                     {% endif %}
-                                    <span>{{pf['date']}}</span>
                                 </div>
                             {% endfor %}
 

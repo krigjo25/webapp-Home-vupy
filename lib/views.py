@@ -23,6 +23,6 @@ class Index(MethodView):
 
 
     def initialize_database(self):
-            i
+
             return GithubApi().updateDatabase('fkh-ps.db', 'git_pro')
 
