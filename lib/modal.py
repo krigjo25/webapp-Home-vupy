@@ -270,7 +270,6 @@ class GithubApi(APIConfig):
             for i in range(len(columns)):
 
                 #   Ensure the columns not equal date nor id
-                
                 if not "id" in columns:
                     data["id"] = 'INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT'
     
