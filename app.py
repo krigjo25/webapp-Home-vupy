@@ -1,8 +1,11 @@
 #   Importing responsories
 import os
+
+import datetime as dt
+from flask import Flask
+from threading import Timer
 from dotenv import load_dotenv
 from flask_session import Session
-from flask import Flask
 
 
 #   Custom libs
@@ -25,7 +28,23 @@ def after_request(response):
     response.headers['Cache-Control'] = "no-cache, no-store, must-revalidate"
     response.headers['Expires'] = 0
     response.headers['Paragma'] = 'no-cache'
+
+    
     return response
 
+@app.before_request
+
+def before_request():
+
+
+    #   Calculating time
+    now = dt.datetime.now()
+    run_at = now + dt.timedelta(days=1)
+    delay = (now - run_at).total_seconds()
+    
+    #   Schedule a task
+    Timer(delay, Index().initialize_database())
+
+    return
 #   Url rules
 app.add_url_rule("/", view_func=Index.as_view(name="index.html"))

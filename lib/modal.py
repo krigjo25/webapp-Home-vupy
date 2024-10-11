@@ -260,6 +260,7 @@ class GithubApi(APIConfig):
             if table in tables[0]['name']:
 
                 data = sql.select_records(table, 'SELECT', ('name', 'description', 'url', 'lang', 'owner', 'date'))
+
                 if len(repo) != len(data):
                         sql.insert_into_table(table, repo)
 
