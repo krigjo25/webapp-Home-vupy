@@ -12,17 +12,14 @@ class Index(MethodView):
     def __init__(self) -> None:
         super().__init__()
 
-    def get(self): return render_template("index.html", portefolio = SQL('fkh-ps.db').select_records('git_pro', 'SELECT'))
+    def get(self): 
+        return render_template("index.html", portefolio = SQL('fkh-ps.db').select_records('git_pro', 'SELECT'))
 
     def post(self): 
 
-        #   Handle post requests
-        for i in request.form:
-             
-             i = str(i)
-             if i == 'Ascending':
-                  pass
-             elif i == "Descending": pass
+        #   Handle post request
+        req = request.form
+        return 
 
 
     def initialize_database(self):

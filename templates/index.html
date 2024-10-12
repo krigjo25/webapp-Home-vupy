@@ -121,11 +121,11 @@
                                     {% if pf['description'] != "none" %}
                                         <details>
                                             <summary>
-                                                {{pf['name']}} <time datatime="{{pf['date']}}">{{pf['date']}}</time>
+                                                {{pf['name']}}
                                             
                                             </summary>
                                             <p> {{ pf['description']}} </p>
-                                            
+                                            <p>Date of creation :<time datatime="{{pf['date']}}"> {{pf['date']}}</time></p>
                                         </details>
                                     {% else %}
                                         <span>{{pf['name']}} <time datatime="{{pf['date']}}">{{pf['date']}}</time></span>

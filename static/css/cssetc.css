@@ -12,15 +12,15 @@
 .pp {
   margin: 1em;
   display: flex;
-  font-size: 3vh;
+  font-size: 1vw;
   flex-wrap: wrap;
-  inline-size: 46vh;
+  inline-size: 29vw;
   align-items: flex-start;
   border: 1px solid black;
   justify-content: space-around;
 }
 .pp i {
-  font-size: 3vh;
+  font-size: 2vw;
 }
 .pp a:link, .pp a:visited {
   color: inherit;
@@ -34,6 +34,9 @@
 }
 .pp details time {
   font-weight: bold;
+}
+.pp details p {
+  font-size: 1vw;
 }
 .pp .pro-nav {
   display: flex;
