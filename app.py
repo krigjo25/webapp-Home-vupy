@@ -10,7 +10,6 @@ from flask_session import Session
 
 #   Custom libs
 from lib.config import DevelopmentConfig
-from lib.modal  import SQL
 from lib.views import Index
 
 
@@ -33,9 +32,7 @@ def after_request(response):
     return response
 
 @app.before_request
-
 def before_request():
-
 
     #   Calculating time
     now = dt.datetime.now()
@@ -46,5 +43,6 @@ def before_request():
     Timer(delay, Index().initialize_database())
 
     return
+
 #   Url rules
-app.add_url_rule("/", view_func=Index.as_view(name="index.html"))
+app.add_url_rule("/", view_func = Index().as_view(name="index.html"))

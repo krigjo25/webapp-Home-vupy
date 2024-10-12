@@ -21,7 +21,6 @@ class Index(MethodView):
         req = request.form
         return 
 
-
     def initialize_database(self):
 
             return GithubApi().updateDatabase('fkh-ps.db', 'git_pro')
