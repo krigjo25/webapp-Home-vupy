@@ -1,6 +1,8 @@
 .venv/
-flask_session/
 __pycache__/
+flask_session/
+.pytest_cache/
+
 .env
 .db
 about.txt
