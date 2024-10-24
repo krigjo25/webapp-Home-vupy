@@ -1,6 +1,6 @@
 {
     "python.testing.pytestArgs": [
-        "pytests"
+        "pytest"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true

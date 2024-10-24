@@ -1,7 +1,7 @@
 import os
 import pytest
 
-from core import SQL, GithubApi
+from core import SQL, InitializeData
 class TestDatabase:
 
     #   Initializie connection
@@ -16,7 +16,8 @@ class TestDatabase:
         """
 
         #   Asserts the name of the database
-        assert os.path.exists('test_database.db')
+        assert os.path.isfile('test_fkh-ps.db')
+        assert os.path.isfile('test_database.db')
 
 
     def test_createTable(self):
@@ -90,9 +91,8 @@ class TestDatabase:
 
     def test_request_database(self):
 
-        api = GithubApi()
-        api.updateDatabase('test_fkh-ps.db', 'git_pro')
-        api.updateDatabase('test_fkh-ps.db', 'git_pro')
+        api = InitializeData()
+        api.initialize_data('test_fkh-ps.db', 'git_pro',)
 
         
         

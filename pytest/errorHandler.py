@@ -3,6 +3,7 @@ class OperationalError(Exception):
 
     error = {
         000:"Dublicated data",
+        100:"Could not establish a connection to the database",
         200:"Table already exists with-in the database",
         404:"Table does not exist in the database",
         500:'Column has to be a type of list',

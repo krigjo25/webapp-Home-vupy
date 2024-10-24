@@ -1,97 +1,127 @@
+#   Importing repositories
 import pytest
+import logging
+from unittest.mock import patch
 from core import GithubApi
-class TestAPI:
+
+class TestGithubAPI:
+
+    """API testing
+        Github : https://api.github.com/"""
     def test_connection(self)-> None:
+        
         """Testing  the connection to the request
             Github : https://api.github.com/user/"""
 
+        #   Initializing Requests module
         api = GithubApi()
-        
-        actual = api.ApiCall(endpoint = f"{api.API_URL}user", head = api.head)
 
-        expected = {
-                    'login': f'krigjo25', 'id': actual['id'], 'node_id': actual['node_id'], 
-                    'avatar_url': actual['avatar_url'], 'gravatar_id': actual['gravatar_id'], 'url': actual['url'],
-                    'html_url': actual['html_url'], 'followers_url': actual['followers_url'], 'following_url': actual['following_url'],
-                    'gists_url': actual['gists_url'], 'starred_url': actual['starred_url'], 'subscriptions_url': actual['subscriptions_url'],
-                    'organizations_url': actual['organizations_url'], 'repos_url': actual['repos_url'], 'events_url': actual['events_url'],
-                    'received_events_url': actual['received_events_url'], 'type': actual['type'], 
-                    'site_admin': actual['site_admin'], 'name': actual['name'], 'company': actual['company'],
-                    'blog': actual['blog'], 'location': actual['location'], 'email': actual['email'],
-                    'hireable':actual['hireable'], 'bio': actual['bio'], 'twitter_username': actual['twitter_username'],
-                    'notification_email': actual['notification_email'], 'public_repos': actual['public_repos'],
-                    'public_gists': actual['public_gists'], 'followers': actual['followers'],
-                    'following': actual['following'], 'created_at': actual['created_at'], 'updated_at': actual['updated_at']}
+        #   Actual response from the Api Call
+        response = api.ApiCall(endpoint = f"{api.API_URL}user", head = api.head)
+
+        #   Initializing the expected response
+        mock_response = {
+                    'login': f'krigjo25', 'id': response['id'], 'node_id': response['node_id'], 
+                    'avatar_url': response['avatar_url'], 'gravatar_id': response['gravatar_id'], 
+                    'url': response['url'], 'html_url': response['html_url'], 'followers_url': response['followers_url'], 
+                    'following_url': response['following_url'], 'gists_url': response['gists_url'],
+                    'starred_url': response['starred_url'], 'subscriptions_url': response['subscriptions_url'],
+                    'organizations_url': response['organizations_url'], 'repos_url': response['repos_url'], 
+                    'events_url': response['events_url'], 'received_events_url': response['received_events_url'],
+                    'type': response['type'], 'site_admin': response['site_admin'], 'name': response['name'],
+                    'company': response['company'], 'blog': response['blog'], 'location': response['location'], 
+                    'email': response['email'], 'hireable':response['hireable'], 'bio': response['bio'],
+                    'twitter_username': response['twitter_username'], 'notification_email': response['notification_email'],
+                    'public_repos': response['public_repos'], 'public_gists': response['public_gists'],
+                    'followers': response['followers'], 'following': response['following'], 
+                    'created_at': response['created_at'], 'updated_at': response['updated_at'], 'user_view_type': response['user_view_type']}
+
         #   Testing the connection response
-        assert expected == actual
+        assert mock_response == response, "Connection failed"
 
-    def test_fetch_repos(self)-> None:
+    #@patch("core.GithubApi.ApiCall")
+    def test_fetchRepos(self)-> None:
         """Testing  fetch_repos
             Github api : https://api.github.com/user/repos"""
 
         #   Initializing Requests module
         api = GithubApi()
 
-        #   Our actual response from the Api Call
-        actual = api.ApiCall(endpoint = f"{api.API_URL}user/repos", head = api.head)
+        #   Actual response from the Api Call
+        response = api.ApiCall(endpoint = f"{api.API_URL}user/repos", head = api.head)
 
-        for i in range(len(actual)):
+        array = [i['name'] for i in response]
+        mock_response = []
+        for i in response:
 
-            #
-            expected =  {
-                            "id": actual[i]['id'], "node_id": actual[i]['node_id'], "name": actual[i]['name'], "full_name": actual[i]['full_name'],
-                            "owner": { 
-                                "login": actual[i]['owner']['login'], "id": actual[i]['owner']['id'], 
-                                "node_id": actual[i]['owner']['node_id'], "avatar_url": actual[i]['owner']['avatar_url'], 
-                                "gravatar_id": actual[i]['owner']['gravatar_id'],"url": actual[i]['owner']['url'],
-                                "html_url": actual[i]['owner']['html_url'], "followers_url": actual[i]['owner']['followers_url'],
-                                "following_url": actual[i]['owner']['following_url'], "gists_url": actual[i]['owner']['gists_url'], 
-                                "starred_url": actual[i]['owner']['starred_url'], "subscriptions_url": actual[i]['owner']['subscriptions_url'], 
-                                "organizations_url": actual[i]['owner']['organizations_url'], "repos_url": actual[i]['owner']['repos_url'], 
-                                "events_url": actual[i]['owner']['events_url'], "received_events_url": actual[i]['owner']['received_events_url'], 
-                                "type": actual[i]['owner']['type'], "site_admin": actual[i]['owner']['site_admin']},
-                            
-                            "private": actual[i]['private'], "html_url": actual[i]['html_url'], 
-                            "description": actual[i]['description'], "fork": actual[i]['fork'], 
-                            "url": actual[i]['url'], "archive_url": actual[i]['archive_url'],
-                            "assignees_url": actual[i]['assignees_url'], "blobs_url": actual[i]['blobs_url'],
-                            "branches_url": actual[i]['branches_url'], "collaborators_url": actual[i]['collaborators_url'], 
-                            "comments_url": actual[i]['comments_url'],  "commits_url": actual[i]['commits_url'],
-                            "compare_url": actual[i]['compare_url'], "contents_url": actual[i]['contents_url'], 
-                            "contributors_url": actual[i]['contributors_url'], "deployments_url": actual[i]['deployments_url'],
-                            "downloads_url": actual[i]['downloads_url'], "events_url": actual[i]['events_url'],
-                            "forks_url": actual[i]['forks_url'], "git_commits_url": actual[i]['git_commits_url'],
-                            "git_refs_url": actual[i]['git_refs_url'], "git_tags_url": actual[i]['git_tags_url'], 
-                            "git_url": actual[i]['git_url'], 'has_discussions': actual[i]['has_discussions'],
-                            "issue_comment_url": actual[i]['issue_comment_url'], "issue_events_url": actual[i]['issue_events_url'],
-                            "issues_url": actual[i]['issues_url'], "keys_url": actual[i]['keys_url'],
-                            "labels_url": actual[i]['labels_url'],"languages_url": actual[i]['languages_url'],
-                            "merges_url": actual[i]['merges_url'], "milestones_url": actual[i]['milestones_url'],
-                            "notifications_url": actual[i]['notifications_url'], "pulls_url": actual[i]['pulls_url'],
-                            "releases_url": actual[i]['releases_url'], "ssh_url": actual[i]['ssh_url'],
-                            "stargazers_url": actual[i]['stargazers_url'], "statuses_url": actual[i]['statuses_url'],
-                            "subscribers_url": actual[i]['subscribers_url'], "subscription_url": actual[i]['subscription_url'],
-                            "tags_url": actual[i]['tags_url'], "teams_url": actual[i]['teams_url'],
-                            "trees_url": actual[i]['trees_url'], "clone_url": actual[i]['clone_url'],
-                            "mirror_url": actual[i]['mirror_url'], "hooks_url": actual[i]['hooks_url'],
-                            "svn_url": actual[i]['svn_url'], "homepage": actual[i]['homepage'],
-                            "license": actual[i]['license'], "language": actual[i]['language'], 
-                            "forks_count": actual[i]['forks_count'], "forks": actual[i]['forks'],
-                            "stargazers_count": actual[i]['stargazers_count'], "watchers_count": actual[i]['watchers_count'],
-                            "watchers": actual[i]['watchers'], "size": actual[i]['size'],
-                            "default_branch": actual[i]['default_branch'], "open_issues_count": actual[i]['open_issues_count'],
-                            "open_issues": actual[i]['open_issues'], "is_template": actual[i]['is_template'],
-                            "topics": [ i for i in actual[i]['topics']], "has_issues": actual[i]['has_issues'],
-                            "has_projects": actual[i]['has_projects'], "has_wiki": actual[i]['has_wiki'],
-                            "has_pages": actual[i]['has_pages'], "has_downloads": actual[i]['has_downloads'],
-                            "archived": actual[i]['archived'], "disabled": actual[i]['disabled'],
-                            "visibility": actual[i]['visibility'], "pushed_at": actual[i]['pushed_at'],
-                            "created_at": actual[i]['created_at'], "updated_at": actual[i]['updated_at'],
-                            'web_commit_signoff_required': actual[i]['web_commit_signoff_required'], 'allow_forking':actual[i]['allow_forking'],
-                            "permissions": {
-                                "pull": actual[i]['permissions']['pull'], "push": actual[i]['permissions']['push'],
-                                "admin": actual[i]['permissions']['admin'], 'maintain':actual[i]['permissions']['maintain'],
-                                'triage':actual[i]['permissions']['triage']}
-                        }
-        assert actual[i] == expected
+            #   Initializing the expected response
+            mock_response.append(
+                {
+                    "id": i['id'], "node_id": i['node_id'], "name": i['name'], "full_name": i['full_name'],
+                    "owner": 
+                    { 
+                        "login": i['owner']['login'], "id": i['owner']['id'], 
+                        "node_id": i['owner']['node_id'], "avatar_url": i['owner']['avatar_url'], 
+                        "gravatar_id": i['owner']['gravatar_id'], "url": i['owner']['url'],
+                        "html_url": i['owner']['html_url'], "followers_url": i['owner']['followers_url'],
+                        "following_url": i['owner']['following_url'], "gists_url": i['owner']['gists_url'], 
+                        "starred_url": i['owner']['starred_url'], "subscriptions_url": i['owner']['subscriptions_url'], 
+                        "organizations_url": i['owner']['organizations_url'], "repos_url": i['owner']['repos_url'], 
+                        "events_url": i['owner']['events_url'], "received_events_url": i['owner']['received_events_url'], 
+                        "type": i['owner']['type'], "site_admin": i['owner']['site_admin'],
+                        'user_view_type': "public",
+                    },     
+                    "private": i['private'], "html_url": i['html_url'], 
+                    "description": i['description'], "fork": i['fork'], 
+                    "url": i['url'], "archive_url": i['archive_url'],
+                    "assignees_url": i['assignees_url'], "blobs_url": i['blobs_url'],
+                    "branches_url": i['branches_url'], "collaborators_url": i['collaborators_url'], 
+                    "comments_url": i['comments_url'],  "commits_url": i['commits_url'],
+                    "compare_url": i['compare_url'], "contents_url": i['contents_url'], 
+                    "contributors_url": i['contributors_url'], "deployments_url": i['deployments_url'],
+                    "downloads_url": i['downloads_url'], "events_url": i['events_url'],
+                    "forks_url": i['forks_url'], "git_commits_url": i['git_commits_url'],
+                    "git_refs_url": i['git_refs_url'], "git_tags_url": i['git_tags_url'], 
+                    "git_url": i['git_url'], 'has_discussions': i['has_discussions'],
+                    "issue_comment_url": i['issue_comment_url'], "issue_events_url": i['issue_events_url'],
+                    "issues_url": i['issues_url'], "keys_url": i['keys_url'],
+                    "labels_url": i['labels_url'],"languages_url": i['languages_url'],
+                    "merges_url": i['merges_url'], "milestones_url": i['milestones_url'],
+                    "notifications_url": i['notifications_url'], "pulls_url": i['pulls_url'],
+                    "releases_url": i['releases_url'], "ssh_url": i['ssh_url'],
+                    "stargazers_url": i['stargazers_url'], "statuses_url": i['statuses_url'],
+                    "subscribers_url": i['subscribers_url'], "subscription_url": i['subscription_url'],
+                    "tags_url": i['tags_url'], "teams_url": i['teams_url'],
+                    "trees_url": i['trees_url'], "clone_url": i['clone_url'],
+                    "mirror_url": i['mirror_url'], "hooks_url": i['hooks_url'],
+                    "svn_url": i['svn_url'], "homepage": i['homepage'],
+                    "license": i['license'], "language": i['language'], 
+                    "forks_count": i['forks_count'], "forks": i['forks'],
+                    "stargazers_count": i['stargazers_count'], "watchers_count": i['watchers_count'],
+                    "watchers": i['watchers'], "size": i['size'],
+                    "default_branch": i['default_branch'], "open_issues_count": i['open_issues_count'],
+                    "open_issues": i['open_issues'], "is_template": i['is_template'],
+                    "topics": [ i for i in i['topics']], "has_issues": i['has_issues'],
+                    "has_projects": i['has_projects'], "has_wiki": i['has_wiki'],
+                    "has_pages": i['has_pages'], "has_downloads": i['has_downloads'],
+                    "archived": i['archived'], "disabled": i['disabled'],
+                    "visibility": i['visibility'], "pushed_at": i['pushed_at'],
+                    "created_at": i['created_at'], "updated_at": i['updated_at'],
+                    'web_commit_signoff_required': i['web_commit_signoff_required'], 
+                    'allow_forking':i['allow_forking'], 
+
+                    "permissions": 
+                    {
+                        "pull": i['permissions']['pull'], "push": i['permissions']['push'],
+                        "admin": i['permissions']['admin'], 'maintain':i['permissions']['maintain'],
+                        'triage':i['permissions']['triage']}
+                    }
+            )
+        
+        #   Mocking the fetch_repos response
+        #mock_calls.return_value = mock_response
+        print(response[0])
+
+        #   Testing the fetch_repos response
+        assert response == mock_response, "Response does not match the expected response"
         return
