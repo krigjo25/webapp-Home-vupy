@@ -117,10 +117,6 @@ class TestGithubAPI:
                         'triage':i['permissions']['triage']}
                     }
             )
-        
-        #   Mocking the fetch_repos response
-        #mock_calls.return_value = mock_response
-        print(response[0])
 
         #   Testing the fetch_repos response
         assert response == mock_response, "Response does not match the expected response"

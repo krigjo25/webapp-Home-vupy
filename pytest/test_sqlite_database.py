@@ -1,7 +1,8 @@
 import os
 import pytest
 
-from core import SQL, InitializeData
+from core import SQL, InitializeData, GithubApi
+
 class TestDatabase:
 
     #   Initializie connection
@@ -14,6 +15,9 @@ class TestDatabase:
             Ensuring the sql database is created.
             Testing sqlite connection
         """
+        #   Initialize the database
+        SQL(database='test_database.db')
+        SQL(database='test_fkh-ps.db')
 
         #   Asserts the name of the database
         assert os.path.isfile('test_fkh-ps.db')
@@ -42,7 +46,6 @@ class TestDatabase:
         #   Sweep Data
         del mock, actual
 
-        return
 
 
     def test_insertdata(self):
@@ -56,7 +59,7 @@ class TestDatabase:
                 {'data':'Sometext', 'data1':'image.jpg', 'data2':2.0}]
 
         #   Insert the values into the table 
-        self.sql.insert_into_table(self.table, data)
+        self.sql.initialize_records(self.table, data)
 
         #   Prepare test
         actual = self.sql.select_records(self.table, 'SELECT', columns=('data', 'data1', 'data2'))
@@ -92,9 +95,7 @@ class TestDatabase:
     #   Up for review
     def test_request_database(self):
 
-        api = InitializeData()
-        api.initialize_data('test_fkh-ps.db', 'git_pro',)
-
+        GithubApi().fetch_repos()
         
         
 

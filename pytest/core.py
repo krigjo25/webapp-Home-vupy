@@ -53,7 +53,6 @@ class Base():
                             tmp += i
                         
                             row.append(i)
-                        print(tmp, row)
                     else:
                         row.append(value)
 
@@ -64,7 +63,8 @@ class Base():
 
             query = f"{statement} INTO {table}{tuple(column)} VALUES("
  
-            for i in range(len(column)): query+= "?," if i+1 < len(column) else "?);"
+            for i in range(len(column)): 
+                query+= "?," if i+1 < len(column) else f"?) ON CONFLICT (name) DO UPDATE SET name=excluded.name;"
 
         elif statement.upper() == "SELECT":
 
@@ -129,6 +129,7 @@ class SQL(Base):
             except Exception as e: 
                 logging.error(f"An error occured while trying to connect to the database: {e}")
                 raise OperationalError(100)
+
             #   Initializing the cursor
             self.cur = self.conn.cursor()
             self.cur.row_factory = self.dict_factory
@@ -173,7 +174,7 @@ class SQL(Base):
             return
         
         #   Inserting values into a table
-        def insert_into_table(self, table:str, data:list):
+        def initialize_records(self, table:str, data:list):
 
             try:
 
@@ -200,7 +201,9 @@ class SQL(Base):
         def select_records(self, table:str, statement:str, columns:Tuple[str] = ("*",)):
             return self.cur.execute(self.configure_columns(table, statement, columns)).fetchall()
 
-class APIConfig():
+class APIConfig(object):
+
+
     def __init__(self, URL, KEY=None, GET = "GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE'):
         self.GET = GET
         self.POST = POST
@@ -222,7 +225,6 @@ class APIConfig():
         except (HTTPError, ConnectionError, Timeout, RequestException) as e: 
             logging.error(f"An error occured while attempting to call the api{e}")
 
-
 class GithubApi(APIConfig):
 
     def __init__(self, URL="https://api.github.com/", GET="GET", POST="POST", PUT='PUT', PATCH='PATCH', DELETE='DELETE', KEY=os.getenv('GITHUB_TOKEN')):
@@ -243,8 +245,6 @@ class GithubApi(APIConfig):
             Fetching the repositories
             API : https://api.github.com/
         """
-        #   Create a connection to github
-        response = self.ApiCall(f"{self.API_URL}user/repos", head=self.head)
         #   Fetch repo languages
         def fetch_languages(repo: list, parse: str):
 
@@ -259,25 +259,31 @@ class GithubApi(APIConfig):
             return
 
          #   Intializing a list
+        
+        #   Initialize an API call
+        response = self.ApiCall(f"{self.API_URL}user/repos", head=self.head)
+        
+        #   Initialize a list
         repo = []
 
         for i in range(len(response)):
+
             #   Structure the items from github
             repo += [{"name":response[i]['name'], "description":str(response[i]['description']), "url":response[i]['html_url'], 'owner':response[i]['owner']['login'], 'lang':"", 'date':response[i]['created_at']}]
             
             #   Fetch repo languages
             fetch_languages(repo, f"{self.API_URL}/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
 
-        return repo
-class InitializeData:
+        InitializeData('test_fkh-ps.db').upsertData('test_poitegr', repo)
 
-    def __init__(self, db: str, table: str, API: GithubApi):
+class InitializeData():
+
+    def __init__(self, db: str):
         self.sql = SQL(db)
         self.tables = self.sql.select_records('sqlite_master', 'SELECT')
-        self.api = API
 
 
-    def initialize_data(self, db: str, table: str, repo: list):
+    def upsertData(self, table: str, repo: list):
 
         """
             Initializing the data by fetching the repositories from the API
@@ -292,36 +298,22 @@ class InitializeData:
             #   Ensure that the repo is a list
             if not isinstance(repo, list): 
                 raise SyntaxError('Repo has to be a list')
-        
+
         except SyntaxError as e:
             logging.error(f"An error occured while trying to initialize the data: {e}")
             raise SyntaxError(e)
         
-        #   Initializing the data
+        #   Initializing variables
         data = {}
         columns = []
-        repo = self.api.fetch_repos()
 
         #   Ensure the existance of the table
         if table in [i['name'] for i in self.tables]:
-            self.sql.insert_into_table(table, repo)
-    
-    def updateData(self, repo: list, data: dict):
-        """
-            Update the data in the database
-        """
+            self.sql.initialize_records(table, repo)
 
-        try:
-
-            #   Ensure that the repo is a list
-            if not isinstance(repo, list): raise SyntaxError('Repo has to be a list')
-            
-            #   Ensure that data is a dictionary
-            if not isinstance(data, dict):raise SyntaxError('Data has to be a dictionary')
-        
-        except SyntaxError as e:
-            logging.error(f"An error occured while trying to update the data: {e}")
-            raise SyntaxError(e)
+        else:
+            self.create_table(table, repo)
+            self.sql.initialize_records(table, repo)
 
     def create_table(self, table: str, repo: list):
 
@@ -338,14 +330,17 @@ class InitializeData:
             for column in columns:
 
                 #   Ensure that the id is not in columns
-                if not "id" in columns:
+                if "id" not in columns:
                     data["id"] = 'INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT'
                 
                 #   Ensure that the column is a date
                 if 'date' == column:
                     data[column] = "INTEGER NOT NULL DEFAULT (strftime('%s', 'now')"
+                
+                if column == 'name':
+                    data[column] = "TEXT NOT NULL UNIQUE"
             
                 else:
                     data[column] = "TEXT NOT NULL DEFAULT 'None'"
-
+            print(data)
             self.sql.TableConfigurations(table, "CREATE", columns=data)
