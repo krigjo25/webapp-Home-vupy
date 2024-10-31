@@ -43,11 +43,6 @@ class TestDatabase:
         #   Test the data
         assert self.table in actual
 
-        #   Sweep Data
-        del mock, actual
-
-
-
     def test_insertdata(self):
         """
             Creating a dataset for the test,
@@ -67,8 +62,6 @@ class TestDatabase:
         #   Test
         assert actual == data
 
-        #   Sweep Memory
-        del data,actual
         return
 
     def test_selectRecord(self):

@@ -15,7 +15,11 @@ from errorHandler import OperationalError
 from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestException
 
 #   Configuring the logger
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', handlers=[logging.FileHandler("app.log"), logging.StreamHandler()])
+logging.basicConfig(
+    level=logging.DEBUG, 
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', 
+    handlers=[logging.FileHandler("app.log"), 
+              logging.StreamHandler()])
 class Base():
 
     """ Base: What would includes in several databases"""
@@ -64,8 +68,7 @@ class Base():
             query = f"{statement} INTO {table}{tuple(column)} VALUES("
  
             for i in range(len(column)): 
-                query+= "?," if i+1 < len(column) else f"?) ON CONFLICT (name) DO UPDATE SET name=excluded.name;"
-
+                query+= "?," if i+1 < len(column) else f"?);"
         elif statement.upper() == "SELECT":
 
             for i in range(len(columns)):
@@ -117,6 +120,7 @@ class SQL(Base):
 
         def __init__(self, database: str): 
             super().__init__(database)
+            self.database = database
 
             #   Establishing a connection to the database
             try:
@@ -180,18 +184,23 @@ class SQL(Base):
 
                 #   Initializing tables
                 tables = [i['name'] for i in self.cur.execute('SELECT name FROM sqlite_master').fetchall()]
-            
+
 
                 #   Ensure that table exists
-                if table not in tables: 
+                if table not in tables:
                     logging.error(f"{table} Not found in {tables}")
                     raise OperationalError(404)
+                else:
+                    sqlData = self.select_records(table, 'SELECT')
+                    if sqlData == data:
+                        print(data)
                 
                 if not isinstance(data, list): 
                     raise SyntaxError('accepts only lists as argument')
 
-            except sqlite3.Error as e:
+            except (sqlite3.Error, OperationalError) as e:
                 logging.error(f"An error occured while attempting to insert data into the table: {e}")
+            
             #   Initialize query
             query = self.configure_columns(table, 'INSERT', data)
             #   Execute query

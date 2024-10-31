@@ -1,7 +1,7 @@
 import os
 import pytest
 
-from core import SQL, GithubApi
+from core import SQL, InitializeData, GithubApi
 from errorHandler import OperationalError
 class TestDBExceptions:
 
@@ -58,7 +58,7 @@ class TestDBExceptions:
         with pytest.raises(OperationalError) as e:
 
             #   Call function to raise
-            GithubApi().updateDatabase(db =db, table= table)
+            InitializeData.upsertData(table= table, repo= GithubApi().fetch_repos())
             
         
         assert expected == f"{e.value}"
