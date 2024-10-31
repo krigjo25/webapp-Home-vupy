@@ -53,12 +53,12 @@ class TestDBExceptions:
         db = 'test_fkh-ps.db'
         table = 'git_pro'
         expected = f"Table already exists with-in the database"
-
+        print( GithubApi().fetch_repos())
         #   Raise duplication Error
         with pytest.raises(OperationalError) as e:
 
             #   Call function to raise
-            InitializeData.upsertData(table= table, repo= GithubApi().fetch_repos())
+            InitializeData(db = db).upsertData(table= table, repo= GithubApi().fetch_repos())
             
         
         assert expected == f"{e.value}"

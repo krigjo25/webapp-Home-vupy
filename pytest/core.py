@@ -190,10 +190,6 @@ class SQL(Base):
                 if table not in tables:
                     logging.error(f"{table} Not found in {tables}")
                     raise OperationalError(404)
-                else:
-                    sqlData = self.select_records(table, 'SELECT')
-                    if sqlData == data:
-                        print(data)
                 
                 if not isinstance(data, list): 
                     raise SyntaxError('accepts only lists as argument')
@@ -203,8 +199,9 @@ class SQL(Base):
             
             #   Initialize query
             query = self.configure_columns(table, 'INSERT', data)
+
             #   Execute query
-            self.cur.executemany(query[0],query[1])
+            self.cur.executemany(query[0], query[1])
             self.conn.commit()
         
         def select_records(self, table:str, statement:str, columns:Tuple[str] = ("*",)):
@@ -318,7 +315,12 @@ class InitializeData():
 
         #   Ensure the existance of the table
         if table in [i['name'] for i in self.tables]:
-            self.sql.initialize_records(table, repo)
+            pass
+            #   Ensure that the data is not in the table
+
+            #sqlData = self.sql.select_records(table, 'SELECT')
+            
+            #self.sql.initialize_records(table, repo)
 
         else:
             self.create_table(table, repo)
