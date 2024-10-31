@@ -209,7 +209,6 @@ class SQL(Base):
 
 class APIConfig(object):
 
-
     def __init__(self, URL, KEY=None, GET = "GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE'):
         self.GET = GET
         self.POST = POST
@@ -280,7 +279,7 @@ class GithubApi(APIConfig):
             #   Fetch repo languages
             fetch_languages(repo, f"{self.API_URL}/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
 
-        InitializeData('test_fkh-ps.db').upsertData('test_poitegr', repo)
+        InitializeData('test_fkh-ps.db').upsertData(os.getenv("github_table"), repo)
 
 class InitializeData():
 
@@ -319,6 +318,7 @@ class InitializeData():
             #   Ensure that the data is not in the table
 
             #sqlData = self.sql.select_records(table, 'SELECT')
+            #print(sqlData)
             
             #self.sql.initialize_records(table, repo)
 

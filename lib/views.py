@@ -1,9 +1,15 @@
-#   Import responsories
-from lib.modal import GithubApi
+import os
+from dotenv import load_dotenv
+
+from lib.model import GithubApi
 from flask.views import MethodView
 from flask import render_template, request, flash
 
-from lib.modal import SQL
+from lib.model import SQL
+
+#   Load environment variables
+load_dotenv()
+
 class Index(MethodView):
 
     #   Initialize methods and database
@@ -13,7 +19,8 @@ class Index(MethodView):
         super().__init__()
 
     def get(self): 
-        return render_template("index.html", portefolio = SQL('fkh-ps.db').select_records('git_pro', 'SELECT'))
+        
+        return render_template("index.html", portefolio = SQL(os.getenv("database")).select_records(os.getenv("github_table"), 'SELECT'))
 
     def post(self): 
 
@@ -23,5 +30,5 @@ class Index(MethodView):
 
     def initialize_database(self):
 
-            return GithubApi().updateDatabase('fkh-ps.db', 'git_pro')
+            return GithubApi().fetch_repos()
 

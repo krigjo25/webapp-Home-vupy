@@ -1,6 +1,9 @@
 #   Importing repositories
-import os, json, sqlite3
-import logging, requests
+import os
+import sqlite3
+import logging
+import requests
+from typing import Optional,Tuple
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -11,18 +14,22 @@ from lib.errorHandler import OperationalError
 #   Requests repositories
 from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestException
 
+#   Configuring the logger
+logging.basicConfig(
+    level=logging.DEBUG, 
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', 
+    handlers=[logging.FileHandler("app.log"), 
+              logging.StreamHandler()])
 class Base():
 
     """ Base: What would includes in several databases"""
-    def __init__(self, database:str, port:int | int=None, host:str | str=None):
+    def __init__(self, database: str, port: Optional[int] = None, host: Optional[str] = None):
 
         self.host = host
         self.port = port
         self.db = database
         self.statements = ['CREATE', "ALTER", 'DROP', 'INSERT', 'SELECT']
 
-        del host, database, port
-        return
     
     def configure_columns(self,  table:str, statement:str, columns:list | tuple):
         
@@ -50,7 +57,6 @@ class Base():
                             tmp += i
                         
                             row.append(i)
-                        print(tmp, row)
                     else:
                         row.append(value)
 
@@ -61,8 +67,8 @@ class Base():
 
             query = f"{statement} INTO {table}{tuple(column)} VALUES("
  
-            for i in range(len(column)): query+= "?," if i+1 < len(column) else "?);"
-
+            for i in range(len(column)): 
+                query+= "?," if i+1 < len(column) else f"?);"
         elif statement.upper() == "SELECT":
 
             for i in range(len(columns)):
@@ -105,34 +111,37 @@ class Base():
 
         return query
 
-    #   Adapted from documentations
-    def dict_factory(self, cursor, row):
-        columns = [column[0] for column in cursor.description]
-        return {key: value for key, value in zip(columns, row)}
-    
-    #   Delete rows / table / database
-    def delete_row(self, table:str, column:str, value:str): return self.cur.execute(f"DELETE FROM {table} WHERE {column} = {value};")
-    def drop_table(self, table:str): return self.cur.execute(f'DROP table IF EXISTS {table}')
-    def drop_database(self, db:str): return self.cur.execute(f'DROP DATABASE IF EXISTS {self.db}')  
-
 class SQL(Base):
 
-        def __init__(self, database:str, port:int | int=None, host:str | str=None): 
-            super().__init__(database, port, host)
-        
-            #   Establish the connection to the database
+        def __init__(self, database: str): 
+            super().__init__(database)
+            self.database = database
+
+            #   Establishing a connection to the database
             try:
-
+                
                 self.conn = sqlite3.connect(self.db)
-                if not self.conn: raise Exception('Could not establish a connection to the database')
 
-            except Exception as e: return e
+                #   Ensure that the connection is established
+                if not self.conn: raise OperationalError(100)
 
-            #   Initializing the sqlite cursor
+            except Exception as e: 
+                logging.error(f"An error occured while trying to connect to the database: {e}")
+                raise OperationalError(100)
+
+            #   Initializing the cursor
             self.cur = self.conn.cursor()
             self.cur.row_factory = self.dict_factory
+            logging.info(f"Connection to {self.db} established")
+        
+        def dict_factory(self, cursor, row):
 
-            return print('Established connection to the Database')
+            """
+                #   Adopted from the sqlite3 documentation
+                #   Converts the row from a tuple into a dictionary
+            """
+            columns = [column[0] for column in cursor.description]
+            return {key: value for key, value in zip(columns, row)}
 
         def TableConfigurations(self, table:str, statement:str, columns:dict): 
 
@@ -140,11 +149,18 @@ class SQL(Base):
             tables = [i['name'] for i in self.select_records('sqlite_master', 'SELECT')]
 
             #   Ensure that table does not exists and statements is a known keyword
-            if statement.upper() not in self.statements: raise OperationalError(404)
-            if table in tables and statement == 'CREATE': raise OperationalError(200)
+            if statement.upper() not in self.statements:
+                logging.error(f"Unknown statement: {statement}")
+                raise OperationalError(404)
+
+            if table in tables and statement == 'CREATE':
+                logging.error(f"Table {table} already exists")
+                raise OperationalError(200)
 
             #   Initialize the query
             query = self.configure_table(table, statement, columns)
+            logging.info(f"Executing query: {query}")
+
 
             #   Query execution
             self.cur.execute(query)
@@ -157,29 +173,38 @@ class SQL(Base):
             return
         
         #   Inserting values into a table
-        def insert_into_table(self, table:str, data:list):
+        def initialize_records(self, table:str, data:list):
 
-            #   Initializing tables
-            tables = [i['name'] for i in self.cur.execute('SELECT name FROM sqlite_master').fetchall()]
+            try:
 
-            #   Ensure that table exists
-            if table not in tables: raise OperationalError(404)
-            if not isinstance(data, list): raise SyntaxError('accepts only lists as argument')
+                #   Initializing tables
+                tables = [i['name'] for i in self.cur.execute('SELECT name FROM sqlite_master').fetchall()]
 
+
+                #   Ensure that table exists
+                if table not in tables:
+                    logging.error(f"{table} Not found in {tables}")
+                    raise OperationalError(404)
+                
+                if not isinstance(data, list): 
+                    raise SyntaxError('accepts only lists as argument')
+
+            except (sqlite3.Error, OperationalError) as e:
+                logging.error(f"An error occured while attempting to insert data into the table: {e}")
+            
             #   Initialize query
             query = self.configure_columns(table, 'INSERT', data)
-            #   Execute query
-            self.cur.executemany(query[0],query[1])
-            self.conn.commit()
 
-            #   Sweep Memory
-            del query, tables, table, data
-            return
+            #   Execute query
+            self.cur.executemany(query[0], query[1])
+            self.conn.commit()
         
-        def select_records(self, table:str, statement:str, columns:tuple | tuple = tuple("*")):
+        def select_records(self, table:str, statement:str, columns:Tuple[str] = ("*",)):
             return self.cur.execute(self.configure_columns(table, statement, columns)).fetchall()
 
-class APIConfig():
+class APIConfig(object):
+
+
     def __init__(self, URL, KEY=None, GET = "GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE'):
         self.GET = GET
         self.POST = POST
@@ -195,13 +220,11 @@ class APIConfig():
         """
         try:
             r = requests.get(f"{endpoint}", timeout=30, headers=head)
-
             if r.status_code in [200, 201]: return r.json()
-            elif r.status_code in [401, 403]: return json.dumps({"Error": "Encountered an AUTHORIZATION Error"})
-            
+            elif r.status_code in [401, 403]: raise ConnectionError('Unauthorized Access')
+            elif r.status_code in [404]: raise HTTPError('Resource not found')
         except (HTTPError, ConnectionError, Timeout, RequestException) as e: 
-            logging.error(e)
-        return
+            logging.error(f"An error occured while attempting to call the api{e}")
 
 class GithubApi(APIConfig):
 
@@ -215,14 +238,14 @@ class GithubApi(APIConfig):
         self.API_KEY = KEY
         self.API_URL = URL
         self.head = {'Content-Type': 'application/json','Authorization': f"{self.API_KEY}"}
+       
         return
 
     def fetch_repos(self):
-        
-
-        #   Create a connection to github
-        response = self.ApiCall(f"{self.API_URL}user/repos", head=self.head)
-        
+        """
+            Fetching the repositories
+            API : https://api.github.com/
+        """
         #   Fetch repo languages
         def fetch_languages(repo: list, parse: str):
 
@@ -237,52 +260,71 @@ class GithubApi(APIConfig):
             return
 
          #   Intializing a list
+        
+        #   Initialize an API call
+        response = self.ApiCall(f"{self.API_URL}user/repos", head=self.head)
+        
+        #   Initialize a list
         repo = []
 
         for i in range(len(response)):
+
             #   Structure the items from github
             repo += [{"name":response[i]['name'], "description":str(response[i]['description']), "url":response[i]['html_url'], 'owner':response[i]['owner']['login'], 'lang':"", 'date':response[i]['created_at']}]
             
             #   Fetch repo languages
             fetch_languages(repo, f"{self.API_URL}/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
-        return repo
 
-    def updateDatabase(self, db:str, table:str):
+        InitializeData(os.getenv('database')).upsertData(os.getenv('github_table'), repo)
 
-        #   Initializing the data
+class InitializeData():
+
+    def __init__(self, db: str):
+        self.sql = SQL(db)
+        self.tables = self.sql.select_records('sqlite_master', 'SELECT')
+
+
+    def upsertData(self, table: str, repo: list):
+
+        """
+            Initializing the data by fetching the repositories from the API
+            and Ensures the database is up to date
+        """
+        
+        #   Initializing variables
         data = {}
         columns = []
-        sql = SQL(db)
-        repo = self.fetch_repos()
-        tables = sql.select_records('sqlite_master', 'SELECT')
+        self.create_table(table, repo)
+        self.sql.initialize_records(table, repo)
 
-        if tables:
-            if table in tables[0]['name']:
+    def create_table(self, table: str, repo: list):
 
-                data = sql.select_records(table, 'SELECT', ('name', 'description', 'url', 'lang', 'owner', 'date'))
+            """
+                Creates a table and insert data into the table
+            """
+            #   Initializing the data
+            data = {}
+            columns = []
 
-                if len(repo) != len(data):
-                        sql.insert_into_table(table, repo)
-
-        else:
-           #    Initializing columns
+            #    Initializing columns
             columns = [key for key in repo[0].keys()]
 
-            for i in range(len(columns)):
+            for column in columns:
 
-                #   Ensure the columns not equal date nor id
-                if not "id" in columns:
+                #   Ensure that the id is not in columns
+                if "id" not in columns:
                     data["id"] = 'INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT'
-    
-                if 'date' == columns[i]:
-                    data[columns[i]] = 'INTEGER NOT NULL DEFAULT CURRENT_DATE'
+                
+                #   Ensure that the column is a date
+                if 'date' == column:
+                    data[column] = "INTEGER NOT NULL DEFAULT (strftime('%s', 'now')"
+                
+                if column == 'name':
+                    data[column] = "TEXT NOT NULL UNIQUE"
             
                 else:
-                    data[columns[i]] = "TEXT NOT NULL DEFAULT 'None'"
+                    data[column] = "TEXT NOT NULL DEFAULT 'None'"
 
-            sql.TableConfigurations(table, "CREATE", columns=data)
-
-        #   Sweep data
-        del columns, repo, data
-
-        return 
+            #   Create table
+            print(data)
+            self.sql.TableConfigurations(table, "CREATE", columns=data)

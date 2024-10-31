@@ -9,8 +9,10 @@ from flask_session import Session
 
 
 #   Custom libs
-from lib.config import DevelopmentConfig
 from lib.views import Index
+from lib.model import GithubApi
+from lib.config import DevelopmentConfig
+
 
 
 load_dotenv()
@@ -33,15 +35,7 @@ def after_request(response):
 
 @app.before_request
 def before_request():
-
-    #   Calculating time
-    now = dt.datetime.now()
-    run_at = now + dt.timedelta(days=1)
-    delay = (now - run_at).total_seconds()
     
-    #   Schedule a task
-    Timer(delay, Index().initialize_database())
-
     return
 
 #   Url rules
