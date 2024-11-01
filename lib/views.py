@@ -20,15 +20,11 @@ class Index(MethodView):
 
     def get(self): 
         
-        return render_template("index.html", portefolio = SQL(os.getenv("database")).select_records(os.getenv("github_table"), 'SELECT'))
+        return render_template("index.html", portefolio = GithubApi().fetch_repos())
 
     def post(self): 
 
         #   Handle post request
         req = request.form
         return 
-
-    def initialize_database(self):
-
-            return GithubApi().fetch_repos()
 
