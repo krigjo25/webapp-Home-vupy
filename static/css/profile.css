@@ -32,7 +32,7 @@ main article div.img-container {
   flex-wrap: wrap;
   block-size: 100%;
   inline-size: 100%;
-  align-content: center;
+  align-content: flex-start;
   flex-direction: column;
   justify-content: center;
 }
