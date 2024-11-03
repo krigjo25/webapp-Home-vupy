@@ -17,28 +17,61 @@ function main()
         }  
         else if (app[i].app === "bio")
         {
-            app[i].id.innerHTML += /*HTML*/ ` 
-            ${about(app[i])}`;
+            app[i].id.innerHTML = /*HTML*/ ` 
+            ${about(app[i])}
+            ${biography(app[i])}`;
         }
     }
 }
 
 function about(arg)
 {
-    console.log(arg);
-    arg.id.innerHTML = /*HTML*/`
-    <h2>${arg.name}</h2>
-    <span class="time">
-        written by @krigjo25 , but formulated by 
-        Google's Gimini. read time 
-        ${arg.time}
-        <i class="bi bi-stop-watch"></i>
-    </span>
-    <div class="grid-container">
-        <p class="grid-item">${arg.message}</p>
-        <p class="grid-item">${arg.message1}</p>
-        <p class="grid-item">${arg.message2}</p>
-    </div>`;
+    let html = /*HTML*/`
+    <div class="bio-container">
+        <div class="bio-links">`;
+
+    for (let i = 0; i < arg.links.length; i++)
+    {
+        html += /*HTML*/`
+            <button class="bio-link" onclick='biography(event, "${arg.links[i].name}"')>
+                <i class="${arg.links[i].icon}"></i> 
+                ${arg.links[i].name}
+            </button>`;
+    }
+    
+    html += /*HTML*/`
+        </div>`;
+    return html
+}
+
+function biography(arg)
+{
+    return /*HTML*/`
+    <div class="bio-container">
+    <div class="bio-links">
+    </div>
+</div>
+
+<h2>${arg.name}</h2>
+<span class="time">
+    written by @krigjo25 , but formulated using
+    Artifical Intelligence read time  ${arg.time} minutes
+    <i class="bi bi-stop-watch"></i>
+</span>
+<div class="grid-container">
+    <div class="grid-item">
+        <h3>${arg.title}</h3>
+        <p>${arg.message}</p>
+    </div>
+    <div class="grid-item">
+        <h3>${arg.title}</h3>
+        <p>${arg.message1}</p>
+    </div>
+    <div class="grid-item">
+        <h3>${arg.title}</h3>
+        <p>${arg.message2}</p>
+    </div>
+</div>`;
 }
 function carosel(arg)
 {

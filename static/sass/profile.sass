@@ -40,8 +40,10 @@ main
             flex-wrap: wrap
             block-size: 100%
             inline-size: 100%
+            align-items: center
             flex-direction: row
-
+            justify-content: center
+            
             div.img-btn
                 z-index: 1
                 bottom: 69vh
@@ -70,6 +72,17 @@ main
                 padding: 1vw
                 font-size: 5vw
 
+        div#bio
+            margin-left: 10vw
+
+        div.grid-container
+            display: grid
+            grid-template-columns: repeat(auto-fill, minmax(13vw, 1fr))
+            grid-gap: 1em
+
+        .grid-item
+            inline-size: 14vw
+            
         .btn-links a:visited, btn-links a:link
             
             text-decoration: none

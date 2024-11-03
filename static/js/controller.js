@@ -86,17 +86,21 @@ function biography()
         {
             if (bio[i].name == "profile")
             {
+                toTitleCase(arg.title);
                 profile(structure);
             }
         }
 
         else if (bio[i].name == "journey")
         {
+            toTitleCase(arg.title);
             journey();
         }
 
-        else
+        else if (bio[i].name == "about")
         {
+
+            
             bio[i].message = `
             Colleagues and peers consistently acknowledge my
             dedication to current projects and my ability to be
@@ -117,17 +121,36 @@ function biography()
         bio.msg2 = `About me`;
         bio.time = time_calculations(bio[i].message);
         }
+        else {
+            return `<h2>${arg.name}</h2>
+            <span class="time">
+                written by @krigjo25 , but formulated using
+                Artifical Intelligence read time  ${arg.time} minutes
+                <i class="bi bi-stop-watch"></i>
+            </span>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <h3>${arg.title}</h3>
+                    <p>${arg.message}</p>
+                </div>
+                <div class="grid-item">
+                    <h3>${arg.title}</h3>
+                    <p>${arg.message1}</p>
+                </div>
+                <div class="grid-item">
+                    <h3>${arg.title}</h3>
+                    <p>${arg.message2}</p>
+                </div>
+            </div>`;
+        }
     }
-
-    main();
 }
 
 function journey(arg)
 {
-    for (let i = 0; i < bio.length; i++)
-    {
-        bio[i].title = "The Journey So Far";
-        bio[i].msg =`
+
+        arg.title = "The Journey So Far";
+        arg.msg =`
             My journey into coding began in my teens when I discovered HTML
             and CSS. Joining the SitePoint community fueled my passion for
             web development, and I was introduced to JavaScript. While I
@@ -139,24 +162,27 @@ function journey(arg)
             complex projects and continue growing as a developer.
             `;
 
-        bio[i].msg1 = `
+        arg.msg1 = `
             As a getAcademy student, I am dedicated to continuous learning
             and growth. I am available for part-time work and seeking a
             challenging role where I can apply my academic knowledge and gain
             practical experience under the mentorship of Industry expertise.`;
 
-        bio.msg2 = `
+        arg.msg2 = `
         I'm interested in joining a team that prioritizes continuous learning,
         mentorship, and Agile practices. His ideal career path involves
         progressing to a Senior Data Scientist position within an innovative
         and collaborative environment.`;
-    }
+
     arg.time = time_calculations(arg.message);
 }
 
 function profile(arg)
 {
+    arg.title = toTitleCase(arg.title);
+    
     arg.message = /*HTML*/`
+    
         <h2>Professional profile</h2>
         <h2>Kristoffer Gjøsund</h2>
         <h3>Python & SQL Alchemist</h3> 
@@ -182,5 +208,18 @@ function profile(arg)
             <h3>Python engineering:</h3>
             <h3>Database Management:</h3>
             <h3>Frontend development:</h3>`;
+
     arg.time = time_calculations(arg.message);
+    
 }
+
+function toTitleCase(str) {
+   
+   /* 
+    Adapted from: https://stackoverflow.com/questions/196972/convert-string-to-title-case-with-javascript
+   */
+    return str.replace(
+      /\w\S*/g,
+      text => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
+    );
+  }

@@ -17,12 +17,41 @@ const model =
             },
             {
                 app: "bio",
+                links: [
+                    {
+                        icon: "bi bi-github",
+                        name: "profile",
+                    },
+                    {
+                        icon: "bi bi-github",
+                        name: "journey",
+                    },
+                    {
+                        icon: "bi bi-github",
+                        name: "about",
+                    }
+                ],
                 id: document.getElementById("bio"),
                 name: "profile",
                 time: null,
-                message: null,
-                message1: null,
-                message2: null,
+                title: ["Kristoffer Gjøsund", "Professional profile"],
+                message: `
+                    My ideal lifestyle involves a balance between the passion 
+                    of technology and wellness. I dedicate my free time to coding,
+                    meditation, and physical activity and I am always looking for
+                    new challenges / adventures.`,
+                
+                message1:`
+                    As Developer i prefer to organize my code with comments, 
+                    to give out a greater understanding of the code which is
+                    written, I also prefer to organize my code with a
+                    documentation for a greater understanding of the project.
+                    My process of development includes a lot of simplicity at
+                    first, then I optimize the code for a better performance.
+                    Through my journey as a developer, I have learned that the
+                    best way to ensure the quality for the code is through test
+                    frameworks.`,
+                message2:``,
             },
 
         ],

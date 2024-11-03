@@ -35,7 +35,9 @@ main article div.img-container {
   flex-wrap: wrap;
   block-size: 100%;
   inline-size: 100%;
+  align-items: center;
   flex-direction: row;
+  justify-content: center;
 }
 main article div.img-container div.img-btn {
   z-index: 1;
@@ -62,6 +64,17 @@ main article nav.ext-bar {
 main article nav.ext-bar span {
   padding: 1vw;
   font-size: 5vw;
+}
+main article div#bio {
+  margin-left: 10vw;
+}
+main article div.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13vw, 1fr));
+  grid-gap: 1em;
+}
+main article .grid-item {
+  inline-size: 14vw;
 }
 main article .btn-links a:visited, main article btn-links a:link {
   text-decoration: none;
