@@ -7,6 +7,7 @@ const model =
 {
     apps:[
             {
+                app: "carosel",
                 name: "carosel",
                 path: "static/img/carosel/",
                 source: "20240903_165612.jpg",
@@ -16,7 +17,9 @@ const model =
             },
             {
                 app: "bio",
+                id: document.getElementById("bio"),
                 name: "profile",
+                time: null,
                 message: null,
                 message1: null,
                 message2: null,
