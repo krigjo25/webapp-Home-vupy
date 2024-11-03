@@ -16,12 +16,15 @@ main article nav.ext-bar {
   display: flex;
   flex-wrap: wrap;
 }
+main article div#carosel {
+  inline-size: 29vw;
+}
 main article div#carosel img.css-img {
   block-size: 100vh;
 }
 main article div#carosel div.caption {
   z-index: 1;
-  bottom: 3vh;
+  bottom: 10vh;
   display: flex;
   color: #fefefe;
   position: relative;
@@ -32,9 +35,7 @@ main article div.img-container {
   flex-wrap: wrap;
   block-size: 100%;
   inline-size: 100%;
-  align-content: flex-start;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
 }
 main article div.img-container div.img-btn {
   z-index: 1;
@@ -45,11 +46,9 @@ main article div.img-container div.img-btn {
   justify-content: space-between;
 }
 main article div.img-container div.img-btn button.prev-btn, main article div.img-container div.img-btn button.next-btn {
-  opacity: 0.1;
   border: none;
   font-size: 2vw;
   cursor: pointer;
-  color: #fefefe;
   background-color: transparent;
 }
 main article div.img-container div.img-btn button.prev-btn:hover, main article div.img-container div.img-btn button.next-btn:hover {

@@ -20,16 +20,20 @@ main
             flex-wrap: wrap
 
         div#carosel
+            inline-size: 29vw
+
             img.css-img
                 block-size: 100vh
+
             div.caption
                 
                 z-index: 1
-                bottom: 3vh
+                bottom: 10vh
                 display: flex
                 color: #fefefe
                 position: relative
                 justify-content: center
+
                 
         div.img-container
             display: flex
@@ -37,7 +41,6 @@ main
             block-size: 100%
             inline-size: 100%
             flex-direction: row
-            justify-content: center
 
             div.img-btn
                 z-index: 1
@@ -48,11 +51,11 @@ main
                 justify-content: space-between
 
                 button.prev-btn, button.next-btn
-                    opacity: 0.1
+                    //opacity: 0.3
                     border: none
                     font-size: 2vw
                     cursor: pointer
-                    color: #fefefe
+                    //color: #fefefe
                     background-color: transparent
 
                 button.prev-btn:hover, button.next-btn:hover
