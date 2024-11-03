@@ -7,22 +7,34 @@ function startTimer()
 
 function next()
 {
-    //  Initializing src attribute
-        //  Linear algorithm0
-        
-    for(let i = 0; i < sources.length; i++)
+    //  Initializing variables
+    let app = model.apps;
+    let sources = model.sources;
+
+    //  Linear algorithme
+    for (let i = 0; i < app.length; i++)
     {
-        //  Ensure the src has the image with-in
-        let src = app[0].app.children[0].src;
-        if (src.includes(sources[i].src))
+        //  Ensure the id is carosel
+        if (app[i].name == "carosel")
         {
-            //  Update variables
-            app[0].alt = i + 1 > 2 ? sources[0].alt : sources[i+1].alt;
-            app[0].caption = i + 1 > 2 ? sources[0].caption : sources[i+1].caption;
-            app[0].source = i + 1 > 2 ? app[0].path + sources[0].src : app[0].path + sources[i+1].src;
-            
+            console.log(app[i].id.children[0].src);
+            //  Initialize src attribute
+            let src = app[i].id.children[0].src;
+            for(let j = 0; j < sources.length; j++)
+            {
+                //  Ensure the src has the image within
+                if (src.includes(sources[j].src))
+                {
+                    console.log(sources[j].src, j, sources.length, src);
+                    //  Update variables
+                    app[i].alt = j + 1 > 2 ? sources[0].alt : sources[j+1].alt;
+                    app[i].caption = j + 1 > 2 ? sources[0].caption : sources[j+1].caption;
+                    app[i].source = j + 1 > 2 ? sources[0].src : sources[j+1].src;
+                }
+            }
         }
     }
+    console.log(app[0].caption);
 
     clearInterval(timer);
     startTimer();
@@ -31,25 +43,40 @@ function next()
 
 function prev()
 {
-    //  Initializing src attribute
-    let src = app[0].app.children[0].src;
-    
+    //  Initializing variables
+   let app = model.apps;
+    let sources = model.sources;
+
     //  Linear algorithme
-    for(let i = sources.length - 1; i >= 0; i--)
+   for (let i = 0; i < app.length; i++)
     {
-        //  Ensure the src has the image with-in
-        if (src.includes(sources[i].src))
-        {
-            //  Update object
-            app[0].alt = i - 1 >= 0 ? sources[i-1].alt : sources[sources.length -1].alt;
-            app[0].caption = i - 1 >= 0 ? sources[i-1].caption : sources[sources.length -1].caption;
-            app[0].source = i - 1 >= 0 ? app[0].path + sources[i-1].src : app[0].path + sources[sources.length -1].src;
+       //  Ensure the id is carosel
+        if (app[i].name == "carosel")
+       {
+            console.log(app[i].id.children[0].src);
+                
+            //  Initialize src attribute
+            let src = app[i].id.children[0].src;
+        
+            for(let j = 0; j < sources.length; j++)
+            {
+
+                //  Ensure the src has the image with-in
+                if (src.includes(sources[j].src))
+                {
+                    //  Update variables
+                      app[i].alt = j - 1 >= 0 ? sources[2].alt : sources[j-1].alt;
+                      app[i].caption = j - 1 < 0 ? sources[2].caption : sources[j-1].caption;
+                      app[i].source = j - 1 < 0 ? sources[2].src : sources[j-1].src;
+                }
+            }
         }
     }
-
     clearInterval(timer);
     startTimer();
     main();
+   
+    
 }
 
 function journey()
