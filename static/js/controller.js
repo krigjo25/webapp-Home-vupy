@@ -2,7 +2,7 @@
 startTimer();
 function startTimer()
 {
-    timer = setInterval(next, 5000);
+    timer = setInterval(next, 100000);
 }
 
 function next()
@@ -14,26 +14,25 @@ function next()
     //  Linear algorithme
     for (let i = 0; i < app.length; i++)
     {
-        //  Ensure the id is carosel
+        //  Ensure the name is carosel
         if (app[i].name == "carosel")
         {
-            //  Initialize src attribute
+            //  Initialize current image src
             let src = app[i].id.children[0].src;
+
             for(let j = 0; j < sources.length; j++)
             {
-                //  Ensure the src has the image within
+                //  Ensure the path points to the image 
                 if (src.includes(sources[j].src))
                 {
-                    console.log(sources[j].src, j, sources.length, src);
-                    //  Update variables
-                    app[i].alt = j + 1 > sources.length-1 ? sources[0].alt : sources[j+1].alt;
-                    app[i].caption = j + 1 > sources.length-1 ? sources[0].caption : sources[j+1].caption;
-                    app[i].source = j + 1 > sources.length-1 ? sources[0].src : sources[j+1].src;
+                    //  Update variables with next media
+                    app[i].alt = (j + 1 > sources.length-1) ? sources[0].alt : sources[j+1].alt;
+                    app[i].caption = (j + 1 > sources.length-1) ? sources[0].caption : sources[j+1].caption;
+                    app[i].source = (j + 1 > sources.length-1) ? sources[0].src : sources[j+1].src;
                 }
             }
         }
     }
-    console.log(app[0].caption);
 
     clearInterval(timer);
     startTimer();
@@ -43,30 +42,29 @@ function next()
 function prev()
 {
     //  Initializing variables
-   let app = model.apps;
+    let app = model.apps;
     let sources = model.sources;
 
     //  Linear algorithme
    for (let i = 0; i < app.length; i++)
     {
-       //  Ensure the id is carosel
+    
+       //  Ensure the app is carosel
         if (app[i].name == "carosel")
        {
-            console.log(app[i].id.children[0].src);
                 
-            //  Initialize src attribute
+            //  Initialize current image src
             let src = app[i].id.children[0].src;
         
             for(let j = 0; j < sources.length; j++)
             {
-
-                //  Ensure the src has the image with-in
+                //  Ensure the src points to the image
                 if (src.includes(sources[j].src))
                 {
                     //  Update variables
-                      app[i].alt = j - 1 < 0 ? sources[2].alt : sources[j-1].alt;
-                      app[i].caption = j - 1 < 0 ? sources[2].caption : sources[j-1].caption;
-                      app[i].source = j - 1 < 0 ? sources[2].src : sources[j-1].src;
+                      app[i].alt = (j - 1  < 0) ? sources[sources.length-1].alt : sources[j-1].alt;
+                      app[i].caption = (j - 1 < 0) ? sources[sources.length-1].caption : sources[j-1].caption;
+                      app[i].source = (j - 1 < 0) ? sources[sources.length-1].src : sources[j-1].src;
                 }
             }
         }
@@ -80,12 +78,16 @@ function prev()
 
 function biography()
 {
-
+    //  Initializing the app
+    let bio = model.apps;
     for (let i = 0; i < bio.length; i++)
     {
-        if (bio[i].name == "profile")
+        if (bio[i].app == "bio")
         {
-            profile();
+            if (bio[i].name == "profile")
+            {
+                profile(structure);
+            }
         }
 
         else if (bio[i].name == "journey")
@@ -113,13 +115,14 @@ function biography()
             leverage a network of developers and online resources.`;
 
         bio.msg2 = `About me`;
+        bio.time = time_calculations(bio[i].message);
         }
     }
 
     main();
 }
 
-function journey()
+function journey(arg)
 {
     for (let i = 0; i < bio.length; i++)
     {
@@ -148,12 +151,12 @@ function journey()
         progressing to a Senior Data Scientist position within an innovative
         and collaborative environment.`;
     }
-    main();
+    arg.time = time_calculations(arg.message);
 }
 
-function profile()
+function profile(arg)
 {
-    bio[i].message=/*HTML*/`
+    arg.message = /*HTML*/`
         <h2>Professional profile</h2>
         <h2>Kristoffer Gjøsund</h2>
         <h3>Python & SQL Alchemist</h3> 
@@ -179,4 +182,5 @@ function profile()
             <h3>Python engineering:</h3>
             <h3>Database Management:</h3>
             <h3>Frontend development:</h3>`;
+    arg.time = time_calculations(arg.message);
 }
