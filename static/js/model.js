@@ -15,9 +15,13 @@ const model =
                 id: document.getElementById("carosel"),
             },
             {
-                app: "tabs",
+                app: "bio",
                 name: "profile",
+                message: null,
+                message1: null,
+                message2: null,
             },
+
         ],
     sources:
         [
