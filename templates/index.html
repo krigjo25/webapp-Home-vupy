@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block main %}
             <article id='about-kristoffer'>
-
                 <div id="carosel-container" class="img-container">      
                     <div id="carosel">
                     </div>
@@ -13,7 +12,23 @@
                         </button>
                         <button id ="prev-btn" class="prev-btn" onclick="prev()"><i class="bi bi-arrow-right-square-fill"></i>
                         </button>
-                    </div>                 
+                    </div>
+                    <div id="kake">
+                            <h2>Kristoffer Gjøsund</h2>
+                            <h3>Back-end Developer</h3>
+                            <p>
+                                My ideal lifestyle involves a balance between the passion of technology and wellness.
+                                I dedicate my free time to coding, meditation, and physical activity and 
+                                I am always looking for new challenges / adventures.
+                            </p>
+                            <p>
+                                As Developer i prefer to organize my code with comments, to give out a greater understanding of the code which is written,
+                                I also prefer to organize my code with a documentation for a greater understanding of the project.
+
+                                My process of development includes a lot of simplicity at first, then I optimize the code for a better performance.
+                                Through my journey as a developer, I have learned that the best way to ensure the quality for the code is through test frameworks.
+                            </p>
+                    </div>            
                 </div>
                 <nav class='ext-bar'>
                     <a href='#contact-me'>
@@ -30,6 +45,24 @@
                         <span>                           
                             <i class="bi bi-github"></i>
                         </span>
+                    </a>
+                </nav>
+                <nav>
+                    <h2> Kristoffer Gjøsund</h2>
+                    <a href="#journey">
+                        <div class="btn-links" onclick="journey()">
+                            <h3>The Journey</h3> 
+                        </div> 
+                    </a>
+                    <a href="#profiles">
+                        <div class="btn-links" onclick="profile()">
+                            <h3>Personal & Work Profile</h3> 
+                        </div> 
+                    </a>
+                    <a href="#personal">
+                        <div class="btn-links" onclick="biography()">
+                            <h3>About me</h3> 
+                        </div> 
                     </a>
                 </nav>
                 <div id="bio"></div>
