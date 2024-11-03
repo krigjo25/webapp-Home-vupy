@@ -17,7 +17,6 @@ function next()
         //  Ensure the id is carosel
         if (app[i].name == "carosel")
         {
-            console.log(app[i].id.children[0].src);
             //  Initialize src attribute
             let src = app[i].id.children[0].src;
             for(let j = 0; j < sources.length; j++)
@@ -27,9 +26,9 @@ function next()
                 {
                     console.log(sources[j].src, j, sources.length, src);
                     //  Update variables
-                    app[i].alt = j + 1 > 2 ? sources[0].alt : sources[j+1].alt;
-                    app[i].caption = j + 1 > 2 ? sources[0].caption : sources[j+1].caption;
-                    app[i].source = j + 1 > 2 ? sources[0].src : sources[j+1].src;
+                    app[i].alt = j + 1 > sources.length-1 ? sources[0].alt : sources[j+1].alt;
+                    app[i].caption = j + 1 > sources.length-1 ? sources[0].caption : sources[j+1].caption;
+                    app[i].source = j + 1 > sources.length-1 ? sources[0].src : sources[j+1].src;
                 }
             }
         }
@@ -65,7 +64,7 @@ function prev()
                 if (src.includes(sources[j].src))
                 {
                     //  Update variables
-                      app[i].alt = j - 1 >= 0 ? sources[2].alt : sources[j-1].alt;
+                      app[i].alt = j - 1 < 0 ? sources[2].alt : sources[j-1].alt;
                       app[i].caption = j - 1 < 0 ? sources[2].caption : sources[j-1].caption;
                       app[i].source = j - 1 < 0 ? sources[2].src : sources[j-1].src;
                 }
@@ -77,6 +76,47 @@ function prev()
     main();
    
     
+}
+
+function biography()
+{
+
+    for (let i = 0; i < bio.length; i++)
+    {
+        if (bio[i].name == "profile")
+        {
+            profile();
+        }
+
+        else if (bio[i].name == "journey")
+        {
+            journey();
+        }
+
+        else
+        {
+            bio[i].message = `
+            Colleagues and peers consistently acknowledge my
+            dedication to current projects and my ability to be
+            fully present. As a team member, i demonstrates
+            empathy and a keen understanding of others, fostering a
+            supportive work environment. Known for their positive
+            outlook, he is adept at identifying and leveraging
+            the strengths of colleagues, making them an invaluable
+            asset to the team.`;
+
+        bio[i].message1 = `
+            In my spare time, I primarily focus on enhancing my proficiency
+            in Python libraries, database management, piano, and philosophy.
+            I am dedicated to both improving my weaker areas and further
+            developing my existing strengths. To achieve this, I regularly
+            leverage a network of developers and online resources.`;
+
+        bio.msg2 = `About me`;
+        }
+    }
+
+    main();
 }
 
 function journey()
@@ -113,108 +153,30 @@ function journey()
 
 function profile()
 {
-
-    for (let i = 0; i < bio.length; i++)
-    {
-        bio[i].title = "Profiles";
-        bio[i].msg =/*HTML*/`
+    bio[i].message=/*HTML*/`
         <h2>Professional profile</h2>
-            My programming foundation has been solidified through
-            numerous projects involving Python, frontend development,
-            C, C#, and .NET.
-
-            <h3>Python Projects:</h3>
-
-            <a href="#">
-                <div>
-                    I've developed web applications using frameworks like
-                    Flask and Django.
-                </div>
-            </a>
-            <a href="#">
-                <div>
-                    Discord projects have provided me with a solid understanding of SQLite and API integration.
-                </div>
-            <a href="#">
-                <div>
-                    Data analysis projects have introduced me to the powerful capabilities of NumPy and Pandas.
-                </div>
-            </a>
-
-            <h3>Frontend Development:</h3>
-
-            <a href="#">
-                <div>
-                    I have a strong grasp of HTML, CSS, and JavaScript, enabling me to build dynamic and interactive web applications.
-                    My experience includes building web applications using the MVC architecture.
-                </div>
-            </a>
+        <h2>Kristoffer Gjøsund</h2>
+        <h3>Python & SQL Alchemist</h3> 
+        <p>
+            My ideal lifestyle involves a balance between the passion 
+            of technology and wellness. I dedicate my free time to coding,
+            meditation, and physical activity and I am always looking for
+            new challenges / adventures.
+        </p>
+        <p>
+            As Developer i prefer to organize my code with comments, 
+            to give out a greater understanding of the code which is
+            written, I also prefer to organize my code with a
+            documentation for a greater understanding of the project.
+            My process of development includes a lot of simplicity at
+            first, then I optimize the code for a better performance.
+            Through my journey as a developer, I have learned that the
+            best way to ensure the quality for the code is through test
+            frameworks.
+        </p>
+        
+        <h2>Technical Skills:</h2>
+            <h3>Python engineering:</h3>
             <h3>Database Management:</h3>
-
-            <a href="">
-                <div>
-                    I am proficient in SQL and have applied my knowledge to create database-driven 
-                    applications such as hospital management and library management systems.
-                </div>
-            </a>`;
-
-        bio[i].msg1 = /*HTML*/`
-            <h2> Personal Profile</h2>
-            <p>
-                I'm a dedicated problem-solver with a passion for continuous growth and learning.
-                I thrive in supportive environments and enjoy helping others succeed. My experience
-                caring for my two nephews has instilled in me a strong sense of responsibility and empathy.
-            </p>
-
-            <p> 
-                With a growth mindset and an internal locus of control, I'm always eager to take on new challenges
-                and explore uncharted territory. I'm driven by curiosity and a desire for personal and professional development.
-            <p>
-
-            <p>
-                My goal is to leverage my problem-solving skills and passion for data to pursue a career as a data scientist.
-                I'm excited about the opportunity to contribute to innovative projects and make a meaningful impact.
-            <p>
-            <p>
-                In addition to my professional aspirations, I'm also passionate about philosophy, coding, and playing the
-                piano. These interests allow me to balance my analytical mind with creative pursuits.
-            </p>`;
-
-        bio.msg2 = /*HTML*/`
-            <h2>What work environment do I thrive best in?</h2>
-            <p>
-            I'm interested in joining a team that prioritizes continuous learning,
-                mentorship, and Agile practices. the ideal career path involves
-                progressing to a Senior Data Scientist position within an innovative
-                and collaborative environment.
-            </p>`;
-    }
-    main();
-}
-
-function biography()
-{
-    for (let i = 0; i < bio.length; i++)
-        {
-            bio[i].title = "Self Analysis";
-            bio[i].msg = `
-                Colleagues and peers consistently acknowledge my
-                dedication to current projects and my ability to be
-                fully present. As a team member, i demonstrates
-                empathy and a keen understanding of others, fostering a
-                supportive work environment. Known for their positive
-                outlook, he is adept at identifying and leveraging
-                the strengths of colleagues, making them an invaluable
-                asset to the team.`;
-    
-            bio[i].msg1 = `
-                In my spare time, I primarily focus on enhancing my proficiency
-                in Python libraries, database management, piano, and philosophy.
-                I am dedicated to both improving my weaker areas and further
-                developing my existing strengths. To achieve this, I regularly
-                leverage a network of developers and online resources.`;
-    
-            bio.msg2 = `About me`;
-        }
-    main();
+            <h3>Frontend development:</h3>`;
 }
