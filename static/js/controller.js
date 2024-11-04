@@ -76,72 +76,78 @@ function prev()
     
 }
 
-function biography()
+function biography(arg)
 {
+    console.log(arg);
     //  Initializing the app
     let bio = model.apps;
+
     for (let i = 0; i < bio.length; i++)
     {
+        console.log(bio[i].app);
         if (bio[i].app == "bio")
         {
-            if (bio[i].name == "profile")
+            console.log(bio[i].name);
+            bio[i].name = arg;
+            console.log(bio[i].name);
+
+            if (bio[i].name == 'profile')
             {
-                toTitleCase(arg.title);
+                toTitleCase(bio[i].title);
                 profile(structure);
             }
-        }
-
-        else if (bio[i].name == "journey")
-        {
-            toTitleCase(arg.title);
-            journey();
-        }
-
-        else if (bio[i].name == "about")
-        {
-
-            
-            bio[i].message = `
-            Colleagues and peers consistently acknowledge my
-            dedication to current projects and my ability to be
-            fully present. As a team member, i demonstrates
-            empathy and a keen understanding of others, fostering a
-            supportive work environment. Known for their positive
-            outlook, he is adept at identifying and leveraging
-            the strengths of colleagues, making them an invaluable
-            asset to the team.`;
-
-        bio[i].message1 = `
-            In my spare time, I primarily focus on enhancing my proficiency
-            in Python libraries, database management, piano, and philosophy.
-            I am dedicated to both improving my weaker areas and further
-            developing my existing strengths. To achieve this, I regularly
-            leverage a network of developers and online resources.`;
-
-        bio.msg2 = `About me`;
-        bio.time = time_calculations(bio[i].message);
-        }
-        else {
-            return `<h2>${arg.name}</h2>
-            <span class="time">
-                written by @krigjo25 , but formulated using
-                Artifical Intelligence read time  ${arg.time} minutes
-                <i class="bi bi-stop-watch"></i>
-            </span>
-            <div class="grid-container">
-                <div class="grid-item">
-                    <h3>${arg.title}</h3>
-                    <p>${arg.message}</p>
-                </div>
-                <div class="grid-item">
-                    <h3>${arg.title}</h3>
-                    <p>${arg.message1}</p>
-                </div>
-                <div class="grid-item">
-                    <h3>${arg.title}</h3>
-                    <p>${arg.message2}</p>
-                </div>
-            </div>`;
+            else if (bio[i].name == "journey")
+                {
+                    toTitleCase(arg.title);
+                    journey();
+                }
+        
+                else if (bio[i].name == "about")
+                {
+        
+                    
+                    bio[i].message = `
+                    Colleagues and peers consistently acknowledge my
+                    dedication to current projects and my ability to be
+                    fully present. As a team member, i demonstrates
+                    empathy and a keen understanding of others, fostering a
+                    supportive work environment. Known for their positive
+                    outlook, he is adept at identifying and leveraging
+                    the strengths of colleagues, making them an invaluable
+                    asset to the team.`;
+        
+                bio[i].message1 = `
+                    In my spare time, I primarily focus on enhancing my proficiency
+                    in Python libraries, database management, piano, and philosophy.
+                    I am dedicated to both improving my weaker areas and further
+                    developing my existing strengths. To achieve this, I regularly
+                    leverage a network of developers and online resources.`;
+        
+                bio.msg2 = `About me`;
+                bio.time = time_calculations(bio[i].message);
+                }
+                else {
+                    return `<h2>${arg.name}</h2>
+                    <span class="time">
+                        written by @krigjo25 , but formulated using
+                        Artifical Intelligence read time  ${arg.time} minutes
+                        <i class="bi bi-stop-watch"></i>
+                    </span>
+                    <div class="grid-container">
+                        <div class="grid-item">
+                            <h3>${arg.title}</h3>
+                            <p>${arg.message}</p>
+                        </div>
+                        <div class="grid-item">
+                            <h3>${arg.title}</h3>
+                            <p>${arg.message1}</p>
+                        </div>
+                        <div class="grid-item">
+                            <h3>${arg.title}</h3>
+                            <p>${arg.message2}</p>
+                        </div>
+                    </div>`;
+                }
         }
     }
 }
@@ -175,11 +181,12 @@ function journey(arg)
         and collaborative environment.`;
 
     arg.time = time_calculations(arg.message);
+    main();
 }
 
 function profile(arg)
 {
-    arg.title = toTitleCase(arg.title);
+    //arg.title = toTitleCase(arg.title);
     
     arg.message = /*HTML*/`
     
@@ -210,6 +217,7 @@ function profile(arg)
             <h3>Frontend development:</h3>`;
 
     arg.time = time_calculations(arg.message);
+    main();
     
 }
 
@@ -223,3 +231,11 @@ function toTitleCase(str) {
       text => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
     );
   }
+
+function time_calculations(arg)
+{
+    /*AI generated*/
+    let words = arg.split(" ");
+    let time = Math.round(words.length / 200);
+    return time;
+}

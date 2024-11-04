@@ -18,8 +18,7 @@ function main()
         else if (app[i].app === "bio")
         {
             app[i].id.innerHTML = /*HTML*/ ` 
-            ${about(app[i])}
-            ${biography(app[i])}`;
+            ${about(app[i])}`;
         }
     }
 }
@@ -33,7 +32,7 @@ function about(arg)
     for (let i = 0; i < arg.links.length; i++)
     {
         html += /*HTML*/`
-            <button class="bio-link" onclick='biography(event, "${arg.links[i].name}"')>
+            <button class="bio-link" onclick='biography("${arg.links[i].name}")'>
                 <i class="${arg.links[i].icon}"></i> 
                 ${arg.links[i].name}
             </button>`;
@@ -44,35 +43,6 @@ function about(arg)
     return html
 }
 
-function biography(arg)
-{
-    return /*HTML*/`
-    <div class="bio-container">
-    <div class="bio-links">
-    </div>
-</div>
-
-<h2>${arg.name}</h2>
-<span class="time">
-    written by @krigjo25 , but formulated using
-    Artifical Intelligence read time  ${arg.time} minutes
-    <i class="bi bi-stop-watch"></i>
-</span>
-<div class="grid-container">
-    <div class="grid-item">
-        <h3>${arg.title}</h3>
-        <p>${arg.message}</p>
-    </div>
-    <div class="grid-item">
-        <h3>${arg.title}</h3>
-        <p>${arg.message1}</p>
-    </div>
-    <div class="grid-item">
-        <h3>${arg.title}</h3>
-        <p>${arg.message2}</p>
-    </div>
-</div>`;
-}
 function carosel(arg)
 {
     return  /*HTML*/`
