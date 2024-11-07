@@ -93,13 +93,11 @@ function biography(arg)
 
             if (bio[i].name == 'profile')
             {
-                toTitleCase(bio[i].title);
-                profile(structure);
+                profile(bio[i]);
             }
             else if (bio[i].name == "journey")
                 {
-                    toTitleCase(arg.title);
-                    journey();
+                    journey(bio[i]);
                 }
         
                 else if (bio[i].name == "about")
@@ -186,11 +184,10 @@ function journey(arg)
 
 function profile(arg)
 {
-    //arg.title = toTitleCase(arg.title);
     
     arg.message = /*HTML*/`
     
-        <h2>Professional profile</h2>
+        <h2>Software engineer</h2>
         <h2>Kristoffer Gjøsund</h2>
         <h3>Python & SQL Alchemist</h3> 
         <p>
@@ -200,7 +197,7 @@ function profile(arg)
             new challenges / adventures.
         </p>
         <p>
-            As Developer i prefer to organize my code with comments, 
+            As Application engineer i prefer to organize my code with comments, 
             to give out a greater understanding of the code which is
             written, I also prefer to organize my code with a
             documentation for a greater understanding of the project.

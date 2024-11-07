@@ -39,7 +39,15 @@ function about(arg)
     }
     
     html += /*HTML*/`
+        </div>
+        <div class="bio-content">
+            <h2>${arg.title[0]}</h2>
+            <h3>${arg.title[1]}</h3>
+            <p>${arg.message}</p>
+            <p>${arg.message1}</p>
+            <p>${arg.message2}</p>
         </div>`;
+    
     return html
 }
 

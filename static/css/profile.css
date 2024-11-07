@@ -65,8 +65,11 @@ main article nav.ext-bar span {
   padding: 1vw;
   font-size: 5vw;
 }
-main article div#bio {
+main article div.tab-links {
   margin-left: 10vw;
+}
+main article div.bio-content {
+  inline-size: 50vw;
 }
 main article div.grid-container {
   display: grid;
