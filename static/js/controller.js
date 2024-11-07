@@ -153,28 +153,28 @@ function biography(arg)
 function journey(arg)
 {
 
-        arg.title = "The Journey So Far";
-        arg.msg =`
-            My journey into coding began in my teens when I discovered HTML
-            and CSS. Joining the SitePoint community fueled my passion for
-            web development, and I was introduced to JavaScript. While I
-            explored JavaScript, I found my true calling in back-end
-            development. I chose to specialize in Python and database
+        arg.title[1] = "The Journey So Far";
+        arg.message =`
+            The journey into coding began in my teens when I discovered HTML
+            and CSS. Joining the SitePoint community fueled the passion for
+            software engineering, after a while and I was introduced to JavaScript. While I
+            explored JavaScript, I found an amazing calling in back-end
+            development.I chose to specialize in Python and database
             management, gaining practical experience through Discord projects.
-            To further my education, I am currently studying at getAcademy
-            and CS50 at Harvard. I am excited to apply my skills to more
-            complex projects and continue growing as a developer.
-            `;
+            While prosuing the passion of programming I went to Get Academy vocational school
+            To persue more complex understanding of fullstack development while doing classes at 
+            Harvard University's CS50.I am excited to apply my skills to more
+            complex projects and continue growing as a developer.`;
 
-        arg.msg1 = `
-            As a getAcademy student, I am dedicated to continuous learning
+        arg.message1 = `
+            As a Get Academy student, I am dedicated to continuous learning
             and growth. I am available for part-time work and seeking a
             challenging role where I can apply my academic knowledge and gain
             practical experience under the mentorship of Industry expertise.`;
 
-        arg.msg2 = `
+        arg.message2 = `
         I'm interested in joining a team that prioritizes continuous learning,
-        mentorship, and Agile practices. His ideal career path involves
+        mentorship, and Agile practices. the ideal career path involves
         progressing to a Senior Data Scientist position within an innovative
         and collaborative environment.`;
 
@@ -184,20 +184,12 @@ function journey(arg)
 
 function profile(arg)
 {
-    
-    arg.message = /*HTML*/`
-    
-        <h2>Software engineer</h2>
-        <h2>Kristoffer Gjøsund</h2>
-        <h3>Python & SQL Alchemist</h3> 
-        <p>
+    arg.message = `
             My ideal lifestyle involves a balance between the passion 
             of technology and wellness. I dedicate my free time to coding,
             meditation, and physical activity and I am always looking for
-            new challenges / adventures.
-        </p>
-        <p>
-            As Application engineer i prefer to organize my code with comments, 
+            new challenges / adventures.`;
+    arg.message1 = ` As Application engineer i prefer to organize my code with comments, 
             to give out a greater understanding of the code which is
             written, I also prefer to organize my code with a
             documentation for a greater understanding of the project.
@@ -205,13 +197,8 @@ function profile(arg)
             first, then I optimize the code for a better performance.
             Through my journey as a developer, I have learned that the
             best way to ensure the quality for the code is through test
-            frameworks.
-        </p>
-        
-        <h2>Technical Skills:</h2>
-            <h3>Python engineering:</h3>
-            <h3>Database Management:</h3>
-            <h3>Frontend development:</h3>`;
+            frameworks. `;
+    arg.message2 = `Technical Skills`
 
     arg.time = time_calculations(arg.message);
     main();
