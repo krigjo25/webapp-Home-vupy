@@ -16,13 +16,14 @@ main article nav.ext-bar {
   display: flex;
   flex-wrap: wrap;
 }
-main article div#carosel {
-  inline-size: 29vw;
+main article div.carosel {
+  inline-size: 25vw;
 }
-main article div#carosel img.css-img {
-  block-size: 100vh;
+main article div.carosel img {
+  block-size: 100%;
+  inline-size: 100%;
 }
-main article div#carosel div.caption {
+main article div.carosel div.caption {
   z-index: 1;
   bottom: 10vh;
   display: flex;
@@ -33,15 +34,14 @@ main article div#carosel div.caption {
 main article div.img-container {
   display: flex;
   flex-wrap: wrap;
-  block-size: 100%;
-  inline-size: 100%;
   align-items: center;
   flex-direction: row;
   justify-content: center;
+  align-items: flex-start;
 }
 main article div.img-container div.img-btn {
   z-index: 1;
-  bottom: 69vh;
+  bottom: 38vh;
   display: flex;
   cursor: pointer;
   position: relative;
@@ -53,8 +53,11 @@ main article div.img-container div.img-btn button.prev-btn, main article div.img
   cursor: pointer;
   background-color: transparent;
 }
-main article div.img-container div.img-btn button.prev-btn:hover, main article div.img-container div.img-btn button.next-btn:hover {
+main article div.img-container div.img-btn:hover {
   opacity: 1;
+}
+main article .tab-container {
+  margin-inline: 5em;
 }
 main article nav.ext-bar {
   margin-block-start: 2vh;
@@ -69,7 +72,7 @@ main article div.tab-links {
   margin-left: 10vw;
 }
 main article div.bio-content {
-  inline-size: 50vw;
+  inline-size: 25vw;
 }
 main article div.grid-container {
   display: grid;

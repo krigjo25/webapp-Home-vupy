@@ -185,19 +185,21 @@ function journey(arg)
 function profile(arg)
 {
     arg.message = `
-            My ideal lifestyle involves a balance between the passion 
-            of technology and wellness. I dedicate my free time to coding,
-            meditation, and physical activity and I am always looking for
-            new challenges / adventures.`;
-    arg.message1 = ` As Application engineer i prefer to organize my code with comments, 
-            to give out a greater understanding of the code which is
-            written, I also prefer to organize my code with a
-            documentation for a greater understanding of the project.
-            My process of development includes a lot of simplicity at
-            first, then I optimize the code for a better performance.
-            Through my journey as a developer, I have learned that the
-            best way to ensure the quality for the code is through test
-            frameworks. `;
+            The ideal lifestyle involves a balance between the passion 
+            of technology and wellness. The free time is dedicated to Software developing,
+            meditation, and physical activity and always on the outlook for a
+            new challenge / adventure.`;
+
+    arg.message1 = ` As an Application engineer the software is organized with comments,
+            to give out a greater understanding of the develment which is
+            written, The projects are also orginized  with a documentation.
+            for a greater understanding of the project.
+            The process of development includes a lot of simplicity at
+            first, then Optimizionfor a better performance.
+            Through the journey as a developer, 
+            I have experienced that the best practice to
+            ensure code quality is through test frameworks.`;
+
     arg.message2 = `Technical Skills`
 
     arg.time = time_calculations(arg.message);

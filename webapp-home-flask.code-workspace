@@ -4,5 +4,7 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveSassCompile.settings.forceBaseDirectory": "/webapp-home-flask/static/css",
+	}
 }
