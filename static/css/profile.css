@@ -70,6 +70,7 @@ main article .grid-item {
   inline-size: 14vw;
 }
 main article nav.ext-bar {
+  padding: 1em;
   display: flex;
   flex-wrap: wrap;
   margin-block-start: 2vh;

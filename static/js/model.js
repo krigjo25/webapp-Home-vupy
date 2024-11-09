@@ -107,19 +107,53 @@ const model =
                     },
                     {
                         school: "HavardX",
+                        description: "Skolen for fremtiden",
                         classes: [
-                            {
-                                name: "CS50X",
+                            /*{
+                                name: "Introduction to Computer Science",
                                 link: "",
-                                description: "Introduction to Computer Science, an introductionary course to CS. Developing a comprehensive understanding of the fundamentals In",
+                                diploma: "https://courses.edx.org/certificates/2c5d4f0e9c5d4f4a8c6b3b5b3d9c4c4a",
+                                description: "This is a professional certificate demostrates the experise in CS. Developing a comprehensive understanding of the fundamentals In",
                                 tech:
                                 [
-                                    "Python",
-                                    "Database Management",
-                                    "c", 
-                                    "Algorithms",
+                                    {
+                                        name:"python",
+                                        keywords:
+                                        [
+                                            "Data Structures",
+                                            "Algorithms",
+                                            "SQL",
+                                            "API",
+                                            "Django / Flask",
+
+                                        ],
+                                    },
+                                    {
+                                        name:"Database Management",
+                                        keywords:
+                                        [
+                                            "SQL",
+                                        ],
+                                    },
+                                   {
+                                    name:"c",
+                                    keywords:
+                                    [
+                                        "Data Structures",
+                                        "Algorithms",
+                                    ],
+                                }, 
+                                {
+                                    name:" front-end",
+                                    keywords:
+                                    [
+                                        "HTML",
+                                        "CSS",
+                                        "JavaScript",
+                                    ],
+                                }
                                 ],
-                            },
+                            },*/
                             {
                                 name: "CS50P",
                                 diploma: "https://courses.edx.org/certificates/cc7f7cb258a24538af14c876023cf932",
