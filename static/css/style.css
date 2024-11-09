@@ -4,7 +4,7 @@
 @import url("btrapicons.css");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
-flex-box, header, section, footer {
+flex-box, header, footer, main > section {
   display: flex;
   padding: 1em;
   flex-wrap: wrap;
@@ -12,11 +12,10 @@ flex-box, header, section, footer {
   flex-direction: column;
 }
 
-section:nth-child(even) {
+main > section:nth-child(even) {
   background-color: rgb(254, 254, 254);
 }
-
-section:nth-child(odd) {
+main > section:nth-child(odd) {
   background-color: rgba(231, 234, 253, 0.2);
 }
 
