@@ -26,10 +26,6 @@ const model =
                         icon: "bi bi-github",
                         name: "journey",
                     },
-                    {
-                        icon: "bi bi-github",
-                        name: "about",
-                    }
                 ],
                 id: document.getElementById("bio"),
                 name: "profile",
@@ -55,23 +51,34 @@ const model =
             },
             {
                 app:"specialization",
+                id: document.getElementById("expertise"),
                 classes: 
                 [
                     {
                         school: "GetAcademy",
-                        description: "sdfssdd",
+                        description: "Skolen for fremtiden",
                         link: "https://getacademy.no/",
                         courses: [
                             {
-                                course: "Start IT",
-                                description: "Frontend software development",
-                                skills: 
+                                name: "Start IT",
+                                description: "Front-end software development",
+                                tech:
                                 [
-                                    "HTML",
-                                    "CSS",
-                                    "JavaScript",
-                                    "MVC",
-                                    "Agil practices",
+                                    {
+                                        name:"HTML"
+                                    },
+                                    {
+                                        name:"CSS"
+                                    },
+                                    {
+                                        name:"JavaScript"
+                                    },
+                                    {
+                                        name:"MVC"
+                                    },
+                                    {
+                                        name:"Agil practices"
+                                    },
                                 ],
                             },
                             {
@@ -85,7 +92,7 @@ const model =
                                 ],
                             },
                             {
-                                course: "C# and .NET",
+                                name: "C# and .NET",
                                 description: "Backend software development",
                                 skills: 
                                 [

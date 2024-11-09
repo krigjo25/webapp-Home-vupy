@@ -7,7 +7,35 @@
 //  Variables
 $black: rgba(40, 40, 40, 1)
 
-i
+
+    
+    
+    
+nav
+
+    .ext-bar
+        display: flex
+        flex-wrap: wrap
+        margin-block-start: 2vh
+        justify-content: center
+        border-bottom: 1px groove black
+
+        span 
+            padding: 1vw
+            font-size: 5vw
+            
+        a
+            color: inherit
+            text-decoration: none
+            font-size: 1.5em
+            margin: 0.5em
+            padding: 0.5em
+            border-radius: 50%
+            transition: 0aaaa.5s
+            display: inline-block
+            text-align: center
+            min-inline-size: 50px
+
     .bi-person, .bi-envelope-fill, .bi-file-eramark-richtext
         padding: 10px
         text-align: center
@@ -16,54 +44,42 @@ i
     .bi-mailbox
         color: $black
 
-    .bi-mailbox:hover
-        color: $black
-
-    .bi-linkedin 
-        color:rgba(0, 0, 128, 1)
-
-    .bi-linkedin:hover
-        color:rgba(25, 25, 140)
-
-    .bi-linkedin:active
-        color:rgb(0, 0, 115)
-
-    .bi-instagram 
-        border-radius: 25%
-        background-clip: text
-        -webkit-text-fill-color: transparent
-        background-image: linear-gradient(to top right,rgb(255, 223, 158), rgb(255, 194, 115), rgba(229, 105, 105, 1), rgb(193, 85, 139), rgba(138, 73, 161, 1))  
-    
-    .bi-instagram:hover
-        border-radius: 25%
-        background-clip: text
-        -webkit-text-fill-color: transparent
-        background-image: linear-gradient(to top right,rgb(250, 241, 223), rgb(247, 196, 130), rgb(245, 129, 129), rgb(193, 85, 139), rgb(101, 55, 117))
-
-    .bi-instagram:active
-        border-radius: 25%
-        background-clip: text
-        -webkit-text-fill-color: transparent
-        background-image: linear-gradient(to top right,rgb(229	200	142), rgb(255, 194, 115), rgba(229, 105, 105, 1), rgb(193, 85, 139), rgba(138, 73, 161, 1))
+    .bi-linkedin
+        color: rgba(0, 0, 128, 1) 
 
     .bi-youtube
-        color:rgba(120, 6, 6, 1)
+        color: rgba(120, 6, 6, 1)
 
     .bi-globe
-        color:rgba(0, 0, 0, 1)
+        color: rgba(0, 0, 0, 1)
 
-    .bi-github 
-        color:	rgb(105,105,105)
+    .bi-github
+        color: rgb(105,105,105)
 
-    .bi-github:hover
+    &:hover
+        .bi-linkedin
+            color:rgba(25, 25, 140)
+
+        .bi-github
         color: rgb(120,120,120)
 
-    .bi-github:active
+        .bi-youtube
+        color:rgba(120, 6, 6, 1)
+
+        .bi-globe
+            color:rgba(0, 0, 0, 1)
+
+    &:active
+        .bi-linkedin
+            color:rgb(0, 0, 115)
+        
+        .bi-github:active
         color: rgb(45, 45, 45)
+
 
 div
 
-    .bi-getacademy:hover
+    .bi-getacademy
         background: #FF9A00
         background-clip: text
         -webkit-background-clip: text

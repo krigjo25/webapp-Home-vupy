@@ -191,12 +191,12 @@ function profile(arg)
             new challenge / adventure.`;
 
     arg.message1 = ` As an Application engineer the software is organized with comments,
-            to give out a greater understanding of the develment which is
-            written, The projects are also orginized  with a documentation.
+            to give out a greater understanding of the develoment which is
+            written, The projects are also organized  with a documentation.
             for a greater understanding of the project.
             The process of development includes a lot of simplicity at
-            first, then Optimizionfor a better performance.
-            Through the journey as a developer, 
+            first, then Optimizion for a better performance.
+            Through the journey as a software engineer, 
             I have experienced that the best practice to
             ensure code quality is through test frameworks.`;
 

@@ -2,49 +2,56 @@
   font-family: python;
   src: url(../lib/fonts/Flux_Regular/Flux_Regular.otf);
 }
-i .bi-person, i .bi-envelope-fill, i .bi-file-eramark-richtext {
+nav .ext-bar {
+  display: flex;
+  flex-wrap: wrap;
+  margin-block-start: 2vh;
+  justify-content: center;
+  border-bottom: 1px groove black;
+}
+nav .ext-bar span {
+  padding: 1vw;
+  font-size: 5vw;
+}
+nav .ext-bar a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 1.5em;
+  margin: 0.5em;
+  padding: 0.5em;
+  border-radius: 50%;
+  transition: 0aaaa 0.5s;
+  display: inline-block;
+  text-align: center;
+  min-inline-size: 50px;
+}
+nav .bi-person, nav .bi-envelope-fill, nav .bi-file-eramark-richtext {
   padding: 10px;
   text-align: center;
   min-inline-size: 50px;
 }
-i .bi-mailbox {
+nav .bi-mailbox {
   color: rgb(40, 40, 40);
 }
-i .bi-mailbox:hover {
-  color: rgb(40, 40, 40);
+nav .bi-linkedin {
+  color: rgb(0, 0, 128);
 }
-i .bi-instagram {
-  border-radius: 25%;
-  -webkit-background-clip: text;
-          background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-image: linear-gradient(to top right, rgb(255, 223, 158), rgb(255, 194, 115), rgb(229, 105, 105), rgb(193, 85, 139), rgb(138, 73, 161));
+nav .bi-youtube {
+  color: rgb(120, 6, 6);
 }
-i .bi-instagram:hover {
-  border-radius: 25%;
-  -webkit-background-clip: text;
-          background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-image: linear-gradient(to top right, rgb(250, 241, 223), rgb(247, 196, 130), rgb(245, 129, 129), rgb(193, 85, 139), rgb(101, 55, 117));
+nav .bi-globe {
+  color: rgb(0, 0, 0);
 }
-i .bi-instagram:active {
-  border-radius: 25%;
-  -webkit-background-clip: text;
-          background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-image: linear-gradient(to top right, rgb(229, 200, 142), rgb(255, 194, 115), rgb(229, 105, 105), rgb(193, 85, 139), rgb(138, 73, 161));
-}
-i .bi-github {
+nav .bi-github {
   color: rgb(105, 105, 105);
 }
-i .bi-github:hover {
+nav:hover {
   color: rgb(120, 120, 120);
 }
-i .bi-github:active {
+nav:active {
   color: rgb(45, 45, 45);
 }
-
-div .bi-getacademy:hover {
+div .bi-getacademy {
   background: #FF9A00;
   background-clip: text;
   -webkit-background-clip: text;

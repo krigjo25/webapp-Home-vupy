@@ -59,8 +59,13 @@ main article .tab-container {
 main article div.tab-links {
   margin-left: 10vw;
 }
-main article section.bio-content {
+main article section .bio-content {
   inline-size: 25vw;
+}
+main article section .btn-links a:visited, main article section btn-links a:link {
+  text-decoration: none;
+  color: rgb(254, 254, 254);
+  background-color: #a1bfc9;
 }
 main article div.grid-container {
   display: grid;
@@ -95,9 +100,4 @@ main article nav.ext-bar a {
 }
 main article nav.ext-bar:hover, main article nav.ext-bar :visited {
   color: inherit;
-}
-main article .btn-links a:visited, main article btn-links a:link {
-  text-decoration: none;
-  color: rgb(254, 254, 254);
-  background-color: #a1bfc9;
 }/*# sourceMappingURL=profile.css.map */
