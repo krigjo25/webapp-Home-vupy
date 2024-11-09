@@ -20,17 +20,10 @@ main article div.carosel img {
   inline-size: 100%;
   border-radius: 0.5em;
 }
-main article div.carosel div.caption {
-  z-index: 1;
-  bottom: 10vh;
-  display: flex;
-  color: #fefefe;
-  position: relative;
-  justify-content: center;
-}
 main article div.img-container {
   display: flex;
   flex-wrap: wrap;
+  block-size: 106vh;
   align-items: center;
   flex-direction: row;
   justify-content: center;

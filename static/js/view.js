@@ -25,6 +25,7 @@ function main()
             app[i].id.innerHTML = /*HTML*/ ` 
             ${specialization(app[i])}`;
         }
+
     }
 }
 
@@ -47,7 +48,7 @@ function about(arg)
         </section>
         <section class="bio-content">
             <section>
-                <small>Written by ${arg.title[0]} approximal time to read ${arg.time}<i class="bi bi-stopwatch"></i></small>       
+                <small>Written by ${arg.title[0]} average time to read time <b>${arg.time} min</b><i class="bi bi-stopwatch"></i></small>       
             </section>
             <h2>${arg.title[0]}</h2>
             <p>${arg.message}</p>
@@ -63,6 +64,7 @@ function carosel(arg)
 {
     return  /*HTML*/`
         <img id="car-img" src="${arg.path + arg.source}" alt="${arg.alt}" class="css-img">
+            <div class="blur">${arg.caption}</div>
             <div class="caption">${arg.caption}</div>
             <div id="img-btn" class="img-btn">
                 <button id ="prev-btn" class="prev-btn" onclick="prev()">
@@ -79,34 +81,53 @@ function specialization(arg)
     let html = /*HTML*/`
     <div class="specialization-container">`;
 
-    for (let i = 0; i < arg.classes.length; i++)
+    for (let i = 0; i < arg.schools.length; i++)
     {
         //  Initializing classes
-        let classes = arg.classes[i];
+        let schools = arg.schools[i];
         html += /*HTML*/`
             <div class="specialization-class">
-                <a href="${classes.link}">
-                    <h2>${classes.school}</h2>
+                <a href="${schools.link}">
+                    <h2>${schools.school}</h2>
                 </a>
-                <p>${classes.description}</p>
-            </div>
-            <div class="specialization-courses">`;
+                <p>${schools.description}</p>`;
+            
 
-            for (let j = 0; j < classes.courses.length; j++)
+            for (let j = 0; j < schools.classes.length; j++)
             {
                 //  Initialize courses
-                let courses = classes.courses[j];
+                let classes = schools.classes[j];
                 html += /*HTML*/`
-                <div class="specialization-course">
-                    <h3>${courses.name}</h3>
-                    <p>${courses.description}</p>
+                <div class="specialization-course">`;
+
+                //  Ensure that the diploma is available
+                if (classes.diploma)
+                    {
+                        html += /*HTML*/`
+                        <a href="${classes.diploma}">
+                        <h3>${classes.name}</h3>
+                        </a>`;
+                    }
+                    else
+                    {
+                        html += /*HTML*/`
+                        <h3>${classes.name}</h3>`;
+                    }
+
+                    
+                html += /*HTML*/`
+                    <p>${classes.description}</p>
                     <ul>`;
                 html += /*HTML*/`
                     </ul>
-                </div>`;
+                </div>
+                `;
             }
+            html += /*HTML*/`</div>`;
+            
     }
     html += /*HTML*/`
+
             </div>
         </div>`;
 

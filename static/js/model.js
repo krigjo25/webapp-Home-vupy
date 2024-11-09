@@ -52,13 +52,13 @@ const model =
             {
                 app:"specialization",
                 id: document.getElementById("expertise"),
-                classes: 
+                schools: 
                 [
                     {
                         school: "GetAcademy",
                         description: "Skolen for fremtiden",
                         link: "https://getacademy.no/",
-                        courses: [
+                        classes: [
                             {
                                 name: "Start IT",
                                 description: "Front-end software development",
@@ -82,9 +82,10 @@ const model =
                                 ],
                             },
                             {
-                                course: "IT Development",
+                                name: "IT Development",
+                                diploma: "",
                                 description: "MVC software development",
-                                skills: 
+                                tech: 
                                 [
                                     "Agile practices",
                                     "Customer relations",
@@ -93,8 +94,9 @@ const model =
                             },
                             {
                                 name: "C# and .NET",
+                                diploma: "",
                                 description: "Backend software development",
-                                skills: 
+                                tech: 
                                 [
                                     "MVC .NET",
                                     "Database Management",
@@ -105,23 +107,24 @@ const model =
                     },
                     {
                         school: "HavardX",
-                        courses: [
+                        classes: [
                             {
-                                course: "CS50x",
-                                description: "Introduction to Computer Science ",
-                                skills: 
+                                name: "CS50X",
+                                link: "",
+                                description: "Introduction to Computer Science, an introductionary course to CS. Developing a comprehensive understanding of the fundamentals In",
+                                tech:
                                 [
                                     "Python",
                                     "Database Management",
                                     "c", 
                                     "Algorithms",
                                 ],
-                                course: "CS50Web",
                             },
                             {
-                                course: "CS50P",
-                                description: "Introduction to Computer Science With Python",
-                                skills: 
+                                name: "CS50P",
+                                diploma: "https://courses.edx.org/certificates/cc7f7cb258a24538af14c876023cf932",
+                                description: "Introduction to Computer Science With Python. In depth to Python technology in CS",
+                                tech: 
                                 [
                                     "Web development using Flask",
                                     "Flask",
@@ -129,10 +132,11 @@ const model =
                                 ],
 
                             },
+
                             {
-                                course: "CS50Web",
-                                description: "Computer Science Web Development",
-                                skills: 
+                                name: "CS50Web",
+                                description: "Computer Science Web Development. In depth to Python technology in Web engineering",
+                                tech: 
                                 [
                                     "Web development using Django",
                                     "API",
@@ -143,12 +147,13 @@ const model =
                     },
                 ]
             },
+
         ],
     sources:
         [
             {
                 src:"20240903_165612.jpg",
-                caption:"4",
+                caption:"Guy Smiling",
                 alt:"20240903_165612.jpg"
             },
         ],

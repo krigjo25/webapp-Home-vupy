@@ -1,0 +1,20 @@
+.caption {
+  z-index: 1;
+  bottom: 20vh;
+  display: flex;
+  color: rgb(253, 86, 2);
+  block-size: 9vh;
+  position: relative;
+  justify-content: center;
+  background-color: rgba(40, 40, 40, 0.7);
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
+
+.blur {
+  bottom: 14vh;
+  block-size: 10vh;
+  position: relative;
+  filter: blur(0.5em);
+  background-color: rgb(40, 40, 40);
+}/*# sourceMappingURL=overlay.css.map */
