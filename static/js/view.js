@@ -38,7 +38,7 @@ function about(arg)
     for (let i = 0; i < arg.links.length; i++)
     {
         html += /*HTML*/`
-            <button class="bio-link" onclick='biography("${arg.links[i].name}")'>
+            <button class="bio-btn" onclick='biography("${arg.links[i].name}")'>
                 <i class="${arg.links[i].icon}"></i> 
                 ${arg.links[i].name}
             </button>`;
@@ -114,7 +114,7 @@ function specialization(arg)
                         <h3>${classes.name}</h3>`;
                     }
 
-                    
+
                 html += /*HTML*/`
                     <p>${classes.description}</p>
                     <ul>`;

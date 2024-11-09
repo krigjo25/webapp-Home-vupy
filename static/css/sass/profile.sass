@@ -1,16 +1,36 @@
 
-    
-.btn-links
-  font-size: 4vh
-  inline-size: 40vh
-  margin-inline: 1em
-  text-align: center
-  border-radius: 1vh
-  background-color: #3c4bab
-  background-color: rgb(179, 193, 211)
+section.bio-container
+    display: flex
+    flex-wrap: wrap
+    flex-direction: column
+    align-items: center
 
-.btn-links:hover
-    background-color: #626ebb
+    section.bio-links
+        display: flex
+        font-size: 4vh
+        margin-inline: 1em
+        text-align: center
+        border-radius: 1vh
+        justify-content: center
+        background-color: #f1f1f1
+    
+        button.bio-btn
+            border: none
+            padding: 1em
+            font-size: 1vw
+            cursor: pointer
+            //color: #fefefe
+            
+            background-color: transparent
+
+            &:hover
+                background-color: #ddd
+
+            &:active
+                background-color: #ccc
+            &:nth-child(1)
+                border-right: 1px solid #ccc
+                
 
 
 main 
