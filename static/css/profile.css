@@ -16,6 +16,21 @@ main article nav.ext-bar {
   display: flex;
   flex-wrap: wrap;
 }
+main article nav.ext-bar a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 1.5em;
+  margin: 0.5em;
+  padding: 0.5em;
+  border-radius: 50%;
+  transition: 0.5s;
+  display: inline-block;
+  text-align: center;
+  min-inline-size: 50px;
+}
+main article nav.ext-bar:hover, main article nav.ext-bar :visited {
+  color: inherit;
+}
 main article div.carosel {
   inline-size: 25vw;
 }
