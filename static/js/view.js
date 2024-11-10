@@ -25,7 +25,10 @@ function main()
             app[i].id.innerHTML = /*HTML*/ ` 
             ${specialization(app[i])}`;
         }
-
+        else if (app[i].app === "footer")
+        {
+            footer(app[i]);
+        }
     }
 }
 
@@ -33,7 +36,8 @@ function about(arg)
 {
     let html = /*HTML*/`
     <section class="bio-container">
-        <section class="bio-links">`;
+        <h2>Biography</h2>
+        <nav class="bio-links">`;
 
     for (let i = 0; i < arg.links.length; i++)
     {
@@ -45,16 +49,15 @@ function about(arg)
     }
     
     html += /*HTML*/`
-        </section>
+        </nav>
         <section class="bio-content">
-            <section>
-                <small>Written by ${arg.title[0]} average time to read time <b>${arg.time} min</b><i class="bi bi-stopwatch"></i></small>       
-            </section>
+
             <h2>${arg.title[0]}</h2>
+            <small>Written by ${arg.title[0]} average time to read time <b>${arg.time} min</b><i class="bi bi-stopwatch"></i></small>       
             <p>${arg.message}</p>
             <p>${arg.message1}</p>
             <p>${arg.message2}</p>
-        </section>
+
         </section>`;
     
     return html
@@ -90,14 +93,14 @@ function specialization(arg)
         html += /*HTML*/`
             <div class="specialization-class">
                 <a href="${schools.link}">
-                    <h3 class='h3-link'>${schools.school}</h3>
+                    <h3 class='h3-link'><i class='bi bi-folder-symlink'></i>${schools.school}</h3>
                 </a>
                 <p>${schools.description}</p>`;
 
         if(schools.tech)
         {
             html += /*HTML*/`
-                <div class='tech-container flex-row'>`;
+                <div class='tech-container flex-row relative'>`;
 
             for (let j = 0; j < schools.tech.length; j++)
             {
@@ -123,7 +126,10 @@ function specialization(arg)
                     {
                         html += /*HTML*/`
                         <a href="${classes.diploma}">
-                        <h4 class='h4-link'>${classes.name}</h4>
+                        <h4 class='h4-link'>
+                            <i class='bi bi-link-45deg'></i>
+                            ${classes.name}
+                        </h4>
                         </a>`;
                     }
                     else
@@ -163,4 +169,80 @@ function specialization(arg)
         </div>`;
 
     return html;
+}
+
+function footer(arg)
+{
+    arg.id.innerHTML = /*HTML*/`
+    ${contact()}
+    ${socialMedia()}
+
+    <p>&copy; 2025 - ${new Date().getFullYear() } krigjo25</p>`;    
+}
+function contact()
+{
+    return /*HTML*/`
+        <section>
+        <div class="text-center">
+            <h2>Get in touch</h2>
+            <nav class='ext-bar'>
+                <a href='{{ messenger }}'>
+                    <span>                           
+                        <i class="bi bi-messenger"></i>
+                    </span>
+                </a>
+                <a href='{{ mail }}'>
+                    <span>                           
+                        <i class="bi bi-mailbox"></i>
+                    </span>
+                </a>
+                <a href='{{ discord }}'>
+                    <span>                           
+                        <i class="bi bi-discord"></i>
+                    </span>
+                </a>
+            </nav>
+        </div>
+        </section>`;
+}
+function socialMedia()
+{
+    return /*HTML*/`        
+    <section>
+        <div class="">
+            <p>&copy; 2025 krigjo25</p>
+            <h2>Follow me on social media</h2>
+            <div class="social-media">
+                <a href='{{ facebook }}'>
+                    <span>                           
+                        <i class="bi bi-facebook"></i>
+                    </span>
+                </a>
+                <a href='{{ instagram }}'>
+                    <span>                           
+                        <i class="bi bi-instagram"></i>
+                    </span>
+                </a>
+                <a href='{{ ello }}'>
+                    <span>                           
+                        <i class="bi bi-ello"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>`;
+}
+function validationForm()
+{
+    //  HTML Validator FROM W3C validation services
+    //  Adapted from https://stackoverflow.com/a/10162353
+    const html = '<!DOCTYPE ' + document.doctype.name +
+        (document.doctype.publicId ? ' PUBLIC "' + document.doctype.publicId + '"' : '') +
+        (!document.doctype.publicId && document.doctype.systemId ? ' SYSTEM' : '') +
+        (document.doctype.systemId ? ' "' + document.doctype.systemId + '"' : '') +
+        '>\n' + document.documentElement.outerHTML;
+    
+        //  Checks for HTML validations
+        document.querySelector('form[action="https://validator.w3.org/check"] > input[name="fragment"]').value = html;
+    
 }

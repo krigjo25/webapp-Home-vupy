@@ -56,7 +56,7 @@ const model =
                 [
                     {
                         school: "Get Academy",
-                        
+
                         description: `
                             GET Academy is an innovative digital IT school working to reduce social exclusion by 
                             providing young IT enthusiasts with life-changing career opportunities. With a focus on safety,
@@ -146,21 +146,14 @@ const model =
                                 ],
 
                             },
-
-                            {
-                                name: "CS50Web",
-                                description: "Computer Science Web Development. In depth to Python technology in Web engineering",
-                                tech: 
-                                [
-                                    "Web development using Django",
-                                    "API",
-                                ],
-
-                            },
                         ]
                     },
                 ]
             },
+            {
+                app:"footer",
+                id: document.getElementById("footer"),
+            }
 
         ],
     sources:
