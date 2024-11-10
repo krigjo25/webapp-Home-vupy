@@ -1,0 +1,17 @@
+filter-content, div.tech-API, div.tech-Flask, div.tech-Django {
+  block-size: 3vh;
+  inline-size: 1vw;
+  border-radius: 10px;
+}
+
+div.tech-Django {
+  background-color: #092E20;
+}
+
+div.tech-Flask {
+  background-color: #000000;
+}
+
+div.tech-API {
+  background-color: #000000;
+}/*# sourceMappingURL=filter-languages.css.map */

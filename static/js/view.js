@@ -93,8 +93,24 @@ function specialization(arg)
                     <h3 class='h3-link'>${schools.school}</h3>
                 </a>
                 <p>${schools.description}</p>`;
-            
 
+        if(schools.tech)
+        {
+            html += /*HTML*/`
+                <div class='tech-container flex-row'>`;
+
+            for (let j = 0; j < schools.tech.length; j++)
+            {
+                html += /*HTML*/`
+                    <div class='tech-${schools.tech[j]} relative'></div>
+                    <span class='tech-label'>${schools.tech[j]}&nbsp;</span>`;
+            }
+            html += /*HTML*/`
+            </div></div>`;
+        }
+
+        if (schools.classes)
+        {
             for (let j = 0; j < schools.classes.length; j++)
             {
                 //  Initialize courses
@@ -119,13 +135,26 @@ function specialization(arg)
 
                 html += /*HTML*/`
                     <p>${classes.description}</p>
-                    <ul>`;
-                html += /*HTML*/`
-                    </ul>
-                </div>
-                `;
+                    <div class='tech-container flex-row'>`;
+
+                if (classes.tech.length > 0)
+                {
+                    for (let k = 0; k < classes.tech.length; k++)
+                    {
+                        html += /*HTML*/`
+                            
+                                <div class='tech-${classes.tech[k]} relative'></div>
+                                <span class='tech-label'>
+                                    ${String(classes.tech[k]).replace("-", " ")}
+                                </span>`;
+                    }
+                    html += /*HTML*/`
+                    </div></div>`;
+                }
             }
-            html += /*HTML*/`</div>`;
+        html += /*HTML*/`</div>`;
+
+        }
             
     }
     html += /*HTML*/`

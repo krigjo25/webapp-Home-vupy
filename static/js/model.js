@@ -56,59 +56,37 @@ const model =
                 [
                     {
                         school: "Get Academy",
-                        description: "Skolen for fremtiden",
+                        
+                        description: `
+                            GET Academy is an innovative digital IT school working to reduce social exclusion by 
+                            providing young IT enthusiasts with life-changing career opportunities. With a focus on safety,
+                            diversity, and growth, the school offers practical and strengths-based learning in close
+                            collaboration with industry. The school's unique educational model equips students with the tools
+                            they need to succeed both academically and personally, while also helping businesses fill critical
+                            skills gaps.
+                            
+                            In addition to IT education, the school teaches key competencies - skills and life tools that
+                            provide direction and meaning in an individual's life. Upon graduation, a GET developer will be a
+                            self-sufficient IT professional, trained in programming, creative thinking, and collaboration.`,
                         link: "https://getacademy.no/",
-                        classes: [
-                            {
-                                name: "Start IT",
-                                description: "Front-end software development",
-                                tech:
-                                [
-                                    {
-                                        name:"HTML"
-                                    },
-                                    {
-                                        name:"CSS"
-                                    },
-                                    {
-                                        name:"JavaScript"
-                                    },
-                                    {
-                                        name:"MVC"
-                                    },
-                                    {
-                                        name:"Agil practices"
-                                    },
-                                ],
-                            },
-                            {
-                                name: "IT Development",
-                                diploma: "",
-                                description: "MVC software development",
-                                tech: 
-                                [
-                                    "Agile practices",
-                                    "Customer relations",
-                                    "",
-                                ],
-                            },
-                            {
-                                name: "C# and .NET",
-                                diploma: "",
-                                description: "Backend software development",
-                                tech: 
-                                [
-                                    "MVC .NET",
-                                    "Database Management",
-                                    "API",
-                                ],
-                            },
-                        ]
+                        tech:
+                            [
+                                "API",
+                                "HTML",
+                                "CSS",
+                                "MVC",
+                                "MVC .NET",
+                                "JavaScript",
+                                "Agile practices",
+                                "Customer relations",
+                                "Database Management",
+                                
+                            ],
                     },
                     {
                         school: "HavardX",
                         link: "https://vpal.harvard.edu/harvardx/",
-                        description: "Skolen for fremtiden",
+                        description: "Harvard University's online learning platform",
                         classes: [
                             /*{
                                 name: "Introduction to Computer Science",
@@ -159,10 +137,10 @@ const model =
                                 name: "CS50P",
 
                                 diploma: "https://courses.edx.org/certificates/cc7f7cb258a24538af14c876023cf932",
-                                description: "Introduction to Computer Science With Python. In depth to Python technology in CS",
+                                description: "This is a professional certificate demostrates the experise in CS. Developing a comprehensive understanding of the fundamentals In",
                                 tech: 
                                 [
-                                    "Web development using Flask",
+                                    "Django",
                                     "Flask",
                                     "API",
                                 ],
