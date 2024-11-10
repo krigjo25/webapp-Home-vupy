@@ -107,13 +107,13 @@ function specialization(arg)
                     {
                         html += /*HTML*/`
                         <a href="${classes.diploma}">
-                        <h3>${classes.name}</h3>
+                        <h4 class='h4-link'>${classes.name}</h4>
                         </a>`;
                     }
                     else
                     {
                         html += /*HTML*/`
-                        <h3>${classes.name}</h3>`;
+                        <h4>${classes.name}</h4>`;
                     }
 
 

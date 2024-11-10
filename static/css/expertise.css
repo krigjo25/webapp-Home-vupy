@@ -13,12 +13,31 @@ div.specialization-container {
 .specialization-class .h3-link {
   margin: auto;
   font-size: 4vh;
-  font-weight: medium-bold;
+  font-weight: 900;
   font-family: "Roboto", sans-serif;
   transition: 0.3s ease-in-out;
 }
-.specialization-class .h3-link:hover {
+.specialization-class:hover .h3-link {
   font-size: 4.5vh;
+  font-weight: bold;
+  text-decoration: underline;
+  transform: scale(1.1);
+}
+
+.specialization-course a {
+  text-decoration: none;
+  color: rgb(64, 64, 64);
+  transition: 0.3s;
+}
+.specialization-course .h4-link {
+  margin: auto;
+  font-size: 3vh;
+  font-weight: 900;
+  font-family: "Roboto", sans-serif;
+  transition: 0.3s ease-in-out;
+}
+.specialization-course:hover .h4-link {
+  font-size: 3.5vh;
   font-weight: bold;
   text-decoration: underline;
   transform: scale(1.1);
