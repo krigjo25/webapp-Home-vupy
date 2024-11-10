@@ -1,10 +1,11 @@
 //  Importing CSS files for the project
 @import url('forms.css')
-@import url('cssetc.css')
 @import url('overlay.css')
 @import url('profile.css')
 @import url('expertise.css')
+@import url('fullstack.css')
 @import url('btrapicons.css')
+@import url('flex-wrap-row.css')
 
 //  Importing fonts for the project
 
@@ -19,11 +20,10 @@ flex-box
   padding: 1em
   flex-wrap: wrap
   margin: 1em auto
-  flex-direction: column
+  flex-direction: row
 
 
 main > section
-    @extend flex-box
     &:nth-child(even)
         background-color: rgb(254, 254, 254)
 
@@ -43,5 +43,22 @@ nav h3
 body
     color: rgb(64, 64, 64)
 
-header, footer
-    @extend flex-box
+header
+    a
+        text-decoration: none
+        color: rgb(64, 64, 64)
+        font-size: 1.5em
+        font-weight: 300
+        font-family: 'Roboto', sans-serif
+        margin: 1em
+        padding: 1em
+        border-radius: 0.5em
+        background-color: rgb(254, 254, 254)
+        transition: 0.3s
+
+.relative
+    top: 8vh
+    position: relative
+
+.padding
+    padding: 1em

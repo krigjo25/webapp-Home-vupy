@@ -29,7 +29,7 @@ const model =
                 ],
                 id: document.getElementById("bio"),
                 name: "profile",
-                time: null,
+                time: 0,
                 title: ["Kristoffer Gjøsund"],
                 message: `
                     My ideal lifestyle involves a balance between the passion 
@@ -55,7 +55,7 @@ const model =
                 schools: 
                 [
                     {
-                        school: "GetAcademy",
+                        school: "Get Academy",
                         description: "Skolen for fremtiden",
                         link: "https://getacademy.no/",
                         classes: [
@@ -107,6 +107,7 @@ const model =
                     },
                     {
                         school: "HavardX",
+                        link: "https://vpal.harvard.edu/harvardx/",
                         description: "Skolen for fremtiden",
                         classes: [
                             /*{
@@ -156,6 +157,7 @@ const model =
                             },*/
                             {
                                 name: "CS50P",
+
                                 diploma: "https://courses.edx.org/certificates/cc7f7cb258a24538af14c876023cf932",
                                 description: "Introduction to Computer Science With Python. In depth to Python technology in CS",
                                 tech: 

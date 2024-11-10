@@ -1,0 +1,36 @@
+flex-wrap-row, .align-items-flex-end-row, .align-items-center-row, .align-content-center-row, .justify-flexstart-row, .justify-center-row, .flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+flex-nowrap-row {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.flex-row {
+  padding: 1em;
+  margin: 1em auto;
+}
+
+.justify-center-row {
+  justify-content: center;
+}
+
+.justify-flexstart-row {
+  justify-content: flex-start;
+}
+
+.align-content-center-row {
+  align-content: center;
+}
+
+.align-items-center-row {
+  align-items: center;
+}
+
+.align-items-flex-end-row {
+  align-items: flex-end;
+}/*# sourceMappingURL=flex-wrap-row.css.map */

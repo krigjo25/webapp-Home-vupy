@@ -222,6 +222,5 @@ function time_calculations(arg)
 {
     /*AI generated*/
     let words = arg.split(" ");
-    let time = Math.round(words.length / 200);
-    return time;
+    return Math.round(words.length / 200);
 }

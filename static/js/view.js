@@ -79,7 +79,9 @@ function carosel(arg)
 function specialization(arg)
 {
     let html = /*HTML*/`
+    <h2>Certified Specializations</h2>
     <div class="specialization-container">`;
+    
 
     for (let i = 0; i < arg.schools.length; i++)
     {
@@ -88,7 +90,7 @@ function specialization(arg)
         html += /*HTML*/`
             <div class="specialization-class">
                 <a href="${schools.link}">
-                    <h2>${schools.school}</h2>
+                    <h3 class='h3-link'>${schools.school}</h3>
                 </a>
                 <p>${schools.description}</p>`;
             
