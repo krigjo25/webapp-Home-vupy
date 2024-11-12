@@ -6,5 +6,12 @@
 	],
 	"settings": {
 		"liveSassCompile.settings.forceBaseDirectory": "/webapp-home-flask/static/css",
+		"liveSassCompile.settings.formats": [
+			{
+				"format": "expanded",
+				"extensionName": ".css",
+				"savePath": "/webapp-home-flask/static/css"
+			}
+		]
 	}
 }
