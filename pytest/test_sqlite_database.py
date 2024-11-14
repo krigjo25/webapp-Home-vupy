@@ -89,7 +89,11 @@ class TestDatabase:
     def test_request_database(self):
 
         GithubApi().fetch_repos()
-        
+    
+    def test_drop_database(self):
+        os.remove('test_database.db')
+        os.remove('test_fkh-ps.db')
+        return
         
 
 

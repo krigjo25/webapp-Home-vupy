@@ -20,7 +20,7 @@ class Index(MethodView):
 
     def get(self): 
         
-        return render_template("index.html", portefolio =False ) # GithubApi().fetch_repos())
+        return render_template("index.html", portefolio = False) # GithubApi().fetch_repos())
 
     def post(self): 
 
