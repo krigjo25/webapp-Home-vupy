@@ -26,6 +26,11 @@ const model =
                         icon: "bi bi-github",
                         name: "journey",
                     },
+                    /*{
+                        icon: "bi bi-github",
+                        name: "Newest Blog post",
+                    },*/
+
                 ],
                 id: document.getElementById("bio"),
                 name: "profile",
@@ -50,7 +55,7 @@ const model =
                 message2:``,
             },
             {
-                app:"specialization",
+                app: "specialization",
                 id: document.getElementById("expertise"),
                 schools: 
                 [
@@ -69,19 +74,28 @@ const model =
                             provide direction and meaning in an individual's life. Upon graduation, a GET developer will be a
                             self-sufficient IT professional, trained in programming, creative thinking, and collaboration.`,
                         link: "https://getacademy.no/",
-                        tech:
-                            [
-                                "API",
-                                "HTML",
-                                "CSS",
-                                "MVC",
-                                "MVC .NET",
-                                "JavaScript",
-                                "Agile practices",
-                                "Customer relations",
-                                "Database Management",
-                                
-                            ],
+                        classes:
+                        [
+                            {
+                                name: "Fullstack Engineer",
+                                //diploma: "https://getacademy.no/",
+                                //description: "This is a professional certificate demostrates the experise in Fullstack Development. Developing a comprehensive understanding of the fundamentals In",
+                                description: "This education is a fullstack developer education, which includes the following technologies",
+                                tech:
+                                [
+                                    "API",
+                                    "HTML",
+                                    "CSS",
+                                    "MVC",
+                                    "MVC .NET",
+                                    "JavaScript",
+                                    "Agile practices",
+                                    "Customer relations",
+                                    "Database Management",
+                                ],
+                            },
+
+                        ]
                     },
                     {
                         school: "HavardX",
@@ -152,7 +166,7 @@ const model =
             },
             {
                 app:"footer",
-                id: document.getElementById("footer"),
+                id: document.getElementById("footer-apps"),
             }
 
         ],

@@ -1,14 +1,17 @@
+///  import css-variables from Color.sass
+@import colour
+
+%icon-size
+    margin: 1vw
+    padding: 1vw
+    font-size: 1.5vw
+    text-align: center
+    min-inline-size: 50px
 
 
-@font-face
-    font-family: python
-    src: url(../lib/fonts/Flux_Regular/Flux_Regular.otf)
-
-//  Variables
-$black: rgba(40, 40, 40, 1)
-
-
-    
+%icon-link
+    color: inherit
+    text-decoration: none 
     
     
 nav
@@ -19,65 +22,117 @@ nav
         margin-block-start: 2vh
         justify-content: center
         border-bottom: 1px groove black
-
-        span 
-            padding: 1vw
-            font-size: 5vw
             
         a
-            color: inherit
-            text-decoration: none
-            font-size: 1.5em
+            @extend %icon-link
             margin: 0.5em
             padding: 0.5em
             border-radius: 50%
+            text-align: center
             transition: 0aaaa.5s
             display: inline-block
-            text-align: center
             min-inline-size: 50px
-
-    .bi-person, .bi-envelope-fill, .bi-file-eramark-richtext
-        padding: 10px
-        text-align: center
-        min-inline-size: 50px
-
+   
     .bi-mailbox
-        color: $black
+        color: $dark-grey
 
     .bi-linkedin
-        color: rgba(0, 0, 128, 1) 
+        color: $linked-in
 
     .bi-youtube
-        color: rgba(120, 6, 6, 1)
+        color: $youtube
 
     .bi-globe
-        color: rgba(0, 0, 0, 1)
-
+        color: $dark-grey
+    
     .bi-github
-        color: rgb(105,105,105)
+        color: $github
 
     &:hover
         .bi-linkedin
-            color:rgba(25, 25, 140)
+            color: $linked-in-hover
 
         .bi-github
-        color: rgb(120,120,120)
+            color: $github-hover
 
         .bi-youtube
-        color:rgba(120, 6, 6, 1)
+            color: $youtube-hover
 
         .bi-globe
-            color:rgba(0, 0, 0, 1)
+            color:$dark-grey-hover
 
     &:active
+
         .bi-linkedin
-            color:rgb(0, 0, 115)
-        
+            color: $linked-in-active
+
         .bi-github:active
-        color: rgb(45, 45, 45)
+            color: $github-active
+
+.contact-container
+
+    a
+        @extend %icon-link
+
+    .bi-messenger
+        color: $meseenger
+        @extend %icon-size
+
+    .bi-discord
+        color: $discord
+        @extend %icon-size
+
+    .bi-mailbox
+        color: $dark-grey
+        @extend %icon-size
+
+    .bi-messenger:hover
+        color: $meseenger-hover
+
+    .bi-discord:hover
+        color: $discord-hover
+
+    .bi-mailbox:hover
+        color: $dark-grey-hover
+            
+    .bi-messenger:active
+        color: $meseenger-active
+    
+    .bi-discord:active
+        color: $discord-active
+    
+    .bi-mailbox:active
+        color: $dark-grey-active
+
+.social-media-container
+
+    a
+        @extend %icon-link
+
+    .bi-facebook
+        color: $facebook
+        padding: 2vw
+        @extend %icon-size
+    
+    .bi-instagram
+        color: $instagram
+        padding: 2vw
+        @extend %icon-size
+
+    .bi-facebook:hover
+        color: $facebook-hover
+
+    .bi-instagram:hover
+        color: $instagram-hover
+
+    .bi-facebook:active
+        color: $facebook-active
+
+    .bi-instagram:active
+        color: $instagram-active
 
 
-div
+.specialization-container
 
     .bi-getacademy
         background: #FF9A00
@@ -86,8 +141,10 @@ div
         -webkit-text-fill-color: transparent
         background: linear-gradient(to right, #FF9A00 0%, #FF7400 50%, #FF4D00 50%, #CF1512 100%)
 
+.tech-container
+
     .bi-python
         font-family: python
-    .bi-c
-    .bi-js
-    .bi-db
+///    .bi-c
+///    .bi-js
+///    .bi-db

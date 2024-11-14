@@ -28,6 +28,7 @@ function main()
         else if (app[i].app === "footer")
         {
             footer(app[i]);
+            formValidation();
         }
     }
 }
@@ -82,14 +83,14 @@ function carosel(arg)
 function specialization(arg)
 {
     let html = /*HTML*/`
-    <h2>Certified Specializations</h2>
-    <div class="specialization-container">`;
-    
+        <h2>Certified Specializations</h2>
+        <div class="specialization-container">`;
 
     for (let i = 0; i < arg.schools.length; i++)
     {
         //  Initializing classes
         let schools = arg.schools[i];
+
         html += /*HTML*/`
             <div class="specialization-class">
                 <a href="${schools.link}">
@@ -135,7 +136,7 @@ function specialization(arg)
                     else
                     {
                         html += /*HTML*/`
-                        <h4>${classes.name}</h4>`;
+                        <h4 class="h4-link">${classes.name}</h4>`;
                     }
 
 
@@ -173,76 +174,53 @@ function specialization(arg)
 
 function footer(arg)
 {
-    arg.id.innerHTML = /*HTML*/`
+    arg.id.innerHTML += /*HTML*/`
     ${contact()}
     ${socialMedia()}
-
-    <p>&copy; 2025 - ${new Date().getFullYear() } krigjo25</p>`;    
+    `;
+    //  Footer copy right
+    document.querySelector('#powered-by').innerHTML += /*HTML*/`
+    <p><a href=""> Copyright</a> &copy; <a href="https://www.krigjo25.no">@krigjo25</a> 2024 ${new Date().getFullYear()}</p>`;
 }
 function contact()
 {
     return /*HTML*/`
-        <section>
-        <div class="text-center">
-            <h2>Get in touch</h2>
-            <nav class='ext-bar'>
-                <a href='{{ messenger }}'>
-                    <span>                           
+        <section class="contact-container">
+                <h2>Get in touch</h2>
+                <nav class='ext-bar'>
+                    <a href='{{ messenger }}'>                          
                         <i class="bi bi-messenger"></i>
-                    </span>
-                </a>
-                <a href='{{ mail }}'>
-                    <span>                           
+                    </a>
+                    <a href='{{ mail }}'>                           
                         <i class="bi bi-mailbox"></i>
-                    </span>
-                </a>
-                <a href='{{ discord }}'>
-                    <span>                           
+                    </a>
+                    <a href='{{ discord }}'>                          
                         <i class="bi bi-discord"></i>
-                    </span>
-                </a>
-            </nav>
-        </div>
+                    </a>
+                </nav>
         </section>`;
 }
 function socialMedia()
 {
     return /*HTML*/`        
-    <section>
-        <div class="">
-            <p>&copy; 2025 krigjo25</p>
-            <h2>Follow me on social media</h2>
-            <div class="social-media">
-                <a href='{{ facebook }}'>
-                    <span>                           
-                        <i class="bi bi-facebook"></i>
-                    </span>
-                </a>
-                <a href='{{ instagram }}'>
-                    <span>                           
-                        <i class="bi bi-instagram"></i>
-                    </span>
-                </a>
-                <a href='{{ ello }}'>
-                    <span>                           
-                        <i class="bi bi-ello"></i>
-                    </span>
-                </a>
-            </div>
+    <section class="social-media-container">
+        <h2>Follow me on social media</h2>
+        <nav class="ext-bar">
+            <a href='{{ facebook }}'>
+                <span>                           
+                    <i class="bi bi-facebook"></i>
+                </span>
+            </a>
+            <a href='{{ instagram }}'>
+                <span>                           
+                    <i class="bi bi-instagram"></i>
+                </span>
+            </a>
+            <a href='{{ ello }}'>
+                <span>                           
+                    <i class="bi bi-ello"></i>
+                </span>
+            </a>
         </div>
     </section>`;
-}
-function validationForm()
-{
-    //  HTML Validator FROM W3C validation services
-    //  Adapted from https://stackoverflow.com/a/10162353
-    const html = '<!DOCTYPE ' + document.doctype.name +
-        (document.doctype.publicId ? ' PUBLIC "' + document.doctype.publicId + '"' : '') +
-        (!document.doctype.publicId && document.doctype.systemId ? ' SYSTEM' : '') +
-        (document.doctype.systemId ? ' "' + document.doctype.systemId + '"' : '') +
-        '>\n' + document.documentElement.outerHTML;
-    
-        //  Checks for HTML validations
-        document.querySelector('form[action="https://validator.w3.org/check"] > input[name="fragment"]').value = html;
-    
 }

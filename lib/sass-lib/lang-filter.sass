@@ -1,19 +1,13 @@
 // Sass file for label color
 //  Variables
-$other: rgba(40, 40, 40, 0.8)
-$python: rgba(0, 0, 150, 0.8)
-$html: rgba(255, 99, 71, 0.8)
-$css: rgba(0, 191, 255, 0.8)
-$js: rgba(255, 215, 0, 0.8)
-$agile: rgba(0, 128, 0, 0.8)
-$db: rgba(255, 0, 0, 0.8)
+@import colour
 
 
 %filter-content
-    block-size: 2.5vh
-    inline-size: 1vw
+    block-size: 1em
+    inline-size: 1em
     border-radius: 10px
-    
+   
 div.tech-Django
     @extend %filter-content
     background-color: $python
@@ -34,7 +28,15 @@ div.tech-CSS
     @extend %filter-content
     background-color: $css
 
+div.tech-SASS
+    @extend %filter-content
+    background-color: $css
+
 div.tech-JavaScript
+    @extend %filter-content
+    background-color: $js
+
+div.tech-MVC
     @extend %filter-content
     background-color: $js
 
@@ -42,10 +44,11 @@ div.tech-Agile-Methodology
     @extend %filter-content
     background-color: $other
 
+div.tech-.NET
+    @extend %filter-content
+    background-color: $c
+
 div.tech-Database-Management
     @extend %filter-content
     background-color: $db
 
-div.tech-MVC
-    @extend %filter-content
-    background-color: $other

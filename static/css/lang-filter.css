@@ -1,6 +1,6 @@
-div.tech-MVC, div.tech-Database-Management, div.tech-Agile-Methodology, div.tech-JavaScript, div.tech-CSS, div.tech-HTML, div.tech-API, div.tech-Flask, div.tech-Django {
-  block-size: 2.5vh;
-  inline-size: 1vw;
+div.tech-MVC, div.tech-Database-Management, div.tech-Agile-Methodology, div.tech-JavaScript, div.tech-SASS, div.tech-CSS, div.tech-HTML, div.tech-API, div.tech-Flask, div.tech-Django {
+  block-size: 1em;
+  inline-size: 1em;
   border-radius: 10px;
 }
 
@@ -24,6 +24,10 @@ div.tech-CSS {
   background-color: rgba(0, 191, 255, 0.8);
 }
 
+div.tech-SASS {
+  background-color: rgba(0, 191, 255, 0.8);
+}
+
 div.tech-JavaScript {
   background-color: rgba(255, 215, 0, 0.8);
 }
@@ -37,5 +41,5 @@ div.tech-Database-Management {
 }
 
 div.tech-MVC {
-  background-color: rgba(40, 40, 40, 0.8);
+  background-color: rgba(255, 215, 0, 0.8);
 }/*# sourceMappingURL=lang-filter.css.map */

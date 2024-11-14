@@ -41,8 +41,7 @@ main article div.carosel img {
 main article div.img-container {
   display: flex;
   flex-wrap: wrap;
-  block-size: 106vh;
-  align-items: center;
+  block-size: 100%;
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
@@ -97,7 +96,7 @@ main article nav.ext-bar {
 }
 main article nav.ext-bar span {
   padding: 1vw;
-  font-size: 5vw;
+  font-size: 4vw;
 }
 main article nav.ext-bar a {
   color: inherit;
