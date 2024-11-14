@@ -10,7 +10,7 @@
 			{
 				"format": "expanded",
 				"extensionName": ".css",
-				"savePath": "/webapp-home-flask/static/css"
+				"savePath": "/static/css"
 			}
 		]
 	}
