@@ -1,9 +1,7 @@
+@import misc
+@import colour
 
-%userselect
-    user-select: none
-    margin-inline: 1em
-    -moz-user-select: none
-    -webkit-user-select: none
+
 
 .cnn-ctr 
     text-align: center
@@ -11,9 +9,7 @@
 .pp
     margin: 1em
     display: flex
-    font-size: 1vw
     flex-wrap: wrap
-    
     inline-size: 29vw
     align-items: flex-start
     border: 1px solid black
@@ -27,20 +23,22 @@
 
     details
         inline-size: 23vw
-        font-size: 1.5vw
-        @extend %userselect
+        font-size: 1em
+        @extend %user-select
 
         summary
             font-weight: bold
+            font-size: 1.5em
         time
             font-weight: bold
         p
-            font-size: 1vw
+            font-size: 1em
     .pro-nav
         display: flex
         flex-direction: column
     
     .tech-container
+        @extend %user-select
         inline-size: 22vw
 
         .relative
@@ -49,15 +47,20 @@
             position: relative
 
     .tech-wrapper
-        margin: 1px
+        margin: 5px
         display: flex
         border-radius: 10px
         margin-inline: 0.3em
         background-color: rgba(241, 241, 241, 1)
+
+        &:hover
+            transform: scale(1.1)
+            box-shadow: $box-shadow
+            transition: 0.3s ease-in-out
     
     span.tech-label
         padding: 0.7em
-        font-size: 0.7em
+        font-size: 0.9em
         font-weight: 300
         font-style: oblique
         border-radius: 10px

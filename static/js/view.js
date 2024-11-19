@@ -111,8 +111,7 @@ function specialization(arg)
                         <div class='tech-${schools.tech[j]} relative'></div>
                         <span class='tech-label'>
                             ${schools.tech[j]}&nbsp;
-                        </span>
-                    </div>`;
+                        </span>`;
 
             }
             html += /*HTML*/`
@@ -131,20 +130,20 @@ function specialization(arg)
 
                 //  Ensure that the diploma is available
                 if (classes.diploma)
-                    {
-                        html += /*HTML*/`
+                {
+                    html += /*HTML*/`
                         <a href="${classes.diploma}">
-                        <h4 class='h4-link'>
-                            <i class='bi bi-award'></i>
-                            ${classes.name}
-                        </h4>
+                            <h4 class='h4-link'>
+                                <i class='bi bi-award'></i>
+                                ${classes.name}
+                            </h4>
                         </a>`;
-                    }
-                    else
-                    {
-                        html += /*HTML*/`
-                        <h4 class="h4-link">${classes.name}</h4>`;
-                    }
+                }
+                else
+                {
+                    html += /*HTML*/`
+                        <h4 class="h4-link no-select">${classes.name}</h4>`;
+                }
 
 
                 html += /*HTML*/`
@@ -152,7 +151,7 @@ function specialization(arg)
                     <div class='tech-container flex-row'>`;
 
                 //  Ensure that the tech is available
-                if (classes.tech.length > 0)
+                if (classes.tech)
                 {
                     for (let k = 0; k < classes.tech.length; k++)
                     {
@@ -162,19 +161,38 @@ function specialization(arg)
                                 <span class='tech-label'>
                                     ${String(classes.tech[k]).replace("-", " ")}
                                 </span>
-                            </div>`;
+                                </div>`;
                     }
-                    html += /*HTML*/` </div></div>`;
+                    html += /*HTML*/` 
+                    </div></div>`;
                 }
+                //  Professinal certificates
+                else if (classes.languages)
+                {
+                    for (let k = 0; k < classes.languages.length; k++)
+                    {
+                        for (let l = 0; l < classes.languages[k].tech.length; l++)
+                        {   
+                            html += /*HTML*/`
+                            <div class='tech-wrapper'>
+                                <div class='tech-${classes.languages[k].name} relative'></div>
+                                <span class='tech-label'>
+                                    ${String(classes.languages[k].tech[l]).replace("-", " ")}
+                                </span>
+                            </div>`;
+                        }
+                    }
+                    html += /*HTML*/`</div></div>`;
+                }
+                
             }
-        html += /*HTML*/`</div>`;
 
         }
+        html += /*HTML*/`
+        </div>`;
             
     }
     html += /*HTML*/`
-
-            </div>
         </div>`;
 
     return html;
@@ -182,14 +200,15 @@ function specialization(arg)
 
 function footer(arg)
 {
-    arg.id.innerHTML += /*HTML*/`
+    arg.id.innerHTML = /*HTML*/`
     ${contact()}
     ${socialMedia()}
     `;
     //  Footer copy right
     document.querySelector('#powered-by').innerHTML += /*HTML*/`
-    <p><a href=""> Copyright</a> &copy; <a href="https://www.krigjo25.no">@krigjo25</a> 2024 ${new Date().getFullYear()}</p>`;
+    <p><a href=""> Copyright</a> &copy; <a href="https://www.krigjo25.no">@krigjo25</a> 2024  - ${new Date().getFullYear()}</p>`;
 }
+
 function contact()
 {
     return /*HTML*/`

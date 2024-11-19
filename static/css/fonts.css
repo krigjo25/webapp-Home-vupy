@@ -1,19 +1,13 @@
 roboto-font {
+  inline-size: 25vw;
   font-family: "Roboto", sans-serif;
 }
 
-work-sans-font, h4-link {
-  font-weight: 900;
+work-sans-font {
+  font-weight: 100;
   font-family: "Work Sans", sans-serif;
 }
 
 open-sans-font {
   font-family: "Open Sans", sans-serif;
-}
-
-h4-link {
-  margin: auto;
-  font-size: 3vh;
-  font-weight: 900;
-  transition: 0.3s ease-in-out;
 }/*# sourceMappingURL=fonts.css.map */

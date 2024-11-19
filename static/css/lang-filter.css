@@ -1,4 +1,4 @@
-div.tech-Database-Management, div.tech-.NET, div.tech-API, div.tech-Agile-Methodology, div.tech-MVC, div.tech-JavaScript, div.tech-HTML, div.tech-SASS, div.tech-CSS, div.tech-Flask, div.tech-Django, div.tech-Python {
+div.tech-Database-Management, div.tech-C, div.tech-Workflow, div.tech-UI, div.tech-Python {
   block-size: 1em;
   inline-size: 1em;
   border-radius: 10px;
@@ -8,43 +8,15 @@ div.tech-Python {
   background-color: rgb(48, 105, 152);
 }
 
-div.tech-Django {
-  background-color: rgb(48, 105, 152);
-}
-
-div.tech-Flask {
-  background-color: rgb(48, 105, 152);
-}
-
-div.tech-CSS {
-  background-color: rgba(0, 191, 255, 0.8);
-}
-
-div.tech-SASS {
-  background-color: rgba(0, 191, 255, 0.8);
-}
-
-div.tech-HTML {
+div.tech-UI {
   background-color: rgba(255, 99, 71, 0.8);
 }
 
-div.tech-JavaScript {
-  background-color: rgba(255, 215, 0, 0.8);
+div.tech-Workflow {
+  background-color: rgba(0, 191, 255, 0.8);
 }
 
-div.tech-MVC {
-  background-color: rgba(255, 215, 0, 0.8);
-}
-
-div.tech-Agile-Methodology {
-  background-color: rgba(40, 40, 40, 0.8);
-}
-
-div.tech-API {
-  background-color: rgba(40, 40, 40, 0.8);
-}
-
-div.tech-.NET {
+div.tech-C {
   background-color: rgb(238, 140, 43);
 }
 

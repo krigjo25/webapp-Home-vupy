@@ -38,6 +38,7 @@ section.bio-container .bio-btn:hover {
   font-weight: bold;
   color: #fefefe;
   background-color: #a1bfc9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 section.bio-container .bio-btn:active {
   background-color: #a1bfc9;

@@ -1,4 +1,4 @@
-.pp details {
+.pp .tech-container, .pp details {
   user-select: none;
   margin-inline: 1em;
   -moz-user-select: none;
@@ -12,7 +12,6 @@
 .pp {
   margin: 1em;
   display: flex;
-  font-size: 1vw;
   flex-wrap: wrap;
   inline-size: 29vw;
   align-items: flex-start;
@@ -27,16 +26,17 @@
 }
 .pp details {
   inline-size: 23vw;
-  font-size: 1.5vw;
+  font-size: 1em;
 }
 .pp details summary {
   font-weight: bold;
+  font-size: 1.5em;
 }
 .pp details time {
   font-weight: bold;
 }
 .pp details p {
-  font-size: 1vw;
+  font-size: 1em;
 }
 .pp .pro-nav {
   display: flex;
@@ -51,15 +51,20 @@
   position: relative;
 }
 .pp .tech-wrapper {
-  margin: 1px;
+  margin: 5px;
   display: flex;
   border-radius: 10px;
   margin-inline: 0.3em;
   background-color: rgb(241, 241, 241);
 }
+.pp .tech-wrapper:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: 0.3s ease-in-out;
+}
 .pp span.tech-label {
   padding: 0.7em;
-  font-size: 0.7em;
+  font-size: 0.9em;
   font-weight: 300;
   font-style: oblique;
   border-radius: 10px;

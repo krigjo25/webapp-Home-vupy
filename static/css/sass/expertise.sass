@@ -1,13 +1,6 @@
-roboto-font
-    inline-size: 25vw
-    font-family: 'Roboto', sans-serif
-
-work-sans-font
-    font-weight: 100
-    font-family: 'Work Sans', sans-serif
-
-open-sans-font
-    font-family: 'Open Sans', sans-serif
+@import misc
+@import fonts
+@import colour
 
 div.specialization-container
     display: flex
@@ -27,6 +20,9 @@ div.specialization-container
         font-size: 4vh
         @extend work-sans-font
         transition: 0.3s ease-in-out
+
+    .no-select
+        @extend %user-select
 
     &:hover
         .h3-link
@@ -72,7 +68,7 @@ div.specialization-container
             transform: scale(1.1)
     
     .tech-container
-
+        @extend %user-select
         .relative
             left: 0.5em
             top: 0.9em
@@ -82,13 +78,13 @@ div.specialization-container
         margin: 1px
         display: flex
         border-radius: 10px
-        margin-inline: 0.3em
         background-color: rgba(241, 241, 241, 1)
 
         &:hover
-            background-color: rgba(241, 241, 241, 0.8)
             transform: scale(1.1)
             transition: 0.3s ease-in-out
+            background-color: rgba(241, 241, 241, 0.8)
+            box-shadow: $box-shadow
     
     .flex-row
 

@@ -81,64 +81,84 @@ const model =
                                 //diploma: "https://getacademy.no/",
                                 //description: "This is a professional certificate demostrates the experise in Fullstack Development. Developing a comprehensive understanding of the fundamentals In",
                                 description: "This education is a fullstack developer education, which includes the following technologies",
-                                tech:
+                                languages:
                                 [
-                                    "API",
-                                    "HTML",
-                                    "CSS",
-                                    "MVC",
-                                    "MVC .NET",
-                                    "JavaScript",
-                                    "Agile practices",
-                                    "Customer relations",
-                                    "Database Management",
+                                    {
+                                        name:"C",
+                                        tech:
+                                        [
+                                            "API", "C#", ".NET",
+                                            "Data Structures",
+                                        ],
+                                    },
+                                    {
+                                        name:"Database-Management",
+                                        tech:
+                                        [
+                                            "SQL",
+                                        ],
+                                    },
+                                    {
+                                        name:"UI",
+                                        tech:
+                                        [
+                                            "HTML", "CSS", "JavaScript",
+                                            "MVC",
+
+                                        ],
+                                    },
+                                    {
+                                        name:"Workflow",
+                                        tech:
+                                        [
+                                            "agile-practices", "Customer-relations",
+                                        ],
+                                    },
                                 ],
                             },
-
-                        ]
+                        ],
                     },
                     {
                         school: "HavardX",
                         link: "https://vpal.harvard.edu/harvardx/",
                         description: "Harvard University's online learning platform",
                         classes: [
-                            /*{
+                            {
                                 name: "Introduction to Computer Science",
                                 link: "",
-                                diploma: "https://courses.edx.org/certificates/2c5d4f0e9c5d4f4a8c6b3b5b3d9c4c4a",
+                                //diploma: "https://courses.edx.org/certificates/cc7f7cb258a24538af14c876023cf932",
                                 description: "This is a professional certificate demostrates the experise in CS. Developing a comprehensive understanding of the fundamentals In",
-                                tech:
+                                languages:
                                 [
                                     {
-                                        name:"python",
-                                        keywords:
+                                        name:"Python",
+                                        tech:
                                         [
                                             "Data Structures",
                                             "Algorithms",
-                                            "SQL",
                                             "API",
-                                            "Django / Flask",
-
+                                            "Flask",
                                         ],
                                     },
                                     {
-                                        name:"Database Management",
-                                        keywords:
+                                        name:"Database-Management",
+                                        tech:
                                         [
-                                            "SQL",
+                                            "SQLite",
                                         ],
                                     },
                                    {
-                                    name:"c",
-                                    keywords:
+                                    name:"C",
+                                    tech:
                                     [
-                                        "Data Structures",
                                         "Algorithms",
+                                        "Data Structures",
+                                        "Memory Management",
                                     ],
                                 }, 
                                 {
-                                    name:" front-end",
-                                    keywords:
+                                    name:"Frontend",
+                                    tech:
                                     [
                                         "HTML",
                                         "CSS",
@@ -146,19 +166,30 @@ const model =
                                     ],
                                 }
                                 ],
-                            },*/
+                            },
                             {
                                 name: "CS50P",
-
                                 diploma: "https://courses.edx.org/certificates/cc7f7cb258a24538af14c876023cf932",
-                                description: "This is a professional certificate demostrates the experise in CS. Developing a comprehensive understanding of the fundamentals In",
-                                tech: 
+                                description: "This is a Verified certificate that demostrates the experise in CS using Python. Developing a comprehensive understanding of the fundamentals In",
+                                languages:
                                 [
-                                    "Django",
-                                    "Flask",
-                                    "API",
+                                    {
+                                        name:"Python",
+                                        tech:
+                                        [
+                                            "Function-variables",
+                                            "Conditionals",
+                                            "Loops",
+                                            "Exceptions",
+                                            "Libraries",
+                                            "Unit testing",
+                                            "File I/O",
+                                            "Regular Expressions",
+                                            "Object Oriented Programming",
+                                            
+                                        ],
+                                    },
                                 ],
-
                             },
                         ]
                     },
@@ -172,10 +203,12 @@ const model =
         ],
     sources:
         [
+            //  Carosel Images
             {
+                
                 src:"20240903_165612.jpg",
                 caption:"Guy Smiling",
                 alt:"20240903_165612.jpg"
             },
         ],
-};
+}
