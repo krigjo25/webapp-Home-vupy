@@ -57,17 +57,21 @@ div.specialization-container {
   transform: scale(1.1);
 }
 .specialization-course .tech-container .relative {
-  top: 2vh !important;
-  left: 0.5vw !important;
+  left: 0.5em;
+  top: 0.9em;
   position: relative;
+}
+.specialization-course div.tech-wrapper {
+  display: flex;
+  border-radius: 10px;
+  margin-inline: 0.3em;
+  background-color: #f1f1f1;
 }
 .specialization-course span.tech-label {
   font-size: 0.9em;
   font-weight: 300;
   font-style: oblique;
   padding: 1em;
-  border-radius: 10px;
-  margin-inline: 0.3em;
 }
 .specialization-course .flex-row {
   padding: 0.5em !important;

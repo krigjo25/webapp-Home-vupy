@@ -54,7 +54,7 @@ function about(arg)
         <section class="bio-content">
 
             <h2>${arg.title[0]}</h2>
-            <small>Written by ${arg.title[0]} average time to read time <b>${arg.time} min</b><i class="bi bi-stopwatch"></i></small>       
+            <small>Written by ${arg.title[0]} average time to read time <b><time data="${arg.time}">${arg.time} min</time></b><i class="bi bi-stopwatch"></i></small>       
             <p>${arg.message}</p>
             <p>${arg.message1}</p>
             <p>${arg.message2}</p>
@@ -97,7 +97,8 @@ function specialization(arg)
                     <h3 class='h3-link'><i class='bi bi-folder-symlink'></i>${schools.school}</h3>
                 </a>
                 <p>${schools.description}</p>`;
-
+                
+        //  Ensure that the tech is available
         if(schools.tech)
         {
             html += /*HTML*/`
@@ -106,13 +107,19 @@ function specialization(arg)
             for (let j = 0; j < schools.tech.length; j++)
             {
                 html += /*HTML*/`
-                    <div class='tech-${schools.tech[j]} relative'></div>
-                    <span class='tech-label'>${schools.tech[j]}&nbsp;</span>`;
+                    <div class='tech-wrapper'>
+                        <div class='tech-${schools.tech[j]} relative'></div>
+                        <span class='tech-label'>
+                            ${schools.tech[j]}&nbsp;
+                        </span>
+                    </div>`;
+
             }
             html += /*HTML*/`
             </div></div>`;
         }
 
+        //  Ensure that the classes are available
         if (schools.classes)
         {
             for (let j = 0; j < schools.classes.length; j++)
@@ -128,7 +135,7 @@ function specialization(arg)
                         html += /*HTML*/`
                         <a href="${classes.diploma}">
                         <h4 class='h4-link'>
-                            <i class='bi bi-link-45deg'></i>
+                            <i class='bi bi-award'></i>
                             ${classes.name}
                         </h4>
                         </a>`;
@@ -144,19 +151,20 @@ function specialization(arg)
                     <p>${classes.description}</p>
                     <div class='tech-container flex-row'>`;
 
+                //  Ensure that the tech is available
                 if (classes.tech.length > 0)
                 {
                     for (let k = 0; k < classes.tech.length; k++)
                     {
                         html += /*HTML*/`
-                            
+                            <div class='tech-wrapper'>
                                 <div class='tech-${classes.tech[k]} relative'></div>
                                 <span class='tech-label'>
                                     ${String(classes.tech[k]).replace("-", " ")}
-                                </span>`;
+                                </span>
+                            </div>`;
                     }
-                    html += /*HTML*/`
-                    </div></div>`;
+                    html += /*HTML*/` </div></div>`;
                 }
             }
         html += /*HTML*/`</div>`;

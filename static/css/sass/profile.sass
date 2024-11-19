@@ -1,10 +1,27 @@
+roboto-font
+    font-family: 'Roboto', sans-serif
+
+work-sans-font
+    font-family: 'Work Sans', sans-serif
+
+open-sans-font
+    font-family: 'Open Sans', sans-serif
+
+
 section.bio-container
     display: flex
     flex-wrap: wrap
     flex-direction: column
     align-items: center
 
-    section.bio-links
+    h2
+        @extend work-sans-font
+    
+    small
+                font-size: 0.7vw
+                @extend open-sans-font
+
+    .bio-links
         display: flex
         font-size: 4vh
         margin-inline: 1em
@@ -12,24 +29,21 @@ section.bio-container
         border-radius: 1vh
         justify-content: center
         background-color: #f1f1f1
-    
-        button.bio-btn
-            border: none
-            padding: 1em
-            font-size: 1vw
-            cursor: pointer
-            
-            background-color: transparent
 
-            &:hover
-                background-color: #ddd
+    .bio-btn
+        border: none
+        padding: 1em
+        font-size: 1vw
+        cursor: pointer
 
-            &:active
-                background-color: #ccc
-            &:nth-child(1)
-                border-right: 1px solid #ccc
-                
+        &:hover
+            font-weight: bold
+            color: #fefefe
+            background-color: #a1bfc9
 
+        &:active
+            background-color: #a1bfc9
+            color: #fefefe
 
 main 
     article
@@ -43,7 +57,6 @@ main
                 inline-size: 100%
                 border-radius: 0.5em
 
-        
         div.img-container
             display: flex
             flex-wrap: wrap
@@ -79,7 +92,9 @@ main
             inline-size: 10vw
 
         section
+            
             .bio-content
+                @extend roboto-font
                 inline-size: 25vw
 
             .btn-links a:visited, .btn-links a:link
@@ -87,6 +102,8 @@ main
                 text-decoration: none
                 color: rgb(254, 254, 254)
                 background-color: #a1bfc9
+            
+
 
         div.grid-container
             display: grid

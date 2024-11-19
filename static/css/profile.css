@@ -1,10 +1,25 @@
+roboto-font, main article section .bio-content {
+  font-family: "Roboto", sans-serif;
+}
+
+work-sans-font, section.bio-container h2 {
+  font-family: "Work Sans", sans-serif;
+}
+
+open-sans-font, section.bio-container small {
+  font-family: "Open Sans", sans-serif;
+}
+
 section.bio-container {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
 }
-section.bio-container section.bio-links {
+section.bio-container small {
+  font-size: 0.7vw;
+}
+section.bio-container .bio-links {
   display: flex;
   font-size: 4vh;
   margin-inline: 1em;
@@ -13,21 +28,20 @@ section.bio-container section.bio-links {
   justify-content: center;
   background-color: #f1f1f1;
 }
-section.bio-container section.bio-links button.bio-btn {
+section.bio-container .bio-btn {
   border: none;
   padding: 1em;
   font-size: 1vw;
   cursor: pointer;
-  background-color: transparent;
 }
-section.bio-container section.bio-links button.bio-btn:hover {
-  background-color: #ddd;
+section.bio-container .bio-btn:hover {
+  font-weight: bold;
+  color: #fefefe;
+  background-color: #a1bfc9;
 }
-section.bio-container section.bio-links button.bio-btn:active {
-  background-color: #ccc;
-}
-section.bio-container section.bio-links button.bio-btn:nth-child(1) {
-  border-right: 1px solid #ccc;
+section.bio-container .bio-btn:active {
+  background-color: #a1bfc9;
+  color: #fefefe;
 }
 
 main article div.carosel {
