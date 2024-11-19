@@ -41,4 +41,27 @@
 .pp .pro-nav {
   display: flex;
   flex-direction: column;
+}
+.pp .tech-container {
+  inline-size: 22vw;
+}
+.pp .tech-container .relative {
+  left: 0.5em;
+  top: 0.7em;
+  position: relative;
+}
+.pp .tech-wrapper {
+  margin: 1px;
+  display: flex;
+  border-radius: 10px;
+  margin-inline: 0.3em;
+  background-color: rgb(241, 241, 241);
+}
+.pp span.tech-label {
+  padding: 0.7em;
+  font-size: 0.7em;
+  font-weight: 300;
+  font-style: oblique;
+  border-radius: 10px;
+  margin-inline: 0.3em;
 }/*# sourceMappingURL=fullstack.css.map */

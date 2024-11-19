@@ -10,11 +10,6 @@ flex-nowrap-row {
   flex-direction: row;
 }
 
-.flex-row {
-  padding: 1em;
-  margin: 1em auto;
-}
-
 .justify-center-row {
   justify-content: center;
 }

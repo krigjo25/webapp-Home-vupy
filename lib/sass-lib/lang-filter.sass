@@ -2,28 +2,24 @@
 //  Variables
 @import colour
 
-
 %filter-content
     block-size: 1em
     inline-size: 1em
     border-radius: 10px
-   
+
+div.tech-Python
+    @extend %filter-content
+    background-color: $Cyan-Blue-Azure
+
 div.tech-Django
     @extend %filter-content
-    background-color: $python
+    background-color: $Cyan-Blue-Azure
 
 div.tech-Flask
     @extend %filter-content
-    background-color: $python
+    background-color: $Cyan-Blue-Azure
 
-div.tech-API
-    @extend %filter-content
-    background-color: $other
-
-div.tech-HTML
-    @extend %filter-content
-    background-color: $html
-
+// CSS
 div.tech-CSS
     @extend %filter-content
     background-color: $css
@@ -32,6 +28,12 @@ div.tech-SASS
     @extend %filter-content
     background-color: $css
 
+div.tech-HTML
+    @extend %filter-content
+    background-color: $html
+
+
+//  JavaScript
 div.tech-JavaScript
     @extend %filter-content
     background-color: $js
@@ -40,14 +42,21 @@ div.tech-MVC
     @extend %filter-content
     background-color: $js
 
+// Other
 div.tech-Agile-Methodology
     @extend %filter-content
     background-color: $other
 
+div.tech-API
+    @extend %filter-content
+    background-color: $other
+
+// C 
 div.tech-.NET
     @extend %filter-content
     background-color: $c
 
+// Database
 div.tech-Database-Management
     @extend %filter-content
     background-color: $db

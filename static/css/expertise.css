@@ -1,3 +1,17 @@
+roboto-font, .specialization-class p {
+  inline-size: 25vw;
+  font-family: "Roboto", sans-serif;
+}
+
+work-sans-font, .specialization-course .h4-link, .specialization-class:hover .h3-link, .specialization-class .h3-link {
+  font-weight: 100;
+  font-family: "Work Sans", sans-serif;
+}
+
+open-sans-font {
+  font-family: "Open Sans", sans-serif;
+}
+
 div.specialization-container {
   display: flex;
   flex-wrap: wrap;
@@ -13,27 +27,21 @@ div.specialization-container {
 .specialization-class .h3-link {
   margin: auto;
   font-size: 4vh;
-  font-weight: 900;
-  font-family: "Roboto", sans-serif;
   transition: 0.3s ease-in-out;
 }
 .specialization-class:hover .h3-link {
   font-size: 4.5vh;
-  font-weight: bold;
-  text-decoration: underline;
   transform: scale(1.1);
-}
-.specialization-class p {
-  inline-size: 28vw;
+  text-decoration: underline;
 }
 .specialization-class .tech-container {
   inline-size: 22vw;
 }
 .specialization-class span.tech-label {
+  padding: 1em;
   font-size: 0.9em;
   font-weight: 300;
   font-style: oblique;
-  padding: 0.5em;
   border-radius: 10px;
   margin-inline: 0.3em;
 }
@@ -46,8 +54,6 @@ div.specialization-container {
 .specialization-course .h4-link {
   margin: auto;
   font-size: 3vh;
-  font-weight: 900;
-  font-family: "Roboto", sans-serif;
   transition: 0.3s ease-in-out;
 }
 .specialization-course:hover .h4-link {
@@ -61,17 +67,17 @@ div.specialization-container {
   top: 0.9em;
   position: relative;
 }
-.specialization-course div.tech-wrapper {
+.specialization-course .tech-wrapper {
+  margin: 1px;
   display: flex;
   border-radius: 10px;
   margin-inline: 0.3em;
-  background-color: #f1f1f1;
+  background-color: rgb(241, 241, 241);
 }
-.specialization-course span.tech-label {
-  font-size: 0.9em;
-  font-weight: 300;
-  font-style: oblique;
-  padding: 1em;
+.specialization-course .tech-wrapper:hover {
+  background-color: rgba(241, 241, 241, 0.8);
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
 }
 .specialization-course .flex-row {
   padding: 0.5em !important;

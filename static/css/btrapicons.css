@@ -33,31 +33,31 @@ nav .bi-mailbox {
 nav .bi-linkedin {
   color: rgb(0, 0, 128);
 }
+nav .bi-linkedin:hover {
+  color: rgb(25, 25, 140);
+}
+nav .bi-linkedin:active {
+  color: rgb(0, 0, 115);
+}
 nav .bi-youtube {
   color: rgb(255, 0, 0);
+}
+nav .bi-youtube:hover {
+  color: rgb(120, 6, 6);
 }
 nav .bi-globe {
   color: rgb(40, 40, 40);
 }
+nav .bi-globe:hover {
+  color: rgba(40, 40, 40, 0.8);
+}
 nav .bi-github {
   color: rgb(105, 105, 105);
 }
-nav:hover .bi-linkedin {
-  color: rgb(25, 25, 140);
-}
-nav:hover .bi-github {
+nav .bi-github:hover {
   color: rgb(120, 120, 120);
 }
-nav:hover .bi-youtube {
-  color: rgb(120, 6, 6);
-}
-nav:hover .bi-globe {
-  color: rgba(40, 40, 40, 0.8);
-}
-nav:active .bi-linkedin {
-  color: rgb(0, 0, 115);
-}
-nav:active .bi-github:active {
+nav .bi-github:active {
   color: rgb(45, 45, 45);
 }
 

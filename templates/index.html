@@ -70,7 +70,43 @@
                             {% endfor %}
 
                         </nav>
-                
+                {% else %}
+                    <nav>
+                        <div class="pp">
+                            <div class="pro-nav">
+                                <a href="https://github.com">
+                                    <i class="bi bi-github"></i>
+                                </a>
+                                <a href="https://krigjo25.no">
+                                    <i class="bi bi-globe"></i>
+                                </a>
+                                <a href="https://youtube.com">
+                                    <i class="bi bi-youtube"></i>
+                                </a>
+                            </div>
+                            <details>
+                                <summary>
+                                    Project Name
+                                </summary>
+                                <p> A github repository</p>
+                                <p>
+                                    Date of creation :  <time datatime=""> </time>
+                                </p>
+                                <div class="tech-container flex-row">
+                                    <div class='tech-wrapper'>
+                                        <div class='tech-Python relative'></div>
+                                        <span class='tech-label'>
+                                            Python
+                                        </span>
+                                
+                                    </div>
+                                </div>
+                            </details>
+                            <span>
+                                <time datatime=""></time>
+                            </span>
+                        </div>
+                    </nav>
                 {% endif %}
             </section>
 {% endblock %}

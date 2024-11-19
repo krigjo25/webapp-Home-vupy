@@ -1,4 +1,14 @@
-//  Variables
+roboto-font
+    inline-size: 25vw
+    font-family: 'Roboto', sans-serif
+
+work-sans-font
+    font-weight: 100
+    font-family: 'Work Sans', sans-serif
+
+open-sans-font
+    font-family: 'Open Sans', sans-serif
+
 div.specialization-container
     display: flex
     flex-wrap: wrap
@@ -15,27 +25,27 @@ div.specialization-container
     .h3-link
         margin: auto
         font-size: 4vh
-        font-weight: 900
-        font-family: 'Roboto', sans-serif
+        @extend work-sans-font
         transition: 0.3s ease-in-out
-        
+
     &:hover
         .h3-link
             font-size: 4.5vh
-            font-weight: bold
-            text-decoration: underline
             transform: scale(1.1)
+            @extend work-sans-font
+            text-decoration: underline
+
     p
-        inline-size: 28vw
+        @extend roboto-font
 
     .tech-container
         inline-size: 22vw
 
     span.tech-label
+        padding: 1em
         font-size: 0.9em
         font-weight: 300
         font-style: oblique
-        padding: 0.5em
         border-radius: 10px
         margin-inline: 0.3em
 
@@ -49,10 +59,9 @@ div.specialization-container
 
 
     .h4-link
+        @extend work-sans-font
         margin: auto
         font-size: 3vh
-        font-weight: 900
-        font-family: 'Roboto', sans-serif
         transition: 0.3s ease-in-out
         
     &:hover
@@ -68,18 +77,18 @@ div.specialization-container
             left: 0.5em
             top: 0.9em
             position: relative
-    div.tech-wrapper
+
+    .tech-wrapper
+        margin: 1px
         display: flex
         border-radius: 10px
         margin-inline: 0.3em
-        background-color: #f1f1f1
+        background-color: rgba(241, 241, 241, 1)
 
-
-    span.tech-label
-        font-size: 0.9em
-        font-weight: 300
-        font-style: oblique
-        padding: 1em
+        &:hover
+            background-color: rgba(241, 241, 241, 0.8)
+            transform: scale(1.1)
+            transition: 0.3s ease-in-out
     
     .flex-row
 
