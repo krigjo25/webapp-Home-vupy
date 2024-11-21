@@ -14,17 +14,16 @@ class Index(MethodView):
 
     #   Initialize methods and database
     methods = ["GET", "POST"]
-
+    
     def __init__(self) -> None:
         super().__init__()
 
     def get(self): 
         
-        return render_template("index.html", portefolio = False) # GithubApi().fetch_repos())
+        return render_template("index.html", portefolio =  GithubApi().fetch_repos())
 
     def post(self): 
 
         #   Handle post request
         req = request.form
-        return 
-
+        return render_template("index.html", portefolio =  GithubApi().fetch_repos())

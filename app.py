@@ -35,7 +35,7 @@ def after_request(response):
 
 @app.before_request
 def before_request():
-    
+
     return
 
 #   Url rules

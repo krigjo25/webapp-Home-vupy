@@ -33,7 +33,7 @@
                 <i class="bi bi-arrow-right-circle-fill"></i>
                 <p>Showing Python | Flask Projects</p>
                 {% if portefolio %}
-                        <nav>
+                        <div class="fullstack-container">
                             {% for pf in portefolio %}
                                 <div class="pp">
                                     <div class="pro-nav">
@@ -41,37 +41,43 @@
                                             <a href="{{pf['url']}}">
                                                 <i class="bi bi-github"></i>
                                             </a>
-                                        {% endif %}
-                                        {% if pf.gurl %}
                                             <a href="{{pf['web']}}">
                                                 <i class="bi bi-globe"></i>
                                             </a>
-                                        {% endif %}
-                                        {% if pf.yurl %}
                                             <a href="{{pf['ytube']}}">
                                                 <i class="bi bi-youtube"></i>
                                             </a>
                                         {% endif %}
                                     </div>
-                                    {% if pf['description'] != "none" %}
-                                        <details>
-                                            <summary>
-                                                {{pf['name']}}
-                                            
-                                            </summary>
-                                            <p> {{ pf['description']}} </p>
-                                            <p>Date of creation :<time datatime="{{pf['date']}}"> {{pf['date']}}</time></p>
-                                            <p>{{pf.lang}}</p>
-                                        </details>
-                                    {% else %}
-                                        <span>{{pf['name']}} <time datatime="{{pf['date']}}">{{pf['date']}}</time></span>
-                                    {% endif %}
+                                    <div class="tech-container flex-row">
+                                        <span class="flex-reversed-row">
+                                            <time datatime="{{pf['date']}}"> 
+                                                {{pf['date']}}
+                                            </time>
+                                        </span>
+                                        <h3>{{pf['name']}}</h3>
+                                        {% if pf['description'] != 'None' %}
+                                            <span>{{ pf['description']}}</span>
+                                        {% endif %}
+                                        {% if pf['lang'] %}
+                                            <div class="flex-row">
+                                                {% for lang in pf['lang'] %}
+                                                    <div class='tech-wrapper '>
+                                                        <div class='tech-{{ lang }} relative'></div>
+                                                        <span class='tech-label'>
+                                                            {{ lang }}
+                                                        </span>
+                                                    </div>
+                                            {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                    </div>
                                 </div>
                             {% endfor %}
 
-                        </nav>
+                            </div>
                 {% else %}
-                    <nav>
+                    <div class="fullstack-container">
                         <div class="pp">
                             <div class="pro-nav">
                                 <a href="https://github.com">
@@ -106,7 +112,7 @@
                                 <time datatime=""></time>
                             </span>
                         </div>
-                    </nav>
+                    </div>
                 {% endif %}
             </section>
 {% endblock %}

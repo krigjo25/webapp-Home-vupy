@@ -1,4 +1,4 @@
-.pp .tech-container, .pp details {
+.pp .tech-container {
   user-select: none;
   margin-inline: 1em;
   -moz-user-select: none;
@@ -9,41 +9,41 @@
   text-align: center;
 }
 
+.fullstack-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .pp {
   margin: 1em;
   display: flex;
   flex-wrap: wrap;
-  inline-size: 29vw;
-  align-items: flex-start;
+  border-radius: 10px;
   border: 1px solid black;
-  justify-content: space-around;
 }
 .pp i {
-  font-size: 2vw;
+  font-size: 2em;
 }
 .pp a:link, .pp a:visited {
   color: inherit;
 }
-.pp details {
-  inline-size: 23vw;
-  font-size: 1em;
-}
-.pp details summary {
-  font-weight: bold;
-  font-size: 1.5em;
-}
-.pp details time {
-  font-weight: bold;
-}
-.pp details p {
-  font-size: 1em;
-}
 .pp .pro-nav {
   display: flex;
+  block-size: 100%;
+  padding-inline: 1em;
   flex-direction: column;
+  justify-content: space-evenly;
 }
 .pp .tech-container {
+  display: flex;
+  flex-wrap: wrap;
   inline-size: 22vw;
+  align-items: stretch;
+  flex-direction: column;
+  align-content: space-between;
+  justify-content: space-between;
 }
 .pp .tech-container .relative {
   left: 0.5em;

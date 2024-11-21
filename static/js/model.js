@@ -123,7 +123,7 @@ const model =
                         link: "https://vpal.harvard.edu/harvardx/",
                         description: "Harvard University's online learning platform",
                         classes: [
-                            {
+                            /*{
                                 name: "Introduction to Computer Science",
                                 link: "",
                                 //diploma: "https://courses.edx.org/certificates/cc7f7cb258a24538af14c876023cf932",
@@ -166,7 +166,7 @@ const model =
                                     ],
                                 }
                                 ],
-                            },
+                            },*/
                             {
                                 name: "CS50P",
                                 diploma: "https://courses.edx.org/certificates/cc7f7cb258a24538af14c876023cf932",

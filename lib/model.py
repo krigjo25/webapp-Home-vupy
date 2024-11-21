@@ -3,6 +3,7 @@ import os
 import sqlite3
 import logging
 import requests
+import datetime
 from typing import Optional,Tuple
 
 from dotenv import load_dotenv
@@ -20,8 +21,8 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', 
     handlers=[logging.FileHandler("app.log"), 
               logging.StreamHandler()])
-class APIConfig(object):
 
+class APIConfig(object):
 
     def __init__(self, URL, KEY=None, GET = "GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE'):
         self.GET = GET
@@ -71,7 +72,8 @@ class GithubApi(APIConfig):
             response = self.ApiCall(parse, head=self.head)
 
             for lang, value in response.items():
-                if lang: repo[i]['lang'] += f"{lang},"
+                if lang: repo[i]['lang'] += [lang]
+                else : repo[i]['lang'] += ['Unknown']
 
             #   Sweep data
             del response, repo, parse
@@ -88,62 +90,18 @@ class GithubApi(APIConfig):
         for i in range(len(response)):
 
             #   Structure the items from github
-            repo += [{"name":response[i]['name'], "description":str(response[i]['description']), "url":response[i]['html_url'], 'owner':response[i]['owner']['login'], 'lang':"", 'date':response[i]['created_at']}]
+            repo += [
+                {
+                    "name":response[i]['name'], 
+                    "description":str(response[i]['description']),
+                    "url":response[i]['html_url'],
+                    'owner':response[i]['owner']['login'],
+                    'lang':[],
+                    'date':datetime.datetime.strptime(response[i]['created_at'], '%Y-%m-%dT%H:%M:%SZ').strftime('%d-%M-%y')
+                }]
             
             #   Fetch repo languages
             fetch_languages(repo, f"{self.API_URL}/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
 
         logging.info(f"Fetching repositories: {repo}")
         return repo
-
-class InitializeData():
-
-    def __init__(self, db: str):
-        self.sql = SQL(db)
-        self.tables = self.sql.select_records('sqlite_master', 'SELECT')
-
-
-    def upsert_data(self, table: str, repo: list):
-
-        """
-            Initializing the data by fetching the repositories from the API
-            and Ensures the database is up to date
-        """
-        
-        #   Initializing variables
-        data = {}
-        columns = []
-        self.create_table(table, repo)
-        self.sql.initialize_records(table, repo)
-
-    def create_table(self, table: str, repo: list):
-
-            """
-                Creates a table and insert data into the table
-            """
-            #   Initializing the data
-            data = {}
-            columns = []
-
-            #    Initializing columns
-            columns = [key for key in repo[0].keys()]
-
-            for column in columns:
-
-                #   Ensure that the id is not in columns
-                if "id" not in columns:
-                    data["id"] = 'INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT'
-                
-                #   Ensure that the column is a date
-                if 'date' == column:
-                    data[column] = "INTEGER NOT NULL DEFAULT (strftime('%s', 'now')"
-                
-                if column == 'name':
-                    data[column] = "TEXT NOT NULL UNIQUE"
-            
-                else:
-                    data[column] = "TEXT NOT NULL DEFAULT 'None'"
-
-            #   Create table
-            print(data)
-            self.sql.TableConfigurations(table, "CREATE", columns=data)
