@@ -51,26 +51,28 @@
                                     </div>
                                     <div class="tech-container flex-row">
                                         <span class="flex-reversed-row">
-                                            <time datatime="{{pf['date']}}"> 
-                                                {{pf['date']}}
-                                            </time>
+                                            <i>
+                                                <time datatime="{{pf['date']}}"> 
+                                                    {{pf['date']}}
+                                                </time>
+                                            </i>
                                         </span>
-                                        <h3>{{pf['name']}}</h3>
-                                        {% if pf['description'] != 'None' %}
-                                            <span>{{ pf['description']}}</span>
-                                        {% endif %}
-                                        {% if pf['lang'] %}
-                                            <div class="flex-row">
-                                                {% for lang in pf['lang'] %}
-                                                    <div class='tech-wrapper '>
-                                                        <div class='tech-{{ lang }} relative'></div>
-                                                        <span class='tech-label'>
-                                                            {{ lang }}
-                                                        </span>
-                                                    </div>
-                                            {% endfor %}
-                                            </div>
-                                        {% endif %}
+                                            <h3>{{pf['name']}}</h3>
+                                            {% if pf['description'] != 'None' %}
+                                                <span>{{ pf['description']}}</span>
+                                            {% endif %}
+                                            {% if pf['lang'] %}
+                                                <div class="flex-row">
+                                                    {% for lang in pf['lang'] %}
+                                                        <div class='tech-wrapper '>
+                                                            <div class='tech-{{ lang }} relative'></div>
+                                                            <span class='tech-label'>
+                                                                {{ lang }}
+                                                            </span>
+                                                        </div>
+                                                {% endfor %}
+                                                </div>
+                                            {% endif %}
                                     </div>
                                 </div>
                             {% endfor %}

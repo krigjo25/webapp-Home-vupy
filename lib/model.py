@@ -71,6 +71,7 @@ class GithubApi(APIConfig):
             #   Request a languages
             response = self.ApiCall(parse, head=self.head)
 
+            if not response: return
             for lang, value in response.items():
                 if lang: repo[i]['lang'] += [lang]
                 else : repo[i]['lang'] += ['Unknown']
@@ -101,6 +102,7 @@ class GithubApi(APIConfig):
                 }]
             
             #   Fetch repo languages
+            
             fetch_languages(repo, f"{self.API_URL}/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
 
         logging.info(f"Fetching repositories: {repo}")
