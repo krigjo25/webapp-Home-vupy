@@ -1,5 +1,6 @@
 @import misc
 @import colour
+@import flex-wrap-row
 
 .cnn-ctr 
     text-align: center
@@ -10,11 +11,9 @@
 .pp
     margin: 1em
     border-radius: 10px
-    @extend %flex-wrap-row
+    @extend flex-wrap-row
     border: 1px solid black
 
-    i
-        font-size: 2em
 
     a:link, a:visited
         color: inherit

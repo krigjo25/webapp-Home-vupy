@@ -1,4 +1,5 @@
 import os
+import asyncio
 from dotenv import load_dotenv
 
 from lib.model import GithubApi
@@ -14,16 +15,26 @@ class Index(MethodView):
 
     #   Initialize methods and database
     methods = ["GET", "POST"]
+    repo = None
     
     def __init__(self) -> None:
         super().__init__()
 
-    def get(self): 
+    async def update_periodically(self):
+        while True:
+            await asyncio.sleep(386400)
+            Index.repo = await GithubApi().fetch_repos()
+            
+    async def get(self): 
         
-        return render_template("index.html", portefolio =  GithubApi().fetch_repos())
+        if Index.repo == None:
+            Index.repo = await GithubApi().fetch_repos()
+
+        return render_template("index.html", portefolio = self.repo)
 
     def post(self): 
 
         #   Handle post request
         req = request.form
-        return render_template("index.html", portefolio =  GithubApi().fetch_repos())
+        return render_template("index.html")
+

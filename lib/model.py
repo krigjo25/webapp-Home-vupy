@@ -1,10 +1,11 @@
 #   Importing repositories
 import os
-import sqlite3
+import time
+import asyncio
+
 import logging
 import requests
 import datetime
-from typing import Optional,Tuple
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -37,13 +38,20 @@ class APIConfig(object):
         """
             Calling the API
         """
+        start = time.strftime('%X', time.localtime())
+
         try:
             r = requests.get(f"{endpoint}", timeout=30, headers=head)
             if r.status_code in [200, 201]: return r.json()
             elif r.status_code in [401, 403]: raise ConnectionError('Unauthorized Access')
             elif r.status_code in [404]: raise HTTPError('Resource not found')
+        
         except (HTTPError, ConnectionError, Timeout, RequestException) as e: 
-            logging.error(f"An error occured while attempting to call the api{e}")
+            logging.error(f"An error occured while attempting to call the api\n request code :{r.status_code}\n, Time elapsed: {time.strftime('%X', time.localtime())-start}")
+        
+        logging.warning(f"request code :{r.status_code} Time elapsed: {time.time()-start}")
+
+        return
 
 class GithubApi(APIConfig):
 
@@ -60,24 +68,30 @@ class GithubApi(APIConfig):
        
         return
 
-    def fetch_repos(self):
+    async def fetch_repos(self):
         """
             Fetching the repositories
             API : https://api.github.com/
         """
-        #   Fetch repo languages
-        def fetch_languages(repo: list, parse: str):
+        start = time.time()
+        
+        
+
+        async def fetch_languages(repo: list, parse: str, start = time.time()):
 
             #   Request a languages
             response = self.ApiCall(parse, head=self.head)
 
-            if not response: return
             for lang, value in response.items():
-                if lang: repo[i]['lang'] += [lang]
-                else : repo[i]['lang'] += ['Unknown']
+                if lang:
+                    repo[i]['lang'] += [lang]
+                else :
+                    repo[i]['lang'] += ["None"]
 
-            #   Sweep data
-            del response, repo, parse
+    
+                
+
+            logging.info(f"Languages has been fatched {repo[i]['lang']}\nTime elapsed: {time.time()-start}\n")
             return
 
          #   Intializing a list
@@ -103,7 +117,8 @@ class GithubApi(APIConfig):
             
             #   Fetch repo languages
             
-            fetch_languages(repo, f"{self.API_URL}/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
+            await fetch_languages(repo, f"{self.API_URL}/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
+            
+        logging.warning(f"Repo has been fatched {repo}\nTime elapsed: {time.time()-start}\n")
 
-        logging.info(f"Fetching repositories: {repo}")
         return repo

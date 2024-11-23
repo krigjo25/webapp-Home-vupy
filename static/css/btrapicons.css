@@ -27,37 +27,53 @@ nav .ext-bar a {
   display: inline-block;
   min-inline-size: 50px;
 }
-nav .bi-mailbox {
+
+.bi-mailbox {
+  font-size: 2em;
   color: rgb(40, 40, 40);
 }
-nav .bi-linkedin {
+
+.bi-linkedin {
+  font-size: 2em;
   color: rgb(0, 0, 128);
 }
-nav .bi-linkedin:hover {
+
+.bi-linkedin:hover {
   color: rgb(25, 25, 140);
 }
-nav .bi-linkedin:active {
+
+.bi-linkedin:active {
   color: rgb(0, 0, 115);
 }
-nav .bi-youtube {
+
+.bi-youtube {
+  font-size: 2em;
   color: rgb(255, 0, 0);
 }
-nav .bi-youtube:hover {
+
+.bi-youtube:hover {
   color: rgb(120, 6, 6);
 }
-nav .bi-globe {
+
+.bi-globe {
+  font-size: 2em;
   color: rgb(40, 40, 40);
 }
-nav .bi-globe:hover {
+
+.bi-globe:hover {
   color: rgba(40, 40, 40, 0.8);
 }
-nav .bi-github {
+
+.bi-github {
+  font-size: 2em;
   color: rgb(105, 105, 105);
 }
-nav .bi-github:hover {
+
+.bi-github:hover {
   color: rgb(120, 120, 120);
 }
-nav .bi-github:active {
+
+.bi-github:active {
   color: rgb(45, 45, 45);
 }
 

@@ -10,7 +10,6 @@ from flask_session import Session
 
 #   Custom libs
 from lib.views import Index
-from lib.model import GithubApi
 from lib.config import DevelopmentConfig
 
 
@@ -24,7 +23,7 @@ Session(app)
 
 
 @app.after_request
-def after_request(response):
+async def after_request(response):
     """Ensure the responses aren't cached"""
     response.headers['Cache-Control'] = "no-cache, no-store, must-revalidate"
     response.headers['Expires'] = 0
@@ -34,7 +33,7 @@ def after_request(response):
     return response
 
 @app.before_request
-def before_request():
+async def before_request():
 
     return
 
