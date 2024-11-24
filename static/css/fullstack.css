@@ -59,7 +59,7 @@ flex-wrap-reversed-row, .flex-reversed-row {
 .pp {
   margin: 1em;
   border-radius: 10px;
-  border: 1px solid black;
+  background-color: rgb(231, 243, 243);
 }
 .pp a:link, .pp a:visited {
   color: inherit;

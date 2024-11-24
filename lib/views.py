@@ -29,8 +29,9 @@ class Index(MethodView):
         
         if Index.repo == None:
             Index.repo = await GithubApi().fetch_repos()
-
-        return render_template("index.html", portefolio = self.repo)
+            
+            contact ={"mailbox": 'mailto:krigjo25@outlook.com', "linkedin": 'https://', "github": 'https://www.github.com/krigjo25'}
+        return render_template("index.html", portefolio = self.repo, links = contact)
 
     def post(self): 
 

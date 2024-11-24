@@ -200,54 +200,7 @@ function specialization(arg)
 
 function footer(arg)
 {
-    arg.id.innerHTML = /*HTML*/`
-    ${contact()}
-    ${socialMedia()}
-    `;
     //  Footer copy right
-    document.querySelector('#powered-by').innerHTML += /*HTML*/`
+    document.querySelector('#powered-by').innerHTML = /*HTML*/`
     <p><a href=""> Copyright</a> &copy; <a href="https://www.krigjo25.no">@krigjo25</a> 2024  - ${new Date().getFullYear()}</p>`;
-}
-
-function contact()
-{
-    return /*HTML*/`
-        <section class="contact-container">
-                <h2>Get in touch</h2>
-                <nav class='ext-bar'>
-                    <a href='{{ messenger }}'>                          
-                        <i class="bi bi-messenger"></i>
-                    </a>
-                    <a href='{{ mail }}'>                           
-                        <i class="bi bi-mailbox"></i>
-                    </a>
-                    <a href='{{ discord }}'>                          
-                        <i class="bi bi-discord"></i>
-                    </a>
-                </nav>
-        </section>`;
-}
-function socialMedia()
-{
-    return /*HTML*/`        
-    <section class="social-media-container">
-        <h2>Follow me on social media</h2>
-        <nav class="ext-bar">
-            <a href='{{ facebook }}'>
-                <span>                           
-                    <i class="bi bi-facebook"></i>
-                </span>
-            </a>
-            <a href='{{ instagram }}'>
-                <span>                           
-                    <i class="bi bi-instagram"></i>
-                </span>
-            </a>
-            <a href='{{ ello }}'>
-                <span>                           
-                    <i class="bi bi-ello"></i>
-                </span>
-            </a>
-        </div>
-    </section>`;
 }
