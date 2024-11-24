@@ -21,12 +21,12 @@ section.bio-container
         @extend work-sans-font
     
     small
-                font-size: 0.7vw
+                font-size: 0.7em
+
                 @extend open-sans-font
 
     .bio-links
         display: flex
-        font-size: 4vh
         margin-inline: 1em
         text-align: center
         border-radius: 1vh
@@ -69,18 +69,19 @@ main
             justify-content: center
             align-items: flex-start
             
-            div.img-btn
+            div.btn-container
                 z-index: 1
-                bottom: 38vh
+                bottom: 31em
                 display: flex
                 cursor: pointer
+                block-size: 100%
                 position: relative
                 justify-content: space-between
 
-                button.prev-btn, button.next-btn
-                    //opacity: 0.3
+                button.img-btn
+                    opacity: 0.3
                     border: none
-                    font-size: 2vw
+                    font-size: 2em
                     cursor: pointer
                     //color: #fefefe
                     background-color: transparent
@@ -116,7 +117,7 @@ main
             inline-size: 14vw
 
         nav.ext-bar
-            padding: 1em
+            padding: 1vw
             display: flex
             flex-wrap: wrap
             margin-block-start: 2vh
@@ -124,7 +125,7 @@ main
 
             span 
                 padding: 1vw
-                font-size: 2vw
+                font-size: 1em
             
             a
                 color: inherit

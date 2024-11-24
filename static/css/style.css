@@ -1,7 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 textarea {
   block-size: 10vw;
   inline-size: 200px;
@@ -21,7 +20,7 @@ textarea {
 }
 
 .blur {
-  bottom: 14vh;
+  bottom: 11vh;
   block-size: 10vh;
   position: relative;
   filter: blur(0.5em);
@@ -47,11 +46,10 @@ section.bio-container {
   align-items: center;
 }
 section.bio-container small {
-  font-size: 0.7vw;
+  font-size: 0.7em;
 }
 section.bio-container .bio-links {
   display: flex;
-  font-size: 4vh;
   margin-inline: 1em;
   text-align: center;
   border-radius: 1vh;
@@ -91,21 +89,23 @@ main article div.img-container {
   justify-content: center;
   align-items: flex-start;
 }
-main article div.img-container div.img-btn {
+main article div.img-container div.btn-container {
   z-index: 1;
-  bottom: 38vh;
+  bottom: 31em;
   display: flex;
   cursor: pointer;
+  block-size: 100%;
   position: relative;
   justify-content: space-between;
 }
-main article div.img-container div.img-btn button.prev-btn, main article div.img-container div.img-btn button.next-btn {
+main article div.img-container div.btn-container button.img-btn {
+  opacity: 0.3;
   border: none;
-  font-size: 2vw;
+  font-size: 2em;
   cursor: pointer;
   background-color: transparent;
 }
-main article div.img-container div.img-btn:hover {
+main article div.img-container div.btn-container:hover {
   opacity: 1;
 }
 main article .tab-container {
@@ -132,7 +132,7 @@ main article .grid-item {
   inline-size: 14vw;
 }
 main article nav.ext-bar {
-  padding: 1em;
+  padding: 1vw;
   display: flex;
   flex-wrap: wrap;
   margin-block-start: 2vh;
@@ -140,7 +140,7 @@ main article nav.ext-bar {
 }
 main article nav.ext-bar span {
   padding: 1vw;
-  font-size: 2vw;
+  font-size: 1em;
 }
 main article nav.ext-bar a {
   color: inherit;
@@ -166,11 +166,39 @@ main article .flash {
   border-bottom: 1px groove black;
 }
 
+@media (max-width: 768px) {
+  header a {
+    font-size: 0.57em !important;
+  }
+  button.bio-btn {
+    font-size: 0.7em !important;
+  }
+  section .bio-content {
+    inline-size: 82vw !important;
+    text-align: justify !important;
+  }
+  main article div.carosel {
+    block-size: 30em !important;
+    inline-size: 100% !important;
+  }
+  main article div.carosel img {
+    inline-size: 100% !important;
+  }
+  main article div.img-container div.btn-container {
+    bottom: 39em !important;
+  }
+}
 .pp .tech-container, .specialization-course .tech-container, .specialization-class .no-select {
   user-select: none;
   margin-inline: 1em;
   -moz-user-select: none;
   -webkit-user-select: none;
+}
+
+div.tech-Database-Management, div.tech-Makefile, div.tech-Cs, div.tech-C, div.tech-Workflow, div.tech-Sass, div.tech-JavaScript, div.tech-CSS, div.tech-HTML, div.tech-UI, div.tech-Jupyter, div.tech-Python {
+  block-size: 1em;
+  inline-size: 1em;
+  border-radius: 10px;
 }
 
 roboto-font, .specialization-class p, main article section .bio-content {
@@ -264,6 +292,12 @@ div.specialization-container {
   margin-inline: 1em;
   -moz-user-select: none;
   -webkit-user-select: none;
+}
+
+div.tech-Database-Management, div.tech-Makefile, div.tech-Cs, div.tech-C, div.tech-Workflow, div.tech-Sass, div.tech-JavaScript, div.tech-CSS, div.tech-HTML, div.tech-UI, div.tech-Jupyter, div.tech-Python {
+  block-size: 1em;
+  inline-size: 1em;
+  border-radius: 10px;
 }
 
 flex-wrap-row, .pp, .align-items-flex-end-row, .align-items-center-row, .align-content-center-row, .justify-content-space-evently-row, .justify-flexstart-row, .justify-center-row, .flex-row, flex-wrap-row-space-evenly, .fullstack-container {
@@ -506,6 +540,67 @@ nav .ext-bar a {
   font-family: python;
 }
 
+.specialization-class .no-select, .specialization-course .tech-container, .pp .tech-container {
+  user-select: none;
+  margin-inline: 1em;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+div.tech-Database-Management, div.tech-Makefile, div.tech-Cs, div.tech-C, div.tech-Workflow, div.tech-Sass, div.tech-JavaScript, div.tech-CSS, div.tech-HTML, div.tech-UI, div.tech-Jupyter, div.tech-Python {
+  block-size: 1em;
+  inline-size: 1em;
+  border-radius: 10px;
+}
+
+div.tech-Python {
+  background-color: rgb(48, 105, 152);
+}
+
+div.tech-Jupyter {
+  background-color: rgb(48, 105, 152);
+}
+
+div.tech-UI {
+  background-color: rgba(255, 99, 71, 0.8);
+}
+
+div.tech-HTML {
+  background-color: rgba(255, 99, 71, 0.8);
+}
+
+div.tech-CSS {
+  background-color: rgba(255, 99, 71, 0.8);
+}
+
+div.tech-JavaScript {
+  background-color: rgba(255, 99, 71, 0.8);
+}
+
+div.tech-Sass {
+  background-color: rgba(255, 99, 71, 0.8);
+}
+
+div.tech-Workflow {
+  background-color: rgba(0, 191, 255, 0.8);
+}
+
+div.tech-C {
+  background-color: rgb(238, 140, 43);
+}
+
+div.tech-Cs {
+  background-color: rgb(238, 140, 43);
+}
+
+div.tech-Makefile {
+  background-color: rgba(40, 40, 40, 0.8);
+}
+
+div.tech-Database-Management {
+  background-color: rgba(255, 0, 0, 0.8);
+}
+
 flex-wrap-row, flex-wrap-row-space-evenly, .flex-row, .justify-center-row, .justify-flexstart-row, .justify-content-space-evently-row, .align-content-center-row, .align-items-center-row, .align-items-flex-end-row, .fullstack-container, .pp {
   display: flex;
   flex-wrap: wrap;
@@ -553,11 +648,6 @@ flex-wrap-reversed-row, .flex-reversed-row {
   align-items: flex-end;
 }
 
-@media (max-width: 768px) {
-  button.bio-btn {
-    font-size: 2em;
-  }
-}
 @font-face {
   font-family: python;
   src: url(../lib/fonts/Flux_Regular/Flux_Regular.otf);

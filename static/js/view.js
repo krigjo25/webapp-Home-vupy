@@ -70,11 +70,11 @@ function carosel(arg)
         <img id="car-img" src="${arg.path + arg.source}" alt="${arg.alt}" class="css-img">
             <div class="blur">${arg.caption}</div>
             <div class="caption">${arg.caption}</div>
-            <div id="img-btn" class="img-btn">
-                <button id ="prev-btn" class="prev-btn" onclick="prev()">
+            <div id="img-btn" class="btn-container">
+                <button id ="prev-btn" class="img-btn" onclick="prev()">
                     <i class="bi bi-arrow-left-square-fill"></i>
                 </button>
-                <button id ="next-btn" class="next-btn"onclick="next()">
+                <button id ="next-btn" class="img-btn"onclick="next()">
                     <i class="bi bi-arrow-right-square-fill"></i>
                 </button>
         </div>`;

@@ -194,8 +194,19 @@ function profile(arg)
             meditation, and physical activity and always on the outlook for a
             new challenge / adventure.`;
 
-    arg.message1 = ` As an Application engineer the software is organized with comments,
-            to give out a greater understanding of the develoment which is
+    arg.message1 = ` 
+        As an Application engineer
+        
+        Organization is key to my work, and I am dedicated to delivering
+        high-quality code that is easy to read and maintain. I am passionate
+        about creating software that is user-friendly and efficient. My
+        experience in software development has taught me the importance of
+        writing clean code that is easy to understand and maintain. I am
+        dedicated to delivering high-quality software that meets the needs.
+        of my clients and users. 
+    
+        software is organized with comments,
+        to give out a greater understanding of the develoment which is
             written, The projects are also organized  with a documentation.
             for a greater understanding of the project.
             The process of development includes a lot of simplicity at
