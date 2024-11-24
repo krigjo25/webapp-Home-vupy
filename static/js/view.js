@@ -54,7 +54,7 @@ function about(arg)
         <section class="bio-content">
 
             <h2>${arg.title[0]}</h2>
-            <small>Written by ${arg.title[0]} average time to read time <b><time data="${arg.time}">${arg.time} min</time></b><i class="bi bi-stopwatch"></i></small>       
+            <small>Written by ${arg.title[0]} AVG reading time <b><time data="${arg.time}">${arg.time} min</time></b><i class="bi bi-stopwatch"></i></small>       
             <p>${arg.message}</p>
             <p>${arg.message1}</p>
             <p>${arg.message2}</p>

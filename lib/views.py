@@ -1,5 +1,6 @@
 import os
 import asyncio
+import datetime as dt
 from dotenv import load_dotenv
 
 from lib.model import GithubApi
@@ -20,18 +21,16 @@ class Index(MethodView):
     def __init__(self) -> None:
         super().__init__()
 
-    async def update_periodically(self):
+    async def UpdateRepo(self):
         while True:
             await asyncio.sleep(386400)
             Index.repo = await GithubApi().fetch_repos()
             
     async def get(self): 
         
-        if Index.repo == None:
-            Index.repo = await GithubApi().fetch_repos()
-            
-            contact ={"mailbox": 'mailto:krigjo25@outlook.com', "linkedin": 'https://', "github": 'https://www.github.com/krigjo25'}
-        return render_template("index.html", portefolio = self.repo, links = contact)
+        #
+        await self.IndexPage()
+        return render_template("index.html", portefolio = self.repo, links = { "mailbox": 'mailto:krigjo25@outlook.com', "linkedin": 'https://', "github": 'https://www.github.com/krigjo25' })
 
     def post(self): 
 
@@ -39,3 +38,36 @@ class Index(MethodView):
         req = request.form
         return render_template("index.html")
 
+
+    async def IndexPage(self):
+        
+        # Ensure that the repo is None
+        if Index.repo is None:
+            Index.repo = await GithubApi().fetch_repos()
+            
+        now = dt.datetime.now()
+        
+        if now.month == 12 and now.day == 24:
+            flash("Merry Christmas")
+
+        elif now.month == 2 and now.day == 14:
+            flash("Happy Valentines Day")
+
+        elif now.month == 10 and now.day == 31:
+            flash("Happy Halloween")
+
+        elif now.month == 1 and now.day == 1:
+            flash("Happy New Year")
+    
+        elif now.month == 2 and now.day == 25:
+            flash("Happy Birthday @krigjo25")
+        else:
+            flash("Welcome to my portfolio")
+        
+        
+        return
+
+
+
+
+    

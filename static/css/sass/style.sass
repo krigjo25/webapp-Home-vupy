@@ -1,39 +1,34 @@
 //  Importing CSS files for the project
-@import url('forms.css')
-@import url('overlay.css')
-@import url('profile.css')
-@import url('expertise.css')
-@import url('fullstack.css')
-@import url('btrapicons.css')
-@import url('flex-wrap-row.css')
-@import url('lang-filter.css')
 
+@import forms
+@import overlay
+@import profile
+@import expertise
+@import fullstack
+@import btrapicons
+//@import lang-filter
+@import flex-wrap-row
+@import profile-media
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap")
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css")
 //  Importing fonts for the project
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap')
 
-    @font-face
+@font-face
     font-family: python
     src: url(../lib/fonts/Flux_Regular/Flux_Regular.otf)
 
 // Bootstrap Icons
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css")
 
-
-
-@import
 flex-box
   display: flex
-  padding: 1em
+  padding: 1vw
   flex-wrap: wrap
-  margin: 1em auto
+  margin: 1vw auto
   flex-direction: row
 
-    display: flex;
-    padding: 1em;
-    flex-wrap: wrap;
-    margin: 1em auto;
-    flex-direction: row;
-    justify-content: space-evenly;
 main > section
     &:nth-child(even)
         background-color: rgb(254, 254, 254)
@@ -69,14 +64,14 @@ header
 
 footer
 
-    padding: 1em
+    padding: 1vw
     @extend flex-box
 
 .relative
     position: relative
 
 .padding
-    padding: 1em
+    padding: 1vw
 
 .justify-content-space-evently-row
     @extend flex-wrap-row
