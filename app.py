@@ -7,12 +7,9 @@ from threading import Timer
 from dotenv import load_dotenv
 from flask_session import Session
 
-
 #   Custom libs
 from lib.views import Index
 from lib.config import DevelopmentConfig
-
-
 
 load_dotenv()
 app = Flask(__name__)
@@ -20,7 +17,6 @@ app = Flask(__name__)
 # Configure session to use filesystem (instead of signed cookies)
 app.config.from_object(DevelopmentConfig)
 Session(app)
-
 
 @app.after_request
 async def after_request(response):
