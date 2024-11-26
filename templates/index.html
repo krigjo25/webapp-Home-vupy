@@ -31,15 +31,20 @@
                 {% if portefolio %}
                         <div class="fullstack-container">
                             {% for pf in portefolio %}
+                                {% set name = pf['name'].split('-') %}
                                 <div class="pp">
                                     <div class="pro-nav">
                                         {% if pf.url %}
                                             <a href="{{pf['url']}}">
                                                 <i class="bi bi-github"></i>
                                             </a>
+                                        {% endif %}
+                                        {% if pf.web %}
                                             <a href="{{pf['web']}}">
                                                 <i class="bi bi-globe"></i>
                                             </a>
+                                        {% endif %}
+                                        {% if pf.ytube %}
                                             <a href="{{pf['ytube']}}">
                                                 <i class="bi bi-youtube"></i>
                                             </a>
@@ -53,12 +58,16 @@
                                                 </time>
                                             </i>
                                         </span>
-                                            <h3>{{pf['name']}}</h3>
-                                            {% if pf['description'] != 'None' %}
-                                                <span>{{ pf['description']}}</span>
-                                            {% endif %}
-                                            {% if pf['lang'] %}
-                                                <div class="flex-row">
+                                        {% if name|length > 1 %}
+                                            <h3>{{ name[1] }}</h3>
+                                        {% else %}
+                                            <h3>{{ name[0] }}</h3>
+                                        {% endif %}
+                                        {% if pf['description'] != 'None' %}
+                                            <span>{{ pf['description']}}</span>
+                                        {% endif %}
+                                        {% if pf['lang'] %}
+                                            <div class="flex-row">
                                                     {% for lang in pf['lang'] %}
                                                         <div class='tech-wrapper '>
                                                             <div class='tech-{{ lang }} relative'></div>
@@ -67,8 +76,8 @@
                                                             </span>
                                                         </div>
                                                 {% endfor %}
-                                                </div>
-                                            {% endif %}
+                                            </div>
+                                        {% endif %}
                                     </div>
                                 </div>
                             {% endfor %}
