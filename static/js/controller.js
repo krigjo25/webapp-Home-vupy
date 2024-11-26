@@ -1,5 +1,5 @@
 //  Controller -> Manipulates modal and view
-startTimer();
+//startTimer();
 function startTimer()
 {
     timer = setInterval(next, 100000);
