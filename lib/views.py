@@ -47,24 +47,25 @@ class Index(MethodView):
             
         now = dt.datetime.now()
         
-        if now.month == 12 and now.day == 24:
-            flash("Merry Christmas")
+        match (now):
+            
+            case _ if now.month == 12 and now.day == 24:
+                flash("Merry Christmas")
+            
+            case _ if now.month == 2 and now.day == 25:
+                flash("Happy Birthday @krigjo25")
 
-        elif now.month == 2 and now.day == 14:
-            flash("Happy Valentines Day")
-
-        elif now.month == 10 and now.day == 31:
-            flash("Happy Halloween")
-
-        elif now.month == 1 and now.day == 1:
-            flash("Happy New Year")
-    
-        elif now.month == 2 and now.day == 25:
-            flash("Happy Birthday @krigjo25")
-        else:
-            flash("Welcome to my portfolio")
-        
-        
+            case _ if now.month == 2 and now.day == 14:
+                flash("Happy Valentines Day")
+                
+            case _ if now.month == 10 and now.day == 31:
+                flash("Happy Halloween")
+            
+            case _ if now.month == 1 and now.day == 1:
+                flash("Happy New Year")
+            
+            case _:
+                flash("Certified Specializations")
         return
 
 

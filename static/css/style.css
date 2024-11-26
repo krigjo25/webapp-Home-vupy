@@ -187,6 +187,26 @@ main article .flash {
   main article div.img-container div.btn-container {
     bottom: 39em !important;
   }
+  main article section div.bio-content {
+    inline-size: 82vw !important;
+    text-align: justify !important;
+  }
+  main article section div.img-container div.btn-container {
+    bottom: 39em !important;
+  }
+  main section#expertise .specialization-container .specialization-class p {
+    inline-size: 69vw !important;
+    text-align: justify !important;
+  }
+  main section#expertise .specialization-container .specialization-class .tech-container {
+    inline-size: 87vw !important;
+  }
+  main section#full-stack .pp {
+    inline-size: 100% !important;
+  }
+  main section#full-stack .pp .tech-container {
+    inline-size: 60vw !important;
+  }
 }
 .pp .tech-container, .specialization-course .tech-container, .specialization-class .no-select {
   user-select: none;

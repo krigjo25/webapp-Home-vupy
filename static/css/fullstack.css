@@ -1,0 +1,120 @@
+.pp .tech-container {
+  user-select: none;
+  margin-inline: 1em;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+roboto-font, .pp .tech-container {
+  inline-size: 25vw;
+  font-family: "Roboto", sans-serif;
+}
+
+work-sans-font {
+  font-weight: 100;
+  font-family: "Work Sans", sans-serif;
+}
+
+open-sans-font {
+  font-family: "Open Sans", sans-serif;
+}
+
+flex-wrap-row, .pp, .align-items-flex-end-row, .align-items-center-row, .align-content-center-row, .justify-content-space-evently-row, .justify-flexstart-row, .justify-center-row, .flex-row, flex-wrap-row-space-evenly, .fullstack-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+flex-wrap-row-space-evenly, .fullstack-container {
+  justify-content: space-evenly;
+}
+
+flex-nowrap-row {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+flex-wrap-reversed-row, .flex-reversed-row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+}
+
+.justify-center-row {
+  justify-content: center;
+}
+
+.justify-flexstart-row {
+  justify-content: flex-start;
+}
+
+.justify-content-space-evently-row {
+  justify-content: space-evenly;
+  inline-size: 100%;
+}
+
+.align-content-center-row {
+  align-content: center;
+}
+
+.align-items-center-row {
+  align-items: center;
+}
+
+.align-items-flex-end-row {
+  align-items: flex-end;
+}
+
+.cnn-ctr {
+  text-align: center;
+}
+
+.pp {
+  margin: 1em;
+  border-radius: 10px;
+  background-color: rgb(231, 243, 243);
+}
+.pp a:link, .pp a:visited {
+  color: inherit;
+}
+.pp .pro-nav {
+  display: flex;
+  block-size: 100%;
+  padding-inline: 1em;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.pp .tech-container {
+  display: flex;
+  flex-wrap: wrap;
+  inline-size: 22vw;
+  align-items: stretch;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.pp .tech-container .relative {
+  left: 0.5em;
+  top: 0.7em;
+  position: relative;
+}
+.pp .tech-wrapper {
+  margin: 5px;
+  display: flex;
+  border-radius: 10px;
+  margin-inline: 0.3em;
+  background-color: rgb(241, 241, 241);
+}
+.pp .tech-wrapper:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: 0.3s ease-in-out;
+}
+.pp span.tech-label {
+  padding: 0.7em;
+  font-size: 0.9em;
+  font-weight: 300;
+  font-style: oblique;
+  border-radius: 10px;
+  margin-inline: 0.3em;
+}/*# sourceMappingURL=fullstack.css.map */
