@@ -1,6 +1,7 @@
+// Media Queries for Iphones
 
-// Media Queries for 768px
-@media (max-width: 768px)
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px) and (-webkit-min-device-pixel-ratio: 2)
     header a
         font-size: 0.57em !important
 
@@ -8,15 +9,22 @@
     main
         article
             div.carosel
+                display: flex !important
                 block-size: 30em !important
                 inline-size: 100% !important
+                align-items: center !important
+                flex-direction: column !important
 
                 img
-                    inline-size: 100% !important
+                    inline-size: 47vw !important
+                
+                .caption
+                    inline-size: 47vw !important
             div.img-container
 
                 div.btn-container
-                    bottom: 39em !important
+                    bottom: 18em !important
+                    inline-size: 47vw !important
 
             section.bio-container
                 nav.bio-links

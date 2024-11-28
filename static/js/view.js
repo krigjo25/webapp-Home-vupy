@@ -68,8 +68,9 @@ function carosel(arg)
 {
     return  /*HTML*/`
         <img id="car-img" src="${arg.path + arg.source}" alt="${arg.alt}" class="css-img">
-            <div class="blur">${arg.caption}</div>
-            <div class="caption">${arg.caption}</div>
+            <div class="caption">
+                <p>${arg.caption}</p>
+            </div>
             <div id="img-btn" class="btn-container">
                 <button id ="prev-btn" class="img-btn" onclick="prev()">
                     <i class="bi bi-arrow-left-square-fill"></i>

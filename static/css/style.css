@@ -7,24 +7,14 @@ textarea {
 }
 
 .caption {
-  z-index: 1;
-  bottom: 20vh;
+  bottom: 5vh;
   display: flex;
-  color: rgb(253, 86, 2);
-  block-size: 9vh;
   position: relative;
   justify-content: center;
+  color: rgb(253, 86, 2);
   background-color: rgba(40, 40, 40, 0.7);
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
-}
-
-.blur {
-  bottom: 11vh;
-  block-size: 10vh;
-  position: relative;
-  filter: blur(0.5em);
-  background-color: rgb(40, 40, 40);
 }
 
 roboto-font, .pp .tech-container, .specialization-class p, main article section .bio-content {
@@ -90,8 +80,7 @@ main article div.img-container {
   align-items: flex-start;
 }
 main article div.img-container div.btn-container {
-  z-index: 1;
-  bottom: 31em;
+  bottom: 19em;
   display: flex;
   cursor: pointer;
   block-size: 100%;
@@ -166,19 +155,26 @@ main article .flash {
   border-bottom: 1px groove black;
 }
 
-@media (max-width: 768px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
   header a {
     font-size: 0.57em !important;
   }
   main article div.carosel {
+    display: flex !important;
     block-size: 30em !important;
     inline-size: 100% !important;
+    align-items: center !important;
+    flex-direction: column !important;
   }
   main article div.carosel img {
-    inline-size: 100% !important;
+    inline-size: 47vw !important;
+  }
+  main article div.carosel .caption {
+    inline-size: 47vw !important;
   }
   main article div.img-container div.btn-container {
-    bottom: 39em !important;
+    bottom: 18em !important;
+    inline-size: 47vw !important;
   }
   main article section.bio-container nav.bio-links {
     inline-size: 64vw !important;
