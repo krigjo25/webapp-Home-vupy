@@ -11,46 +11,16 @@ open-sans-font
 
 @import colour
 
-section.bio-container
-    display: flex
-    flex-wrap: wrap
-    flex-direction: column
-    align-items: center
-
-    h2
-        @extend work-sans-font
-    
-    small
-                font-size: 0.7em
-
-                @extend open-sans-font
-
-    .bio-links
-        display: flex
-        margin-inline: 1em
-        text-align: center
-        border-radius: 1vh
-        justify-content: center
-        background-color: #f1f1f1
-
-    .bio-btn
-        border: none
-        padding: 1em
-        font-size: 1vw
-        cursor: pointer
-
-        &:hover
-            font-weight: bold
-            color: #fefefe
-            background-color: #a1bfc9
-            box-shadow: $box-shadow
-
-        &:active
-            background-color: #a1bfc9
-            color: #fefefe
-
 main 
-    article
+    section
+
+        .img-container
+            display: flex
+            flex-wrap: wrap
+            block-size: 100%
+            flex-direction: row
+            justify-content: center
+            align-items: flex-start
 
         div.carosel
             inline-size: 25vw
@@ -60,17 +30,18 @@ main
                 block-size: 100%
                 inline-size: 100%
                 border-radius: 0.5em
-
-        div.img-container
-            display: flex
-            flex-wrap: wrap
-            block-size: 100%
-            flex-direction: row
-            justify-content: center
-            align-items: flex-start
             
-            div.btn-container
-
+            .caption
+                bottom: 11vh
+                display: flex
+                
+                position: relative
+                justify-content: center
+                color: $highlight-color
+                background-color: $overlay
+                border-bottom-left-radius: 1em
+                border-bottom-right-radius: 1em
+            .btn-container
                 bottom: 19em
                 display: flex
                 cursor: pointer
@@ -85,22 +56,32 @@ main
                     cursor: pointer
                     //color: #fefefe
                     background-color: transparent
+                
 
                 &:hover
                     opacity: 1
-        
-        .tab-container
-            margin-inline: 5em    
+  
+        article.bio-container
+            margin-inline: 12vw
 
-        div.tab-links
-            margin-left: 10vw
-            inline-size: 10vw
+            h2
+                @extend work-sans-font
+                margin-block-start: 0em 
+            
+            section.bio-content
+                    @extend roboto-font
+
+                    p
+                        text-align: justify
+                        font-size: 1em
+                        inline-size: 25vw
+            
+
+            div.bio-link
+                margin-left: 10vw
+                inline-size: 10vw
 
         section
-            
-            .bio-content
-                @extend roboto-font
-                inline-size: 25vw
 
             .btn-links a:visited, .btn-links a:link
             

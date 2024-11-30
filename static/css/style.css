@@ -6,8 +6,36 @@ textarea {
   inline-size: 200px;
 }
 
-.caption {
-  bottom: 5vh;
+roboto-font, .pp .tech-container, .specialization-class p, main section article.bio-container section.bio-content {
+  font-family: "Roboto", sans-serif;
+}
+
+work-sans-font, .specialization-course .h4-link, .specialization-class:hover .h3-link, .specialization-class .h3-link, main section article.bio-container h2 {
+  font-family: "Work Sans", sans-serif;
+}
+
+open-sans-font {
+  font-family: "Open Sans", sans-serif;
+}
+
+main section .img-container {
+  display: flex;
+  flex-wrap: wrap;
+  block-size: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+main section div.carosel {
+  inline-size: 25vw;
+}
+main section div.carosel img {
+  block-size: 100%;
+  inline-size: 100%;
+  border-radius: 0.5em;
+}
+main section div.carosel .caption {
+  bottom: 11vh;
   display: flex;
   position: relative;
   justify-content: center;
@@ -16,70 +44,7 @@ textarea {
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
 }
-
-roboto-font, .pp .tech-container, .specialization-class p, main article section .bio-content {
-  font-family: "Roboto", sans-serif;
-}
-
-work-sans-font, .specialization-course .h4-link, .specialization-class:hover .h3-link, .specialization-class .h3-link, section.bio-container h2 {
-  font-family: "Work Sans", sans-serif;
-}
-
-open-sans-font, section.bio-container small {
-  font-family: "Open Sans", sans-serif;
-}
-
-section.bio-container {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-items: center;
-}
-section.bio-container small {
-  font-size: 0.7em;
-}
-section.bio-container .bio-links {
-  display: flex;
-  margin-inline: 1em;
-  text-align: center;
-  border-radius: 1vh;
-  justify-content: center;
-  background-color: #f1f1f1;
-}
-section.bio-container .bio-btn {
-  border: none;
-  padding: 1em;
-  font-size: 1vw;
-  cursor: pointer;
-}
-section.bio-container .bio-btn:hover {
-  font-weight: bold;
-  color: #fefefe;
-  background-color: #a1bfc9;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-section.bio-container .bio-btn:active {
-  background-color: #a1bfc9;
-  color: #fefefe;
-}
-
-main article div.carosel {
-  inline-size: 25vw;
-}
-main article div.carosel img {
-  block-size: 100%;
-  inline-size: 100%;
-  border-radius: 0.5em;
-}
-main article div.img-container {
-  display: flex;
-  flex-wrap: wrap;
-  block-size: 100%;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-}
-main article div.img-container div.btn-container {
+main section div.carosel .btn-container {
   bottom: 19em;
   display: flex;
   cursor: pointer;
@@ -87,51 +52,59 @@ main article div.img-container div.btn-container {
   position: relative;
   justify-content: space-between;
 }
-main article div.img-container div.btn-container button.img-btn {
+main section div.carosel .btn-container button.img-btn {
   opacity: 0.3;
   border: none;
   font-size: 2em;
   cursor: pointer;
   background-color: transparent;
 }
-main article div.img-container div.btn-container:hover {
+main section div.carosel .btn-container:hover {
   opacity: 1;
 }
-main article .tab-container {
+main section article.bio-container {
+  margin-inline: 12vw;
+}
+main section article.bio-container h2 {
+  margin-block-start: 0em;
+}
+main section article.bio-container section.bio-content p {
+  text-align: justify;
+  font-size: 1em;
+  inline-size: 25vw;
+}
+main section .tab-container {
   margin-inline: 5em;
 }
-main article div.tab-links {
+main section .tab-container div.tab-links {
   margin-left: 10vw;
   inline-size: 10vw;
 }
-main article section .bio-content {
-  inline-size: 25vw;
-}
-main article section .btn-links a:visited, main article section .btn-links a:link {
+main section section .btn-links a:visited, main section section .btn-links a:link {
   text-decoration: none;
   color: rgb(254, 254, 254);
   background-color: #a1bfc9;
 }
-main article div.grid-container {
+main section div.grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(13vw, 1fr));
   grid-gap: 1em;
 }
-main article .grid-item {
+main section .grid-item {
   inline-size: 14vw;
 }
-main article nav.ext-bar {
+main section nav.ext-bar {
   padding: 1vw;
   display: flex;
   flex-wrap: wrap;
   margin-block-start: 2vh;
   justify-content: center;
 }
-main article nav.ext-bar span {
+main section nav.ext-bar span {
   padding: 1vw;
   font-size: 1em;
 }
-main article nav.ext-bar a {
+main section nav.ext-bar a {
   color: inherit;
   text-decoration: none;
   font-size: 1.5em;
@@ -143,10 +116,10 @@ main article nav.ext-bar a {
   text-align: center;
   min-inline-size: 50px;
 }
-main article nav.ext-bar:hover, main article nav.ext-bar :visited {
+main section nav.ext-bar:hover, main section nav.ext-bar :visited {
   color: inherit;
 }
-main article .flash {
+main section .flash {
   font-size: 2em;
   display: flex;
   flex-wrap: wrap;
@@ -155,65 +128,6 @@ main article .flash {
   border-bottom: 1px groove black;
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
-  header a {
-    font-size: 0.57em !important;
-  }
-  main article div.carosel {
-    display: flex !important;
-    block-size: 30em !important;
-    inline-size: 100% !important;
-    align-items: center !important;
-    flex-direction: column !important;
-  }
-  main article div.carosel img {
-    inline-size: 47vw !important;
-  }
-  main article div.carosel .caption {
-    inline-size: 47vw !important;
-  }
-  main article div.img-container div.btn-container {
-    bottom: 18em !important;
-    inline-size: 47vw !important;
-  }
-  main article section.bio-container nav.bio-links {
-    inline-size: 64vw !important;
-  }
-  main article section.bio-container nav.bio-links button.bio-btn {
-    font-size: 1em !important;
-  }
-  main article section .bio-content {
-    inline-size: 82vw !important;
-    text-align: justify !important;
-  }
-  main article section div.btn-container {
-    bottom: 39em !important;
-  }
-  main section#expertise .specialization-container .specialization-class {
-    display: flex !important;
-    flex-direction: column !important;
-  }
-  main section#expertise .specialization-container .specialization-class .h3-link {
-    margin-block: 1vh !important;
-  }
-  main section#expertise .specialization-container .specialization-class p {
-    margin: auto;
-    inline-size: 69vw !important;
-    text-align: justify !important;
-  }
-  main section#expertise .specialization-container .specialization-class .tech-container {
-    inline-size: 87vw !important;
-  }
-  main section#expertise .specialization-container .specialization-class .specialization-course .h4-link {
-    margin-block: 1vh !important;
-  }
-  main section#full-stack .pp {
-    inline-size: 100% !important;
-  }
-  main section#full-stack .pp .tech-container {
-    inline-size: 60vw !important;
-  }
-}
 .pp .tech-container, .specialization-course .tech-container, .specialization-class .no-select {
   user-select: none;
   margin-inline: 1em;
@@ -227,17 +141,16 @@ div.tech-Database-Management, div.tech-Makefile, div.tech-Cs, div.tech-C, div.te
   border-radius: 10px;
 }
 
-roboto-font, .pp .tech-container, .specialization-class p, main article section .bio-content {
-  inline-size: 25vw;
+roboto-font, .pp .tech-container, .specialization-class p, main section article.bio-container section.bio-content {
   font-family: "Roboto", sans-serif;
 }
 
-work-sans-font, .specialization-course .h4-link, .specialization-class:hover .h3-link, .specialization-class .h3-link, section.bio-container h2 {
+work-sans-font, .specialization-course .h4-link, .specialization-class:hover .h3-link, .specialization-class .h3-link, main section article.bio-container h2 {
   font-weight: 100;
   font-family: "Work Sans", sans-serif;
 }
 
-open-sans-font, section.bio-container small {
+open-sans-font {
   font-family: "Open Sans", sans-serif;
 }
 
@@ -248,6 +161,9 @@ div.specialization-container {
   justify-content: space-evenly;
 }
 
+.specialization-class {
+  inline-size: 40vw;
+}
 .specialization-class a {
   text-decoration: none;
   color: rgb(64, 64, 64);
@@ -264,7 +180,7 @@ div.specialization-container {
   text-decoration: underline;
 }
 .specialization-class .tech-container {
-  inline-size: 22vw;
+  inline-size: 34vw;
 }
 .specialization-class span.tech-label {
   padding: 1em;
@@ -326,17 +242,16 @@ div.tech-Database-Management, div.tech-Makefile, div.tech-Cs, div.tech-C, div.te
   border-radius: 10px;
 }
 
-roboto-font, .pp .tech-container, main article section .bio-content, .specialization-class p {
-  inline-size: 25vw;
+roboto-font, .pp .tech-container, main section article.bio-container section.bio-content, .specialization-class p {
   font-family: "Roboto", sans-serif;
 }
 
-work-sans-font, section.bio-container h2, .specialization-class .h3-link, .specialization-class:hover .h3-link, .specialization-course .h4-link {
+work-sans-font, main section article.bio-container h2, .specialization-class .h3-link, .specialization-class:hover .h3-link, .specialization-course .h4-link {
   font-weight: 100;
   font-family: "Work Sans", sans-serif;
 }
 
-open-sans-font, section.bio-container small {
+open-sans-font {
   font-family: "Open Sans", sans-serif;
 }
 
@@ -641,6 +556,66 @@ div.tech-Database-Management {
   background-color: rgba(255, 0, 0, 0.8);
 }
 
+@media only screen and (min-device-width: 320px) and (max-device-width: 509px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  header a {
+    font-size: 0.57em !important;
+  }
+  main section div.carosel {
+    display: flex !important;
+    block-size: 36vh;
+    inline-size: 100% !important;
+    align-items: center !important;
+    flex-direction: column !important;
+  }
+  main section div.carosel img {
+    inline-size: 47vw !important;
+  }
+  main section div.carosel .caption {
+    bottom: 8vh !important;
+    inline-size: 47vw !important;
+  }
+  main section div.img-container div.btn-container {
+    bottom: 11em !important;
+    inline-size: 47vw !important;
+  }
+  main section article.bio-container nav.bio-links {
+    inline-size: 64vw !important;
+  }
+  main section article.bio-container nav.bio-links button.bio-btn {
+    font-size: 1em !important;
+  }
+  main section section .bio-content {
+    inline-size: 82vw !important;
+    text-align: justify !important;
+  }
+  main section section div.btn-container {
+    bottom: 39em !important;
+  }
+  main section#expertise .specialization-container .specialization-class {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  main section#expertise .specialization-container .specialization-class .h3-link {
+    margin-block: 1vh !important;
+  }
+  main section#expertise .specialization-container .specialization-class p {
+    margin: auto;
+    inline-size: 69vw !important;
+    text-align: justify !important;
+  }
+  main section#expertise .specialization-container .specialization-class .tech-container {
+    inline-size: 87vw !important;
+  }
+  main section#expertise .specialization-container .specialization-class .specialization-course .h4-link {
+    margin-block: 1vh !important;
+  }
+  main section#full-stack .pp {
+    inline-size: 100% !important;
+  }
+  main section#full-stack .pp .tech-container {
+    inline-size: 60vw !important;
+  }
+}
 flex-wrap-row, flex-wrap-row-space-evenly, .flex-row, .justify-center-row, .justify-flexstart-row, .justify-content-space-evently-row, .align-content-center-row, .align-items-center-row, .align-items-flex-end-row, .fullstack-container, .pp {
   display: flex;
   flex-wrap: wrap;
@@ -726,14 +701,11 @@ body {
 header a {
   text-decoration: none;
   color: rgb(64, 64, 64);
-  font-size: 1.5em;
   font-weight: 300;
   font-family: "Roboto", sans-serif;
   margin: 1em;
   padding: 1em;
-  border-radius: 0.5em;
   background-color: rgb(254, 254, 254);
-  transition: 0.3s;
 }
 
 footer {

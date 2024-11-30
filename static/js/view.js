@@ -38,7 +38,7 @@ function about(arg)
     let html = /*HTML*/`
     <section class="bio-container">
         <h2>Biography</h2>
-        <nav class="bio-links">`;
+        <nav class="bio-link">`;
 
     for (let i = 0; i < arg.links.length; i++)
     {
@@ -53,7 +53,7 @@ function about(arg)
         </nav>
         <section class="bio-content">
 
-            <h2>${arg.title[0]}</h2>
+            <h3>${arg.title[0]}</h3>
             <small>Written by ${arg.title[0]} AVG reading time <b><time data="${arg.time}">${arg.time} min</time></b><i class="bi bi-stopwatch"></i></small>       
             <p>${arg.message}</p>
             <p>${arg.message1}</p>
