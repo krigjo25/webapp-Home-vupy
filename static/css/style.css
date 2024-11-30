@@ -190,7 +190,7 @@ main section.spec-wrapper .specialization-class:hover .h3-link {
   text-decoration: underline;
 }
 main section.spec-wrapper .specialization-class p {
-  foont-size: 1.5em;
+  font-size: 1.5em;
   inline-size: 34vw;
   text-align: justify;
 }
@@ -740,12 +740,13 @@ div.tech-Database-Management {
     inline-size: 37vw !important;
   }
   main section.info .carosel .caption {
-    bottom: 5.5vh !important;
+    bottom: 7.5vh !important;
   }
   main section.info .carosel div.btn-container {
     block-size: 0 !important;
   }
   main section.info section.bio-container {
+    bottom: 13em !important;
     margin-inline: 0 !important;
     inline-size: 59vw !important;
   }
@@ -895,6 +896,7 @@ div.tech-Database-Management {
     block-size: 0 !important;
   }
   main section.info section.bio-container {
+    bottom: 15em !important;
     margin-inline: 0 !important;
     inline-size: 59vw !important;
   }
