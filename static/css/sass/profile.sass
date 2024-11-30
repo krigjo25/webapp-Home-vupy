@@ -12,22 +12,18 @@ open-sans-font
 @import colour
 
 main 
-    section
+    section.info
+        display: flex
+        flex-wrap: wrap
+        block-size: 100%
+        flex-direction: row
+        justify-content: center
+        align-items: flex-start
 
-        .img-container
-            display: flex
-            flex-wrap: wrap
-            block-size: 100%
-            flex-direction: row
-            justify-content: center
-            align-items: flex-start
-
-        div.carosel
+        .carosel
             inline-size: 25vw
 
             img
-                
-                block-size: 100%
                 inline-size: 100%
                 border-radius: 0.5em
             
@@ -61,25 +57,40 @@ main
                 &:hover
                     opacity: 1
   
-        article.bio-container
-            margin-inline: 12vw
-
-            h2
-                @extend work-sans-font
-                margin-block-start: 0em 
+        section.bio-container
+            inline-size: 37vw
+            margin-inline: 7vw
             
-            section.bio-content
-                    @extend roboto-font
-
-                    p
-                        text-align: justify
-                        font-size: 1em
-                        inline-size: 25vw
-            
-
-            div.bio-link
+        
+            nav.bio-link
                 margin-left: 10vw
                 inline-size: 10vw
+                background-color: rgba(230, 247, 252, 1)
+
+                button.bio-btn
+                    border: none
+                    padding: 0.5em
+                    cursor: pointer
+                    border-radius: 0.5em
+                    background-color: rgba(230, 247, 252, 1)
+                    border-left: 1px solid rgb(207, 222, 226)
+
+                    &:hover
+                        background-color: rgb(207, 222, 226)
+                        color: $highlight-color
+
+            section.bio-content
+                @extend roboto-font
+                h2
+                    @extend work-sans-font
+                    margin-block-start: 0em 
+            
+                p
+                    text-align: justify
+                    font-size: 1.5em
+                    inline-size: 31vw
+            
+
 
         section
 
@@ -122,10 +133,3 @@ main
 
             &:hover,:visited
                 color: inherit
-        .flash
-            font-size: 2em
-            display: flex
-            flex-wrap: wrap
-            align-content: center
-            flex-direction: column
-            border-bottom: 1px groove black

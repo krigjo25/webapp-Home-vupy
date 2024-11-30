@@ -10,7 +10,7 @@ function main()
     {
 
         //  Ensure the name is carosel
-        if (app[i].app === "carosel")
+        if (app[i].app === "carosel-container")
         {
             app[i].id.innerHTML = /*HTML*/ ` 
                 ${carosel(app[i])}`;
@@ -28,7 +28,7 @@ function main()
         else if (app[i].app === "footer")
         {
             footer(app[i]);
-            formValidation();
+           // formValidation();
         }
     }
 }
@@ -36,7 +36,6 @@ function main()
 function about(arg)
 {
     let html = /*HTML*/`
-    <section class="bio-container">
         <h2>Biography</h2>
         <nav class="bio-link">`;
 
@@ -67,7 +66,7 @@ function about(arg)
 function carosel(arg)
 {
     return  /*HTML*/`
-        <img id="car-img" src="${arg.path + arg.source}" alt="${arg.alt}" class="css-img">
+        <img id="car-img" src="${arg.path + arg.source}" alt="${arg.alt}">
             <div class="caption">
                 <p>${arg.caption}</p>
             </div>
@@ -83,13 +82,13 @@ function carosel(arg)
 
 function specialization(arg)
 {
-    let html = /*HTML*/`
-        <div class="specialization-container">`;
+    let html = "";
 
     for (let i = 0; i < arg.schools.length; i++)
     {
         //  Initializing classes
         let schools = arg.schools[i];
+        console.log(schools);
 
         html += /*HTML*/`
             <div class="specialization-class">
@@ -97,7 +96,7 @@ function specialization(arg)
                     <h3 class='h3-link'><i class='bi bi-folder-symlink'></i>${schools.school}</h3>
                 </a>
                 <p>${schools.description}</p>`;
-                
+
         //  Ensure that the tech is available
         if(schools.tech)
         {
@@ -188,12 +187,10 @@ function specialization(arg)
             }
 
         }
+
         html += /*HTML*/`
-        </div>`;
-            
+        </div>`;   
     }
-    html += /*HTML*/`
-        </div>`;
 
     return html;
 }

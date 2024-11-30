@@ -15,7 +15,7 @@ function next()
     for (let i = 0; i < app.length; i++)
     {
         //  Ensure the name is carosel
-        if (app[i].name == "carosel")
+        if (app[i].name == "carosel-container")
         {
             //  Initialize current image src
             let src = app[i].id.children[0].src;
@@ -50,7 +50,7 @@ function prev()
     {
     
        //  Ensure the app is carosel
-        if (app[i].name == "carosel")
+        if (app[i].name == "carosel-container")
        {
                 
             //  Initialize current image src
@@ -147,8 +147,7 @@ function biography(arg)
                     <div class="grid-item">
                         <h3>${arg.title}</h3>
                         <p>${arg.message2}</p>
-                    </div>
-                </div>`;
+                    </div>`;
             }
         }
     }

@@ -1,12 +1,9 @@
 {% extends 'base.html' %}
 {% block main %}
-            <section id='about-kristoffer'>
-                <div id="carosel-container" class="img-container">      
-                    <div id="carosel" class="carosel">
-                    </div>
-                    <div class="image-caption">
-                    </div> 
-                    <article id ='bio'class="bio-container"></div>        
+            <section id='about-kristoffer' class="info">
+                <section id="carosel-container" class="carosel">
+                </section>
+                <section id='bio'class="bio-container"></section>        
                 </div>
                 <nav class='ext-bar'>
                     {% for key, value in links.items() %}
@@ -18,14 +15,14 @@
                         </a>
                     {% endfor %}
                 </nav>
-                {% with flash = get_flashed_messages()%}
+                
+            </section>
+            {% with flash = get_flashed_messages()%}
                     {% for i in flash %}
                         <div class="flash">{{ i }}</div>
                     {% endfor %}
                 {% endwith %}
-            </article>
-            <section id='expertise'>
-            </section> 
+            <section id="specialization-container" class="spec-wrapper"></section> 
             <section id='full-stack'>
                 <h2>Full-Stack Solutions</h2>
                 {% if portefolio %}
