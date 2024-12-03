@@ -73,18 +73,12 @@ div.tech-Sass
         background-color: $webapp-light
 
 
-
-// Workflow
-div.tech-Workflow
-    @extend %filter-content
-    background-color: $work-flow
-
 // C, C++, C#, .NET
 div.tech-C
     @extend %filter-content
     background-color: $c
 
-div.tech-Cs
+div.tech-C#
     @extend %filter-content
     background-color: $c
 
@@ -94,7 +88,7 @@ div.tech-Cs
     &:hover
         background-color: $c-light
 
-.tech-wrapper:has(.tech-CS)
+.tech-wrapper:has(.tech-C#)
     transition: all .3s ease-out
 
     &:hover
@@ -123,18 +117,26 @@ div.tech-Makefile
     @extend %filter-content
     background-color: $work-flow
 
-div.tech-Docker
+div.tech-Dockerfile
     @extend %filter-content
     background-color: $work-flow
 
+div.tech-Workflow
+    @extend %filter-content
+    background-color: $work-flow
 
-.tech-wrapper:has(.tech-Docker)
+.tech-wrapper:has(.tech-Dockerfile)
     transition: all .3s ease-out
 
     &:hover
         background-color: $work-flow-light
 
 .tech-wrapper:has(.tech-Makefile)
+    transition: all .3s ease-out
+
+    &:hover
+        background-color: $work-flow-light
+.tech-wrapper:has(.tech-Workflow)
     transition: all .3s ease-out
 
     &:hover
