@@ -53,7 +53,7 @@ function about(arg)
         <section class="bio-content">
 
             <h3>${arg.title[0]}</h3>
-            <small>Written by ${arg.title[0]} AVG reading time <b><time data="${arg.time}">${arg.time} min</time></b><i class="bi bi-stopwatch"></i></small>       
+            <small>Written by ${arg.title[0]} AVG reading time <b>${arg.time} min</b><i class="bi bi-stopwatch"></i></small>       
             <p>${arg.message}</p>
             <p>${arg.message1}</p>
             <p>${arg.message2}</p>
@@ -84,11 +84,11 @@ function specialization(arg)
 {
     let html = "";
 
+    // Fetch Schools from the model
     for (let i = 0; i < arg.schools.length; i++)
     {
-        //  Initializing classes
+    
         let schools = arg.schools[i];
-        console.log(schools);
 
         html += /*HTML*/`
             <div class="specialization-class">
@@ -103,6 +103,7 @@ function specialization(arg)
             html += /*HTML*/`
                 <div class='tech-container flex-row relative'>`;
 
+            //  Fetch tech from the model
             for (let j = 0; j < schools.tech.length; j++)
             {
                 html += /*HTML*/`
@@ -116,10 +117,10 @@ function specialization(arg)
             html += /*HTML*/`
             </div></div>`;
         }
-
         //  Ensure that the classes are available
         if (schools.classes)
         {
+            //  Fetch classes from the model
             for (let j = 0; j < schools.classes.length; j++)
             {
                 //  Initialize courses
@@ -128,6 +129,7 @@ function specialization(arg)
                 <div class="specialization-course">`;
 
                 //  Ensure that the diploma is available
+
                 if (classes.diploma)
                 {
                     html += /*HTML*/`
@@ -152,6 +154,7 @@ function specialization(arg)
                 //  Ensure that the tech is available
                 if (classes.tech)
                 {
+                    // Fetch tech from the model
                     for (let k = 0; k < classes.tech.length; k++)
                     {
                         html += /*HTML*/`
@@ -165,9 +168,10 @@ function specialization(arg)
                     html += /*HTML*/` 
                     </div></div>`;
                 }
-                //  Professinal certificates
-                else if (classes.languages)
+
+                if (classes.languages)
                 {
+                    //  Fetch languages from the model
                     for (let k = 0; k < classes.languages.length; k++)
                     {
                         for (let l = 0; l < classes.languages[k].tech.length; l++)
@@ -199,5 +203,14 @@ function footer(arg)
 {
     //  Footer copy right
     document.querySelector('#powered-by').innerHTML = /*HTML*/`
-    <p><a href=""> Copyright</a> &copy; <a href="https://www.krigjo25.no">@krigjo25</a> 2024  - ${new Date().getFullYear()}</p>`;
+        <form action="https://validator.w3.org/check" class="text-center" enctype="multipart/form-data" method="post" target="_blank">
+            <input name="doctype" type="hidden" value="HTML5">
+            <input name="fragment" type="hidden">
+            <input alt="Validate" src="/static/I_heart_validator.png" type="image"> <!-- https://validator.w3.org/ -->
+        </form>
+        <p>
+            <a href=""> Copyright</a> 
+            &copy; 
+            <a href="https://www.krigjo25.no">@krigjo25</a> 
+            2024  - ${new Date().getFullYear()}</p>`;
 }

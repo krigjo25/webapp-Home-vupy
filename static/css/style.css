@@ -67,7 +67,7 @@ main section.info section.bio-container {
 }
 main section.info section.bio-container nav.bio-link {
   margin-left: 10vw;
-  inline-size: 10vw;
+  inline-size: 14vw;
   background-color: rgb(230, 247, 252);
 }
 main section.info section.bio-container nav.bio-link button.bio-btn {
@@ -88,7 +88,7 @@ main section.info section.bio-container section.bio-content h2 {
 main section.info section.bio-container section.bio-content p {
   text-align: justify;
   font-size: 1.5em;
-  inline-size: 31vw;
+  inline-size: 53vw;
 }
 main section.info section .btn-links a:visited, main section.info section .btn-links a:link {
   text-decoration: none;
@@ -315,6 +315,14 @@ flex-wrap-reversed-row, .flex-reversed-row {
 
 .align-items-flex-end-row {
   align-items: flex-end;
+}
+
+button {
+  transition: 3s;
+}
+button:hover {
+  transform: scale(1.1);
+  opacity: 1 !important;
 }
 
 .cnn-ctr {
@@ -999,6 +1007,59 @@ flex-wrap-reversed-row, .flex-reversed-row {
   align-items: flex-end;
 }
 
+@media only screen and (min-device-width: 666px) and (max-device-width: 1040px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  main section.info {
+    align-items: center;
+    flex-direction: column;
+  }
+  main section.info section.carosel {
+    inline-size: 45vw !important;
+  }
+  main section.info section.carosel img {
+    inline-size: 46vw;
+  }
+  main section.info section.carosel .caption {
+    bottom: 3.5em;
+  }
+  main section.info section.carosel .btn-container {
+    bottom: 17em;
+  }
+  main section.info section#bio {
+    margin: 0;
+    inline-size: 80vw;
+  }
+  main section.info section#bio nav.bio-link {
+    margin: 0;
+    inline-size: 100%;
+  }
+  main section.info section#bio nav.bio-link .bio-btn {
+    transition: 3s;
+  }
+  main section.info section#bio nav.bio-link .bio-btn:hover {
+    transform: scale(1.1);
+  }
+  main section.info section#bio section.bio-content p {
+    inline-size: 70vw;
+  }
+  main section#specialization-container .specialization-class {
+    inline-size: 42vw;
+  }
+  main section#specialization-container .specialization-class p {
+    inline-size: 42vw;
+  }
+  main section#specialization-container .specialization-class .specialization-course .h4-link {
+    font-size: 1.1em;
+  }
+  main section#specialization-container .specialization-class .specialization-course .tech-container {
+    inline-size: 45vw;
+  }
+  main section#full-stack .pp {
+    inline-size: 70vw;
+  }
+  main section#full-stack .pp .tech-container {
+    inline-size: 55vw;
+  }
+}
 @font-face {
   font-family: python;
   src: url(../lib/fonts/Flux_Regular/Flux_Regular.otf);
