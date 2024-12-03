@@ -6,6 +6,14 @@ textarea {
   inline-size: 200px;
 }
 
+ext-btn-functionallity, .pp a:link, .pp a:visited, main section.info nav.ext-bar a, main section.info section.bio-container nav.bio-link button.bio-btn, main section.info .carosel .btn-container button.img-btn {
+  transition: 2s;
+}
+ext-btn-functionallity:hover, .pp a:hover:link, .pp a:hover:visited, main section.info nav.ext-bar a:hover, main section.info section.bio-container nav.bio-link button.bio-btn:hover, main section.info .carosel .btn-container button.img-btn:hover {
+  transform: scale(1.1);
+  opacity: 1 !important;
+}
+
 roboto-font, .pp .tech-container, main section.spec-wrapper .specialization-class p, main section.info section.bio-container section.bio-content {
   font-family: "Roboto", sans-serif;
 }
@@ -58,16 +66,11 @@ main section.info .carosel .btn-container button.img-btn {
   cursor: pointer;
   background-color: transparent;
 }
-main section.info .carosel .btn-container:hover {
-  opacity: 1;
-}
 main section.info section.bio-container {
   inline-size: 37vw;
   margin-inline: 7vw;
 }
 main section.info section.bio-container nav.bio-link {
-  margin-left: 10vw;
-  inline-size: 14vw;
   background-color: rgb(230, 247, 252);
 }
 main section.info section.bio-container nav.bio-link button.bio-btn {
@@ -137,7 +140,7 @@ main section.info nav.ext-bar:hover, main section.info nav.ext-bar :visited {
   -webkit-user-select: none;
 }
 
-div.tech-Database-Management, div.tech-Makefile, div.tech-Cs, div.tech-C, div.tech-Workflow, div.tech-Sass, div.tech-JavaScript, div.tech-CSS, div.tech-HTML, div.tech-UI, div.tech-Jupyter, div.tech-Python {
+div.tech-Docker, div.tech-Makefile, div.tech-Database-Management, div.tech-Cs, div.tech-C, div.tech-Workflow, div.tech-Sass, div.tech-JavaScript, div.tech-CSS, div.tech-HTML, div.tech-UI, div.tech-Jupyter, div.tech-Python {
   block-size: 1em;
   inline-size: 1em;
   border-radius: 10px;
@@ -251,7 +254,7 @@ main section.spec-wrapper .specialization-class .specialization-course .tech-wra
   -webkit-user-select: none;
 }
 
-div.tech-Database-Management, div.tech-Makefile, div.tech-Cs, div.tech-C, div.tech-Workflow, div.tech-Sass, div.tech-JavaScript, div.tech-CSS, div.tech-HTML, div.tech-UI, div.tech-Jupyter, div.tech-Python {
+div.tech-Docker, div.tech-Makefile, div.tech-Database-Management, div.tech-Cs, div.tech-C, div.tech-Workflow, div.tech-Sass, div.tech-JavaScript, div.tech-CSS, div.tech-HTML, div.tech-UI, div.tech-Jupyter, div.tech-Python {
   block-size: 1em;
   inline-size: 1em;
   border-radius: 10px;
@@ -315,14 +318,6 @@ flex-wrap-reversed-row, .flex-reversed-row {
 
 .align-items-flex-end-row {
   align-items: flex-end;
-}
-
-button {
-  transition: 3s;
-}
-button:hover {
-  transform: scale(1.1);
-  opacity: 1 !important;
 }
 
 .cnn-ctr {
@@ -525,7 +520,7 @@ main section.spec-wrapper .specialization-class .no-select, main section.spec-wr
   -webkit-user-select: none;
 }
 
-div.tech-Database-Management, div.tech-Makefile, div.tech-Cs, div.tech-C, div.tech-Workflow, div.tech-Sass, div.tech-JavaScript, div.tech-CSS, div.tech-HTML, div.tech-UI, div.tech-Jupyter, div.tech-Python {
+div.tech-Docker, div.tech-Makefile, div.tech-Database-Management, div.tech-Cs, div.tech-C, div.tech-Workflow, div.tech-Sass, div.tech-JavaScript, div.tech-CSS, div.tech-HTML, div.tech-UI, div.tech-Jupyter, div.tech-Python {
   block-size: 1em;
   inline-size: 1em;
   border-radius: 10px;
@@ -537,6 +532,20 @@ div.tech-Python {
 
 div.tech-Jupyter {
   background-color: rgb(48, 105, 152);
+}
+
+.tech-wrapper:has(.tech-Python) {
+  transition: all 0.3s ease-out;
+}
+.tech-wrapper:has(.tech-Python):hover {
+  background-color: rgb(75, 139, 190);
+}
+
+.tech-wrapper:has(.tech-Jupyter) {
+  transition: all 0.3s ease-out;
+}
+.tech-wrapper:has(.tech-Jupyter):hover {
+  background-color: rgb(75, 139, 190);
 }
 
 div.tech-UI {
@@ -559,6 +568,34 @@ div.tech-Sass {
   background-color: rgba(255, 99, 71, 0.8);
 }
 
+.tech-wrapper:has(.tech-CSS) {
+  transition: all 0.3s ease-out;
+}
+.tech-wrapper:has(.tech-CSS):hover {
+  background-color: rgba(255, 99, 71, 0.6);
+}
+
+.tech-wrapper:has(.tech-HTML) {
+  transition: all 0.3s ease-out;
+}
+.tech-wrapper:has(.tech-HTML):hover {
+  background-color: rgba(255, 99, 71, 0.6);
+}
+
+.tech-wrapper:has(.tech-Sass) {
+  transition: all 0.3s ease-out;
+}
+.tech-wrapper:has(.tech-Sass):hover {
+  background-color: rgba(255, 99, 71, 0.6);
+}
+
+.tech-wrapper:has(.tech-JavaScript) {
+  transition: all 0.3s ease-out;
+}
+.tech-wrapper:has(.tech-JavaScript):hover {
+  background-color: rgba(255, 99, 71, 0.6);
+}
+
 div.tech-Workflow {
   background-color: rgba(0, 191, 255, 0.8);
 }
@@ -571,12 +608,51 @@ div.tech-Cs {
   background-color: rgb(238, 140, 43);
 }
 
-div.tech-Makefile {
-  background-color: rgba(40, 40, 40, 0.8);
+.tech-wrapper:has(.tech-C) {
+  transition: all 0.3s ease-out;
+}
+.tech-wrapper:has(.tech-C):hover {
+  background-color: rgba(238, 140, 43, 0.8);
+}
+
+.tech-wrapper:has(.tech-CS) {
+  transition: all 0.3s ease-out;
+}
+.tech-wrapper:has(.tech-CS):hover {
+  background-color: rgba(238, 140, 43, 0.8);
 }
 
 div.tech-Database-Management {
   background-color: rgba(255, 0, 0, 0.8);
+}
+
+.tech-wrapper:has(.tech-SQL) {
+  transition: all 0.3s ease-out;
+}
+.tech-wrapper:has(.tech-SQL):hover {
+  background-color: rgba(255, 0, 0, 0.6);
+}
+
+div.tech-Makefile {
+  background-color: rgba(0, 191, 255, 0.8);
+}
+
+div.tech-Docker {
+  background-color: rgba(0, 191, 255, 0.8);
+}
+
+.tech-wrapper:has(.tech-Docker) {
+  transition: all 0.3s ease-out;
+}
+.tech-wrapper:has(.tech-Docker):hover {
+  background-color: rgba(0, 191, 255, 0.6);
+}
+
+.tech-wrapper:has(.tech-Makefile) {
+  transition: all 0.3s ease-out;
+}
+.tech-wrapper:has(.tech-Makefile):hover {
+  background-color: rgba(0, 191, 255, 0.6);
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 509px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {

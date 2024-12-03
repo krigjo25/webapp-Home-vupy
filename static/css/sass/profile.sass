@@ -1,4 +1,9 @@
-
+ext-btn-functionallity
+    transition: 2s
+    
+    &:hover
+        transform: scale(1.1)
+        opacity: 1 !important
     
 roboto-font
     font-family: 'Roboto', sans-serif
@@ -10,6 +15,7 @@ open-sans-font
     font-family: 'Open Sans', sans-serif
 
 @import colour
+
 
 main 
     section.info
@@ -37,6 +43,7 @@ main
                 background-color: $overlay
                 border-bottom-left-radius: 1em
                 border-bottom-right-radius: 1em
+
             .btn-container
                 bottom: 19em
                 display: flex
@@ -52,10 +59,7 @@ main
                     cursor: pointer
                     //color: #fefefe
                     background-color: transparent
-                
-
-                &:hover
-                    opacity: 1
+                    @extend ext-btn-functionallity
   
         section.bio-container
             inline-size: 37vw
@@ -63,8 +67,6 @@ main
             
         
             nav.bio-link
-                margin-left: 10vw
-                inline-size: 14vw
                 background-color: rgba(230, 247, 252, 1)
 
                 button.bio-btn
@@ -74,6 +76,7 @@ main
                     border-radius: 0.5em
                     background-color: rgba(230, 247, 252, 1)
                     border-left: 1px solid rgb(207, 222, 226)
+                    @extend ext-btn-functionallity
 
                     &:hover
                         background-color: rgb(207, 222, 226)
@@ -130,6 +133,7 @@ main
                 display: inline-block
                 text-align: center
                 min-inline-size: 50px
+                @extend ext-btn-functionallity
 
             &:hover,:visited
                 color: inherit

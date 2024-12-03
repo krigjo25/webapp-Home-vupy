@@ -2,6 +2,7 @@
 //  Variables
 @import colour
 @import misc
+
 // Python
 div.tech-Python
     @extend %filter-content
@@ -11,33 +12,72 @@ div.tech-Jupyter
     @extend %filter-content
     background-color: $Cyan-Blue-Azure
 
+.tech-wrapper:has(.tech-Python)
+    transition: all .3s ease-out
+
+    &:hover
+        background-color: $Cyan-Blue-Azure-hover
+
+.tech-wrapper:has(.tech-Jupyter)
+    transition: all .3s ease-out
+
+    &:hover
+        background-color: $Cyan-Blue-Azure-hover
+
+
+
 // UI/UX
 div.tech-UI
     @extend %filter-content
-    background-color: $html
+    background-color: $webapp
 
 div.tech-HTML
     @extend %filter-content
-    background-color: $html
+    background-color: $webapp
 
 div.tech-CSS
     @extend %filter-content
-    background-color: $html
+    background-color: $webapp
 
 
 div.tech-JavaScript
     @extend %filter-content
-    background-color: $html
+    background-color: $webapp
 
 div.tech-Sass
     @extend %filter-content
-    background-color: $html
+    background-color: $webapp
+
+.tech-wrapper:has(.tech-CSS)
+    transition: all .3s ease-out
+
+    &:hover
+        background-color: $webapp-light
+
+.tech-wrapper:has(.tech-HTML)
+    transition: all .3s ease-out
+
+    &:hover
+        background-color: $webapp-light
+
+.tech-wrapper:has(.tech-Sass)
+    transition: all .3s ease-out
+
+    &:hover
+        background-color: $webapp-light
+
+.tech-wrapper:has(.tech-JavaScript)
+    transition: all .3s ease-out
+
+    &:hover
+        background-color: $webapp-light
+
 
 
 // Workflow
 div.tech-Workflow
     @extend %filter-content
-    background-color: $css
+    background-color: $work-flow
 
 // C, C++, C#, .NET
 div.tech-C
@@ -48,12 +88,58 @@ div.tech-Cs
     @extend %filter-content
     background-color: $c
 
-div.tech-Makefile
-    @extend %filter-content
-    background-color: $other
+.tech-wrapper:has(.tech-C)
+    transition: all .3s ease-out
+
+    &:hover
+        background-color: $c-light
+
+.tech-wrapper:has(.tech-CS)
+    transition: all .3s ease-out
+
+    &:hover
+        background-color: $c-light
+
+.tech-wrapper:has(.tech-C++)
+    transition: all .3s ease-out
+
+    &:hover
+        background-color: $c-light
+
 
 // Database
 div.tech-Database-Management
     @extend %filter-content
     background-color: $db
+
+.tech-wrapper:has(.tech-SQL)
+    transition: all .3s ease-out
+
+    &:hover
+        background-color: $db-light
+
+// Workflow
+div.tech-Makefile
+    @extend %filter-content
+    background-color: $work-flow
+
+div.tech-Docker
+    @extend %filter-content
+    background-color: $work-flow
+
+
+.tech-wrapper:has(.tech-Docker)
+    transition: all .3s ease-out
+
+    &:hover
+        background-color: $work-flow-light
+
+.tech-wrapper:has(.tech-Makefile)
+    transition: all .3s ease-out
+
+    &:hover
+        background-color: $work-flow-light
+
+
+
 
