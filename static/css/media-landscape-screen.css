@@ -1,0 +1,331 @@
+/*Foldable Samsung Galaxy */
+/*Samsung Galaxy S8+*/
+@media only screen and (min-device-width: 360px) and (max-device-width: 740px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  main section.info section.carosel {
+    inline-size: 47vw !important;
+  }
+  main section.info section.carosel .caption {
+    bottom: 3.2em;
+  }
+  main section.info section.carosel .btn-container {
+    bottom: 20em;
+  }
+  main section.info section#bio nav.bio-link {
+    margin: 0;
+    inline-size: 100%;
+  }
+  main section.info section#bio nav.bio-link .bio-btn {
+    transition: 3s;
+  }
+  main section.info section#bio nav.bio-link .bio-btn:hover {
+    transform: scale(1.1);
+  }
+  main section.info section#bio section.bio-content p {
+    inline-size: 41vw;
+  }
+  main section#specialization-container .spec-wrapper {
+    flex-direction: column;
+  }
+  main section#specialization-container .specialization-class {
+    inline-size: 42vw;
+  }
+  main section#specialization-container .specialization-class p {
+    inline-size: 42vw;
+  }
+  main section#specialization-container .specialization-class .specialization-course .h4-link {
+    font-size: 1.1em;
+  }
+  main section#specialization-container .specialization-class .specialization-course .tech-container {
+    inline-size: 100%;
+  }
+  main section#full-stack .pp {
+    inline-size: 45vw;
+  }
+  main section#full-stack .tech-container {
+    inline-size: 34vw;
+  }
+}
+/*Iphone 5 - Landscape*/
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  main section.info {
+    align-items: center;
+    flex-direction: column;
+  }
+  main section.info section.carosel {
+    inline-size: 46vw !important;
+  }
+  main section.info section.carosel .caption {
+    bottom: 3.2em;
+  }
+  main section.info section.carosel .btn-container {
+    bottom: 17em;
+  }
+  main section.info section#bio {
+    margin: 0;
+    inline-size: 80vw;
+  }
+  main section.info section#bio nav.bio-link {
+    margin: 0;
+    inline-size: 100%;
+  }
+  main section.info section#bio nav.bio-link .bio-btn {
+    transition: 3s;
+  }
+  main section.info section#bio nav.bio-link .bio-btn:hover {
+    transform: scale(1.1);
+  }
+  main section.info section#bio section.bio-content p {
+    inline-size: 70vw;
+  }
+  main section#specialization-container .specialization-class {
+    inline-size: 42vw;
+  }
+  main section#specialization-container .specialization-class p {
+    inline-size: 42vw;
+  }
+  main section#specialization-container .specialization-class .specialization-course .h4-link {
+    font-size: 1.1em;
+  }
+  main section#specialization-container .specialization-class .specialization-course .tech-container {
+    inline-size: 45vw;
+  }
+  main section#full-stack .pp {
+    inline-size: 70vw;
+  }
+  main section#full-stack .pp .tech-container {
+    inline-size: 55vw;
+  }
+}
+/*Samsung Galaxy Ultra*/
+@media only screen and (min-device-width: 412px) and (max-device-width: 915px) and (orientation: landscape) {
+  main section.info section.carosel {
+    inline-size: 34vw;
+  }
+  main section.info section.carosel .caption {
+    bottom: 3.2em;
+  }
+  main section.info section.carosel .btn-container {
+    bottom: 20em;
+  }
+  main section.info section#bio nav.bio-link {
+    margin: 0;
+    inline-size: 100%;
+  }
+  main section.info section#bio nav.bio-link .bio-btn {
+    transition: 3s;
+  }
+  main section.info section#bio nav.bio-link .bio-btn:hover {
+    transform: scale(1.1);
+  }
+  main section.info section#bio section.bio-content p {
+    inline-size: 41vw;
+  }
+  main section#specialization-container .spec-wrapper {
+    flex-direction: column;
+  }
+  main section#specialization-container .specialization-class {
+    inline-size: 42vw;
+  }
+  main section#specialization-container .specialization-class p {
+    inline-size: 42vw;
+  }
+  main section#specialization-container .specialization-class .specialization-course .h4-link {
+    font-size: 1.1em;
+  }
+  main section#full-stack .pp {
+    inline-size: 45vw;
+  }
+  main section#full-stack .tech-container {
+    inline-size: 34vw;
+  }
+}
+/* Iphone XR  / 12 Pro*/
+@media only screen and (min-device-width: 414px) and (max-device-width: 896px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  main section.info {
+    align-items: center;
+    flex-direction: column;
+  }
+  main section.info section.carosel {
+    inline-size: 47vw !important;
+  }
+  main section.info section.carosel .caption {
+    bottom: 3.2em;
+  }
+  main section.info section.carosel .btn-container {
+    bottom: 20em;
+  }
+  main section.info section#bio {
+    margin: 0;
+    inline-size: 80vw;
+  }
+  main section.info section#bio nav.bio-link {
+    margin: 0;
+    inline-size: 100%;
+  }
+  main section.info section#bio nav.bio-link .bio-btn {
+    transition: 3s;
+  }
+  main section.info section#bio nav.bio-link .bio-btn:hover {
+    transform: scale(1.1);
+  }
+  main section.info section#bio section.bio-content p {
+    inline-size: 70vw;
+  }
+  main section#specialization-container .specialization-class {
+    inline-size: 42vw;
+  }
+  main section#specialization-container .specialization-class p {
+    inline-size: 42vw;
+  }
+  main section#specialization-container .specialization-class .specialization-course .h4-link {
+    font-size: 1.1em;
+  }
+  main section#specialization-container .specialization-class .specialization-course .tech-container {
+    inline-size: 45vw;
+  }
+  main section#full-stack .pp {
+    inline-size: 70vw;
+  }
+  main section#full-stack .pp .tech-container {
+    inline-size: 55vw;
+  }
+}
+/* Iphone Pro Max */
+@media only screen and (min-device-width: 430px) and (max-device-width: 932px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  main section.info section.carosel {
+    inline-size: 47vw !important;
+  }
+  main section.info section.carosel .caption {
+    bottom: 3.2em;
+  }
+  main section.info section.carosel .btn-container {
+    bottom: 20em;
+  }
+  main section.info section#bio nav.bio-link {
+    margin: 0;
+    inline-size: 100%;
+  }
+  main section.info section#bio nav.bio-link .bio-btn {
+    transition: 3s;
+  }
+  main section.info section#bio nav.bio-link .bio-btn:hover {
+    transform: scale(1.1);
+  }
+  main section.info section#bio section.bio-content p {
+    inline-size: 41vw;
+  }
+  main section#specialization-container .specialization-class {
+    inline-size: 42vw;
+  }
+  main section#specialization-container .specialization-class .specialization-course .h4-link {
+    font-size: 1.1em;
+  }
+  main section#full-stack .pp {
+    inline-size: 45vw;
+  }
+  main section#full-stack .tech-container {
+    inline-size: 34vw;
+  }
+}
+/* Ipad Pro Mini*/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  main section.info section.carosel {
+    inline-size: 47vw !important;
+  }
+  main section.info section.carosel .caption {
+    bottom: 3.2em;
+  }
+  main section.info section.carosel .btn-container {
+    bottom: 20em;
+  }
+  main section.info section#bio nav.bio-link {
+    margin: 0;
+    inline-size: 100%;
+  }
+  main section.info section#bio nav.bio-link .bio-btn {
+    transition: 3s;
+  }
+  main section.info section#bio nav.bio-link .bio-btn:hover {
+    transform: scale(1.1);
+  }
+  main section#specialization-container .specialization-class {
+    inline-size: 42vw;
+  }
+  main section#specialization-container .specialization-class .specialization-course .h4-link {
+    font-size: 1.1em;
+  }
+  main section#full-stack .pp {
+    inline-size: 45vw;
+  }
+  main section#full-stack .tech-container {
+    inline-size: 34vw;
+  }
+}
+/* Ipad Air*/
+@media only screen and (min-device-width: 820px) and (max-device-width: 1180px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  main section.info section.carosel {
+    inline-size: 37vw !important;
+  }
+  main section.info section.carosel .caption {
+    bottom: 3.2em;
+  }
+  main section.info section.carosel .btn-container {
+    bottom: 20em;
+  }
+  main section.info section#bio nav.bio-link {
+    margin: 0;
+    inline-size: 100%;
+  }
+  main section.info section#bio nav.bio-link .bio-btn {
+    transition: 3s;
+  }
+  main section.info section#bio nav.bio-link .bio-btn:hover {
+    transform: scale(1.1);
+  }
+  main section#specialization-container .specialization-class {
+    inline-size: 42vw;
+  }
+  main section#specialization-container .specialization-class .specialization-course .h4-link {
+    font-size: 1.1em;
+  }
+  main section#full-stack .pp {
+    inline-size: 45vw;
+  }
+  main section#full-stack .tech-container {
+    inline-size: 34vw;
+  }
+}
+/* Ipad Pro*/
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1356px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  main section.info .carosel {
+    inline-size: 32vw !important;
+  }
+  main section.info .carosel .caption {
+    bottom: 5em;
+  }
+  main section.info .carosel .btn-container {
+    bottom: 20em;
+  }
+  main section.info section#bio nav.bio-link {
+    margin: 0;
+    inline-size: 100%;
+  }
+  main section.info section#bio nav.bio-link .bio-btn {
+    transition: 3s;
+  }
+  main section.info section#bio nav.bio-link .bio-btn:hover {
+    transform: scale(1.1);
+  }
+  main section#specialization-container .specialization-class {
+    inline-size: 42vw;
+  }
+  main section#specialization-container .specialization-class .specialization-course .h4-link {
+    font-size: 1.1em;
+  }
+  main section#full-stack .pp {
+    inline-size: 45vw;
+  }
+  main section#full-stack .tech-container {
+    inline-size: 34vw;
+  }
+}/*# sourceMappingURL=media-landscape-screen.css.map */
