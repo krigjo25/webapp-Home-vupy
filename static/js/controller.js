@@ -1,7 +1,7 @@
-//  Controller -> Manipulates modal and view
-//startTimer();
+
 function startTimer()
 {
+    // Initializing the timer
     timer = setInterval(next, 100000);
 }
 
@@ -11,7 +11,7 @@ function next()
     let app = model.apps;
     let sources = model.sources;
 
-    //  Linear algorithme
+    // Swap through the apps
     for (let i = 0; i < app.length; i++)
     {
         //  Ensure the name is carosel
@@ -20,6 +20,7 @@ function next()
             //  Initialize current image src
             let src = app[i].id.children[0].src;
 
+            // Swap sources
             for(let j = 0; j < sources.length; j++)
             {
                 //  Ensure the path points to the image 
@@ -45,7 +46,7 @@ function prev()
     let app = model.apps;
     let sources = model.sources;
 
-    //  Linear algorithme
+    // Iterate through the apps
    for (let i = 0; i < app.length; i++)
     {
     
@@ -56,6 +57,7 @@ function prev()
             //  Initialize current image src
             let src = app[i].id.children[0].src;
         
+            //  Swap sources
             for(let j = 0; j < sources.length; j++)
             {
                 //  Ensure the src points to the image
@@ -69,6 +71,7 @@ function prev()
             }
         }
     }
+
     clearInterval(timer);
     startTimer();
     main();
@@ -82,16 +85,16 @@ function biography(arg)
     //  Initializing the app
     let bio = model.apps;
 
+    // Iterating through the bio structure
     for (let i = 0; i < bio.length; i++)
     {
         // Ensure the app is bio
         if (bio[i].app == "bio")
         {
             bio[i].name = arg;
-            console.log(bio[i].name);
             calculateDate(bio[i].birthdate);
 
-            switch (bio[i].name) {
+            switch (bio[i].name.replace(" ", "").toLowerCase()) {
                 
                 case 'profile':
                     profile(bio[i]);
@@ -101,8 +104,8 @@ function biography(arg)
                     journey(bio[i]);
                     break;
                 
-                case 'common options':
-                    aboutkg(bio[i]);
+                case 'commonopinions':
+                    common_opinions(bio[i]);
                     break;
                 
 
@@ -112,27 +115,38 @@ function biography(arg)
                     break;
 
             }
-            return `<h2>${arg.name}</h2>
-                    <span class="time">
-                        written by @krigjo25 , but formulated using
-                        Artifical Intelligence read time  ${arg.time} minutes
-                        <i class="bi bi-stop-watch"></i>
-                    </span>
-                    <div class="grid-container">
-                        <div class="grid-item">
-                            <h3>${arg.title}</h3>
-                            <p>${arg.message}</p>
-                        </div>
-                        <div class="grid-item">
-                            <h3>${arg.title}</h3>
-                            <p>${arg.message1}</p>
-                        </div>
-                        <div class="grid-item">
-                            <h3>${arg.title}</h3>
-                            <p>${arg.message2}</p>
-                        </div>`;
         }
     }
+}
+
+
+
+function time_calculations(arg)
+{
+    // Calculate the time to read the text
+    return Math.round(arg.split(" ").length/200);
+}
+
+function calculateDate(arg)
+{
+    // Initializing a year
+    const n = 1000 * 60 * 60 * 24;
+
+    //  Initializing the date
+    let today = new Date();
+    let birthdate = new Date(arg);
+
+    //  Calculating the difference
+    let diff = today - birthdate;
+
+    //  Calculating the difference
+    diff = Math.round(diff / n);
+
+    if (today.getMonth() < birthdate.getMonth() && today.getDay() < birthdate.getDay()) 
+    {
+        return Math.round((diff / 365) - 1);
+    }
+    return Math.floor((diff / 365));
 }
 
 function journey(arg)
@@ -204,7 +218,7 @@ function profile(arg)
     
 }
 
-function aboutkg(arg)
+function common_opinions(arg)
 {
     arg.message = `
         Known for my dedication and strong work ethic,
@@ -221,39 +235,9 @@ function aboutkg(arg)
         developing my existing strengths. To achieve this, I regularly
         leverage a network of developers and online resources.`;
 
-    arg.message2 = ``;
+    arg.message2 = ` `;
 
         arg.age = calculateDate(arg.birthdate);
         arg.time = time_calculations(arg.message + arg.message1 + arg.message2);
         main();
 }
-
-function time_calculations(arg)
-{
-    // Calculate the time to read the text
-    return Math.round(arg.split(" ").length/200);
-}
-
-function calculateDate(arg)
-{
-    // Initializing a year
-    const n = 1000 * 60 * 60 * 24;
-
-    //  Initializing the date
-    let today = new Date();
-    let birthdate = new Date(arg);
-
-    //  Calculating the difference
-    let diff = today - birthdate;
-
-    //  Calculating the difference
-    
-    diff = Math.round(diff / n);
-
-    if (today.getMonth() < birthdate.getMonth() && today.getDay() < birthdate.getDay()) 
-    {
-        return Math.round((diff / 365) - 1);
-    }
-    return Math.floor((diff / 365));
-}
-

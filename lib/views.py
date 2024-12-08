@@ -37,7 +37,6 @@ class Index(MethodView):
     def post(self): 
 
         #   Handle post request
-        req = request.form
         return render_template("index.html")
 
 
@@ -47,8 +46,6 @@ class Index(MethodView):
         if Index.repo is None:
             Index.repo = await GithubApi().fetch_repos()
             
-        
-
         self.SendFlash()
 
         return

@@ -20,15 +20,15 @@ const model =
                 links: [
                     {
                         icon: "bi bi-github",
-                        name: "profile",
+                        name: "Profile",
                     },
                     {
                         icon: "bi bi-github",
-                        name: "journey",
+                        name: "Journey",
                     },
                     {
                         icon: "bi bi-github",
-                        name: "common opinions",
+                        name: "Common Opinions",
                     },
                     /*{
                         icon: "bi bi-github",
@@ -41,8 +41,8 @@ const model =
 
                 ],
                 id: document.getElementById("bio"),
-                name: "profile",
-                time: 0,
+                name: "Profile",
+                time: 2,
                 age: 30,
                 title: ["Kristoffer Gjøsund"],
                 birthdate: "1994-02-25:15:30:00",           

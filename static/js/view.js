@@ -202,7 +202,7 @@ function specialization(arg)
 
 function footer(arg)
 {
-    //  Footer copy right
+    //  Footer copyright
     document.querySelector('#powered-by').innerHTML = /*HTML*/`
         <form action="https://validator.w3.org/check" class="text-center" enctype="multipart/form-data" method="post" target="_blank">
             <input name="doctype" type="hidden" value="HTML5">
@@ -210,8 +210,8 @@ function footer(arg)
             <input alt="Validate" src="/static/I_heart_validator.png" type="image"> <!-- https://validator.w3.org/ -->
         </form>
         <p>
-            <a href=""> Copyright</a> 
+            <a href="https://choosealicense.com/licenses/gpl-3.0/"> Copyright</a> 
             &copy; 
-            <a href="https://www.krigjo25.no">@krigjo25</a> 
+            <a href="https://www.krigjo25.no">@Krigjo25</a> 
             2024  - ${new Date().getFullYear()}</p>`;
 }

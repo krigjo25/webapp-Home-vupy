@@ -1,9 +1,9 @@
 # krigjo25 | Home
 
-## Video Demo: [Video demo]()
+## Video Demo: [Video demo](https://youtu.be/n-jNhiu5Nm0)
 
 ## Overview
-This project was not intended to use as an assignment for CS50x, but it kills two birds with one stone. The purpose of this website is to use it as a biography of whom i am,  what's been done through my journey.
+This project was not intended to use as an assignment for CS50x, but it kills two birds with one stone. The purpose of this website is to use it as a biography of who I am,  what's been done through my journey.
 
 The application will create a new file called app.log, where Server information will be logged to control its behavior
 
@@ -43,7 +43,6 @@ Create a .env file
 GITHUB_TOKEN = "Bearer <Your Github Token>"
 ```
 
-
 ### Tests
 
 ####    How to run the tests
@@ -78,9 +77,9 @@ Tests are based on the [documentation for unit tests](https://python-basics-tuto
 In order to visualize the test, i created a test report. So its easier to view the test of the programs.
 
 ##  Credits
-[flask, flask_session - by the pallets project]()
+[flask, flask_session - by the pallets project](https://pypi.org/project/Flask/)
 [pytest, sqlite, os - Python built in responsories]()
-[dotenv - ]()
+[dotenv - Saurabh Kumar](https://pypi.org/user/theskumar/)
 
 ### License
 See the seperate file LICENCE
@@ -88,18 +87,14 @@ See the seperate file LICENCE
 ## Project summary
 
 ### Modal
-While creating the application i encountered some challanges with futures such as API,  database manangement
+During the creation of the model some challanges with the API was encountered.
 
 ### Github API
 While fetching the API i encountered an issue that for everytime
 the program sends a GET request. The program fetches the whole repo
 I choose to create an intervaler in order to just fetch once a day or when there is something new in the Repo.
 
-I wanted to create an request to the API so i could automate the process to update the database with new projects.
-
-> I created multiple functions to handle multiple requests, so i could fetch the desired data from Github. And i wanted to automate the process, so the server searches after given updates in Github once a month or when there is a new project available at Github. 
-> Some tests was created in the process to confirm the autentity for the functions, to make the process easier. If necessary in the future it is possible to convert the database into another database management system
->
+Filtering by language wasn't as easy as i expected, because of some strange bug in the system, i couldn't add a custom language to the list.
 
 
 ## Tests
