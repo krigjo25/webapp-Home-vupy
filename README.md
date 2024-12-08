@@ -1,86 +1,85 @@
 # krigjo25 | Home
 
-## About this project
+## Video Demo: [Video demo]()
+
+## Overview
+This project was not intended to use as an assignment for CS50x, but it kills two birds with one stone. The purpose of this website is to use it as a biography of whom i am,  what's been done through my journey.
+
+The application will create a new file called app.log, where Server information will be logged to control its behavior
+
+## Description
+
+###    HTML
+The project uses HTML to structure the content of the web pages.
+
+###    CSS
+Cascade Style Sheets has been used to style the web pages. Including RWD to ensure the webpage is viewable for various devices.
+
+###    Javascript
+The JavaScript is used to add interactivity to the web site.
+- Automated Slider (Non functional as im going to go over to a Instagram API later) is implemented for the carusel
+
+###    Flask
+During the planning, Flask was chosen as the web framework because of it's flexiblibility and ease of use. It provides the backend logic and API endpoints to fetch data from Github.
+
+####    Database
+SQLite is used as the Database Management System.
+
+It is lightweight and doesn't require a server, which makes it suitable for the project.
 
 ### Requirements
-Please install the dependencies through the requirements.txt
-
-```fish
+Please install the dependencies through the `requirements.txt` :
+```sh
 pip install -r requirements.txt
 ```
 
-### Purpose
-The puropose of this website is to use it as a biography of whom i am,  what's been done through my journey.
-
-### Description
-
-####    HTML
-####    CSS
-
-
-During this project i've learned alot about RWD what should be prefered to be used during projects,
-
-####    Javascript
-
--   Created a automatic Slider function for the webpage
-
-####    Flask
-
-Github:
-Implemented a API which fetches repositories data from GITHUB.
-
-
-While creating the modal i encounted a challange to store the information which was recieved by the API
-I choosed to use SQLite, as there is no need for a huge database or a rational one.
-
-During this project i refreshed memories by using what has been learned on the cs50x course.
-
-####    Database
-
-As a database i chose SQLite as it doesnt require server to operate nor a license to use, as i do not expect heavy traffic in the datase it suits well for minor projects.
+Create a .env file
+```env
+#   Tokens
+GITHUB_TOKEN = "Bearer <Your Github Token>"
+```
 
 
 ### Tests
 
 ####    How to run the tests
-
 To run the test, from the root of the repo
-```fish
+```sh
 pytest -v
 pytest --html=reports.html
 ```
 ####    Requests
 Tests are based on the [GITHUB REST API](https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28)
 
+
+
 **test_connection**
-During the connection test with the reposory i found out that i could expect
-agruments in the fields in the api, as a consequence of using Github REST API,
-it's reasonable to believe that if the request is Ok i will recieve the same output
-in expected and actual. Therefore it would be best practise to use the actual
-dictionary to pass values into the expected json, as the requests returns an
-json file if the code is 200, and to hide "sensitive information about a user.
+During the connection test with the reposory i found out that i could expect agruments in the fields in the api, as a consequence of using
+Github REST API,it's reasonable to believe that if the request is Ok
+i will recieve the same output in expected and actual. Therefore it
+would be best practise to use the actual dictionary to pass values
+into the expected json, as the requests returns an json file if the
+code is 200, and to hide "sensitive information about a user.
 
 **moc_requests**
 By mocking the url from [GITHUB REST API](https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#get-a-repository) i expect to find my repositories avialable
 
 
 ####    Databases
-
 Tests are based on the [documentation for unit tests](https://python-basics-tutorial.readthedocs.io/en/24.1.0/test/sqlite.html)
 **test_insertion**
 **test_update**
 
 
 In order to visualize the test, i created a test report. So its easier to view the test of the programs.
-##  Credits
 
+##  Credits
 [flask, flask_session - by the pallets project]()
 [pytest, sqlite, os - Python built in responsories]()
 [dotenv - ]()
 
 ### License
-see license file
-
+See the seperate file LICENCE
 
 ## Project summary
 
@@ -88,6 +87,9 @@ see license file
 While creating the application i encountered some challanges with futures such as API,  database manangement
 
 ### Github API
+While fetching the API i encountered an issue that for everytime
+the program sends a GET request. The program fetches the whole repo
+I choose to create an intervaler in order to just fetch once a day or when there is something new in the Repo.
 
 I wanted to create an request to the API so i could automate the process to update the database with new projects.
 
@@ -96,11 +98,7 @@ I wanted to create an request to the API so i could automate the process to upda
 >
 
 
-### SQLite database management system
-#### Purpose of SQLite
-
 ## Tests
-
 During the tests i learned alot about how to use Python's built-in pytest as unit testing network.
 
 During the testing stage, raising exceptions durng the tests was learned.
