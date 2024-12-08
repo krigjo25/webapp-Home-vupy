@@ -1,0 +1,137 @@
+ext-btn-functionallity, main section.info nav.ext-bar a, main section.info section.bio-container nav.bio-link button.bio-btn, main section.info .carosel .btn-container button.img-btn {
+  transition: 2s;
+}
+ext-btn-functionallity:hover, main section.info nav.ext-bar a:hover, main section.info section.bio-container nav.bio-link button.bio-btn:hover, main section.info .carosel .btn-container button.img-btn:hover {
+  transform: scale(1.1);
+  opacity: 1 !important;
+}
+
+roboto-font, main section.info section.bio-container section.bio-content {
+  font-family: "Roboto", sans-serif;
+}
+
+work-sans-font, main section.info section.bio-container section.bio-content .keywords h3, main section.info section.bio-container h2 {
+  font-family: "Work Sans", sans-serif;
+}
+
+open-sans-font {
+  font-family: "Open Sans", sans-serif;
+}
+
+main section.info {
+  display: flex;
+  flex-wrap: wrap;
+  block-size: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+main section.info .carosel {
+  display: flex;
+  inline-size: 25vw;
+  flex-direction: column;
+}
+main section.info .carosel img {
+  inline-size: 100%;
+  border-radius: 0.5em;
+}
+main section.info .carosel .caption {
+  bottom: 5.5vh;
+  display: flex;
+  inline-size: 100%;
+  position: relative;
+  justify-content: center;
+  color: rgb(253, 86, 2);
+  background-color: rgba(40, 40, 40, 0.7);
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
+main section.info .carosel .btn-container {
+  bottom: 19em;
+  display: flex;
+  cursor: pointer;
+  block-size: 100%;
+  inline-size: 100%;
+  position: relative;
+  justify-content: space-between;
+}
+main section.info .carosel .btn-container button.img-btn {
+  opacity: 0.3;
+  border: none;
+  font-size: 2em;
+  cursor: pointer;
+  background-color: transparent;
+}
+main section.info section.bio-container {
+  inline-size: 53vw;
+  margin-inline-start: 7vw;
+}
+main section.info section.bio-container h2 {
+  font-size: 2em;
+  text-align: center;
+}
+main section.info section.bio-container nav.bio-link {
+  inline-size: 100%;
+  background-color: rgb(230, 247, 252);
+}
+main section.info section.bio-container nav.bio-link button.bio-btn {
+  border: none;
+  padding: 0.5em;
+  cursor: pointer;
+  border-radius: 0.5em;
+  background-color: rgb(230, 247, 252);
+  border-left: 1px solid rgb(207, 222, 226);
+}
+main section.info section.bio-container nav.bio-link button.bio-btn:hover {
+  background-color: rgb(207, 222, 226);
+  color: rgb(253, 86, 2);
+}
+main section.info section.bio-container section.bio-content p {
+  font-size: 1.5em;
+  text-align: justify;
+}
+main section.info section.bio-container section.bio-content .keywords {
+  margin-block-end: 1em;
+}
+main section.info section.bio-container section.bio-content .keywords h3 {
+  margin-block-end: 0em;
+}
+main section.info section .btn-links a:visited, main section.info section .btn-links a:link {
+  text-decoration: none;
+  color: rgb(254, 254, 254);
+  background-color: #a1bfc9;
+}
+main section.info div.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13vw, 1fr));
+  grid-gap: 1em;
+}
+main section.info .grid-item {
+  inline-size: 14vw;
+}
+main section.info nav.ext-bar {
+  padding: 1vw;
+  display: flex;
+  flex-wrap: wrap;
+  margin-block-start: 2vh;
+  justify-content: center;
+}
+main section.info nav.ext-bar span {
+  padding: 1vw;
+  font-size: 1em;
+}
+main section.info nav.ext-bar a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 1.5em;
+  margin: 0.5em;
+  padding: 0.5em;
+  border-radius: 50%;
+  transition: 0aaaa 0.5s;
+  display: inline-block;
+  text-align: center;
+  min-inline-size: 50px;
+}
+main section.info nav.ext-bar:hover, main section.info nav.ext-bar :visited {
+  color: inherit;
+}/*# sourceMappingURL=profile.css.map */
