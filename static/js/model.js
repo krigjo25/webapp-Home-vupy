@@ -26,6 +26,14 @@ const model =
                         icon: "bi bi-github",
                         name: "journey",
                     },
+                    {
+                        icon: "bi bi-github",
+                        name: "common opinions",
+                    },
+                    /*{
+                        icon: "bi bi-github",
+                        name: "Newest Blog post",
+                    },*/
                     /*{
                         icon: "bi bi-github",
                         name: "Newest Blog post",
@@ -35,7 +43,9 @@ const model =
                 id: document.getElementById("bio"),
                 name: "profile",
                 time: 0,
+                age: 30,
                 title: ["Kristoffer Gjøsund"],
+                birthdate: "1994-02-25:15:30:00",           
                 message: `
                     My ideal lifestyle involves a balance between the passion 
                     of technology and wellness. I dedicate my free time to coding,

@@ -78,7 +78,6 @@ function prev()
 
 function biography(arg)
 {
-    console.log(arg);
 
     //  Initializing the app
     let bio = model.apps;
@@ -89,73 +88,55 @@ function biography(arg)
         if (bio[i].app == "bio")
         {
             bio[i].name = arg;
+            console.log(bio[i].name);
+            calculateDate(bio[i].birthdate);
 
-            //  Ensure the name is profile
-            if (bio[i].name == 'profile')
-            {
-                profile(bio[i]);
-            }
-            
-            //  Ensure the name is journey
-            else if (bio[i].name == "journey")
-            {
-                journey(bio[i]);
-            }
-            
-            // Ensure the name is about
-            else if (bio[i].name == "about")
-            {
-        
-                    
-                bio[i].message = `
-                Colleagues and peers consistently acknowledge my
-                dedication to current projects and my ability to be
-                fully present. As a team member, i demonstrates
-                empathy and a keen understanding of others, fostering a
-                supportive work environment. Known for their positive
-                outlook, he is adept at identifying and leveraging
-                the strengths of colleagues, making them an invaluable
-                asset to the team.`;
-        
-            bio[i].message1 = `
-                In my spare time, I primarily focus on enhancing my proficiency
-                in Python libraries, database management, piano, and philosophy.
-                I am dedicated to both improving my weaker areas and further
-                developing my existing strengths. To achieve this, I regularly
-                leverage a network of developers and online resources.`;
-        
-            bio.msg2 = `About me`;
-            bio.time = time_calculations(bio[i].message);
-            }
+            switch (bio[i].name) {
+                
+                case 'profile':
+                    profile(bio[i]);
+                    break;
+                
+                case 'journey':
+                    journey(bio[i]);
+                    break;
+                
+                case 'common options':
+                    aboutkg(bio[i]);
+                    break;
+                
 
-            else {
-                return `<h2>${arg.name}</h2>
-                <span class="time">
-                    written by @krigjo25 , but formulated using
-                    Artifical Intelligence read time  ${arg.time} minutes
-                    <i class="bi bi-stop-watch"></i>
-                </span>
-                <div class="grid-container">
-                    <div class="grid-item">
-                        <h3>${arg.title}</h3>
-                        <p>${arg.message}</p>
-                    </div>
-                    <div class="grid-item">
-                        <h3>${arg.title}</h3>
-                        <p>${arg.message1}</p>
-                    </div>
-                    <div class="grid-item">
-                        <h3>${arg.title}</h3>
-                        <p>${arg.message2}</p>
-                    </div>`;
+            
+                default:
+                
+                    break;
+
             }
+            return `<h2>${arg.name}</h2>
+                    <span class="time">
+                        written by @krigjo25 , but formulated using
+                        Artifical Intelligence read time  ${arg.time} minutes
+                        <i class="bi bi-stop-watch"></i>
+                    </span>
+                    <div class="grid-container">
+                        <div class="grid-item">
+                            <h3>${arg.title}</h3>
+                            <p>${arg.message}</p>
+                        </div>
+                        <div class="grid-item">
+                            <h3>${arg.title}</h3>
+                            <p>${arg.message1}</p>
+                        </div>
+                        <div class="grid-item">
+                            <h3>${arg.title}</h3>
+                            <p>${arg.message2}</p>
+                        </div>`;
         }
     }
 }
 
 function journey(arg)
 {
-
     arg.title[1] = "The Journey So Far";
     arg.message =`
         The journey into coding began in my teens when I discovered HTML
@@ -181,8 +162,9 @@ function journey(arg)
         progressing to a Senior Data Scientist position within an innovative
         and collaborative environment.`;
 
-    arg.time = time_calculations(arg.message);
-    main();
+        arg.age = calculateDate(arg.birthdate);
+        arg.time = time_calculations(arg.message + arg.message1 + arg.message2);
+        main();
 }
 
 function profile(arg)
@@ -214,16 +196,64 @@ function profile(arg)
             I have experienced that the best practice to
             ensure code quality is through test frameworks.`;
 
-    arg.message2 = `Technical Skills`
+    arg.message2 = ``
 
-    arg.time = time_calculations(arg.message);
+    arg.age = calculateDate(arg.birthdate);
+    arg.time = time_calculations(arg.message + arg.message1 + arg.message2);
     main();
     
 }
 
+function aboutkg(arg)
+{
+    arg.message = `
+        Known for my dedication and strong work ethic,
+        my colleagues appreciate my presence and contributions
+        to our projects. I'm passionate about fostering a
+        supportive work environment and excel at recognizing
+        and utilizing the unique strengths of my team members.
+        This makes me a valuable asset to the team`;
+        
+    arg.message1 = `
+        In my spare time, I primarily focus on enhancing my proficiency
+        in Python libraries, database management, piano, and philosophy.
+        I am dedicated to both improving my less stronger areas and further
+        developing my existing strengths. To achieve this, I regularly
+        leverage a network of developers and online resources.`;
+
+    arg.message2 = ``;
+
+        arg.age = calculateDate(arg.birthdate);
+        arg.time = time_calculations(arg.message + arg.message1 + arg.message2);
+        main();
+}
+
 function time_calculations(arg)
 {
-    /*AI generated*/
-    let words = arg.split(" ");
-    return Math.round(words.length / 200);
+    // Calculate the time to read the text
+    return Math.round(arg.split(" ").length/200);
 }
+
+function calculateDate(arg)
+{
+    // Initializing a year
+    const n = 1000 * 60 * 60 * 24;
+
+    //  Initializing the date
+    let today = new Date();
+    let birthdate = new Date(arg);
+
+    //  Calculating the difference
+    let diff = today - birthdate;
+
+    //  Calculating the difference
+    
+    diff = Math.round(diff / n);
+
+    if (today.getMonth() < birthdate.getMonth() && today.getDay() < birthdate.getDay()) 
+    {
+        return Math.round((diff / 365) - 1);
+    }
+    return Math.floor((diff / 365));
+}
+

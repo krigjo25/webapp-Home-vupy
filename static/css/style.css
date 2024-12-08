@@ -18,7 +18,7 @@ roboto-font, .pp .tech-container, main section.spec-wrapper .specialization-clas
   font-family: "Roboto", sans-serif;
 }
 
-work-sans-font, main section.spec-wrapper .specialization-class .specialization-course .h4-link, main section.spec-wrapper .specialization-class:hover .h3-link, main section.spec-wrapper .specialization-class .h3-link, main section.info section.bio-container section.bio-content h3, main section.info section.bio-container h2 {
+work-sans-font, main section.spec-wrapper .specialization-class .specialization-course .h4-link, main section.spec-wrapper .specialization-class:hover .h3-link, main section.spec-wrapper .specialization-class .h3-link, main section.info section.bio-container section.bio-content .keywords h3, main section.info section.bio-container h2 {
   font-family: "Work Sans", sans-serif;
 }
 
@@ -94,12 +94,15 @@ main section.info section.bio-container nav.bio-link button.bio-btn:hover {
   background-color: rgb(207, 222, 226);
   color: rgb(253, 86, 2);
 }
-main section.info section.bio-container section.bio-content h3 {
-  margin-block-start: 0em;
-}
 main section.info section.bio-container section.bio-content p {
   font-size: 1.5em;
   text-align: justify;
+}
+main section.info section.bio-container section.bio-content .keywords {
+  margin-block-end: 1em;
+}
+main section.info section.bio-container section.bio-content .keywords h3 {
+  margin-block-end: 0em;
 }
 main section.info section .btn-links a:visited, main section.info section .btn-links a:link {
   text-decoration: none;
@@ -158,7 +161,7 @@ roboto-font, .pp .tech-container, main section.spec-wrapper .specialization-clas
   font-family: "Roboto", sans-serif;
 }
 
-work-sans-font, main section.spec-wrapper .specialization-class .specialization-course .h4-link, main section.spec-wrapper .specialization-class:hover .h3-link, main section.spec-wrapper .specialization-class .h3-link, main section.info section.bio-container h2, main section.info section.bio-container section.bio-content h3 {
+work-sans-font, main section.spec-wrapper .specialization-class .specialization-course .h4-link, main section.spec-wrapper .specialization-class:hover .h3-link, main section.spec-wrapper .specialization-class .h3-link, main section.info section.bio-container h2, main section.info section.bio-container section.bio-content .keywords h3 {
   font-weight: 100;
   font-family: "Work Sans", sans-serif;
 }
@@ -272,7 +275,7 @@ roboto-font, .pp .tech-container, main section.info section.bio-container sectio
   font-family: "Roboto", sans-serif;
 }
 
-work-sans-font, main section.info section.bio-container h2, main section.info section.bio-container section.bio-content h3, main section.spec-wrapper .specialization-class .h3-link, main section.spec-wrapper .specialization-class:hover .h3-link, main section.spec-wrapper .specialization-class .specialization-course .h4-link {
+work-sans-font, main section.info section.bio-container h2, main section.info section.bio-container section.bio-content .keywords h3, main section.spec-wrapper .specialization-class .h3-link, main section.spec-wrapper .specialization-class:hover .h3-link, main section.spec-wrapper .specialization-class .specialization-course .h4-link {
   font-weight: 100;
   font-family: "Work Sans", sans-serif;
 }
@@ -1579,6 +1582,54 @@ flex-wrap-reversed-row, .flex-reversed-row {
   }
 }
 /*Foldable Samsung Galaxy */
+@media only screen and (min-device-width: 344px) and (max-device-width: 882px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  main section.info {
+    flex-direction: row;
+  }
+  main section.info section.carosel {
+    inline-size: 46vw !important;
+  }
+  main section.info section.carosel .caption {
+    bottom: 3.2em;
+  }
+  main section.info section.carosel .btn-container {
+    bottom: 20em;
+  }
+  main section.info section#bio nav.bio-link {
+    inline-size: 100%;
+    margin-inline-start: 4em;
+  }
+  main section.info section#bio nav.bio-link .bio-btn {
+    transition: 3s;
+  }
+  main section.info section#bio nav.bio-link .bio-btn:hover {
+    transform: scale(1.1);
+  }
+  main section.info section#bio section.bio-content p {
+    inline-size: 41vw;
+  }
+  main section#specialization-container .spec-wrapper {
+    flex-direction: column;
+  }
+  main section#specialization-container .specialization-class {
+    inline-size: 42vw;
+  }
+  main section#specialization-container .specialization-class p {
+    inline-size: 42vw;
+  }
+  main section#specialization-container .specialization-class .specialization-course .h4-link {
+    font-size: 1.1em;
+  }
+  main section#specialization-container .specialization-class .specialization-course .tech-container {
+    inline-size: 100%;
+  }
+  main section#full-stack .pp {
+    inline-size: 45vw;
+  }
+  main section#full-stack .tech-container {
+    inline-size: 34vw;
+  }
+}
 /*Samsung Galaxy S8+*/
 @media only screen and (min-device-width: 360px) and (max-device-width: 740px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
   main section.info section.carosel {

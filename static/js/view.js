@@ -51,8 +51,9 @@ function about(arg)
     html += /*HTML*/`
         </nav>
         <section class="bio-content">
-
-            <h3>${arg.title[0]}</h3>
+            <div class='keywords'>
+                <h3>${arg.title[0]}</h3>
+                <small class ='abt-author'>Born : 25/02-94 (${arg.age} years old)</small><br></div>
             <small>Written by ${arg.title[0]} AVG reading time <b>${arg.time} min</b><i class="bi bi-stopwatch"></i></small>       
             <p>${arg.message}</p>
             <p>${arg.message1}</p>

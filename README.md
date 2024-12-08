@@ -13,16 +13,20 @@ The application will create a new file called app.log, where Server information 
 The project uses HTML to structure the content of the web pages.
 
 ###    CSS
-Cascade Style Sheets has been used to style the web pages. Including RWD to ensure the webpage is viewable for various devices.
+Cascade Style Sheets has been automaticly generated using Sass complier
 
-###    Javascript
+
+###    Sass
+Sass was used to style the web pages. Including RWD to ensure the webpage is viewable for various devices.
+
+###   Javascript
 The JavaScript is used to add interactivity to the web site.
 - Automated Slider (Non functional as im going to go over to a Instagram API later) is implemented for the carusel
 
-###    Flask
+###   Flask
 During the planning, Flask was chosen as the web framework because of it's flexiblibility and ease of use. It provides the backend logic and API endpoints to fetch data from Github.
 
-####    Database
+####   Database
 SQLite is used as the Database Management System.
 
 It is lightweight and doesn't require a server, which makes it suitable for the project.

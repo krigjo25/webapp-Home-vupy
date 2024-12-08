@@ -1,4 +1,58 @@
 /*Foldable Samsung Galaxy */
+@media only screen and (min-device-width:344px) and (max-device-width:882px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape)
+    main
+        section.info
+            flex-direction: row
+
+            section.carosel
+                inline-size: 46vw !important
+
+                .caption
+                    bottom: 3.2em
+
+                .btn-container
+                    bottom: 20em
+
+            section#bio
+
+                nav.bio-link
+                    inline-size: 100%
+                    margin-inline-start: 4em
+
+                    .bio-btn
+                        transition: 3s
+
+                        &:hover
+                            transform: scale(1.1)
+                section.bio-content
+                    p
+                        inline-size: 41vw
+
+        section#specialization-container
+
+            .spec-wrapper
+                flex-direction: column
+            .specialization-class
+                inline-size:  42vw
+            
+                p
+                    inline-size: 42vw
+
+                .specialization-course
+                    
+                    .h4-link
+                        font-size: 1.1em
+
+                    .tech-container
+                        inline-size: 100%
+
+        section#full-stack
+
+            .pp
+                inline-size: 45vw
+
+            .tech-container
+                inline-size: 34vw
 
 /*Samsung Galaxy S8+*/
 @media only screen and (min-device-width:360px) and (max-device-width:740px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape)
