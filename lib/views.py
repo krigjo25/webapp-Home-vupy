@@ -32,7 +32,7 @@ class Index(MethodView):
         # Calculations
 
         await self.IndexPage()
-        return render_template("index.html", portefolio = self.repo, links = { "mailbox": 'mailto:krigjo25@outlook.com', "linkedin": 'https://', "github": 'https://www.github.com/krigjo25'})
+        return render_template("index.html", portefolio = self.repo, links = { "mailbox": "mailto:krigjo25@outlook.com", "linkedin": "https://www.linkedin.com/in/krigjo25", "github": "https://www.github.com/krigjo25"})
 
     def post(self): 
 
