@@ -112,7 +112,7 @@ class GithubApi(APIConfig):
                     "url":response[i]['html_url'],
                     'owner':response[i]['owner']['login'],
                     'lang':[],
-                    'date':datetime.datetime.strptime(response[i]['created_at'], '%Y-%m-%dT%H:%M:%SZ').strftime('%d-%M-%y')
+                    'date':datetime.datetime.strptime(response[i]['created_at'], '%Y-%m-%dT%H:%M:%SZ').strftime('%d-%m-%y')
                 }]
             
             #   Fetch repo languages
