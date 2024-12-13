@@ -146,6 +146,16 @@ div.tech-Workflow
     &:hover
         background-color: $work-flow-light
 
+div.tech-Unkown
+    @extend %filter-content
+    background-color: $other
+
+.tech-wrapper:has(.tech-Unkown)
+    transition: all .3s ease-out
+
+    &:hover
+        background-color: $other-light
+
 
 
 

@@ -151,7 +151,7 @@ main section.info nav.ext-bar:hover, main section.info nav.ext-bar :visited {
   -webkit-user-select: none;
 }
 
-div.tech-Workflow, div.tech-Dockerfile, div.tech-Makefile, div.tech-Database-Management, div.tech-CS, div.tech-CPlus, div.tech-C, div.tech-Sass, div.tech-JavaScript, div.tech-CSS, div.tech-HTML, div.tech-UI, div.tech-Jupyter, div.tech-Python {
+div.tech-Unkown, div.tech-Workflow, div.tech-Dockerfile, div.tech-Makefile, div.tech-Database-Management, div.tech-CS, div.tech-CPlus, div.tech-C, div.tech-Sass, div.tech-JavaScript, div.tech-CSS, div.tech-HTML, div.tech-UI, div.tech-Jupyter, div.tech-Python {
   block-size: 1em;
   inline-size: 1em;
   border-radius: 10px;
@@ -265,7 +265,7 @@ main section.spec-wrapper .specialization-class .specialization-course .tech-wra
   -webkit-user-select: none;
 }
 
-div.tech-Workflow, div.tech-Dockerfile, div.tech-Makefile, div.tech-Database-Management, div.tech-CS, div.tech-CPlus, div.tech-C, div.tech-Sass, div.tech-JavaScript, div.tech-CSS, div.tech-HTML, div.tech-UI, div.tech-Jupyter, div.tech-Python {
+div.tech-Unkown, div.tech-Workflow, div.tech-Dockerfile, div.tech-Makefile, div.tech-Database-Management, div.tech-CS, div.tech-CPlus, div.tech-C, div.tech-Sass, div.tech-JavaScript, div.tech-CSS, div.tech-HTML, div.tech-UI, div.tech-Jupyter, div.tech-Python {
   block-size: 1em;
   inline-size: 1em;
   border-radius: 10px;
@@ -531,7 +531,7 @@ main section.spec-wrapper .specialization-class .no-select, main section.spec-wr
   -webkit-user-select: none;
 }
 
-div.tech-Workflow, div.tech-Dockerfile, div.tech-Makefile, div.tech-Database-Management, div.tech-CS, div.tech-CPlus, div.tech-C, div.tech-Sass, div.tech-JavaScript, div.tech-CSS, div.tech-HTML, div.tech-UI, div.tech-Jupyter, div.tech-Python {
+div.tech-Unkown, div.tech-Workflow, div.tech-Dockerfile, div.tech-Makefile, div.tech-Database-Management, div.tech-CS, div.tech-CPlus, div.tech-C, div.tech-Sass, div.tech-JavaScript, div.tech-CSS, div.tech-HTML, div.tech-UI, div.tech-Jupyter, div.tech-Python {
   block-size: 1em;
   inline-size: 1em;
   border-radius: 10px;
@@ -682,6 +682,17 @@ div.tech-Workflow {
 }
 .tech-wrapper:has(.tech-Workflow):hover {
   background-color: rgba(0, 191, 255, 0.6);
+}
+
+div.tech-Unkown {
+  background-color: rgba(40, 40, 40, 0.8);
+}
+
+.tech-wrapper:has(.tech-Unkown) {
+  transition: all 0.3s ease-out;
+}
+.tech-wrapper:has(.tech-Unkown):hover {
+  background-color: rgba(40, 40, 40, 0.3);
 }
 
 flex-wrap-row, flex-wrap-row-space-evenly, .flex-row, .justify-center-row, .justify-flexstart-row, .justify-content-space-evently-row, .align-content-center-row, .align-items-center-row, .align-items-flex-end-row, .fullstack-container, .pp {
