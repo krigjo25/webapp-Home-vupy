@@ -1,9 +1,5 @@
 #   Importing responsories
-import os
-
-import datetime as dt
 from flask import Flask
-from threading import Timer
 from dotenv import load_dotenv
 from flask_session import Session
 

@@ -1,13 +1,11 @@
-import os
+#   Importing libraries
 import asyncio
 import datetime as dt
-from dotenv import load_dotenv
 
+from dotenv import load_dotenv
 from lib.model import GithubApi
 from flask.views import MethodView
-from flask import render_template, request, flash
-
-from lib.model import SQL
+from flask import render_template, flash
 
 #   Load environment variables
 load_dotenv()
@@ -24,14 +22,16 @@ class Index(MethodView):
     async def UpdateRepo(self):
 
         while True:
-            await asyncio.sleep(386400)
+            
             Index.repo = await GithubApi().fetch_repos()
+            await asyncio.sleep(386400)
             
     async def get(self): 
         
         # Calculations
-
+        
         await self.IndexPage()
+        
         return render_template("index.html", portefolio = self.repo, links = { "mailbox": "mailto:krigjo25@outlook.com", "linkedin": "https://www.linkedin.com/in/krigjo25", "github": "https://www.github.com/krigjo25"})
 
     def post(self): 
@@ -72,7 +72,7 @@ class Index(MethodView):
                 flash("Happy New Year")
             
             case _ if now.month == 5 and now.day == 17:
-                flash(f"🇳🇴 Happy Independence Day Norway 🇳🇴")
+                flash("🇳🇴 Happy Independence Day Norway 🇳🇴")
             case _ :
                 flash("Certified Specializations")
         return

@@ -10,25 +10,26 @@ function main()
     {
 
         //  Ensure the name is carosel
-        if (app[i].app === "carosel-container")
+        switch (app[i].app)
         {
-            app[i].id.innerHTML = /*HTML*/ ` 
-                ${carosel(app[i])}`;
-        }  
-        else if (app[i].app === "bio")
-        {
-            app[i].id.innerHTML = /*HTML*/ ` 
-            ${about(app[i])}`;
-        }
-        else if (app[i].app === "specialization")
-        {
-            app[i].id.innerHTML = /*HTML*/ ` 
-            ${specialization(app[i])}`;
-        }
-        else if (app[i].app === "footer")
-        {
-            footer(app[i]);
-           // formValidation();
+            case "carosel-container":
+                app[i].id.innerHTML = /*HTML*/`
+                    ${carosel(app[i])}`;
+                break;
+
+            case "bio":
+                app[i].id.innerHTML = /*HTML*/`
+                    ${about(app[i])}`;
+                break;
+
+            case "specialization":
+                app[i].id.innerHTML = /*HTML*/`
+                    ${specialization(app[i])}`;
+                break;
+
+            case "footer":
+                footer(app[i]);
+                break;
         }
     }
 }

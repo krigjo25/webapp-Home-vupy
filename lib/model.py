@@ -1,17 +1,15 @@
 #   Importing repositories
 import os
-from time import perf_counter
-import asyncio
-
 import logging
 import requests
 import datetime
 
+from time import perf_counter
 from dotenv import load_dotenv
 load_dotenv()
 
 #   errorHandler
-from lib.database import SQL
+#from lib.database import SQL
 
 #   Requests repositories
 from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestException
@@ -42,17 +40,15 @@ class APIConfig(object):
 
         try:
             r = requests.get(f"{endpoint}", timeout=30, headers=head)
-            match (r.status_code):
-                case 200, 201: return r.json()
-                case 401, 403: raise ConnectionError("Unauthorized Access")
-                case 404: raise HTTPError("Resource not found")
-        
+
+            if r.status_code in [401, 403]: raise ConnectionError('Unauthorized Access')
+            elif r.status_code in [404]: raise HTTPError('Resource not found')     
         except (HTTPError, ConnectionError, Timeout, RequestException) as e: 
             logging.error(f"An error occured while attempting to call the api\n request code :{r.status_code}\n, Time elapsed: {perf_counter()-start}")
         
-        logging.info(f"request code :{r.status_code} Time elapsed: {perf_counter()-start}")
+        logging.warning(f"request code :{r.status_code} Time elapsed: {perf_counter()-start}")
 
-        return
+        return r.json()
 
 class GithubApi(APIConfig):
 
@@ -75,17 +71,17 @@ class GithubApi(APIConfig):
             API : https://api.github.com/
         """
         start = perf_counter()
+        
+        
 
         async def fetch_languages(repo: list, parse: str, start = perf_counter()):
 
             #   Request a languages
             response = self.ApiCall(parse, head=self.head)
 
-            for lang, value in response.items():
-                repo[i]['lang'] += [lang] if lang != "C#" else ["CS"]
-            
+            for lang, value in response.items(): repo[i]['lang'] += [lang] if lang != "C#" else ["CS"]
             if repo[i]['lang'] == []: repo[i]['lang'] += ["Unkown"]
-    
+
             logging.info(f"Languages has been fatched {repo[i]['lang']}\nTime elapsed: {perf_counter()-start}\n")
             return
 
@@ -96,11 +92,10 @@ class GithubApi(APIConfig):
         
         #   Initialize a list
         repo = []
-
-        #  Initialize repo languages
+    
         for i in range(len(response)):
 
-            #   Structure the elements from github
+            #   Structure the items from github
             repo += [
                 {
                     "name":response[i]['name'], 
@@ -112,6 +107,7 @@ class GithubApi(APIConfig):
                 }]
             
             #   Fetch repo languages
+            
             await fetch_languages(repo, f"{self.API_URL}/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
             
         logging.warning(f"Repo has been fatched {repo}\nTime elapsed: {perf_counter()-start}\n")
