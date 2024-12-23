@@ -67,7 +67,7 @@ class Index(MethodView):
                 
             case _ if now.month == 10 and now.day == 31:
                 flash("👻 Happy Halloween 👻")
-            
+
             case _ if now.month == 1 and now.day == 1 or now.month == 12 and now.day == 31 and now.hour == 23:
                 flash("🎉 Happy New Year 🎉")
             
