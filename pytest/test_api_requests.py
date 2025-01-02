@@ -4,6 +4,7 @@ import logging
 from unittest.mock import patch
 from core import GithubApi
 
+    
 class TestGithubAPI:
 
     """API testing
