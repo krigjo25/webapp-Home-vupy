@@ -20,7 +20,7 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', 
     handlers=[logging.FileHandler("app.log"), 
               logging.StreamHandler()])
-class Base():
+class DataBase():
 
     """ Base: What would includes in several databases"""
     def __init__(self, database: str, port: Optional[int] = None, host: Optional[str] = None):
@@ -116,7 +116,7 @@ class Base():
     def drop_table(self, table:str): return self.cur.execute(f'DROP table IF EXISTS {table}')
     def drop_database(self, db:str): return self.cur.execute(f'DROP DATABASE IF EXISTS {self.db}')  
 
-class SQL(Base):
+class SQL(DataBase):
 
         def __init__(self, database: str): 
             super().__init__(database)
