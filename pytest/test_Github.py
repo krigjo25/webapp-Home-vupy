@@ -2,17 +2,17 @@
 import pytest
 import logging
 from unittest.mock import patch
-from core import GithubApi
+from APIS.github import GithubApi
 
     
 class TestGithubAPI:
 
     """API testing
-        Github : https://api.github.com/"""
+        Github : https://api.github.com/user/"""
+    
     def test_connection(self)-> None:
         
-        """Testing  the connection to the request
-            Github : https://api.github.com/user/"""
+        """Testing  the connection to the request module"""
 
         #   Initializing Requests module
         api = GithubApi()
