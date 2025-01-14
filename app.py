@@ -4,15 +4,12 @@
 from flask import Flask
 from dotenv import load_dotenv
 from flask_session import Session
-from apscheduler.schedulers.background import BackgroundScheduler
 
 #   Custom libs
 from lib.views import Index
 from lib.config import DevelopmentConfig
 
-
 load_dotenv()
-
 
 app = Flask(__name__)
 
@@ -37,24 +34,8 @@ async def before_request():
 #   Url rules
 app.add_url_rule("/", view_func = Index().as_view(name="index.html"))
 
-#   WebWorkers and schedulers
-scheduler = BackgroundScheduler({
-    'apscheduler.jobstores.default': {
-        'type': 'memory'
-    },
-    'apscheduler.executors.default': {
-        'class': 'apscheduler.executors.pool:ThreadPoolExecutor',
-        'max_workers': 1
-    },
-    'apscheduler.job_defaults.coalesce': 'false',
-    'apscheduler.job_defaults.max_instances': 1
-})
+#   Webworkers
 
-#   Scheduling the tasks
-scheduler.add_job(Index().Tasks(), 'cron', hour = 0, minute =1)
-
-#   Start the scheduler
-scheduler.start()
 
 if __name__ == "__main__":
     app.run()
