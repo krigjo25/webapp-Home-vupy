@@ -13,7 +13,7 @@ class TestAPI:
         Heavy : https://api.heavy.com/docs/
     """
     
-    def test_github_connection(self)-> None:
+    def test_GithubConnection(self)-> None:
         
         #   Testing the connection to the GithubAPI module
         with patch('APIS.github.GithubAPI') as mock:
@@ -23,7 +23,7 @@ class TestAPI:
             GAPI = GithubAPI()
             assert str(GAPI.ApiStatus(endpoint = f"{GAPI.API_URL}", head = GAPI.head)) == mock.get.return_value 
 
-    def test_heavy_connection(self)-> None:
+    def test_HeavyConnection(self)-> None:
 
 
         #   Testing the connection to the HeavyAPI module

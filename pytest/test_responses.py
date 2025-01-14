@@ -1,5 +1,5 @@
 #   Importing repositories
-import pytest
+import pytest, os
 
 from APIS.heavy import HeavyAPI
 from unittest.mock import patch
@@ -91,7 +91,7 @@ class TestResponsesAPI:
         assert response == mock_response, "Response does not match the expected response"
         return
 
-    def fetch_workout(self)-> None:
+    def test_fetch_workout(self)-> None:
        
         """
         
@@ -105,6 +105,5 @@ class TestResponsesAPI:
         HAPI = HeavyAPI()
 
         #   Actual response from the Api Call
-        response = HAPI.ApiCall(endpoint = f"{HAPI.API_URL}", head = HAPI.head)
         
-        print(response)
+        response = HAPI.FetchWorkouts(os.getenv("Workouts"))
