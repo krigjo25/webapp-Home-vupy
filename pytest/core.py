@@ -1,6 +1,4 @@
 #   Importing repositories
-import os
-import sqlite3
 import logging
 import requests
 from typing import Optional,Tuple

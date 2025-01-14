@@ -1,4 +1,5 @@
-import os, json
+#   Heavy workout app API
+import os
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -26,10 +27,7 @@ class HeavyAPI(APIConfig):
         response = ""
         workout = {}
 
-        for key, value in self.ApiCall(endpoint = f"{self.API_URL}{self.APIV}{endpoint}{i}", head = self.head).items():
-                
-            if key != "workout":
-                workout[key] = value
+        # Fetch one page of workouts
     
         #return response
 

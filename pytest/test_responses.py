@@ -91,7 +91,7 @@ class TestResponsesAPI:
         assert response == mock_response, "Response does not match the expected response"
         return
 
-    def test_fetch_workout(self)-> None:
+    def test_fetchWorkout(self)-> None:
        
         """
         
@@ -107,3 +107,4 @@ class TestResponsesAPI:
         #   Actual response from the Api Call
         
         response = HAPI.FetchWorkouts(os.getenv("Workouts"))
+        print(response)
