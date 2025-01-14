@@ -1,9 +1,10 @@
+#   Index page
 #   Importing libraries
 import asyncio
 import datetime as dt
 
 from dotenv import load_dotenv
-from lib.APIS import GithubAPI
+from lib.model import GithubApi
 from flask.views import MethodView
 from flask import render_template, flash
 
@@ -15,23 +16,13 @@ class Index(MethodView):
     #   Initialize methods and database
     methods = ["GET", "POST"]
     repo = None
+    Dailylog = None
+    WorkoutLog = None
 
     def __init__(self) -> None:
         super().__init__()
-
-    async def UpdateRepo(self):
-
-        while True:
-            
-            Index.repo = await GithubAPI().fetch_repos()
-            await asyncio.sleep(386400)
-            
+        
     async def get(self): 
-        
-        # Calculations
-        
-        await self.IndexPage()
-        
         return render_template("index.html", portefolio = self.repo, links = { "mailbox": "mailto:krigjo25@outlook.com", "linkedin": "https://www.linkedin.com/in/krigjo25", "github": "https://www.github.com/krigjo25"})
 
     def post(self): 
@@ -39,17 +30,6 @@ class Index(MethodView):
         #   Handle post request
         return render_template("index.html")
 
-
-    async def IndexPage(self):
-        
-        # Ensure that the repo is None
-        if Index.repo is None:
-            Index.repo = await GithubAPI().fetch_repos()
-            
-        self.SendFlash()
-
-        return
-    
     def SendFlash(self):
 
         now = dt.datetime.now()
@@ -75,7 +55,25 @@ class Index(MethodView):
                 flash("🇳🇴 Happy Independence Day Norway 🇳🇴")
             case _ :
                 flash("Certified Specializations")
-        return
+
+    async def UpdateRepo(self):
+        Index.repo = await GithubApi().fetch_repos()
+    
+    async def UpdateWorkout(self):
+        pass
+
+    async def DailyLog(self):
+        pass
+
+    async def Tasks(self):
+        
+        #   Send flash messages
+        self.SendFlash()
+
+        #   Wait for the tasks to complete
+        await self.UpdateRepo()
+
+
 
 
 
