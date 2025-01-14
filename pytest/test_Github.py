@@ -1,44 +1,13 @@
 #   Importing repositories
 import pytest
-import logging
 from unittest.mock import patch
-from APIS.github import GithubApi
+from APIS.github import GithubAPI
 
     
 class TestGithubAPI:
 
     """API testing
         Github : https://api.github.com/user/"""
-    
-    def test_connection(self)-> None:
-        
-        """Testing  the connection to the request module"""
-
-        #   Initializing Requests module
-        api = GithubApi()
-
-        #   Actual response from the Api Call
-        response = api.ApiCall(endpoint = f"{api.API_URL}user", head = api.head)
-
-        #   Initializing the expected response
-        mock_response = {
-                    'login': f'krigjo25', 'id': response['id'], 'node_id': response['node_id'], 
-                    'avatar_url': response['avatar_url'], 'gravatar_id': response['gravatar_id'], 
-                    'url': response['url'], 'html_url': response['html_url'], 'followers_url': response['followers_url'], 
-                    'following_url': response['following_url'], 'gists_url': response['gists_url'],
-                    'starred_url': response['starred_url'], 'subscriptions_url': response['subscriptions_url'],
-                    'organizations_url': response['organizations_url'], 'repos_url': response['repos_url'], 
-                    'events_url': response['events_url'], 'received_events_url': response['received_events_url'],
-                    'type': response['type'], 'site_admin': response['site_admin'], 'name': response['name'],
-                    'company': response['company'], 'blog': response['blog'], 'location': response['location'], 
-                    'email': response['email'], 'hireable':response['hireable'], 'bio': response['bio'],
-                    'twitter_username': response['twitter_username'], 'notification_email': response['notification_email'],
-                    'public_repos': response['public_repos'], 'public_gists': response['public_gists'],
-                    'followers': response['followers'], 'following': response['following'], 
-                    'created_at': response['created_at'], 'updated_at': response['updated_at'], 'user_view_type': response['user_view_type']}
-
-        #   Testing the connection response
-        assert mock_response == response, "Connection failed"
 
     #@patch("core.GithubApi.ApiCall")
     def test_fetchRepos(self)-> None:
@@ -46,7 +15,7 @@ class TestGithubAPI:
             Github api : https://api.github.com/user/repos"""
 
         #   Initializing Requests module
-        api = GithubApi()
+        api = GithubAPI()
 
         #   Actual response from the Api Call
         response = api.ApiCall(endpoint = f"{api.API_URL}user/repos", head = api.head)

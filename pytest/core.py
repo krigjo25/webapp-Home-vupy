@@ -132,11 +132,36 @@ class APIConfig(object):
         """
             Calling the API
         """
+        r = requests.get(f"{endpoint}", timeout=30, headers=head)
+
         try:
-            r = requests.get(f"{endpoint}", timeout=30, headers=head)
-            if r.status_code in [200, 201]: return r.json()
-            elif r.status_code in [401, 403]: raise ConnectionError('Unauthorized Access')
-            elif r.status_code in [404]: raise HTTPError('Resource not found')
+            
+            #   Ensure that the status code is 200 / 201
+            if r.status_code in [200, 201]: 
+                return r.json()
+            
+            #   Ensure that the status code is 401 / 403
+            elif r.status_code in [401, 403]: 
+                raise ConnectionError(f'Unauthorized Access')
+            
+            #   Ensure that the status code is 404
+            elif r.status_code in [404]: 
+                raise HTTPError(f'Resource not found')
+            
+
         except (HTTPError, ConnectionError, Timeout, RequestException) as e: 
-            logging.error(f"An error occured while attempting to call the api{e}")
+
+            error = f"Error {r.status_code}: {e}"
+            logging.error(f"An error occured while attempting to call the api\n{error}")
+            return error
+        
+
+    def ApiStatus(self, endpoint: str, head: dict):
+        """
+            Calling the API
+        """
+        r = requests.get(f"{endpoint}", timeout=30, headers=head)
+
+        return r.status_code
+    
      

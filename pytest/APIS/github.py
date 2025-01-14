@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-class GithubApi(APIConfig):
+class GithubAPI(APIConfig):
 
     """ Github API Configuration 
         API : https://api.github.com/
