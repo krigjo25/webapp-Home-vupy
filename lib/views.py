@@ -3,7 +3,7 @@ import asyncio
 import datetime as dt
 
 from dotenv import load_dotenv
-from lib.model import GithubApi
+from lib.APIS import GithubAPI
 from flask.views import MethodView
 from flask import render_template, flash
 
@@ -23,7 +23,7 @@ class Index(MethodView):
 
         while True:
             
-            Index.repo = await GithubApi().fetch_repos()
+            Index.repo = await GithubAPI().fetch_repos()
             await asyncio.sleep(386400)
             
     async def get(self): 
@@ -44,7 +44,7 @@ class Index(MethodView):
         
         # Ensure that the repo is None
         if Index.repo is None:
-            Index.repo = await GithubApi().fetch_repos()
+            Index.repo = await GithubAPI().fetch_repos()
             
         self.SendFlash()
 

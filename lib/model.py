@@ -1,9 +1,7 @@
 #   Importing repositories
-import os
-import logging
-import requests
-import datetime
+import os, logging, requests
 
+from typing import Optional
 from time import perf_counter
 from dotenv import load_dotenv
 load_dotenv()
@@ -21,9 +19,98 @@ logging.basicConfig(
     handlers=[logging.FileHandler("app.log"), 
               logging.StreamHandler()])
 
+class Base():
+
+    """ Base: Universal class for all database operations """
+    def __init__(self, database: str, port: Optional[int] = None, host: Optional[str] = None):
+
+        self.host = host
+        self.port = port
+        self.db = database
+        self.statements = ['CREATE', "ALTER", 'DROP', 'INSERT', 'SELECT']
+
+    
+    def configure_columns(self,  table:str, statement:str, columns:list | tuple):
+        
+        #   Initialize variables
+        row = []
+        rows = []
+        column = []
+        tmp = ""
+
+        if statement.upper() == "INSERT":
+
+            for data in columns:
+
+                for key, value in data.items():
+
+                    #   Ensure that the key does not exists in column
+                    if key not in column: column.append(key)
+                    
+                
+            for data in columns:
+                for key, value in data.items():
+
+                    if type(value) == list or type(value) == tuple:
+                        for i in value:
+                            tmp += i
+                        
+                            row.append(i)
+                    else:
+                        row.append(value)
+
+                    if len(row) == len(column):
+                        rows.append(tuple(row))
+                        row = []
+
+
+            query = f"{statement} INTO {table}{tuple(column)} VALUES("
+ 
+            for i in range(len(column)): 
+                query+= "?," if i+1 < len(column) else f"?);"
+        elif statement.upper() == "SELECT":
+
+            for i in range(len(columns)):
+                column += {columns[i]} if i != columns[-1] else columns[i]
+            
+            columns = column
+            column = ""
+
+            for i in range(len(columns)):
+                column += columns[i] + "," if i +1 < len(columns) else f"{columns[i]}"
+            
+            query = f"{statement} {column} FROM {table};"
+
+            return query
+
+        #   Sweep memory
+        del table, statement, columns
+        del column,  row
+
+        return [query, rows]
+    
+    def configure_table(self, table:str, statement:str, columns: dict | dict=None):
+
+        #   Ensure that statement is equal to the listed  statement
+
+        if statement in self.statements and bool(columns):
+            query = f"{statement} TABLE IF NOT EXISTS {table}("
+
+            #   Ensure that there is values in columns
+            for key, value in columns.items():
+
+                #   Append data
+
+                query += f"{key} {value}"
+
+                #   Ensure the list is not at end
+                query += ',' if list(columns)[-1] != key else ');'
+
+        return query
+
 class APIConfig(object):
 
-    def __init__(self, URL, KEY=None, GET = "GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE'):
+    def __init__(self, URL=None, KEY=None, GET = "GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE'):
         self.GET = GET
         self.POST = POST
         self.PUT = PUT
@@ -49,67 +136,3 @@ class APIConfig(object):
         logging.warning(f"request code :{r.status_code} Time elapsed: {perf_counter()-start}")
 
         return r.json()
-
-class GithubApi(APIConfig):
-
-    def __init__(self, URL="https://api.github.com/", GET="GET", POST="POST", PUT='PUT', PATCH='PATCH', DELETE='DELETE', KEY=os.getenv('GITHUB_TOKEN')):
-        super().__init__(GET, POST, PUT, PATCH, DELETE)
-        self.GET = GET
-        self.POST = POST
-        self.PUT = PUT
-        self.PATCH = PATCH
-        self.DELETE = DELETE
-        self.API_KEY = KEY
-        self.API_URL = URL
-        self.head = {'Content-Type': 'application/json','Authorization': f"{self.API_KEY}"}
-       
-        return
-
-    async def fetch_repos(self):
-        """
-            Fetching the repositories
-            API : https://api.github.com/
-        """
-        start = perf_counter()
-        
-        
-
-        async def fetch_languages(repo: list, parse: str, start = perf_counter()):
-
-            #   Request a languages
-            response = self.ApiCall(parse, head=self.head)
-
-            for lang, value in response.items(): repo[i]['lang'] += [lang] if lang != "C#" else ["CS"]
-            if repo[i]['lang'] == []: repo[i]['lang'] += ["Unkown"]
-
-            logging.info(f"Languages has been fatched {repo[i]['lang']}\nTime elapsed: {perf_counter()-start}\n")
-            return
-
-         #   Intializing a list
-        
-        #   Initialize an API call
-        response = self.ApiCall(f"{self.API_URL}user/repos", head=self.head)
-        
-        #   Initialize a list
-        repo = []
-    
-        for i in range(len(response)):
-
-            #   Structure the items from github
-            repo += [
-                {
-                    "name":response[i]['name'], 
-                    "description":str(response[i]['description']),
-                    "url":response[i]['html_url'],
-                    'owner':response[i]['owner']['login'],
-                    'lang':[],
-                    'date':datetime.datetime.strptime(response[i]['created_at'], '%Y-%m-%dT%H:%M:%SZ').strftime('%d-%m-%y')
-                }]
-            
-            #   Fetch repo languages
-            
-            await fetch_languages(repo, f"{self.API_URL}/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
-            
-        logging.warning(f"Repo has been fatched {repo}\nTime elapsed: {perf_counter()-start}\n")
-
-        return repo

@@ -1,103 +1,17 @@
-import os
-import sqlite3
-import logging
-import requests
-from typing import Optional,Tuple
+#   Databases
+import sqlite3, logging
 
 from dotenv import load_dotenv
-load_dotenv()
+from typing import Optional,Tuple
 
 #   errorHandler
+from lib.model import Base
 from lib.errorHandler import OperationalError
 
-class Base():
-
-    """ Base: Universal class for all database operations """
-    def __init__(self, database: str, port: Optional[int] = None, host: Optional[str] = None):
-
-        self.host = host
-        self.port = port
-        self.db = database
-        self.statements = ['CREATE', "ALTER", 'DROP', 'INSERT', 'SELECT']
-
-    
-    def configure_columns(self,  table:str, statement:str, columns:list | tuple):
-        
-        #   Initialize variables
-        row = []
-        rows = []
-        column = []
-        tmp = ""
-
-        if statement.upper() == "INSERT":
-
-            for data in columns:
-
-                for key, value in data.items():
-
-                    #   Ensure that the key does not exists in column
-                    if key not in column: column.append(key)
-                    
-                
-            for data in columns:
-                for key, value in data.items():
-
-                    if type(value) == list or type(value) == tuple:
-                        for i in value:
-                            tmp += i
-                        
-                            row.append(i)
-                    else:
-                        row.append(value)
-
-                    if len(row) == len(column):
-                        rows.append(tuple(row))
-                        row = []
+load_dotenv()
 
 
-            query = f"{statement} INTO {table}{tuple(column)} VALUES("
- 
-            for i in range(len(column)): 
-                query+= "?," if i+1 < len(column) else f"?);"
-        elif statement.upper() == "SELECT":
 
-            for i in range(len(columns)):
-                column += {columns[i]} if i != columns[-1] else columns[i]
-            
-            columns = column
-            column = ""
-
-            for i in range(len(columns)):
-                column += columns[i] + "," if i +1 < len(columns) else f"{columns[i]}"
-            
-            query = f"{statement} {column} FROM {table};"
-
-            return query
-
-        #   Sweep memory
-        del table, statement, columns
-        del column,  row
-
-        return [query, rows]
-    
-    def configure_table(self, table:str, statement:str, columns: dict | dict=None):
-
-        #   Ensure that statement is equal to the listed  statement
-
-        if statement in self.statements and bool(columns):
-            query = f"{statement} TABLE IF NOT EXISTS {table}("
-
-            #   Ensure that there is values in columns
-            for key, value in columns.items():
-
-                #   Append data
-
-                query += f"{key} {value}"
-
-                #   Ensure the list is not at end
-                query += ',' if list(columns)[-1] != key else ');'
-
-        return query
 
 class SQL(Base):
 

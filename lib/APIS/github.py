@@ -2,7 +2,7 @@
 #   Fetching the repositories
 import os, logging,requests,datetime
 
-from core import APIConfig
+from model import APIConfig
 from time import perf_counter
 from dotenv import load_dotenv
 load_dotenv()
