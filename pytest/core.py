@@ -139,4 +139,13 @@ class APIConfig(object):
             elif r.status_code in [404]: raise HTTPError('Resource not found')
         except (HTTPError, ConnectionError, Timeout, RequestException) as e: 
             logging.error(f"An error occured while attempting to call the api{e}")
-     
+
+        return r.status_code
+    
+    def ApiStatus(self, endpoint: str, head: dict):
+        """
+            Calling the API
+        """
+        r = requests.get(f"{endpoint}", timeout=30, headers=head)
+
+        return r.status_code
