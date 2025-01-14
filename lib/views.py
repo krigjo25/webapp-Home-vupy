@@ -4,7 +4,7 @@ import asyncio
 import datetime as dt
 
 from dotenv import load_dotenv
-from lib.model import GithubApi
+from lib.APIS import GithubAPI
 from flask.views import MethodView
 from flask import render_template, flash
 
@@ -57,7 +57,7 @@ class Index(MethodView):
                 flash("Certified Specializations")
 
     async def UpdateRepo(self):
-        Index.repo = await GithubApi().fetch_repos()
+        Index.repo = await GithubAPI().fetch_repos()
     
     async def UpdateWorkout(self):
         pass
@@ -72,6 +72,7 @@ class Index(MethodView):
 
         #   Wait for the tasks to complete
         await self.UpdateRepo()
+
 
 
 
