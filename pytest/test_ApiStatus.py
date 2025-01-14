@@ -10,7 +10,7 @@ class TestAPI:
         API testing
         Github : https://api.github.com/user/
         
-        Heavy : https://api.heavy.com/
+        Heavy : https://api.heavy.com/docs/
     """
     
     def test_github_connection(self)-> None:

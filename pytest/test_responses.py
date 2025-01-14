@@ -1,15 +1,14 @@
 #   Importing repositories
 import pytest
+
+from APIS.heavy import HeavyAPI
 from unittest.mock import patch
 from APIS.github import GithubAPI
 
+
     
-class TestGithubAPI:
+class TestResponsesAPI:
 
-    """API testing
-        Github : https://api.github.com/user/"""
-
-    #@patch("core.GithubApi.ApiCall")
     def test_fetchRepos(self)-> None:
         """Testing  fetch_repos
             Github api : https://api.github.com/user/repos"""
@@ -91,3 +90,21 @@ class TestGithubAPI:
         #   Testing the fetch_repos response
         assert response == mock_response, "Response does not match the expected response"
         return
+
+    def fetch_workout(self)-> None:
+       
+        """
+        
+            #    Testing  fetch_workout
+            #    Heavy api : https://api.heavy.com/docs/
+            #    This function is used to fetch the workout details from the heavy api
+            #    The expected response is a list of workout details
+        """
+
+        #   Initializing Requests module
+        HAPI = HeavyAPI()
+
+        #   Actual response from the Api Call
+        response = HAPI.ApiCall(endpoint = f"{HAPI.API_URL}", head = HAPI.head)
+        
+        print(response)
