@@ -105,4 +105,5 @@ class TestResponsesAPI:
         #   Actual response from the Api Call
         
         response = HAPI.FetchWorkouts(os.getenv("Workouts"))
+        pages = HAPI.FetchN(os.getenv("Workouts"))
         print(response)

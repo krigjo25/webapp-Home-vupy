@@ -41,75 +41,13 @@ class APIConfig(object):
         try:
             r = requests.get(f"{endpoint}", timeout=30, headers=head)
 
+            if r.status_code in [200, 201]:
+                
+                logging.warning(f"request code :{r.status_code} Time elapsed: {perf_counter()-start}")
+                return r.json()
             if r.status_code in [401, 403]: raise ConnectionError('Unauthorized Access')
             elif r.status_code in [404]: raise HTTPError('Resource not found')     
         except (HTTPError, ConnectionError, Timeout, RequestException) as e: 
             logging.error(f"An error occured while attempting to call the api\n request code :{r.status_code}\n, Time elapsed: {perf_counter()-start}")
-        
-        logging.warning(f"request code :{r.status_code} Time elapsed: {perf_counter()-start}")
 
-        return r.json()
-
-class GithubApi(APIConfig):
-
-    def __init__(self, URL="https://api.github.com/", GET="GET", POST="POST", PUT='PUT', PATCH='PATCH', DELETE='DELETE', KEY=os.getenv('GITHUB_TOKEN')):
-        super().__init__(GET, POST, PUT, PATCH, DELETE)
-        self.GET = GET
-        self.POST = POST
-        self.PUT = PUT
-        self.PATCH = PATCH
-        self.DELETE = DELETE
-        self.API_KEY = KEY
-        self.API_URL = URL
-        self.head = {'Content-Type': 'application/json','Authorization': f"{self.API_KEY}"}
-       
-        return
-
-    async def fetch_repos(self):
-        """
-            Fetching the repositories
-            API : https://api.github.com/
-        """
-        start = perf_counter()
-        
-        
-
-        async def fetch_languages(repo: list, parse: str, start = perf_counter()):
-
-            #   Request a languages
-            response = self.ApiCall(parse, head=self.head)
-
-            for lang, value in response.items(): repo[i]['lang'] += [lang] if lang != "C#" else ["CS"]
-            if repo[i]['lang'] == []: repo[i]['lang'] += ["Unkown"]
-
-            logging.info(f"Languages has been fatched {repo[i]['lang']}\nTime elapsed: {perf_counter()-start}\n")
-            return
-
-         #   Intializing a list
-        
-        #   Initialize an API call
-        response = self.ApiCall(f"{self.API_URL}user/repos", head=self.head)
-        
-        #   Initialize a list
-        repo = []
-    
-        for i in range(len(response)):
-
-            #   Structure the items from github
-            repo += [
-                {
-                    "name":response[i]['name'], 
-                    "description":str(response[i]['description']),
-                    "url":response[i]['html_url'],
-                    'owner':response[i]['owner']['login'],
-                    'lang':[],
-                    'date':datetime.datetime.strptime(response[i]['created_at'], '%Y-%m-%dT%H:%M:%SZ').strftime('%d-%m-%y')
-                }]
-            
-            #   Fetch repo languages
-            
-            await fetch_languages(repo, f"{self.API_URL}/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
-            
-        logging.warning(f"Repo has been fatched {repo}\nTime elapsed: {perf_counter()-start}\n")
-
-        return repo
+        return r.status_code

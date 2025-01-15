@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-from core import APIConfig
-from mathlibrary import MathInterPreter 
+from model import APIConfig
+from lib.mathlibrary import MathInterPreter 
 
 class HeavyAPI(APIConfig):
 
