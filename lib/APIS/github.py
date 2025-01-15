@@ -65,7 +65,7 @@ class GithubAPI(APIConfig):
 
     async def fetch_languages(self, repo: list, endpoint: str):
 
-        #   Request a languages
+        #   Request a languages les problemos
         response = self.ApiCall(endpoint, head=self.head)
 
         for lang, value in response.items():
