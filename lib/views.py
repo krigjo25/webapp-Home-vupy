@@ -1,8 +1,7 @@
 #   Index page
 
 #   Importing libraries
-import asyncio, os
-import datetime as dt
+import asyncio, os, datetime as dt
 
 from dotenv import load_dotenv
 from lib.APIS.github import GithubAPI
@@ -21,12 +20,18 @@ class Index(MethodView):
     def __init__(self) -> None:
         super().__init__()
 
+    async def UpdateRepo(self):
+
+        while True:
+            
+            Index.repo = await GithubAPI().FetchApiJson(f"{os.getenv('GithubRepos')}")
+            await asyncio.sleep(386400)
             
     async def get(self): 
         
         # Calculations
-        self.IndexPage()
-        self.SendFlash()
+        
+        await self.IndexPage()
         
         return render_template("index.html", portefolio = self.repo, links = { "mailbox": "mailto:krigjo25@outlook.com", "linkedin": "https://www.linkedin.com/in/krigjo25", "github": "https://www.github.com/krigjo25"})
 
@@ -35,13 +40,14 @@ class Index(MethodView):
         #   Handle post request
         return render_template("index.html")
 
+
     async def IndexPage(self):
         
         # Ensure that the repo is None
-        if Index().repo is None:
-            Index().repo = await GithubAPI().FetchApiJson(os.getenv("GithubRepo"))
+        if Index.repo is None:
+            Index.repo = await GithubAPI().FetchApiJson(f"{os.getenv('GithubRepos')}")
             
-        
+        self.SendFlash()
 
         return
     

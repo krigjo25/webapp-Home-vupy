@@ -70,7 +70,8 @@ class GithubAPI(APIConfig):
 
         for lang, value in response.items():
             
-            if lang: 
+            if lang:
+                print(f"Language: {lang} - {value}")
                 repo['lang'] += f"{lang},"
 
         return repo['lang']
