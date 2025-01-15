@@ -1,10 +1,12 @@
 #   Heavy workout app API
-import os
+import os, datetime, time
 from dotenv import load_dotenv
 
 load_dotenv()
 
+
 from core import APIConfig
+from lib.mathlibrary import MathInterPreter
 
 class HeavyAPI(APIConfig):
 
@@ -19,17 +21,62 @@ class HeavyAPI(APIConfig):
         self.APIV = os.getenv("HeaVy")
         self.head = {"accept": "application/json", "api-key": f"{self.API_KEY}"}
     
-    def FetchPages(self, endpoint: str):
+    def FetchWorkouts(self, endpoint: str):
         """
             Fetching the workouts
         """
-
+        start = time.perf_counter()
+        
         response = ""
-        workout = {}
+        session = []
 
         # Fetch one page of workouts
-    
-        #return response
+        response = self.ApiCall(endpoint = f"{self.API_URL}{self.APIV}{endpoint}", head = self.head)
+        
+        #   Fetching the workouts
+        for i in range(len(response["workouts"])):
+            kake = response["workouts"][i]
+            
+            workout = {
+                "title": kake['title'],
+                "description": kake['description'],
+                "time": datetime.datetime.strptime(kake['end_time'], '%Y-%m-%dT%H:%M:%S%z') - datetime.datetime.strptime(kake['start_time'], '%Y-%m-%dT%H:%M:%S%z'),
+                "exercises": [],
+            }
+            #  Fetching the exercises
+            for j in range(len(kake['exercises'])):
+                exercise = kake['exercises'][j]
+
+                workout['exercises'] += [{
+                    "title": exercise['title'],
+                    "sets": []
+
+                }]
+
+                #   Fetching the sets
+                for k in range(len(exercise['sets'])):
+
+                    #   Fetching the sets
+                    sets = exercise['sets'][k]
+                    cookie = workout['exercises'][j]['sets']
+
+
+                    #   Appending the sets to the exercises
+                    cookie = [{
+                        'reps': sets['reps'],
+                        'weight_kg': sets['weight_kg'],
+                        'rpe': sets['rpe']}]
+                    
+                    if sets['distance_meters'] != None:
+                        cookie[k]['distance'] = sets['distance_meters']
+                        cookie[k]['duration'] = (int(sets['duration_seconds']) / 60 ) / 60
+                        cookie[k]['pace'] = MathInterPreter.SpeedCalculation(float(cookie[k]['distance']),float(cookie[k]['duration']))
+                    print(f"Cookie : {cookie}")
+            
+            session.append(workout)
+            print(time.perf_counter() - start)
+            
+        #return session
 
     def FetchN(self, endpoint: str):
 

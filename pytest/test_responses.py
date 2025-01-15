@@ -5,8 +5,6 @@ from APIS.heavy import HeavyAPI
 from unittest.mock import patch
 from APIS.github import GithubAPI
 
-
-    
 class TestResponsesAPI:
 
     def test_fetchRepos(self)-> None:
