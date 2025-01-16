@@ -109,6 +109,8 @@ class TestResponsesAPI:
         response = HAPI.FetchWorkouts(os.getenv("Workouts"))
         pages = HAPI.FetchN(os.getenv("Workouts"))
         print(response)
+
+
 def test_fetchPhotos()-> None:
     """
         #   Testing  fetch_photos
