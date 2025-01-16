@@ -8,8 +8,11 @@ from APIS.github import GithubAPI
 class TestResponsesAPI:
 
     def test_fetchRepos(self)-> None:
-        """Testing  fetch_repos
-            Github api : https://api.github.com/user/repos"""
+        """
+            #   Testing  fetch_repos
+            #   Github api : https://api.github.com/user/repos
+            #   This function testing the API call to fetch photos
+        """
 
         #   Initializing Requests module
         api = GithubAPI()
@@ -95,8 +98,7 @@ class TestResponsesAPI:
         
             #    Testing  fetch_workout
             #    Heavy api : https://api.heavy.com/docs/
-            #    This function is used to fetch the workout details from the heavy api
-            #    The expected response is a list of workout details
+            #   This function testing the API call to fetch photos
         """
 
         #   Initializing Requests module
@@ -107,3 +109,10 @@ class TestResponsesAPI:
         response = HAPI.FetchWorkouts(os.getenv("Workouts"))
         pages = HAPI.FetchN(os.getenv("Workouts"))
         print(response)
+def test_fetchPhotos()-> None:
+    """
+        #   Testing  fetch_photos
+        #   Google Photos api : https://api.google.com/docs/
+        #   This function testing the API call to fetch photos
+    """
+    pass
