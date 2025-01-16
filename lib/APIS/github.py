@@ -1,10 +1,11 @@
 #   Github API
 #   Fetching the repositories
-import os, logging,requests,datetime
+import os, logging,datetime
 
-from model import APIConfig
-from time import perf_counter
+from lib.model import APIConfig
 from dotenv import load_dotenv
+
+#   Load Environments
 load_dotenv()
 
 #   Configuring the logger
@@ -38,10 +39,6 @@ class GithubAPI(APIConfig):
             Fetching the repositories
             API : https://api.github.com/users/repos
         """
-
-        #   Start the timer
-        start = perf_counter()
-
         #   Initialize an API call
         response = self.ApiCall(f"{self.API_URL}{endpoint}", head=self.head)
         
@@ -63,20 +60,26 @@ class GithubAPI(APIConfig):
                 }]
             
             #   Fetch repo languages
-            repo['lang'] = await self.fetch_languages(repo, f"{self.API_URL}/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
-
-        logging.info(f"Repo has been fatched {repo[0]}\nTime elapsed: {perf_counter()-start}\n")
+            repo[i]['lang'] = await self.fetch_languages(repo[i], f"{self.API_URL}/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
 
         return repo
 
     async def fetch_languages(self, repo: list, endpoint: str):
 
-        #   Request a languages
+        #   Request a languages les problemos
         response = self.ApiCall(endpoint, head=self.head)
 
         for lang, value in response.items():
+        
+            if lang == "C#":
+                lang = "CS"
             
-            if lang: 
-                repo['lang'] += f"{lang},"
+            if lang:
+                print(lang)
+                print(f"Language: {lang} - {value}")
+                repo['lang'] += [lang]
+
+            else :
+                repo['lang'] += ["Uknown"]
 
         return repo['lang']

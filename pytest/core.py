@@ -1,6 +1,4 @@
 #   Importing repositories
-import os
-import sqlite3
 import logging
 import requests
 from typing import Optional,Tuple
@@ -132,16 +130,30 @@ class APIConfig(object):
         """
             Calling the API
         """
-        try:
-            r = requests.get(f"{endpoint}", timeout=30, headers=head)
-            if r.status_code in [200, 201]: return r.json()
-            elif r.status_code in [401, 403]: raise ConnectionError('Unauthorized Access')
-            elif r.status_code in [404]: raise HTTPError('Resource not found')
-        except (HTTPError, ConnectionError, Timeout, RequestException) as e: 
-            logging.error(f"An error occured while attempting to call the api{e}")
+        r = requests.get(f"{endpoint}", timeout=30, headers=head)
 
-        return r.status_code
-    
+        try:
+            
+            #   Ensure that the status code is 200 / 201
+            if r.status_code in [200, 201]: 
+                return r.json()
+            
+            #   Ensure that the status code is 401 / 403
+            elif r.status_code in [401, 403]: 
+                raise ConnectionError(f'Unauthorized Access')
+            
+            #   Ensure that the status code is 404
+            elif r.status_code in [404]: 
+                raise HTTPError(f'Resource not found')
+            
+
+        except (HTTPError, ConnectionError, Timeout, RequestException) as e: 
+
+            error = f"Error {r.status_code}: {e}"
+            logging.error(f"An error occured while attempting to call the api\n{error}")
+            
+          return error
+        
     def ApiStatus(self, endpoint: str, head: dict):
         """
             Calling the API

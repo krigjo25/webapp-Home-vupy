@@ -128,11 +128,14 @@ class APIConfig(object):
         try:
             r = requests.get(f"{endpoint}", timeout=30, headers=head)
 
+            if r.status_code in [200, 201]:
+                
+                logging.warning(f"request code :{r.status_code} Time elapsed: {perf_counter()-start}")
+                return r.json()
             if r.status_code in [401, 403]: raise ConnectionError('Unauthorized Access')
             elif r.status_code in [404]: raise HTTPError('Resource not found')     
         except (HTTPError, ConnectionError, Timeout, RequestException) as e: 
             logging.error(f"An error occured while attempting to call the api\n request code :{r.status_code}\n, Time elapsed: {perf_counter()-start}")
-        
-        logging.warning(f"request code :{r.status_code} Time elapsed: {perf_counter()-start}")
 
-        return r.json()
+        return r.status_code
+

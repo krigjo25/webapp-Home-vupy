@@ -1,12 +1,11 @@
 #   Index page
 
 #   Importing libraries
-import asyncio
-import datetime as dt
+import asyncio, os, datetime as dt
 
 from dotenv import load_dotenv
-from lib.model import GithubApi
 from flask.views import MethodView
+from lib.APIS.github import GithubAPI
 from flask import render_template, flash
 
 #   Load environment variables
@@ -25,7 +24,7 @@ class Index(MethodView):
 
         while True:
             
-            Index.repo = await GithubApi().fetch_repos()
+            Index.repo = await GithubAPI().FetchApiJson(f"{os.getenv('GithubRepos')}")
             await asyncio.sleep(386400)
             
     async def get(self): 
@@ -46,7 +45,7 @@ class Index(MethodView):
         
         # Ensure that the repo is None
         if Index.repo is None:
-            Index.repo = await GithubApi().fetch_repos()
+            Index.repo = await GithubAPI().FetchApiJson(f"{os.getenv('GithubRepos')}")
             
         self.SendFlash()
 
