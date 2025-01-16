@@ -59,7 +59,7 @@ class GithubAPI(APIConfig):
                 "date":datetime.datetime.strptime(response[i]['created_at'], '%Y-%m-%dT%H:%M:%SZ').strftime('%d-%m-%y')
                 }]
             
-            if response[i]['homepage'] != None:
+            if response[i]['homepage'] != '':
                 repo[i]['web_link'] = response[i]['homepage']
 
             #   Fetch repo languages
