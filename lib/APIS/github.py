@@ -71,15 +71,14 @@ class GithubAPI(APIConfig):
 
         for lang, value in response.items():
         
-            if lang == "C#":
-                lang = "CS"
-            
-            if lang:
-                print(lang)
-                print(f"Language: {lang} - {value}")
-                repo['lang'] += [lang]
+            match(str(lang).lower()):
+                case "c#":
+                    lang = "CS"
+                
+                case None:
+                    lang = "Uknown"
 
-            else :
-                repo['lang'] += ["Uknown"]
+            repo['lang'] += [lang]
+
 
         return repo['lang']
