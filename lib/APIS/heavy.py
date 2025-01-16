@@ -78,5 +78,3 @@ class HeavyAPI(APIConfig):
     def FetchN(self, endpoint: str):
 
         return self.ApiCall(endpoint = f"{self.API_URL}{self.APIV}{endpoint}", head = self.head)
-
-    

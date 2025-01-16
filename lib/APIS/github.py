@@ -1,9 +1,8 @@
 #   Github API
 #   Fetching the repositories
-import os, logging,requests,datetime
+import os, logging,datetime
 
 from lib.model import APIConfig
-from time import perf_counter
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -59,7 +58,7 @@ class GithubAPI(APIConfig):
                 }]
             
             #   Fetch repo languages
-            repo['lang'] = await self.fetch_languages(repo, f"{self.API_URL}/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
+            repo[i]['lang'] = await self.fetch_languages(repo[i], f"{self.API_URL}/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
 
         return repo
 
@@ -69,9 +68,16 @@ class GithubAPI(APIConfig):
         response = self.ApiCall(endpoint, head=self.head)
 
         for lang, value in response.items():
+        
+            if lang == "C#":
+                lang = "CS"
             
             if lang:
+                print(lang)
                 print(f"Language: {lang} - {value}")
-                repo['lang'] += f"{lang},"
+                repo['lang'] += [lang]
+
+            else :
+                repo['lang'] += ["Uknown"]
 
         return repo['lang']

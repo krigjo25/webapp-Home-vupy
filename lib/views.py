@@ -4,8 +4,8 @@
 import asyncio, os, datetime as dt
 
 from dotenv import load_dotenv
-from lib.APIS.github import GithubAPI
 from flask.views import MethodView
+from lib.APIS.github import GithubAPI
 from flask import render_template, flash
 
 #   Load environment variables
