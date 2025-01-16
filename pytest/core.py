@@ -151,9 +151,9 @@ class APIConfig(object):
 
             error = f"Error {r.status_code}: {e}"
             logging.error(f"An error occured while attempting to call the api\n{error}")
-            return error
+            
+          return error
         
-
     def ApiStatus(self, endpoint: str, head: dict):
         """
             Calling the API
@@ -161,5 +161,3 @@ class APIConfig(object):
         r = requests.get(f"{endpoint}", timeout=30, headers=head)
 
         return r.status_code
-    
-     

@@ -4,6 +4,8 @@ import os, logging,datetime
 
 from lib.model import APIConfig
 from dotenv import load_dotenv
+
+#   Load Environments
 load_dotenv()
 
 #   Configuring the logger

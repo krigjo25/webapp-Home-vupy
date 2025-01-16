@@ -38,4 +38,4 @@ app.add_url_rule("/", view_func = Index().as_view(name="index.html"))
 
 
 if __name__ == "__main__":
-    app.run()
+  app.run()
