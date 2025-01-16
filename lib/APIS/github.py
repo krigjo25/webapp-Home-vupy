@@ -54,11 +54,14 @@ class GithubAPI(APIConfig):
                 "lang":[],
                 "name":response[i]['name'], 
                 "description":str(response[i]['description']), 
-                "url":response[i]['html_url'],                
+                "url":response[i]['html_url'], 
                 "owner":response[i]['owner']['login'],
                 "date":datetime.datetime.strptime(response[i]['created_at'], '%Y-%m-%dT%H:%M:%SZ').strftime('%d-%m-%y')
                 }]
             
+            if response[i]['homepage'] != None:
+                repo[i]['web_link'] = response[i]['homepage']
+
             #   Fetch repo languages
             repo[i]['lang'] = await self.fetch_languages(repo[i], f"{self.API_URL}/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
 
