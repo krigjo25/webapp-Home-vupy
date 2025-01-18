@@ -5,7 +5,7 @@ import os, logging,datetime
 from lib.model import APIConfig
 from dotenv import load_dotenv
 
-#   Load Environments
+#  Loading the environment variables
 load_dotenv()
 
 #   Configuring the logger
@@ -17,7 +17,7 @@ logging.basicConfig(
 
 class GithubAPI(APIConfig):
 
-    """ Github API Configuration 
+    """ Github API Configuration
         API : https://api.github.com/
     """
 

@@ -2,18 +2,21 @@
 import sqlite3, logging
 
 from dotenv import load_dotenv
-from typing import Optional,Tuple
+from typing import Tuple
+
+#   Custom libraries
+from lib.model import Database
 
 #   errorHandler
-from lib.model import Base
 from lib.errorHandler import OperationalError
 
+#  Loading the environment variables
 load_dotenv()
 
 
 
 
-class SQL(Base):
+class SQL(Database):
 
         def __init__(self, database: str): 
             super().__init__(database)

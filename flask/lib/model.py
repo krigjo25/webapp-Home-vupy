@@ -4,6 +4,8 @@ import os, logging, requests
 from typing import Optional
 from time import perf_counter
 from dotenv import load_dotenv
+
+#  Loading the environment variables
 load_dotenv()
 
 #   errorHandler
@@ -19,7 +21,7 @@ logging.basicConfig(
     handlers=[logging.FileHandler("app.log"), 
               logging.StreamHandler()])
 
-class Base():
+class Database(object):
 
     """ Base: Universal class for all database operations """
     def __init__(self, database: str, port: Optional[int] = None, host: Optional[str] = None):
@@ -128,14 +130,15 @@ class APIConfig(object):
         try:
             r = requests.get(f"{endpoint}", timeout=30, headers=head)
 
-            if r.status_code in [200, 201]:
+            if r.status_code in [200]:
                 
-                logging.warning(f"request code :{r.status_code} Time elapsed: {perf_counter()-start}")
+                logging.info(f"Succsess : Recieved request code :{r.status_code} Time elapsed: {perf_counter()-start}")
                 return r.json()
+
             if r.status_code in [401, 403]: raise ConnectionError('Unauthorized Access')
             elif r.status_code in [404]: raise HTTPError('Resource not found')     
         except (HTTPError, ConnectionError, Timeout, RequestException) as e: 
             logging.error(f"An error occured while attempting to call the api\n request code :{r.status_code}\n, Time elapsed: {perf_counter()-start}")
-
-        return r.status_code
+        logging.warning(f"An error occured : The program did not get an expected output {r.status_code} Time elapsed: {perf_counter()-start}")
+        return 
 
