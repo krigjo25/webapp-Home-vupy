@@ -1,5 +1,6 @@
 //  View -> Reperesent the visuals
 main();
+
 function main()
 {
     //  Initialize variables
@@ -28,7 +29,7 @@ function main()
                 break;
 
             case "footer":
-                footer(app[i]);
+                footer();
                 break;
         }
     }
@@ -201,7 +202,7 @@ function specialization(arg)
     return html;
 }
 
-function footer(arg)
+function footer()
 {
     //  Footer copyright
     document.querySelector('#powered-by').innerHTML = /*HTML*/`
@@ -211,7 +212,7 @@ function footer(arg)
             <input alt="Validate" src="/static/I_heart_validator.png" type="image"> <!-- https://validator.w3.org/ -->
         </form>
         <p>
-            <a href="https://choosealicense.com/licenses/gpl-3.0/"> Copyright</a> 
+            <a href="https://choosealicense.com/licenses/gpl-3.0/"> Copyright</a>
             &copy; 
             <a href="https://www.krigjo25.no">@Krigjo25</a> 
             2024  - ${new Date().getFullYear()}</p>`;
