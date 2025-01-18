@@ -1,0 +1,151 @@
+ext-btn-functionallity
+    transition: 2s
+    
+    &:hover
+        transform: scale(1.1)
+        opacity: 1 !important
+    
+roboto-font
+    font-family: 'Roboto', sans-serif
+
+work-sans-font
+    font-family: 'Work Sans', sans-serif
+
+open-sans-font
+    font-family: 'Open Sans', sans-serif
+
+@import colour
+
+
+main 
+    section.info
+        display: flex
+        flex-wrap: wrap
+        block-size: 100%
+        flex-direction: row
+        justify-content: center
+        align-items: flex-start
+
+        .carosel
+            display: flex
+            inline-size: 25vw
+            flex-direction: column
+
+            img
+                inline-size: 100%
+                border-radius: 0.5em
+            
+            .caption
+                bottom: 5.5vh
+                display: flex
+                inline-size: 100%
+                position: relative
+                justify-content: center
+                color: $highlight-color
+                background-color: $overlay
+                border-bottom-left-radius: 1em
+                border-bottom-right-radius: 1em
+
+            .btn-container
+                bottom: 19em
+                display: flex
+                cursor: pointer
+                block-size: 100%
+                inline-size: 100%
+                position: relative
+                justify-content: space-between
+
+                button.img-btn
+                    opacity: 0.3
+                    border: none
+                    font-size: 2em
+                    cursor: pointer
+                    //color: #fefefe
+                    background-color: transparent
+                    @extend ext-btn-functionallity
+  
+        section.bio-container
+            inline-size: 53vw
+            margin-inline-start: 7vw
+
+            h2
+                font-size: 2em
+                text-align: center
+                @extend work-sans-font
+            
+        
+            nav.bio-link
+                inline-size: 100%
+                background-color: rgba(230, 247, 252, 1)
+
+                button.bio-btn
+                    border: none
+                    padding: 0.5em
+                    cursor: pointer
+                    border-radius: 0.5em
+                    background-color: rgba(230, 247, 252, 1)
+                    border-left: 1px solid rgb(207, 222, 226)
+                    @extend ext-btn-functionallity
+
+                    &:hover
+                        background-color: rgb(207, 222, 226)
+                        color: $highlight-color
+
+            section.bio-content
+                @extend roboto-font
+                
+                p
+                    font-size: 1.5em
+                    text-align: justify
+                
+                .keywords
+                    margin-block-end: 1em
+                
+                    h3
+                        @extend work-sans-font
+                        margin-block-end: 0em 
+            
+
+
+        section
+
+            .btn-links a:visited, .btn-links a:link
+            
+                text-decoration: none
+                color: rgb(254, 254, 254)
+                background-color: #a1bfc9
+
+        div.grid-container
+            display: grid
+            grid-template-columns: repeat(auto-fill, minmax(13vw, 1fr))
+            grid-gap: 1em
+
+        .grid-item
+            inline-size: 14vw
+
+        nav.ext-bar
+            padding: 1vw
+            display: flex
+            flex-wrap: wrap
+            margin-block-start: 2vh
+            justify-content: center
+
+            span 
+                padding: 1vw
+                font-size: 1em
+            
+            a
+                color: inherit
+                text-decoration: none
+                font-size: 1.5em
+                margin: 0.5em
+                padding: 0.5em
+                border-radius: 50%
+                transition: 0aaaa.5s
+                display: inline-block
+                text-align: center
+                min-inline-size: 50px
+                @extend ext-btn-functionallity
+
+            &:hover,:visited
+                color: inherit

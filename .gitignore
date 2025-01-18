@@ -69,19 +69,20 @@ yarn-debug.log*
 yarn-error.log*
 
 # Flask relaed files
-Flask/.env
-Flask/.venv/
-Flask/app.log
-Flask/flask_session/
+flask/.env
+flask/.venv/
+flask/.vscode/
+flask/app.log
+flask/flask_session/
 
 #  Python cache files
-Flask/__pycache__/
-Flask/lib/sass-lib
-Flask/lib/__pycache__/
-Flask/lib/API/__pycache__/
+flask/__pycache__/
+flask/lib/sass-lib
+flask/lib/__pycache__/
+flask/lib/API/__pycache__/
 
 #  pytest cache files
-Flask/.pytest_cache/
+flask/.pytest_cache/
 
 db
 

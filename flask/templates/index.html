@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% block main %}
+            <section id='about-kristoffer' class="info">
+                <section id="carosel-container" class="carosel">
+                </section>
+                <section id='bio'class="bio-container"></section>        
+                </div>
+                <nav class='ext-bar'>
+                    {% for key, value in links.items() %}
+
+                        <a href='{{ value }}'>
+                            <span>                           
+                                <i class="bi bi-{{ key }}"></i>
+                            </span>
+                        </a>
+                    {% endfor %}
+                </nav>
+                
+            </section>
+            {% with flash = get_flashed_messages()%}
+                    {% for i in flash %}
+                        <div class="flash">{{ i }}</div>
+                    {% endfor %}
+                {% endwith %}
+            <section id="specialization-container" class="spec-wrapper"></section> 
+            <section id='full-stack'>
+                <h2>Full-Stack Solutions</h2>
+                {% if portefolio %}
+                        <div class="fullstack-container">
+                            {% for pf in portefolio %}
+                                {% set name = pf['name'].split('-') %}
+                                <div class="pp">
+                                    <div class="pro-nav">
+                                        {% if pf.url %}
+                                            <a href="{{pf['url']}}">
+                                                <i class="bi bi-github"></i>
+                                            </a>
+                                        {% endif %}
+                                        {% if pf.web_link %}
+                                            <a href="{{pf['web_link']}}">
+                                                <i class="bi bi-globe"></i>
+                                            </a>
+                                        {% endif %}
+                                        {% if pf.ytube %}
+                                            <a href="{{pf['ytube']}}">
+                                                <i class="bi bi-youtube"></i>
+                                            </a>
+                                        {% endif %}
+                                    </div>
+                                    <div class="tech-container flex-row">
+                                        <span class="flex-reversed-row">
+                                            <i>
+                                                {{pf['date']}}
+                                            </i>
+                                        </span>
+                                        {% if name|length > 1 %}
+                                            <h3>{{ name[1] }}</h3>
+                                        {% else %}
+                                            <h3>{{ name[0] }}</h3>
+                                        {% endif %}
+                                        {% if pf['description'] != 'None' %}
+                                            <span>{{ pf['description']}}</span>
+                                        {% endif %}
+                                        {% if pf['lang'] %}
+                                            <div class="flex-row">
+                                                    {% for lang in pf['lang'] %}
+                                                        <div class='tech-wrapper '>
+                                                            <div class='tech-{{ lang }} relative'></div>
+                                                            <span class='tech-label'>
+                                                                {{ lang }}
+                                                            </span>
+                                                        </div>
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                            </div>
+                {% else %}
+                    <div class="fullstack-container">
+                        <div class="pp">
+                            <div class="pro-nav">
+                                <a href="https://github.com">
+                                    <i class="bi bi-github"></i>
+                                </a>
+                                <a href="https://krigjo25.no">
+                                    <i class="bi bi-globe"></i>
+                                </a>
+                                <a href="https://youtube.com">
+                                    <i class="bi bi-youtube"></i>
+                                </a>
+                            </div>
+                            <details>
+                                <summary>
+                                    Project Name
+                                </summary>
+                                <p> A github repository</p>
+                                <p>
+                                    Date of creation :  <time datatime=""> </time>
+                                </p>
+                                <div class="tech-container flex-row">
+                                    <div class='tech-wrapper'>
+                                        <div class='tech-Python relative'></div>
+                                        <span class='tech-label'>
+                                            Python
+                                        </span>
+                                
+                                    </div>
+                                </div>
+                            </details>
+                            <span>
+                                <time datatime=""></time>
+                            </span>
+                        </div>
+                    </div>
+                {% endif %}
+            </section>
+{% endblock %}
+    </body>
+</html>
