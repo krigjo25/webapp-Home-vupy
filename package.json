@@ -1,5 +1,5 @@
 {
-  "name": "webapp-home-flask",
+  "name": "webapp-home",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

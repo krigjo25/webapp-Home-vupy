@@ -23,6 +23,9 @@ Sass was used to style the web pages. Including RWD to ensure the webpage is vie
 The JavaScript is used to add interactivity to the web site.
 - Automated Slider (Non functional as im going to go over to a Instagram API later) is implemented for the carusel
 
+####    React
+
+
 ###   Flask
 During the planning, Flask was chosen as the web framework because of it's flexiblibility and ease of use. It provides the backend logic and API endpoints to fetch data from Github.
 
@@ -121,6 +124,10 @@ i learned basic database testing using Unit testing repository
 > While testing Exceptions, We can ensure the user to know what excatly went wrong under the operation
 > **Testing the request**
 
+## JavaScript
 
+### React
+Through this repository i have learned how to initialize React environment with a python based server such as Flask
 Sincerely,
 @krigjo25
+
