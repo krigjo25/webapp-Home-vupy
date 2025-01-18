@@ -12,7 +12,7 @@ load_dotenv()
 logging.basicConfig(
     level=logging.DEBUG, 
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', 
-    handlers=[logging.FileHandler("app.log"), 
+    handlers=[logging.FileHandler("test-github-log.log"), 
               logging.StreamHandler()])
 
 class GithubAPI(APIConfig):
