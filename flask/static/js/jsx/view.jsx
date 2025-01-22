@@ -1,7 +1,8 @@
-//  View -> Reperesent the visuals
-main();
 
-function main()
+//  View -> Reperesent the visuals
+Main();
+
+function Main()
 {
     //  Initialize variables
     let app = model.apps;
@@ -15,27 +16,27 @@ function main()
         {
             case "carosel-container":
                 app[i].id.innerHTML = /*HTML*/`
-                    ${carosel(app[i])}`;
+                ${Carosel(app[i])}`;
                 break;
 
             case "bio":
                 app[i].id.innerHTML = /*HTML*/`
-                    ${about(app[i])}`;
+                    ${About(app[i])}`;
                 break;
 
             case "specialization":
                 app[i].id.innerHTML = /*HTML*/`
-                    ${specialization(app[i])}`;
+                    ${Specialization(app[i])}`;
                 break;
 
             case "footer":
-                footer();
+                Footer();
                 break;
         }
     }
 }
 
-function about(arg)
+function About(arg)
 {
     let html = /*HTML*/`
         <h2>Biography</h2>
@@ -54,7 +55,7 @@ function about(arg)
         </nav>
         <section class="bio-content">
             <div class='keywords'>
-                <h3>${arg.title[0]}</h3>
+                <h3>${arg.title}</h3>
                 <small class ='abt-author'>Born : 25/02-94 (${arg.age} years old)</small><br></div>
             <small>Written by ${arg.title[0]} AVG reading time <b>${arg.time} min</b><i class="bi bi-stopwatch"></i></small>       
             <p>${arg.message}</p>
@@ -65,14 +66,31 @@ function about(arg)
     
     return html
 }
-
-function carosel(arg)
+function Image({source, alt, caption})
 {
-    return  /*HTML*/`
-        <img id="car-img" src="${arg.path + arg.source}" alt="${arg.alt}">
+    return (
+        <>
+            <img 
+                id="car-img" 
+                src={source} 
+                alt={alt} 
+            />
             <div class="caption">
-                <p>${arg.caption}</p>
+                <p>${caption}</p>
             </div>
+        </>
+    );
+}
+function Carosel(arg)
+{
+
+    return  (<>
+            <Image
+                alt ={arg.alt}
+                source ={arg.path + arg.source}
+                caption ={arg.caption}
+            />
+                
             <div id="img-btn" class="btn-container">
                 <button id ="prev-btn" class="img-btn" onclick="prev()">
                     <i class="bi bi-arrow-left-square-fill"></i>
@@ -80,10 +98,12 @@ function carosel(arg)
                 <button id ="next-btn" class="img-btn"onclick="next()">
                     <i class="bi bi-arrow-right-square-fill"></i>
                 </button>
-        </div>`;
+            </div>
+        </>);
 }
 
-function specialization(arg)
+
+function Specialization(arg)
 {
     let html = "";
 
@@ -202,7 +222,7 @@ function specialization(arg)
     return html;
 }
 
-function footer()
+function Footer()
 {
     //  Footer copyright
     document.querySelector('#powered-by').innerHTML = /*HTML*/`
