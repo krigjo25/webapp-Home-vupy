@@ -83,7 +83,7 @@ function Image({source, alt, caption})
 }
 function Carosel(arg)
 {
-
+    console.log(arg);
     return  (<>
             <Image
                 alt ={arg.alt}
