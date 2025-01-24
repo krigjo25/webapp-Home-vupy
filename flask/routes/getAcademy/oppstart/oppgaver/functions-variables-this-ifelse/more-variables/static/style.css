@@ -1,0 +1,17 @@
+#r {
+  block-size: 1em;
+  inline-size: 1em;
+  background-color: red;
+}
+
+#g {
+  block-size: 1em;
+  inline-size: 1em;
+  background-color: green;
+}
+
+#b {
+  block-size: 1em;
+  inline-size: 1em;
+  background-color: blue;
+}/*# sourceMappingURL=style.css.map */

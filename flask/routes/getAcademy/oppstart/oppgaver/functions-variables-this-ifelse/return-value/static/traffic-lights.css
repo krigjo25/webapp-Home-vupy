@@ -1,0 +1,44 @@
+.active-light
+{
+    opacity: 100% !important;
+}
+
+.red {
+    margin: 2vh;
+    opacity: 100%;
+    block-size: 5vh;
+    inline-size: 5vh;
+    border-radius: 10em;
+    border: 1px solid red;
+    background-color: red;
+}
+.orange {
+    margin: 2vh;
+    block-size: 5vh;
+    inline-size: 5vh;
+    border-radius: 10em;
+    border: 1px solid orange;
+    background-color: orange;
+}
+.green {
+    opacity: 5%;
+    margin: 2vh;
+    block-size: 5vh;
+    inline-size: 5vh;
+    border-radius: 10em;
+    border: 1px solid green;
+    background-color: green;
+}
+.grey {
+    margin: 2vh;
+    block-size: 5vh;
+    inline-size: 5vh;
+    border-radius: 10em;
+    border: 1px solid grey;
+    background-color: grey;
+}
+#app {
+    block-size: 25vh;
+    inline-size: 10vh;
+    background: black;
+}

@@ -1,0 +1,71 @@
+body
+    color: rgb(64, 64, 64)
+
+
+section:nth-child(odd)
+    padding: 1em
+    display: flex
+    flex-wrap: wrap
+    flex-direction: column
+    justify-content: center
+    align-content: space-around
+    background-color: rgb(233, 244, 252)
+
+form
+    padding: 1vh
+
+    label
+        padding: 1vh
+
+    legend
+        text-align: center
+        font-weight: bold
+        padding-block-start: 1vw
+
+    input
+        inline-size: 3vw
+
+    div
+        padding: 0em
+        display: inline
+
+#color-bg, #color-font
+    inline-size: 3vw
+
+#demo
+    overflow: hidden
+    inline-size: 100%
+
+    p
+        margin: auto
+        inline-size: 20vw
+
+.grid-container
+    display: grid
+    grid-template-columns: repeat(2, 10vw)
+
+.submit-btn
+    border: none
+    margin: auto
+    padding: 1em
+    cursor: pointer
+    inline-size: 9vw
+    background-color: #83abc8
+    
+
+.submit-btn:hover
+    background-color: #a7c3d8
+
+.submit-btn:focus
+    background-color: #477a9f
+
+input[type="text"]:focus
+    border: 1px solid blue
+
+textarea
+    inline-size: 14em
+
+textarea:focus
+    inline-size: 20em
+    block-size: 10em
+    transition: width 5s ease-out

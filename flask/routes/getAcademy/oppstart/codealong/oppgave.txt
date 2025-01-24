@@ -1,0 +1,14 @@
+DyreListe - loops, arrays
+Du skal vise frem enten Hund, 
+Katt eller Esel i en div når du trykker på en knapp "Random animal". 
+
+Lag et inputfelt og en knapp til der du kan legge til flere dyr 
+som kan dukke opp i diven når du trykker på knappen "Random animal". 
+
+Lag også en knapp "Show all animals" som viser frem alle dyrene i en 
+liste og endrer knappeteksten til "Hide all animals" når du trykker 
+på den en gang til for å skjule dyrelisten fra viewet.
+
+Ekstra: 
+Hvis dyret er en hund, skal teksten få en annen farge. Bruk en if-setning.
+Trekk ut random-funksjonen til å bruke return

@@ -1,0 +1,44 @@
+
+%rgy-style
+    opacity: 0.1
+    block-size: 1vw
+    inline-size: 1vw
+    border-radius: 12px
+    
+body
+
+    margin: auto 3em
+    background-color: rgba(64, 64, 64, 1)
+
+main
+    section
+        display: flex
+        flex-wrap: wrap
+        align-items: center
+        flex-direction: column
+        justify-content: center
+        align-content: space-around
+    
+    .tfl
+        display: flex
+        block-size: 6vw
+        inline-size: 3vw
+        align-items: center
+        flex-direction: column
+        border: 1px groove white
+        justify-content: space-evenly
+        background-color: rgba(64, 64, 64, 1)
+
+    .r
+        @extend %rgy-style
+        background-color: red
+    
+    .y
+        @extend %rgy-style
+        background-color: yellow
+    .g
+        @extend %rgy-style
+        background-color: green
+
+    .active
+        opacity: 1

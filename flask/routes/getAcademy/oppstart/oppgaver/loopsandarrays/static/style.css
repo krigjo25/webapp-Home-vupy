@@ -1,0 +1,26 @@
+table 
+{
+    inline-size: 67vh;
+}
+tr, td 
+{
+    padding: 1vh;
+    text-align: center;
+    border: 1px groove black;
+    
+}
+
+
+
+
+section 
+{
+    display: inline-flex;
+    flex-direction: row;
+}
+
+div
+{
+    flex-direction: column;
+    inline-size: 70vh;
+}

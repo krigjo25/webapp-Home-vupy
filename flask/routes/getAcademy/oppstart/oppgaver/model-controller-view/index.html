@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <link rel="stylesheet" href="static/style.css">
+
+        <script src="lib/js/lib.js"></script>
+        <script src="lib/js/madslab.js"></script>
+
+        
+        <title>krigjo25 | Introduction to JS</title>    
+
+    </head>
+    <body class="bg-light" onload="main()">
+        <header>
+            <a href="../../index.html">
+                <h1>Assignments Home</h1>
+            </a>
+        </header>   
+        <main>
+            <h2>Problem Solving MVC Approach</h2>
+            <section>
+                <div class="container">
+                    <div> my name is</div>
+                    <div id="name">Navn</div>
+                </div>
+                <div class="container">
+                    <div> I live in</div>
+                    <div id="city">City</div>
+                </div>
+                <div class="container">
+                    <div>What i prefer to eat</div>
+                    <div id="food">Food</div>
+                </div>
+                <button onclick="setFields()">Add fields</button>
+                <input type="text" onchange="setName(this.value)">
+
+            </section>
+            <section>
+                <h3>Assignment 6.1 madlabs</h3>
+                <div id="madlabs"></div>
+            </section>
+        </main>
+    </body>
+</html>

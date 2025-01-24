@@ -1,0 +1,23 @@
+main section.ali-game div.game, main section.ali-game {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+body {
+  background-color: #261D20;
+  margin: auto 3em;
+  color: #D6DCE2;
+}
+
+main section.ali-game div.ali-game {
+  font-size: 3vw;
+}
+main section.ali-game input[type=text] {
+  inline-size: 1vw;
+  background-color: #66BC6F;
+}
+main img.ali-img {
+  inline-size: 40vw;
+  cursor: pointer;
+}/*# sourceMappingURL=style.css.map */

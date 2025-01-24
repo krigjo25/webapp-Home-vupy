@@ -1,0 +1,13 @@
+.on, .off {
+  block-size: 7vh;
+  inline-size: 7vh;
+  border-radius: 100%;
+}
+
+.off {
+  background-color: rgb(40, 40, 40);
+}
+
+.on {
+  background-color: yellow;
+}/*# sourceMappingURL=light-blob.css.map */

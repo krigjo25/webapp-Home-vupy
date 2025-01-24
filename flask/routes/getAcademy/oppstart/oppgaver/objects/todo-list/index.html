@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="static/style.css">  
+    </head>
+    <body>
+        <main>
+
+            <table id="task-wrapper"></table>
+            <form id="task-form" action="index.html">
+                <label>Type in a new assignment</label>
+                <input id="taskDescription" type="text" required>
+                <label>Select a deadline</label>
+                <input id="date" type="date" required>
+                <label> Select an Employee</label>
+                <select name='team-list' id="employee" required></select>
+                </select>
+                <input name="submit" type="submit" onclick="addTask()">
+            </form>
+        </main>
+        <footer>
+            <script src="lib/js/todo.js"></script>
+        </footer>
+
+</body>
+</html>

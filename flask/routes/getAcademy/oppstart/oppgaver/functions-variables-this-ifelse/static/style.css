@@ -1,0 +1,31 @@
+body {
+  margin: auto 3em;
+}
+body main {
+  block-size: 100%;
+  inline-size: 100%;
+}
+body main nav div {
+  display: inline-block;
+  margin-inline-start: 1em;
+}
+body ul.nav-bar {
+  display: grid;
+  block-size: 100%;
+  list-style: none;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+body a.nav-link {
+  padding: 1em;
+  margin: 0.25em;
+  font-size: 1em;
+  color: inherit;
+  inline-size: 100%;
+  text-align: center;
+  text-decoration: none;
+  padding-block-end: 2em;
+  margin-inline-start: 1em;
+  background-color: white;
+  border: 0.1em solid black;
+}/*# sourceMappingURL=style.css.map */

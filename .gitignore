@@ -78,6 +78,7 @@ __pycache__/
 .pytest_cache/
 flask_session/
 
+
 #  Log files
 app.log
 base-log.log

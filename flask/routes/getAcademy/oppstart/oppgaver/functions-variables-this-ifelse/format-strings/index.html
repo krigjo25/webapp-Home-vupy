@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <link rel="stylesheet" href="static/style.css">
+        <link rel="stylesheet" href="static/light-blob.css">
+        <link rel="stylesheet" href="static/light-dark-theme.css">
+        <link rel="stylesheet" href="static/traffic-lights.css">
+
+        <script src="lib/js/lib.js"></script>
+        <script src="lib/js/stop-watch.js"></script>
+        <script src="lib/js/light-blob.js"></script>
+        <script src="lib/js/virtual-keyboard.js"></script>
+        <script src="lib/js/text-manipulation.js"></script>
+        <script src="lib/js/mvc-traffic-lights.js"></script>
+        <script src="lib/js/light-dark-theme.js"></script>
+        <script src="lib/js/return-something.js"></script>
+        <script src="lib/js/crocodile-game.js"></script>
+        
+        <title>krigjo25 | Function, Variables, This And If/Else</title>    
+
+    </head>
+    <body class="bg-light" onload="trafficLights('activeateYellow()', 'red', 'grey', 'grey')">
+        <header>
+            <a href="../../index.html">
+                <h1>Assignments Home</h1>
+            </a>
+        </header>   
+        <main>
+            <section class ="traffic-lights" >
+                <h2> Assignment 4.4: Traffic Lights</h2>
+                <div id="app">
+                </div>
+            </section>
+            <section class ="keyboad">
+                <div>
+                    <h3> Assignment 4.5: KeyboardX</h3>
+                    <div class="keyboard-container">
+                        <div class="keyboard-item">
+                        <button onclick="changeThis(this)">Esc</button>
+                        <button onclick="changeThis(this)">F1</button>
+                        <button onclick="changeThis(this)">F2</button>
+                        <button onclick="changeThis(this)">F3</button>
+                        <button onclick="changeThis(this)">F4</button>
+                        <button onclick="changeThis(this)">F5</button>
+                        <button onclick="changeThis(this)">F6</button>
+                        <button onclick="changeThis(this)">F7</button>
+                        <button onclick="changeThis(this)">F8</button>
+                        <button onclick="changeThis(this)">F9</button>
+                        <button onclick="changeThis(this)">F10</button>
+                        <button onclick="changeThis(this)">F11</button>
+                        <button onclick="changeThis(this)">F12</button>
+                        <button onclick="changeThis(this)">Del</button>
+                        <button onclick="changeThis(this)">Ins</button>
+                        <button onclick="changeThis(this)">Num</button>
+                        <button onclick="changeThis(this)">+</button>
+                        </div>
+                        <div></div>
+                        <div class="keyboard-item">
+                            <button onclick="changeThis(this)">|</button>
+                            <button onclick="changeThis(this)">1</button>
+                            <button onclick="changeThis(this)">2</button>
+                            <button onclick="changeThis(this)">3</button>
+                            <button onclick="changeThis(this)">4</button>
+                            <button onclick="changeThis(this)">5</button>
+                            <button onclick="changeThis(this)">6</button>
+                            <button onclick="changeThis(this)">7</button>
+                            <button onclick="changeThis(this)">8</button>
+                            <button onclick="changeThis(this)">9</button>
+                            <button onclick="changeThis(this)">0</button>
+                            <button onclick="changeThis(this)">+</button>
+                            <button onclick="changeThis(this)">\</button>
+                            <button onclick="changeThis(this)">Back</button>
+                            <button onclick="changeThis(this)">/</button>
+                            <button onclick="changeThis(this)">*</button>
+                            <button onclick="changeThis(this)">-</button>
+                        </div>
+                        <div></div>
+                        <div class="keyboard-item">
+                            <button onclick="changeThis(this)">Tab</button>
+                            <button onclick="changeThis(this)">q</button>
+                            <button onclick="changeThis(this)">w</button>
+                            <button onclick="changeThis(this)">e</button>
+                            <button onclick="changeThis(this)">r</button>
+                            <button onclick="changeThis(this)">t</button>
+                            <button onclick="changeThis(this)">y</button>
+                            <button onclick="changeThis(this)">u</button>
+                            <button onclick="changeThis(this)">i</button>
+                            <button onclick="changeThis(this)">o</button>
+                            <button onclick="changeThis(this)">p</button>
+                            <button onclick="changeThis(this)">å</button>
+                            <button onclick="changeThis(this)">¨</button>
+                            <button onclick="changeThis(this)">Enter</button>
+                            <button onclick="changeThis(this)">7</button>
+                            <button onclick="changeThis(this)">8</button>
+                            <button onclick="changeThis(this)">9</button>
+                            <div class="keyboard-item">
+                                <button onclick="changeThis(this)">CapsLock</button>
+                                <button onclick="changeThis(this)">a</button>
+                                <button onclick="changeThis(this)">s</button>
+                                <button onclick="changeThis(this)">d</button>
+                                <button onclick="changeThis(this)">f</button>
+                                <button onclick="changeThis(this)">g</button>
+                                <button onclick="changeThis(this)">h</button>
+                                <button onclick="changeThis(this)">j</button>
+                                <button onclick="changeThis(this)">k</button>
+                                <button onclick="changeThis(this)">l</button>
+                                <button onclick="changeThis(this)">ø</button>
+                                <button onclick="changeThis(this)">æ</button>
+                                <button onclick="changeThis(this)">*</button>
+                                <button onclick="changeThis(this)">Enter</button>
+                                <button onclick="changeThis(this)">4</button>
+                                <button onclick="changeThis(this)">5</button>
+                                <button onclick="changeThis(this)">6</button>
+                            </div>
+                            <div class="keyboard-item">
+                                <button onclick="changeThis(this)">Shift</button>
+                                <button onclick="changeThis(this)"><</button>
+                                <button onclick="changeThis(this)">z</button>
+                                <button onclick="changeThis(this)">c</button>
+                                <button onclick="changeThis(this)">v</button>
+                                <button onclick="changeThis(this)">b</button>
+                                <button onclick="changeThis(this)">n</button>
+                                <button onclick="changeThis(this)">m</button>
+                                <button onclick="changeThis(this)">,</button>
+                                <button onclick="changeThis(this)">.</button>
+                                <button onclick="changeThis(this)">-</button>
+                                <button onclick="changeThis(this)">Shift</button>
+                                <button onclick="changeThis(this)">pil opp</button>
+                                <button onclick="changeThis(this)">1</button>
+                                <button onclick="changeThis(this)">2</button>
+                                <button onclick="changeThis(this)">3</button>
+                            </div>
+                            <div class="keyboard-item">
+                                <button onclick="changeThis(this)">ctrl</button>
+                                <button onclick="changeThis(this)">fn</button>
+                                <button onclick="changeThis(this)">win</button>
+                                <button onclick="changeThis(this)">alt</button>
+                                <button onclick="changeThis(this)">space</button>
+                                <button onclick="changeThis(this)">altgr</button>
+                                <button onclick="changeThis(this)">odd btn</button>
+                                <button onclick="changeThis(this)"><-</button>
+                                <button onclick="changeThis(this)">pil ned</button>
+                                <button onclick="changeThis(this)">-></button>
+                                <button onclick="changeThis(this)">0</button>
+                                <button onclick="changeThis(this)">,</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="input-container"></div>
+            </section>
+            <section class ="ligth-blob">
+                <div>
+                    <h2> Assignment 4.6: Light Blob</h2>
+                    <div id="light-blob" class="off">
+                    </div>
+                    <button id="light-switch" onclick="lightBlob()">Turn on</button>
+                </div>
+            </section>
+            <section class ="return-value">
+                
+                <div>
+                    <h2>Function with return value</h2>
+                    <h3>Assignment 4.7: Can you return?</h3>
+                    <div id="return-this"></div>
+                    <button onclick="HTMLView('grey','3', 'center')">Return a statement</button>
+                </div>
+            </section>
+                
+                <section>
+                    <h3>Assignment 4.8 Croccodile-game</h3>
+                    <div id="Croccodile-game">
+                        <div id="points">
+                            Your points : 0
+                        </div>
+                        <div id="game">
+                            <button onclick="main()">Start Game</button>
+                        </div>
+                        <div id="game-message">
+
+                        </div>
+                </div>
+                </section>
+                <section>
+                    <h3>Assignment 4.9 Format the string</h3>
+                    <button id="to-upper" onclick="upperCase(this.id, this.innerHTML)">kristoffer eier dette</button>
+
+                </section>
+            </section>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+.divdemo {
+    margin: 2em;
+    padding: 1.2em;
+    inline-size: 3.2em;
+    block-size: 4.2em;
+    color: rgb(19,109,21, 1);
+    border: rgba(0,0,53, 1) 1px solid;
+    background-color: rgba(230,230,230, 1);
+}
+div.page {
+    display: grid;
+    background-color: whitesmoke;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 8fr 1fr;
+    grid-template-areas: 'nav header' 'nav main' 'footer footer';
+
+}
+
+div.header {
+    grid-area: header;
+    background-color: brown;
+}
+div.nav {
+    grid-area: nav;
+    background-color: blue;
+}
+div.main {
+    grid-area: main;
+    background-color: grey;
+}
+div.footer {
+    grid-area: footer;
+    background-color: green;
+
+}
+.uniqueEffect {
+    
+    padding: 5px;
+    border: 1px dashed rgba(255, 87, 51, 1);
+
+}

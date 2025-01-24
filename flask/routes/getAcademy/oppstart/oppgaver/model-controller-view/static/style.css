@@ -1,0 +1,15 @@
+#madlabs  
+{
+    font-size: 3vh;
+    inline-size: 70vh;
+}
+input[type=text]
+{
+    inline-size: 5vh;
+}
+
+div
+{
+    display: inline;
+    text-emphasis-color: red;
+}
