@@ -28,8 +28,12 @@ yarn-error.log*
 /.pnp
 .pnp.js
 
-# testing
+# Environment variables
+.env
+
+# Testing
 /coverage
+
 
 # production
 /build
@@ -70,14 +74,15 @@ yarn-error.log*
 
 
 #  Flask related files & folders
-.env
+
 .venv/
 .vscode/
 sass-lib/
 __pycache__/
 .pytest_cache/
 flask_session/
-
+tests/assets/
+tests/reports.html
 
 #  Log files
 app.log
