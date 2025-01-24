@@ -1,8 +1,10 @@
 
 //  View -> Reperesent the visuals
-Main();
+import React from 'react';
 
-function Main()
+App();
+
+function App()
 {
     //  Initialize variables
     let app = model.apps;
@@ -15,9 +17,8 @@ function Main()
         switch (app[i].app)
         {
             case "carosel-container":
-                app[i].id.innerHTML = /*HTML*/`
-                ${Carosel(app[i])}`;
-                break;
+                return app[i].id.innerHTML = <Carosel arg ={app[i]}/>;
+
 
             case "bio":
                 app[i].id.innerHTML = /*HTML*/`
@@ -92,11 +93,11 @@ function Carosel(arg)
             />
                 
             <div id="img-btn" class="btn-container">
-                <button id ="prev-btn" class="img-btn" onclick="prev()">
-                    <i class="bi bi-arrow-left-square-fill"></i>
+                <button id ="prev-btn" class="img-btn" onClick="prev()">
+                    <i className="bi bi-arrow-left-square-fill"></i>
                 </button>
-                <button id ="next-btn" class="img-btn"onclick="next()">
-                    <i class="bi bi-arrow-right-square-fill"></i>
+                <button id ="next-btn" className="img-btn"onClick="next()">
+                    <i className="bi bi-arrow-right-square-fill"></i>
                 </button>
             </div>
         </>);

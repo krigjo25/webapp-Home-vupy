@@ -1,6 +1,7 @@
 //  View -> Reperesent the visuals
-Main();
-function Main() {
+import React from 'react';
+App();
+function App() {
   //  Initialize variables
   let app = model.apps;
 
@@ -9,9 +10,9 @@ function Main() {
     //  Ensure the name is carosel
     switch (app[i].app) {
       case "carosel-container":
-        app[i].id.innerHTML = /*HTML*/`
-                ${Carosel(app[i])}`;
-        break;
+        return app[i].id.innerHTML = /*#__PURE__*/React.createElement(Carosel, {
+          arg: app[i]
+        });
       case "bio":
         app[i].id.innerHTML = /*HTML*/`
                     ${About(app[i])}`;
@@ -65,6 +66,7 @@ function Image({
   }, /*#__PURE__*/React.createElement("p", null, "$", caption)));
 }
 function Carosel(arg) {
+  console.log(arg);
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Image, {
     alt: arg.alt,
     source: arg.path + arg.source,
@@ -75,15 +77,15 @@ function Carosel(arg) {
   }, /*#__PURE__*/React.createElement("button", {
     id: "prev-btn",
     class: "img-btn",
-    onclick: "prev()"
+    onClick: "prev()"
   }, /*#__PURE__*/React.createElement("i", {
-    class: "bi bi-arrow-left-square-fill"
+    className: "bi bi-arrow-left-square-fill"
   })), /*#__PURE__*/React.createElement("button", {
     id: "next-btn",
-    class: "img-btn",
-    onclick: "next()"
+    className: "img-btn",
+    onClick: "next()"
   }, /*#__PURE__*/React.createElement("i", {
-    class: "bi bi-arrow-right-square-fill"
+    className: "bi bi-arrow-right-square-fill"
   }))));
 }
 function Specialization(arg) {
