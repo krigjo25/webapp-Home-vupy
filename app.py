@@ -10,18 +10,15 @@ from flask_vite import Vite
 from lib.views import Index
 from lib.config import DevelopmentConfig
 
-#   Load Enviorment variables
+#   Load environment variables
 load_dotenv()
 
-#   Initializing App and Extensions
-app = Flask(__name__)
-
-Session(app)
-vite = Vite().init_app(app)
-
+#   Initialize Flask app and Extensions
+app = Flask(__name__, static_folder="vite/static")
+vite = Vite(app)
 # Configure session to use filesystem (instead of signed cookies)
 app.config.from_object(DevelopmentConfig)
-
+Session(app)
 
 @app.after_request
 async def after_request(response):
@@ -37,7 +34,7 @@ async def before_request():
 
     return
 
-#   Url rules
+#   Endpoints
 app.add_url_rule("/", view_func = Index().as_view(name="index.html"))
 
 #   Webworkers
