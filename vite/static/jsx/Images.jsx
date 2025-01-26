@@ -1,4 +1,4 @@
-export function Carosel(arg)
+export default function Carosel(arg)
 {
 
     return  (

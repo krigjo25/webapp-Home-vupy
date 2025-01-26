@@ -2,7 +2,7 @@
 
 // Importing moudules
 import { model } from './model.jsx';
-import { Carosel } from './Images.jsx';
+import Carosel from './Images.jsx';
 
 App();
 
