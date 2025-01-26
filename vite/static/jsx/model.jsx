@@ -1,9 +1,6 @@
 
-// Model
-let html;
-let caroseltimer;
-
-const model =
+//  Model for the application
+export const model =
 {
     apps:[
             {

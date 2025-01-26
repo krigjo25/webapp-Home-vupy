@@ -19,7 +19,7 @@ export default defineConfig({
 
   resolve: {
     alias: {
-      '@': '/static/js',
+      '@': '/src',
     }
   },
 });

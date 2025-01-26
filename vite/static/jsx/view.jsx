@@ -1,16 +1,12 @@
+//      Rendering the view of the application
 
-//  View -> Reperesent the visuals
-<<<<<<<< HEAD:static/js/jsx/view.jsx
-Main();
-
-function Main()
-========
-import React from 'react';
+// Importing moudules
+import { model } from './model.jsx';
+import { Carosel } from './Images.jsx';
 
 App();
 
 function App()
->>>>>>>> a359616c80308c6cd51f334987cd81f8ab45cc33:static/js/jsx/jsx/view.jsx
 {
     //  Initialize variables
     let app = model.apps;
@@ -23,13 +19,12 @@ function App()
         switch (app[i].app)
         {
             case "carosel-container":
-<<<<<<<< HEAD:static/js/jsx/view.jsx
-                Carosel();
-                break;
-========
-                return app[i].id.innerHTML = <Carosel arg ={app[i]}/>;
-
->>>>>>>> a359616c80308c6cd51f334987cd81f8ab45cc33:static/js/jsx/jsx/view.jsx
+                console.log(app[i]);
+                return (
+                    <>
+                        {Carosel(app[i])}
+                    </>
+                    );
 
             case "bio":
                 app[i].id.innerHTML = /*HTML*/`
@@ -67,11 +62,8 @@ function About(arg)
         </nav>
         <section class="bio-content">
             <div class='keywords'>
-<<<<<<<< HEAD:static/js/jsx/view.jsx
                 <h3>{arg.title[0]}</h3>
-========
                 <h3>${arg.title}</h3>
->>>>>>>> a359616c80308c6cd51f334987cd81f8ab45cc33:static/js/jsx/jsx/view.jsx
                 <small class ='abt-author'>Born : 25/02-94 (${arg.age} years old)</small><br></div>
             <small>Written by ${arg.title[0]} AVG reading time <b>${arg.time} min</b><i class="bi bi-stopwatch"></i></small>       
             <p>${arg.message}</p>
@@ -82,67 +74,7 @@ function About(arg)
     
     return html
 }
-function Image({source, alt, caption})
-{
-<<<<<<<< HEAD:static/js/jsx/view.jsx
 
-========
->>>>>>>> a359616c80308c6cd51f334987cd81f8ab45cc33:static/js/jsx/jsx/view.jsx
-    return (
-        <>
-            <img 
-                id="car-img" 
-                src={source} 
-                alt={alt} 
-            />
-            <div class="caption">
-                <p>${caption}</p>
-            </div>
-        </>
-    );
-}
-function Carosel(arg)
-{
-<<<<<<<< HEAD:static/js/jsx/view.jsx
-    
-    return  (
-        <div id="carosel-container">
-            <Image
-                alt = {arg[0].alt}
-                source ={arg[0].path + arg[0].source}
-                caption = {arg[0].caption}
-            />
-                
-                <div id="img-btn" class="btn-container">
-                    <button id ="prev-btn" class="img-btn" onclick="prev()">
-                        <i class="bi bi-arrow-left-square-fill"></i>
-                    </button>
-                    <button id ="next-btn" class="img-btn"onclick="next()">
-                        <i class="bi bi-arrow-right-square-fill"></i>
-                    </button>
-            </div>
-        </div>
-        );
-========
-    console.log(arg);
-    return  (<>
-            <Image
-                alt ={arg.alt}
-                source ={arg.path + arg.source}
-                caption ={arg.caption}
-            />
-                
-            <div id="img-btn" class="btn-container">
-                <button id ="prev-btn" class="img-btn" onClick="prev()">
-                    <i className="bi bi-arrow-left-square-fill"></i>
-                </button>
-                <button id ="next-btn" className="img-btn"onClick="next()">
-                    <i className="bi bi-arrow-right-square-fill"></i>
-                </button>
-            </div>
-        </>);
->>>>>>>> a359616c80308c6cd51f334987cd81f8ab45cc33:static/js/jsx/jsx/view.jsx
-}
 
 
 function Specialization(arg)
