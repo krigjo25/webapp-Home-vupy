@@ -13,11 +13,15 @@ from lib.config import DevelopmentConfig
 #   Load Enviorment variables
 load_dotenv()
 
+#   Initializing App and Extensions
 app = Flask(__name__)
-vite = Vite(app)
+
+Session(app)
+vite = Vite().init_app(app)
+
 # Configure session to use filesystem (instead of signed cookies)
 app.config.from_object(DevelopmentConfig)
-Session(app)
+
 
 @app.after_request
 async def after_request(response):
