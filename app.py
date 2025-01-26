@@ -4,15 +4,17 @@
 from flask import Flask
 from dotenv import load_dotenv
 from flask_session import Session
+from flask_vite import Vite
 
 #   Custom libs
 from lib.views import Index
 from lib.config import DevelopmentConfig
 
+#   Load Enviorment variables
 load_dotenv()
 
 app = Flask(__name__)
-
+vite = Vite(app)
 # Configure session to use filesystem (instead of signed cookies)
 app.config.from_object(DevelopmentConfig)
 Session(app)
