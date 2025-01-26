@@ -2,9 +2,7 @@
 // Read more about Vite configurations: https://vitejs.dev/config/
 
 // Importing the vite plugins
-import { defineConfig } from 'vite'
 const { resolve } = require('path')
-
 const { defineConfig } = require('vite')
 
 
