@@ -1,0 +1,44 @@
+$red: red
+$blue: blue
+$green: green
+
+%width-height
+    block-size: 1em
+    inline-size: 1em
+
+%border-radius
+    border-radius: 10em
+.item 
+    ul
+        margin:0
+
+.r
+    @extend %width-height
+    @extend %border-radius
+    border: 1px solid $red
+    background-color: $red
+.g
+    @extend %width-height
+    @extend %border-radius
+    border: 1px solid$green
+    background-color: $green
+.b
+    @extend %width-height
+    @extend %border-radius
+    border: 1px solid $blue
+    background-color: $blue
+
+input[type=text]
+    @extend %width-height
+
+section 
+    display: inline-flex
+    flex-direction: column
+
+div
+    inline-size: 70vh
+
+div
+    .keyboard-item 
+        .interval
+            inline-size:154vh

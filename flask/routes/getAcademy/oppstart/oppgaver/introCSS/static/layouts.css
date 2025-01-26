@@ -1,0 +1,26 @@
+.normal {
+  margin: 0;
+  padding: 1em;
+  font-size: 1em;
+  display: block;
+  cursor: pointer;
+}
+.vertical {
+  display: block;
+  margin: 1em auto;
+  inline-size: 59vh;
+}
+
+.horizontal {
+  display: flex;
+  justify-content: center;
+}
+
+.grid-container {
+  display: grid;
+  margin: 1em;
+  inline-size: 100%;
+  grid-column-gap: 1em;
+  grid-template-rows: 2fr;
+  grid-template-columns: 20em 20em;
+}/*# sourceMappingURL=layouts.css.map */

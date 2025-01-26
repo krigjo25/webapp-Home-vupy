@@ -1,0 +1,31 @@
+body {
+  color: rgb(227, 227, 227);
+  color: rgb(64, 64, 64);
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+}
+
+div {
+  margin: auto;
+  padding: 1em;
+  inline-size: 20vw;
+  margin: auto;
+}
+form {
+  padding: 1vh;
+  display: flex;
+  inline-size: 19vw;
+  flex-direction: column;
+  border: 1px solid black;
+  background-color: rgba(222, 142, 24, 0.6);
+}
+form label {
+  padding: 1vh;
+  font-size: 1vw;
+}
+#color-bg, #color-font {
+  inline-size: 3vw;
+}/*# sourceMappingURL=text-manipulation.css.map */

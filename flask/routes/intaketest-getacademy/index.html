@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="maintainer" content="@krigjo25">
+        <meta name="keywords" content="getacademy, entrance-exam">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- CSS -->
+        <link href="lib/css/styles.css" rel="stylesheet">
+        <link href="lib/css/color.css" rel="stylesheet">
+        <title>GetAcademy| @krigjo25</title>
+    </head>
+    <body>
+        <div class='mi-auto'>
+            <header>
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/index.html">
+                        <span class = "getlogo-color brand-font">GetAcademy</span>
+                        <div class="vi-div"> <span> @krigjo25</span></div>
+                    </a>
+                </div>
+            </header>
+            <main>
+                <h2> Sorting Game </h2>
+                <section class ="grid-container content-center">
+                    <div id = "r1c1" class="routebox" onclick="route(this, 'r1c2', 'r2c1', 'r1c2','r2c1')">5</div>
+                    <div id = "r1c2" class="routebox" onclick="route(this, 'r1c1', 'r1c3', 'r2c2', 'r2c2')">1</div>
+                    <div id = "r1c3" class="routebox" onclick="route(this, 'r1c2', 'r2c3', 'r2c3', 'r2c3')">3</div>
+
+                    <div id="r2c1" class="routebox" onclick="route(this, 'r1c1', 'r3c1','r2c2', 'r2c2')">4</div>
+                    <div id="r2c2" class="routebox" onclick="route(this, 'r2c1', 'r1c2', 'r3c2','r2c3')"></div>
+                    <div id="r2c3" class="routebox" onclick="route(this, 'r1c3', 'r2c2', 'r3c3', 'r3c3')"> 8 </div>
+
+                    <div id = "r3c1" class="routebox" onclick="route(this, 'r2c1', 'r3c2','r3c2','r3c2')">6</div>
+                    <div id = "r3c2" class="routebox" onclick="route(this, 'r3c1','r3c3', 'r2c2','r2c2')">7</div>
+                    <div id = "r3c3" class="routebox" onclick="route(this, 'r3c2', 'r2c3', 'r2c3', 'r2c3')">2</div>
+                </div>
+            </main>
+            <footer>
+                <script>
+                    
+                    // Adapted from GetAcademy | https://www.youtube.com/watch?v=6GlulwxeFOM
+                    function route(tag, alt1, alt2, alt3, alt4)
+                    {
+                        if (document.getElementById(alt1).innerHTML == "")
+                        {
+                            document.getElementById(alt1).innerHTML = tag.innerHTML;
+                            tag.innerHTML = ""
+                        }
+                        else if (document.getElementById(alt2).innerHTML == "")
+                        {
+                            document.getElementById(alt2).innerHTML = tag.innerHTML;
+                            tag.innerHTML = "";
+                        }
+                        else if (document.getElementById(alt3).innerHTML == "")
+                        {
+                            document.getElementById(alt3).innerHTML = tag.innerHTML;
+                            tag.innerHTML = "";
+                        }
+                        else if (document.getElementById(alt4).innerHTML == "")
+                        {
+                            document.getElementById(alt4).innerHTML = tag.innerHTML;
+                            tag.innerHTML = "";
+                        }
+                    }
+                </script>
+            </footer>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+.active-light
+{
+    opacity: 100% !important;
+}
+
+.red {
+    opacity: 10%;
+    block-size: 1em;
+    inline-size: 1em;
+    border-radius: 10em;
+    border: 1px solid red;
+    background-color: red;
+}
+.orange {
+    opacity: 10%;
+    block-size: 1em;
+    inline-size: 1em;
+    border-radius: 10em;
+    border: 1px solid orange;
+    background-color: orange;
+}
+.green {
+    opacity: 10%;
+    block-size: 1em;
+    inline-size: 1em;
+    border-radius: 10em;
+    border: 1px solid green;
+    background-color: green;
+}

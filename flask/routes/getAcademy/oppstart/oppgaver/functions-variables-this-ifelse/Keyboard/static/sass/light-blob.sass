@@ -1,0 +1,19 @@
+
+// Initializie variables
+$on: yellow
+$off:rgba(40, 40, 40, 1)
+
+%messages
+    block-size: 7vh
+    inline-size: 7vh
+    border-radius: 100%
+    
+
+.off
+    @extend %messages
+    background-color:$off
+
+
+.on
+    @extend %messages
+    background-color: $on

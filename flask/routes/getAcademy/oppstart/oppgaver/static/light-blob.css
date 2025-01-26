@@ -1,0 +1,16 @@
+.off, .on {
+    border-radius: 100%;
+}
+.off {
+    block-size: 7vh;
+    inline-size: 7vh;
+    background-color: rgba(40, 40, 40, 1);
+    
+}
+
+.on {
+    block-size: 6vh;
+    inline-size: 6vh;
+    background-color: yellow;
+    
+}
