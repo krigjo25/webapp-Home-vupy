@@ -29,7 +29,6 @@ function App()
             
             case "carosel-container":
                 //console.log(app[i]);
-    
                 root.render(
                         <Carosel
                             alt = {app[i].alt}

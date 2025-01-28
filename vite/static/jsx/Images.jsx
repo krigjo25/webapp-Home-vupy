@@ -2,21 +2,19 @@ export default Carosel;
  
  function Carosel(path, alt, caption)
 {
-    console.log(arg);
     return  (
         <>
             <Image
-                
                 source ={path}
                 alt = {alt}
                 caption ={caption}
             />
                 
-            <div id="img-btn" class="btn-container">
-                <button id ="prev-btn" class="img-btn" onClick="prev()">
+            <div id="img-btn" className="btn-container">
+                <button id ="prev-btn" className="img-btn" >
                     <i className="bi bi-arrow-left-square-fill"></i>
                 </button>
-                <button id ="next-btn" className="img-btn"onClick="next()">
+                <button id ="next-btn" className="img-btn" >
                     <i className="bi bi-arrow-right-square-fill"></i>
                 </button>
             </div>
@@ -25,15 +23,18 @@ export default Carosel;
 
 function Image({source, alt, caption})
 {
+    console.log(alt);
+    let test = source;
     return (
         <>
             <img 
-                id="car-img" 
-                src={source} 
-                alt={alt} 
+                id="car-img"
+                alt={alt}
+                src={test}
+                
             />
-            <div class="caption">
-                <p>${caption}</p>
+            <div className="caption">
+                <p>{caption}</p>
             </div>
         </>
     );
