@@ -1,11 +1,14 @@
-export default function Carosel(arg)
+export default Carosel;
+ 
+ function Carosel(arg)
 {
-
+    console.log(arg);
     return  (
         <>
             <Image
-                txt = {arg.alt}
+                
                 source ={arg.path + arg.source}
+                alt = {arg.alt}
                 caption ={arg.caption}
             />
                 
@@ -20,7 +23,7 @@ export default function Carosel(arg)
         </>);
 }
 
-function Image({source, txt, caption})
+function Image({source, alt, caption})
 {
     console.log(source);
     return (
@@ -36,3 +39,4 @@ function Image({source, txt, caption})
         </>
     );
 }
+

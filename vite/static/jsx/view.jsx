@@ -1,43 +1,60 @@
 //      Rendering the view of the application
+import { createRoot } from 'react-dom/client';
 
-// Importing moudules
-import { model } from './model.jsx';
+// Importing modules
 import Carosel from './Images.jsx';
+import { model } from './model.jsx';
+
 
 App();
 
 function App()
 {
+
     //  Initialize variables
-    let app = model.apps;
+    const app = model.apps;
 
     //  Linear algorithme
     for (let i = 0; i < app.length; i++)
     {
+        let node = app[i].id;
+
+        //  Initialize root element
+        
+        let root = createRoot(node);
 
         //  Ensure the name is carosel
         switch (app[i].app)
         {
+            
             case "carosel-container":
-                console.log(app[i]);
-                return (
-                    <>
-                        {Carosel(app[i])}
-                    </>
-                    );
-
+                //console.log(app[i]);
+    
+                root.render(
+                        <Carosel  arg = {app[i]} />
+                );
+                break;
             case "bio":
-                app[i].id.innerHTML = /*HTML*/`
-                    ${About(app[i])}`;
+
+            root.render(
+                <>
+                </>);
+                    //${About(app[i])}
                 break;
 
             case "specialization":
-                app[i].id.innerHTML = /*HTML*/`
-                    ${Specialization(app[i])}`;
+                root.render(
+                    <>
+                    </>);
+                
+                //   ${Specialization(app[i])};
                 break;
 
             case "footer":
-                Footer();
+                root.render(
+                    <>
+                    </>);
+                //Footer();
                 break;
         }
     }
@@ -74,8 +91,6 @@ function About(arg)
     
     return html
 }
-
-
 
 function Specialization(arg)
 {
