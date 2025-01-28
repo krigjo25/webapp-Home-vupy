@@ -31,7 +31,11 @@ function App()
                 //console.log(app[i]);
     
                 root.render(
-                        <Carosel  arg = {app[i]} />
+                        <Carosel
+                            alt = {app[i].alt}
+                            path = {app[i].path + app[i].source}
+                            caption = {app[i].caption}
+                        />
                 );
                 break;
             case "bio":

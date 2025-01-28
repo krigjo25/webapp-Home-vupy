@@ -1,15 +1,15 @@
 export default Carosel;
  
- function Carosel(arg)
+ function Carosel(path, alt, caption)
 {
     console.log(arg);
     return  (
         <>
             <Image
                 
-                source ={arg.path + arg.source}
-                alt = {arg.alt}
-                caption ={arg.caption}
+                source ={path}
+                alt = {alt}
+                caption ={caption}
             />
                 
             <div id="img-btn" class="btn-container">
@@ -25,7 +25,6 @@ export default Carosel;
 
 function Image({source, alt, caption})
 {
-    console.log(source);
     return (
         <>
             <img 
