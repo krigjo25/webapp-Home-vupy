@@ -2,11 +2,10 @@
 
 #   Importing libraries
 import asyncio, os, datetime as dt
-
 from dotenv import load_dotenv
 from flask.views import MethodView
 from lib.APIS.github import GithubAPI
-from flask import render_template, flash
+from flask import render_template, flash, jsonify
 
 #   Load environment variables
 load_dotenv()
@@ -32,13 +31,20 @@ class Index(MethodView):
         # Calculations
         
         await self.IndexPage()
-        
-        return render_template("index.html", portefolio = self.repo, links = { "mailbox": "mailto:krigjo25@outlook.com", "linkedin": "https://www.linkedin.com/in/krigjo25", "github": "https://www.github.com/krigjo25"})
 
+        response = {
+            'mailbox': "mailto:krigjo25@outlook.com",
+            "linkedin": "https://www.linkedin.com/in/krigjo25",
+            "github": "https://www.github.com/krigjo25",
+            'repo': f"{Index.repo if Index.repo is not None else None}"
+        }
+        return jsonify(response)
+    
     def post(self): 
 
         #   Handle post request
-        return render_template("index.html")
+        
+        return
 
 
     async def IndexPage(self):
@@ -57,22 +63,22 @@ class Index(MethodView):
 
         match (now):
             
-            case _ if now.month == 12 and now.day == 24:
+            case _ if now.month == 12 and now.day > 10 and now.day < 25:
                 flash("🎅 Merry Christmas 🎅")
             
             case _ if now.month == 2 and now.day == 25:
                 flash("🎂 Happy Birthday @krigjo25 🎁")
 
-            case _ if now.month == 2 and now.day == 14:
+            case _ if now.month == 2 and now.day > 9 and now.day < 15:
                 flash("💖 Happy Valentines Day 💖")
                 
-            case _ if now.month == 10 and now.day == 31 or now.month == 11 and now.day == 1:
+            case _ if now.month == 10 and now.day > 20 and now.month == 11 and now.day < 1:
                 flash("👻 Happy Halloween 👻")
 
-            case _ if now.month == 1 and now.day < 10 or now.month == 12 and now.day == 30:
+            case _ if now.month == 1 and now.day < 10 and now.month == 12 and now.day == 30:
                 flash("🎉 Happy New Year 🎉")
             
-            case _ if now.month == 5 and now.day == 17:
+            case _ if now.month == 5 and now.day < 18 and now.month == 5 and now.day > 9:
                 flash("🇳🇴 Happy Independence Day Norway 🇳🇴")
             case _ :
                 flash("Certified Specializations")

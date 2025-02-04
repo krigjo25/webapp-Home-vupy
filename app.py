@@ -2,9 +2,9 @@
 
 #   Importing responsories
 from flask import Flask
+from flask_cors import CORS
 from dotenv import load_dotenv
 from flask_session import Session
-from flask_vite import Vite
 
 #   Custom libs
 from lib.views import Index
@@ -15,11 +15,12 @@ load_dotenv()
 
 #   Initialize Flask app and Extensions
 app = Flask(__name__, static_folder="vite/static")
-vite = Vite(app)
+
 # Configure session to use filesystem (instead of signed cookies)
 app.config.from_object(DevelopmentConfig)
 Session(app)
 
+CORS(app, resources={r"/*": {"origins": "*"}})
 @app.after_request
 async def after_request(response):
     """Ensure the responses aren't cached"""
