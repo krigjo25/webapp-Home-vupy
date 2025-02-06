@@ -1,6 +1,6 @@
 {
     "python.testing.pytestArgs": [
-        "flask/pytest"
+        "pytest"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,

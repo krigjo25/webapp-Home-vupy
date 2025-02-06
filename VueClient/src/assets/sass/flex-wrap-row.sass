@@ -1,0 +1,49 @@
+flex-wrap-row
+    display: flex
+    flex-wrap: wrap
+    flex-direction: row
+
+flex-wrap-row-space-evenly
+    @extend flex-wrap-row
+    justify-content: space-evenly
+
+flex-nowrap-row
+    display: flex
+    flex-wrap: nowrap
+    flex-direction: row
+
+flex-wrap-reversed-row
+    display: flex
+    flex-wrap: wrap
+    flex-direction: row-reverse
+.flex-row
+    @extend flex-wrap-row
+
+.flex-reversed-row
+    @extend flex-wrap-reversed-row
+
+.justify-center-row
+    @extend flex-wrap-row
+    justify-content: center
+
+.justify-flexstart-row
+    @extend flex-wrap-row
+    justify-content: flex-start
+
+.justify-content-space-evently-row
+    @extend flex-wrap-row
+    justify-content: space-evenly
+    inline-size: 100% // remove this line if you want to use the default value
+
+.align-content-center-row
+    @extend flex-wrap-row
+    align-content: center
+
+.align-items-center-row
+    @extend flex-wrap-row
+    align-items: center
+
+.align-items-flex-end-row
+    @extend flex-wrap-row
+    align-items: flex-end
+

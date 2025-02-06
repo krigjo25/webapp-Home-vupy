@@ -1,0 +1,68 @@
+<!DOCTYPE html> 
+<html lang="en">
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        
+        <!--  Meta tags for SEO  -->
+        <link rel='stylesheet' href='static/css/style.css'>
+
+        <!--  React CDN  -->
+
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+       <title>krigjo25 | Home</title>
+    </head>
+    <body>
+
+        <header>
+            <a href='/'>
+                <div class="align-items-flex-end-row justify-flexstart-row padding">
+                    <div>
+                        <img src='static/img/logo/k-design-utvikling.png' alt='k-design-utvikling'>
+                    </div>
+                    <div class="relative slogan-wrapper">
+                        <h1>
+                            <span>Creative Mind</span>
+                            <span>&</span>
+                            <span>Logical</span>
+                            <span>Ways</span>
+                        </h1>
+                    </div>
+                </div>
+
+            </a>
+        </header>
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+
+        <footer id='footer-container'class="mb-5">
+            <section class="justify-content-space-evently-row">
+                <section id="footer-apps" class="justify-content-space-evently-row"></section>
+                <section id="powered-by">
+                </section>
+            </section>
+            <script>    
+                //  HTML Validator FROM W3C validation services
+                //  Adapted from https://stackoverflow.com/a/10162353
+                document.addEventListener('DOMContentLoaded', function() {
+                    const html = '<!DOCTYPE ' + document.doctype.name +
+                        (document.doctype.publicId ? ' PUBLIC "' + document.doctype.publicId + '"' : '') +
+                        (!document.doctype.publicId && document.doctype.systemId ? ' SYSTEM' : '') +
+                        (document.doctype.systemId ? ' "' + document.doctype.systemId + '"' : '') +
+                        '>\n' + document.documentElement.outerHTML;
+    
+                    //  Checks for HTML validations
+                    document.querySelector('form[action="https://validator.w3.org/check"] > input[name="fragment"]').value = html;
+                    });
+
+                    
+            </script>
+        </footer>
+        <script src="static/js/node_modules/index.js"></script>
+    </body>
+
+</html>

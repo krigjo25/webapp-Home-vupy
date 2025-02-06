@@ -1,67 +1,133 @@
-# Getting Started with Create React App
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# krigjo25 | Home
 
-## Available Scripts
-In the project directory, you can run:
+## Video Demo: [Video demo](https://youtu.be/n-jNhiu5Nm0)
 
-### `npm start`
+## Overview
+This project was not intended to use as an assignment for CS50x, but it kills two birds with one stone. The purpose of this website is to use it as a biography of who I am,  what's been done through my journey.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The application will create a new file called app.log, where Server information will be logged to control its behavior
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Description
 
-### `npm test`
+###    HTML
+The project uses HTML to structure the content of the web pages.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+###    CSS
+Cascade Style Sheets has been automaticly generated using Sass complier
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+###    Sass
+Sass was used to style the web pages. Including RWD to ensure the webpage is viewable for various devices.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+###   Javascript
+The JavaScript is used to add interactivity to the web site.
+- Automated Slider (Non functional as im going to go over to a Instagram API later) is implemented for the carusel
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+####    React
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+###   Flask
+During the planning, Flask was chosen as the web framework because of it's flexiblibility and ease of use. It provides the backend logic and API endpoints to fetch data from Github.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+####   Database
+SQLite is used as the Database Management System.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+It is lightweight and doesn't require a server, which makes it suitable for the project.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Requirements
+Please install the dependencies through the `requirements.txt` :
+```sh
+pip install -r requirements.txt
+```
 
-## Learn More
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Create a .env file
+```env
+#   Tokens
+GITHUB_TOKEN = "Bearer <Your Github Token>"
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Testing Framework And Datasets
 
-### Code Splitting
+####    How to run the tests
+To run the test, from the root of the repo
+```sh
+pytest -v
+pytest --html=reports.html
+```
+####    Requests
+Tests are based on the [GITHUB REST API](https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28) & [Heavy REST API](https://api.hevyapp.com/docs/)
+Tests are based on the 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**test_connection**
+During the connection test with the reposory i found out that i could expect agruments in the fields in the api, as a consequence of using
+Github REST API,it's reasonable to believe that if the request is Ok
+i will recieve the same output in expected and actual. Therefore it
+would be best practise to use the actual dictionary to pass values
+into the expected json, as the requests returns an json file if the
+code is 200, and to hide "sensitive information about a user.
 
-### Analyzing the Bundle Size
+**moc_requests**
+By mocking the url from [GITHUB REST API](https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#get-a-repository) i expect to find my repositories avialable
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+####    Databases
+Tests are based on the [documentation for unit tests](https://python-basics-tutorial.readthedocs.io/en/24.1.0/test/sqlite.html)
+**test_insertion**
+**test_update**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+In order to visualize the test, i created a test report. So its easier to view the test of the programs.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+##  Credits
+[flask, flask_session - by the pallets project](https://pypi.org/project/Flask/)
+[pytest, sqlite, os - Python built in responsories]()
+[dotenv - Saurabh Kumar](https://pypi.org/user/theskumar/)
 
-### Deployment
+### License
+See the seperate file LICENCE
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Project summary
 
-### `npm run build` fails to minify
+### Modal
+During the creation of the model some challanges with the API was encountered.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Github API
+While fetching the API i encountered an issue that for everytime
+the program sends a GET request. The program fetches the whole repo
+I choose to create an intervaler in order to just fetch once a day or when there is something new in the Repo.
+
+Filtering by language wasn't as easy as i expected, because of some strange bug in the system, i couldn't add a custom language to the list.
+
+
+## Tests
+During the tests i learned alot about how to use Python's built-in pytest as unit testing network.
+
+During the testing stage, raising exceptions durng the tests was learned.
+
+I learned to test an API using requests and pytest repository
+i learned basic database testing using Unit testing repository
+
+#### Github API
+>   **Testing the API function - Automated testing**<br>
+>  During the tests  i had to figure out a way to store the expected results with out sharing any sensitive information about the account.
+>  I chose to use the request to add the sensitive information, as i can expect that information to be added if the test should do succseed.
+>
+> **Ensure the connection to the API.**<br>
+> During the tests of the API function i encounted a challange to test the API with out sharing any sensitive information about the account which was tested.
+
+#### Database Management system SQLite3
+> **Testing the Database connection**
+> By testing the database connection, 
+> we can ensure that the database can be connected in a requested way
+
+> **Testing the Exceptions**
+> While testing Exceptions, We can ensure the user to know what excatly went wrong under the operation
+> **Testing the request**
+
+## JavaScript
+
+### React
+Through this repository i have learned how to initialize React environment with a python based server such as Flask
+Sincerely,
+@krigjo25
+
