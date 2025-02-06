@@ -9,6 +9,7 @@ from flask_session import Session
 from lib.views import Index
 from lib.config import DevelopmentConfig
 
+#   Loading Environment variables
 load_dotenv()
 
 app = Flask(__name__)

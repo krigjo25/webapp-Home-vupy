@@ -34,7 +34,7 @@ class GithubAPI(APIConfig):
        
         return
 
-    async def FetchApiJson(self, endpoint):
+    async def FetchRepos(self, endpoint):
         """
             Fetching the repositories
             API : https://api.github.com/users/repos
