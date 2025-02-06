@@ -22,7 +22,8 @@ function Image({source, alt, caption})
 function Carosel(arg)
 {
     console.log(arg);
-    return  (<>
+    return  (
+        <>
             <Image
                 alt ={arg.alt}
                 source ={arg.path + arg.source}

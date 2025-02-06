@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 #   Custom libraries
-from model import APIConfig
+from lib.model import APIConfig
 from lib.mathlibrary import MathInterPreter 
 
 class HeavyAPI(APIConfig):
