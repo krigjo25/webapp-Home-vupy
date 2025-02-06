@@ -5,7 +5,7 @@ import asyncio, os, datetime
 
 from dotenv import load_dotenv
 from flask.views import MethodView
-from flask import render_template, flash, jsonify
+from flask import render_template, flash, jsonify, request
 
 from lib.APIS.heavy import HeavyAPI
 from lib.APIS.github import GithubAPI
@@ -31,15 +31,20 @@ class Index(MethodView):
             await asyncio.sleep(386400)
             
     async def get(self): 
+        tools = UtilityTools()
+        response = {}
 
-        response = {
-            'mailbox': "mailto:krigjo25@outlook.com",
-            "linkedin": "https://www.linkedin.com/in/krigjo25",
-            "github": "https://www.github.com/krigjo25",
-            'heavy' : f"{await HeavyAPI().FetchWorkouts()}",
-            'github-repo': f"{Index.repo if Index.repo is not None else None}",
-            'flash': f"{self.SendFlash()}"
-        }
+        if request.method == "GET":
+
+            response['link']['mailbox'] = "mailto:krigjo25@outlook.com"
+            response['link']['github'] = "https://www.github.com/krigjo25"
+            response['link']['linkedin'] = "https://www.linkedin.com/in/krigjo25"
+            
+            response['heavy'] = f"{tools.HeavyAPI()}"
+            response['github-repo'] = f"{tools.GithubAPI()}"
+            
+            response['message'] = f"{tools.Announcements()}"
+
         return jsonify(response)
 
 

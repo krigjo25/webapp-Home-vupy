@@ -10,14 +10,13 @@ from lib.APIS.heavy import HeavyAPI
 class UtilityTools(object):
 
 
-    def UpdateHeavy(self):
+    def HeavyAPI(self):
         return HeavyAPI().FetchWorkouts()
 
-    def UpdateGithub(self):
+    def GithubAPI(self):
             return GithubAPI().FetchApiJson(f"{os.getenv('GithubRepos')}")
 
-    
-    def SendMessage(self, now):
+    def Announcements(self, now):
 
         match (now):
             
@@ -38,6 +37,7 @@ class UtilityTools(object):
             
             case _ if now.month == 5 and now.day < 18 and now.month == 5 and now.day > 9:
                 message ="🇳🇴 Happy Independence Day Norway 🇳🇴"
+
             case _ :
                 message ="Certified Specializations"
         

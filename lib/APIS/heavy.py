@@ -13,12 +13,12 @@ class HeavyAPI(APIConfig):
 
     def __init__(self, URL = f"{os.getenv("HeavyBase")}", KEY=os.getenv("HeavyToken"), GET = "GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE'):
         self.GET = GET
-        self.POST = POST
         self.PUT = PUT
-        self.PATCH = PATCH
-        self.DELETE = DELETE
+        self.POST = POST
         self.API_KEY = KEY
         self.API_URL = URL
+        self.PATCH = PATCH
+        self.DELETE = DELETE
         self.APIV = os.getenv("HeaVy")
         self.head = {"accept": "application/json", "api-key": f"{self.API_KEY}"}
     
