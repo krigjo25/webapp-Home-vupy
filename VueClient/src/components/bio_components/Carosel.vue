@@ -1,8 +1,8 @@
 <template>
     <section id="carosel-container" class="carosel">
-        <img v-for="img in images" :key="image.id" :src="image.source" :alt="image.alt">
+        <img id ="car-img" v-for="img in images" :key="img.id" :src="img.source" :alt="img.alt">
         <div class="caption">
-            <p>{{img.caption}}</p>
+            <p></p>
         </div>
 
         <div id="img-btn" class="btn-container">
@@ -12,7 +12,8 @@
             <button id ="next-btn" class="img-btn" @click="next()">
                 <i class="bi bi-arrow-right-square-fill"></i>
             </button>
-</div>`;
+        </div>
+
 
     </section>
 </template>
@@ -23,7 +24,8 @@ export default{
     data(){
 
         // Initialize the path to the image
-        const path = "../assets/img/carosel/";
+        const path = "./src/assets/img/carosel/";
+
         const sources = [];
 
         return{
@@ -32,17 +34,14 @@ export default{
                 {
                     id:1,
                     alt:"20240517_081250.jpg",
-                    source:path+"20240517_081250.jpg",
+                    source:`${path}20240517_081250.jpg`,
                     caption:"A guy in a dress"
-                },],
+                },
+            ],
             
             methods: {
-                next(){
-
-                },
-                prev(){
-
-                }
+                //next(){},
+                //prev(){},
             }
 
         };

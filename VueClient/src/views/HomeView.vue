@@ -1,16 +1,27 @@
-<script setup>
-import Carosel from '../components/carosel.vue'
-import Biography from '../components/bio.vue'
-import Education from '../components/education.vue'
-import Experience from '../components/experience.vue'
 
-</script>
 
 <template>
-    <Carosel />
-    <Biography />
-    <Education />
-    <Experience />
+    <header>
+        <Header />
+    </header>
+    <main>
+        <Bio />
 
-    <TheWelcome />
+    </main>
 </template>
+<script>
+
+    import Header from '../components/Header.vue'
+    import Bio from '../components/Bio.vue';
+
+    export default {
+        name: 'Home',
+        components: 
+        {
+            Header, Bio
+        },
+    };
+    
+
+
+</script>
