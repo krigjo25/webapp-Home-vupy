@@ -1,10 +1,9 @@
 <template>
     <section id="carosel-container" class="carosel">
-        <img id ="car-img" v-for="img in images" :key="img.id" :src="img.source" :alt="img.alt">
+        <img id="car-img" v-for="img in this.images" :key="img.id" :src="img.source" :alt="img.alt">
         <div class="caption">
-            <p></p>
+            <p>e</p>
         </div>
-
         <div id="img-btn" class="btn-container">
             <button id ="prev-btn" class="img-btn" @click="prev()">
                 <i class="bi bi-arrow-left-square-fill"></i>
@@ -20,39 +19,71 @@
 
 <script>
 
+import axios from 'axios';
+
+
 export default{
     data(){
-
-        // Initialize the path to the image
-        const path = "./src/assets/img/carosel/";
-
-        const sources = [];
-
         return{
 
-            images:[
-                {
-                    id:1,
-                    alt:"20240517_081250.jpg",
-                    source:`${path}20240517_081250.jpg`,
-                    caption:"A guy in a dress"
-                },
-            ],
-            
-            methods: {
-                //next(){},
-                //prev(){},
-            }
-
+            images:[],
         };
+    },
+    methods: 
+    {
+        PushImages()
+        {
+            //  Initialize the path to the image
+            const path = "http://localhost:5000/api/photos";
+            const playload = 
+            {
+                ContentType: "application/json",
+                Authorization:"89ac968c-b912-411b-a67c-97fa06e7d47a",
+            };
+
+            //  Collect all images from the server
+            axios.post(path, playload)
+            .then((response) => {
+                this.images = response.data.images;
+                console.log(this.images);
+            }).catch((error) => {
+                console.error(error.message);});
+                },
+                next(){
+
+                    //  Swap through the apps
+                    for (let i = 0; i < sources.length; i++)
+                    { 
+                        for (let j = 0; j < this.images.length; j++)
+                        {
+                            //  Ensure the path points to the image
+                            if (this.images[0].source.includes(sources[i].src))
+                            {
+                                //  Update variables with next media
+                                this.images[j].alt = (i + 1 > sources.length-1) ? sources[0].alt : sources[i+1].alt;
+                                this.images[j].caption = (i + 1 > sources.length-1) ? sources[0].caption : sources[i+1].caption;
+                                this.images[j].source = (i + 1 > sources.length-1) ? sources[0].src : sources[i+1].src;
+                            }
+                        }
+                    }
+                },
+                //prev(){},
+                startTimer()
+                {
+                    timer = setInterval(this.next, 5000);
+                },
+    },
+    created()
+    {
+                this.PushImages();
+                // this.startTimer();
     }
 };
+
 
 function next()
 {
     //  Initializing variables
-    let app = model.apps;
-    let sources = model.sources;
 
     // Swap through the apps
     for (let i = 0; i < app.length; i++)

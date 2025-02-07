@@ -1,11 +1,11 @@
 #   Index page
 
 #   Importing libraries
-import asyncio, os, datetime
+import asyncio, os
 
 from dotenv import load_dotenv
 from flask.views import MethodView
-from flask import render_template, flash, jsonify, request
+from flask import jsonify, request
 
 from lib.APIS.heavy import HeavyAPI
 from lib.APIS.github import GithubAPI
@@ -18,9 +18,9 @@ load_dotenv()
 class Index(MethodView):
 
     #   Initialize methods and database
-    methods = ["GET", "POST"]
+    methods = ["GET"]
 
-    def __init__(self) -> None:
+    def __init__(self, *args, **kwargs) -> None:
         super().__init__()
 
     async def UpdateRepo(self):
@@ -32,7 +32,7 @@ class Index(MethodView):
             
     async def get(self): 
         tools = UtilityTools()
-        response = {}
+        response = {"link":{}}
 
         if request.method == "GET":
 

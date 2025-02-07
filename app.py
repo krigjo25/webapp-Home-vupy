@@ -11,7 +11,7 @@ from flask_session import Session
 #   Custom libs
 from lib.views import Index
 from lib.config import DevelopmentConfig
-
+from lib.APIS.Google import PhotoLibrary
 #   Loading Environment variables
 load_dotenv()
 
@@ -22,7 +22,7 @@ app = Flask(__name__)
 app.config.from_object(DevelopmentConfig)
 Session(app)
 
-CORS(app, resources={r"/*": {"origins": f"{os.getenv('WEBDOMAIN')}"}})
+CORS(app, resources={r"/*": {"origins": f"*"}})
 
 @app.after_request
 async def after_request(response):
@@ -34,7 +34,8 @@ async def after_request(response):
     return response
 
 #   Endpoints
-app.add_url_rule("/", view_func = Index().as_view(name="index.html", methods = ["GET"]))
+app.add_url_rule("/", view_func = Index().as_view('Index',methods = ["GET"]))
+app.add_url_rule("/api/photos", view_func = PhotoLibrary().as_view('Photos', methods = ["POST"]))
 
 #   Webworkers
 
