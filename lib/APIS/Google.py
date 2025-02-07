@@ -1,13 +1,11 @@
 #   Index page
 
 #   Importing libraries
-import asyncio, os, uuid
+import os, uuid
 
 from dotenv import load_dotenv
 from flask.views import MethodView
 from flask import jsonify, request
-
-from lib.utility.utilitytools import UtilityTools
 
 class PhotoLibrary(MethodView):
 
