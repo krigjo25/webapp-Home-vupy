@@ -7,40 +7,43 @@ from dotenv import load_dotenv
 from flask.views import MethodView
 from flask import jsonify, request
 
+#   Load the environment variables
+load_dotenv()
 class PhotoLibrary(MethodView):
 
     def __init__(self, *args, **kwargs):
         pass
 
-    async def post(self):
+    async def get(self):
 
         #   Initialize response object
         response = {}
 
         #   Get the request data
-        
-        data = request.get_json()
-
-        #  ensure the request is a GET request and the token is valid
-        if request.method == "POST" and data['Authorization'] == os.getenv("Home-Token"):
+        #   Ensure the request is a GET request and the Authorization is valid
+        if request.method == "GET" and request.headers.get('Authorization') == os.getenv("Photo_Authorization"):
 
             
             response['status'] = 200
 
-            
-            path = "static/img/carosel/"
+            path = "VueClient/src/assets/img/carosel/"
             
             #   Ensure the existance of the path
             if os.path.exists(path):
 
-                response['images'] = {}
+                response['images'] = []
+
                 
                 #   Add the images to the response object
                 f = os.listdir(path)
-                response['images']['id'] = [uuid.uuid4().hex for i in range(len(f))]
-                response['images']['alt'] = [f]
-                response['images']['sources'] = [f]
-                response['images']['caption'] = ""
+                for i in os.listdir(path):
+
+                    response['images'].append({
+                    'id': uuid.uuid4().hex,
+                    'alt': i,
+                    'src': i,
+                    'caption': ""
+                    })
 
                 
             else:
@@ -49,5 +52,5 @@ class PhotoLibrary(MethodView):
         else:
             response['status'] = 401
             response['message'] = "Unauthorized"
-        
+
         return jsonify(response)
