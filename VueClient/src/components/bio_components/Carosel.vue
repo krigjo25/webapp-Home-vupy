@@ -1,7 +1,7 @@
 <template>
-    <section id="carosel-container" class="carosel">
+    <section v-if='source' id="carosel-container" class="carosel">
         <img id="car-img" :src="source" :alt="alt" />
-        <div class="caption">
+        <div v-if="caption" class="caption">
             <p>{{ caption }}</p>
         </div>
         <div id="img-btn" class="btn-container">
@@ -12,7 +12,6 @@
                 <i class="bi bi-arrow-right-square-fill"></i>
             </button>
         </div>
-
 
     </section>
 </template>
@@ -25,9 +24,7 @@ import axios from 'axios';
 export default{
     data(){
         return{
-            announcements: null,
 
-            // Image variables
             imgnum  : 0,
             images  : [],
             source  : null,
@@ -58,7 +55,6 @@ export default{
             .then((response) => {
                 
                 this.images = response.data.images;
-                console.log(this.images);
                 this.setImage();
 
             })
@@ -70,6 +66,8 @@ export default{
         setImage()
         {
             const num = this.imgnum;
+
+            //  Set the image to the first image
             if (this.images && this.images.length > 0)
             {
                 this.alt = this.images[num].alt;
@@ -127,13 +125,14 @@ export default{
                     this.alt = ( i < length) ?  sources[i].alt : sources[i].alt;
                     this.caption = (i < length) ? sources[i].caption : sources[i].caption;
                     this.source = (i < length) ? path + sources[i].src : path + sources[i].src;
+
                     return;
                 }
             }
         },
         startTimer()
         {
-            setInterval(this.next, 5000);
+            setInterval(this.next, 10000);
 
         },
     },

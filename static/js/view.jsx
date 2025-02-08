@@ -1,40 +1,3 @@
-import React from 'react';
-
-App();
-
-function App()
-{
-    //  Initialize variables
-    let app = model.apps;
-
-    //  Linear algorithme
-    for (let i = 0; i < app.length; i++)
-    {
-
-        //  Ensure the name is carosel
-        switch (app[i].app)
-        {
-            case "carosel-container":
-                Carosel();
-                return app[i].id.innerHTML = <Carosel arg ={app[i]}/>;
-
-            case "bio":
-                app[i].id.innerHTML = /*HTML*/`
-                    ${About(app[i])}`;
-                break;
-
-            case "specialization":
-                app[i].id.innerHTML = /*HTML*/`
-                    ${Specialization(app[i])}`;
-                break;
-
-            case "footer":
-                Footer();
-                break;
-        }
-    }
-}
-
 function About(arg)
 {
     let html = /*HTML*/`
@@ -65,41 +28,6 @@ function About(arg)
         </section>`;
     
     return html
-}
-function Image({source, alt, caption})
-{
-    return (
-        <>
-            <img 
-                id="car-img" 
-                src={source} 
-                alt={alt} 
-            />
-            <div class="caption">
-                <p>${caption}</p>
-            </div>
-        </>
-    );
-}
-
-function Carosel(arg)
-{
-    return  (<>
-            <Image
-                alt ={arg.alt}
-                source ={arg.path + arg.source}
-                caption ={arg.caption}
-            />
-                
-            <div id="img-btn" class="btn-container">
-                <button id ="prev-btn" class="img-btn" onClick="prev()">
-                    <i className="bi bi-arrow-left-square-fill"></i>
-                </button>
-                <button id ="next-btn" className="img-btn"onClick="next()">
-                    <i className="bi bi-arrow-right-square-fill"></i>
-                </button>
-            </div>
-        </>);
 }
 
 
