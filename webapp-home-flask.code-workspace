@@ -9,7 +9,7 @@
 			{
 				"format": "expanded",
 				"extensionName": ".css",
-				"savePath": "/static/css"
+				"savePath": "/VueClient/src/assets"
 			}
 		],
 		"pomodoro.soundIntervalNotification": 100
