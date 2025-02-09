@@ -2,19 +2,25 @@
     <section id='bio'class="bio-container">
         <h2>{{ page.author.name}}</h2>
         <h3>{{ page.author.title }}</h3>
-        <nav class="bio-link" >
-            <div v-for="btn in links" class="bio-btn">
-                <button  v-if="btn.exist" @click="btn.function">
-                    <i :class="btn.icon"></i> 
-                        {{btn.name}}
-                </button>
-            </div>
+        <nav class="bio-link">
+            <button v-for="btn in fliterlinks" :key="btn.id" class="bio-btn" @click="btn.function">
+                <i :class="btn.icon"></i> 
+                    {{btn.name}}
+            </button>
         </nav>
         <section class="bio-content">
             <div class='keywords'>
                 <h3>{{ page.title  }}</h3>
+                <section class="social-links">
+                    <button v-for="link in page.links" :key="link.id" class="content-btn" @click="link.url">
+                        <a :href="link.url" target="_blank">
+                            <i :class="link.icon"></i>
+                        </a>
+                    </button>
+                </section>
                 <h3>{{ page.headline }}</h3>
-                <small class ='abt-author'>Born : {{page.author.born}} ({{ page.author.age }} years old)</small><br>
+                <small class ='abt-author'>Born : {{page.author.born}} ({{ page.author.age }} years old) </small><br>
+
             </div>
             <small>Written by {{ page.author.name }}. Average reading time <b>{{ page.readtime }} min</b><i class="bi bi-stopwatch"></i></small>       
             
@@ -37,30 +43,38 @@ export default {
     data()
     {
         return {
-            name: "Kristoffer Gjøsund",
-            title: "Passionate Programmer and fitness enthusiast",
-
 
             links: [
                 {
+                    id      : 0,
                     name    : "Biography",
                     icon    : "bi bi-info-circle-fill",
                     exist   : true,
                     function: this.biography
                 },
                 {
+                    id      : 1,
                     name    : "Work Biography",
                     icon    : "bi bi-person-workspace",
                     exist   : true,
                     function: this.workProfile
                 },
                 {
-                    name    : "Workout blog",
+                    id      : 2,
+                    name    : "Journey So Far",
                     icon    : "bi bi-activity",
-                    exist   : false,
-                    function: false
+                    exist   : true,
+                    function: this.Journey
                 },
                 {
+                    id      : 3,
+                    name    : "Workout Blog",
+                    icon    : "bi bi-clock-history",
+                    exist   : false,
+                    function: false,
+                },
+                {
+                    id      : 4,
                     name    : "Personal Blog",
                     icon    : "bi bi-clock-history",
                     exist   : false,
@@ -72,33 +86,88 @@ export default {
                 headline: null,
                 readtime: null,
                 
-                message: [],
-                author:
+                links   : [],
+                message : [],
+                author  :
                 {
-                    name:null,
-                    age: null,
-                    born: null,
+                    name    :null,
+                    age     :null,
+                    born    :null,
+                    title   :"Passionate Programmer And Fitness Enthusiast",
                 },
-            },
+            }
         };
-        /*components: 
-        {
-            //Navigations, Announcements
-        };*/
     },
+    computed : {
+          fliterlinks()
+          {
+              return this.links.filter(link => link.exist);
+          }
+        },
     methods:
     {
         biography()
         {
+            //  Importing the links
+            const mail = import.meta.env.VITE_Mail;
+            const github = import.meta.env.VITE_Github;
+            const youtube = import.meta.env.VITE_Youtube;
+            const facebook = import.meta.env.VITE_Facebook;
+            const instagram = import.meta.env.VITE_Instagram;
+
             this.page = {
                 title: "Kristoffer Gjøsund",
-                headline: "Passionate Programmer and fitness enthusiast",
+                headline: "Passionate Programmer And Fitness Enthusiast",
+                links:
+                [
+                    {
+                        id  :0,
+                        icon:"bi bi-youtube",
+                        url :youtube,
+                    },
+                    {
+                        id  :1,
+                        icon:"bi bi-github",
+                        url :github,
+                    },
+                    {
+                        id  :2,
+                        icon:"bi bi-instagram",
+                        url :instagram,
+                    },
+                    
+                    {
+                        id  :3,
+                        icon:"bi bi-facebook",
+                        url :facebook,
+                    },
+                    {
+                        id  :4,
+                        icon:"bi bi-mailbox",
+                        url :mail,
+                    },                  
+                ],
 
-                message:[
+                message:
+                [
                     `The ideal lifestyle involves a balance between the passion 
-                    of technology and wellness. The free time is dedicated to Software developing,
-                    meditation, and physical activity and always on the outlook for a
-                    new challenge / adventure.`,
+                    of technology and wellness. The free time is dedicated to
+                    Software developing, meditation, and physical activity and
+                    always on the outlook for a new challenge / adventure.`, 
+
+                    `In my spare time, I primarily focus on enhancing my proficiency
+                    in Python libraries, database management, piano, and philosophy.
+                    I am dedicated to both improving my less stronger areas and
+                    further developing my existing strengths. To achieve this, I
+                    regularly leverage a network of developers and online resources.`,
+
+                    `Some common opinions which has been encountered through my carerrier.
+                    Known for my dedication and strong work ethic, my colleagues appreciate
+                    my presence and contributions to our projects. I'm passionate about
+                    fostering a supportive work environment and excel at recognizing and
+                    utilizing the unique strengths of my team members. This makes me a valuable
+                    asset to the team`,
+
                     ],
 
                 author:
@@ -106,6 +175,7 @@ export default {
                     name:"Kristoffer Gjøsund",
                     born: this.calculateDate(),
                     age: this.CalculateAge(),
+
                 },
                 readtime: null,
                 
@@ -114,10 +184,36 @@ export default {
         },
         workProfile()
         {
+            // Importing the links
+            const CV = import.meta.env.VITE_CV;
+            const github = import.meta.env.VITE_Github;
+            const linkedin = import.meta.env.VITE_Linkedin;
+            
             this.page = 
             {
                 title: "Work Biography",
                 headline: "Junior Software Developer",
+
+                links:
+                [
+                    {
+                        id  :0,
+                        url :linkedin,
+                        icon:"bi bi-linkedin",
+                        
+                    },
+                    {
+                        id  :1,
+                        url :github,
+                        icon:"bi bi-github",
+                    },
+                    {
+                        id  :2,
+                        url :CV,
+                        icon:"bi bi-file-person",
+                        
+                    },
+                ],
 
                 message:[
                     `As an Application engineer
@@ -139,15 +235,55 @@ export default {
                         I have experienced that the best practice to
                         ensure code quality is through test frameworks.`,
                     ],
-                author:
+                    author:
                 {
-                    name:'Kristoffer Gjøsund',
-                    //age: this.CalculateAge(),
+                    name:"Kristoffer Gjøsund",
+                    born: this.calculateDate(),
+                    age: this.CalculateAge(),
+
                 },
-            }
+                readtime: null,
+            };
             this.ReadTime();
         },
+        Journey()
+        {
+            this.page =
+            {
+                title   : "Journey",
+                headline: "The Journey So Far",
+                links   : [],
 
+                message :
+                [
+                    `The journey into coding began in my teens when I discovered HTML and CSS.
+                    Joining the SitePoint community fueled the passion for software engineering,
+                    after a while and I was introduced to JavaScript. While I explored JavaScript,
+                    I found an amazing calling in back-end development. I chose to specialize in Python
+                    and database management, gaining practical experience through Discord projects. While
+                    prosuing the passion of programming I went to Get Academy vocational school To persue
+                    more complex understanding of fullstack development while doing classes at
+                    Harvard University' CS50.I am excited to apply my skills to more complex projects and
+                    continue growing as a developer. As a Get Academy student, I am dedicated to continuous
+                    learning and growth. I am available for part-time work and seeking a challenging role
+                    where I can apply my academic knowledge and gain practical experience under the mentorship
+                    of Industry expertise.`,
+                    
+                    `I'm interested in joining a team that prioritizes continuous learning, mentorship, and
+                    Agile practices. the ideal career path involves progressing to a Senior Data Scientist
+                    position within an innovative and collaborative environment.`,
+                    ],
+                author:
+                {
+                    name:"Kristoffer Gjøsund",
+                    born: this.calculateDate(),
+                    age: this.CalculateAge(),
+
+                },
+                readtime: null,
+                };
+                this.ReadTime();
+        },
 
         calculateDate()
         {
@@ -179,22 +315,45 @@ export default {
         },
         ReadTime()
         {
-            let paragraph = "";
-            let page = this.page.message;
-
-            // append all the paragraphs to a single string
-            for (let i = 0; i < page.length - 1; i++)
-        {
-            page[i].replace('\\n', '.');
-            paragraph += page[i].split(" ").filter(element => element);
+            /*
+            *   The average reading time is calculated by dividing the total number of words by WPM.
+            *   The average adult reading speed is between 200 and 250 words per minute (WPM).            
+            *   The Code below is based on Flesch-Kincaid Grade Level Readability Formula,
+                While it is not directly related to the reading time, it is a good way to estimate the reading time.
+            *   For a better accuracy, the Math.round() function is used to round the number to the nearest whole number.
             
+            */
 
-        }
-            let time = Math.round(paragraph.length/200);
+            // Initialize  the message
+            let page = this.page.message;
+            
+            //  Initialize the count
+            let count = 0;
+
+            //  Count the words
+            for (let i = 0; i < page.length; i++)
+            {
+                const cleaned = page[i].replace(/[^\w\s]|_/g, "");
+                const words =  cleaned.trim().split(/\s+/).filter(words => words != '');
+                count += words.length;
+            }
+            // Garbage
+
+            //  Calculate the reading time
+            const WPM = 238;
+            let time = Math.round(count/WPM);
+
             this.page.readtime = time;
 
 
         },
+    },
+    mounted()
+    {
+    },
+    components: {
+        //Navigations,
+        //Announcements,
     },
     created()
     {
