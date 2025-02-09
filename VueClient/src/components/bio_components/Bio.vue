@@ -3,7 +3,7 @@
         <h2>{{ page.author.name}}</h2>
         <h3>{{ page.author.title }}</h3>
         <nav class="bio-link">
-            <button v-for="btn in fliterlinks" :key="btn.id" class="bio-btn" @click="btn.function">
+            <button class="bio-btn" v-for="btn in fliterlinks" :key="btn.id" @click="btn.function">
                 <i :class="btn.icon"></i> 
                     {{btn.name}}
             </button>
@@ -11,13 +11,13 @@
         <section class="bio-content">
             <div class='keywords'>
                 <h3>{{ page.title  }}</h3>
-                <section class="social-links">
-                    <button v-for="link in page.links" :key="link.id" class="content-btn" @click="link.url">
+                <nav class="social-links">
+                    <button class="btn-link" v-for="link in page.links" :key="link.id" @click="link.url">
                         <a :href="link.url" target="_blank">
                             <i :class="link.icon"></i>
                         </a>
                     </button>
-                </section>
+                </nav>
                 <h3>{{ page.headline }}</h3>
                 <small class ='abt-author'>Born : {{page.author.born}} ({{ page.author.age }} years old) </small><br>
 
