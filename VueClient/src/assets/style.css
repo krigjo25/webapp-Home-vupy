@@ -84,7 +84,7 @@ main section.info section.bio-container nav.bio-link {
 }
 main section.info section.bio-container nav.bio-link button.bio-btn {
   border: none;
-  padding: 0.5em;
+  padding: 1em;
   cursor: pointer;
   border-radius: 0.5em;
   background-color: rgb(230, 247, 252);
@@ -103,6 +103,18 @@ main section.info section.bio-container section.bio-content .keywords {
 }
 main section.info section.bio-container section.bio-content .keywords h3 {
   margin-block-end: 0em;
+}
+main section.info section.bio-container section.bio-content nav.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-block-start: 2vh;
+}
+main section.info section.bio-container section.bio-content nav.social-links button.btn-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-block-start: 2vh;
 }
 main section.info section .btn-links a:visited, main section.info section .btn-links a:link {
   text-decoration: none;
@@ -384,7 +396,7 @@ flex-wrap-reversed-row, .flex-reversed-row {
   margin-inline: 0.3em;
 }
 
-.social-media-container .bi-instagram, .social-media-container .bi-facebook, .contact-container .bi-mailbox, .contact-container .bi-discord, .contact-container .bi-messenger {
+.contact-container .bi-mailbox, .contact-container .bi-discord, .contact-container .bi-messenger {
   margin: 1vw;
   padding: 1vw;
   font-size: 1.5vw;
@@ -392,46 +404,53 @@ flex-wrap-reversed-row, .flex-reversed-row {
   min-inline-size: 50px;
 }
 
-.social-media-container a, .contact-container a, nav .ext-bar a {
+.contact-container a, nav.social-links button.btn-link {
   color: inherit;
   text-decoration: none;
 }
 
-nav .ext-bar {
-  display: flex;
-  flex-wrap: wrap;
-  margin-block-start: 2vh;
-  justify-content: center;
-  border-bottom: 1px groove black;
-}
-nav .ext-bar a {
-  margin: 0.5em;
-  padding: 0.5em;
-  border-radius: 50%;
-  text-align: center;
-  transition: 0aaaa 0.5s;
-  display: inline-block;
-  min-inline-size: 50px;
+nav.social-links button.btn-link .bi-file-person, nav.social-links button.btn-link .bi-github, nav.social-links button.btn-link .bi-youtube, nav.social-links button.btn-link .bi-mailbox, nav.social-links button.btn-link .bi-linkedin, nav.social-links button.btn-link .bi-instagram, nav.social-links button.btn-link .bi-facebook {
+  font-size: 1.5em;
+  padding: 2vw;
+  cursor: pointer;
 }
 
-.bi-mailbox {
-  font-size: 2em;
-  color: rgb(40, 40, 40);
+nav.social-links button.btn-link .bi-facebook {
+  color: rgb(59, 89, 152);
 }
-
-.bi-linkedin {
-  font-size: 2em;
+nav.social-links button.btn-link .bi-facebook:hover {
+  color: rgba(59, 89, 152, 0.8);
+}
+nav.social-links button.btn-link .bi-facebook:active {
+  color: rgba(59, 89, 152, 0.6);
+}
+nav.social-links button.btn-link .bi-instagram {
+  color: rgb(193, 53, 132);
+}
+nav.social-links button.btn-link .bi-instagram:hover {
+  color: rgba(193, 53, 132, 0.8);
+}
+nav.social-links button.btn-link .bi-instagram:active {
+  color: rgba(193, 53, 132, 0.6);
+}
+nav.social-links button.btn-link .bi-linkedin {
   color: rgb(0, 0, 128);
 }
-
-.bi-linkedin:hover {
+nav.social-links button.btn-link .bi-linkedin:hover {
   color: rgb(25, 25, 140);
 }
-
-.bi-linkedin:active {
+nav.social-links button.btn-link .bi-linkedin:active {
   color: rgb(0, 0, 115);
 }
-
+nav.social-links button.btn-link .bi-mailbox {
+  color: rgb(40, 40, 40);
+}
+nav.social-links button.btn-link .bi-mailbox:hover {
+  color: rgb(25, 25, 140);
+}
+nav.social-links button.btn-link .bi-mailbox:active {
+  color: rgb(0, 0, 115);
+}
 .bi-youtube {
   font-size: 2em;
   color: rgb(255, 0, 0);
@@ -489,27 +508,6 @@ nav .ext-bar a {
 }
 .contact-container .bi-mailbox:active {
   color: rgba(40, 40, 40, 0.6);
-}
-
-.social-media-container .bi-facebook {
-  color: rgb(59, 89, 152);
-  padding: 2vw;
-}
-.social-media-container .bi-instagram {
-  color: rgb(193, 53, 132);
-  padding: 2vw;
-}
-.social-media-container .bi-facebook:hover {
-  color: rgba(59, 89, 152, 0.8);
-}
-.social-media-container .bi-instagram:hover {
-  color: rgba(193, 53, 132, 0.8);
-}
-.social-media-container .bi-facebook:active {
-  color: rgba(59, 89, 152, 0.6);
-}
-.social-media-container .bi-instagram:active {
-  color: rgba(193, 53, 132, 0.6);
 }
 
 .specialization-container .bi-getacademy {
