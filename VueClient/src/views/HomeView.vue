@@ -6,8 +6,8 @@
     </header>
     <main>
         <Bio />
-        <education />
-        <experience />
+        <Education />
+        <Experience />
 
     </main>
     <footer>
@@ -19,8 +19,8 @@
     //  Importing components
     import Bio from '../components/Bio.vue';
     import Header from '../components/Header.vue'
-    import education from '../components/Education.vue'
-    import experience from '../components/Experience.vue'
+    import Education from '../components/Education.vue'
+    import Experience from '../components/Experience.vue'
 
 
     export default {
@@ -29,8 +29,8 @@
         {
             Bio,
             Header,
-            education,
-            experience,
+            Education,
+            Experience,
 
         },
     };
