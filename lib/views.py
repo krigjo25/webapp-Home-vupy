@@ -36,14 +36,10 @@ class Index(MethodView):
 
         if request.method == "GET":
 
-            response['link']['mailbox'] = "mailto:krigjo25@outlook.com"
-            response['link']['github'] = "https://www.github.com/krigjo25"
-            response['link']['linkedin'] = "https://www.linkedin.com/in/krigjo25"
+            response['heavy'] = f"{tools.HeavyAPI()}"
+            response['github-repo'] = f"{tools.GithubAPI()}"
             
-            #response['heavy'] = f"{tools.HeavyAPI()}"
-            #response['github-repo'] = f"{tools.GithubAPI()}"
-            
-            #response['message'] = f"{tools.Announcements()}"
+            response['message'] = f"{tools.Announcements()}"
 
         return jsonify(response)
 
