@@ -28,18 +28,13 @@
         </section>
     </section>
 
-    <!--Navigations /-->
     <!--Announcements /-->
     
 </template>
 
 <script>
 export default {
-
-    //  Importing components
-    //import Navigations from '../components/Navigations.vue';
-    //import Announcements from '../components/Announcements.vue';
-    
+    name: 'Biography',
     data()
     {
         return {
