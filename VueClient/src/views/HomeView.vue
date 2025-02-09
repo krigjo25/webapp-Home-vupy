@@ -6,19 +6,32 @@
     </header>
     <main>
         <Bio />
+        <education />
+        <experience />
 
     </main>
+    <footer>
+
+    </footer>
 </template>
 <script>
-
-    import Header from '../components/Header.vue'
+    
+    //  Importing components
     import Bio from '../components/Bio.vue';
+    import Header from '../components/Header.vue'
+    import education from '../components/Education.vue'
+    import experience from '../components/Experience.vue'
+
 
     export default {
         name: 'Home',
         components: 
         {
-            Header, Bio
+            Bio,
+            Header,
+            education,
+            experience,
+
         },
     };
     
