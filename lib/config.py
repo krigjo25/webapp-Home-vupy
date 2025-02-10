@@ -6,11 +6,11 @@ import os
 class DefaulthConfig(object):
     DEBUG = False
     TESTING = False
-    STATIC_FOLDER = 'vite/static'
     SESSION_TYPE = None
     VITE_AUTO_INSERT = True
     SESSION_PERMANENT = False
-    DATABASE_URL = os.getenv("DATABASE_URL")
+    STATIC_FOLDER = "VueClient/src/assets"
+    DATABASE_URL = os.getenv('DATABASE_URL')
 
 class DevelopmentConfig(DefaulthConfig):
     SESSION_TYPE ='filesystem'

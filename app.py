@@ -1,19 +1,14 @@
 #  Application entry point
 
 #   Importing responsories
-import os
-
 from flask import Flask
 from flask_cors import CORS
-from dotenv import load_dotenv
 from flask_session import Session
 
 #   Custom libs
 from lib.views import Index
-from lib.config import DevelopmentConfig
+from lib.config import DevelopmentConfig, ProdConfig
 from lib.APIS.Google import PhotoLibrary
-#   Loading Environment variables
-load_dotenv()
 
 #   Initialize Flask app and Extensions
 app = Flask(__name__)
