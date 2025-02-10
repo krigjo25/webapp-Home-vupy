@@ -17,7 +17,7 @@ class UtilityTools(object):
             return GithubAPI().FetchApiJson(f"{os.getenv('GithubRepos')}")
 
     def Announcements(self, now):
-
+        
         match (now):
             
             case _ if now.month == 12 and now.day > 10 and now.day < 25:

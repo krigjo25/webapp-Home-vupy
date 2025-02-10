@@ -3,9 +3,11 @@
 #   Importing libraries
 import asyncio, os
 
+from datetime import datetime
 from dotenv import load_dotenv
 from flask.views import MethodView
 from flask import jsonify, request
+
 
 from lib.APIS.heavy import HeavyAPI
 from lib.APIS.github import GithubAPI
@@ -36,10 +38,9 @@ class Index(MethodView):
 
         if request.method == "GET":
 
-            response['heavy'] = f"{tools.HeavyAPI()}"
+            #response['heavy'] = f"{tools.HeavyAPI()}"
             response['github-repo'] = f"{tools.GithubAPI()}"
-            
-            response['message'] = f"{tools.Announcements()}"
+            response['announcements'] = f"{tools.Announcements(datetime.now())}"
 
         return jsonify(response)
 

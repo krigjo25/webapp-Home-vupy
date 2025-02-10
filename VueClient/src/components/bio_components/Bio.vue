@@ -42,38 +42,39 @@ export default {
             links: [
                 {
                     id      : 0,
-                    name    : "Biography",
-                    icon    : "bi bi-info-circle-fill",
                     exist   : true,
-                    function: this.biography
+                    name    : "Biography",
+                    function: this.biography,
+                    icon    : "bi bi-info-circle-fill",
                 },
                 {
                     id      : 1,
-                    name    : "Work Biography",
-                    icon    : "bi bi-person-workspace",
                     exist   : true,
-                    function: this.workProfile
+                    name    : "Work Biography",
+                    function: this.workProfile,
+                    icon    : "bi bi-person-workspace",
                 },
                 {
                     id      : 2,
+                    exist   : true,
+                    function: this.Journey,
                     name    : "Journey So Far",
                     icon    : "bi bi-activity",
-                    exist   : true,
-                    function: this.Journey
                 },
                 {
                     id      : 3,
-                    name    : "Workout Blog",
-                    icon    : "bi bi-clock-history",
                     exist   : false,
+                    name    : "Workout Blog",
                     function: false,
+                    icon    : "bi bi-clock-history",
                 },
                 {
                     id      : 4,
-                    name    : "Personal Blog",
-                    icon    : "bi bi-clock-history",
                     exist   : false,
+
+                    name    : "Personal Blog",
                     function: false,
+                    icon    : "bi bi-clock-history",
                 },
             ],
 

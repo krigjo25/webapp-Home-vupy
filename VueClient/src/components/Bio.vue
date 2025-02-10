@@ -3,23 +3,22 @@
     
         <Carosel />
         <bio />
-</section>
-<Announcements />
+    </section>
 </template>
 
 <script>
     //  Importing components
     import Bio from '../components/bio_components/Bio.vue';
-    import Carosel from '../components/bio_components/Carosel.vue'
-    import Announcements from '../components/announce.vue'
+    import Carosel from '../components/bio_components/Carosel.vue';
+    
     
     export default {
         name: 'Biography',
         components: 
         {
-            Carosel,
             Bio,
-            Announcements,
+            Carosel,
+            
         },
     };
 </script>

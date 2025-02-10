@@ -6,6 +6,7 @@
     </header>
     <main>
         <Bio />
+        <Announcements />
         <Education />
         <Experience />
 
@@ -21,6 +22,7 @@
     import Header from '../components/Header.vue'
     import Education from '../components/Education.vue'
     import Experience from '../components/Experience.vue'
+    import Announcements from '../components/Announcements.vue'
 
 
     export default {
@@ -31,6 +33,7 @@
             Header,
             Education,
             Experience,
+            Announcements,
 
         },
     };

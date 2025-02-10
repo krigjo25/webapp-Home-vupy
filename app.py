@@ -7,9 +7,8 @@ from flask_session import Session
 
 #   Custom libs
 from lib.views import Index
-from lib.config import DevelopmentConfig, ProdConfig
 from lib.APIS.Google import PhotoLibrary
-
+from lib.config import DevelopmentConfig, ProdConfig
 #   Initialize Flask app and Extensions
 app = Flask(__name__)
 
