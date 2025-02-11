@@ -13,36 +13,9 @@ export default
     data()
     {
         return{
-            language:
-            [
-                {
-                    id: 0,
-                    name: 'HTML',
-                },
-                {
-                    id: 1,
-                    name: 'Python',
-                },
-                {
-                    id: 2,
-                    name: 'CS',
-                },
-            ],
-            labels:
-            [
-                {
-                    id: 0,
-                    name: 'MVC',
-                },
-                {
-                    id: 1,
-                    name: 'Python',
-                },
-                {
-                    id: 2,
-                    name: 'CS',
-                },
-            ]
+            labels: [],
+            languages:[],
+            
 
         };
     }

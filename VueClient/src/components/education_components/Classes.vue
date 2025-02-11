@@ -1,12 +1,22 @@
 <template>
-    <div class="specialization-course" v-for="cls in classes" :key="cls.id">
-        <a :href="cls.diploma.link" target="_blank" v-if="cls.diploma.exists">
+    <div class="specialization-course">
+        <a :href="cls.diploma.link" _target="blank" v-if="cls.diploma.graduate">
             <h4 class='h4-link'>
-                <i :class='cls.finished'></i> {{classes.diploma.name}}
+                <i :class='cls.diploma.icon.qualified'></i>
+                {{cls.name}}
             </h4>
         </a>
-        <h4 class="h4-link no-select" v-else><i :class='cls.process'></i>{{cls.name}}</h4>
-        <Tech />
+        <h4 class="h4-link no-select" v-else>
+            <i :class="cls.diploma.icon.unqualified" ></i>
+            {{cls.name}}
+        </h4>
+        <p>{{cls.description}}</p>
+        <div v-if="cls.diploma.warning">
+            <i :class="cls.diploma.class.warning"></i>
+            <small> <b>{{ cls.diploma.notes }}</b></small>
+
+        </div>
+        
     </div>
 </template>
 <script>
@@ -16,36 +26,18 @@ import Tech from './tech.vue';
 
 export default 
 {
-    name: 'Classes',
-    data()
-    {
-        return {
-            classes:
-            [
-                {
-                    id: 0,
-                    name: 'Frontend Development',
-                    description: `
-                        Frontend development is the practice of producing HTML, CSS, and JavaScript for a website or Web Application so that a user can see and interact with them directly. The challenge associated with front-end development is that the tools and techniques used to create the front end of a website change constantly and so the developer needs to constantly be aware of how the field is developing.`,
-                    diploma: 
-                    {
-                        exists: false,
-                        finished: 'bi bi-award',
-                        process: 'bi bi-award',
-                        link: 'https://getacademy.no',
-                        name: 'Frontend Development Diploma',
-                        
-
-                    },
-                }
-            ],
+    props: {
+        cls: {
+            type: Object,
+            required: true
         }
+          
     },
     components: {
         Tech
     },
-    
 };
+console.log(this)
 /*if (schools.classes)
         {
             //  Fetch classes from the model

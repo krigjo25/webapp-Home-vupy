@@ -1,0 +1,107 @@
+main section.spec-wrapper .specialization-class .specialization-course .tech-container, main section.spec-wrapper .specialization-class .no-select {
+  user-select: none;
+  margin-inline: 1em;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+roboto-font, main section.spec-wrapper .specialization-class p {
+  font-family: "Roboto", sans-serif;
+}
+
+work-sans-font, main section.spec-wrapper .specialization-class .specialization-course .h4-link, main section.spec-wrapper .specialization-class:hover .h3-link, main section.spec-wrapper .specialization-class .h3-link {
+  font-weight: 100;
+  font-family: "Work Sans", sans-serif;
+}
+
+open-sans-font {
+  font-family: "Open Sans", sans-serif;
+}
+
+main .flash {
+  font-size: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  flex-direction: column;
+  border-bottom: 1px groove black;
+}
+main section.spec-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-block: 5vh;
+  justify-content: space-evenly;
+}
+main section.spec-wrapper .specialization-class {
+  inline-size: 40vw;
+}
+main section.spec-wrapper .specialization-class a {
+  text-decoration: none;
+  color: rgb(64, 64, 64);
+  transition: 0.3s;
+}
+main section.spec-wrapper .specialization-class .h3-link {
+  margin: auto;
+  font-size: 2em;
+  transition: 0.3s ease-in-out;
+}
+main section.spec-wrapper .specialization-class:hover .h3-link {
+  font-size: 2.5em;
+  transform: scale(1.1);
+  text-decoration: underline;
+}
+main section.spec-wrapper .specialization-class p {
+  font-size: 1.5em;
+  inline-size: 100%;
+  text-align: justify;
+}
+main section.spec-wrapper .specialization-class .tech-container {
+  inline-size: 100%;
+}
+main section.spec-wrapper .specialization-class span.tech-label {
+  padding: 1em;
+  font-size: 0.9em;
+  font-weight: 300;
+  font-style: oblique;
+  border-radius: 10px;
+  margin-inline: 0.3em;
+}
+main section.spec-wrapper .specialization-class .specialization-course a {
+  text-decoration: none;
+  color: rgb(64, 64, 64);
+  transition: 0.3s;
+}
+main section.spec-wrapper .specialization-class .specialization-course .h4-link {
+  margin: auto;
+  font-size: 3vh;
+  transition: 0.3s ease-in-out;
+}
+main section.spec-wrapper .specialization-class .specialization-course:hover .h4-link {
+  font-size: 3.5vh;
+  font-weight: bold;
+  text-decoration: underline;
+  transform: scale(1.1);
+}
+main section.spec-wrapper .specialization-class .specialization-course .tech-container .relative {
+  left: 0.5em;
+  top: 0.9em;
+  position: relative;
+}
+main section.spec-wrapper .specialization-class .specialization-course .tech-wrapper {
+  margin: 1px;
+  display: flex;
+  border-radius: 10px;
+  background-color: rgb(241, 241, 241);
+}
+main section.spec-wrapper .specialization-class .specialization-course .tech-wrapper:hover {
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+  background-color: rgba(241, 241, 241, 0.8);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.flex-row {
+  padding: 0.5em !important;
+  margin: 0.5em !important;
+}/*# sourceMappingURL=expertise.css.map */
