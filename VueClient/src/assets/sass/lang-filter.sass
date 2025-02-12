@@ -3,22 +3,12 @@
 @import colour
 @import misc
 
-// Python
-div.tech-Python
+// Interpreted language
+div.tech-interpreted
     @extend %filter-content
     background-color: $Cyan-Blue-Azure
 
-div.tech-Jupyter
-    @extend %filter-content
-    background-color: $Cyan-Blue-Azure
-
-.tech-wrapper:has(.tech-Python)
-    transition: all .3s ease-out
-
-    &:hover
-        background-color: $Cyan-Blue-Azure-hover
-
-.tech-wrapper:has(.tech-Jupyter)
+.tech-wrapper:has(.tech-intepreted)
     transition: all .3s ease-out
 
     &:hover
@@ -26,79 +16,13 @@ div.tech-Jupyter
 
 
 
-// UI/UX
-div.tech-UI
-    @extend %filter-content
-    background-color: $webapp
-
-div.tech-HTML
-    @extend %filter-content
-    background-color: $webapp
-
-div.tech-CSS
-    @extend %filter-content
-    background-color: $webapp
-
-
-div.tech-JavaScript
-    @extend %filter-content
-    background-color: $webapp
-
-div.tech-Sass
-    @extend %filter-content
-    background-color: $webapp
-
-.tech-wrapper:has(.tech-CSS)
-    transition: all .3s ease-out
-
-    &:hover
-        background-color: $webapp-light
-
-.tech-wrapper:has(.tech-HTML)
-    transition: all .3s ease-out
-
-    &:hover
-        background-color: $webapp-light
-
-.tech-wrapper:has(.tech-Sass)
-    transition: all .3s ease-out
-
-    &:hover
-        background-color: $webapp-light
-
-.tech-wrapper:has(.tech-JavaScript)
-    transition: all .3s ease-out
-
-    &:hover
-        background-color: $webapp-light
-
-
-// C, C++, C#, .NET
-div.tech-C
+// Compiled languageC, C++, C#,
+div.tech-compiled
     @extend %filter-content
     background-color: $c
 
-div.tech-CPlus
-    @extend %filter-content
-    background-color: $c
 
-div.tech-CS
-    @extend %filter-content
-    background-color: $c
-
-.tech-wrapper:has(.tech-C)
-    transition: all .3s ease-out
-
-    &:hover
-        background-color: $c-light
-
-.tech-wrapper:has(.tech-CS)
-    transition: all .3s ease-out
-
-    &:hover
-        background-color: $c-light
-
-.tech-wrapper:has(.tech-CPlus)
+.tech-wrapper:has(.tech-compiled)
     transition: all .3s ease-out
 
     &:hover
@@ -106,56 +30,37 @@ div.tech-CS
 
 
 // Database
-div.tech-Database-Management
+div.tech-db
     @extend %filter-content
     background-color: $db
 
-.tech-wrapper:has(.tech-SQL)
+.tech-wrapper:has(.tech-db)
     transition: all .3s ease-out
 
     &:hover
         background-color: $db-light
 
+// UI / UX / Frontend
+div.tech-ui-ux
+    @extend %filter-content
+    background-color: $webapp
+
+.tech-wrapper:has(.tech-UX-UI)
+    transition: all .3s ease-out
+
+    &:hover
+        background-color: $webapp-light
+
 // Workflow
-div.tech-Makefile
+div.tech-workflow
     @extend %filter-content
     background-color: $work-flow
 
-div.tech-Dockerfile
-    @extend %filter-content
-    background-color: $work-flow
-
-div.tech-Workflow
-    @extend %filter-content
-    background-color: $work-flow
-
-.tech-wrapper:has(.tech-Dockerfile)
+.tech-wrapper:has(.tech-workflow)
     transition: all .3s ease-out
 
     &:hover
         background-color: $work-flow-light
-
-.tech-wrapper:has(.tech-Makefile)
-    transition: all .3s ease-out
-
-    &:hover
-        background-color: $work-flow-light
-.tech-wrapper:has(.tech-Workflow)
-    transition: all .3s ease-out
-
-    &:hover
-        background-color: $work-flow-light
-
-div.tech-Unkown
-    @extend %filter-content
-    background-color: $other
-
-.tech-wrapper:has(.tech-Unkown)
-    transition: all .3s ease-out
-
-    &:hover
-        background-color: $other-light
-
 
 
 

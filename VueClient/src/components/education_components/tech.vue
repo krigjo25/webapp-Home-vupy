@@ -1,8 +1,10 @@
 <template>
-    <div class='tech-container flex-row relative'>
-        <div class='tech-wrapper' v-for="tech in language" :key="tech.id">
-            <div :class="'tech-' + tech.name"  class="relative"></div>
-                <span class='tech-label'> {{ tech.name }} </span>
+    <div class="tech-wrapper"  v-for="name in tech.names" :key="name">
+
+        <div :class="'relative tech-' + tech.category">
+            <span class="tech-label">
+                <span>{{ name }}</span>
+            </span>
         </div>
     </div>
 </template>
@@ -10,15 +12,12 @@
 
 export default
 {
-    data()
-    {
-        return{
-            labels: [],
-            languages:[],
-            
-
-        };
-    }
-
+    props: {
+        tech: {
+            type: Object,
+            required: true
+        }
+          
+    },
 }
 </script>

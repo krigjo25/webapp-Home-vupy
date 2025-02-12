@@ -163,7 +163,7 @@ main section.info nav.ext-bar:hover, main section.info nav.ext-bar :visited {
   -webkit-user-select: none;
 }
 
-div.tech-Unkown, div.tech-Workflow, div.tech-Dockerfile, div.tech-Makefile, div.tech-Database-Management, div.tech-CS, div.tech-CPlus, div.tech-C, div.tech-Sass, div.tech-JavaScript, div.tech-CSS, div.tech-HTML, div.tech-UI, div.tech-Jupyter, div.tech-Python {
+div.tech-workflow, div.tech-ui-ux, div.tech-db, div.tech-compiled, div.tech-interpreted {
   block-size: 1em;
   inline-size: 1em;
   border-radius: 10px;
@@ -248,13 +248,15 @@ main section.spec-wrapper .specialization-class .specialization-course:hover .h4
   transform: scale(1.1);
 }
 main section.spec-wrapper .specialization-class .specialization-course .tech-container .relative {
-  left: 0.5em;
-  top: 0.9em;
+  left: 0.5vw;
+  top: 0.9vh;
   position: relative;
 }
 main section.spec-wrapper .specialization-class .specialization-course .tech-wrapper {
   margin: 1px;
   display: flex;
+  block-size: 5vh;
+  inline-size: 8vw;
   border-radius: 10px;
   background-color: rgb(241, 241, 241);
 }
@@ -277,7 +279,7 @@ main section.spec-wrapper .specialization-class .specialization-course .tech-wra
   -webkit-user-select: none;
 }
 
-div.tech-Unkown, div.tech-Workflow, div.tech-Dockerfile, div.tech-Makefile, div.tech-Database-Management, div.tech-CS, div.tech-CPlus, div.tech-C, div.tech-Sass, div.tech-JavaScript, div.tech-CSS, div.tech-HTML, div.tech-UI, div.tech-Jupyter, div.tech-Python {
+div.tech-workflow, div.tech-ui-ux, div.tech-db, div.tech-compiled, div.tech-interpreted {
   block-size: 1em;
   inline-size: 1em;
   border-radius: 10px;
@@ -529,168 +531,65 @@ main section.spec-wrapper .specialization-class .no-select, main section.spec-wr
   -webkit-user-select: none;
 }
 
-div.tech-Unkown, div.tech-Workflow, div.tech-Dockerfile, div.tech-Makefile, div.tech-Database-Management, div.tech-CS, div.tech-CPlus, div.tech-C, div.tech-Sass, div.tech-JavaScript, div.tech-CSS, div.tech-HTML, div.tech-UI, div.tech-Jupyter, div.tech-Python {
+div.tech-workflow, div.tech-ui-ux, div.tech-db, div.tech-compiled, div.tech-interpreted {
   block-size: 1em;
   inline-size: 1em;
   border-radius: 10px;
 }
 
-div.tech-Python {
+div.tech-interpreted {
   background-color: rgb(48, 105, 152);
 }
 
-div.tech-Jupyter {
-  background-color: rgb(48, 105, 152);
-}
-
-.tech-wrapper:has(.tech-Python) {
+.tech-wrapper:has(.tech-intepreted) {
   transition: all 0.3s ease-out;
 }
-.tech-wrapper:has(.tech-Python):hover {
+.tech-wrapper:has(.tech-intepreted):hover {
   background-color: rgb(75, 139, 190);
 }
 
-.tech-wrapper:has(.tech-Jupyter) {
-  transition: all 0.3s ease-out;
-}
-.tech-wrapper:has(.tech-Jupyter):hover {
-  background-color: rgb(75, 139, 190);
-}
-
-div.tech-UI {
-  background-color: rgba(255, 99, 71, 0.8);
-}
-
-div.tech-HTML {
-  background-color: rgba(255, 99, 71, 0.8);
-}
-
-div.tech-CSS {
-  background-color: rgba(255, 99, 71, 0.8);
-}
-
-div.tech-JavaScript {
-  background-color: rgba(255, 99, 71, 0.8);
-}
-
-div.tech-Sass {
-  background-color: rgba(255, 99, 71, 0.8);
-}
-
-.tech-wrapper:has(.tech-CSS) {
-  transition: all 0.3s ease-out;
-}
-.tech-wrapper:has(.tech-CSS):hover {
-  background-color: rgba(255, 99, 71, 0.6);
-}
-
-.tech-wrapper:has(.tech-HTML) {
-  transition: all 0.3s ease-out;
-}
-.tech-wrapper:has(.tech-HTML):hover {
-  background-color: rgba(255, 99, 71, 0.6);
-}
-
-.tech-wrapper:has(.tech-Sass) {
-  transition: all 0.3s ease-out;
-}
-.tech-wrapper:has(.tech-Sass):hover {
-  background-color: rgba(255, 99, 71, 0.6);
-}
-
-.tech-wrapper:has(.tech-JavaScript) {
-  transition: all 0.3s ease-out;
-}
-.tech-wrapper:has(.tech-JavaScript):hover {
-  background-color: rgba(255, 99, 71, 0.6);
-}
-
-div.tech-C {
+div.tech-compiled {
   background-color: rgb(238, 140, 43);
 }
 
-div.tech-CPlus {
-  background-color: rgb(238, 140, 43);
-}
-
-div.tech-CS {
-  background-color: rgb(238, 140, 43);
-}
-
-.tech-wrapper:has(.tech-C) {
+.tech-wrapper:has(.tech-compiled) {
   transition: all 0.3s ease-out;
 }
-.tech-wrapper:has(.tech-C):hover {
+.tech-wrapper:has(.tech-compiled):hover {
   background-color: rgba(238, 140, 43, 0.8);
 }
 
-.tech-wrapper:has(.tech-CS) {
-  transition: all 0.3s ease-out;
-}
-.tech-wrapper:has(.tech-CS):hover {
-  background-color: rgba(238, 140, 43, 0.8);
-}
-
-.tech-wrapper:has(.tech-CPlus) {
-  transition: all 0.3s ease-out;
-}
-.tech-wrapper:has(.tech-CPlus):hover {
-  background-color: rgba(238, 140, 43, 0.8);
-}
-
-div.tech-Database-Management {
+div.tech-db {
   background-color: rgba(255, 0, 0, 0.8);
 }
 
-.tech-wrapper:has(.tech-SQL) {
+.tech-wrapper:has(.tech-db) {
   transition: all 0.3s ease-out;
 }
-.tech-wrapper:has(.tech-SQL):hover {
+.tech-wrapper:has(.tech-db):hover {
   background-color: rgba(255, 0, 0, 0.6);
 }
 
-div.tech-Makefile {
+div.tech-ui-ux {
+  background-color: rgba(255, 99, 71, 0.8);
+}
+
+.tech-wrapper:has(.tech-UX-UI) {
+  transition: all 0.3s ease-out;
+}
+.tech-wrapper:has(.tech-UX-UI):hover {
+  background-color: rgba(255, 99, 71, 0.6);
+}
+
+div.tech-workflow {
   background-color: rgba(0, 191, 255, 0.8);
 }
 
-div.tech-Dockerfile {
-  background-color: rgba(0, 191, 255, 0.8);
-}
-
-div.tech-Workflow {
-  background-color: rgba(0, 191, 255, 0.8);
-}
-
-.tech-wrapper:has(.tech-Dockerfile) {
+.tech-wrapper:has(.tech-workflow) {
   transition: all 0.3s ease-out;
 }
-.tech-wrapper:has(.tech-Dockerfile):hover {
+.tech-wrapper:has(.tech-workflow):hover {
   background-color: rgba(0, 191, 255, 0.6);
-}
-
-.tech-wrapper:has(.tech-Makefile) {
-  transition: all 0.3s ease-out;
-}
-.tech-wrapper:has(.tech-Makefile):hover {
-  background-color: rgba(0, 191, 255, 0.6);
-}
-
-.tech-wrapper:has(.tech-Workflow) {
-  transition: all 0.3s ease-out;
-}
-.tech-wrapper:has(.tech-Workflow):hover {
-  background-color: rgba(0, 191, 255, 0.6);
-}
-
-div.tech-Unkown {
-  background-color: rgba(40, 40, 40, 0.8);
-}
-
-.tech-wrapper:has(.tech-Unkown) {
-  transition: all 0.3s ease-out;
-}
-.tech-wrapper:has(.tech-Unkown):hover {
-  background-color: rgba(40, 40, 40, 0.3);
 }
 
 flex-wrap-row, flex-wrap-row-space-evenly, .flex-row, .justify-center-row, .justify-flexstart-row, .justify-content-space-evently-row, .align-content-center-row, .align-items-center-row, .align-items-flex-end-row, .fullstack-container, .pp {

@@ -61,8 +61,25 @@ export default {
                             qualified: 'bi-award',
                             unqualified: 'bi-gear',
                         },
-                        
                     },
+                    language: [
+                        {
+                            id: 0,
+                            category: "ui-ux",
+                            names: ['Frontend', 'Vue.js']
+                        },
+                        {
+                          id: 1,
+                          category: "compiled",
+                          names: ['C#']
+                        },
+                        {
+                          id: 2,
+                          category: "workflow",
+                          names: ['Git', 'Agile']
+
+                        },
+                    ]
                 },
                 
             ],
@@ -110,6 +127,31 @@ export default {
                             warning: 'bi bi-exclamation-triangle',
                         },
                     },
+                    language: 
+                    [
+                        {
+                            id: 0,
+                            category: "ui-ux",
+                            names: ['Frontend', 'SASS/SCSS']
+                        },
+                        {
+                          id: 1,
+                          category: "compiled",
+                          names: ['C']
+                        },
+                        {
+                          id: 2,
+                          category: "workflow",
+                          names: ['Git']
+
+                        },
+                        {
+                          id: 2,
+                          category: "interpreted",
+                          names: ['Python', 'Flask', 'Django']
+
+                        },
+                    ]
                 },
             ]
         }

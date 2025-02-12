@@ -1,6 +1,5 @@
 <template>
     <section id="about-kristoffer" class="info">
-    
         <Carosel />
         <bio />
     </section>

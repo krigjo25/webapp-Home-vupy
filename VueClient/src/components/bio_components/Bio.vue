@@ -2,23 +2,11 @@
     <section id='bio'class="bio-container">
         <h2>{{ page.author.name}}</h2>
         <h3>{{ page.author.title }}</h3>
-        <nav class="bio-link">
-            <button class="bio-btn" v-for="btn in fliterlinks" :key="btn.id" @click="btn.function">
-                <i :class="btn.icon"></i> 
-                    {{btn.name}}
-            </button>
-        </nav>
+        <Navigation :cls="'bio-link'" :button="links"/>
         <section class="bio-content">
             <div class='keywords'>
                 <h3>{{ page.title  }}</h3>
-                <nav class="social-links">
-                    <button class="btn-link" v-for="link in page.links" :key="link.id" @click="link.url">
-                        <a :href="link.url" target="_blank">
-                            <i :class="link.icon"></i>
-                        </a>
-                    </button>
-                </nav>
-                <h3>{{ page.headline }}</h3>
+                <h4>{{ page.headline }}</h4>
                 <small class ='abt-author'>Born : {{page.author.born}} ({{ page.author.age }} years old) </small><br>
 
             </div>
@@ -33,6 +21,10 @@
 </template>
 
 <script>
+
+//  Importing components
+import Navigation from '../misc_components/navigation.vue';
+
 export default {
     name: 'Biography',
     data()
@@ -43,6 +35,7 @@ export default {
                 {
                     id      : 0,
                     exist   : true,
+                    cls     : "bio-btn",
                     name    : "Biography",
                     function: this.biography,
                     icon    : "bi bi-info-circle-fill",
@@ -50,6 +43,7 @@ export default {
                 {
                     id      : 1,
                     exist   : true,
+                    cls     : "bio-btn",
                     name    : "Work Biography",
                     function: this.workProfile,
                     icon    : "bi bi-person-workspace",
@@ -57,6 +51,7 @@ export default {
                 {
                     id      : 2,
                     exist   : true,
+                    cls     : "bio-btn",
                     function: this.Journey,
                     name    : "Journey So Far",
                     icon    : "bi bi-activity",
@@ -65,15 +60,14 @@ export default {
                     id      : 3,
                     exist   : false,
                     name    : "Workout Blog",
-                    function: false,
+                    function: this.WorkoutBlog,
                     icon    : "bi bi-clock-history",
                 },
                 {
                     id      : 4,
                     exist   : false,
-
                     name    : "Personal Blog",
-                    function: false,
+                    function: this.PersonalBlog,
                     icon    : "bi bi-clock-history",
                 },
             ],
@@ -94,12 +88,7 @@ export default {
             }
         };
     },
-    computed : {
-          fliterlinks()
-          {
-              return this.links.filter(link => link.exist);
-          }
-        },
+
     methods:
     {
         biography()
@@ -118,29 +107,33 @@ export default {
                 [
                     {
                         id  :0,
-                        icon:"bi bi-youtube",
                         url :youtube,
+                        icon:"bi bi-youtube",
+                        
                     },
                     {
                         id  :1,
-                        icon:"bi bi-github",
                         url :github,
+                        icon:"bi bi-github",
+                        
                     },
                     {
                         id  :2,
-                        icon:"bi bi-instagram",
                         url :instagram,
+                        icon:"bi bi-instagram",
+                        
                     },
                     
                     {
                         id  :3,
-                        icon:"bi bi-facebook",
                         url :facebook,
+                        icon:"bi bi-facebook",
+                        
                     },
                     {
                         id  :4,
-                        icon:"bi bi-mailbox",
                         url :mail,
+                        icon:"bi bi-mailbox",
                     },                  
                 ],
 
@@ -183,7 +176,7 @@ export default {
             // Importing the links
             const CV = import.meta.env.VITE_CV;
             const github = import.meta.env.VITE_Github;
-            const linkedin = import.meta.env.VITE_Linkedin;
+            const linkedin = import.meta.env.VITE_LinkedIn;
             
             this.page = 
             {
@@ -333,22 +326,39 @@ export default {
                 const words =  cleaned.trim().split(/\s+/).filter(words => words != '');
                 count += words.length;
             }
-            // Garbage
-
             //  Calculate the reading time
             const WPM = 238;
             let time = Math.round(count/WPM);
 
             this.page.readtime = time;
+        },
 
-
+        WorkoutBlog()
+        {
+            this.page = 
+            {
+                title: "Workout Blog",
+                headline: "Workout Blog",
+                links: [],
+                message: [],
+            };
+        },
+        PersonalBlog()
+        {
+            this.page = 
+            {
+                title: "Workout Blog",
+                headline: "Workout Blog",
+                links: [],
+                message: [],
+            };
         },
     },
     mounted()
     {
     },
     components: {
-        //Navigations,
+        Navigation,
         //Announcements,
     },
     created()
