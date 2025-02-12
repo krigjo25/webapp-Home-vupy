@@ -1,6 +1,6 @@
 <template>
-    <nav :class="cls">
-        <Btn :class="btn.cls" v-for="btn in filterlinks" :key="btn.id" :btn = btn @click="btn.function" />
+    <nav>
+        <Btn :class="btn.cls" v-for="btn in btn" :key="btn.id" :btn = btn @click="btn.function" />
     </nav>
 </template>
 
@@ -13,18 +13,15 @@ export default {
         Btn
     },
     props: {
-        button: {
+        btn: {
             type: Array,
             required: true
         },
-        cls: {
-            type: String,
-            required: true
-        }
+
     },
     computed: {
-        fliterlinks() {
-            return this.button.filter(btn=> btn.url)
+        filterbtn() {
+            //return this.button.filter(button => button.exist)
         }
     }
 };

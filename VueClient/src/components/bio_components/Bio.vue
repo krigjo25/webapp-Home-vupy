@@ -2,13 +2,14 @@
     <section id='bio'class="bio-container">
         <h2>{{ page.author.name}}</h2>
         <h3>{{ page.author.title }}</h3>
-        <Navigation :cls="'bio-link'" :button="links"/>
+        <Navigation class='bio-link':btn="bio" />
         <section class="bio-content">
             <div class='keywords'>
                 <h3>{{ page.title  }}</h3>
-                <h4>{{ page.headline }}</h4>
-                <small class ='abt-author'>Born : {{page.author.born}} ({{ page.author.age }} years old) </small><br>
+                <Navigation class='social-links':btn="page.links" />
 
+                <h3>{{ page.headline }}</h3>
+                <small class ='abt-author'>Born : {{page.author.born}} ({{ page.author.age }} years old) </small><br>
             </div>
             <small>Written by {{ page.author.name }}. Average reading time <b>{{ page.readtime }} min</b><i class="bi bi-stopwatch"></i></small>       
             
@@ -30,8 +31,10 @@ export default {
     data()
     {
         return {
-
-            links: [
+            navigation: {
+                buttons: [],
+            },
+            bio: [
                 {
                     id      : 0,
                     exist   : true,
@@ -59,6 +62,7 @@ export default {
                 {
                     id      : 3,
                     exist   : false,
+                    cls     : "bio-btn",
                     name    : "Workout Blog",
                     function: this.WorkoutBlog,
                     icon    : "bi bi-clock-history",
@@ -66,6 +70,7 @@ export default {
                 {
                     id      : 4,
                     exist   : false,
+                    cls     : "bio-btn",
                     name    : "Personal Blog",
                     function: this.PersonalBlog,
                     icon    : "bi bi-clock-history",
@@ -88,7 +93,12 @@ export default {
             }
         };
     },
-
+    computed : {
+          fliterlinks()
+          {
+              return this.bio.filter(link => link.exist);
+          }
+        },
     methods:
     {
         biography()
@@ -103,23 +113,27 @@ export default {
             this.page = {
                 title: "Kristoffer Gjøsund",
                 headline: "Passionate Programmer And Fitness Enthusiast",
+                
                 links:
                 [
                     {
                         id  :0,
                         url :youtube,
+                        cls : "btn-link",
                         icon:"bi bi-youtube",
                         
                     },
                     {
                         id  :1,
                         url :github,
+                        cls : "btn-link",
                         icon:"bi bi-github",
                         
                     },
                     {
                         id  :2,
                         url :instagram,
+                        cls : "btn-link",
                         icon:"bi bi-instagram",
                         
                     },
@@ -127,12 +141,14 @@ export default {
                     {
                         id  :3,
                         url :facebook,
+                        cls : "btn-link",
                         icon:"bi bi-facebook",
                         
                     },
                     {
                         id  :4,
                         url :mail,
+                        cls : "btn-link",
                         icon:"bi bi-mailbox",
                     },                  
                 ],
@@ -188,17 +204,20 @@ export default {
                     {
                         id  :0,
                         url :linkedin,
+                        cls :"btn-link",
                         icon:"bi bi-linkedin",
                         
                     },
                     {
                         id  :1,
                         url :github,
+                        cls :"btn-link",
                         icon:"bi bi-github",
                     },
                     {
                         id  :2,
                         url :CV,
+                        cls :"btn-link",
                         icon:"bi bi-file-person",
                         
                     },
