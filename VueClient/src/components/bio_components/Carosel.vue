@@ -4,13 +4,8 @@
         <div v-if="caption" class="caption">
             <p>{{ caption }}</p>
         </div>
-        <div id="img-btn" class="btn-container">
-            <button id ="prev-btn" class="img-btn" @click="prev">
-                <i class="bi bi-arrow-left-square-fill"></i>
-            </button>
-            <button id ="next-btn" class="img-btn" @click="next">
-                <i class="bi bi-arrow-right-square-fill"></i>
-            </button>
+        <div class="btn-container">
+             <Btn :class="cls" v-for="btn in btns" :key="btn.id" :btn="btn" @click="btn.action"/>
         </div>
 
     </section>
@@ -18,8 +13,11 @@
 
 <script>
 
-// Importing dependencies
+//  Importing dependencies
 import axios from 'axios';
+
+//  Importing components
+import Btn from '../misc_components/button.vue';
 
 export default{
     data(){
@@ -30,7 +28,21 @@ export default{
             source  : null,
             alt     : null,
             caption : null,
-            path    : "./src/assets/img/carosel/",
+            path    : null,
+            cls     : 'img-btn',
+            btns    :
+            [
+                {
+                    action  :this.prev,
+                    icon    :"bi bi-arrow-left-square-fill",
+                    
+                },
+                {
+                    action  : this.next,
+                    icon    :"bi bi-arrow-right-square-fill",
+                    
+                }
+            ]
         };
     },
 
@@ -55,6 +67,7 @@ export default{
             .then((response) => {
                 
                 this.images = response.data.images;
+                this.path = '.'+ response.data.path;
                 this.setImage();
 
             })
@@ -77,9 +90,7 @@ export default{
         },
         next()
         {
-
-            // Initialize the path to the image
-            const path = this.path;
+            //  fetch the images
             const sources = this.images;
 
             //  Swap through the images
@@ -91,22 +102,24 @@ export default{
                 //  Ensure the path points to the image
                 if (sources[i].src.includes(this.alt))
                 {
-                     // Update the index
-                     i = (i < length) ?  i+1: 0;
+                    //  Update the index
+                    i = (i < length) ?  i+1: 0;
+
+                    //  Initializing the path to the image
+                    const path = this.path;
 
                     //  Update variables with next media
-                    this.alt = (i + 1 > length) ?  sources[i].alt : sources[i].alt;
-                    this.caption = (i + 1 > length) ? sources[i].caption : sources[i].caption;
-                    this.source = (i + 1 > length) ? path + sources[i].src : path + sources[i].src;
+                    this.alt = (i > length) ?  sources[i].alt : sources[i].alt;
+                    this.caption = (i > length) ? sources[i].caption : sources[i].caption;
+                    this.source = (i > length) ? path + sources[i].src : path + sources[i].src;
             
                     return;
                 }
             }
         },
-        prev(){
-
-            // Initialize the path to the image
-            const path = this.path;
+        prev()
+        {
+            //  fetch the images
             const sources = this.images;
 
             //  Swap through the images
@@ -118,8 +131,11 @@ export default{
                 //  Ensure the path points to the image
                 if (sources[i].src.includes(this.alt))
                 {
-                    // Update the index
+                    //  Update the index
                     i = (i - 1 < 0) ? length : i-1;
+
+                    //  Initializing the path to the image
+                    const path = this.path;
 
                     //  Update variables with next media
                     this.alt = ( i < length) ?  sources[i].alt : sources[i].alt;
@@ -135,6 +151,9 @@ export default{
             setInterval(this.next, 10000);
 
         },
+    },
+    components: {
+        Btn,
     },
     created()
     {

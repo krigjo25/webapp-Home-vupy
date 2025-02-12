@@ -2,11 +2,11 @@
 
 <template>
     <header>
-        <Header />
+        <Header/>
     </header>
     <main>
-        <Bio />
-        <Announcements />
+        <Bio/>
+        <Announcements/>
         <Education />
         <Experience />
 

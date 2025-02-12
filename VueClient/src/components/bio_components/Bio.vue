@@ -295,8 +295,11 @@ export default {
 
         calculateDate()
         {
+
             let birthdate = [1994, 2, 25, 15];
+
             birthdate = new Date(birthdate[0], birthdate[1] - 1, birthdate[2], 15);
+            
             return birthdate;
         },
         CalculateAge()
@@ -332,11 +335,11 @@ export default {
             
             */
 
+             //  Initialize the count
+             let count = 0;
+
             // Initialize  the message
             let page = this.page.message;
-            
-            //  Initialize the count
-            let count = 0;
 
             //  Count the words
             for (let i = 0; i < page.length; i++)

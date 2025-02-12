@@ -22,28 +22,28 @@ class PhotoLibrary(MethodView):
         #   Get the request data
         #   Ensure the request is a GET request and the Authorization is valid
         if request.method == "GET" and request.headers.get('Authorization') == os.getenv("Photo_Authorization"):
-
             
             response['status'] = 200
 
-            path = "VueClient/src/assets/img/carosel/"
-            
+            #   Path to the images
+            path = "/src/assets/img/carosel/"
+            print(path)
             #   Ensure the existance of the path
-            if os.path.exists(path):
+            if os.path.exists('VueClient'+path):
 
                 response['images'] = []
-
                 
                 #   Add the images to the response object
-                f = os.listdir(path)
-                for i in os.listdir(path):
+                for i in os.listdir(f'VueClient{path}'):
 
                     response['images'].append({
                     'id': uuid.uuid4().hex,
-                    'alt': i,
-                    'src': i,
-                    'caption': ""
+                    'alt': i, 'src': i,
                     })
+                    #if:
+                    #    response['images']['caption'] = i.caption
+                response['status'] = 200
+                response['path'] = path
 
                 
             else:

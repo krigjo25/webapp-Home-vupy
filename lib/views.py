@@ -39,7 +39,7 @@ class Index(MethodView):
         if request.method == "GET":
 
             #response['heavy'] = f"{tools.HeavyAPI()}"
-            response['github-repo'] = f"{tools.GithubAPI()}"
+            
             response['announcements'] = f"{tools.Announcements(datetime.now())}"
 
         return jsonify(response)

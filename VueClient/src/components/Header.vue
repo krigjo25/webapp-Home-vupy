@@ -1,4 +1,5 @@
 <template>
+    
     <a href='/'>
         <div class="align-items-flex-end-row justify-flexstart-row padding">
             <Logo />
@@ -14,5 +15,9 @@
         {
             Logo
         },
+        props:
+        {
+
+        }
     };
 </script>
