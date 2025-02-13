@@ -1,10 +1,13 @@
-#   Importing repositories
-import os, logging, requests
+#   Base Classes for the application
 
+#   Importing required dependencies
+import requests
 from typing import Optional
 from time import perf_counter
 from dotenv import load_dotenv
 
+#   Imporiting custom dependencies
+from lib.utility.logger import DatabaseWatcher, ApiWatcher
 #  Loading the environment variables
 load_dotenv()
 
@@ -14,12 +17,6 @@ load_dotenv()
 #   Requests repositories
 from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestException
 
-#   Configuring the logger
-logging.basicConfig(
-    level=logging.DEBUG, 
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', 
-    handlers=[logging.FileHandler("base-log.log"), 
-              logging.StreamHandler()])
 
 class Database(object):
 
@@ -31,6 +28,8 @@ class Database(object):
         self.db = database
         self.statements = ['CREATE', "ALTER", 'DROP', 'INSERT', 'SELECT']
 
+        self.log = DatabaseWatcher()
+        self.log.FileHandler()
     
     def configure_columns(self,  table:str, statement:str, columns:list | tuple):
         
@@ -38,7 +37,7 @@ class Database(object):
         row = []
         rows = []
         column = []
-        tmp = ""
+        
 
         if statement.upper() == "INSERT":
 
@@ -114,17 +113,24 @@ class APIConfig(object):
 
     def __init__(self, URL=None, KEY=None, GET = "GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE'):
         self.GET = GET
-        self.POST = POST
         self.PUT = PUT
+        self.POST = POST
+        self.API_URL = URL
+        self.API_KEY = KEY
         self.PATCH = PATCH
         self.DELETE = DELETE
-        self.API_KEY = KEY
-        self.API_URL = URL
+
+        self.log = ApiWatcher()
+        self.log.FileHandler()
+        
 
     def ApiCall(self, endpoint: str, head: dict):
+
         """
             Calling the API
         """
+
+        #   Initialize the start time
         start = perf_counter()
 
         try:
@@ -132,13 +138,14 @@ class APIConfig(object):
 
             if r.status_code in [200]:
                 
-                logging.info(f"Succsess : Recieved request code :{r.status_code} Time elapsed: {perf_counter()-start}")
+                self.info(f"Succsess : Recieved request code :{r.status_code} Time elapsed: {perf_counter()-start}")
                 return r.json()
 
             if r.status_code in [401, 403]: raise ConnectionError('Unauthorized Access')
             elif r.status_code in [404]: raise HTTPError('Resource not found')     
         except (HTTPError, ConnectionError, Timeout, RequestException) as e: 
-            logging.error(f"An error occured while attempting to call the api\n request code :{r.status_code}\n, Time elapsed: {perf_counter()-start}")
-        logging.warning(f"An error occured : The program did not get an expected output {r.status_code} Time elapsed: {perf_counter()-start}")
+            self.log.error(f"request code :{r.status_code}\n Error: {e}, Time elapsed: {perf_counter()-start}")
+        
+        self.log.warning(f" Time elapsed: {perf_counter()-start}\t Request code: {r.status_code}")
         return 
 

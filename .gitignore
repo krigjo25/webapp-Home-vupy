@@ -1,80 +1,6 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# production
-/build
-
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# Environment variables
-.env
-
-# Testing
-/coverage
-
-
-# production
-/build
-
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# production
-/build
-
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
+#   Github Ignores these files (https://help.github.com/articles/ignoring-files/) for more about ignoring files.
 
 #  Flask related files & folders
-
 .venv/
 .vscode/
 sass-lib/
@@ -82,41 +8,15 @@ __pycache__/
 .pytest_cache/
 flask_session/
 tests/assets/
-tests/reports.html
 
-#  Log files
-app.log
-base-log.log
-heavy-log.log
-github-log.log
-test-base-log.log
-test-github-log.log
-test-heavy-log.log
-test-github-log.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
-node_modules
-.DS_Store
-dist
-dist-ssr
-coverage
+# Environment variables
+*.env
 *.local
 
-/cypress/videos/
-/cypress/screenshots/
+#  Log files
+*.log
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-flask/routes/webapp-cs50finance-flask
+#   VueClient related files & folders
+node_modules/
+/coverage/
+/build

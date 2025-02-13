@@ -5,15 +5,9 @@ import os, logging,datetime
 from lib.model import APIConfig
 from dotenv import load_dotenv
 
+from lib.utility.logger import ApiWatcher
 #  Loading the environment variables
 load_dotenv()
-
-#   Configuring the logger
-logging.basicConfig(
-    level=logging.DEBUG, 
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', 
-    handlers=[logging.FileHandler("github-log.log"), 
-              logging.StreamHandler()])
 
 class GithubAPI(APIConfig):
 
@@ -24,14 +18,17 @@ class GithubAPI(APIConfig):
     def __init__(self, URL=os.getenv("GithubBase"), GET="GET", POST="POST", PUT='PUT', PATCH='PATCH', DELETE='DELETE', KEY=os.getenv('GithubToken')):
         super().__init__(GET, POST, PUT, PATCH, DELETE)
         self.GET = GET
-        self.POST = POST
         self.PUT = PUT
-        self.PATCH = PATCH
-        self.DELETE = DELETE
-        self.API_KEY = KEY
+        self.POST = POST
         self.API_URL = URL
+        self.PATCH = PATCH
+        self.API_KEY = KEY
+        self.DELETE = DELETE
+
+        self.log = ApiWatcher()
+        self.log.FileHandler()
+
         self.head = {'Content-Type': 'application/json','Authorization': f"{self.API_KEY}"}
-       
         return
 
     async def FetchApiJson(self, endpoint):
@@ -44,27 +41,29 @@ class GithubAPI(APIConfig):
         
         #   Initialize a list
         repo = []
+        repoObject = {}
 
         #   fetch the response
         for i in range(len(response)):
 
             #   Structure the items from github
-            repo += [
-                {
-                "lang":[],
-                "name":response[i]['name'], 
-                "description":str(response[i]['description']), 
-                "url":response[i]['html_url'], 
-                "owner":response[i]['owner']['login'],
-                "date":datetime.datetime.strptime(response[i]['created_at'], '%Y-%m-%dT%H:%M:%SZ').strftime('%d-%m-%y')
-                }]
+            repoObject['lang'] = []
+            repoObject['name'] = response[i]['name']
+            repoObject['url'] = response[i]['html_url']
+            repoObject['owner'] = response[i]['owner']['login']
+            repoObject['description'] = response[i]['description']
+            repoObject['date'] = datetime.datetime.strptime(response[i]['created_at'], '%Y-%m-%dT%H:%M:%SZ').strftime('%d-%m-%y')
+
             
             if response[i]['homepage'] != '':
-                repo[i]['web_link'] = response[i]['homepage']
+                repoObject['web_link'] = response[i]['homepage']
 
             #   Fetch repo languages
-            repo[i]['lang'] = await self.fetch_languages(repo[i], f"{self.API_URL}/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
+            repoObject['lang'] = await self.fetch_languages(repoObject, f"{self.API_URL}/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
 
+            repo.append(repoObject)
+
+        self.log.info(f"Repositories fetched successfully.")
         return repo
 
     async def fetch_languages(self, repo: list, endpoint: str):

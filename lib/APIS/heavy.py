@@ -7,6 +7,7 @@ load_dotenv()
 
 #   Custom libraries
 from lib.model import APIConfig
+from lib.utility.logger import ApiWatcher
 from lib.mathlibrary import MathInterPreter 
 
 class HeavyAPI(APIConfig):
@@ -20,33 +21,38 @@ class HeavyAPI(APIConfig):
         self.PATCH = PATCH
         self.DELETE = DELETE
         self.APIV = os.getenv("HeaVy")
+
         self.head = {"accept": "application/json", "api-key": f"{self.API_KEY}"}
     
     def FetchWorkouts(self, endpoint: str):
         """
             Fetching the workouts
+            param: endpoint: str - The endpoint to fetch the workouts
         """
         
-        response = ""
-        session = [{"pages": self.FetchN(endpoint),}]
+        pages = [{"pages": self.FetchN(endpoint),}]
 
         # Fetch one page of workouts
         response = self.ApiCall(endpoint = f"{self.API_URL}{self.APIV}{endpoint}", head = self.head)
         
+        #   Initialize the workout Page
+        workout= {}
+        
         #   Fetching the workouts
         for i in range(len(response["workouts"])):
-            kake = response["workouts"][i]
-            
-            workout = {
-                
-                "title": kake['title'],
-                "description": kake['description'],
-                "time": datetime.datetime.strptime(kake['end_time'], '%Y-%m-%dT%H:%M:%S%z') - datetime.datetime.strptime(kake['start_time'], '%Y-%m-%dT%H:%M:%S%z'),
-                "exercises": []
-            }
+
+            #   Initialize the workout session
+            sessions = response["workouts"][i]
+
+            #   Initialize the workout
+            workout["exercises"] = []
+            workout['title'] = sessions['title']
+            workout["description"] = sessions['description'],
+            workout["time"] = datetime.datetime.strptime(sessions['end_time'], '%Y-%m-%dT%H:%M:%S%z') - datetime.datetime.strptime(sessions['start_time'], '%Y-%m-%dT%H:%M:%S%z'),
+
             #  Fetching the exercises
-            for j in range(len(kake['exercises'])):
-                exercise = kake['exercises'][j]
+            for j in range(len(sessions['exercises'])):
+                exercise = sessions['exercises'][j]
 
                 workout['exercises'] += [{
                     "title": exercise['title'],
@@ -58,23 +64,24 @@ class HeavyAPI(APIConfig):
 
                     #   Fetching the sets
                     sets = exercise['sets'][k]
-                    cookie = workout['exercises'][j]['sets']
+
+                    set_details = workout['exercises'][j]['sets']
 
 
                     #   Appending the sets to the exercises
-                    cookie = [{
+                    set_details = [{
                         'reps': sets['reps'],
                         'weight_kg': sets['weight_kg'],
                         'rpe': sets['rpe']}]
                     
                     if sets['distance_meters'] != None:
-                        cookie[k]['distance'] = sets['distance_meters']
-                        cookie[k]['duration'] = (int(sets['duration_seconds']) / 60 ) / 60
-                        cookie[k]['pace'] = MathInterPreter().SpeedCalculation(float(cookie[k]['distance']),float(cookie[k]['duration']))
+                        set_details[k]['distance'] = sets['distance_meters']
+                        set_details[k]['duration'] = (int(sets['duration_seconds']) / 60 ) / 60
+                        set_details[k]['pace'] = MathInterPreter().SpeedCalculation(float(set_details[k]['distance']),float(set_details[k]['duration']))
+
+            pages.append(workout)
             
-            session.append(workout)
-            
-        return session
+        return pages
 
     def FetchN(self, endpoint: str):
 
