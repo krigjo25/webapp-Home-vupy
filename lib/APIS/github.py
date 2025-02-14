@@ -50,13 +50,7 @@ class GithubAPI(APIConfig):
             repoObject = {}
             repoObject['id'] = uuid.uuid4().hex
             repoObject['lang'] = []
-            repoObject['url'] = [
-                {
-                    'ytube': "",
-                    'repo_url': response[i]['html_url'],
-                    'web_link': "",
-                }
-            ]
+            repoObject['url'] = [response[i]['html_url']]
             repoObject['name'] = response[i]['name']
             repoObject['owner'] = response[i]['owner']['login']
             repoObject['description'] = response[i]['description']
@@ -66,13 +60,18 @@ class GithubAPI(APIConfig):
             
             
             if response[i]['homepage'] != '':
-                repoObject['web_link'] = response[i]['homepage']
+                repoObject['url'].append(response[i]['homepage'])
+                
 
             #   Fetch repo languages
-            repoObject['lang'] = await self.fetch_languages(repoObject, f"{self.API_URL}/repos/{repoObject['owner']}/{repoObject['name']}/languages")
+            await self.fetch_languages(repoObject, f"{self.API_URL}/repos/{repoObject['owner']}/{repoObject['name']}/languages")
 
             self.log.info(f"Repository fetched successfully. {repoObject}")
             repo.append(repoObject)
+
+            #   Break the loop
+            if i == 5:
+                break
 
         return repo
 
@@ -90,7 +89,4 @@ class GithubAPI(APIConfig):
                 case None:
                     lang = "Uknown"
 
-            repo['lang'] += [lang]
-
-
-        return repo['lang']
+            repo['lang'].append(lang) 

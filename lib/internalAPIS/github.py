@@ -25,8 +25,7 @@ class Github(MethodView):
         response = {}
 
         if request.method == "GET":
-            response['github'] = f"{ await GithubAPI().FetchAPI(os.getenv('GithubRepos'))}"
+            response['github'] = await GithubAPI().FetchAPI(os.getenv('GithubRepos'))
             response['status'] = 200
-
         return jsonify(response)
 
