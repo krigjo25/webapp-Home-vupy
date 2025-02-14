@@ -6,8 +6,9 @@ from flask_cors import CORS
 from flask_session import Session
 
 #   Custom dependencies
-from lib.views import Index
-from lib.APIS.Photos import PhotoLibrary
+from lib.internalAPIS.messages import Announcements
+from lib.internalAPIS.github import Github
+from lib.internalAPIS.Photos import PhotoLibrary
 from lib.utility.logger import AppWatcher
 from lib.config import DevelopmentConfig, ProdConfig
 
@@ -23,7 +24,7 @@ app.config.from_object(DevelopmentConfig)
 Session(app)
 
 CORS(app, resources={r"/*": {"origins": f"*"}})
-logger.info(f"App running on {app.config['ENV']}")
+logger.info(f"App running on {app.config}")
 
 @app.after_request
 async def after_request(response):
@@ -36,11 +37,10 @@ async def after_request(response):
     return response
 
 #   Endpoints
-app.add_url_rule("/", view_func = Index().as_view('Index',methods = ["GET"]))
+app.add_url_rule("/", view_func = Announcements().as_view('Index',methods = ["GET"]))
+app.add_url_rule("/api/github", view_func = Github().as_view('Github', methods = ["GET"]))
 app.add_url_rule("/api/photos", view_func = PhotoLibrary().as_view('Photos', methods = ["POST"]))
 
 #   Webworkers
-logger.info(f"App WebWorkers : ")
-
 if __name__ == "__main__":
   app.run()

@@ -43,7 +43,10 @@ class PhotoLibrary(MethodView):
 
                 
                 #   Add the images to the response object
-                caption = None
+                caption = [
+                    "One of the few days we're using suits in Norway. Happy National day. #Nationalday #lifeiswhy",
+                    
+                ]
                 for i in os.listdir(f'VueClient{path}'):
 
                     #  Fetch description of the images
@@ -52,7 +55,7 @@ class PhotoLibrary(MethodView):
                     response['images'].append({
                     'id': uuid.uuid4().hex,
                     'alt': i, 'src': i,
-                    'caption': caption if caption else response['images']['alt']
+                    'caption': caption if caption else i
                     
                     })
                 response['status'] = 200

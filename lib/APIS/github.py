@@ -1,6 +1,6 @@
 #   Github API
 #   Fetching the repositories
-import os, logging,datetime
+import os, uuid,datetime
 
 from lib.model import APIConfig
 from dotenv import load_dotenv
@@ -31,7 +31,7 @@ class GithubAPI(APIConfig):
         self.head = {'Content-Type': 'application/json','Authorization': f"{self.API_KEY}"}
         return
 
-    async def FetchApiJson(self, endpoint):
+    async def FetchAPI(self, endpoint):
         """
             Fetching the repositories
             API : https://api.github.com/users/repos
@@ -41,29 +41,39 @@ class GithubAPI(APIConfig):
         
         #   Initialize a list
         repo = []
-        repoObject = {}
+        
 
         #   fetch the response
         for i in range(len(response)):
 
-            #   Structure the items from github
+            #   Initialize a dictionary
+            repoObject = {}
+            repoObject['id'] = uuid.uuid4().hex
             repoObject['lang'] = []
+            repoObject['url'] = [
+                {
+                    'ytube': "",
+                    'repo_url': response[i]['html_url'],
+                    'web_link': "",
+                }
+            ]
             repoObject['name'] = response[i]['name']
-            repoObject['url'] = response[i]['html_url']
             repoObject['owner'] = response[i]['owner']['login']
             repoObject['description'] = response[i]['description']
-            repoObject['date'] = datetime.datetime.strptime(response[i]['created_at'], '%Y-%m-%dT%H:%M:%SZ').strftime('%d-%m-%y')
+            repoObject['date'] = datetime.datetime.strptime(response[i]['updated_at'], '%Y-%m-%dT%H:%M:%SZ').strftime('%d-%m-%y')
 
+            self.log.info(f"Fetching languages for {repoObject}")
+            
             
             if response[i]['homepage'] != '':
                 repoObject['web_link'] = response[i]['homepage']
 
             #   Fetch repo languages
-            repoObject['lang'] = await self.fetch_languages(repoObject, f"{self.API_URL}/repos/{repo[i]['owner']}/{repo[i]['name']}/languages")
+            repoObject['lang'] = await self.fetch_languages(repoObject, f"{self.API_URL}/repos/{repoObject['owner']}/{repoObject['name']}/languages")
 
+            self.log.info(f"Repository fetched successfully. {repoObject}")
             repo.append(repoObject)
 
-        self.log.info(f"Repositories fetched successfully.")
         return repo
 
     async def fetch_languages(self, repo: list, endpoint: str):

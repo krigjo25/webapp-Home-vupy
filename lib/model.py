@@ -120,8 +120,8 @@ class APIConfig(object):
         self.PATCH = PATCH
         self.DELETE = DELETE
 
-        self.log = ApiWatcher()
-        self.log.FileHandler()
+        self.logging = ApiWatcher()
+        self.logging.FileHandler()
         
 
     def ApiCall(self, endpoint: str, head: dict):
@@ -138,14 +138,14 @@ class APIConfig(object):
 
             if r.status_code in [200]:
                 
-                self.info(f"Succsess : Recieved request code :{r.status_code} Time elapsed: {perf_counter()-start}")
+                self.logging.info(f"Succsess : Recieved request code :{r.status_code} Time elapsed: {perf_counter()-start}")
                 return r.json()
 
             if r.status_code in [401, 403]: raise ConnectionError('Unauthorized Access')
             elif r.status_code in [404]: raise HTTPError('Resource not found')     
         except (HTTPError, ConnectionError, Timeout, RequestException) as e: 
-            self.log.error(f"request code :{r.status_code}\n Error: {e}, Time elapsed: {perf_counter()-start}")
+            self.logging.error(f"request code :{r.status_code}\n Error: {e}, Time elapsed: {perf_counter()-start}")
         
-        self.log.warning(f" Time elapsed: {perf_counter()-start}\t Request code: {r.status_code}")
+        self.logging.warning(f" Time elapsed: {perf_counter()-start}\t Request code: {r.status_code}")
         return 
 
