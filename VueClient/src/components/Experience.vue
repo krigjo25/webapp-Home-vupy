@@ -18,89 +18,88 @@
                 <option value ="{{ filter.lang }}">{{ filter.lang }}</option>
             </select>
         </form>
+        <Navigation class='social-links':data="pfolio.Total" @update="pfolio.current = $event"/>
         <div class="fullstack-container">
-            <div class="pp" v-for="repo in pfolio" :key="repo.id">
+            <div class="pp" v-for="data in pfolio.displayData" :key="data.id">
                 <div class="pro-nav">
-                    <Link :ref="url" v-for=" url in repo.url" v-if="url"/>
+                    <!--Link :ref="url" v-for=" url in repo.url" v-if="url"/-->
                     <div class="tech-container flex-row">
                         <span class="flex-reversed-row">
-                            <i><time :value="repo.date">{{ repo.date }}</time></i>
+                            <i><time :value="data.date">{{ data.date }}</time></i>
                         </span>
-                        <h4>{{ repo.name }}</h4>
-                        <span>{{ repo.description }}</span>
-                         <tech :techs="repo.lang"/>
+                        <h4>{{ data.name }}</h4>
+                        <span>{{ data.description }}</span>
+                         <!--tech :techs="repo.lang"/-->
 
                     </div>
                 </div>
             </div>
         </div>
-        {{ console.log(pages) }}
     </section>
 </template>
 
 <script>
 //  Importing dependencies
+import { ref, reactive, onMounted, computed, watch } from 'vue';
 import axios from 'axios';
+//import { Response } from '../../src/assets/js/server_conn.js';
 
 //  Importing components
 import Link from './misc_components/link.vue';
 import tech from './education_components/tech.vue';
+import Navigation from './misc_components/pagination.vue';
 
-export default {
+const pfolio = reactive(
+{
+    n           :9,
+    Total       :ref(1),
+    current     :ref(1),
+    data        :ref([]),
+    displayData : computed(() =>
+    {
+        const start = (pfolio.current - 1) * pfolio.n;
+        const end = pfolio.current * pfolio.n;
+        return pfolio.data.slice(start, end);    
+    })
+});
 
-    data() {
-        return {
-            pages: null,
-            pfolio: null,
+const filter = ref(
+{
+    name: 'Name',
+    date: 'Date',
+    lang: 'Language',
+    category: 'Category'
+});
 
-            filter: 
-            {
-                name: 'Name',
-                date: 'Date',
-                lang: 'Language',
-                category: 'Category'
-            }
-        }
+const Response = async () =>
+{
+    const path = import.meta.env.VITE_Github_local;
+    
+
+    await axios.get(path)
+    .then((res) => 
+    {
+        pfolio.Total = res.data.page;
+        pfolio.data = res.data.data;
+
+    })
+    .catch((err) => 
+    {
+        console.log(err);
+    })
+}
+export default 
+{
+    setup()
+    {
+        onMounted(Response);
+
+        return { pfolio, filter };
     },
-    methods: {
-        async fetchRepos()
-        {
-            const path = import.meta.env.VITE_Github_local;
 
-            await axios.get(path)
-            .then((res) => {
-                this.pages = res.data.page;
-                this.pfolio = res.data.github;
-                
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-        },
-        initializePage(length)
-        {
-            console.log(length);
-            let page_counter = 0;
-
-            for (let i = 0; i < length; i++)
-            {
-                if(i % 3 == 0)
-                {
-                    page_counter += 1;
-                    console.log(page_counter);
-
-                }
-            }
-            console.log('Page initialized');
-        }
-    },
     components: {
-        Link,
-        tech
-    },
-    async created() {
-        await this.fetchRepos();
-        
+        Link, tech,
+        Navigation,
     }
 }
 </script>

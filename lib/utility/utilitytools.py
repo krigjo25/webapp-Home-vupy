@@ -13,9 +13,6 @@ class UtilityTools(object):
     def HeavyAPI(self):
         return HeavyAPI().FetchWorkouts()
 
-    def GithubAPI(self):
-            return GithubAPI().FetchApiJson(f"{os.getenv('GithubRepos')}")
-
     def Announcements(self, now):
         
         match (now):

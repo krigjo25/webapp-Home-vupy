@@ -5,7 +5,7 @@ import os, uuid,datetime, json as j
 from lib.model import APIConfig
 from dotenv import load_dotenv
 
-from lib.utility.logger import ApiWatcher
+from lib.utility.logger import GithubWatcher
 
 #  Loading the environment variables
 load_dotenv()
@@ -26,8 +26,8 @@ class GithubAPI(APIConfig):
         self.API_KEY = KEY
         self.DELETE = DELETE
 
-        self.log = ApiWatcher()
-        self.log.FileHandler()
+        self.logging = GithubWatcher()
+        self.logging.FileHandler()
 
         self.head = {'Content-Type': 'application/json','Authorization': f"{self.API_KEY}"}
         return
@@ -37,6 +37,7 @@ class GithubAPI(APIConfig):
             Fetching the repositories
             API : https://api.github.com/users/repos
         """
+
         #   Initialize an API call
         response = self.ApiCall(f"{self.API_URL}{endpoint}", head=self.head)
         
@@ -59,11 +60,7 @@ class GithubAPI(APIConfig):
             repoObject['lang'] = [await self.fetch_languages(repoObject, f"{self.API_URL}/repos/{repoObject['owner']}/{repoObject['name']}/languages")]
 
             repo.append(repoObject)
-
-            #   Break the loop
-            if i == 5:
-                break
-
+        self.logging.info(f"Repositories fetched successfully. {repo}")
         return repo
 
     async def fetch_languages(self, repo: object, endpoint: str):

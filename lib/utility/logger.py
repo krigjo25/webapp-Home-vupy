@@ -98,8 +98,18 @@ class AppWatcher(Logger):
     def __init__(self):
         super().__init__(name=f"{self.__class__.__name__}")
 
-class ApiWatcher(Logger):
+class GithubWatcher(Logger):
 
+    def __init__(self):
+        super().__init__(name=f"{self.__class__.__name__}")
+
+class HeavyWatcher(Logger):
+
+    def __init__(self):
+        super().__init__(name=f"{self.__class__.__name__}")
+
+class ApiWatcher(Logger):
+    
     def __init__(self):
         super().__init__(name=f"{self.__class__.__name__}")
 

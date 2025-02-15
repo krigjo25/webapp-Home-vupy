@@ -2,11 +2,11 @@
     <section id='bio'class="bio-container">
         <h2>{{ page.author.name}}</h2>
         <h3>{{ page.author.title }}</h3>
-        <Navigation class='bio-link':btn="bio" />
+        <Navigation class='bio-link':data="bio" />
         <section class="bio-content">
             <div class='keywords'>
                 <h3>{{ page.title  }}</h3>
-                <Navigation class='social-links':btn="page.links" />
+                <Navigation class='social-links':data="page.links" />
 
                 <h3>{{ page.headline }}</h3>
                 <small class ='abt-author'>Born : {{page.author.born}} ({{ page.author.age }} years old) </small><br>
