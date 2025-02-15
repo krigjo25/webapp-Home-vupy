@@ -62,21 +62,21 @@ export default {
                             unqualified: 'bi-gear',
                         },
                     },
-                    language: [
+                    tech: [
                         {
-                            id: 0,
+                            id      : 0,
                             category: "ui-ux",
-                            names: ['Frontend', 'Vue.js']
+                            lang    : ['Frontend', 'Vue.js']
                         },
                         {
-                          id: 1,
-                          category: "compiled",
-                          names: ['C#']
+                            id      : 1,
+                            category: "compiled",
+                            lang    : ['C#']
                         },
                         {
-                          id: 2,
-                          category: "workflow",
-                          names: ['Git', 'Agile']
+                            id      : 2,
+                            category: "workflow",
+                            lang    : ['Git', 'Agile']
 
                         },
                     ]
@@ -108,8 +108,7 @@ export default {
                         is a focused online learning program designed to equip you with
                         practical Python programming skills and a foundational
                         understanding of computer science principles.  Think of it as a
-                        concentrated, career-oriented alternative to a full computer
-                        science degree.`,
+                        concentrated, career-oriented alternative to a full computer science degree.`,
                     
                     diploma:
                     {
@@ -127,28 +126,28 @@ export default {
                             warning: 'bi bi-exclamation-triangle',
                         },
                     },
-                    language: 
+                    tech: 
                     [
                         {
                             id: 0,
                             category: "ui-ux",
-                            names: ['Frontend', 'SASS/SCSS']
+                            lang: ['Frontend', 'SASS/SCSS']
                         },
                         {
                           id: 1,
                           category: "compiled",
-                          names: ['C']
+                          lang: ['C']
                         },
                         {
                           id: 2,
                           category: "workflow",
-                          names: ['Git']
+                          lang: ['Git']
 
                         },
                         {
                           id: 2,
                           category: "interpreted",
-                          names: ['Python', 'Flask', 'Django']
+                          lang: ['Python', 'Flask', 'Django']
 
                         },
                     ]

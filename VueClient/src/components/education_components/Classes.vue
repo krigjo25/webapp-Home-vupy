@@ -15,9 +15,7 @@
             <i :class="cls.diploma.class.warning"></i>
             <small> <b>{{ cls.diploma.notes }}</b></small>
         </div>
-        <div class='tech-container flex-row relative'>
-            <Tech v-for="tech in cls.language" :key="tech.id" :tech="tech" />
-        </div>
+            <Tech :techs="cls.tech" />
     </div>
 </template>
 <script>

@@ -4,18 +4,18 @@
         <form>
             <legend>Filter by</legend>
             <select>
-                <option value ="">Fullstack</option>
-                <option value ="">Frontend</option>
-                <option value ="">Backend</option>
+                <option value ="{{ }}">{{ filter.name }}</option>
+                <option value ="{{ filter.name }}">{{ filter.name }}</option>
+                <option value ="{{ filter.name }}">{{ filter.name }}</option>
             </select>
             <select>
-                <option value ="">Console</option>
-                <option value ="">Webapp</option>
+                <option value ="{{ filter.category }}">{{ filter.category }}</option>
+                <option value ="{{ filter.category }}">{{ filter.category }}</option>
             </select>
             <select>
-                <option value ="">C</option>
-                <option value ="">C#</option>
-                <option value ="">py</option>
+                <option value ="{{ filter.lang }}">{{ filter.lang }}</option>
+                <option value ="{{ filter.lang }}">{{ filter.lang }}</option>
+                <option value ="{{ filter.lang }}">{{ filter.lang }}</option>
             </select>
         </form>
         <div class="fullstack-container">
@@ -26,15 +26,15 @@
                         <span class="flex-reversed-row">
                             <i><time :value="repo.date">{{ repo.date }}</time></i>
                         </span>
-                        <h3>{{ repo.name }}</h3>
+                        <h4>{{ repo.name }}</h4>
                         <span>{{ repo.description }}</span>
-                        <div class="flex-row">
-                            <tech :tech="lang" v-for="lang in repo.lang" v-if="lang"/>
-                        </div>
+                         <tech :techs="repo.lang"/>
+
                     </div>
                 </div>
             </div>
         </div>
+        {{ console.log(pages) }}
     </section>
 </template>
 
@@ -50,7 +50,16 @@ export default {
 
     data() {
         return {
-            pfolio: null
+            pages: null,
+            pfolio: null,
+
+            filter: 
+            {
+                name: 'Name',
+                date: 'Date',
+                lang: 'Language',
+                category: 'Category'
+            }
         }
     },
     methods: {
@@ -60,12 +69,29 @@ export default {
 
             await axios.get(path)
             .then((res) => {
+                this.pages = res.data.page;
                 this.pfolio = res.data.github;
-                console.log(this.pfolio);
+                
             })
             .catch((err) => {
                 console.log(err);
             });
+        },
+        initializePage(length)
+        {
+            console.log(length);
+            let page_counter = 0;
+
+            for (let i = 0; i < length; i++)
+            {
+                if(i % 3 == 0)
+                {
+                    page_counter += 1;
+                    console.log(page_counter);
+
+                }
+            }
+            console.log('Page initialized');
         }
     },
     components: {
@@ -74,6 +100,7 @@ export default {
     },
     async created() {
         await this.fetchRepos();
+        
     }
 }
 </script>

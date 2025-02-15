@@ -1,11 +1,12 @@
 #   Github API
 #   Fetching the repositories
-import os, uuid,datetime
+import os, uuid,datetime, json as j
 
 from lib.model import APIConfig
 from dotenv import load_dotenv
 
 from lib.utility.logger import ApiWatcher
+
 #  Loading the environment variables
 load_dotenv()
 
@@ -42,31 +43,21 @@ class GithubAPI(APIConfig):
         #   Initialize a list
         repo = []
         
-
+        counter = 0
         #   fetch the response
         for i in range(len(response)):
 
             #   Initialize a dictionary
             repoObject = {}
             repoObject['id'] = uuid.uuid4().hex
-            repoObject['lang'] = []
-            repoObject['url'] = [response[i]['html_url']]
             repoObject['name'] = response[i]['name']
+            repoObject['url'] = [response[i]['html_url']]
             repoObject['owner'] = response[i]['owner']['login']
             repoObject['description'] = response[i]['description']
+            repoObject['url'].append(response[i]['homepage']) if response[i]['homepage'] != '' else "None"
             repoObject['date'] = datetime.datetime.strptime(response[i]['updated_at'], '%Y-%m-%dT%H:%M:%SZ').strftime('%d-%m-%y')
+            repoObject['lang'] = [await self.fetch_languages(repoObject, f"{self.API_URL}/repos/{repoObject['owner']}/{repoObject['name']}/languages")]
 
-            self.log.info(f"Fetching languages for {repoObject}")
-            
-            
-            if response[i]['homepage'] != '':
-                repoObject['url'].append(response[i]['homepage'])
-                
-
-            #   Fetch repo languages
-            await self.fetch_languages(repoObject, f"{self.API_URL}/repos/{repoObject['owner']}/{repoObject['name']}/languages")
-
-            self.log.info(f"Repository fetched successfully. {repoObject}")
             repo.append(repoObject)
 
             #   Break the loop
@@ -75,18 +66,25 @@ class GithubAPI(APIConfig):
 
         return repo
 
-    async def fetch_languages(self, repo: list, endpoint: str):
+    async def fetch_languages(self, repo: object, endpoint: str):
 
         #   Request a languages les problemos
         response = self.ApiCall(endpoint, head=self.head)
+
+        language = {}
+        language['lang'] = []
 
         for lang, value in response.items():
         
             match(str(lang).lower()):
                 case "c#":
                     lang = "CS"
-                
-                case None:
-                    lang = "Uknown"
 
-            repo['lang'].append(lang) 
+                case None:
+                    lang = "Unkown"
+
+        language['lang'].append(lang)
+        language['id'] = uuid.uuid4().hex
+
+        self.logging.info(f"Languages fetched successfully. {language}")
+        return language
