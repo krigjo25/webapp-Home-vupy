@@ -13,6 +13,9 @@
 </template>
 <script>
 
+//  Importing dependencies
+import { reactive } from 'vue';
+
 export default
 {
     props: {
@@ -22,5 +25,10 @@ export default
         }
           
     },
+    setup(props) 
+    {
+        const techs = props.techs;
+        return { techs }
+    }
 }
 </script>

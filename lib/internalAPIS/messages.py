@@ -24,10 +24,10 @@ class Announcements(MethodView):
             
     async def get(self): 
         tools = UtilityTools()
-        response = {"link":{}}
+        response = {}
 
         if request.method == "GET":
-            response['announcements'] = f"{tools.Announcements(datetime.now())}"
+            response['announcement'] = f"{tools.Announcements(datetime.now())}"
 
         return jsonify(response)
 

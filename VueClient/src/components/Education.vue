@@ -16,11 +16,11 @@
 //  Importing components
 import Classes from './education_components/Classes.vue';
 
-export default {
+//  Importing dependencies
+import { reactive } from 'vue';
 
-  data() {
-    return {
-      educations: [
+//  Initializing reactive objects
+const educations = reactive([
         {
             id: 0,
             name: 'GetAcademy',
@@ -154,8 +154,11 @@ export default {
                 },
             ]
         }
-      ]
-    }
+      ]);
+export default {
+
+  setup() {
+    return { educations }
   },
     components: {
         Classes

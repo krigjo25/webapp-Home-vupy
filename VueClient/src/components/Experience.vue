@@ -29,7 +29,7 @@
                         </span>
                         <h4>{{ data.name }}</h4>
                         <span>{{ data.description }}</span>
-                         <!--tech :techs="repo.lang"/-->
+                         <tech :techs="data.lang"/>
 
                     </div>
                 </div>
@@ -39,16 +39,17 @@
 </template>
 
 <script>
+
 //  Importing dependencies
-import { ref, reactive, onMounted, computed, watch } from 'vue';
 import axios from 'axios';
-//import { Response } from '../../src/assets/js/server_conn.js';
+import { ref, reactive, onMounted, computed, watch } from 'vue';
 
 //  Importing components
 import Link from './misc_components/link.vue';
 import tech from './education_components/tech.vue';
 import Navigation from './misc_components/pagination.vue';
 
+//  Initializing reactive objects
 const pfolio = reactive(
 {
     n           :9,
@@ -71,6 +72,7 @@ const filter = ref(
     category: 'Category'
 });
 
+//  Fetching data from the server
 const Response = async () =>
 {
     const path = import.meta.env.VITE_Github_local;

@@ -23,6 +23,7 @@ export default
         }
     },
     emit: ['update'],
+    
     setup(props, { emit }) 
     {
         //  Watch for changes in the 'data' prop
