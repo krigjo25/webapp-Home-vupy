@@ -2,8 +2,9 @@
 #   Fetching the repositories
 import os, uuid,datetime, json as j
 
-from lib.model import APIConfig
 from dotenv import load_dotenv
+from lib.model import APIConfig
+
 
 from lib.utility.logger import GithubWatcher
 
@@ -52,12 +53,24 @@ class GithubAPI(APIConfig):
             repoObject = {}
             repoObject['id'] = uuid.uuid4().hex
             repoObject['name'] = response[i]['name']
-            repoObject['url'] = [response[i]['html_url']]
+
             repoObject['owner'] = response[i]['owner']['login']
             repoObject['description'] = response[i]['description']
-            repoObject['url'].append(response[i]['homepage']) if response[i]['homepage'] != '' else "None"
             repoObject['date'] = datetime.datetime.strptime(response[i]['updated_at'], '%Y-%m-%dT%H:%M:%SZ').strftime('%d-%m-%y')
             repoObject['lang'] = [await self.fetch_languages(repoObject, f"{self.API_URL}/repos/{repoObject['owner']}/{repoObject['name']}/languages")]
+            repoObject['links'] = [
+                {
+                    'icon': 'bi bi-github',
+                    'url': response[i]['html_url'],
+                }]
+            if response[i]['homepage'] or response[i]['homepage'] == "None":
+                print(response[i]['homepage'])
+
+                repoObject['links'].append(
+                    {
+                        'icon':"bi bi-globe", 
+                        'url':response[i]['homepage']
+                    })
 
             repo.append(repoObject)
         self.logging.info(f"Repositories fetched successfully. {repo}")

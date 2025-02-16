@@ -155,6 +155,7 @@ const educations = reactive([
             ]
         }
       ]);
+
 export default {
 
   setup() {

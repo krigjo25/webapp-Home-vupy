@@ -22,17 +22,17 @@
         <div class="fullstack-container">
             <div class="pp" v-for="data in pfolio.displayData" :key="data.id">
                 <div class="pro-nav">
-                    <!--Link :ref="url" v-for=" url in repo.url" v-if="url"/-->
-                    <div class="tech-container flex-row">
-                        <span class="flex-reversed-row">
-                            <i><time :value="data.date">{{ data.date }}</time></i>
-                        </span>
-                        <h4>{{ data.name }}</h4>
-                        <span>{{ data.description }}</span>
-                         <tech :techs="data.lang"/>
+                    <Link :link="url" v-for=" url in data.links"/>
+                </div>
+                <div class="tech-container flex-row">
+                    <span class="flex-reversed-row">
+                        <i><time :value="data.date">{{ data.date }}</time></i>
+                    </span>
+                    <h4>{{ data.name }}</h4>
+                    <span>{{ data.description }}</span>
+                     <tech :techs="data.lang"/>
 
                     </div>
-                </div>
             </div>
         </div>
     </section>
@@ -60,7 +60,8 @@ const pfolio = reactive(
     {
         const start = (pfolio.current - 1) * pfolio.n;
         const end = pfolio.current * pfolio.n;
-        return pfolio.data.slice(start, end);    
+        
+        return pfolio.data.slice(start, end);   
     })
 });
 
@@ -83,6 +84,7 @@ const Response = async () =>
     {
         pfolio.Total = res.data.page;
         pfolio.data = res.data.data;
+        console.log(res.data.data[0].url);
 
     })
     .catch((err) => 
@@ -90,12 +92,12 @@ const Response = async () =>
         console.log(err);
     })
 }
+
 export default 
 {
     setup()
     {
         onMounted(Response);
-
         return { pfolio, filter };
     },
 
