@@ -6,37 +6,35 @@
     </nav>
 </template>
 
-<script>
+<script setup>
 
-import { ref, watch, reactive } from 'vue';
+//  Importing dependencies
+import { ref, watch, defineProps, defineEmits } from 'vue';
+
+//  Initializing reactive objects
 const total = ref(1);
 const current = ref(1);
-
-export default
+const emit = defineEmits(['update']);
+const props = defineProps(
 {
-    props: 
+    data: 
     {
-        data: 
-        {
-            type: Number,
-            required: true
-        }
-    },
-    emit: ['update'],
-    
-    setup(props, { emit }) 
-    {
-        //  Watch for changes in the 'data' prop
-        watch(() => props.data, (newValue) => {
-            total.value = newValue;
-        }, { immediate: true });
+        type: Number,
+        required: true
+    }
+});
 
-        // Watch for changes in the 'current' prop
-        watch(() => current.value, (newValue) => {
+//  Watch for changes in the 'data' prop
+watch(() => props.data, (newValue) => 
+        {
+            total.value = newValue;
+        }, 
+        { immediate: true });
+
+// Watch for changes in the 'current' prop
+watch(() => current.value, (newValue) => 
+        {
             emit('update', newValue);
         });
 
-        return { current, total };
-    },
-}
 </script>

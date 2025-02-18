@@ -18,23 +18,21 @@
             <Tech :techs="cls.tech" />
     </div>
 </template>
-<script>
+<script setup>
+
+//  Importing dependencies
+import { defineProps } from 'vue';
 
 //  Importing components
 import Tech from './tech.vue';
 
-export default 
+//  Initializing reactive objects
+const props = defineProps(
 {
-    props: {
-        cls: {
-            type: Object,
-            required: true
-        }
-          
-    },
-    components: {
-        Tech
-    },
-};
+    cls: {
+        type: Object,
+        required: true
+    }
+});
 
 </script>

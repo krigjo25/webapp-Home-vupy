@@ -1,19 +1,23 @@
 <template>
-    <div class="flash" v-if="announce.exists">{{ announce.data }}</div>
+    <div class="flash" v-if="announcement">{{ announcement}}</div>
 </template>
 
-<script>
+<script setup>
 
 //  Importing the required modules
 import axios from 'axios';
-import { onMounted, reactive,ref } from 'vue';
+import { onMounted, reactive, computed } from 'vue';
 
 //  Initializing reactive objects
 const announce = reactive(
 {
     exists  : false,
     data    : null,
+    default : "Certified Specializations / Diplomas"
 });
+
+//  Computed properties
+const announcement = computed(() => announce.data ? announce.data : announce.default);
 
 //  Fetching data from the server
 const Response = async () =>
@@ -31,20 +35,11 @@ const Response = async () =>
     .catch((err) => 
     {
         console.log(err);
-        announce.exists = false;
     })
 }
-
-export default
-{
-    setup()
-    {
-        onMounted(Response);
-        return {
-            announce
-        };
-    },
-}
+console.log(announce.exists);
+//  Fetching data from the server
+onMounted(Response);
 
 
 </script>

@@ -3,22 +3,21 @@
         <i :class="link.icon"></i>
     </a>
 </template>
-<script>
 
-export default
-{
-    props: 
+<script setup>
+
+//  Importing dependencies
+import { defineProps } from 'vue';
+
+//  Defining props
+const props = defineProps(
     {
-        link:
-        {
-            type: String,
+        link: {
+            type: Object,
             required: true
-        },
-    },
-    setup(props) 
-    {
-        const link = props.link;
-        return { link }
+        }
     }
-}
+);
+const link = props.link;
+
 </script>

@@ -14,7 +14,7 @@ class UtilityTools(object):
         return HeavyAPI().FetchWorkouts()
 
     def Announcements(self, now):
-        
+        message = ""
         match (now):
             
             case _ if now.month == 12 and now.day > 10 and now.day < 25:
@@ -34,8 +34,8 @@ class UtilityTools(object):
             
             case _ if now.month == 5 and now.day < 18 and now.month == 5 and now.day > 9:
                 message ="🇳🇴 Happy Independence Day Norway 🇳🇴"
-
-            case _ :
-                message ="Certified Specializations"
         
-        return message
+        if message:
+            return message
+        else:
+            return

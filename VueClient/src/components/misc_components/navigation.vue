@@ -1,29 +1,31 @@
 <template>
     <nav>
-        <Btn :class="btn.cls" v-for="btn in data" :key="btn.id" :btn = btn @click="btn.function" />
+        <Btn  v-for="btn in data" :key="btn.id" :btn = btn @click="btn.function" />
     </nav>
 </template>
 
-<script>
+<script setup>
+//  Importing dependencies
+import { defineProps, computed } from 'vue';
 
 //  Importing components
 import Btn from './button.vue'
-export default {
-    components: {
-        Btn
-    },
-    props: {
-        data: 
-        {
-            type: Array,
-            required: true
-        },
 
-    },
-    computed: {
-        filterbtn() {
-            //return this.button.filter(button => button.exist)
+const props = defineProps(
+    {
+        data:
+        {
+            type    : Array,
+            required: true
         }
     }
-};
+)
+const filter = computed(() => {
+    get: () => {
+        return this.data.filter(button => button.exist)
+    }
+    set: (value) => {
+        return this.data.filter(button => button.exist)
+    }
+});
 </script>

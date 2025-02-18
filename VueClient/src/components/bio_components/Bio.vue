@@ -118,6 +118,7 @@ export default {
                 [
                     {
                         id  :0,
+                        exist: true,
                         url :youtube,
                         cls : "btn-link",
                         icon:"bi bi-youtube",
@@ -126,12 +127,14 @@ export default {
                     {
                         id  :1,
                         url :github,
+                        exist: true,
                         cls : "btn-link",
                         icon:"bi bi-github",
                         
                     },
                     {
                         id  :2,
+                        exist: true,
                         url :instagram,
                         cls : "btn-link",
                         icon:"bi bi-instagram",
@@ -140,6 +143,7 @@ export default {
                     
                     {
                         id  :3,
+                        exist: true,
                         url :facebook,
                         cls : "btn-link",
                         icon:"bi bi-facebook",
@@ -148,6 +152,7 @@ export default {
                     {
                         id  :4,
                         url :mail,
+                        exist: true,
                         cls : "btn-link",
                         icon:"bi bi-mailbox",
                     },                  
@@ -203,6 +208,7 @@ export default {
                 [
                     {
                         id  :0,
+                        exist: true,
                         url :linkedin,
                         cls :"btn-link",
                         icon:"bi bi-linkedin",
@@ -210,6 +216,7 @@ export default {
                     },
                     {
                         id  :1,
+                        exist: true,
                         url :github,
                         cls :"btn-link",
                         icon:"bi bi-github",
@@ -217,6 +224,7 @@ export default {
                     {
                         id  :2,
                         url :CV,
+                        exist: true,
                         cls :"btn-link",
                         icon:"bi bi-file-person",
                         

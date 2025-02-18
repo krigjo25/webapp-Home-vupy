@@ -11,24 +11,18 @@
         </div>
     </section>
 </template>
-<script>
+<script setup>
 
 //  Importing dependencies
-import { reactive } from 'vue';
+import { defineProps } from 'vue';
 
-export default
+//  Initializing reactive objects
+const props = defineProps(
 {
-    props: {
-        techs: {
-            type: Array,
-            required: true
-        }
-          
-    },
-    setup(props) 
-    {
-        const techs = props.techs;
-        return { techs }
+    techs: {
+        type: Array,
+        required: true
     }
-}
+});
+const techs = props.techs;
 </script>
