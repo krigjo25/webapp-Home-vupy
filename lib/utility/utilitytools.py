@@ -1,24 +1,14 @@
 #   Utility tools for the application
 
-
-#   Importing necsessary dependencies
-import os
-
-from lib.APIS.github import GithubAPI
 from lib.APIS.heavy import HeavyAPI
 
 class UtilityTools(object):
 
-
-    def HeavyAPI(self):
-        return HeavyAPI().FetchWorkouts()
-
     def Announcements(self, now):
-        message = ""
         match (now):
             
-            case _ if now.month == 12 and now.day > 10 and now.day < 25:
-                message ="🎅 Merry Christmas 🎅"
+            case _ if now.month == 12 and now.day > 10 and now.day < 26:
+                message ="🎅 Merry Christmas Everyone 🎅"
             
             case _ if now.month == 2 and now.day == 25:
                 message ="🎂 Happy Birthday @krigjo25 🎁"
@@ -34,8 +24,8 @@ class UtilityTools(object):
             
             case _ if now.month == 5 and now.day < 18 and now.month == 5 and now.day > 9:
                 message ="🇳🇴 Happy Independence Day Norway 🇳🇴"
-        
-        if message:
-            return message
-        else:
-            return
+
+            case _: 
+                message = None
+
+        return message

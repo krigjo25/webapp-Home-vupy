@@ -1,4 +1,4 @@
-#   Index page
+#   Endpoint for the announcement for the day
 
 #   Importing libraries
 from datetime import datetime

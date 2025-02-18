@@ -37,7 +37,7 @@ const Response = async () =>
         console.log(err);
     })
 }
-console.log(announce.exists);
+
 //  Fetching data from the server
 onMounted(Response);
 

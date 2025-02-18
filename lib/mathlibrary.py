@@ -1,3 +1,5 @@
+#   This class is used to perform the mathematical operations.
+
 class MathInterPreter(object):
 
     def __init__(self):

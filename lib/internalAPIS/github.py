@@ -1,9 +1,7 @@
-#   Index page
+#   Endpoint for the Github repositories
 
 #   Importing libraries
-import asyncio, os, json as j
-
-from datetime import datetime
+import os
 from dotenv import load_dotenv
 from flask.views import MethodView
 from flask import jsonify, request

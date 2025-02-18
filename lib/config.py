@@ -16,7 +16,6 @@ class DevelopmentConfig(DefaulthConfig):
     SESSION_TYPE ='filesystem'
     DEBUG = True
 
-
 class TestConfig(DefaulthConfig):
     TESTING = True
     SESSION_TYPE ='filesystem'

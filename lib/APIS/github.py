@@ -1,6 +1,6 @@
 #   Github API
 #   Fetching the repositories
-import os, uuid,datetime, json as j
+import os, uuid, datetime
 
 from dotenv import load_dotenv
 from lib.model import APIConfig

@@ -15,7 +15,7 @@
 
     </footer>
 </template>
-<script>
+<script setup>
     
     //  Importing components
     import Bio from '../components/Bio.vue';
@@ -23,21 +23,5 @@
     import Education from '../components/Education.vue'
     import Experience from '../components/Experience.vue'
     import Announcements from '../components/Announcements.vue'
-
-
-    export default {
-        name: 'Home',
-        components: 
-        {
-            Bio,
-            Header,
-            Education,
-            Experience,
-            Announcements,
-
-        },
-    };
-    
-
 
 </script>

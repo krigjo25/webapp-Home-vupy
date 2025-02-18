@@ -1,4 +1,4 @@
-#   Index page
+#   Endpoint for the Carosel images
 
 #   Importing libraries
 import os, uuid
