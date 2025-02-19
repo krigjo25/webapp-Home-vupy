@@ -1,5 +1,4 @@
 <template>
-    
     <a href='/'>
         <div class="align-items-flex-end-row justify-flexstart-row padding">
             <Logo />
@@ -7,17 +6,9 @@
     </a>
 </template>
 
-<script>
-    import Logo from './header_components/Logo.vue'
-    export default {
-        name: 'Header',
-        components: 
-        {
-            Logo
-        },
-        props:
-        {
+<script setup>
 
-        }
-    };
+//  Importing components
+import Logo from './header_components/Logo.vue'
+
 </script>

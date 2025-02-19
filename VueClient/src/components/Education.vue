@@ -11,7 +11,7 @@
         </div>
     </section>
 </template>
-<script>
+<script setup>
 
 //  Importing components
 import Classes from './education_components/Classes.vue';
@@ -156,13 +156,4 @@ const educations = reactive([
         }
       ]);
 
-export default {
-
-  setup() {
-    return { educations }
-  },
-    components: {
-        Classes
-    }
-}
 </script>

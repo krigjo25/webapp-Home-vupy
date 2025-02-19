@@ -38,7 +38,7 @@
     </section>
 </template>
 
-<script>
+<script setup>
 
 //  Importing dependencies
 import axios from 'axios';
@@ -53,9 +53,9 @@ import Navigation from './misc_components/pagination.vue';
 const pfolio = reactive(
 {
     n           :9,
-    Total       :ref(1),
-    current     :ref(1),
-    data        :ref([]),
+    Total       :null,
+    current     :null,
+    data        :[],
     displayData : computed(() =>
     {
         const start = (pfolio.current - 1) * pfolio.n;
@@ -65,7 +65,7 @@ const pfolio = reactive(
     })
 });
 
-const filter = ref(
+const filter = reactive(
 {
     name: 'Name',
     date: 'Date',
@@ -84,7 +84,6 @@ const Response = async () =>
     {
         pfolio.Total = res.data.page;
         pfolio.data = res.data.data;
-        console.log(res.data.data[0].url);
 
     })
     .catch((err) => 
@@ -93,17 +92,6 @@ const Response = async () =>
     })
 }
 
-export default 
-{
-    setup()
-    {
-        onMounted(Response);
-        return { pfolio, filter };
-    },
-
-    components: {
-        Link, tech,
-        Navigation,
-    }
-}
+//  Fetching data from the server
+onMounted(Response);
 </script>
