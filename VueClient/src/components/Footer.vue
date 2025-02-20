@@ -1,17 +1,14 @@
 <template>
-    <footer>
-        <div class="copy">
-            <p>&copy; {{year}} <a href="">@krigjo25</a> </p>
-        </div>
 
-    </footer>
+<section class="copy">
+    <p>&copy; 2024 - {{date}}. All rights reserved. By <a href="/"><span>@krigjo25</span></a></p>
+</section>
+
 </template>
 
 <script setup>
 
-//  Importing components
-//import Validator from './footer_components/Validator.vue';
 
+const date = new Date().getFullYear();
 
-const year = new Date().getFullYear();
 </script>
