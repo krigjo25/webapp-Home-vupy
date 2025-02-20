@@ -6,7 +6,8 @@
                 <h1>
                     <span>Logic </span> 
                     <span>Meets </span> 
-                    <span>Creativity</span>
+                    <span>Creative </span>
+                    <span>Solutions</span>
                 </h1>
             </div>
         </div>
