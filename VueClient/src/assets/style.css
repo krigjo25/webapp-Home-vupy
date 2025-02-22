@@ -253,10 +253,9 @@ main section.spec-wrapper .specialization-class .specialization-course .tech-con
   position: relative;
 }
 main section.spec-wrapper .specialization-class .specialization-course .tech-wrapper {
-  margin: 1px;
+  margin: 0.1em;
   display: flex;
-  block-size: 5vh;
-  inline-size: 8vw;
+  padding: 0.5em;
   border-radius: 10px;
   background-color: rgb(241, 241, 241);
 }
@@ -390,7 +389,7 @@ flex-wrap-reversed-row, .flex-reversed-row {
   transition: 0.3s ease-in-out;
 }
 .pp span.tech-label {
-  padding: 0.7em;
+  padding: 2vw;
   font-size: 0.9em;
   font-weight: 300;
   font-style: oblique;
