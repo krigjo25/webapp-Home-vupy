@@ -1,5 +1,5 @@
 <template>
-    <section id="fullstack">
+    <section id="fullstack" v-if="pfolio.Loaded">
         <h2>Portefolio</h2>
         <form>
             <legend>Filter by</legend>
@@ -18,7 +18,7 @@
                 <option value ="{{ filter.lang }}">{{ filter.lang }}</option>
             </select>
         </form>
-        <Navigation class='social-links':data="pfolio.Total" @update="pfolio.current = $event"/>
+        <Navigation class='social-links':data="pfolio.Total" @update="pfolio.current = $event" v-if="pfolio.Total" />
         <div class="fullstack-container">
             <div class="pp" v-for="data in pfolio.displayData" :key="data.id">
                 <div class="pro-nav">
@@ -35,6 +35,9 @@
                     </div>
             </div>
         </div>
+    </section>
+    <section id="fullstack" class="loading" v-else>
+            <p>Loading elements...</p>
     </section>
 </template>
 
@@ -53,15 +56,16 @@ import Navigation from './misc_components/pagination.vue';
 const pfolio = reactive(
 {
     n           :9,
-    Total       :null,
-    current     :null,
+    current     :1,
     data        :[],
-    displayData : computed(() =>
+    Total       :null,
+    Loaded      :false,
+    displayData :computed(() =>
     {
-        const start = (pfolio.current - 1) * pfolio.n;
-        const end = pfolio.current * pfolio.n;
-        
-        return pfolio.data.slice(start, end);   
+        const end = (pfolio.current * pfolio.n);
+        const start = (pfolio.current-1) * pfolio.n;
+
+        return pfolio.data.slice(start, end);
     })
 });
 
@@ -82,14 +86,16 @@ const Response = async () =>
     await axios.get(path)
     .then((res) => 
     {
-        pfolio.Total = res.data.page;
         pfolio.data = res.data.data;
-
+        pfolio.Total = res.data.page;
     })
     .catch((err) => 
     {
         console.log(err);
-    })
+    }).finally(() => 
+    {
+       pfolio.Loaded = true;
+    });
 }
 
 //  Fetching data from the server

@@ -2,12 +2,11 @@
     <section id='bio'class="bio-container">
         <h2>{{ bio.current.author.name}}</h2>
         <h3>{{ bio.current.author.title }}</h3>
-        <Navigation class='bio-link':data="bio.pages" />
+        <Navigation class='bio-link':data="bio.pages"/>
         <section class="bio-content">
             <div class='keywords'>
+                <Navigation class='ext-bar':data="bio.current.links" v-if="bio.current.links"/>
                 <h3>{{ bio.current.title  }}</h3>
-                <Navigation class='social-links':data="bio.current.links" />
-
                 <h3>{{ bio.current.headline }}</h3>
                 <small class ='abt-author'>Born : {{bio.current.author.born}} ({{ bio.current.author.age }} years old) </small><br>
             </div>
@@ -38,6 +37,7 @@ function biography()
     const instagram = import.meta.env.VITE_Instagram;
 
     bio.current = {
+        title: "Biography",
         readtime: computed(() => ReadTime()),
         headline: "Passionate Programmer And Fitness Enthusiast",                
         links:
@@ -178,7 +178,6 @@ function workProfile()
 function Journey()
 {
     bio.current = {
-        links   : [],
         title   : "Journey",
         headline: "The Journey So Far",
         readtime: computed(() => ReadTime()),

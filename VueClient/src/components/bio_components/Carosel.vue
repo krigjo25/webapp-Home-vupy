@@ -75,14 +75,13 @@ function setImage()
 {
     //  Constant number
     const n = ref(Carosel.n);
-    console.log(Carosel.images[n.value].alt)
 
     //  Ensure the images array is not empty
     if (Carosel.images && Carosel.images.length > 0)
     {
         Carosel.alt = Carosel.images[n.value].alt;
-        Carosel.source = Carosel.path + Carosel.images[n.value].src;
         Carosel.caption = Carosel.images[n.value].caption;
+        Carosel.source = Carosel.path + Carosel.images[n.value].src;
     }
 };
 
@@ -148,7 +147,11 @@ function prev()
 
 function startTimer()
 {
-    setInterval(next, 10000);
+    //  Set the interval
+    const n = 10000;
+
+    //  Start the timer
+    setInterval(next, n);
 };
 
 onMounted(() => {

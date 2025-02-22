@@ -1,7 +1,7 @@
 <template>
     <nav>
         <button :disabled=" current < 2" @click="current--">Previous</button>
-        <span> {{ current }} / {{ total }}</span>
+        <span v-if="current > 0"> {{ current }} / {{ total }}</span>
         <button :disabled="current === total" @click="current++">Next</button>
     </nav>
 </template>
@@ -14,6 +14,7 @@ import { ref, watch, defineProps, defineEmits } from 'vue';
 //  Initializing reactive objects
 const total = ref(1);
 const current = ref(1);
+
 const emit = defineEmits(['update']);
 const props = defineProps(
 {
