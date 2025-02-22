@@ -1,24 +1,7 @@
 <template>
     <section id="fullstack" v-if="pfolio.Loaded">
         <h2>Portefolio</h2>
-        <form>
-            <legend>Filter by</legend>
-            <select>
-                <option value ="{{ }}">{{ filter.name }}</option>
-                <option value ="{{ filter.name }}">{{ filter.name }}</option>
-                <option value ="{{ filter.name }}">{{ filter.name }}</option>
-            </select>
-            <select>
-                <option value ="{{ filter.category }}">{{ filter.category }}</option>
-                <option value ="{{ filter.category }}">{{ filter.category }}</option>
-            </select>
-            <select>
-                <option value ="{{ filter.lang }}">{{ filter.lang }}</option>
-                <option value ="{{ filter.lang }}">{{ filter.lang }}</option>
-                <option value ="{{ filter.lang }}">{{ filter.lang }}</option>
-            </select>
-        </form>
-        <Navigation class='social-links':data="pfolio.Total" @update="pfolio.current = $event" v-if="pfolio.Total" />
+        <Navigation class='portefolio':data="pfolio.Total" @update="pfolio.current = $event" v-if="pfolio.Total" />
         <div class="fullstack-container">
             <div class="pp" v-for="data in pfolio.displayData" :key="data.id">
                 <div class="pro-nav">
