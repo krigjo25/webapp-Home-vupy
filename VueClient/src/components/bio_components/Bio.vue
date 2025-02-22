@@ -2,10 +2,14 @@
     <section id='bio'class="bio-container">
         <h2>{{ bio.current.author.name}}</h2>
         <h3>{{ bio.current.author.title }}</h3>
-        <Navigation class='bio-link':data="bio.pages"/>
+        <Navigation :class='bio.current.cls':data="bio.pages"/>
         <section class="bio-content">
             <div class='keywords'>
-                <Navigation class='ext-bar':data="bio.current.links" v-if="bio.current.links"/>
+                <nav class="ext-bar">
+                    <a v-for="link in bio.current.links" :key="link.id" :href="link.url" :class="link.cls" target="_blank">
+                            <i :class="link.icon"></i>
+                    </a>
+                </nav>
                 <h3>{{ bio.current.title  }}</h3>
                 <h3>{{ bio.current.headline }}</h3>
                 <small class ='abt-author'>Born : {{bio.current.author.born}} ({{ bio.current.author.age }} years old) </small><br>
@@ -37,8 +41,9 @@ function biography()
     const instagram = import.meta.env.VITE_Instagram;
 
     bio.current = {
+        cls: "bio-link",
         title: "Biography",
-        readtime: computed(() => ReadTime()),
+        readtime: ReadTime(),
         headline: "Passionate Programmer And Fitness Enthusiast",                
         links:
         [
@@ -46,36 +51,28 @@ function biography()
                 id  :0,
                 exist: true,
                 url :youtube,
-                
-                cls : "btn-link",
+                cls : "bio-link",
                 icon:"bi bi-youtube",                        
             },
             {
                 id  :1,
-                url :github,
                 exist: true,
-                cls : "btn-link",
-                icon:"bi bi-github",        
+                url :instagram,
+                cls : "bio-link",
+                icon:"bi bi-instagram",    
             },
             {
                 id  :2,
                 exist: true,
-                url :instagram,
-                cls : "btn-link",
-                icon:"bi bi-instagram",    
-            },
-            {
-                id  :3,
-                exist: true,
                 url :facebook,
-                cls : "btn-link",
+                cls : "bio-link",
                 icon:"bi bi-facebook",   
             },
             {
-                id  :4,
+                id  :3,
                 url :mail,
                 exist: true,
-                cls : "btn-link",
+                cls : "bio-link",
                 icon:"bi bi-mailbox",
             },                  
         ],
@@ -119,8 +116,10 @@ function workProfile()
     const linkedin = import.meta.env.VITE_LinkedIn;
             
     bio.current = {
+        cls: "bio-link",
         readtime: ReadTime(),
         title: "Work Biography",
+        
         headline: "Junior Software Developer",
 
         links:
@@ -129,21 +128,21 @@ function workProfile()
                 id  :0,
                 exist: true,
                 url :linkedin,
-                cls :"btn-link",
+                cls :"bio-link",
                 icon:"bi bi-linkedin",
             },
             {
                 id  :1,
                 exist: true,
                 url :github,
-                cls :"btn-link",
+                cls :"bio-link",
                 icon:"bi bi-github",
             },
             {
                 id  :2,
                 url :CV,
                 exist: true,
-                cls :"btn-link",
+                cls :"bio-link",
                 icon:"bi bi-file-person",
             },
         ],
@@ -178,9 +177,10 @@ function workProfile()
 function Journey()
 {
     bio.current = {
+        cls: "bio-link",
         title   : "Journey",
         headline: "The Journey So Far",
-        readtime: computed(() => ReadTime()),
+        readtime:  ReadTime(),
         
         message :
         [
@@ -219,6 +219,7 @@ function WorkoutBlog()
         message: [],
     };
 };
+
 
 function PersonalBlog()
 {
@@ -336,12 +337,20 @@ const bio = reactive(
                     id      : 3,
                     exist   : false,
                     cls     : "bio-btn",
+                    name    : "Common Opinions",
+                    function:"",
+                    icon    : "bi bi-clock-history",
+                },
+                {
+                    id      : 4,
+                    exist   : false,
+                    cls     : "bio-btn",
                     name    : "Workout Blog",
                     function: WorkoutBlog,
                     icon    : "bi bi-clock-history",
                 },
                 {
-                    id      : 4,
+                    id      : 5,
                     exist   : false,
                     cls     : "bio-btn",
                     name    : "Personal Blog",
