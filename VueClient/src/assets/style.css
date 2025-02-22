@@ -389,7 +389,7 @@ flex-wrap-reversed-row, .flex-reversed-row {
   transition: 0.3s ease-in-out;
 }
 .pp span.tech-label {
-  padding: 2vw;
+  padding: 1vw;
   font-size: 0.9em;
   font-weight: 300;
   font-style: oblique;
