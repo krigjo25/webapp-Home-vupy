@@ -11,7 +11,7 @@
                     </a>
                 </nav>
                 <h3>{{ bio.current.title  }}</h3>
-                <h3>{{ bio.current.headline }}</h3>
+                <h4>{{ bio.current.headline }}</h4>
                 <small class ='abt-author'>Born : {{bio.current.author.born}} ({{ bio.current.author.age }} years old) </small><br>
             </div>
             <small>Written by {{ bio.current.author.name }}. Average reading time <b>{{ bio.current.readtime }} min</b><i class="bi bi-stopwatch"></i></small>       
@@ -26,7 +26,7 @@
 
 <script setup>
 //  Importing dependencies
-import { onMounted, reactive, ref, computed } from 'vue';
+import { onMounted, reactive, computed } from 'vue';
 
 //  Importing components
 import Navigation from '../misc_components/navigation.vue';
@@ -35,7 +35,6 @@ function biography()
 {
     //  Importing the links
     const mail = import.meta.env.VITE_Mail;
-    const github = import.meta.env.VITE_Github;
     const youtube = import.meta.env.VITE_Youtube;
     const facebook = import.meta.env.VITE_Facebook;
     const instagram = import.meta.env.VITE_Instagram;
@@ -219,7 +218,6 @@ function WorkoutBlog()
         message: [],
     };
 };
-
 
 function PersonalBlog()
 {

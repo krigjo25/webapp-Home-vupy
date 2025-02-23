@@ -1,21 +1,12 @@
+@import fonts
+@import colour
+
 ext-btn-functionallity
     transition: 2s
     
     &:hover
         transform: scale(1.1)
         opacity: 1 !important
-    
-roboto-font
-    font-family: 'Roboto', sans-serif
-
-work-sans-font
-    font-family: 'Work Sans', sans-serif
-
-open-sans-font
-    font-family: 'Open Sans', sans-serif
-
-@import colour
-
 
 main 
     section.info
@@ -38,10 +29,10 @@ main
             .caption
                 bottom: 5.5vh
                 display: flex
+                color: $bg-light
                 inline-size: 100%
                 position: relative
                 justify-content: center
-                color: $highlight-color
                 background-color: $overlay
                 border-bottom-left-radius: 1em
                 border-bottom-right-radius: 1em
@@ -60,7 +51,6 @@ main
                     border: none
                     font-size: 2em
                     cursor: pointer
-                    //color: #fefefe
                     background-color: transparent
                     @extend ext-btn-functionallity
   
@@ -72,8 +62,7 @@ main
                 font-size: 2em
                 text-align: center
                 @extend work-sans-font
-            
-        
+
             nav.bio-link
                 inline-size: 100%
                 background-color: rgba(230, 247, 252, 1)
@@ -81,16 +70,18 @@ main
                 button.bio-btn
                     border: none
                     padding: 1em
-                    cursor: pointer
                     font-size: 1em
+                    cursor: pointer
                     border-radius: 0.5em
+                    @extend ext-btn-functionallity
                     background-color: rgba(230, 247, 252, 1)
                     border-left: 1px solid rgb(207, 222, 226)
-                    @extend ext-btn-functionallity
+                    
 
                     &:hover
-                        background-color: rgb(207, 222, 226)
                         color: $highlight-color
+                        background-color: rgb(207, 222, 226)
+                        
 
             section.bio-content
                 @extend roboto-font
@@ -99,40 +90,13 @@ main
                     font-size: 1.5em
                     text-align: justify
                 
-                .keywords
-                    margin-block-end: 1em
-                
-                    h3
-                        @extend work-sans-font
-                        margin-block-end: 0em 
-
-                nav.social-links
-                    display: flex
-                    flex-wrap: wrap
-                    justify-content: center
-                    margin-block-start: 2vh
-
-                    button.btn-links
-                        display: flex
-                        flex-wrap: wrap
-                        justify-content: center
-                        margin-block-start: 2vh
-
-        section
-
-            .btn-links a:visited, .btn-links a:link
-            
-                text-decoration: none
-                color: rgb(254, 254, 254)
-                background-color: #a1bfc9
-
-        div.grid-container
-            display: grid
-            grid-template-columns: repeat(auto-fill, minmax(13vw, 1fr))
-            grid-gap: 1em
-
-        .grid-item
-            inline-size: 14vw
+                h3
+                    margin-block-end: 0em 
+                    @extend work-sans-font
+                h4
+                    margin-block-end: 0em
+                    color: $highlight-color !important
+                    
 
         nav.ext-bar
             padding: 1vw
@@ -146,16 +110,15 @@ main
                 font-size: 1em
             
             a
-                color: inherit
-                text-decoration: none
-                font-size: 1.5em
                 margin: 0.5em
                 padding: 0.5em
+                font-size: 1.5em
+                text-align: center
                 border-radius: 50%
                 transition: 0aaaa.5s
-                display: inline-block
-                text-align: center
+                text-decoration: none
                 min-inline-size: 50px
+                display: inline-block
                 @extend ext-btn-functionallity
 
             &:hover,:visited

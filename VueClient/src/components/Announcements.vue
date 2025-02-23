@@ -1,5 +1,5 @@
 <template>
-    <div class="flash" v-if="announcement">{{ announcement}}</div>
+    <h2 class="flash" v-if="announcement">{{ announcement}}</h2>
 </template>
 
 <script setup>
