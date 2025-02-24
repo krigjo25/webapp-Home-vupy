@@ -1,0 +1,66 @@
+// Sass file for label color
+//  Variables
+@import colour
+@import misc
+
+// Interpreted language
+div.tech-interpreted
+    @extend %filter-content
+    background-color: $Cyan-Blue-Azure
+
+.tech-wrapper:has(.tech-intepreted)
+    transition: all .3s ease-out
+
+    &:hover
+        background-color: $Cyan-Blue-Azure-hover
+
+
+
+// Compiled languageC, C++, C#,
+div.tech-compiled
+    background-color: $c
+    @extend %filter-content
+
+
+.tech-wrapper:has(.tech-compiled)
+    transition: all .3s ease-out
+
+    &:hover
+        background-color: $c-light
+
+
+// Database
+div.tech-db
+    @extend %filter-content
+    background-color: $db
+
+.tech-wrapper:has(.tech-db)
+    transition: all .3s ease-out
+
+    &:hover
+        background-color: $db-light
+
+// UI / UX / Frontend
+div.tech-ui-ux
+    @extend %filter-content
+    background-color: $webapp
+
+.tech-wrapper:has(.tech-UX-UI)
+    transition: all .3s ease-out
+
+    &:hover
+        background-color: $webapp-light
+
+// Workflow
+div.tech-workflow
+    @extend %filter-content
+    background-color: $work-flow
+
+.tech-wrapper:has(.tech-workflow)
+    transition: all .3s ease-out
+
+    &:hover
+        background-color: $work-flow-light
+
+
+

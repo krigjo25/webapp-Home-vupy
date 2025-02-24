@@ -27,7 +27,7 @@
 <script setup>
 //  Importing dependencies
 import { onMounted, reactive, computed } from 'vue';
-import { ReadTime, CalculateAge, CalculateDate } from '@/services/utulity/misc';
+
 //  Importing components
 import Navigation from '../misc_components/navigation.vue';
 
@@ -42,7 +42,7 @@ function biography()
     bio.current = {
         cls: "bio-link",
         title: "Biography",
-        get readtime() { return ReadTime(this.message)},
+        readtime: ReadTime(),
         headline: "Passionate Programmer And Fitness Enthusiast",                
         links:
         [
@@ -96,13 +96,12 @@ function biography()
             utilizing the unique strengths of my team members. This makes me a valuable
             asset to the team`,
         ],
-        
 
         author:
         {
             name:"Kristoffer Gjøsund",
-            get age() {return CalculateAge([1994, 2, 25])},
-            get born() {return CalculateDate([1994, 2, 25, 15])},
+            age: computed(() => CalculateAge()),
+            born: computed(() => CalculateDate()),
         },
     };
     
@@ -117,7 +116,7 @@ function workProfile()
             
     bio.current = {
         cls: "bio-link",
-        get readtime() { return ReadTime(this.message)},
+        readtime: ReadTime(),
         title: "Work Biography",
         
         headline: "Junior Software Developer",
@@ -162,8 +161,7 @@ function workProfile()
             includes a lot of simplicity at first, then Optimizion for a better
             performance. Through the journey as a software engineer, I have
             experienced that the best practice to ensure code quality is through
-            test frameworks.`,
-        ],
+            test frameworks.`,],
         
         author:
             {
@@ -181,7 +179,7 @@ function Journey()
         cls: "bio-link",
         title   : "Journey",
         headline: "The Journey So Far",
-        get readtime() { return ReadTime(this.message)},
+        readtime:  ReadTime(),
         
         message :
         [
@@ -216,8 +214,6 @@ function WorkoutBlog()
     bio = {
         title: "Workout Blog",
         headline: "Workout Blog",
-        get readtime() { return ReadTime(this.message)},
-
         links: [],
         message: [],
     };
@@ -228,11 +224,67 @@ function PersonalBlog()
     bio = {
         title: "Workout Blog",
         headline: "Workout Blog",
-        get readtime() { return ReadTime(this.message)},
-
         links: [],
         message: [],
     };
+};
+function CalculateDate()
+{
+    let birthdate = [1994, 2, 25, 15];
+
+    birthdate = new Date(birthdate[0], birthdate[1] - 1, birthdate[2], 15);
+    return birthdate;
+};
+function CalculateAge()
+{
+    // Initializing a year
+    const n = 1000 * 60 * 60 * 24;
+
+    //  Initializing the date
+    let today = new Date();
+    let birthdate = CalculateDate();
+
+    //  Calculating the difference
+    let diff = today - birthdate;
+
+    //  Calculating the difference
+    diff = Math.round(diff / n);
+
+    if (today.getMonth() < birthdate.getMonth() && today.getDay() < birthdate.getDay()) 
+    {
+        return Math.round((diff / 365) - 1);
+    }
+
+    return Math.floor((diff / 365));
+};
+function ReadTime()
+{
+    /*
+    *   The average reading time is calculated by dividing the total number of words by WPM.
+    *   The average adult reading speed is between 200 and 250 words per minute (WPM).            
+    *   The Code below is based on Flesch-Kincaid Grade Level Readability Formula,
+        - While it is not directly related to the reading time, it is a good way to estimate the reading time.
+    *   For a better accuracy, the Math.round() function is used to round the number to the nearest whole number.
+            
+    */
+
+    //  Initialize the count
+    let count = 0;
+
+    // Initialize  the message
+    let read = bio.current.message;
+
+    //  Count the words
+    for (let i = 0; i < read.length; i++)
+    {
+        const cleaned = read[i].replace(/[^\w\s]|_/g, "");
+        const words =  cleaned.trim().split(/\s+/).filter(words => words != '');
+        count += words.length;
+    }
+    //  Calculate the reading time
+    const WPM = 238;
+
+    return Math.round(count/WPM);
 };
 
 const bio = reactive(

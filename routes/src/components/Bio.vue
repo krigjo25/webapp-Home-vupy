@@ -7,6 +7,6 @@
 
 <script setup>
     //  Importing components
-    import Bio from './bio_components/Bio.vue';
-    import Carosel from './bio_components/Carosel.vue';
+    import Bio from '../components/bio_components/Bio.vue';
+    import Carosel from '../components/bio_components/Carosel.vue';
 </script>

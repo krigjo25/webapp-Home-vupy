@@ -1,0 +1,117 @@
+@import misc
+@import fonts
+@import colour
+
+main 
+    .flash
+        font-size: 2em
+        display: flex
+        flex-wrap: wrap
+        align-content: center
+        flex-direction: column
+        border-bottom: 1px groove black
+
+    section.spec-wrapper
+
+        display: flex
+        flex-wrap: wrap
+        flex-direction: row
+        margin-block: 5vh
+        justify-content: space-evenly
+
+        .specialization-class
+
+            inline-size: 40vw
+            a
+                text-decoration: none
+                color: rgb(64, 64, 64)
+                transition: 0.3s
+
+
+            .h3-link
+                margin: auto
+                font-size: 2em
+                @extend work-sans-font
+                transition: 0.3s ease-in-out
+
+            .no-select
+                @extend %user-select
+
+            &:hover
+                .h3-link
+                    font-size: 2.5em
+                    transform: scale(1.1)
+                    @extend work-sans-font
+                    text-decoration: underline
+
+            p
+                font-size: 1.5em
+                inline-size: 100%
+                @extend roboto-font
+                text-align: justify
+
+                
+            .tech-container
+                inline-size: 100%
+
+            span.tech-label
+                padding: 1em
+                font-size: 0.9em
+                font-weight: 300
+                font-style: oblique
+                border-radius: 10px
+                margin-inline: 0.3em
+
+
+            .specialization-course
+
+                a
+                    text-decoration: none
+                    color: rgb(64, 64, 64)
+                    transition: 0.3s
+
+
+                .h4-link
+                    @extend work-sans-font
+                    margin: auto
+                    font-size: 3vh
+                    transition: 0.3s ease-in-out
+                    
+                &:hover
+                    .h4-link
+                        font-size: 3.5vh
+                        font-weight: bold
+                        text-decoration: underline
+                        transform: scale(1.1)
+                
+                .tech-container
+                    @extend %user-select
+
+                    .relative
+                        left: .5vw
+                        top: .9vh
+                        position: relative
+
+                .tech-wrapper
+
+                    margin: 0.1em
+                    display: flex
+                    padding: 0.5em
+                    border-radius: 10px
+                    background-color: rgba(241, 241, 241, 1)
+
+                    &:hover
+                        transform: scale(1.1)
+                        transition: 0.3s ease-in-out
+                        background-color: rgba(241, 241, 241, 0.8)
+                        box-shadow: $box-shadow
+                
+.flex-row
+    padding: 0.5em !important
+    margin: 0.5em !important
+
+
+
+
+
+    
