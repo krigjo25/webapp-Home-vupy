@@ -116,7 +116,7 @@ function workProfile()
     const linkedin = import.meta.env.VITE_LinkedIn;
             
     bio.current = {
-        cls: "bio-link",
+        cls: "bio-bar",
         get readtime() { return ReadTime(this.message)},
         title: "Work Biography",
         
@@ -168,8 +168,8 @@ function workProfile()
         author:
             {
                 name:"Kristoffer Gjøsund",
-                born: computed(() => CalculateDate()),
-                age: computed(() => CalculateAge()),
+                get age() {return CalculateAge([1994, 2, 25])},
+                get born() {return CalculateDate([1994, 2, 25, 15])},
 
             },
         };
@@ -178,7 +178,7 @@ function workProfile()
 function Journey()
 {
     bio.current = {
-        cls: "bio-link",
+        cls: "bio-bar",
         title   : "Journey",
         headline: "The Journey So Far",
         get readtime() { return ReadTime(this.message)},
@@ -205,8 +205,8 @@ function Journey()
         author:
         {
             name:"Kristoffer Gjøsund",
-            age: computed(() => CalculateAge()),
-            born: computed(() => CalculateDate()),
+            get age() {return CalculateAge([1994, 2, 25])},
+            get born() {return CalculateDate([1994, 2, 25, 15])},
         }, 
     };
 };
@@ -220,6 +220,13 @@ function WorkoutBlog()
 
         links: [],
         message: [],
+
+        author:
+        {
+            name:"Kristoffer Gjøsund",
+            get age() {return CalculateAge([1994, 2, 25])},
+            get born() {return CalculateDate([1994, 2, 25, 15])},
+        }, 
     };
 };
 
@@ -232,6 +239,13 @@ function PersonalBlog()
 
         links: [],
         message: [],
+
+        author:
+        {
+            name:"Kristoffer Gjøsund",
+            get age() {return CalculateAge([1994, 2, 25])},
+            get born() {return CalculateDate([1994, 2, 25, 15])},
+        }, 
     };
 };
 
