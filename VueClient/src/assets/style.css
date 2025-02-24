@@ -7,37 +7,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
-textarea {
-  block-size: 10vw;
-  inline-size: 200px;
-}
-
-roboto-font, header a, .pp .tech-container, main section.spec-wrapper .specialization-class p, main section.info section.bio-container section.bio-content {
-  color: rgb(58, 59, 60);
+roboto-font, header a, .tech-container, main section.spec-wrapper .specialization-class p, main section.info section.bio-container section.bio-content {
+  color: rgb(40, 40, 40);
   font-family: "Roboto", sans-serif;
 }
 
 work-sans-font, main section.spec-wrapper .specialization-class .specialization-course .h4-link, main section.spec-wrapper .specialization-class:hover .h3-link, main section.spec-wrapper .specialization-class .h3-link, main section.info section.bio-container section.bio-content h3, main section.info section.bio-container h2 {
   font-weight: 100;
-  color: rgb(58, 59, 60);
+  color: rgb(40, 40, 40);
   font-family: "Work Sans", sans-serif;
 }
 
-roboto-font, header a, .pp .tech-container, main section.spec-wrapper .specialization-class p, main section.info section.bio-container section.bio-content {
-  color: rgb(58, 59, 60);
+roboto-font, header a, .tech-container, main section.spec-wrapper .specialization-class p, main section.info section.bio-container section.bio-content {
+  color: rgb(40, 40, 40);
   font-family: "Roboto", sans-serif;
 }
 
 work-sans-font, main section.spec-wrapper .specialization-class .specialization-course .h4-link, main section.spec-wrapper .specialization-class:hover .h3-link, main section.spec-wrapper .specialization-class .h3-link, main section.info section.bio-container section.bio-content h3, main section.info section.bio-container h2 {
   font-weight: 100;
-  color: rgb(58, 59, 60);
+  color: rgb(40, 40, 40);
   font-family: "Work Sans", sans-serif;
 }
 
-ext-btn-functionallity, .pp a:link, .pp a:visited, main section.info nav.ext-bar a, main section.info section.bio-container nav.bio-link button.bio-btn, main section.info .carosel .btn-container button.img-btn {
+ext-btn-functionallity, .pp a:link, .pp a:visited, main section.info nav.ext-bar a, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info .carosel .btn-container button.img-btn {
   transition: 2s;
 }
-ext-btn-functionallity:hover, .pp a:hover:link, .pp a:hover:visited, main section.info nav.ext-bar a:hover, main section.info section.bio-container nav.bio-link button.bio-btn:hover, main section.info .carosel .btn-container button.img-btn:hover {
+ext-btn-functionallity:hover, .pp a:hover:link, .pp a:hover:visited, main section.info nav.ext-bar a:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info .carosel .btn-container button.img-btn:hover {
   transform: scale(1.1);
   opacity: 1 !important;
 }
@@ -94,20 +89,20 @@ main section.info section.bio-container h2 {
   font-size: 2em;
   text-align: center;
 }
-main section.info section.bio-container nav.bio-link {
+main section.info section.bio-container nav.bio-bar {
   inline-size: 100%;
-  background-color: rgb(230, 247, 252);
+  background-color: rgb(75, 160, 160);
 }
-main section.info section.bio-container nav.bio-link button.bio-btn {
+main section.info section.bio-container nav.bio-bar button.bio-btn {
   border: none;
   padding: 1em;
   font-size: 1em;
   cursor: pointer;
   border-radius: 0.5em;
-  background-color: rgb(230, 247, 252);
-  border-left: 1px solid rgb(207, 222, 226);
+  background-color: inherit;
+  border-left: 1px solid rgb(40, 40, 40);
 }
-main section.info section.bio-container nav.bio-link button.bio-btn:hover {
+main section.info section.bio-container nav.bio-bar button.bio-btn:hover {
   color: rgb(103, 58, 183);
   background-color: rgb(207, 222, 226);
 }
@@ -148,27 +143,27 @@ main section.info nav.ext-bar:hover, main section.info nav.ext-bar :visited {
   color: inherit;
 }
 
-.pp .tech-container, main section.spec-wrapper .specialization-class .specialization-course .tech-container, main section.spec-wrapper .specialization-class .no-select {
+.tech-container, main section.spec-wrapper .specialization-class .specialization-course .tech-container, main section.spec-wrapper .specialization-class .no-select {
   user-select: none;
   margin-inline: 1em;
   -moz-user-select: none;
   -webkit-user-select: none;
 }
 
-div.tech-workflow, div.tech-ui-ux, div.tech-db, div.tech-compiled, div.tech-interpreted {
+.tech-workflow, div.tech-ui-ux, div.tech-db, div.tech-compiled, div.tech-interpreted {
   block-size: 1em;
   inline-size: 1em;
   border-radius: 10px;
 }
 
-roboto-font, header a, .pp .tech-container, main section.spec-wrapper .specialization-class p, main section.info section.bio-container section.bio-content {
-  color: rgb(58, 59, 60);
+roboto-font, header a, .tech-container, main section.spec-wrapper .specialization-class p, main section.info section.bio-container section.bio-content {
+  color: rgb(40, 40, 40);
   font-family: "Roboto", sans-serif;
 }
 
 work-sans-font, main section.spec-wrapper .specialization-class .specialization-course .h4-link, main section.spec-wrapper .specialization-class:hover .h3-link, main section.spec-wrapper .specialization-class .h3-link, main section.info section.bio-container h2, main section.info section.bio-container section.bio-content h3 {
   font-weight: 100;
-  color: rgb(58, 59, 60);
+  color: rgb(40, 40, 40);
   font-family: "Work Sans", sans-serif;
 }
 
@@ -227,15 +222,15 @@ main section.spec-wrapper .specialization-class .specialization-course a {
   transition: 0.3s;
 }
 main section.spec-wrapper .specialization-class .specialization-course .h4-link {
+  color: rgb(103, 58, 183) !important;
   margin: auto;
-  font-size: 3vh;
+  font-size: 1.3em;
   transition: 0.3s ease-in-out;
 }
 main section.spec-wrapper .specialization-class .specialization-course:hover .h4-link {
-  font-size: 3.5vh;
-  font-weight: bold;
-  text-decoration: underline;
+  font-size: 1.5em;
   transform: scale(1.1);
+  text-decoration: underline;
 }
 main section.spec-wrapper .specialization-class .specialization-course .tech-container .relative {
   left: 0.5vw;
@@ -247,13 +242,13 @@ main section.spec-wrapper .specialization-class .specialization-course .tech-wra
   display: flex;
   padding: 0.5em;
   border-radius: 10px;
-  background-color: rgb(241, 241, 241);
+  background-color: rgb(255, 255, 255);
 }
 main section.spec-wrapper .specialization-class .specialization-course .tech-wrapper:hover {
   transform: scale(1.1);
-  transition: 0.3s ease-in-out;
-  background-color: rgba(241, 241, 241, 0.8);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background-color: rgb(245, 245, 245);
+  transition: 0.3s ease-in-out;
 }
 
 .flex-row {
@@ -261,27 +256,27 @@ main section.spec-wrapper .specialization-class .specialization-course .tech-wra
   margin: 0.5em !important;
 }
 
-.pp .tech-container, main section.spec-wrapper .specialization-class .no-select, main section.spec-wrapper .specialization-class .specialization-course .tech-container {
+.tech-container, main section.spec-wrapper .specialization-class .no-select, main section.spec-wrapper .specialization-class .specialization-course .tech-container {
   user-select: none;
   margin-inline: 1em;
   -moz-user-select: none;
   -webkit-user-select: none;
 }
 
-div.tech-workflow, div.tech-ui-ux, div.tech-db, div.tech-compiled, div.tech-interpreted {
+.tech-workflow, div.tech-ui-ux, div.tech-db, div.tech-compiled, div.tech-interpreted {
   block-size: 1em;
   inline-size: 1em;
   border-radius: 10px;
 }
 
-roboto-font, header a, .pp .tech-container, main section.info section.bio-container section.bio-content, main section.spec-wrapper .specialization-class p {
-  color: rgb(58, 59, 60);
+roboto-font, header a, .tech-container, main section.info section.bio-container section.bio-content, main section.spec-wrapper .specialization-class p {
+  color: rgb(40, 40, 40);
   font-family: "Roboto", sans-serif;
 }
 
 work-sans-font, main section.info section.bio-container h2, main section.info section.bio-container section.bio-content h3, main section.spec-wrapper .specialization-class .h3-link, main section.spec-wrapper .specialization-class:hover .h3-link, main section.spec-wrapper .specialization-class .specialization-course .h4-link {
   font-weight: 100;
-  color: rgb(58, 59, 60);
+  color: rgb(40, 40, 40);
   font-family: "Work Sans", sans-serif;
 }
 
@@ -339,7 +334,7 @@ flex-wrap-reversed-row, .flex-reversed-row {
 .pp {
   margin: 1em;
   border-radius: 10px;
-  background-color: rgb(231, 243, 243);
+  background-color: rgb(75, 160, 160);
 }
 .pp a:link, .pp a:visited {
   color: inherit;
@@ -351,38 +346,8 @@ flex-wrap-reversed-row, .flex-reversed-row {
   flex-direction: column;
   justify-content: space-evenly;
 }
-.pp .tech-container {
-  display: flex;
-  flex-wrap: wrap;
-  inline-size: 22vw;
-  align-items: stretch;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.pp .tech-container .relative {
-  left: 0.5em;
-  top: 0.7em;
-  position: relative;
-}
-.pp .tech-wrapper {
-  margin: 5px;
-  display: flex;
-  border-radius: 10px;
-  margin-inline: 0.3em;
-  background-color: rgb(241, 241, 241);
-}
-.pp .tech-wrapper:hover {
+.pp:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  transition: 0.3s ease-in-out;
-}
-.pp span.tech-label {
-  padding: 1vw;
-  font-size: 0.9em;
-  font-weight: 300;
-  font-style: oblique;
-  border-radius: 10px;
-  margin-inline: 0.3em;
 }
 
 nav.ext-bar a.bio-link {
@@ -475,14 +440,14 @@ nav.ext-bar a.bio-link .bi-mailbox:active {
   font-family: python;
 }
 
-main section.spec-wrapper .specialization-class .no-select, main section.spec-wrapper .specialization-class .specialization-course .tech-container, .pp .tech-container {
+.tech-container, main section.spec-wrapper .specialization-class .no-select, main section.spec-wrapper .specialization-class .specialization-course .tech-container {
   user-select: none;
   margin-inline: 1em;
   -moz-user-select: none;
   -webkit-user-select: none;
 }
 
-div.tech-workflow, div.tech-ui-ux, div.tech-db, div.tech-compiled, div.tech-interpreted {
+.tech-workflow, div.tech-ui-ux, div.tech-db, div.tech-compiled, div.tech-interpreted {
   block-size: 1em;
   inline-size: 1em;
   border-radius: 10px;
@@ -492,10 +457,10 @@ div.tech-interpreted {
   background-color: rgb(48, 105, 152);
 }
 
-.tech-wrapper:has(.tech-intepreted) {
+.tech-wrapper:has(.tech-interpreted) {
   transition: all 0.3s ease-out;
 }
-.tech-wrapper:has(.tech-intepreted):hover {
+.tech-wrapper:has(.tech-interpreted):hover {
   background-color: rgb(75, 139, 190);
 }
 
@@ -525,14 +490,14 @@ div.tech-ui-ux {
   background-color: rgba(255, 99, 71, 0.8);
 }
 
-.tech-wrapper:has(.tech-UX-UI) {
+.tech-wrapper:has(.tech-ui-ux) {
   transition: all 0.3s ease-out;
 }
-.tech-wrapper:has(.tech-UX-UI):hover {
+.tech-wrapper:has(.tech-ui-ux):hover {
   background-color: rgba(255, 99, 71, 0.6);
 }
 
-div.tech-workflow {
+.tech-workflow {
   background-color: rgba(0, 191, 255, 0.8);
 }
 
@@ -541,6 +506,42 @@ div.tech-workflow {
 }
 .tech-wrapper:has(.tech-workflow):hover {
   background-color: rgba(0, 191, 255, 0.6);
+}
+
+.tech-container {
+  display: flex;
+  flex-wrap: wrap;
+  inline-size: 22vw;
+  align-items: stretch;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.tech-container .relative {
+  left: 0.5em;
+  top: 0.7em;
+  position: relative;
+}
+
+.tech-wrapper {
+  margin: 5px;
+  display: flex;
+  border-radius: 10px;
+  margin-inline: 0.3em;
+  background-color: rgb(245, 245, 245);
+}
+.tech-wrapper:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: 3s ease-in-out;
+}
+
+span.tech-label {
+  padding: 1vw;
+  font-size: 0.9em;
+  font-weight: 300;
+  font-style: oblique;
+  border-radius: 10px;
+  margin-inline: 0.3em;
 }
 
 flex-wrap-row, flex-wrap-row-space-evenly, .flex-row, .justify-center-row, .justify-flexstart-row, .justify-content-space-evently-row, .align-content-center-row, .align-items-center-row, .align-items-flex-end-row, .fullstack-container, .pp {

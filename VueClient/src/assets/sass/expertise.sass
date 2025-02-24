@@ -72,17 +72,17 @@ main
 
 
                 .h4-link
-                    @extend work-sans-font
+                    color: $h4 !important
                     margin: auto
-                    font-size: 3vh
+                    font-size: 1.3em
+                    @extend work-sans-font
                     transition: 0.3s ease-in-out
                     
                 &:hover
                     .h4-link
-                        font-size: 3.5vh
-                        font-weight: bold
-                        text-decoration: underline
+                        font-size: 1.5em
                         transform: scale(1.1)
+                        text-decoration: underline
                 
                 .tech-container
                     @extend %user-select
@@ -98,13 +98,13 @@ main
                     display: flex
                     padding: 0.5em
                     border-radius: 10px
-                    background-color: rgba(241, 241, 241, 1)
+                    background-color: $white
 
                     &:hover
                         transform: scale(1.1)
-                        transition: 0.3s ease-in-out
-                        background-color: rgba(241, 241, 241, 0.8)
                         box-shadow: $box-shadow
+                        background-color: $bg-light
+                        transition: 0.3s ease-in-out
                 
 .flex-row
     padding: 0.5em !important

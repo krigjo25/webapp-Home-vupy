@@ -64,19 +64,19 @@ main
                 text-align: center
                 @extend work-sans-font
 
-            nav.bio-link
+            nav.bio-bar
                 inline-size: 100%
-                background-color: rgba(230, 247, 252, 1)
-
+                background-color: $nav-bar
+            
                 button.bio-btn
                     border: none
                     padding: 1em
                     font-size: 1em
                     cursor: pointer
                     border-radius: 0.5em
+                    background-color: inherit
                     @extend ext-btn-functionallity
-                    background-color: rgba(230, 247, 252, 1)
-                    border-left: 1px solid rgb(207, 222, 226)
+                    border-left: 1px solid $font-light
                     
 
                     &:hover

@@ -8,13 +8,11 @@ div.tech-interpreted
     @extend %filter-content
     background-color: $Cyan-Blue-Azure
 
-.tech-wrapper:has(.tech-intepreted)
+.tech-wrapper:has(.tech-interpreted)
     transition: all .3s ease-out
 
     &:hover
         background-color: $Cyan-Blue-Azure-hover
-
-
 
 // Compiled languageC, C++, C#,
 div.tech-compiled
@@ -27,7 +25,6 @@ div.tech-compiled
 
     &:hover
         background-color: $c-light
-
 
 // Database
 div.tech-db
@@ -45,14 +42,14 @@ div.tech-ui-ux
     @extend %filter-content
     background-color: $webapp
 
-.tech-wrapper:has(.tech-UX-UI)
+.tech-wrapper:has(.tech-ui-ux)
     transition: all .3s ease-out
 
     &:hover
         background-color: $webapp-light
 
 // Workflow
-div.tech-workflow
+.tech-workflow
     @extend %filter-content
     background-color: $work-flow
 
@@ -62,5 +59,38 @@ div.tech-workflow
     &:hover
         background-color: $work-flow-light
 
+.tech-container
+        
+    display: flex
+    flex-wrap: wrap
+    inline-size: 22vw
+    @extend roboto-font
+    @extend %user-select
+    align-items: stretch
+    flex-direction: column
+    justify-content: space-between    
 
+    .relative
+        left: 0.5em
+        top: 0.7em
+        position: relative
 
+.tech-wrapper
+    margin: 5px
+    display: flex
+    border-radius: 10px
+    margin-inline: 0.3em
+    background-color: $bg-light
+
+    &:hover
+        transform: scale(1.1)
+        box-shadow: $box-shadow
+        transition: 3s ease-in-out
+    
+span.tech-label
+    padding: 1vw
+    font-size: 0.9em
+    font-weight: 300
+    font-style: oblique
+    border-radius: 10px
+    margin-inline: 0.3em
