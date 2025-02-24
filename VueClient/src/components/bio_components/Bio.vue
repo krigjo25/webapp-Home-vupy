@@ -11,7 +11,7 @@
                     </a>
                 </nav>
                 <h3>{{ bio.current.title  }}</h3>
-                <h4>{{ bio.current.headline }}</h4>
+                <h4 class="h4-link">{{ bio.current.headline }}</h4>
                 <small class ='abt-author'>Born : {{bio.current.author.born}} ({{ bio.current.author.age }} years old) </small><br>
             </div>
             <small>Written by {{ bio.current.author.name }}. Average reading time <b>{{ bio.current.readtime }} min</b><i class="bi bi-stopwatch"></i></small>       
@@ -40,7 +40,7 @@ function biography()
     const instagram = import.meta.env.VITE_Instagram;
 
     bio.current = {
-        cls: "bio-link",
+        cls: "bio-bar",
         title: "Biography",
         get readtime() { return ReadTime(this.message)},
         headline: "Passionate Programmer And Fitness Enthusiast",                

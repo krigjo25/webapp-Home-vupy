@@ -102,7 +102,7 @@ const educations = reactive([
             [
                 {
                     id: 0,
-                    name: 'Proffesional Certificate in Computer Science for Python Programming',
+                    name: 'Computer Science for Python Programming',
                     description: `
                         Professional Certificate in Computer Science for Python Programming
                         is a focused online learning program designed to equip you with
