@@ -1,7 +1,10 @@
 // Sass file for label color
-//  Variables
-@import colour
+
+
 @import misc
+@import fonts
+@import colour
+
 
 // Interpreted language
 div.tech-interpreted
@@ -12,19 +15,18 @@ div.tech-interpreted
     transition: all .3s ease-out
 
     &:hover
-        background-color: $Cyan-Blue-Azure-hover
+        background-color: $Cyan-Blue-Azure-hover !important
 
 // Compiled languageC, C++, C#,
 div.tech-compiled
     background-color: $c
     @extend %filter-content
 
-
 .tech-wrapper:has(.tech-compiled)
     transition: all .3s ease-out
 
     &:hover
-        background-color: $c-light
+        background-color: $c-light !important
 
 // Database
 div.tech-db
@@ -35,7 +37,7 @@ div.tech-db
     transition: all .3s ease-out
 
     &:hover
-        background-color: $db-light
+        background-color: $db-light !important
 
 // UI / UX / Frontend
 div.tech-ui-ux
@@ -46,7 +48,7 @@ div.tech-ui-ux
     transition: all .3s ease-out
 
     &:hover
-        background-color: $webapp-light
+        background-color: $webapp-light !important
 
 // Workflow
 .tech-workflow
@@ -57,40 +59,24 @@ div.tech-ui-ux
     transition: all .3s ease-out
 
     &:hover
-        background-color: $work-flow-light
+        background-color: $work-flow-light !important
 
 .tech-container
-        
-    display: flex
-    flex-wrap: wrap
-    inline-size: 22vw
-    @extend roboto-font
-    @extend %user-select
-    align-items: stretch
-    flex-direction: column
-    justify-content: space-between    
+    
 
     .relative
-        left: 0.5em
-        top: 0.7em
+        left: .5vw
+        top: .9vh
         position: relative
-
+        
 .tech-wrapper
-    margin: 5px
+    margin: 0.1em
     display: flex
+    @extend roboto-font
     border-radius: 10px
-    margin-inline: 0.3em
-    background-color: $bg-light
-
+    @extend %user-select
+    
     &:hover
         transform: scale(1.1)
         box-shadow: $box-shadow
-        transition: 3s ease-in-out
-    
-span.tech-label
-    padding: 1vw
-    font-size: 0.9em
-    font-weight: 300
-    font-style: oblique
-    border-radius: 10px
-    margin-inline: 0.3em
+        transition: 1s ease-in-out
