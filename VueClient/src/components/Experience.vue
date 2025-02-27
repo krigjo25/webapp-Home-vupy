@@ -1,8 +1,21 @@
 <template>
-    <section id="fullstack" v-if="pfolio.Loaded">
+    <section id="fullstack" v-if="pfolio.Loaded" class="flex-column">
         <h2>Portefolio</h2>
-        <Navigation class='portefolio':data="pfolio.Total" @update="pfolio.current = $event" v-if="pfolio.Total" />
-        <div class="fullstack-container">
+        <div>
+            <Navigation class='portefolio':data="pfolio.Total" @update="pfolio.current = $event" v-if="pfolio.Total"/>
+            <form class="flex-row">
+                <select v-if = "pfolio.type">
+                    <option v-for="type in pfolio.type" :key="type.id">{{ type.type}}</option>
+                </select>
+                <input type='text' v-model="filter.name" placeholder="Search" />
+                <label for="language" v-if="pfolio.lang">Language:</label>
+                <select v-if = "pfolio.lang">
+                    <option v-for="lang in pfolio.lang" :key="lang.id">{{ lang.lang}}</option>
+                </select>
+            </form>
+        </div>
+        
+        <div class="flex-row justify-center">
             <div class="pp" v-for="data in pfolio.displayData" :key="data.id">
                 <div class="pro-nav">
                     <Link :link="url" v-for=" url in data.links"/>
@@ -20,7 +33,8 @@
         </div>
     </section>
     <section id="fullstack" class="loading" v-else>
-            <p>Loading elements...</p>
+        <h2>Portefolio</h2>
+        <p>Loading elements...</p>
     </section>
 </template>
 
@@ -28,7 +42,7 @@
 
 //  Importing dependencies
 import axios from 'axios';
-import { ref, reactive, onMounted, computed, watch } from 'vue';
+import { reactive, onMounted, computed } from 'vue';
 
 //  Importing components
 import Link from './misc_components/link.vue';
@@ -41,23 +55,42 @@ const pfolio = reactive(
     n           :9,
     current     :1,
     data        :[],
+    lang        :[],
     Total       :null,
     Loaded      :false,
+    
     displayData :computed(() =>
     {
-        const end = (pfolio.current * pfolio.n);
-        const start = (pfolio.current-1) * pfolio.n;
+        if (filter.name)
+        {
+            let search = pfolio.data.filter((data) => 
+            {
+                return data.name.toLowerCase().includes(filter.name.toLowerCase());
+            });
 
-        return pfolio.data.slice(start, end);
+            return search;
+        }
+        else
+        {
+            const end = (pfolio.current * pfolio.n);
+            const start = (pfolio.current-1) * pfolio.n;
+
+            return pfolio.data.slice(start, end);
+        }
     })
+    
 });
 
 const filter = reactive(
 {
-    name: 'Name',
-    date: 'Date',
-    lang: 'Language',
-    category: 'Category'
+    name: '',
+    lang: '',
+    category: ''
+});
+
+const lang = reactive(
+{
+    lang: []
 });
 
 //  Fetching data from the server
@@ -71,6 +104,8 @@ const Response = async () =>
     {
         pfolio.data = res.data.data;
         pfolio.Total = res.data.page;
+        pfolio.lang = res.data.lang;
+        console.log(pfolio.lang);
     })
     .catch((err) => 
     {

@@ -24,6 +24,34 @@ work-sans-font, main section.spec-wrapper .specialization-class .specialization-
   font-family: "Work Sans", sans-serif;
 }
 
+border, select, input[type=text] {
+  border-radius: 25em;
+  border: 1px solid rgb(245, 245, 245);
+}
+
+input-bg, input[type=text] {
+  padding: 1em 1em 1em 2.5em;
+  background-repeat: no-repeat;
+  background-position: 1vw 1.9vh;
+}
+
+input[type=text] {
+  font-size: 1em;
+  inline-size: 41vw;
+  background-image: url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/search.svg");
+}
+
+input[type=text]:focus-visible {
+  outline: 1px solid;
+  border: 1px solid rgb(103, 58, 183);
+}
+
+select {
+  padding: 1em;
+  font-size: 1em;
+  inline-size: 10vw;
+}
+
 roboto-font, header a, main section.spec-wrapper .specialization-class p, .tech-wrapper, main section.info section.bio-container section.bio-content {
   color: rgb(40, 40, 40);
   font-family: "Roboto", sans-serif;
@@ -461,13 +489,19 @@ div.tech-ui-ux {
   transition: 1s ease-in-out;
 }
 
-flex-wrap-row, .pp, .align-items-flex-end-row, .align-items-center-row, .align-content-center-row, .justify-content-space-evently-row, .justify-flexstart-row, .justify-center-row, .flex-row, flex-wrap-row-space-evenly, .fullstack-container {
+flex-wrap-column, .flex-column {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+flex-wrap-row, .pp, .align-items-flex-end-row, .align-items-center-row, .align-content-center-row, .justify-content-space-evently-row, .justify-flexstart-row, .justify-center-row, .flex-row, flex-wrap-row-space-evenly, .portefolio {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
 }
 
-flex-wrap-row-space-evenly, .fullstack-container {
+flex-wrap-row-space-evenly, .portefolio {
   justify-content: space-evenly;
 }
 
@@ -481,6 +515,10 @@ flex-wrap-reversed-row, .flex-reversed-row {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row-reverse;
+}
+
+.justify-center {
+  justify-content: space-evenly;
 }
 
 .justify-center-row {
@@ -512,6 +550,15 @@ flex-wrap-reversed-row, .flex-reversed-row {
   text-align: center;
 }
 
+.portefolio {
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+h2 {
+  text-align: center;
+}
+
 .pp {
   margin: 1em;
   border-radius: 10px;
@@ -533,7 +580,7 @@ flex-wrap-reversed-row, .flex-reversed-row {
 .pp .tech-container {
   display: flex;
   flex-wrap: wrap;
-  inline-size: 22vw;
+  inline-size: 20vw;
   align-items: stretch;
   flex-direction: column;
   justify-content: space-between;
@@ -742,13 +789,13 @@ div.tech-ui-ux {
   transition: 1s ease-in-out;
 }
 
-flex-wrap-row, flex-wrap-row-space-evenly, .flex-row, .justify-center-row, .justify-flexstart-row, .justify-content-space-evently-row, .align-content-center-row, .align-items-center-row, .align-items-flex-end-row, .fullstack-container, .pp {
+flex-wrap-row, flex-wrap-row-space-evenly, .flex-row, .justify-center-row, .justify-flexstart-row, .justify-content-space-evently-row, .align-content-center-row, .align-items-center-row, .align-items-flex-end-row, .portefolio, .pp {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
 }
 
-flex-wrap-row-space-evenly, .fullstack-container {
+flex-wrap-row-space-evenly, .portefolio {
   justify-content: space-evenly;
 }
 
@@ -762,6 +809,10 @@ flex-wrap-reversed-row, .flex-reversed-row {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row-reverse;
+}
+
+.justify-center {
+  justify-content: space-evenly;
 }
 
 .justify-center-row {
