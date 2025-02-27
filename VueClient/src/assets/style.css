@@ -338,7 +338,7 @@ main section.spec-wrapper .specialization-class .tech-container {
   inline-size: 100%;
 }
 main section.spec-wrapper .specialization-class span.tech-label {
-  padding: 1em;
+  padding: 0.5em;
   font-size: 0.9em;
   font-weight: 300;
   font-style: oblique;
