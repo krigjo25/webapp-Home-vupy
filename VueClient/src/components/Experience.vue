@@ -3,7 +3,7 @@
         <h2>Portefolio</h2>
         <div>
             <Navigation class='portefolio':data="pfolio.Total" @update="pfolio.current = $event" v-if="pfolio.Total"/>
-            <form class="flex-row">
+            <form class="flex-row justify-center">
                 <select v-if = "pfolio.type">
                     <option v-for="type in pfolio.type" :key="type.id">{{ type.type}}</option>
                 </select>
