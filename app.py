@@ -6,10 +6,11 @@ from flask_cors import CORS
 from flask_session import Session
 
 #   Custom dependencies
-from lib.internalAPIS.messages import Announcements
-from lib.internalAPIS.github import Github
-from lib.internalAPIS.Photos import PhotoLibrary
+
+from lib.endpoints.github import Github
 from lib.utility.logger import AppWatcher
+from lib.endpoints.Photos import PhotoLibrary
+from lib.endpoints.messages import Announcements
 from lib.config import DevelopmentConfig, ProdConfig
 
 # Initialize the logger

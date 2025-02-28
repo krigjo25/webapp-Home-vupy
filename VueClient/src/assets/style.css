@@ -489,13 +489,13 @@ div.tech-ui-ux {
   transition: 1s ease-in-out;
 }
 
-flex-wrap-column, .flex-column {
+flex-wrap-column, .pp .tech-container, .flex-column {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
 }
 
-flex-wrap-row, .pp, .align-items-flex-end-row, .align-items-center-row, .align-content-center-row, .justify-content-space-evently-row, .justify-flexstart-row, .justify-center-row, .flex-row, flex-wrap-row-space-evenly, .portefolio {
+flex-wrap-row, .pp .pro-nav .demo, .pp .pro-nav, .pp, .align-items-flex-end-row, .align-items-center-row, .align-content-center-row, .justify-content-space-evently-row, .justify-flexstart-row, .justify-center-row, .flex-row, flex-wrap-row-space-evenly, .portefolio {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -563,27 +563,45 @@ h2 {
   margin: 1em;
   border-radius: 10px;
   background-color: rgb(75, 160, 160);
+  box-shadow: 0 0 10px 0 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.pp p {
+  margin: 0;
+  inline-size: 20vw;
+}
+.pp span.time {
+  font-size: 0.8em;
+  font-weight: 300;
+  inline-size: 26vw;
+  font-style: oblique;
+  margin-inline: 0.3em;
+  justify-content: end;
 }
 .pp a:link, .pp a:visited {
   color: inherit;
 }
 .pp .pro-nav {
-  display: flex;
-  block-size: 100%;
-  padding-inline: 1em;
-  flex-direction: column;
+  padding: 1em;
+  padding: 0.5em;
   justify-content: space-evenly;
+}
+.pp .pro-nav .demo {
+  padding: 0.5em;
+  justify-content: space-evenly;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 10px;
+}
+.pp .pro-nav .demo:hover {
+  transform: scale(1.2);
+  transition: 1s;
 }
 .pp:hover {
   transform: scale(1.1);
 }
 .pp .tech-container {
-  display: flex;
-  flex-wrap: wrap;
-  inline-size: 20vw;
-  align-items: stretch;
-  flex-direction: column;
-  justify-content: space-between;
+  inline-size: 27vw;
+  align-items: center;
+  justify-content: center;
 }
 .pp .tech-container .relative {
   left: 0.5vw;
@@ -650,11 +668,14 @@ nav.ext-bar a.bio-link .bi-mailbox:hover {
 nav.ext-bar a.bio-link .bi-mailbox:active {
   color: rgb(0, 0, 115);
 }
+.bi-code {
+  color: rgb(40, 40, 40);
+}
+
 .bi-youtube {
   font-size: 2em;
   color: rgb(255, 0, 0);
 }
-
 .bi-youtube:hover {
   color: rgb(120, 6, 6);
 }
@@ -663,7 +684,6 @@ nav.ext-bar a.bio-link .bi-mailbox:active {
   font-size: 2em;
   color: rgb(40, 40, 40);
 }
-
 .bi-globe:hover {
   color: rgba(40, 40, 40, 0.8);
 }
@@ -672,11 +692,9 @@ nav.ext-bar a.bio-link .bi-mailbox:active {
   font-size: 2em;
   color: rgb(105, 105, 105);
 }
-
 .bi-github:hover {
   color: rgb(120, 120, 120);
 }
-
 .bi-github:active {
   color: rgb(45, 45, 45);
 }
@@ -687,10 +705,6 @@ nav.ext-bar a.bio-link .bi-mailbox:active {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background: linear-gradient(to right, #FF9A00 0%, #FF7400 50%, #FF4D00 50%, #CF1512 100%);
-}
-
-.tech-container .bi-python {
-  font-family: python;
 }
 
 .tech-wrapper, main section.spec-wrapper .specialization-class .no-select {
@@ -789,7 +803,7 @@ div.tech-ui-ux {
   transition: 1s ease-in-out;
 }
 
-flex-wrap-row, flex-wrap-row-space-evenly, .flex-row, .justify-center-row, .justify-flexstart-row, .justify-content-space-evently-row, .align-content-center-row, .align-items-center-row, .align-items-flex-end-row, .portefolio, .pp {
+flex-wrap-row, flex-wrap-row-space-evenly, .flex-row, .justify-center-row, .justify-flexstart-row, .justify-content-space-evently-row, .align-content-center-row, .align-items-center-row, .align-items-flex-end-row, .portefolio, .pp, .pp .pro-nav, .pp .pro-nav .demo {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;

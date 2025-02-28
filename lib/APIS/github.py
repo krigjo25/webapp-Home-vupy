@@ -60,7 +60,7 @@ class GithubAPI(APIConfig):
             repoObject['lang'] = [await self.fetch_languages(repoObject, f"{self.API_URL}/repos/{repoObject['owner']}/{repoObject['name']}/languages")]
             repoObject['links'] = [
                 {
-                    'icon': 'bi bi-github',
+                    'icon': 'bi bi-code',
                     'url': response[i]['html_url'],
                 }]
             if response[i]['homepage'] or response[i]['homepage'] == "None":

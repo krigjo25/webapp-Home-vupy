@@ -22,31 +22,51 @@ h2
     border-radius: 10px
     @extend flex-wrap-row
     background-color: $nav-bar
+    box-shadow: 0 0 10px 0 $box-shadow
 
+
+    p
+        margin: 0
+        inline-size: 20vw
+
+    span.time
+        font-size: 0.8em
+        font-weight: 300
+        inline-size: 26vw
+        font-style: oblique
+        margin-inline: 0.3em
+        justify-content: end
 
     a:link, a:visited
         color: inherit
         @extend ext-btn-functionallity !optional
 
     .pro-nav
-        
-        display: flex
-        block-size: 100%
-        padding-inline: 1em
-        flex-direction: column
+        padding: 1em
+        padding: 0.5em
+        @extend flex-wrap-row
         justify-content: space-evenly
 
+        .demo
+            padding: 0.5em
+            @extend flex-wrap-row
+            justify-content: space-evenly
+            border: 1px solid $white
+            border-radius: 10px
+            
+            &:hover
+                transform: scale(1.2)
+                transition: 1s
     &:hover
         transform: scale(1.1)
     
     .tech-container
-        
-        display: flex
-        flex-wrap: wrap
-        inline-size: 20vw
-        align-items: stretch
-        flex-direction: column
-        justify-content: space-between    
+
+        inline-size: 27vw
+        align-items: center
+        justify-content: center 
+        @extend flex-wrap-column
+  
 
         .relative
             left: 0.5vw

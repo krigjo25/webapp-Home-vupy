@@ -17,15 +17,16 @@
         
         <div class="flex-row justify-center">
             <div class="pp" v-for="data in pfolio.displayData" :key="data.id">
-                <div class="pro-nav">
-                    <Link :link="url" v-for=" url in data.links"/>
-                </div>
                 <div class="tech-container flex-row">
-                    <span class="flex-reversed-row">
-                        <i><time :value="data.date">{{ data.date }}</time></i>
+                    <span class="flex-reversed-row time">
+                        <i><time v-bind:datetime="data.date">{{ data.date }}</time></i>
                     </span>
-                    <h4>{{ data.name }}</h4>
-                    <span>{{ data.description }}</span>
+                    <h3>{{ data.name }}</h3>
+                    <p>{{ data.description }}</p>
+                    <div class="pro-nav">
+                        <Link :link="url" v-for=" url in data.links"/>
+
+                    </div>
                      <tech :techs="data.lang"/>
 
                     </div>

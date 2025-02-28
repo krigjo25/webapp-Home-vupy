@@ -1,6 +1,8 @@
 <template>
     <a :href="link.url" target="_blank">
-        <i :class="link.icon"></i>
+        <div class="demo">
+            <i :class="link.icon"></i>
+        </div>
     </a>
 </template>
 
