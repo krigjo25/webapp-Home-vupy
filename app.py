@@ -20,7 +20,7 @@ logger.FileHandler()
 #   Initialize Flask app and Extensions
 app = Flask(__name__)
 
-# Configure session to use filesystem (instead of signed cookies)
+#   Configure session to use filesystem (instead of signed cookies)
 app.config.from_object(DevelopmentConfig)
 Session(app)
 

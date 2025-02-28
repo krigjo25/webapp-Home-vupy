@@ -18,18 +18,20 @@
         <div class="flex-row justify-center">
             <div class="pp" v-for="data in pfolio.displayData" :key="data.id">
                 <div class="tech-container flex-row">
-                    <span class="flex-reversed-row time">
-                        <i><time v-bind:datetime="data.date">{{ data.date }}</time></i>
-                    </span>
+                    <div v-for="lang in data.lang" :key="lang.id">
+                        <img :src="lang.icon" :alt="lang.lang" />
+                    
+                        <span class="flex-reversed-row time">
+                            <i><time v-bind:datetime="data.date">{{ data.date }}</time></i>
+                        </span>
+                    </div>
                     <h3>{{ data.name }}</h3>
                     <p>{{ data.description }}</p>
                     <div class="pro-nav">
                         <Link :link="url" v-for=" url in data.links"/>
-
                     </div>
-                     <tech :techs="data.lang"/>
-
-                    </div>
+                        
+                </div>
             </div>
         </div>
     </section>

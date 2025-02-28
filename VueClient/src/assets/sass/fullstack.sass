@@ -21,13 +21,15 @@ h2
     margin: 1em
     border-radius: 10px
     @extend flex-wrap-row
-    background-color: $nav-bar
+    background-color: $white
     box-shadow: 4px 4px 20px 4px $dark-grey
 
-
+    h3
+        margin-block-end: 0.3em
     p
         margin: 0
         inline-size: 20vw
+        text-align: center
 
     span.time
         font-size: 0.8em
@@ -58,10 +60,10 @@ h2
                 transform: scale(1.2)
                 transition: 1s
     &:hover
-        transform: scale(1.1)
+        transform: scale(1.02)
     
     .tech-container
-
+        block-size: 20vh
         inline-size: 27vw
         align-items: center
         justify-content: center 
