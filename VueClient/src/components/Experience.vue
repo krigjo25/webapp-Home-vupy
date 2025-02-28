@@ -7,7 +7,7 @@
                 <select v-if = "pfolio.type">
                     <option v-for="type in pfolio.type" :key="type.id">{{ type.type}}</option>
                 </select>
-                <input type='text' v-model="filter.name" placeholder="Search" />
+                <input type='text' name="search" v-model="filter.name" placeholder="Search" />
                 <label for="language" v-if="pfolio.lang">Language:</label>
                 <select v-if = "pfolio.lang">
                     <option v-for="lang in pfolio.lang" :key="lang.id">{{ lang.lang}}</option>
