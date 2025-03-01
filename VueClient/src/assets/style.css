@@ -177,6 +177,83 @@ main section.info nav.ext-bar:hover, main section.info nav.ext-bar :visited {
   color: inherit;
 }
 
+flex-row, .flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+flex-column, .flex-wrap-column, .flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+flex-wrap-row, .wrap-row-space-between, .align-items-flex-end-row, .align-items-center-row, .align-content-center-row, .justify-content-space-evently-row, .flex-wrap-row-space-evenly, .justify-flexstart-row, .justify-center-row, .flex-wrap-row, flex-wrap-row-space-evenly {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+flex-wrap-row-space-evenly, .flex-wrap-row {
+  justify-content: space-evenly;
+}
+
+flex-nowrap-row {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+flex-wrap-reversed-row, .flex-reversed-row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+}
+
+.flex-wrap-column {
+  wrap: wrap;
+}
+
+.justify-center {
+  justify-content: space-evenly;
+}
+
+.justify-center-row {
+  justify-content: center;
+}
+
+.justify-flexstart-row {
+  justify-content: flex-start;
+}
+
+.flex-wrap-row-space-evenly {
+  justify-content: space-evenly;
+}
+
+.justify-content-space-evently {
+  justify-content: space-evenly;
+  inline-size: 100%;
+}
+
+.justify-content-space-evently-row {
+  justify-content: space-evenly;
+}
+
+.align-content-center-row {
+  align-content: center;
+}
+
+.align-items-center-row {
+  align-items: center;
+}
+
+.align-items-flex-end-row {
+  align-items: flex-end;
+}
+
+.wrap-row-space-between {
+  justify-content: space-between;
+}
+
 main section.spec-wrapper .specialization-class .no-select, .tech-wrapper {
   user-select: none;
   margin-inline: 1em;
@@ -489,70 +566,8 @@ div.tech-ui-ux {
   transition: 1s ease-in-out;
 }
 
-flex-wrap-column, .pp .tech-container, .flex-column {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-}
-
-flex-wrap-row, .pp .pro-nav .demo, .pp .pro-nav, .pp, .align-items-flex-end-row, .align-items-center-row, .align-content-center-row, .justify-content-space-evently-row, .justify-flexstart-row, .justify-center-row, .flex-row, flex-wrap-row-space-evenly, .portefolio {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
-
-flex-wrap-row-space-evenly, .portefolio {
-  justify-content: space-evenly;
-}
-
-flex-nowrap-row {
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
-}
-
-flex-wrap-reversed-row, .flex-reversed-row {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row-reverse;
-}
-
-.justify-center {
-  justify-content: space-evenly;
-}
-
-.justify-center-row {
-  justify-content: center;
-}
-
-.justify-flexstart-row {
-  justify-content: flex-start;
-}
-
-.justify-content-space-evently-row {
-  justify-content: space-evenly;
-  inline-size: 100%;
-}
-
-.align-content-center-row {
-  align-content: center;
-}
-
-.align-items-center-row {
-  align-items: center;
-}
-
-.align-items-flex-end-row {
-  align-items: flex-end;
-}
-
 .cnn-ctr {
   text-align: center;
-}
-
-.portefolio {
-  flex-wrap: wrap;
-  justify-content: space-evenly;
 }
 
 h2 {
@@ -561,9 +576,16 @@ h2 {
 
 .pp {
   margin: 1em;
-  border-radius: 10px;
-  background-color: rgb(255, 255, 255);
+  background-size: 12vw;
+  background-repeat: no-repeat;
   box-shadow: 4px 4px 20px 4px rgb(40, 40, 40);
+  background-image: url(../assets/img/businessCard/topper-left-corner.svg);
+}
+.pp .tech-l {
+  block-size: 3vh;
+}
+.pp .wrap-row-space-between {
+  inline-size: 20vw;
 }
 .pp h3 {
   margin-block-end: 0.3em;
@@ -576,6 +598,7 @@ h2 {
 .pp span.time {
   font-size: 0.8em;
   font-weight: 300;
+  display: contents;
   inline-size: 26vw;
   font-style: oblique;
   margin-inline: 0.3em;
@@ -587,17 +610,16 @@ h2 {
 .pp .pro-nav {
   padding: 1em;
   padding: 0.5em;
-  justify-content: space-evenly;
 }
 .pp .pro-nav .demo {
   padding: 0.5em;
-  justify-content: space-evenly;
   border: 1px solid rgb(255, 255, 255);
   border-radius: 10px;
 }
 .pp .pro-nav .demo:hover {
-  transform: scale(1.2);
   transition: 1s;
+  background-color: rgb(103, 58, 183);
+  transform: scale(1.2);
 }
 .pp:hover {
   transform: scale(1.02);
@@ -806,57 +828,6 @@ div.tech-ui-ux {
   transform: scale(1.1);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   transition: 1s ease-in-out;
-}
-
-flex-wrap-row, flex-wrap-row-space-evenly, .flex-row, .justify-center-row, .justify-flexstart-row, .justify-content-space-evently-row, .align-content-center-row, .align-items-center-row, .align-items-flex-end-row, .portefolio, .pp, .pp .pro-nav, .pp .pro-nav .demo {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
-
-flex-wrap-row-space-evenly, .portefolio {
-  justify-content: space-evenly;
-}
-
-flex-nowrap-row {
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
-}
-
-flex-wrap-reversed-row, .flex-reversed-row {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row-reverse;
-}
-
-.justify-center {
-  justify-content: space-evenly;
-}
-
-.justify-center-row {
-  justify-content: center;
-}
-
-.justify-flexstart-row {
-  justify-content: flex-start;
-}
-
-.justify-content-space-evently-row {
-  justify-content: space-evenly;
-  inline-size: 100%;
-}
-
-.align-content-center-row {
-  align-content: center;
-}
-
-.align-items-center-row {
-  align-items: center;
-}
-
-.align-items-flex-end-row {
-  align-items: flex-end;
 }
 
 /*Samsung Galaxy Foldable*/
@@ -2134,8 +2105,4 @@ footer {
 
 .padding {
   padding: 1vw;
-}
-
-.justify-content-space-evently-row {
-  justify-content: space-evenly;
 }/*# sourceMappingURL=style.css.map */

@@ -1,8 +1,8 @@
 <template>
-    <section id="fullstack" v-if="pfolio.Loaded" class="flex-column">
+    <section id="fullstack" v-if="pfolio.Loaded" class="flex-wrap-column">
         <h2>Portefolio</h2>
         <div>
-            <Navigation class='portefolio':data="pfolio.Total" @update="pfolio.current = $event" v-if="pfolio.Total"/>
+            <Navigation class='justify-content-space-evently-row':data="pfolio.Total" @update="pfolio.current = $event" v-if="pfolio.Total"/>
             <form class="flex-row justify-center">
                 <select v-if = "pfolio.type">
                     <option v-for="type in pfolio.type" :key="type.id">{{ type.type}}</option>
@@ -15,19 +15,19 @@
             </form>
         </div>
         
-        <div class="flex-row justify-center">
-            <div class="pp" v-for="data in pfolio.displayData" :key="data.id">
-                <div class="tech-container flex-row">
-                    <div v-for="lang in data.lang" :key="lang.id">
-                        <img :src="lang.icon" :alt="lang.lang" />
-                    
-                        <span class="flex-reversed-row time">
-                            <i><time v-bind:datetime="data.date">{{ data.date }}</time></i>
+        <div class="flex-wrap-row justify-center">
+            <div class="pp flex-wrap-row" v-for="data in pfolio.displayData" :key="data.id">
+                
+                <div class="tech-container flex-wrap-column">
+                    <div v-for="lang in data.lang" :key="lang.id" class="wrap-row-space-between">
+                        <img class="tech-l" :src="'./src/assets/img/techlogo/' + lang.lang + '.svg'" :alt="lang.lang" />
+                        <span class="time">
+                            <time v-bind:datetime="data.date">{{ data.date }}</time>
                         </span>
                     </div>
                     <h3>{{ data.name }}</h3>
                     <p>{{ data.description }}</p>
-                    <div class="pro-nav">
+                    <div class="pro-nav flex-wrap-row-space-evenly">
                         <Link :link="url" v-for=" url in data.links"/>
                     </div>
                         
