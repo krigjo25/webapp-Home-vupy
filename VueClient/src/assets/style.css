@@ -219,6 +219,7 @@ main section.info section.bio-container nav.bio-bar button.bio-btn {
   border: none;
   padding: 1em;
   font-size: 1em;
+  color: rgb(75, 160, 160);
   cursor: pointer;
   background-color: inherit;
 }
