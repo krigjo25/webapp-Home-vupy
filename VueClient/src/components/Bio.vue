@@ -1,5 +1,5 @@
 <template>
-    <section id="about-kristoffer" class="info">
+    <section id="about-kristoffer" class="info flex-row">
         <Carosel />
         <bio />
     </section>

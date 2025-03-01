@@ -1,27 +1,21 @@
 @import fonts
 @import colour
+@import misc
+@import flexbox
 
-ext-btn-functionallity
-    transition: 2s
-    
-    &:hover
-        transform: scale(1.1)
-        opacity: 1 !important
 
 main 
     section.info
-        display: flex
-        flex-wrap: wrap
         block-size: 100%
+        @extend flex-row
         align-items: center
-        flex-direction: row
         justify-content: center
         
 
         .carosel
-            display: flex
+            
             inline-size: 25vw
-            flex-direction: column
+            @extend flex-column
 
             img
                 inline-size: 100%
@@ -66,17 +60,21 @@ main
 
             nav.bio-bar
                 inline-size: 100%
-                background-color: $nav-bar
+                @extend flex-wrap-row
+                background-color: transparent
+                border-top: 1px solid $bg-dark
+                border-bottom: 1px solid $bg-dark
+                
+                justify-content: space-evenly
+
             
                 button.bio-btn
                     border: none
                     padding: 1em
                     font-size: 1em
                     cursor: pointer
-                    border-radius: 0.5em
                     background-color: inherit
                     @extend ext-btn-functionallity
-                    border-left: 1px solid $font-light
                     
 
                     &:hover
