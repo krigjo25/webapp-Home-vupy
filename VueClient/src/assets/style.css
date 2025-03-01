@@ -211,8 +211,8 @@ main section.info section.bio-container h2 {
 main section.info section.bio-container nav.bio-bar {
   inline-size: 100%;
   background-color: transparent;
-  border-top: 1px solid rgb(40, 40, 40);
-  border-bottom: 1px solid rgb(40, 40, 40);
+  border-top: 1px solid rgb(75, 160, 160);
+  border-bottom: 1px solid rgb(75, 160, 160);
   justify-content: space-evenly;
 }
 main section.info section.bio-container nav.bio-bar button.bio-btn {
