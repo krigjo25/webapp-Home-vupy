@@ -26,14 +26,10 @@ const educations = reactive([
             name: 'GetAcademy',
             link: 'https://getacademy.no',
             description: `
-                GET Academy is an innovative digital IT school working to reduce social exclusion by providing young IT 
-                enthusiasts with life-changing career opportunities. With a focus on safety, diversity, and growth, the
-                school offers practical and strengths-based learning in close collaboration with industry. The school's
-                unique educational model equips students with the tools they need to succeed both academically and
-                personally, while also helping businesses fill critical skills gaps. In addition to IT education, the
-                school teaches key competencies - skills and life tools that provide direction and meaning in an
-                individual's life. Upon graduation, a GET developer will be a self-sufficient IT professional, trained
-                in programming, creative thinking, and collaboration.`,
+                GET Academy is a digital IT school that combats social
+                exclusion by providing practical, industry-focused training
+                to young IT enthusiasts, equipping them with both technical
+                and life skills for successful IT careers`,
             
             
             classes: 
@@ -42,12 +38,12 @@ const educations = reactive([
                     id: 0,
                     name: 'Junior Developer',
                     description: `
-                        Frontend Development is the practice of producing HTML, CSS, and JavaScript for a website or Web
-                        Application so that a user can see and interact with them directly. The challenge associated with
-                        frontend development is that the tools and techniques used to create the front end of a website
-                        change constantly and so the developer needs to constantly be aware of how the field is developing.
-                        The effective frontend developer should be able to create a seamless user experience and a
-                        responsive design.`,
+                        Entry-level position focused on learning & growth.
+                        Collaboration and mentorship are essential. Expect
+                        guidance from seniors and a focus on building
+                        foundational skills. Continuous learning is crucial
+                        due to the evolving tech landscape. Don't hesitate
+                        to ask questions. It's a stepping stone to senior roles.`,
                     
                     diploma:
                     {
@@ -89,14 +85,13 @@ const educations = reactive([
             name: 'CS50 HarvardX',
             link: 'https://www.vpal.harvard.edu/harvardx/',
             description: 
-                `Harvard University's online learning platform which offers a variety
-                of courses in a variety of subjects. The courses are taught by Harvard
-                faculty and are open to anyone who is interested in learning. Its free to
-                audit the courses, but there is a fee to get a certificate. The
-                requirements to pass a course is to get between 50% and up to 70% of the
-                course material correct. With out any Plagiarism. CS50 teaches students
-                how to think algorithmically and solve problems efficiently. Problem sets
-                inspired by real-world inspired problem sets.`,
+                `Harvard's online platform provides free-to-audit
+                courses taught by Harvard faculty across diverse
+                subjects. Certificates are available for a fee.
+                Courses require a 50-70% passing grade, emphasizing
+                original work. Notably, CS50 focuses on algorithmic
+                thinking and problem-solving through practical,
+                real-world inspired assignments.`,
 
             classes: 
             [
@@ -104,11 +99,10 @@ const educations = reactive([
                     id: 0,
                     name: 'Computer Science for Python Programming',
                     description: `
-                        Professional Certificate in Computer Science for Python Programming
-                        is a focused online learning program designed to equip you with
-                        practical Python programming skills and a foundational
-                        understanding of computer science principles.  Think of it as a
-                        concentrated, career-oriented alternative to a full computer science degree.`,
+                        This online Professional Certificate program offers
+                        practical Python programming skills and core computer
+                        science knowledge, serving as a focused, career-driven
+                        alternative to a traditional computer science degree.`,
                     
                     diploma:
                     {
