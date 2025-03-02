@@ -25,7 +25,7 @@
                             <time v-bind:datetime="data.date">{{ data.date }}</time>
                         </span>
                     </div>
-                    <h3>{{ data.name }}</h3>
+                    <h3>{{ data.name[1] }}</h3>
                     <p>{{ data.description }}</p>
                     <div class="pro-nav flex-wrap-row-space-evenly">
                         <Link :link="url" v-for=" url in data.links"/>
@@ -59,9 +59,10 @@ const pfolio = reactive(
     current     :1,
     data        :[],
     lang        :[],
+    type        :[],
     Total       :null,
     Loaded      :false,
-    pfoliobtn   :[
+    btn   :[
         {
             id: 1,
             name: 'Next',
@@ -80,7 +81,20 @@ const pfolio = reactive(
         {
             let search = pfolio.data.filter((data) => 
             {
-                return data.name.toLowerCase().includes(filter.name.toLowerCase());
+                if (filter.name.toLowerCase() === data.name[0].toLowerCase())
+                {
+                    return data.name[0].toLowerCase().includes(filter.name.toLowerCase());
+                }
+                else if (filter.name.toLowerCase() === data.name[1].toLowerCase())
+                {
+                    return data.name[1].toLowerCase().includes(filter.name.toLowerCase());
+                }
+                else if (filter.name.toLowerCase() === data.name[2].toLowerCase())
+                {
+                    return data.name[2].toLowerCase().includes(filter.name.toLowerCase());
+                    
+                }
+                return data.name[1].toLowerCase().includes(filter.name.toLowerCase());
             });
 
             return search;
@@ -90,7 +104,20 @@ const pfolio = reactive(
             const end = (pfolio.current * pfolio.n);
             const start = (pfolio.current-1) * pfolio.n;
 
-            return pfolio.data.slice(start, end);
+            let data = pfolio.data.slice(start, end);
+
+            for (let i = 0; i< data.length; i++)
+            {
+                if (data[i].name.includes('-'))
+                    {
+                        data[i].name = data[i].name.split('-');
+                    }
+                
+            }
+            
+
+            //pfolio.type = name[0];
+            return data;
         }
     })
     
