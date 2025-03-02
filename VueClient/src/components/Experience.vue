@@ -61,6 +61,18 @@ const pfolio = reactive(
     lang        :[],
     Total       :null,
     Loaded      :false,
+    pfoliobtn   :[
+        {
+            id: 1,
+            name: 'Next',
+            cls: 'tech-btn'
+        },
+        {
+            id: 2,
+            name: 'Prev',
+            cls: 'tech-btn'
+        }
+    ],
     
     displayData :computed(() =>
     {
@@ -89,11 +101,6 @@ const filter = reactive(
     name: '',
     lang: '',
     category: ''
-});
-
-const lang = reactive(
-{
-    lang: []
 });
 
 //  Fetching data from the server

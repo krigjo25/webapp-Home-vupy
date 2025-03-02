@@ -692,6 +692,26 @@ h2 {
   text-align: center;
 }
 
+.tech-btn {
+  border: none;
+  cursor: pointer;
+  padding: 1em 2em;
+  border-radius: 10px;
+  background-color: rgb(75, 160, 160);
+}
+.tech-btn:disabled {
+  color: rgb(40, 40, 40);
+  cursor: not-allowed;
+  background-color: rgb(245, 245, 245) !important;
+}
+.tech-btn:hover {
+  background-color: rgb(99, 182, 182);
+  transition: 0.5s;
+}
+.tech-btn:active {
+  background-color: rgb(57, 122, 122);
+}
+
 .pp {
   margin: 1em;
   background-size: 11vw;

@@ -1,8 +1,8 @@
 <template>
     <nav>
-        <button :disabled=" current < 2" @click="current--">Previous</button>
+        <button class="tech-btn" :disabled=" current < 2" @click="current--">Previous</button>
         <span v-if="current > 0"> {{ current }} / {{ total }}</span>
-        <button :disabled="current === total" @click="current++">Next</button>
+        <button class="tech-btn" :disabled="current === total" @click="current++">Next</button>
     </nav>
 </template>
 

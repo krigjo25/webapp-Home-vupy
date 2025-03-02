@@ -11,6 +11,24 @@
 h2 
     text-align: center
 
+.tech-btn
+        border: none
+        cursor: pointer
+        padding: 1em 2em
+        border-radius: 10px
+        background-color: $nav-bar
+        
+        &:disabled
+            
+            color: $dark-grey
+            cursor: not-allowed
+            background-color: $bg-light !important
+
+        &:hover
+            background-color: rgba(99, 182, 182, 1)
+            transition: 0.5s
+        &:active
+            background-color: rgba(57, 122, 122, 1)
 .pp
     margin: 1em
     background-size: 11vw
@@ -24,9 +42,7 @@ h2
     .img-Python
         bottom: 2vh
         position: relative
-        
-
-        
+    
     .wrap-row-space-between
         block-size: 1vh
         inline-size: 24vw
@@ -84,8 +100,6 @@ h2
         margin-inline: 0.3em
         background-color: $bg-light !important
 
-
-        
     span.tech-label
         padding: 1vw
         font-size: 0.9em
