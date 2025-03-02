@@ -99,17 +99,16 @@ const educations = reactive([
                     id: 0,
                     name: 'Computer Science for Python Programming',
                     description: `
-                        This online Professional Certificate program offers
-                        practical Python programming skills and core computer
-                        science knowledge, serving as a focused, career-driven
-                        alternative to a traditional computer science degree.`,
+                       This Certificate program offers practical Python
+                       programming skills and core computer science
+                       knowledge,serving as a focused, career-driven
+                       alternative to a traditional computer science degree.`,
                     
                     diploma:
                     {
                         graduate: true,
                         warning : true,
                         link: 'https://courses.edx.org/certificates/cc7f7cb258a24538af14c876023cf932',
-                        notes: `The Courses are completed, but the fee to get the certificate is not paid.`,
                         icon: 
                         {
                             qualified: 'bi bi-award ',

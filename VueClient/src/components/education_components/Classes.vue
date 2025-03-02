@@ -11,7 +11,7 @@
             {{cls.name}}
         </h4>
         <p>{{cls.description}}</p>
-        <div v-if="cls.diploma.warning">
+        <div v-if="cls.diploma.notes">
             <i :class="cls.diploma.class.warning"></i>
             <small> <b>{{ cls.diploma.notes }}</b></small>
         </div>
