@@ -694,13 +694,17 @@ h2 {
 
 .pp {
   margin: 1em;
-  background-size: 12vw;
+  background-size: 11vw;
   background-repeat: no-repeat;
   box-shadow: 4px 4px 20px 4px rgb(40, 40, 40);
   background-image: url(../assets/img/businessCard/topper-left-corner.svg);
 }
-.pp .tech-l {
+.pp .img-svg {
   block-size: 3vh;
+}
+.pp .img-Python {
+  bottom: 2vh;
+  position: relative;
 }
 .pp .wrap-row-space-between {
   block-size: 1vh;

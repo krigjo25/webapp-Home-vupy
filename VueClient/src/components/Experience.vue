@@ -18,9 +18,9 @@
         <div class="flex-wrap-row justify-center">
             <div class="pp flex-wrap-row" v-for="data in pfolio.displayData" :key="data.id">
                 
-                <div class="tech-container flex-wrap-column">
+                <div class="tech-container flex-wrap-column ">
                     <div v-for="lang in data.lang" :key="lang.id" class="wrap-row-space-between">
-                        <img class="tech-l" :src="'./src/assets/img/techlogo/' + lang.lang + '.svg'" :alt="lang.lang" />
+                        <img class="img-svg" :src="'./src/assets/img/techlogo/' + lang.lang + '.svg'" :alt="lang.lang + '.svg'" />
                         <span class="time">
                             <time v-bind:datetime="data.date">{{ data.date }}</time>
                         </span>
