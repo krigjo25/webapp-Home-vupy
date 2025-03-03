@@ -1,6 +1,6 @@
 <template>
     <section id="fullstack" v-if="pfolio.Loaded" class="flex-wrap-column">
-        <h2>Portefolio</h2>
+        <h2>Technical Repositories</h2>
         <div>
             <Navigation class='justify-content-space-evently-row':data="pfolio.Total" @update="pfolio.current = $event" v-if="pfolio.Total"/>
             <form class="flex-row justify-center">
