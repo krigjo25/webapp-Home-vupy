@@ -13,12 +13,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
-roboto-font, header a, main section.spec-wrapper .specialization-class p, .tech-wrapper, main section.info section.bio-container section.bio-content {
+roboto-font, header a, main section.spec-wrapper .spec-class p, .tech-wrapper, main section.info section.bio-container section.bio-content {
   color: rgb(40, 40, 40);
   font-family: "Roboto", sans-serif;
 }
 
-work-sans-font, main section.spec-wrapper .specialization-class .specialization-course .h4-link, main section.spec-wrapper .specialization-class .h3-link:hover, main section.spec-wrapper .specialization-class .h3-link, main section.info section.bio-container section.bio-content h3, main section.info section.bio-container h2 {
+work-sans-font, main section.spec-wrapper .spec-class .spec-course .h4-link, main section.spec-wrapper .spec-class .h3-link:hover, main section.spec-wrapper .spec-class .h3-link, main section.info section.bio-container section.bio-content h3, main section.info section.bio-container h2 {
   font-weight: 100;
   color: rgb(40, 40, 40);
   font-family: "Work Sans", sans-serif;
@@ -52,18 +52,18 @@ select {
   inline-size: 10vw;
 }
 
-roboto-font, header a, main section.spec-wrapper .specialization-class p, .tech-wrapper, main section.info section.bio-container section.bio-content {
+roboto-font, header a, main section.spec-wrapper .spec-class p, .tech-wrapper, main section.info section.bio-container section.bio-content {
   color: rgb(40, 40, 40);
   font-family: "Roboto", sans-serif;
 }
 
-work-sans-font, main section.spec-wrapper .specialization-class .specialization-course .h4-link, main section.spec-wrapper .specialization-class .h3-link:hover, main section.spec-wrapper .specialization-class .h3-link, main section.info section.bio-container section.bio-content h3, main section.info section.bio-container h2 {
+work-sans-font, main section.spec-wrapper .spec-class .spec-course .h4-link, main section.spec-wrapper .spec-class .h3-link:hover, main section.spec-wrapper .spec-class .h3-link, main section.info section.bio-container section.bio-content h3, main section.info section.bio-container h2 {
   font-weight: 100;
   color: rgb(40, 40, 40);
   font-family: "Work Sans", sans-serif;
 }
 
-main section.spec-wrapper .specialization-class .no-select, .tech-wrapper {
+main section.spec-wrapper .spec-class .no-select, .tech-wrapper {
   user-select: none;
   margin-inline: 1em;
   -moz-user-select: none;
@@ -84,7 +84,7 @@ ext-btn-functionallity:hover, .pp a:hover:link, .pp a:hover:visited, main sectio
   opacity: 1;
 }
 
-flex-row, main section.info, .flex-row {
+flex-row, .flex-row {
   display: flex;
   flex-direction: row;
 }
@@ -263,7 +263,7 @@ main section.info nav.ext-bar:hover, main section.info nav.ext-bar :visited {
   color: inherit;
 }
 
-flex-row, .flex-row, main section.info {
+flex-row, .flex-row {
   display: flex;
   flex-direction: row;
 }
@@ -340,7 +340,7 @@ flex-wrap-reversed-row, .flex-reversed-row {
   justify-content: space-between;
 }
 
-main section.spec-wrapper .specialization-class .no-select, .tech-wrapper {
+main section.spec-wrapper .spec-class .no-select, .tech-wrapper {
   user-select: none;
   margin-inline: 1em;
   -moz-user-select: none;
@@ -361,18 +361,18 @@ ext-btn-functionallity:hover, .pp a:hover:link, .pp a:hover:visited, main sectio
   opacity: 1;
 }
 
-roboto-font, header a, main section.spec-wrapper .specialization-class p, .tech-wrapper, main section.info section.bio-container section.bio-content {
+roboto-font, header a, main section.spec-wrapper .spec-class p, .tech-wrapper, main section.info section.bio-container section.bio-content {
   color: rgb(40, 40, 40);
   font-family: "Roboto", sans-serif;
 }
 
-work-sans-font, main section.spec-wrapper .specialization-class .specialization-course .h4-link, main section.spec-wrapper .specialization-class .h3-link:hover, main section.spec-wrapper .specialization-class .h3-link, main section.info section.bio-container h2, main section.info section.bio-container section.bio-content h3 {
+work-sans-font, main section.spec-wrapper .spec-class .spec-course .h4-link, main section.spec-wrapper .spec-class .h3-link:hover, main section.spec-wrapper .spec-class .h3-link, main section.info section.bio-container h2, main section.info section.bio-container section.bio-content h3 {
   font-weight: 100;
   color: rgb(40, 40, 40);
   font-family: "Work Sans", sans-serif;
 }
 
-main section.spec-wrapper .specialization-class .no-select, .tech-wrapper {
+main section.spec-wrapper .spec-class .no-select, .tech-wrapper {
   user-select: none;
   margin-inline: 1em;
   -moz-user-select: none;
@@ -393,12 +393,12 @@ ext-btn-functionallity:hover, .pp a:hover:link, .pp a:hover:visited, main sectio
   opacity: 1;
 }
 
-roboto-font, header a, main section.spec-wrapper .specialization-class p, .tech-wrapper, main section.info section.bio-container section.bio-content {
+roboto-font, header a, main section.spec-wrapper .spec-class p, .tech-wrapper, main section.info section.bio-container section.bio-content {
   color: rgb(40, 40, 40);
   font-family: "Roboto", sans-serif;
 }
 
-work-sans-font, main section.spec-wrapper .specialization-class .specialization-course .h4-link, main section.spec-wrapper .specialization-class .h3-link:hover, main section.spec-wrapper .specialization-class .h3-link, main section.info section.bio-container h2, main section.info section.bio-container section.bio-content h3 {
+work-sans-font, main section.spec-wrapper .spec-class .spec-course .h4-link, main section.spec-wrapper .spec-class .h3-link:hover, main section.spec-wrapper .spec-class .h3-link, main section.info section.bio-container h2, main section.info section.bio-container section.bio-content h3 {
   font-weight: 100;
   color: rgb(40, 40, 40);
   font-family: "Work Sans", sans-serif;
@@ -409,9 +409,6 @@ div.tech-interpreted {
 }
 
 .tech-wrapper:has(.tech-interpreted) {
-  transition: all 0.3s ease-out;
-}
-.tech-wrapper:has(.tech-interpreted):hover {
   background-color: rgb(75, 139, 190) !important;
 }
 
@@ -419,44 +416,16 @@ div.tech-compiled {
   background-color: rgb(238, 140, 43);
 }
 
-.tech-wrapper:has(.tech-compiled) {
-  transition: all 0.3s ease-out;
-}
-.tech-wrapper:has(.tech-compiled):hover {
-  background-color: #EEB18A !important;
-}
-
 div.tech-db {
   background-color: rgba(255, 0, 0, 0.8);
-}
-
-.tech-wrapper:has(.tech-db) {
-  transition: all 0.3s ease-out;
-}
-.tech-wrapper:has(.tech-db):hover {
-  background-color: rgba(255, 0, 0, 0.6) !important;
 }
 
 div.tech-ui-ux {
   background-color: rgba(255, 99, 71, 0.8);
 }
 
-.tech-wrapper:has(.tech-ui-ux) {
-  transition: all 0.3s ease-out;
-}
-.tech-wrapper:has(.tech-ui-ux):hover {
-  background-color: rgba(255, 99, 71, 0.6) !important;
-}
-
 .tech-workflow {
   background-color: rgba(0, 191, 255, 0.8);
-}
-
-.tech-wrapper:has(.tech-workflow) {
-  transition: all 0.3s ease-out;
-}
-.tech-wrapper:has(.tech-workflow):hover {
-  background-color: rgba(0, 191, 255, 0.6) !important;
 }
 
 .tech-container .relative {
@@ -467,13 +436,7 @@ div.tech-ui-ux {
 
 .tech-wrapper {
   margin: 0.1em;
-  display: flex;
   border-radius: 10px;
-}
-.tech-wrapper:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  transition: 1s ease-in-out;
 }
 
 main .flash {
@@ -490,33 +453,32 @@ main section.spec-wrapper {
   margin-block: 5vh;
   justify-content: space-evenly;
 }
-main section.spec-wrapper .specialization-class {
+main section.spec-wrapper .spec-class {
   inline-size: 40vw;
 }
-main section.spec-wrapper .specialization-class a {
+main section.spec-wrapper .spec-class a {
   text-decoration: none;
   color: rgb(64, 64, 64);
   transition: 0.3s;
 }
-main section.spec-wrapper .specialization-class .h3-link {
+main section.spec-wrapper .spec-class .h3-link {
   margin: auto;
   font-size: 2em;
   transition: 0.3s ease-in-out;
 }
-main section.spec-wrapper .specialization-class .h3-link:hover {
+main section.spec-wrapper .spec-class .h3-link:hover {
   font-size: 2em;
   transform: scale(1.1);
   text-decoration: underline;
 }
-main section.spec-wrapper .specialization-class p {
+main section.spec-wrapper .spec-class p {
   font-size: 1.2em;
   inline-size: 100%;
-  text-align: justify;
 }
-main section.spec-wrapper .specialization-class .tech-container {
+main section.spec-wrapper .spec-class .tech-container {
   inline-size: 100%;
 }
-main section.spec-wrapper .specialization-class span.tech-label {
+main section.spec-wrapper .spec-class span.tech-label {
   padding: 0.5em;
   font-size: 0.9em;
   font-weight: 300;
@@ -524,31 +486,26 @@ main section.spec-wrapper .specialization-class span.tech-label {
   border-radius: 10px;
   margin-inline: 0.3em;
 }
-main section.spec-wrapper .specialization-class .specialization-course a {
+main section.spec-wrapper .spec-class .spec-course a {
   text-decoration: none;
   color: rgb(64, 64, 64);
   transition: 0.3s;
 }
-main section.spec-wrapper .specialization-class .specialization-course .h4-link {
+main section.spec-wrapper .spec-class .spec-course .h4-link {
   color: rgb(103, 58, 183) !important;
   margin: auto;
   font-size: 1.3em;
   transition: 0.3s ease-in-out;
 }
-main section.spec-wrapper .specialization-class .specialization-course .tech-wrapper {
+main section.spec-wrapper .spec-class .spec-course .tech-wrapper {
   padding: 0.5em;
   background-color: rgb(255, 255, 255);
 }
-main section.spec-wrapper .specialization-class .specialization-course .tech-wrapper:hover {
+main section.spec-wrapper .spec-class .spec-course .tech-wrapper:hover {
   background-color: rgb(245, 245, 245);
 }
 
-.flex-row {
-  padding: 0.5em !important;
-  margin: 0.5em !important;
-}
-
-.tech-wrapper, main section.spec-wrapper .specialization-class .no-select {
+.tech-wrapper, main section.spec-wrapper .spec-class .no-select {
   user-select: none;
   margin-inline: 1em;
   -moz-user-select: none;
@@ -569,18 +526,18 @@ ext-btn-functionallity:hover, .pp a:hover:link, .pp a:hover:visited, main sectio
   opacity: 1;
 }
 
-roboto-font, header a, main section.info section.bio-container section.bio-content, .tech-wrapper, main section.spec-wrapper .specialization-class p {
+roboto-font, header a, main section.info section.bio-container section.bio-content, .tech-wrapper, main section.spec-wrapper .spec-class p {
   color: rgb(40, 40, 40);
   font-family: "Roboto", sans-serif;
 }
 
-work-sans-font, main section.info section.bio-container h2, main section.info section.bio-container section.bio-content h3, main section.spec-wrapper .specialization-class .h3-link, main section.spec-wrapper .specialization-class .h3-link:hover, main section.spec-wrapper .specialization-class .specialization-course .h4-link {
+work-sans-font, main section.info section.bio-container h2, main section.info section.bio-container section.bio-content h3, main section.spec-wrapper .spec-class .h3-link, main section.spec-wrapper .spec-class .h3-link:hover, main section.spec-wrapper .spec-class .spec-course .h4-link {
   font-weight: 100;
   color: rgb(40, 40, 40);
   font-family: "Work Sans", sans-serif;
 }
 
-.tech-wrapper, main section.spec-wrapper .specialization-class .no-select {
+.tech-wrapper, main section.spec-wrapper .spec-class .no-select {
   user-select: none;
   margin-inline: 1em;
   -moz-user-select: none;
@@ -601,12 +558,12 @@ ext-btn-functionallity:hover, .pp a:hover:link, .pp a:hover:visited, main sectio
   opacity: 1;
 }
 
-roboto-font, header a, main section.info section.bio-container section.bio-content, .tech-wrapper, main section.spec-wrapper .specialization-class p {
+roboto-font, header a, main section.info section.bio-container section.bio-content, .tech-wrapper, main section.spec-wrapper .spec-class p {
   color: rgb(40, 40, 40);
   font-family: "Roboto", sans-serif;
 }
 
-work-sans-font, main section.info section.bio-container h2, main section.info section.bio-container section.bio-content h3, main section.spec-wrapper .specialization-class .h3-link, main section.spec-wrapper .specialization-class .h3-link:hover, main section.spec-wrapper .specialization-class .specialization-course .h4-link {
+work-sans-font, main section.info section.bio-container h2, main section.info section.bio-container section.bio-content h3, main section.spec-wrapper .spec-class .h3-link, main section.spec-wrapper .spec-class .h3-link:hover, main section.spec-wrapper .spec-class .spec-course .h4-link {
   font-weight: 100;
   color: rgb(40, 40, 40);
   font-family: "Work Sans", sans-serif;
@@ -617,9 +574,6 @@ div.tech-interpreted {
 }
 
 .tech-wrapper:has(.tech-interpreted) {
-  transition: all 0.3s ease-out;
-}
-.tech-wrapper:has(.tech-interpreted):hover {
   background-color: rgb(75, 139, 190) !important;
 }
 
@@ -627,44 +581,16 @@ div.tech-compiled {
   background-color: rgb(238, 140, 43);
 }
 
-.tech-wrapper:has(.tech-compiled) {
-  transition: all 0.3s ease-out;
-}
-.tech-wrapper:has(.tech-compiled):hover {
-  background-color: #EEB18A !important;
-}
-
 div.tech-db {
   background-color: rgba(255, 0, 0, 0.8);
-}
-
-.tech-wrapper:has(.tech-db) {
-  transition: all 0.3s ease-out;
-}
-.tech-wrapper:has(.tech-db):hover {
-  background-color: rgba(255, 0, 0, 0.6) !important;
 }
 
 div.tech-ui-ux {
   background-color: rgba(255, 99, 71, 0.8);
 }
 
-.tech-wrapper:has(.tech-ui-ux) {
-  transition: all 0.3s ease-out;
-}
-.tech-wrapper:has(.tech-ui-ux):hover {
-  background-color: rgba(255, 99, 71, 0.6) !important;
-}
-
 .tech-workflow {
   background-color: rgba(0, 191, 255, 0.8);
-}
-
-.tech-wrapper:has(.tech-workflow) {
-  transition: all 0.3s ease-out;
-}
-.tech-wrapper:has(.tech-workflow):hover {
-  background-color: rgba(0, 191, 255, 0.6) !important;
 }
 
 .tech-container .relative {
@@ -675,13 +601,7 @@ div.tech-ui-ux {
 
 .tech-wrapper {
   margin: 0.1em;
-  display: flex;
   border-radius: 10px;
-}
-.tech-wrapper:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  transition: 1s ease-in-out;
 }
 
 .cnn-ctr {
@@ -772,11 +692,6 @@ h2 {
   inline-size: 23vw;
   align-items: center;
   justify-content: center;
-}
-.pp .tech-container .relative {
-  left: 0.5vw;
-  top: 0.7em;
-  position: relative;
 }
 .pp .tech-wrapper {
   margin-inline: 0.3em;
@@ -877,7 +792,7 @@ nav.ext-bar a.bio-link .bi-mailbox:active {
   background: linear-gradient(to right, #FF9A00 0%, #FF7400 50%, #FF4D00 50%, #CF1512 100%);
 }
 
-.tech-wrapper, main section.spec-wrapper .specialization-class .no-select {
+.tech-wrapper, main section.spec-wrapper .spec-class .no-select {
   user-select: none;
   margin-inline: 1em;
   -moz-user-select: none;
@@ -898,12 +813,12 @@ ext-btn-functionallity:hover, main section.info .carosel .btn-container button.i
   opacity: 1;
 }
 
-roboto-font, header a, main section.info section.bio-container section.bio-content, .tech-wrapper, main section.spec-wrapper .specialization-class p {
+roboto-font, header a, main section.info section.bio-container section.bio-content, .tech-wrapper, main section.spec-wrapper .spec-class p {
   color: rgb(40, 40, 40);
   font-family: "Roboto", sans-serif;
 }
 
-work-sans-font, main section.info section.bio-container h2, main section.info section.bio-container section.bio-content h3, main section.spec-wrapper .specialization-class .h3-link, main section.spec-wrapper .specialization-class .h3-link:hover, main section.spec-wrapper .specialization-class .specialization-course .h4-link {
+work-sans-font, main section.info section.bio-container h2, main section.info section.bio-container section.bio-content h3, main section.spec-wrapper .spec-class .h3-link, main section.spec-wrapper .spec-class .h3-link:hover, main section.spec-wrapper .spec-class .spec-course .h4-link {
   font-weight: 100;
   color: rgb(40, 40, 40);
   font-family: "Work Sans", sans-serif;
@@ -914,9 +829,6 @@ div.tech-interpreted {
 }
 
 .tech-wrapper:has(.tech-interpreted) {
-  transition: all 0.3s ease-out;
-}
-.tech-wrapper:has(.tech-interpreted):hover {
   background-color: rgb(75, 139, 190) !important;
 }
 
@@ -924,44 +836,16 @@ div.tech-compiled {
   background-color: rgb(238, 140, 43);
 }
 
-.tech-wrapper:has(.tech-compiled) {
-  transition: all 0.3s ease-out;
-}
-.tech-wrapper:has(.tech-compiled):hover {
-  background-color: #EEB18A !important;
-}
-
 div.tech-db {
   background-color: rgba(255, 0, 0, 0.8);
-}
-
-.tech-wrapper:has(.tech-db) {
-  transition: all 0.3s ease-out;
-}
-.tech-wrapper:has(.tech-db):hover {
-  background-color: rgba(255, 0, 0, 0.6) !important;
 }
 
 div.tech-ui-ux {
   background-color: rgba(255, 99, 71, 0.8);
 }
 
-.tech-wrapper:has(.tech-ui-ux) {
-  transition: all 0.3s ease-out;
-}
-.tech-wrapper:has(.tech-ui-ux):hover {
-  background-color: rgba(255, 99, 71, 0.6) !important;
-}
-
 .tech-workflow {
   background-color: rgba(0, 191, 255, 0.8);
-}
-
-.tech-wrapper:has(.tech-workflow) {
-  transition: all 0.3s ease-out;
-}
-.tech-wrapper:has(.tech-workflow):hover {
-  background-color: rgba(0, 191, 255, 0.6) !important;
 }
 
 .tech-container .relative {
@@ -972,13 +856,7 @@ div.tech-ui-ux {
 
 .tech-wrapper {
   margin: 0.1em;
-  display: flex;
   border-radius: 10px;
-}
-.tech-wrapper:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  transition: 1s ease-in-out;
 }
 
 /*Samsung Galaxy Foldable*/
@@ -1011,7 +889,6 @@ div.tech-ui-ux {
   }
   main section.info section.bio-container section.bio-content {
     inline-size: 86vw !important;
-    text-align: justify !important;
   }
   main section.info section.bio-container section.bio-content h3 {
     font-size: 1.5em !important;
@@ -1026,23 +903,18 @@ div.tech-ui-ux {
     inline-size: 100% !important;
     flex-direction: column !important;
   }
-  main section.spec-wrapper .specialization-class {
+  main section.spec-wrapper .spec-class {
     inline-size: 84vw !important;
     display: flex !important;
     flex-direction: column !important;
   }
-  main section.spec-wrapper .specialization-class .h3-link {
+  main section.spec-wrapper .spec-class .h3-link {
     margin-block: 1vh !important;
   }
-  main section.spec-wrapper .specialization-class p {
-    margin: auto;
-    inline-size: 69vw !important;
-    text-align: justify !important;
-  }
-  main section.spec-wrapper .specialization-class .tech-container {
+  main section.spec-wrapper .spec-class .tech-container {
     inline-size: 87vw !important;
   }
-  main section.spec-wrapper .specialization-class .specialization-course .h4-link {
+  main section.spec-wrapper .spec-class .specialization-course .h4-link {
     margin-block: 1vh !important;
   }
   main section#full-stack .pp {
@@ -1081,14 +953,12 @@ div.tech-ui-ux {
   }
   main section.info section.bio-container section.bio-content {
     inline-size: 86vw;
-    text-align: justify;
   }
   main section.info section.bio-container section.bio-content h3 {
     font-size: 1.5em;
   }
   main section.info section.bio-container section.bio-content p {
     font-size: 1em;
-    inline-size: 86vw;
   }
   main section.info section.bio-container div.btn-container {
     bottom: 39em;
@@ -1097,23 +967,18 @@ div.tech-ui-ux {
     inline-size: 100%;
     flex-direction: column;
   }
-  main section.spec-wrapper .specialization-class {
+  main section.spec-wrapper .spec-class {
     inline-size: 84vw;
     display: flex;
     flex-direction: column;
   }
-  main section.spec-wrapper .specialization-class .h3-link {
+  main section.spec-wrapper .spec-class .h3-link {
     margin-block: 1vh;
   }
-  main section.spec-wrapper .specialization-class p {
-    margin: auto;
-    inline-size: 69vw;
-    text-align: justify;
-  }
-  main section.spec-wrapper .specialization-class .tech-container {
+  main section.spec-wrapper .spec-class .tech-container {
     inline-size: 87vw;
   }
-  main section.spec-wrapper .specialization-class .specialization-course .h4-link {
+  main section.spec-wrapper .spec-class .specialization-course .h4-link {
     margin-block: 1vh;
   }
   main section#full-stack .pp {
@@ -1138,6 +1003,7 @@ div.tech-ui-ux {
     inline-size: 47vw !important;
   }
   main section.info section.bio-container {
+    margin-block: 13vh;
     margin-inline: 0 !important;
     inline-size: 100% !important;
   }
@@ -1145,12 +1011,11 @@ div.tech-ui-ux {
     font-size: 2em !important;
     text-align: center !important;
   }
-  main section.info section.bio-container nav.bio-link button.bio-btn {
+  main section.info section.bio-container nav.bio-bar button.bio-btn {
     font-size: 1em !important;
   }
   main section.info section.bio-container section.bio-content {
     inline-size: 86vw !important;
-    text-align: justify !important;
   }
   main section.info section.bio-container section.bio-content h3 {
     font-size: 1.5em !important;
@@ -1162,34 +1027,48 @@ div.tech-ui-ux {
   main section.info section.bio-container div.btn-container {
     bottom: 39em !important;
   }
+  main section.info section.bio-container nav.ext-bar a {
+    margin: 0;
+  }
   main section.spec-wrapper {
     inline-size: 100% !important;
     flex-direction: column !important;
+    align-content: center;
   }
-  main section.spec-wrapper .specialization-class {
-    inline-size: 84vw !important;
-    display: flex !important;
-    flex-direction: column !important;
+  main section.spec-wrapper .spec-class {
+    inline-size: 100% !important;
+    align-content: center;
   }
-  main section.spec-wrapper .specialization-class .h3-link {
+  main section.spec-wrapper .spec-class .h3-link {
     margin-block: 1vh !important;
   }
-  main section.spec-wrapper .specialization-class p {
-    margin: auto;
-    inline-size: 69vw !important;
-    text-align: justify !important;
-  }
-  main section.spec-wrapper .specialization-class .tech-container {
+  main section.spec-wrapper .spec-class .tech-container {
     inline-size: 87vw !important;
   }
-  main section.spec-wrapper .specialization-class .specialization-course .h4-link {
+  main section.spec-wrapper .spec-class .specialization-course .h4-link {
     margin-block: 1vh !important;
-  }
-  main section#full-stack .pp {
-    inline-size: 100% !important;
   }
   main section#full-stack .pp .tech-container {
     inline-size: 60vw !important;
+  }
+  main section#full-stack .pp {
+    background-size: 26vw !important;
+    inline-size: 100% !important;
+  }
+  main section#full-stack .pp .tech-container {
+    inline-size: 73vw !important;
+  }
+  main section#full-stack .pp .tech-wrapper {
+    inline-size: 23vw !important;
+  }
+  main section#full-stack .pp p {
+    font-size: 0.8em !important;
+    inline-size: 60vw !important;
+  }
+  main section#full-stack .wrap-row-space-between {
+    top: 0.7em !important;
+    position: relative !important;
+    inline-size: 65vw !important;
   }
 }
 /* Samsung galaxy S8*/
@@ -1221,14 +1100,12 @@ div.tech-ui-ux {
   }
   main section.info section.bio-container section.bio-content {
     inline-size: 86vw;
-    text-align: justify;
   }
   main section.info section.bio-container section.bio-content h3 {
     font-size: 1.5em;
   }
   main section.info section.bio-container section.bio-content p {
     font-size: 1em;
-    inline-size: 86vw;
   }
   main section.info section.bio-container div.btn-container {
     bottom: 39em;
@@ -1237,23 +1114,18 @@ div.tech-ui-ux {
     inline-size: 100%;
     flex-direction: column;
   }
-  main section.spec-wrapper .specialization-class {
+  main section.spec-wrapper .spec-class {
     inline-size: 84vw;
     display: flex;
     flex-direction: column;
   }
-  main section.spec-wrapper .specialization-class .h3-link {
+  main section.spec-wrapper .spec-class .h3-link {
     margin-block: 1vh;
   }
-  main section.spec-wrapper .specialization-class p {
-    margin: auto;
-    inline-size: 69vw;
-    text-align: justify;
-  }
-  main section.spec-wrapper .specialization-class .tech-container {
+  main section.spec-wrapper .spec-class .tech-container {
     inline-size: 87vw;
   }
-  main section.spec-wrapper .specialization-class .specialization-course .h4-link {
+  main section.spec-wrapper .spec-class .specialization-course .h4-link {
     margin-block: 1vh;
   }
   main section#full-stack .pp {
@@ -1288,14 +1160,12 @@ div.tech-ui-ux {
   }
   main section.info section.bio-container section.bio-content {
     inline-size: 86vw;
-    text-align: justify;
   }
   main section.info section.bio-container section.bio-content h3 {
     font-size: 1.5em;
   }
   main section.info section.bio-container section.bio-content p {
     font-size: 1em;
-    inline-size: 86vw;
   }
   main section.info section.bio-container div.btn-container {
     bottom: 39em;
@@ -1304,23 +1174,18 @@ div.tech-ui-ux {
     inline-size: 100%;
     flex-direction: column;
   }
-  main section.spec-wrapper .specialization-class {
+  main section.spec-wrapper .spec-class {
     inline-size: 84vw;
     display: flex;
     flex-direction: column;
   }
-  main section.spec-wrapper .specialization-class .h3-link {
+  main section.spec-wrapper .spec-class .h3-link {
     margin-block: 1vh;
   }
-  main section.spec-wrapper .specialization-class p {
-    margin: auto;
-    inline-size: 69vw;
-    text-align: justify;
-  }
-  main section.spec-wrapper .specialization-class .tech-container {
+  main section.spec-wrapper .spec-class .tech-container {
     inline-size: 87vw;
   }
-  main section.spec-wrapper .specialization-class .specialization-course .h4-link {
+  main section.spec-wrapper .spec-class .spec-course .h4-link {
     margin-block: 1vh;
   }
   main section#full-stack .pp {
@@ -1329,8 +1194,6 @@ div.tech-ui-ux {
   main section#full-stack .pp .tech-container {
     inline-size: 60vw;
   }
-}
-@media only screen and (min-device-width: 412px) and (max-device-width: 915px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
   header a {
     font-size: 0.57em;
   }
@@ -1355,7 +1218,6 @@ div.tech-ui-ux {
   }
   main section.info section.bio-container section.bio-content {
     inline-size: 86vw;
-    text-align: justify;
   }
   main section.info section.bio-container section.bio-content h3 {
     font-size: 1.5em;
@@ -1371,23 +1233,21 @@ div.tech-ui-ux {
     inline-size: 100%;
     flex-direction: column;
   }
-  main section.spec-wrapper .specialization-class {
+  main section.spec-wrapper .spec-class {
     inline-size: 84vw;
     display: flex;
     flex-direction: column;
   }
-  main section.spec-wrapper .specialization-class .h3-link {
+  main section.spec-wrapper .spec-class .h3-link {
     margin-block: 1vh;
   }
-  main section.spec-wrapper .specialization-class p {
-    margin: auto;
+  main section.spec-wrapper .spec-class p {
     inline-size: 69vw;
-    text-align: justify;
   }
-  main section.spec-wrapper .specialization-class .tech-container {
+  main section.spec-wrapper .spec-class .tech-container {
     inline-size: 87vw;
   }
-  main section.spec-wrapper .specialization-class .specialization-course .h4-link {
+  main section.spec-wrapper .spec-class .specialization-course .h4-link {
     margin-block: 1vh;
   }
   main section#full-stack .pp {
@@ -1426,14 +1286,12 @@ div.tech-ui-ux {
   }
   main section.info section.bio-container section.bio-content {
     inline-size: 86vw;
-    text-align: justify;
   }
   main section.info section.bio-container section.bio-content h3 {
     font-size: 1.5em;
   }
   main section.info section.bio-container section.bio-content p {
     font-size: 1em;
-    inline-size: 86vw;
   }
   main section.info section.bio-container div.btn-container {
     bottom: 39em;
@@ -1442,23 +1300,21 @@ div.tech-ui-ux {
     inline-size: 100%;
     flex-direction: column;
   }
-  main section.spec-wrapper .specialization-class {
+  main section.spec-wrapper .spec-class {
     inline-size: 84vw;
     display: flex;
     flex-direction: column;
   }
-  main section.spec-wrapper .specialization-class .h3-link {
+  main section.spec-wrapper .spec-class .h3-link {
     margin-block: 1vh;
   }
-  main section.spec-wrapper .specialization-class p {
-    margin: auto;
+  main section.spec-wrapper .spec-class p {
     inline-size: 69vw;
-    text-align: justify;
   }
-  main section.spec-wrapper .specialization-class .tech-container {
+  main section.spec-wrapper .spec-class .tech-container {
     inline-size: 87vw;
   }
-  main section.spec-wrapper .specialization-class .specialization-course .h4-link {
+  main section.spec-wrapper .spec-class .specialization-course .h4-link {
     margin-block: 1vh;
   }
   main section#full-stack .pp {
@@ -1515,23 +1371,21 @@ div.tech-ui-ux {
     inline-size: 100%;
     flex-direction: column;
   }
-  main section.spec-wrapper .specialization-class {
+  main section.spec-wrapper .spec-class {
     inline-size: 84vw;
     display: flex;
     flex-direction: column;
   }
-  main section.spec-wrapper .specialization-class .h3-link {
+  main section.spec-wrapper .spec-class .h3-link {
     margin-block: 1vh;
   }
-  main section.spec-wrapper .specialization-class p {
-    margin: auto;
+  main section.spec-wrapper .spec-class p {
     inline-size: 69vw;
-    text-align: justify;
   }
-  main section.spec-wrapper .specialization-class .tech-container {
+  main section.spec-wrapper .spec-class .tech-container {
     inline-size: 87vw;
   }
-  main section.spec-wrapper .specialization-class .specialization-course .h4-link {
+  main section.spec-wrapper .spec-class .specialization-course .h4-link {
     margin-block: 1vh;
   }
   main section#full-stack .pp {
@@ -1588,23 +1442,21 @@ div.tech-ui-ux {
     inline-size: 100%;
     flex-direction: column;
   }
-  main section.spec-wrapper .specialization-class {
+  main section.spec-wrapper .spec-class {
     inline-size: 84vw;
     display: flex;
     flex-direction: column;
   }
-  main section.spec-wrapper .specialization-class .h3-link {
+  main section.spec-wrapper .spec-class .h3-link {
     margin-block: 1vh;
   }
-  main section.spec-wrapper .specialization-class p {
-    margin: auto;
+  main section.spec-wrapper .spec-class p {
     inline-size: 69vw;
-    text-align: justify;
   }
-  main section.spec-wrapper .specialization-class .tech-container {
+  main section.spec-wrapper .spec-class .tech-container {
     inline-size: 87vw;
   }
-  main section.spec-wrapper .specialization-class .specialization-course .h4-link {
+  main section.spec-wrapper .spec-class .specialization-course .h4-link {
     margin-block: 1vh;
   }
   main section#full-stack .pp {
@@ -1661,23 +1513,21 @@ div.tech-ui-ux {
     inline-size: 100%;
     flex-direction: column;
   }
-  main section.spec-wrapper .specialization-class {
+  main section.spec-wrapper .spec-class {
     inline-size: 84vw;
     display: flex;
     flex-direction: column;
   }
-  main section.spec-wrapper .specialization-class .h3-link {
+  main section.spec-wrapper .spec-class .h3-link {
     margin-block: 1vh;
   }
-  main section.spec-wrapper .specialization-class p {
-    margin: auto;
+  main section.spec-wrapper .spec-class p {
     inline-size: 69vw;
-    text-align: justify;
   }
-  main section.spec-wrapper .specialization-class .tech-container {
+  main section.spec-wrapper .spec-class .tech-container {
     inline-size: 87vw;
   }
-  main section.spec-wrapper .specialization-class .specialization-course .h4-link {
+  main section.spec-wrapper .spec-class .specialization-course .h4-link {
     margin-block: 1vh;
   }
   main section#full-stack .pp {
@@ -1734,23 +1584,21 @@ div.tech-ui-ux {
     inline-size: 100%;
     flex-direction: column;
   }
-  main section.spec-wrapper .specialization-class {
+  main section.spec-wrapper .spec-class {
     inline-size: 84vw;
     display: flex;
     flex-direction: column;
   }
-  main section.spec-wrapper .specialization-class .h3-link {
+  main section.spec-wrapper .spec-class .h3-link {
     margin-block: 1vh;
   }
-  main section.spec-wrapper .specialization-class p {
-    margin: auto;
+  main section.spec-wrapper .spec-class p {
     inline-size: 69vw;
-    text-align: justify;
   }
-  main section.spec-wrapper .specialization-class .tech-container {
+  main section.spec-wrapper .spec-class .tech-container {
     inline-size: 87vw;
   }
-  main section.spec-wrapper .specialization-class .specialization-course .h4-link {
+  main section.spec-wrapper .spec-class .specialization-course .h4-link {
     margin-block: 1vh;
   }
   main section#full-stack .pp {
@@ -1807,23 +1655,21 @@ div.tech-ui-ux {
     inline-size: 100%;
     flex-direction: column;
   }
-  main section.spec-wrapper .specialization-class {
+  main section.spec-wrapper .spec-class {
     inline-size: 84vw;
     display: flex;
     flex-direction: column;
   }
-  main section.spec-wrapper .specialization-class .h3-link {
+  main section.spec-wrapper .spec-class .h3-link {
     margin-block: 1vh;
   }
-  main section.spec-wrapper .specialization-class p {
-    margin: auto;
+  main section.spec-wrapper .spec-class p {
     inline-size: 69vw;
-    text-align: justify;
   }
-  main section.spec-wrapper .specialization-class .tech-container {
+  main section.spec-wrapper .spec-class .tech-container {
     inline-size: 87vw;
   }
-  main section.spec-wrapper .specialization-class .specialization-course .h4-link {
+  main section.spec-wrapper .spec-class .specialization-course .h4-link {
     margin-block: 1vh;
   }
   main section#full-stack .pp {

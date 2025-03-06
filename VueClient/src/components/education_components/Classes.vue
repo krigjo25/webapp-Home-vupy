@@ -1,5 +1,5 @@
 <template>
-    <div class="specialization-course">
+    <div class="spec-course">
         <a :href="cls.diploma.link" _target="blank" v-if="cls.diploma.graduate">
             <h4 class='h4-link'>
                 <i :class='cls.diploma.icon.qualified'></i>

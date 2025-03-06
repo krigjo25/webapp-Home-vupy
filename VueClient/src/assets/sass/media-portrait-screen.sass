@@ -5,7 +5,6 @@
     header a
         font-size: 0.57em
 
-
     main
         section.info
             
@@ -36,7 +35,7 @@
 
                 section.bio-content
                     inline-size: 86vw !important
-                    text-align: justify !important
+                    
 
                     h3
                         font-size: 1.5em !important
@@ -51,18 +50,13 @@
             inline-size: 100% !important
             flex-direction: column !important
 
-            .specialization-class
+            .spec-class
                 inline-size: 84vw !important
                 display: flex !important
                 flex-direction: column !important
     
                 .h3-link
                     margin-block: 1vh !important
-                
-                p
-                    margin: auto
-                    inline-size: 69vw !important
-                    text-align: justify !important
 
                 .tech-container
                     inline-size: 87vw !important
@@ -115,14 +109,13 @@
 
                 section.bio-content
                     inline-size: 86vw
-                    text-align: justify
+                    
 
                     h3
                         font-size: 1.5em
 
                     p
-                        font-size: 1em
-                        inline-size: 86vw            
+                        font-size: 1em           
 
                 div.btn-container
                     bottom: 39em
@@ -132,18 +125,13 @@
             inline-size: 100%
             flex-direction: column
 
-            .specialization-class
+            .spec-class
                 inline-size: 84vw
                 display: flex
                 flex-direction: column
     
                 .h3-link
                     margin-block: 1vh
-                
-                p
-                    margin: auto
-                    inline-size: 69vw
-                    text-align: justify
 
                 .tech-container
                     inline-size: 87vw
@@ -165,7 +153,6 @@
     header a
         font-size: 0.57em !important
 
-
     main
         section.info
 
@@ -180,6 +167,7 @@
                     inline-size: 47vw !important
 
             section.bio-container
+                margin-block: 13vh
                 margin-inline: 0 !important
                 inline-size: 100% !important
 
@@ -187,14 +175,14 @@
                     font-size: 2em !important
                     text-align: center !important
 
-                nav.bio-link
+                nav.bio-bar
 
                     button.bio-btn
                         font-size: 1em !important
 
                 section.bio-content
                     inline-size: 86vw !important
-                    text-align: justify !important
+                    
 
                     h3
                         font-size: 1.5em !important
@@ -206,22 +194,22 @@
                 div.btn-container
                     bottom: 39em !important
 
+                nav.ext-bar
+                    
+                    a
+                        margin: 0
+        
         section.spec-wrapper
             inline-size: 100% !important
             flex-direction: column !important
+            align-content: center
 
-            .specialization-class
-                inline-size: 84vw !important
-                display: flex !important
-                flex-direction: column !important
-    
+            .spec-class
+                inline-size: 100% !important
+                align-content: center
+
                 .h3-link
                     margin-block: 1vh !important
-                
-                p
-                    margin: auto
-                    inline-size: 69vw !important
-                    text-align: justify !important
 
                 .tech-container
                     inline-size: 87vw !important
@@ -232,11 +220,26 @@
 
         section#full-stack
 
+            .pp .tech-container
+                inline-size: 60vw !important
             .pp
+                background-size: 26vw !important
                 inline-size: 100% !important
 
                 .tech-container
+                    inline-size: 73vw !important
+
+                .tech-wrapper
+                    inline-size: 23vw !important
+                p
+                    font-size: 0.8em !important
                     inline-size: 60vw !important
+
+            .wrap-row-space-between
+                top: 0.7em !important
+                position: relative !important
+                inline-size: 65vw !important
+            
 
 /* Samsung galaxy S8*/
 @media only screen and (min-device-width: 360px) and (max-device-width: 740px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
@@ -274,14 +277,13 @@
 
                 section.bio-content
                     inline-size: 86vw
-                    text-align: justify
+                    
 
                     h3
                         font-size: 1.5em
 
                     p
-                        font-size: 1em
-                        inline-size: 86vw            
+                        font-size: 1em        
 
                 div.btn-container
                     bottom: 39em
@@ -291,18 +293,13 @@
             inline-size: 100%
             flex-direction: column
 
-            .specialization-class
+            .spec-class
                 inline-size: 84vw
                 display: flex
                 flex-direction: column
     
                 .h3-link
                     margin-block: 1vh
-                
-                p
-                    margin: auto
-                    inline-size: 69vw
-                    text-align: justify
 
                 .tech-container
                     inline-size: 87vw
@@ -351,15 +348,14 @@
 
                 section.bio-content
                     inline-size: 86vw
-                    text-align: justify
+                    
 
                     h3
                         font-size: 1.5em
 
                     p
                         font-size: 1em
-                        inline-size: 86vw            
-
+ 
                 div.btn-container
                     bottom: 39em
 
@@ -368,23 +364,18 @@
             inline-size: 100%
             flex-direction: column
 
-            .specialization-class
+            .spec-class
                 inline-size: 84vw
                 display: flex
                 flex-direction: column
     
                 .h3-link
                     margin-block: 1vh
-                
-                p
-                    margin: auto
-                    inline-size: 69vw
-                    text-align: justify
 
                 .tech-container
                     inline-size: 87vw
 
-                .specialization-course
+                .spec-course
                     .h4-link
                         margin-block: 1vh
 
@@ -395,7 +386,8 @@
 
                 .tech-container
                     inline-size: 60vw
-@media only screen and (min-device-width: 412px) and (max-device-width: 915px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
+
+    @media only screen and (min-device-width: 412px) and (max-device-width: 915px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
     
     header a
         font-size: 0.57em 
@@ -427,7 +419,7 @@
 
                 section.bio-content
                     inline-size: 86vw
-                    text-align: justify
+                    
 
                     h3
                         font-size: 1.5em
@@ -444,7 +436,7 @@
             inline-size: 100%
             flex-direction: column
 
-            .specialization-class
+            .spec-class
                 inline-size: 84vw
                 display: flex
                 flex-direction: column
@@ -453,9 +445,9 @@
                     margin-block: 1vh
                 
                 p
-                    margin: auto
+                    
                     inline-size: 69vw
-                    text-align: justify
+                    
 
                 .tech-container
                     inline-size: 87vw
@@ -508,14 +500,13 @@
 
                 section.bio-content
                     inline-size: 86vw
-                    text-align: justify
+                    
 
                     h3
                         font-size: 1.5em
 
                     p
-                        font-size: 1em
-                        inline-size: 86vw            
+                        font-size: 1em        
 
                 div.btn-container
                     bottom: 39em
@@ -525,7 +516,7 @@
             inline-size: 100%
             flex-direction: column
 
-            .specialization-class
+            .spec-class
                 inline-size: 84vw
                 display: flex
                 flex-direction: column
@@ -534,9 +525,9 @@
                     margin-block: 1vh
                 
                 p
-                    margin: auto
+                    
                     inline-size: 69vw
-                    text-align: justify
+                    
 
                 .tech-container
                     inline-size: 87vw
@@ -607,7 +598,7 @@
             inline-size: 100%
             flex-direction: column
 
-            .specialization-class
+            .spec-class
                 inline-size: 84vw
                 display: flex
                 flex-direction: column
@@ -616,9 +607,9 @@
                     margin-block: 1vh
                 
                 p
-                    margin: auto
+                    
                     inline-size: 69vw
-                    text-align: justify
+                    
 
                 .tech-container
                     inline-size: 87vw
@@ -689,7 +680,7 @@
             inline-size: 100%
             flex-direction: column
 
-            .specialization-class
+            .spec-class
                 inline-size: 84vw
                 display: flex
                 flex-direction: column
@@ -698,9 +689,9 @@
                     margin-block: 1vh
                 
                 p
-                    margin: auto
+                    
                     inline-size: 69vw
-                    text-align: justify
+                    
 
                 .tech-container
                     inline-size: 87vw
@@ -771,7 +762,7 @@
             inline-size: 100%
             flex-direction: column
 
-            .specialization-class
+            .spec-class
                 inline-size: 84vw
                 display: flex
                 flex-direction: column
@@ -780,9 +771,9 @@
                     margin-block: 1vh
                 
                 p
-                    margin: auto
+                    
                     inline-size: 69vw
-                    text-align: justify
+                    
 
                 .tech-container
                     inline-size: 87vw
@@ -853,7 +844,7 @@
             inline-size: 100%
             flex-direction: column
 
-            .specialization-class
+            .spec-class
                 inline-size: 84vw
                 display: flex
                 flex-direction: column
@@ -862,9 +853,9 @@
                     margin-block: 1vh
                 
                 p
-                    margin: auto
+                    
                     inline-size: 69vw
-                    text-align: justify
+                    
 
                 .tech-container
                     inline-size: 87vw
@@ -935,7 +926,7 @@
             inline-size: 100%
             flex-direction: column
 
-            .specialization-class
+            .spec-class
                 inline-size: 84vw
                 display: flex
                 flex-direction: column
@@ -944,9 +935,9 @@
                     margin-block: 1vh
                 
                 p
-                    margin: auto
+                    
                     inline-size: 69vw
-                    text-align: justify
+                    
 
                 .tech-container
                     inline-size: 87vw

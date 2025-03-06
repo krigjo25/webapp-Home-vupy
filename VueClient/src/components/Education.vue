@@ -1,6 +1,6 @@
 <template>
-    <section id="specialization-container" class="spec-wrapper">
-        <div class="specialization-class" v-for="edu in educations" :key="edu.id">
+    <section id="spec-container" class="spec-wrapper">
+        <div class="spec-class flex-wrap-row" v-for="edu in educations" :key="edu.id">
             <a :href="edu.link" target="_blank">
                 <h3 class="h3-link">
                     <i class="bi bi-folder-symlink"></i> {{ edu.name }}

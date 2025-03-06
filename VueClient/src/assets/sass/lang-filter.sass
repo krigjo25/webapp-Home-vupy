@@ -12,10 +12,8 @@ div.tech-interpreted
     background-color: $Cyan-Blue-Azure
 
 .tech-wrapper:has(.tech-interpreted)
-    transition: all .3s ease-out
-
-    &:hover
-        background-color: $Cyan-Blue-Azure-hover !important
+    //transition: all .3s ease-out
+    background-color: $Cyan-Blue-Azure-hover !important
 
 // Compiled languageC, C++, C#,
 div.tech-compiled
@@ -23,10 +21,8 @@ div.tech-compiled
     @extend %filter-content
 
 .tech-wrapper:has(.tech-compiled)
-    transition: all .3s ease-out
-
-    &:hover
-        background-color: $c-light !important
+    //transition: all .3s ease-out
+    //background-color: $c-light !important
 
 // Database
 div.tech-db
@@ -34,10 +30,8 @@ div.tech-db
     background-color: $db
 
 .tech-wrapper:has(.tech-db)
-    transition: all .3s ease-out
-
-    &:hover
-        background-color: $db-light !important
+    //transition: all .3s ease-out
+    //background-color: $db-light
 
 // UI / UX / Frontend
 div.tech-ui-ux
@@ -45,10 +39,8 @@ div.tech-ui-ux
     background-color: $webapp
 
 .tech-wrapper:has(.tech-ui-ux)
-    transition: all .3s ease-out
-
-    &:hover
-        background-color: $webapp-light !important
+    //transition: all .3s ease-out
+    //background-color: $webapp-light !important
 
 // Workflow
 .tech-workflow
@@ -56,14 +48,11 @@ div.tech-ui-ux
     background-color: $work-flow
 
 .tech-wrapper:has(.tech-workflow)
-    transition: all .3s ease-out
-
-    &:hover
-        background-color: $work-flow-light !important
+    //transition: all .3s ease-out
+    //background-color: $work-flow-light !important
 
 .tech-container
     
-
     .relative
         left: .5vw
         top: .9vh
@@ -71,12 +60,6 @@ div.tech-ui-ux
         
 .tech-wrapper
     margin: 0.1em
-    display: flex
     @extend roboto-font
     border-radius: 10px
     @extend %user-select
-    
-    &:hover
-        transform: scale(1.1)
-        box-shadow: $box-shadow
-        transition: 1s ease-in-out

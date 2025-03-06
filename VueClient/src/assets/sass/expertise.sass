@@ -13,16 +13,15 @@ main
 
 
     section.spec-wrapper
-
         display: flex
         flex-wrap: wrap
         flex-direction: row
         margin-block: 5vh
         justify-content: space-evenly
 
-        .specialization-class
-
+        .spec-class
             inline-size: 40vw
+
             a
                 text-decoration: none
                 color: rgb(64, 64, 64)
@@ -43,14 +42,10 @@ main
             .no-select
                 @extend %user-select
 
-            
-
             p
                 font-size: 1.2em
                 inline-size: 100%
                 @extend roboto-font
-                text-align: justify
-
                 
             .tech-container
                 inline-size: 100%
@@ -64,13 +59,11 @@ main
                 margin-inline: 0.3em
 
 
-            .specialization-course
-
+            .spec-course
                 a
                     text-decoration: none
                     color: rgb(64, 64, 64)
                     transition: 0.3s
-
 
                 .h4-link
                     color: $h4 !important
@@ -86,13 +79,4 @@ main
 
                     &:hover
                         background-color: $bg-light
-                
-.flex-row
-    padding: 0.5em !important
-    margin: 0.5em !important
-
-
-
-
-
     

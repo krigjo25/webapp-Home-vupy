@@ -1,5 +1,5 @@
 <template>
-    <section class='flex-row '>
+    <section class='flex-wrap-row '>
         <div v-for="tech in techs" :key="tech.id">
             <div class="tech-wrapper" v-for="lang in tech.lang" :key="lang.id">
                 <div :class="'tech-'+ tech.category + ' relative'" ></div>

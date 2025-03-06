@@ -27,6 +27,8 @@ Session(app)
 CORS(app, resources={r"/*": {"origins": f"*"}})
 logger.info(f"App running on {app.config}")
 
+
+'''
 @app.after_request
 async def after_request(response):
     """Ensure the responses aren't cached"""
@@ -36,7 +38,7 @@ async def after_request(response):
     
     logger.info(f"Response: {response}")
     return response
-
+'''
 #   Endpoints
 app.add_url_rule("/", view_func = Announcements().as_view('Index',methods = ["GET"]))
 app.add_url_rule("/api/github", view_func = Github().as_view('Github', methods = ["GET"]))

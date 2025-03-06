@@ -43,10 +43,8 @@ class PhotoLibrary(MethodView):
 
                 
                 #   Add the images to the response object
-                caption = [
-                    "One of the few days we're using suits in Norway. Happy National day. #Nationalday #lifeiswhy",
-                    
-                ]
+                caption = []
+                
                 for i in os.listdir(f'VueClient{path}'):
 
                     #  Fetch description of the images
