@@ -1,0 +1,82 @@
+@import misc
+@import fonts
+@import colour
+@import lang-filter
+
+main 
+    .flash
+        font-size: 2em
+        display: flex
+        flex-wrap: wrap
+        align-content: center
+        flex-direction: column
+
+
+    section.spec-wrapper
+        display: flex
+        flex-wrap: wrap
+        flex-direction: row
+        margin-block: 5vh
+        justify-content: space-evenly
+
+        .spec-class
+            inline-size: 40vw
+
+            a
+                text-decoration: none
+                color: rgb(64, 64, 64)
+                transition: 0.3s
+
+
+            .h3-link
+                margin: auto
+                font-size: 2em
+                @extend work-sans-font
+                transition: 0.3s ease-in-out
+            
+                &:hover
+                    font-size: 2em
+                    transform: scale(1.1)
+                    @extend work-sans-font
+                    text-decoration: underline
+            .no-select
+                @extend %user-select
+
+            p
+                font-size: 1.2em
+                inline-size: 100%
+                @extend roboto-font
+                
+            .tech-container
+                inline-size: 100%
+
+            span.tech-label
+                padding: 0.5em
+                font-size: 0.9em
+                font-weight: 300
+                font-style: oblique
+                border-radius: 10px
+                margin-inline: 0.3em
+
+
+            .spec-course
+                a
+                    text-decoration: none
+                    color: rgb(64, 64, 64)
+                    transition: 0.3s
+
+                .h4-link
+                    color: $h4 !important
+                    margin: auto
+                    font-size: 1.3em
+                    @extend work-sans-font
+                    transition: 0.3s ease-in-out
+
+                .tech-wrapper
+
+                    padding: 0.5em
+                    background-color: $white
+
+                    &:hover
+                        background-color: $bg-light
+    

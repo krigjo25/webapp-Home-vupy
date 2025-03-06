@@ -36,7 +36,7 @@
         </div>
     </section>
     <section id="fullstack" class="loading" v-else>
-        <h2>Portefolio</h2>
+        <h2>Technical Portefolio</h2>
         <p>Loading elements...</p>
     </section>
 </template>
