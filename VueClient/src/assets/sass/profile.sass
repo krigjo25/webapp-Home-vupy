@@ -3,52 +3,55 @@
 @import misc
 @import flexbox
 
-
+.slogan-wrapper
+    font-size: 1.6325vw
 main 
     section.info
         block-size: 100%
+
         align-items: center
         justify-content: center
+
         .carosel
-            
-            inline-size: 25vw
+            inline-size: 100%
             @extend flex-column
 
             img
-                inline-size: 100%
-                border-radius: 0.5em
+                border-radius: 0.5vw
             
             .caption
-                bottom: 5.5vh
-                display: flex
+                bottom: 21.5vh
                 color: $bg-light
                 inline-size: 100%
                 position: relative
-                justify-content: center
                 background-color: $overlay
                 border-bottom-left-radius: 1em
                 border-bottom-right-radius: 1em
 
-            .btn-container
-                bottom: 19em
                 display: flex
+                justify-content: center
+
+            .btn-container
                 cursor: pointer
                 block-size: 100%
                 inline-size: 100%
+                
                 position: relative
+                bottom: 78vh
+                
+                display: flex
                 justify-content: space-between
 
                 button.img-btn
-                    opacity: 0.3
                     border: none
-                    font-size: 2em
+                    opacity: 0.3
+                    font-size: 12vw
                     cursor: pointer
                     background-color: transparent
                     @extend ext-btn-functionallity
   
         section.bio-container
-            inline-size: 53vw
-            margin-inline-start: 7vw
+            inline-size: 100%
 
             h2
                 font-size: 2em
@@ -57,18 +60,20 @@ main
 
             nav.bio-bar
                 inline-size: 100%
-                @extend flex-wrap-row
+                
                 background-color: transparent
                 border-top: 1px solid $nav-bar
                 border-bottom: 1px solid $nav-bar
                 
+                @extend flex-wrap-row
                 justify-content: space-evenly
 
             
                 button.bio-btn
+
                     border: none
                     padding: 1em
-                    font-size: 1em
+                    font-size: 5.8vw
                     cursor: pointer
                     background-color: inherit
                     @extend ext-btn-functionallity
@@ -80,11 +85,8 @@ main
                         
 
             section.bio-content
+                inline-size: 100%
                 @extend roboto-font
-                
-                p
-                    font-size: 1.2em
-                    text-align: justify
                 
                 h3
                     margin-block-end: 0em 
@@ -92,28 +94,23 @@ main
                 h4
                     margin-block-end: 0em
                     color: $highlight-color !important
-                    
 
         nav.ext-bar
             padding: 1vw
+
             display: flex
             flex-wrap: wrap
-            margin-block-start: 2vh
-            justify-content: center
+            flex-direction: row
+            justify-content: space-between
 
             span 
                 padding: 1vw
                 font-size: 1em
             
             a
-                margin: 0.5em
-                padding: 0.5em
+                padding: 1vw
                 font-size: 1.5em
-                text-align: center
-                border-radius: 50%
-                transition: 0aaaa.5s
                 text-decoration: none
-                min-inline-size: 50px
                 display: inline-block
                 @extend ext-btn-functionallity
 

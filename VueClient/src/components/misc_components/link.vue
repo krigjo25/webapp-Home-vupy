@@ -1,6 +1,6 @@
 <template>
     <a :href="link.url" target="_blank">
-        <div class="demo flex-wrap-row-space-evenly">
+        <div class="tech-btn flex-wrap-row-space-evenly">
             <i :class="link.icon"></i>
         </div>
     </a>

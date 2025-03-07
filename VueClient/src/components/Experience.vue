@@ -1,7 +1,7 @@
 <template>
     <section id="fullstack" v-if="pfolio.Loaded" class="flex-wrap-column">
         <h2>Technical Repositories</h2>
-        <div>
+        <div class="flex-wrap-column-justify-space-between">
             <Navigation class='justify-content-space-evently-row':data="pfolio.Total" @update="pfolio.current = $event" v-if="pfolio.Total"/>
             <form class="flex-row justify-center">
                 <select v-if = "pfolio.type">
@@ -17,9 +17,8 @@
         
         <div class="flex-wrap-row justify-center">
             <div class="pp flex-wrap-row" v-for="data in pfolio.displayData" :key="data.id">
-                
                 <div class="tech-container flex-wrap-column ">
-                    <div v-for="lang in data.lang" :key="lang.id" class="wrap-row-space-between">
+                    <div v-for="lang in data.lang" :key="lang.id" class="img-wrapper wrap-row-space-between">
                         <img class="img-svg" :src="'./src/assets/img/techlogo/' + lang.lang + '.svg'" :alt="lang.lang + '.svg'" />
                         <span class="time">
                             <time v-bind:datetime="data.date">{{ data.date }}</time>

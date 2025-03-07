@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from lib.core.base import APIConfig
 
 
-from lib.utility.log_config import GithubWatcher
+from lib.utils.log_config import GithubWatcher
 
 #  Loading the environment variables
 load_dotenv()

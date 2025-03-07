@@ -1,7 +1,5 @@
 #   Utility tools for the application
 
-from lib.APIS.heavy import HeavyAPI
-
 class UtilityTools(object):
 
     def Announcements(self, now):

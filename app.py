@@ -8,10 +8,10 @@ from flask_session import Session
 #   Custom dependencies
 
 from lib.endpoint_services.github_data import Github
-from lib.utility.log_config import AppWatcher
+from lib.utils.log_config import AppWatcher
 from lib.endpoint_services.Photos import PhotoLibrary
 from lib.endpoint_services.announcements import Announcements
-from lib.env_config import DevelopmentConfig, ProdConfig
+from lib.settings.env_config import DevelopmentConfig, ProdConfig
 
 # Initialize the logger
 logger = AppWatcher()
@@ -42,7 +42,7 @@ async def after_request(response):
 #   Endpoints
 app.add_url_rule("/", view_func = Announcements().as_view('Index',methods = ["GET"]))
 app.add_url_rule("/api/github", view_func = Github().as_view('Github', methods = ["GET"]))
-app.add_url_rule("/api/photos", view_func = PhotoLibrary().as_view('Photos', methods = ["POST"]))
+app.add_url_rule("/api/photos", view_func = PhotoLibrary().as_view('Photos', methods = ["GET"]))
 
 #   Webworkers
 if __name__ == "__main__":

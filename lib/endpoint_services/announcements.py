@@ -7,7 +7,7 @@ from flask.views import MethodView
 from flask import jsonify, request
 
 #   Custom dependencies
-from lib.utility.utilitytools import UtilityTools
+from lib.utils.utilitytools import UtilityTools
 
 
 #   Load environment variables

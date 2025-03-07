@@ -8,13 +8,16 @@
 .cnn-ctr 
     text-align: center
 
-h2 
-    text-align: center
 
-.tech-btn
+
+section#fullstack
+    h2 
+        text-align: center
+
+    nav.tech-btn
         border: none
         cursor: pointer
-        padding: 1em 2em
+        padding: 3vw 6vw
         border-radius: 10px
         background-color: $nav-bar
         
@@ -29,34 +32,35 @@ h2
             transition: 0.5s
         &:active
             background-color: rgba(57, 122, 122, 1)
-.pp
-    margin: 1em
-    background-size: 9vw
-    background-repeat: no-repeat
-    box-shadow: 4px 4px 20px 4px $dark-grey
-    background-image: url(../assets/img/businessCard/topper-left-corner.svg)
 
-    .tech-container
-        block-size: 20vh
-        align-items: center
-        justify-content: center
+    .pp
+        
+        margin: 1em
+        block-size: 60vh
+        inline-size: 100%
+        background-size: 26vw
+        background-repeat: no-repeat
+        box-shadow: 4px 4px 20px 4px $dark-grey
+        background-image: url(../assets/img/businessCard/topper-left-corner.svg)
 
-    .img-svg
-        block-size: 3vh
+        .tech-container
+            inline-size: 70vw
+            justify-content: center
+            
 
-    .img-Python
-        bottom: 2vh
-        position: relative
-    
-    .wrap-row-space-between
-        block-size: 1vh
-        inline-size: 21vw
+        .img-svg
+            block-size: 7vh
+
+        .img-wrapper
+            block-size: 14vh
+
     h3
-        margin-block-end: 0.3em
+        margin-block: 2vh
+        text-align: center
 
     p
         margin: 0
-        inline-size: 20vw
+        font-size: 5vw
         text-align: center
 
     span.time
@@ -76,10 +80,10 @@ h2
         padding: 1em
         padding: 0.5em
 
-        .demo
+        .pro-nav.tech-btn
             padding: 0.5em
-            border: 1px solid $white
             border-radius: 10px
+            border: 1px solid $white
                         
             &:hover
                 transition: 1s

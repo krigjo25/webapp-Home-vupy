@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 from flask.views import MethodView
 from flask import jsonify, request
 
-from lib.utility.log_config import ApiWatcher
+from lib.utils.log_config import ApiWatcher
 
 #   Load the environment variables
 load_dotenv()

@@ -8,7 +8,7 @@ load_dotenv()
 #   Custom libraries
 from lib.core.base import APIConfig
 from lib.utility.log_config import HeavyWatcher
-from lib.mathlibrary import MathInterPreter 
+from lib.utils.mathlibrary import MathInterPreter 
 
 class HeavyAPI(APIConfig):
 

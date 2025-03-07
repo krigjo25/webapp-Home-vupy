@@ -37,7 +37,7 @@ input-bg, input[type=text] {
 
 input[type=text] {
   font-size: 1em;
-  inline-size: 41vw;
+  inline-size: 100%;
   background-image: url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/search.svg");
 }
 
@@ -76,12 +76,21 @@ main section.spec-wrapper .spec-class .no-select, .tech-wrapper {
   border-radius: 10px;
 }
 
-ext-btn-functionallity, .pp a:link, .pp a:visited, main section.info nav.ext-bar a, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info .carosel .btn-container button.img-btn {
+ext-btn-functionallity, section#fullstack a:link, section#fullstack a:visited, main section.info nav.ext-bar a, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info .carosel .btn-container button.img-btn {
   transition: 2s;
 }
-ext-btn-functionallity:hover, .pp a:hover:link, .pp a:hover:visited, main section.info nav.ext-bar a:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info .carosel .btn-container button.img-btn:hover {
+ext-btn-functionallity:hover, section#fullstack a:hover:link, section#fullstack a:hover:visited, main section.info nav.ext-bar a:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info .carosel .btn-container button.img-btn:hover {
   transform: scale(1.1);
   opacity: 1;
+}
+ext-btn-functionallity .msg, section#fullstack a:link .msg, section#fullstack a:visited .msg, main section.info nav.ext-bar a .msg, main section.info section.bio-container nav.bio-bar button.bio-btn .msg, main section.info .carosel .btn-container button.img-btn .msg {
+  font-size: 2em;
+}
+
+flex-wrap-column, .flex-column {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 flex-row, .flex-row {
@@ -161,48 +170,50 @@ flex-wrap-reversed-row, .flex-reversed-row {
   justify-content: space-between;
 }
 
+.slogan-wrapper {
+  font-size: 1.6325vw;
+}
+
 main section.info {
   block-size: 100%;
   align-items: center;
   justify-content: center;
 }
 main section.info .carosel {
-  inline-size: 25vw;
+  inline-size: 100%;
 }
 main section.info .carosel img {
-  inline-size: 100%;
-  border-radius: 0.5em;
+  border-radius: 0.5vw;
 }
 main section.info .carosel .caption {
-  bottom: 5.5vh;
-  display: flex;
+  bottom: 21.5vh;
   color: rgb(245, 245, 245);
   inline-size: 100%;
   position: relative;
-  justify-content: center;
   background-color: rgba(40, 40, 40, 0.7);
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
+  display: flex;
+  justify-content: center;
 }
 main section.info .carosel .btn-container {
-  bottom: 19em;
-  display: flex;
   cursor: pointer;
   block-size: 100%;
   inline-size: 100%;
   position: relative;
+  bottom: 78vh;
+  display: flex;
   justify-content: space-between;
 }
 main section.info .carosel .btn-container button.img-btn {
-  opacity: 0.3;
   border: none;
-  font-size: 2em;
+  opacity: 0.3;
+  font-size: 12vw;
   cursor: pointer;
   background-color: transparent;
 }
 main section.info section.bio-container {
-  inline-size: 53vw;
-  margin-inline-start: 7vw;
+  inline-size: 100%;
 }
 main section.info section.bio-container h2 {
   font-size: 2em;
@@ -218,7 +229,7 @@ main section.info section.bio-container nav.bio-bar {
 main section.info section.bio-container nav.bio-bar button.bio-btn {
   border: none;
   padding: 1em;
-  font-size: 1em;
+  font-size: 5.8vw;
   cursor: pointer;
   background-color: inherit;
 }
@@ -226,9 +237,8 @@ main section.info section.bio-container nav.bio-bar button.bio-btn:hover {
   color: rgb(103, 58, 183);
   background-color: rgb(207, 222, 226);
 }
-main section.info section.bio-container section.bio-content p {
-  font-size: 1.2em;
-  text-align: justify;
+main section.info section.bio-container section.bio-content {
+  inline-size: 100%;
 }
 main section.info section.bio-container section.bio-content h3 {
   margin-block-end: 0em;
@@ -241,26 +251,27 @@ main section.info nav.ext-bar {
   padding: 1vw;
   display: flex;
   flex-wrap: wrap;
-  margin-block-start: 2vh;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
 }
 main section.info nav.ext-bar span {
   padding: 1vw;
   font-size: 1em;
 }
 main section.info nav.ext-bar a {
-  margin: 0.5em;
-  padding: 0.5em;
+  padding: 1vw;
   font-size: 1.5em;
-  text-align: center;
-  border-radius: 50%;
-  transition: 0aaaa 0.5s;
   text-decoration: none;
-  min-inline-size: 50px;
   display: inline-block;
 }
 main section.info nav.ext-bar:hover, main section.info nav.ext-bar :visited {
   color: inherit;
+}
+
+flex-wrap-column, .flex-column {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 flex-row, .flex-row {
@@ -353,12 +364,15 @@ main section.spec-wrapper .spec-class .no-select, .tech-wrapper {
   border-radius: 10px;
 }
 
-ext-btn-functionallity, .pp a:link, .pp a:visited, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info nav.ext-bar a {
+ext-btn-functionallity, section#fullstack a:link, section#fullstack a:visited, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info nav.ext-bar a {
   transition: 2s;
 }
-ext-btn-functionallity:hover, .pp a:hover:link, .pp a:hover:visited, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info nav.ext-bar a:hover {
+ext-btn-functionallity:hover, section#fullstack a:hover:link, section#fullstack a:hover:visited, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info nav.ext-bar a:hover {
   transform: scale(1.1);
   opacity: 1;
+}
+ext-btn-functionallity .msg, section#fullstack a:link .msg, section#fullstack a:visited .msg, main section.info .carosel .btn-container button.img-btn .msg, main section.info section.bio-container nav.bio-bar button.bio-btn .msg, main section.info nav.ext-bar a .msg {
+  font-size: 2em;
 }
 
 roboto-font, header a, main section.spec-wrapper .spec-class p, .tech-wrapper, main section.info section.bio-container section.bio-content {
@@ -385,12 +399,15 @@ main section.spec-wrapper .spec-class .no-select, .tech-wrapper {
   border-radius: 10px;
 }
 
-ext-btn-functionallity, .pp a:link, .pp a:visited, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info nav.ext-bar a {
+ext-btn-functionallity, section#fullstack a:link, section#fullstack a:visited, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info nav.ext-bar a {
   transition: 2s;
 }
-ext-btn-functionallity:hover, .pp a:hover:link, .pp a:hover:visited, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info nav.ext-bar a:hover {
+ext-btn-functionallity:hover, section#fullstack a:hover:link, section#fullstack a:hover:visited, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info nav.ext-bar a:hover {
   transform: scale(1.1);
   opacity: 1;
+}
+ext-btn-functionallity .msg, section#fullstack a:link .msg, section#fullstack a:visited .msg, main section.info .carosel .btn-container button.img-btn .msg, main section.info section.bio-container nav.bio-bar button.bio-btn .msg, main section.info nav.ext-bar a .msg {
+  font-size: 2em;
 }
 
 roboto-font, header a, main section.spec-wrapper .spec-class p, .tech-wrapper, main section.info section.bio-container section.bio-content {
@@ -435,22 +452,13 @@ div.tech-ui-ux {
   border-radius: 10px;
 }
 
-main .flash {
-  font-size: 2em;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  flex-direction: column;
-}
 main section.spec-wrapper {
+  margin-block: 5vh;
+  inline-size: 100%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  margin-block: 5vh;
   justify-content: space-evenly;
-}
-main section.spec-wrapper .spec-class {
-  inline-size: 40vw;
 }
 main section.spec-wrapper .spec-class a {
   text-decoration: none;
@@ -468,7 +476,7 @@ main section.spec-wrapper .spec-class .h3-link:hover {
   text-decoration: underline;
 }
 main section.spec-wrapper .spec-class p {
-  font-size: 1.2em;
+  font-size: 6vw;
   inline-size: 100%;
 }
 main section.spec-wrapper .spec-class .tech-container {
@@ -481,6 +489,12 @@ main section.spec-wrapper .spec-class span.tech-label {
   font-style: oblique;
   border-radius: 10px;
   margin-inline: 0.3em;
+}
+main section.spec-wrapper .spec-class .spec-course {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
 }
 main section.spec-wrapper .spec-class .spec-course a {
   text-decoration: none;
@@ -514,12 +528,15 @@ div.tech-interpreted, div.tech-compiled, div.tech-db, div.tech-ui-ux, .tech-work
   border-radius: 10px;
 }
 
-ext-btn-functionallity, .pp a:link, .pp a:visited, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info nav.ext-bar a {
+ext-btn-functionallity, section#fullstack a:link, section#fullstack a:visited, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info nav.ext-bar a {
   transition: 2s;
 }
-ext-btn-functionallity:hover, .pp a:hover:link, .pp a:hover:visited, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info nav.ext-bar a:hover {
+ext-btn-functionallity:hover, section#fullstack a:hover:link, section#fullstack a:hover:visited, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info nav.ext-bar a:hover {
   transform: scale(1.1);
   opacity: 1;
+}
+ext-btn-functionallity .msg, section#fullstack a:link .msg, section#fullstack a:visited .msg, main section.info .carosel .btn-container button.img-btn .msg, main section.info section.bio-container nav.bio-bar button.bio-btn .msg, main section.info nav.ext-bar a .msg {
+  font-size: 2em;
 }
 
 roboto-font, header a, main section.info section.bio-container section.bio-content, .tech-wrapper, main section.spec-wrapper .spec-class p {
@@ -546,12 +563,15 @@ div.tech-interpreted, div.tech-compiled, div.tech-db, div.tech-ui-ux, .tech-work
   border-radius: 10px;
 }
 
-ext-btn-functionallity, .pp a:link, .pp a:visited, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info nav.ext-bar a {
+ext-btn-functionallity, section#fullstack a:link, section#fullstack a:visited, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info nav.ext-bar a {
   transition: 2s;
 }
-ext-btn-functionallity:hover, .pp a:hover:link, .pp a:hover:visited, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info nav.ext-bar a:hover {
+ext-btn-functionallity:hover, section#fullstack a:hover:link, section#fullstack a:hover:visited, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info nav.ext-bar a:hover {
   transform: scale(1.1);
   opacity: 1;
+}
+ext-btn-functionallity .msg, section#fullstack a:link .msg, section#fullstack a:visited .msg, main section.info .carosel .btn-container button.img-btn .msg, main section.info section.bio-container nav.bio-bar button.bio-btn .msg, main section.info nav.ext-bar a .msg {
+  font-size: 2em;
 }
 
 roboto-font, header a, main section.info section.bio-container section.bio-content, .tech-wrapper, main section.spec-wrapper .spec-class p {
@@ -600,62 +620,57 @@ div.tech-ui-ux {
   text-align: center;
 }
 
-h2 {
+section#fullstack h2 {
   text-align: center;
 }
-
-.tech-btn {
+section#fullstack nav.tech-btn {
   border: none;
   cursor: pointer;
-  padding: 1em 2em;
+  padding: 3vw 6vw;
   border-radius: 10px;
   background-color: rgb(75, 160, 160);
 }
-.tech-btn:disabled {
+section#fullstack nav.tech-btn:disabled {
   color: rgb(40, 40, 40);
   cursor: not-allowed;
   background-color: rgb(245, 245, 245) !important;
 }
-.tech-btn:hover {
+section#fullstack nav.tech-btn:hover {
   background-color: rgb(99, 182, 182);
   transition: 0.5s;
 }
-.tech-btn:active {
+section#fullstack nav.tech-btn:active {
   background-color: rgb(57, 122, 122);
 }
-
-.pp {
+section#fullstack .pp {
   margin: 1em;
-  background-size: 9vw;
+  block-size: 60vh;
+  inline-size: 100%;
+  background-size: 26vw;
   background-repeat: no-repeat;
   box-shadow: 4px 4px 20px 4px rgb(40, 40, 40);
   background-image: url(../assets/img/businessCard/topper-left-corner.svg);
 }
-.pp .tech-container {
-  block-size: 20vh;
-  align-items: center;
+section#fullstack .pp .tech-container {
+  inline-size: 70vw;
   justify-content: center;
 }
-.pp .img-svg {
-  block-size: 3vh;
+section#fullstack .pp .img-svg {
+  block-size: 7vh;
 }
-.pp .img-Python {
-  bottom: 2vh;
-  position: relative;
+section#fullstack .pp .img-wrapper {
+  block-size: 14vh;
 }
-.pp .wrap-row-space-between {
-  block-size: 1vh;
-  inline-size: 21vw;
-}
-.pp h3 {
-  margin-block-end: 0.3em;
-}
-.pp p {
-  margin: 0;
-  inline-size: 20vw;
+section#fullstack h3 {
+  margin-block: 2vh;
   text-align: center;
 }
-.pp span.time {
+section#fullstack p {
+  margin: 0;
+  font-size: 5vw;
+  text-align: center;
+}
+section#fullstack span.time {
   font-size: 0.8em;
   font-weight: 300;
   display: contents;
@@ -664,31 +679,31 @@ h2 {
   margin-inline: 0.3em;
   justify-content: end;
 }
-.pp a:link, .pp a:visited {
+section#fullstack a:link, section#fullstack a:visited {
   color: inherit;
 }
-.pp .pro-nav {
+section#fullstack .pro-nav {
   padding: 1em;
   padding: 0.5em;
 }
-.pp .pro-nav .demo {
+section#fullstack .pro-nav .pro-nav.tech-btn {
   padding: 0.5em;
-  border: 1px solid rgb(255, 255, 255);
   border-radius: 10px;
+  border: 1px solid rgb(255, 255, 255);
 }
-.pp .pro-nav .demo:hover {
+section#fullstack .pro-nav .pro-nav.tech-btn:hover {
   transition: 1s;
   background-color: rgb(103, 58, 183);
   transform: scale(1.2);
 }
-.pp:hover {
+section#fullstack:hover {
   transform: scale(1.02);
 }
-.pp .tech-wrapper {
+section#fullstack .tech-wrapper {
   margin-inline: 0.3em;
   background-color: rgb(245, 245, 245) !important;
 }
-.pp span.tech-label {
+section#fullstack span.tech-label {
   padding: 1vw;
   font-size: 0.9em;
   font-weight: 300;
@@ -796,12 +811,15 @@ div.tech-interpreted, div.tech-compiled, div.tech-db, div.tech-ui-ux, .tech-work
   border-radius: 10px;
 }
 
-ext-btn-functionallity, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info nav.ext-bar a, .pp a:link, .pp a:visited {
+ext-btn-functionallity, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info nav.ext-bar a, section#fullstack a:link, section#fullstack a:visited {
   transition: 2s;
 }
-ext-btn-functionallity:hover, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info nav.ext-bar a:hover, .pp a:hover:link, .pp a:hover:visited {
+ext-btn-functionallity:hover, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info nav.ext-bar a:hover, section#fullstack a:hover:link, section#fullstack a:hover:visited {
   transform: scale(1.1);
   opacity: 1;
+}
+ext-btn-functionallity .msg, main section.info .carosel .btn-container button.img-btn .msg, main section.info section.bio-container nav.bio-bar button.bio-btn .msg, main section.info nav.ext-bar a .msg, section#fullstack a:link .msg, section#fullstack a:visited .msg {
+  font-size: 2em;
 }
 
 roboto-font, header a, main section.info section.bio-container section.bio-content, .tech-wrapper, main section.spec-wrapper .spec-class p {

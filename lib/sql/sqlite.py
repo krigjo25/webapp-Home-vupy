@@ -8,7 +8,7 @@ from typing import Tuple
 from lib.core.base import Database
 
 #   errorHandler
-from lib.errorHandler import OperationalError
+from lib.utils.exception_handler import OperationalError
 
 #  Loading the environment variables
 load_dotenv()

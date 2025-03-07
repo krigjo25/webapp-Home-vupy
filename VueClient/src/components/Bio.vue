@@ -7,7 +7,7 @@
 
 <script setup>
     //  Importing   Dependencies
-    import { ref, onMounted, onUnmounted, reactive, computed } from 'vue';
+    import { reactive, computed } from 'vue';
 
     //  Importing components
     import Bio from './bio_components/Bio.vue';
@@ -15,14 +15,14 @@
 
 
     const bio = reactive({
-        cls: computed(() => checkDeviceType().cls),
+        cls: computed(() => checkDeviceType()),
         id: 'about-kristoffer',
         
     });
 
     function checkDeviceType() {
     
-        //  Initialize device type variables
+        //  Initialize device breakpoints variables
         let mobile = 768;
         let tablet = 1024;
         let desktop = 1440;
@@ -38,22 +38,12 @@
             data.cls = 'flex-column';
 
         }
-        else if (window.innerWidth < tablet && window.innerWidth > mobile)
-        {
-            console.log('Tablet');
-            data.cls = 'flex-row';
-        }
-        else if (window.innerWidth < desktop)
-        {
-            console.log('Desktop');
-            data.cls = 'flex-row';
-        }
         else
         {
-            bio.cls = 'flex-row';
+            data.cls='flex-row';
 
         }
-        return data
+        return data.cls
     }
 
 </script>

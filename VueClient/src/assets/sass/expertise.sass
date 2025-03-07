@@ -4,29 +4,24 @@
 @import lang-filter
 
 main 
-    .flash
-        font-size: 2em
-        display: flex
-        flex-wrap: wrap
-        align-content: center
-        flex-direction: column
 
 
     section.spec-wrapper
+
+        margin-block: 5vh
+        inline-size: 100%
+
         display: flex
         flex-wrap: wrap
         flex-direction: row
-        margin-block: 5vh
         justify-content: space-evenly
+        
 
         .spec-class
-            inline-size: 40vw
-
             a
                 text-decoration: none
                 color: rgb(64, 64, 64)
                 transition: 0.3s
-
 
             .h3-link
                 margin: auto
@@ -43,7 +38,7 @@ main
                 @extend %user-select
 
             p
-                font-size: 1.2em
+                font-size: 6vw
                 inline-size: 100%
                 @extend roboto-font
                 
@@ -60,6 +55,10 @@ main
 
 
             .spec-course
+                display: flex
+                flex-wrap: wrap
+                flex-direction: row
+                justify-content: space-between
                 a
                     text-decoration: none
                     color: rgb(64, 64, 64)
