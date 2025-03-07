@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from typing import Tuple
 
 #   Custom libraries
-from lib.model import Database
+from lib.core.base import Database
 
 #   errorHandler
 from lib.errorHandler import OperationalError

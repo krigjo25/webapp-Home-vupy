@@ -7,11 +7,11 @@ from flask_session import Session
 
 #   Custom dependencies
 
-from lib.endpoints.github import Github
-from lib.utility.logger import AppWatcher
-from lib.endpoints.Photos import PhotoLibrary
-from lib.endpoints.messages import Announcements
-from lib.config import DevelopmentConfig, ProdConfig
+from lib.endpoint_services.github_data import Github
+from lib.utility.log_config import AppWatcher
+from lib.endpoint_services.Photos import PhotoLibrary
+from lib.endpoint_services.announcements import Announcements
+from lib.env_config import DevelopmentConfig, ProdConfig
 
 # Initialize the logger
 logger = AppWatcher()

@@ -7,7 +7,8 @@ from time import perf_counter
 from dotenv import load_dotenv
 
 #   Imporiting custom dependencies
-from lib.utility.logger import DatabaseWatcher, ApiWatcher
+from lib.utility.log_config import DatabaseWatcher, ApiWatcher
+
 #  Loading the environment variables
 load_dotenv()
 

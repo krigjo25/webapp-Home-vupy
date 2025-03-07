@@ -3,10 +3,10 @@
 import os, uuid, datetime
 
 from dotenv import load_dotenv
-from lib.model import APIConfig
+from lib.core.base import APIConfig
 
 
-from lib.utility.logger import GithubWatcher
+from lib.utility.log_config import GithubWatcher
 
 #  Loading the environment variables
 load_dotenv()

@@ -7,7 +7,7 @@ from flask.views import MethodView
 from flask import jsonify, request
 
 
-from lib.APIS.github import GithubAPI
+from lib.apis.github_api import GithubAPI
 
 
 #   Load environment variables
