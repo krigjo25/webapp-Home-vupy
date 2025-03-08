@@ -1,50 +1,13 @@
-@import flex-column
-    
-flex-row
-    display: flex
-    flex-direction: row
+@import flexbox/flexbox-row
+@import flexbox/flexbox-column
 
-flex-column
-    display: flex
-    flex-direction: column
-
-flex-wrap-row
-    display: flex
-    flex-wrap: wrap
-    flex-direction: row
-
-flex-wrap-row-space-evenly
+.flex-wrap-row-space-evenly
     @extend flex-wrap-row
     justify-content: space-evenly
 
-flex-nowrap-row
-    display: flex
-    flex-wrap: nowrap
-    flex-direction: row
-
-flex-wrap-reversed-row
-    display: flex
-    flex-wrap: wrap
-    flex-direction: row-reverse
-
-.flex-row 
-    @extend flex-row
-
-.flex-wrap-row
+.wrap-row-space-between
     @extend flex-wrap-row
-
-.flex-column
-    @extend flex-column
-
-.flex-wrap-column
-    wrap: wrap
-    @extend flex-column
-
-.flex-wrap-row
-    @extend flex-wrap-row-space-evenly
-
-.flex-reversed-row
-    @extend flex-wrap-reversed-row
+    justify-content: space-between
 
 .justify-center
     justify-content: space-evenly
@@ -57,9 +20,7 @@ flex-wrap-reversed-row
     @extend flex-wrap-row
     justify-content: flex-start
 
-.flex-wrap-row-space-evenly
-    @extend flex-wrap-row
-    justify-content: space-evenly
+
     
 .justify-content-space-evently
     justify-content: space-evenly
@@ -81,6 +42,4 @@ flex-wrap-reversed-row
     @extend flex-wrap-row
     align-items: flex-end
 
-.wrap-row-space-between
-    @extend flex-wrap-row
-    justify-content: space-between
+

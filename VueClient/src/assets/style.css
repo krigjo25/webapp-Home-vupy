@@ -645,7 +645,7 @@ section#fullstack .pp {
   margin: 1em;
   block-size: 60vh;
   inline-size: 100%;
-  background-size: 26vw;
+  background-size: 32vw;
   background-repeat: no-repeat;
   box-shadow: 4px 4px 20px 4px rgb(40, 40, 40);
   background-image: url(../assets/img/businessCard/topper-left-corner.svg);
@@ -658,7 +658,7 @@ section#fullstack .pp .img-svg {
   block-size: 7vh;
 }
 section#fullstack .pp .img-wrapper {
-  block-size: 14vh;
+  block-size: 9vh;
 }
 section#fullstack h3 {
   margin-block: 2vh;
