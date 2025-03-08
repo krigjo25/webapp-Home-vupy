@@ -52,17 +52,6 @@ select {
   inline-size: 10vw;
 }
 
-roboto-font, header a, main section.spec-wrapper .spec-class p, .tech-wrapper, main section.info section.bio-container section.bio-content {
-  color: rgb(40, 40, 40);
-  font-family: "Roboto", sans-serif;
-}
-
-work-sans-font, main section.spec-wrapper .spec-class .spec-course .h4-link, main section.spec-wrapper .spec-class .h3-link:hover, main section.spec-wrapper .spec-class .h3-link, main section.info section.bio-container section.bio-content h3, main section.info section.bio-container h2 {
-  font-weight: 100;
-  color: rgb(40, 40, 40);
-  font-family: "Work Sans", sans-serif;
-}
-
 main section.spec-wrapper .spec-class .no-select, .tech-wrapper {
   user-select: none;
   margin-inline: 1em;
@@ -85,6 +74,17 @@ ext-btn-functionallity:hover, section#fullstack a:hover:link, section#fullstack 
 }
 ext-btn-functionallity .msg, section#fullstack a:link .msg, section#fullstack a:visited .msg, main section.info nav.ext-bar a .msg, main section.info section.bio-container nav.bio-bar button.bio-btn .msg, main section.info .carosel .btn-container button.img-btn .msg {
   font-size: 2em;
+}
+
+roboto-font, header a, main section.spec-wrapper .spec-class p, .tech-wrapper, main section.info section.bio-container section.bio-content {
+  color: rgb(40, 40, 40);
+  font-family: "Roboto", sans-serif;
+}
+
+work-sans-font, main section.spec-wrapper .spec-class .spec-course .h4-link, main section.spec-wrapper .spec-class .h3-link:hover, main section.spec-wrapper .spec-class .h3-link, main section.info section.bio-container section.bio-content h3, main section.info section.bio-container h2 {
+  font-weight: 100;
+  color: rgb(40, 40, 40);
+  font-family: "Work Sans", sans-serif;
 }
 
 flex-wrap-column, .flex-column {
@@ -171,7 +171,7 @@ flex-wrap-reversed-row, .flex-reversed-row {
 }
 
 .slogan-wrapper {
-  font-size: 1.6325vw;
+  font-size: 1.7vw;
 }
 
 main section.info {
@@ -229,7 +229,7 @@ main section.info section.bio-container nav.bio-bar {
 main section.info section.bio-container nav.bio-bar button.bio-btn {
   border: none;
   padding: 1em;
-  font-size: 5.8vw;
+  font-size: 9vw;
   cursor: pointer;
   background-color: inherit;
 }
@@ -476,7 +476,6 @@ main section.spec-wrapper .spec-class .h3-link:hover {
   text-decoration: underline;
 }
 main section.spec-wrapper .spec-class p {
-  font-size: 6vw;
   inline-size: 100%;
 }
 main section.spec-wrapper .spec-class .tech-container {
