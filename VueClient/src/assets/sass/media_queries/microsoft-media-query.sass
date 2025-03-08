@@ -1,0 +1,159 @@
+//  Media Queries for Microsoft Devices
+
+//  Breakpoints
+$surface-pro-width: 912px
+$surface-pro-height: 1368px
+
+$surface-duo-width: 540px
+$surface-duo-height: 720px
+@media only screen and (min-device-width: $surface-pro-width) and (max-device-width: $surface-pro-height) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
+    
+    header a
+        font-size: 0.57em 
+
+    main
+        section.info
+            justify-content: flex-start
+
+            .carosel
+                block-size: 36vh
+                inline-size: 30vw 
+                align-items: center
+
+                .caption
+                    bottom: 3.7vh
+
+            .btn-container
+                bottom: 11em !important
+
+            section.bio-container
+                inline-size: 52vw
+                margin-inline-start: 6vw
+
+                h2
+                    font-size: 2em
+                    text-align: center
+
+                nav.bio-link
+
+                    button.bio-btn
+                        font-size: 1em 
+
+                section.bio-content
+                    inline-size: 60vw
+
+                    h3
+                        font-size: 1.5em
+
+                    p
+                        font-size: 1em
+                        inline-size: 57vw            
+
+                div.btn-container
+                    bottom: 39em
+
+        section.spec-wrapper
+
+            inline-size: 100%
+            flex-direction: column
+
+            .spec-class
+                inline-size: 84vw
+                display: flex
+                flex-direction: column
+    
+                .h3-link
+                    margin-block: 1vh
+                
+                p
+                    inline-size: 69vw
+
+                .tech-container
+                    inline-size: 87vw
+
+                .spec-course
+                    .h4-link
+                        margin-block: 1vh
+
+        section#full-stack
+            .pp
+                inline-size: 100%
+
+                .tech-container
+                    inline-size: 60vw
+
+@media only screen and (min-device-width: $surface-duo-width) and (max-device-width: $surface-duo-height) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
+    
+    header a
+        font-size: 0.57em 
+
+    main
+        section.info
+            justify-content: center
+
+            .carosel
+                block-size: 47vh
+                inline-size: 30vw 
+                align-items: center
+
+                .caption
+                    bottom: 3em
+
+            .btn-container
+                bottom: 11em !important
+
+            section.bio-container
+                inline-size: 52vw
+                margin-inline-start: 6vw
+
+                h2
+                    font-size: 2em
+                    text-align: center
+
+                nav.bio-link
+
+                    button.bio-btn
+                        font-size: 1em 
+
+                section.bio-content
+                    inline-size: 60vw
+
+                    h3
+                        font-size: 1.5em
+
+                    p
+                        font-size: 1em
+                        inline-size: 57vw            
+
+                div.btn-container
+                    bottom: 39em
+
+        section.spec-wrapper
+            inline-size: 100%
+            flex-direction: column
+
+            .spec-class
+                inline-size: 84vw
+                display: flex
+                flex-direction: column
+    
+                .h3-link
+                    margin-block: 1vh
+                
+                p
+                    inline-size: 69vw
+
+                .tech-container
+                    inline-size: 87vw
+
+                .spec-course
+                    .h4-link
+                        margin-block: 1vh
+
+        section#full-stack
+
+            .pp
+                inline-size: 100%
+
+                .tech-container
+                    inline-size: 60vw

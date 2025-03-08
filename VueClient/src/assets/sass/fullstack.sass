@@ -13,13 +13,6 @@
 section#fullstack
     h2 
         text-align: center
-
-    nav.tech-btn
-        border: none
-        cursor: pointer
-        padding: 3vw 6vw
-        border-radius: 10px
-        background-color: $nav-bar
         
         &:disabled
             
@@ -36,7 +29,7 @@ section#fullstack
     .pp
         
         margin: 1em
-        block-size: 60vh
+        block-size: 100%
         inline-size: 100%
         background-size: 32vw
         background-repeat: no-repeat
@@ -55,13 +48,16 @@ section#fullstack
             block-size: 9vh
 
     h3
-        margin-block: 2vh
         text-align: center
+        margin-block: 0vh 1vh
 
     p
-        margin: 0
+        
         font-size: 5vw
+        margin-block: 0
+        inline-size: 100%
         text-align: center
+        margin-inline: 1vw
 
     span.time
         font-size: 0.8em
@@ -75,7 +71,16 @@ section#fullstack
     a:link, a:visited
         color: inherit
         @extend ext-btn-functionallity !optional
-
+    form.tech-btn
+        padding: 0.5em
+        border-radius: 10px
+        background-color: $nav-bar
+        border: 1px solid $white
+                        
+        &:hover
+            transition: 1s
+            background-color: $nav-bar-hover
+            transform: scale(1.2)
     .pro-nav
         padding: 1em
         padding: 0.5em

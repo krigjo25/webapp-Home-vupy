@@ -1,301 +1,516 @@
 // Media Queries Portrait
 @import media_queries/iphone-media-query
 @import media_queries/samsung-media-query
+@import media_queries/microsoft-media-query
 
-@media only screen and (min-device-width: 414px) and (max-device-width: 896px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
-    
-    header a
-        font-size: 0.57em 
+//  Breakpoints
+$iphone-width: 320px
+$iphone-height: 480px
+
+$Ipad-width: 768px
+$Ipad-height: 1024px
+
+$tablet-width: 600px
+$tablet-height: 1024px
+
+//  Generally media queries
+//  Portrait
+@media only screen and (min-device-width: $iphone-width) and (max-device-width: $iphone-height) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
+    header 
+        .slogan-wrapper 
+            font-size: 2.09vw
+
+        a
+            font-size: 0.57em !important
 
     main
         section.info
-
             .carosel
                 block-size: 36vh
-                inline-size: 49vw 
-                align-items: center
+                inline-size: 47vw !important
 
-                .caption
-                    bottom: 5.5vh
-
-            section.bio-container
-                margin-inline: 0
-                inline-size: 100%
-
-                h2
-                    font-size: 2em
-                    text-align: center
-
-                nav.bio-link
-
-                    button.bio-btn
-                        font-size: 1em 
-
-                section.bio-content
-                    inline-size: 86vw
-
-                    h3
-                        font-size: 1.5em
-
-                    p
-                        font-size: 1em
- 
+            .caption
+                bottom: 10.5vh
                 div.btn-container
-                    bottom: 39em
-
-        section.spec-wrapper
-            inline-size: 100%
-            flex-direction: column
-
-            .spec-class
-                inline-size: 84vw
-                display: flex
-                flex-direction: column
-    
-                .h3-link
-                    margin-block: 1vh
-
-                .tech-container
-                    inline-size: 87vw
-
-                .spec-course
-                    .h4-link
-                        margin-block: 1vh
-
-        section#full-stack
-            .pp
-                inline-size: 100%
-
-                .tech-container
-                    inline-size: 60vw
-
-@media only screen and (min-device-width: 412px) and (max-device-width: 915px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
-    
-    header a
-        font-size: 0.57em 
-
-    main
-        section.info
-
-            .carosel
-                block-size: 36vh
-                inline-size: 49vw 
-                align-items: center
-
-                .caption
-                    bottom: 5.5vh
+                    bottom: 46em !important
 
             section.bio-container
-                margin-inline: 0
-                inline-size: 100%
+                margin-block: 13vh
+                margin-inline: 0 !important
+                inline-size: 100% !important
 
                 h2
-                    font-size: 2em
-                    text-align: center
+                    font-size: 2em !important
+                    text-align: center !important
 
-                nav.bio-link
+                nav.bio-bar
 
                     button.bio-btn
-                        font-size: 1em 
+                        font-size: 1em !important
 
                 section.bio-content
-                    inline-size: 86vw
+                    inline-size: 86vw !important
                     
 
                     h3
-                        font-size: 1.5em
+                        font-size: 1.5em !important
 
                     p
-                        font-size: 1em
-                        inline-size: 86vw            
+                        font-size: 1em !important
+                        inline-size: 86vw !important            
 
                 div.btn-container
-                    bottom: 39em
+                    bottom: 39em !important
 
-        section.spec-wrapper
-
-            inline-size: 100%
-            flex-direction: column
-
-            .spec-class
-                inline-size: 84vw
-                display: flex
-                flex-direction: column
-    
-                .h3-link
-                    margin-block: 1vh
-                
-                p
+                nav.ext-bar
                     
-                    inline-size: 69vw
-
-                .tech-container
-                    inline-size: 87vw
-
-                .spec-course
-                    .h4-link
-                        margin-block: 1vh
+                    a
+                        margin: 0
 
         section#full-stack
-
             .pp
-                inline-size: 100%
+                block-size: 32vh
 
                 .tech-container
-                    inline-size: 60vw
+                    inline-size: 73vw
 
-    // Iphone Breakpoints
+                .tech-wrapper
+                    inline-size: 23vw !important
 
-/* Surface Pro 7*/
-@media only screen and (min-device-width: 912px) and (max-device-width: 1368px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
-    
-    header a
-        font-size: 0.57em 
+                p
+                    font-size: 0.8em !important
+                    inline-size: 60vw !important
+
+                .img-wrapper
+                    block-size: 0vh !important
+
+                .img-svg
+                    block-size: 5vh !important
+
+            .wrap-row-space-between
+                top: 0.7em !important
+                position: relative !important
+                inline-size: 65vw !important
+
+@media only screen and (min-device-width: $tablet-width) and (max-device-width: $tablet-height) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
+    header 
+        .slogan-wrapper 
+            font-size: 2.09vw
+        a
+            font-size: 0.57em !important
 
     main
         section.info
-            justify-content: flex-start
-
             .carosel
                 block-size: 36vh
-                inline-size: 30vw 
-                align-items: center
+                inline-size: 47vw !important
 
-                .caption
-                    bottom: 3.7vh
-
-            .btn-container
-                bottom: 11em !important
-
-            section.bio-container
-                inline-size: 52vw
-                margin-inline-start: 6vw
-
-                h2
-                    font-size: 2em
-                    text-align: center
-
-                nav.bio-link
-
-                    button.bio-btn
-                        font-size: 1em 
-
-                section.bio-content
-                    inline-size: 60vw
-
-                    h3
-                        font-size: 1.5em
-
-                    p
-                        font-size: 1em
-                        inline-size: 57vw            
+                img
+                    inline-size: 52vw
+            .caption
+                bottom: 6.5vh !important
 
                 div.btn-container
-                    bottom: 39em
+                    bottom:31vh !important
 
-        section.spec-wrapper
+                .img-btn
+                    font-size: 6vw !important
+            section.bio-container
+                margin-block: 13vh
+                margin-inline: 0 !important
+                inline-size: 100% !important
 
-            inline-size: 100%
-            flex-direction: column
+                h2
+                    font-size: 2em !important
+                    text-align: center !important
 
-            .spec-class
-                inline-size: 84vw
-                display: flex
-                flex-direction: column
-    
-                .h3-link
-                    margin-block: 1vh
-                
-                p
-                    inline-size: 69vw
+                nav.bio-bar
 
-                .tech-container
-                    inline-size: 87vw
+                    button.bio-btn
+                        font-size: 3vw !important
 
-                .spec-course
-                    .h4-link
-                        margin-block: 1vh
+                section.bio-content
+                    inline-size: 86vw !important
+                    
+
+                    h3
+                        font-size: 1.5em !important
+
+                    p
+                        font-size: 1em !important
+                        inline-size: 86vw !important            
+
+                div.btn-container
+                    bottom: 39em !important
+
+                nav.ext-bar
+                    
+                    a
+                        margin: 0
 
         section#full-stack
             .pp
-                inline-size: 100%
+                block-size: 100%
+                inline-size: 63vw
+                background-size: 22vw
 
                 .tech-container
-                    inline-size: 60vw
+                    inline-size: 56vw
 
-/* Surface Duo*/
-@media only screen and (min-device-width: 540px) and (max-device-width: 720px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
-    
-    header a
-        font-size: 0.57em 
+                .tech-wrapper
+                    inline-size: 23vw !important
+
+                p
+                    font-size: 3vw !important
+                    inline-size: 60vw !important
+
+                .img-wrapper
+                    block-size: 4vh !important
+                    inline-size: 100% !important
+
+                .img-svg
+                    block-size: 3vh !important
+
+@media only screen and (min-device-width: $Ipad-width) and (max-device-width: $Ipad-height) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
+    header 
+        a
+            font-size: 0.57em !important
 
     main
         section.info
-            justify-content: center
-
             .carosel
-                block-size: 47vh
-                inline-size: 30vw 
-                align-items: center
+                block-size: 36vh
+                inline-size: 47vw !important
 
-                .caption
-                    bottom: 3em
+                img
+                    inline-size: 52vw
 
-            .btn-container
-                bottom: 11em !important
-
-            section.bio-container
-                inline-size: 52vw
-                margin-inline-start: 6vw
-
-                h2
-                    font-size: 2em
-                    text-align: center
-
-                nav.bio-link
-
-                    button.bio-btn
-                        font-size: 1em 
-
-                section.bio-content
-                    inline-size: 60vw
-
-                    h3
-                        font-size: 1.5em
-
-                    p
-                        font-size: 1em
-                        inline-size: 57vw            
+            .caption
+                bottom: 5vh !important
 
                 div.btn-container
-                    bottom: 39em
+                    bottom: 28vh !important
 
-        section.spec-wrapper
-            inline-size: 100%
-            flex-direction: column
+                .img-btn
+                    font-size: 6vw !important
 
-            .spec-class
-                inline-size: 84vw
-                display: flex
-                flex-direction: column
-    
-                .h3-link
-                    margin-block: 1vh
-                
-                p
-                    inline-size: 69vw
+            section.bio-container
+                margin-block: 13vh
+                margin-inline: 0 !important
+                inline-size: 100% !important
+
+                h2
+                    font-size: 2em !important
+                    text-align: center !important
+
+                nav.bio-bar
+
+                    button.bio-btn
+                        font-size: 3vw !important
+
+                section.bio-content
+                    inline-size: 86vw !important
+                    
+
+                    h3
+                        font-size: 1.5em !important
+
+                    p
+                        font-size: 1em !important
+                        inline-size: 86vw !important            
+
+                div.btn-container
+                    bottom: 39em !important
+
+                nav.ext-bar
+                    
+                    a
+                        margin: 0
+
+        section#full-stack
+            .pp
+                block-size: 100%
+                inline-size: 50vw
+                background-size: 14vw
 
                 .tech-container
-                    inline-size: 87vw
+                    inline-size: 56vw
 
-                .spec-course
-                    .h4-link
-                        margin-block: 1vh
+                .tech-wrapper
+                    inline-size: 23vw !important
+
+                p
+                    font-size: 3vw !important
+                    margin-inline: 5vw
+
+                .img-wrapper
+                    padding: 1vh !important
+                    block-size: 4vh !important
+                    inline-size: 48vw !important
+                    
+
+                .img-svg
+                    block-size: 3vh !important
+
+//  Landscape
+@media only screen and (min-device-width: $iphone-height) and (max-device-width: $iphone-width) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
+    header 
+        .slogan-wrapper 
+            font-size: 2.09vw
+
+        a
+            font-size: 0.57em !important
+
+    main
+        section.info
+            .carosel
+                block-size: 36vh
+                inline-size: 47vw !important
+
+            .caption
+                bottom: 15.5vh
+
+                div.btn-container
+                    bottom: 46em !important
+
+            section.bio-container
+                margin-block: 13vh
+                margin-inline: 0 !important
+                inline-size: 100% !important
+
+                h2
+                    font-size: 2em !important
+                    text-align: center !important
+
+                nav.bio-bar
+
+                    button.bio-btn
+                        font-size: 1em !important
+
+                section.bio-content
+                    inline-size: 86vw !important
+                    
+
+                    h3
+                        font-size: 1.5em !important
+
+                    p
+                        font-size: 1em !important
+                        inline-size: 86vw !important            
+
+                div.btn-container
+                    bottom: 39em !important
+
+                nav.ext-bar
+                    
+                    a
+                        margin: 0
+
+        section#full-stack
+            .pp
+                block-size: 32vh
+                inline-size: 68vw
+                background-size: 19vw
+
+                .tech-container
+                    inline-size: 73vw
+
+                .tech-wrapper
+                    inline-size: 23vw !important
+
+                p
+                    font-size: 3vw !important
+                    inline-size: 60vw !important
+
+                .img-wrapper
+                    block-size: 0vh !important
+                    margin: 3vh 4vh 0vh 3vw !important
+
+                .img-svg
+                    block-size: 5vh !important
+
+@media only screen and (min-device-width: $tablet-height) and (max-device-width: $tablet-width) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
+    header 
+        .slogan-wrapper 
+            font-size: 2.09vw
+        a
+            font-size: 0.57em !important
+
+    main
+        section.info
+            .carosel
+                block-size: 36vh
+                inline-size: 47vw !important
+
+                img
+                    inline-size: 52vw
+            .caption
+                bottom: 6.5vh !important
+
+                div.btn-container
+                    bottom: 18vh !important
+
+                .img-btn
+                    font-size: 6vw !important
+
+            section.bio-container
+                margin-block: 13vh
+                margin-inline: 0 !important
+                inline-size: 100% !important
+
+                h2
+                    font-size: 2em !important
+                    text-align: center !important
+
+                nav.bio-bar
+
+                    button.bio-btn
+                        font-size: 2vw !important
+
+                section.bio-content
+                    inline-size: 86vw !important
+                    
+
+                    h3
+                        font-size: 3vw !important
+
+                    p
+                        font-size: 2.2vw !important
+                        inline-size: 100% !important            
+
+                div.btn-container
+                    bottom: 39em !important
+
+                nav.ext-bar
+                    
+                    a
+                        margin: 0
+
+        h2.msg
+            text-align: center
+
+        section#spec-container
+            .spec-class
+                margin: 0vh 3vw 4vh
+
+            .h4-link
+                margin: 0
+                font-size: 3vw !important
+
+        section#full-stack
+            .pp
+                block-size: 24vh
+                inline-size: 39vw
+                background-size: 14vw
+
+                .tech-container
+                    inline-size: 56vw
+
+                .tech-wrapper
+                    inline-size: 23vw !important
+
+                p
+                    inline-size: 35vw !important
+                    margin-inline: 2vw
+
+                .img-wrapper
+                    block-size: 2vh !important
+                    inline-size: 100% !important
+                    margin-inline: 2vw
+
+                .img-svg
+                    block-size: 5vh !important
+
+@media only screen and (min-device-width: $Ipad-width) and (max-device-width: $Ipad-height) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
+    header 
+        a
+            font-size: 0.57em !important
+
+    main
+        section.info
+            .carosel
+                block-size: 36vh
+                inline-size: 47vw !important
+
+                img
+                    inline-size: 52vw
+
+            .caption
+                bottom: 5vh !important
+
+                div.btn-container
+                    bottom: 38vh !important
+
+                .img-btn
+                    font-size: 4vw !important
+
+            section.bio-container
+                margin-block: 13vh
+                margin-inline: 0 !important
+                inline-size: 57vw !important
+
+                h2
+                    font-size: 2em !important
+                    text-align: center !important
+
+                nav.bio-bar
+
+                    button.bio-btn
+                        font-size: 1.5vw !important
+
+                section.bio-content
+                    inline-size: 86vw !important
+                    
+
+                    h3
+                        font-size: 1.5em !important
+
+                    p
+                        font-size: 1em !important
+                        inline-size: 86vw !important            
+
+                div.btn-container
+                    bottom: 39em !important
+
+                nav.ext-bar
+                    
+                    a
+                        margin: 0
+
+        section#spec-container
+
+            .spec-class
+                inline-size: 40vw
+
+            .h4-link
+                margin: 0
+                font-size: 3vw !important
 
         section#full-stack
 
+            form
+                input[type="text"]
+                    inline-size: 51vw
+                    margin-block: 2vh
             .pp
-                inline-size: 100%
+                block-size: 100%
+                inline-size: 50vw
+                background-size: 14vw
 
                 .tech-container
-                    inline-size: 60vw
+                    inline-size: 56vw
+
+                .tech-wrapper
+                    inline-size: 23vw !important
+
+                p
+                    font-size: 3vw !important
+                    margin-inline: 5vw
+
+                .img-wrapper
+                    padding: 1vh !important
+                    block-size: 8vh !important
+                    inline-size: 48vw !important
+
+                .img-svg
+                    block-size: 3vh !important
