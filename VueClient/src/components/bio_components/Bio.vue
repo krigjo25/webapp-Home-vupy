@@ -213,7 +213,7 @@ function Journey()
 
 function WorkoutBlog()
 {
-    bio = {
+    bio.current = {
         title: "Workout Blog",
         headline: "Workout Blog",
         get readtime() { return ReadTime(this.message)},

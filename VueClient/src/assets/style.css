@@ -65,14 +65,14 @@ main section.spec-wrapper .spec-class .no-select, .tech-wrapper {
   border-radius: 10px;
 }
 
-ext-btn-functionallity, section#fullstack a:link, section#fullstack a:visited, main section.info nav.ext-bar a, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info .carosel .btn-container button.img-btn {
+ext-btn-functionallity, main section.info nav.ext-bar a, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info .carosel .btn-container button.img-btn {
   transition: 2s;
 }
-ext-btn-functionallity:hover, section#fullstack a:hover:link, section#fullstack a:hover:visited, main section.info nav.ext-bar a:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info .carosel .btn-container button.img-btn:hover {
+ext-btn-functionallity:hover, main section.info nav.ext-bar a:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info .carosel .btn-container button.img-btn:hover {
   transform: scale(1.1);
   opacity: 1;
 }
-ext-btn-functionallity .msg, section#fullstack a:link .msg, section#fullstack a:visited .msg, main section.info nav.ext-bar a .msg, main section.info section.bio-container nav.bio-bar button.bio-btn .msg, main section.info .carosel .btn-container button.img-btn .msg {
+ext-btn-functionallity .msg, main section.info nav.ext-bar a .msg, main section.info section.bio-container nav.bio-bar button.bio-btn .msg, main section.info .carosel .btn-container button.img-btn .msg {
   font-size: 2em;
 }
 
@@ -92,14 +92,10 @@ flex-row, .flex-row {
   flex-direction: row;
 }
 
-flex-wrap-row, main section.info section.bio-container nav.bio-bar, .align-items-flex-end-row, .align-items-center-row, .align-content-center-row, .justify-content-space-evently-row, .justify-flexstart-row, .justify-center-row, .wrap-row-space-between, .flex-wrap-row-space-evenly, .flex-wrap-row, flex-wrap-row-space-evenly {
+flex-wrap-row, main section.info section.bio-container nav.bio-bar, .align-items-flex-end-row, .align-items-center-row, .align-content-center-row, .justify-content-space-evently-row, .justify-flexstart-row, .flex-wrap-row-justify-center, .flex-wrap-row-space-around, .flex-wrap-row-space-between, .flex-wrap-row-space-evenly, .flex-wrap-row {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-}
-
-flex-wrap-row-space-evenly {
-  justify-content: space-evenly;
 }
 
 flex-wrap-reversed-row, .flex-reversed-row {
@@ -123,25 +119,20 @@ flex-wrap-column, .flex-wrap-column, .flex-column {
   justify-content: space-evenly;
 }
 
-.wrap-row-space-between {
+.flex-wrap-row-space-between {
   justify-content: space-between;
 }
 
-.justify-center {
-  justify-content: space-evenly;
+.flex-wrap-row-space-around {
+  justify-content: space-around;
 }
 
-.justify-center-row {
+.flex-wrap-row-justify-center {
   justify-content: center;
 }
 
 .justify-flexstart-row {
   justify-content: flex-start;
-}
-
-.justify-content-space-evently {
-  justify-content: space-evenly;
-  inline-size: 100%;
 }
 
 .justify-content-space-evently-row {
@@ -173,6 +164,7 @@ main section.info .carosel {
   inline-size: 100%;
 }
 main section.info .carosel img {
+  inline-size: 100%;
   border-radius: 0.5vw;
 }
 main section.info .carosel .caption {
@@ -263,14 +255,10 @@ flex-row, .flex-row {
   flex-direction: row;
 }
 
-flex-wrap-row, flex-wrap-row-space-evenly, .flex-wrap-row, .flex-wrap-row-space-evenly, .wrap-row-space-between, .justify-center-row, .justify-flexstart-row, .justify-content-space-evently-row, .align-content-center-row, .align-items-center-row, .align-items-flex-end-row, main section.info section.bio-container nav.bio-bar {
+flex-wrap-row, .flex-wrap-row, .flex-wrap-row-space-evenly, .flex-wrap-row-space-between, .flex-wrap-row-space-around, .flex-wrap-row-justify-center, .justify-flexstart-row, .justify-content-space-evently-row, .align-content-center-row, .align-items-center-row, .align-items-flex-end-row, main section.info section.bio-container nav.bio-bar {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-}
-
-flex-wrap-row-space-evenly {
-  justify-content: space-evenly;
 }
 
 flex-wrap-reversed-row, .flex-reversed-row {
@@ -294,25 +282,20 @@ flex-wrap-column, .flex-column, .flex-wrap-column {
   justify-content: space-evenly;
 }
 
-.wrap-row-space-between {
+.flex-wrap-row-space-between {
   justify-content: space-between;
 }
 
-.justify-center {
-  justify-content: space-evenly;
+.flex-wrap-row-space-around {
+  justify-content: space-around;
 }
 
-.justify-center-row {
+.flex-wrap-row-justify-center {
   justify-content: center;
 }
 
 .justify-flexstart-row {
   justify-content: flex-start;
-}
-
-.justify-content-space-evently {
-  justify-content: space-evenly;
-  inline-size: 100%;
 }
 
 .justify-content-space-evently-row {
@@ -344,14 +327,14 @@ main section.spec-wrapper .spec-class .no-select, .tech-wrapper {
   border-radius: 10px;
 }
 
-ext-btn-functionallity, section#fullstack a:link, section#fullstack a:visited, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info nav.ext-bar a {
+ext-btn-functionallity, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info nav.ext-bar a {
   transition: 2s;
 }
-ext-btn-functionallity:hover, section#fullstack a:hover:link, section#fullstack a:hover:visited, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info nav.ext-bar a:hover {
+ext-btn-functionallity:hover, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info nav.ext-bar a:hover {
   transform: scale(1.1);
   opacity: 1;
 }
-ext-btn-functionallity .msg, section#fullstack a:link .msg, section#fullstack a:visited .msg, main section.info .carosel .btn-container button.img-btn .msg, main section.info section.bio-container nav.bio-bar button.bio-btn .msg, main section.info nav.ext-bar a .msg {
+ext-btn-functionallity .msg, main section.info .carosel .btn-container button.img-btn .msg, main section.info section.bio-container nav.bio-bar button.bio-btn .msg, main section.info nav.ext-bar a .msg {
   font-size: 2em;
 }
 
@@ -379,14 +362,14 @@ main section.spec-wrapper .spec-class .no-select, .tech-wrapper {
   border-radius: 10px;
 }
 
-ext-btn-functionallity, section#fullstack a:link, section#fullstack a:visited, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info nav.ext-bar a {
+ext-btn-functionallity, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info nav.ext-bar a {
   transition: 2s;
 }
-ext-btn-functionallity:hover, section#fullstack a:hover:link, section#fullstack a:hover:visited, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info nav.ext-bar a:hover {
+ext-btn-functionallity:hover, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info nav.ext-bar a:hover {
   transform: scale(1.1);
   opacity: 1;
 }
-ext-btn-functionallity .msg, section#fullstack a:link .msg, section#fullstack a:visited .msg, main section.info .carosel .btn-container button.img-btn .msg, main section.info section.bio-container nav.bio-bar button.bio-btn .msg, main section.info nav.ext-bar a .msg {
+ext-btn-functionallity .msg, main section.info .carosel .btn-container button.img-btn .msg, main section.info section.bio-container nav.bio-bar button.bio-btn .msg, main section.info nav.ext-bar a .msg {
   font-size: 2em;
 }
 
@@ -507,14 +490,14 @@ div.tech-interpreted, div.tech-compiled, div.tech-db, div.tech-ui-ux, .tech-work
   border-radius: 10px;
 }
 
-ext-btn-functionallity, section#fullstack a:link, section#fullstack a:visited, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info nav.ext-bar a {
+ext-btn-functionallity, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info nav.ext-bar a {
   transition: 2s;
 }
-ext-btn-functionallity:hover, section#fullstack a:hover:link, section#fullstack a:hover:visited, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info nav.ext-bar a:hover {
+ext-btn-functionallity:hover, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info nav.ext-bar a:hover {
   transform: scale(1.1);
   opacity: 1;
 }
-ext-btn-functionallity .msg, section#fullstack a:link .msg, section#fullstack a:visited .msg, main section.info .carosel .btn-container button.img-btn .msg, main section.info section.bio-container nav.bio-bar button.bio-btn .msg, main section.info nav.ext-bar a .msg {
+ext-btn-functionallity .msg, main section.info .carosel .btn-container button.img-btn .msg, main section.info section.bio-container nav.bio-bar button.bio-btn .msg, main section.info nav.ext-bar a .msg {
   font-size: 2em;
 }
 
@@ -542,14 +525,14 @@ div.tech-interpreted, div.tech-compiled, div.tech-db, div.tech-ui-ux, .tech-work
   border-radius: 10px;
 }
 
-ext-btn-functionallity, section#fullstack a:link, section#fullstack a:visited, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info nav.ext-bar a {
+ext-btn-functionallity, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info nav.ext-bar a {
   transition: 2s;
 }
-ext-btn-functionallity:hover, section#fullstack a:hover:link, section#fullstack a:hover:visited, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info nav.ext-bar a:hover {
+ext-btn-functionallity:hover, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info nav.ext-bar a:hover {
   transform: scale(1.1);
   opacity: 1;
 }
-ext-btn-functionallity .msg, section#fullstack a:link .msg, section#fullstack a:visited .msg, main section.info .carosel .btn-container button.img-btn .msg, main section.info section.bio-container nav.bio-bar button.bio-btn .msg, main section.info nav.ext-bar a .msg {
+ext-btn-functionallity .msg, main section.info .carosel .btn-container button.img-btn .msg, main section.info section.bio-container nav.bio-bar button.bio-btn .msg, main section.info nav.ext-bar a .msg {
   font-size: 2em;
 }
 
@@ -624,25 +607,29 @@ section#fullstack .pp {
   background-image: url(../assets/img/businessCard/topper-left-corner.svg);
 }
 section#fullstack .pp .tech-container {
-  inline-size: 70vw;
   justify-content: center;
+  inline-size: 100%;
 }
 section#fullstack .pp .img-svg {
+  top: 3vh;
+  left: 4vw;
+  position: relative;
   block-size: 7vh;
 }
 section#fullstack .pp .img-wrapper {
   block-size: 9vh;
+  inline-size: 100%;
 }
-section#fullstack h3 {
+section#fullstack .pp h3 {
   text-align: center;
   margin-block: 0vh 1vh;
 }
-section#fullstack p {
+section#fullstack .pp p {
   font-size: 5vw;
   margin-block: 0;
-  inline-size: 100%;
+  inline-size: 74vw;
   text-align: center;
-  margin-inline: 1vw;
+  margin-inline: 5vw;
 }
 section#fullstack span.time {
   font-size: 0.8em;
@@ -796,14 +783,14 @@ div.tech-interpreted, div.tech-compiled, div.tech-db, div.tech-ui-ux, .tech-work
   border-radius: 10px;
 }
 
-ext-btn-functionallity, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info nav.ext-bar a, section#fullstack a:link, section#fullstack a:visited {
+ext-btn-functionallity, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info nav.ext-bar a {
   transition: 2s;
 }
-ext-btn-functionallity:hover, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info nav.ext-bar a:hover, section#fullstack a:hover:link, section#fullstack a:hover:visited {
+ext-btn-functionallity:hover, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info nav.ext-bar a:hover {
   transform: scale(1.1);
   opacity: 1;
 }
-ext-btn-functionallity .msg, main section.info .carosel .btn-container button.img-btn .msg, main section.info section.bio-container nav.bio-bar button.bio-btn .msg, main section.info nav.ext-bar a .msg, section#fullstack a:link .msg, section#fullstack a:visited .msg {
+ext-btn-functionallity .msg, main section.info .carosel .btn-container button.img-btn .msg, main section.info section.bio-container nav.bio-bar button.bio-btn .msg, main section.info nav.ext-bar a .msg {
   font-size: 2em;
 }
 
@@ -987,77 +974,6 @@ div.tech-ui-ux {
     top: 0.7em !important;
     position: relative !important;
     inline-size: 65vw !important;
-  }
-}
-/* Ipad Mini*/
-@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-  header a {
-    font-size: 0.57em;
-  }
-  main section.info {
-    justify-content: flex-start;
-  }
-  main section.info .carosel {
-    block-size: 36vh;
-    inline-size: 30vw;
-    align-items: center;
-  }
-  main section.info .carosel .caption {
-    bottom: 5.5vh;
-  }
-  main section.info .btn-container {
-    bottom: 11em !important;
-  }
-  main section.info section.bio-container {
-    inline-size: 61vw;
-    margin-inline-start: 6vw;
-  }
-  main section.info section.bio-container h2 {
-    font-size: 2em;
-    text-align: center;
-  }
-  main section.info section.bio-container nav.bio-link button.bio-btn {
-    font-size: 1em;
-  }
-  main section.info section.bio-container section.bio-content {
-    inline-size: 60vw;
-  }
-  main section.info section.bio-container section.bio-content h3 {
-    font-size: 1.5em;
-  }
-  main section.info section.bio-container section.bio-content p {
-    font-size: 1em;
-    inline-size: 57vw;
-  }
-  main section.info section.bio-container div.btn-container {
-    bottom: 39em;
-  }
-  main section.spec-wrapper {
-    inline-size: 100%;
-    flex-direction: column;
-  }
-  main section.spec-wrapper .spec-class {
-    inline-size: 84vw;
-    display: flex;
-    flex-direction: column;
-  }
-  main section.spec-wrapper .spec-class .h3-link {
-    margin-block: 1vh;
-  }
-  main section.spec-wrapper .spec-class p {
-    inline-size: 69vw;
-  }
-  main section.spec-wrapper .spec-class .tech-container {
-    inline-size: 87vw;
-  }
-  main section.spec-wrapper .spec-class .spec-course .h4-link {
-    margin-block: 1vh;
-  }
-  main section#full-stack .pp {
-    inline-size: 100%;
-  }
-  main section#full-stack .pp .tech-container {
-    inline-size: 60vw;
   }
 }
 /* Ipad Air*/
@@ -1397,40 +1313,6 @@ div.tech-ui-ux {
   }
   main section.info section#bio section.bio-content p {
     inline-size: 41vw;
-  }
-  main section#specialization-container .specialization-class {
-    inline-size: 42vw;
-  }
-  main section#specialization-container .specialization-class .specialization-course .h4-link {
-    font-size: 1.1em;
-  }
-  main section#full-stack .pp {
-    inline-size: 45vw;
-  }
-  main section#full-stack .tech-container {
-    inline-size: 34vw;
-  }
-}
-/* Ipad Pro Mini*/
-@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  main section.info section.carosel {
-    inline-size: 47vw !important;
-  }
-  main section.info section.carosel .caption {
-    bottom: 3.2em;
-  }
-  main section.info section.carosel .btn-container {
-    bottom: 20em;
-  }
-  main section.info section#bio nav.bio-link {
-    margin: 0;
-    inline-size: 100%;
-  }
-  main section.info section#bio nav.bio-link .bio-btn {
-    transition: 3s;
-  }
-  main section.info section#bio nav.bio-link .bio-btn:hover {
-    transform: scale(1.1);
   }
   main section#specialization-container .specialization-class {
     inline-size: 42vw;
@@ -2052,25 +1934,22 @@ div.tech-ui-ux {
     inline-size: 60vw;
   }
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
   header .slogan-wrapper {
-    font-size: 2.09vw;
-  }
-  header a {
-    font-size: 0.57em !important;
+    font-size: 2.36vw;
   }
   main section.info .carosel {
     block-size: 36vh;
     inline-size: 47vw !important;
   }
   main section.info .caption {
-    bottom: 10.5vh;
+    bottom: 11.5vh !important;
   }
   main section.info .caption div.btn-container {
-    bottom: 46em !important;
+    bottom: 35vh !important;
   }
   main section.info section.bio-container {
-    margin-block: 13vh;
+    margin-block: 13vh !important;
     margin-inline: 0 !important;
     inline-size: 100% !important;
   }
@@ -2079,7 +1958,7 @@ div.tech-ui-ux {
     text-align: center !important;
   }
   main section.info section.bio-container nav.bio-bar button.bio-btn {
-    font-size: 1em !important;
+    font-size: 10vw !important;
   }
   main section.info section.bio-container section.bio-content {
     inline-size: 86vw !important;
@@ -2092,37 +1971,20 @@ div.tech-ui-ux {
     inline-size: 86vw !important;
   }
   main section.info section.bio-container div.btn-container {
-    bottom: 39em !important;
-  }
-  main section.info section.bio-container nav.ext-bar a {
-    margin: 0;
+    bottom: 36vh !important;
   }
   main section#full-stack .pp {
     block-size: 32vh;
-  }
-  main section#full-stack .pp .tech-container {
-    inline-size: 73vw;
-  }
-  main section#full-stack .pp .tech-wrapper {
-    inline-size: 23vw !important;
   }
   main section#full-stack .pp p {
     font-size: 0.8em !important;
     inline-size: 60vw !important;
   }
-  main section#full-stack .pp .img-wrapper {
-    block-size: 0vh !important;
-  }
   main section#full-stack .pp .img-svg {
     block-size: 5vh !important;
   }
-  main section#full-stack .wrap-row-space-between {
-    top: 0.7em !important;
-    position: relative !important;
-    inline-size: 65vw !important;
-  }
 }
-@media only screen and (min-device-width: 600px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+@media only screen and (min-device-width: 600px) and (max-device-width: 1024px) and (orientation: portrait) {
   header .slogan-wrapper {
     font-size: 2.09vw;
   }
@@ -2132,40 +1994,35 @@ div.tech-ui-ux {
   main section.info .carosel {
     block-size: 36vh;
     inline-size: 47vw !important;
-  }
-  main section.info .carosel img {
-    inline-size: 52vw;
   }
   main section.info .caption {
     bottom: 6.5vh !important;
   }
   main section.info .caption div.btn-container {
-    bottom: 31vh !important;
+    bottom: 19vh !important;
+  }
+  main section.info .caption img {
+    inline-size: 100%;
   }
   main section.info .caption .img-btn {
-    font-size: 6vw !important;
+    font-size: 7vw !important;
   }
   main section.info section.bio-container {
     margin-block: 13vh;
     margin-inline: 0 !important;
-    inline-size: 100% !important;
   }
   main section.info section.bio-container h2 {
     font-size: 2em !important;
     text-align: center !important;
   }
   main section.info section.bio-container nav.bio-bar button.bio-btn {
-    font-size: 3vw !important;
-  }
-  main section.info section.bio-container section.bio-content {
-    inline-size: 86vw !important;
+    font-size: 2.4vw !important;
   }
   main section.info section.bio-container section.bio-content h3 {
     font-size: 1.5em !important;
   }
   main section.info section.bio-container section.bio-content p {
-    font-size: 1em !important;
-    inline-size: 86vw !important;
+    font-size: 3vw !important;
   }
   main section.info section.bio-container div.btn-container {
     bottom: 39em !important;
@@ -2173,107 +2030,46 @@ div.tech-ui-ux {
   main section.info section.bio-container nav.ext-bar a {
     margin: 0;
   }
-  main section#full-stack .pp {
-    block-size: 100%;
-    inline-size: 63vw;
-    background-size: 22vw;
+  main div.msg h2 {
+    text-align: center;
+    font-size: 6vw;
   }
-  main section#full-stack .pp .tech-container {
-    inline-size: 56vw;
+  main section#spec-container .spec-wrapper {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    flex-direction: row !important;
+    justify-content: space-evenly !important;
   }
-  main section#full-stack .pp .tech-wrapper {
-    inline-size: 23vw !important;
-  }
-  main section#full-stack .pp p {
-    font-size: 3vw !important;
-    inline-size: 60vw !important;
-  }
-  main section#full-stack .pp .img-wrapper {
-    block-size: 4vh !important;
+  main section#spec-container .spec-class p {
     inline-size: 100% !important;
-  }
-  main section#full-stack .pp .img-svg {
-    block-size: 3vh !important;
-  }
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
-  header a {
-    font-size: 0.57em !important;
-  }
-  main section.info .carosel {
-    block-size: 36vh;
-    inline-size: 47vw !important;
-  }
-  main section.info .carosel img {
-    inline-size: 52vw;
-  }
-  main section.info .caption {
-    bottom: 5vh !important;
-  }
-  main section.info .caption div.btn-container {
-    bottom: 28vh !important;
-  }
-  main section.info .caption .img-btn {
-    font-size: 6vw !important;
-  }
-  main section.info section.bio-container {
-    margin-block: 13vh;
-    margin-inline: 0 !important;
-    inline-size: 100% !important;
-  }
-  main section.info section.bio-container h2 {
-    font-size: 2em !important;
-    text-align: center !important;
-  }
-  main section.info section.bio-container nav.bio-bar button.bio-btn {
-    font-size: 3vw !important;
-  }
-  main section.info section.bio-container section.bio-content {
-    inline-size: 86vw !important;
-  }
-  main section.info section.bio-container section.bio-content h3 {
-    font-size: 1.5em !important;
-  }
-  main section.info section.bio-container section.bio-content p {
-    font-size: 1em !important;
-    inline-size: 86vw !important;
-  }
-  main section.info section.bio-container div.btn-container {
-    bottom: 39em !important;
-  }
-  main section.info section.bio-container nav.ext-bar a {
-    margin: 0;
+    font-size: 2.5vw !important;
   }
   main section#full-stack .pp {
     block-size: 100%;
-    inline-size: 50vw;
+    inline-size: 44vw;
     background-size: 14vw;
   }
-  main section#full-stack .pp .tech-container {
-    inline-size: 56vw;
-  }
   main section#full-stack .pp .tech-wrapper {
     inline-size: 23vw !important;
   }
   main section#full-stack .pp p {
     font-size: 3vw !important;
-    margin-inline: 5vw;
+    inline-size: 43vw !important;
+    margin-inline: 1vw !important;
   }
   main section#full-stack .pp .img-wrapper {
-    padding: 1vh !important;
     block-size: 4vh !important;
-    inline-size: 48vw !important;
+    inline-size: 100% !important;
   }
   main section#full-stack .pp .img-svg {
+    top: 1vh !important;
+    left: 2vw !important;
     block-size: 3vh !important;
   }
 }
-@media only screen and (min-device-width: 480px) and (max-device-width: 320px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+@media only screen and (min-device-width: 480px) and (max-device-width: 320px) and (orientation: portrait) {
   header .slogan-wrapper {
-    font-size: 2.09vw;
-  }
-  header a {
-    font-size: 0.57em !important;
+    font-size: 2.8vw;
   }
   main section.info .carosel {
     block-size: 36vh;
@@ -2283,7 +2079,10 @@ div.tech-ui-ux {
     bottom: 15.5vh;
   }
   main section.info .caption div.btn-container {
-    bottom: 46em !important;
+    bottom: 70vh !important;
+  }
+  main section.info button.img-btn {
+    font-size: 7vw !important;
   }
   main section.info section.bio-container {
     margin-block: 13vh;
@@ -2295,7 +2094,7 @@ div.tech-ui-ux {
     text-align: center !important;
   }
   main section.info section.bio-container nav.bio-bar button.bio-btn {
-    font-size: 1em !important;
+    font-size: 8vw !important;
   }
   main section.info section.bio-container section.bio-content {
     inline-size: 86vw !important;
@@ -2314,9 +2113,8 @@ div.tech-ui-ux {
     margin: 0;
   }
   main section#full-stack .pp {
-    block-size: 32vh;
-    inline-size: 68vw;
-    background-size: 19vw;
+    inline-size: 53vw !important;
+    background-size: 21vw !important;
   }
   main section#full-stack .pp .tech-container {
     inline-size: 73vw;
@@ -2326,29 +2124,39 @@ div.tech-ui-ux {
   }
   main section#full-stack .pp p {
     font-size: 3vw !important;
-    inline-size: 60vw !important;
+    inline-size: 44vw !important;
+    margin-inline: 7vw !important;
   }
   main section#full-stack .pp .img-wrapper {
-    block-size: 0vh !important;
+    block-size: 11vh !important;
     margin: 3vh 4vh 0vh 3vw !important;
   }
   main section#full-stack .pp .img-svg {
-    block-size: 5vh !important;
+    top: 5vh;
+    left: 4vw;
+    position: relative;
+    block-size: 7vh !important;
   }
 }
-@media only screen and (min-device-width: 1024px) and (max-device-width: 600px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+@media only screen and (min-device-width: 1024px) and (max-device-width: 600px) and (orientation: portrait) {
   header .slogan-wrapper {
     font-size: 2.09vw;
   }
   header a {
     font-size: 0.57em !important;
   }
+  main section.info {
+    justify-content: space-around !important;
+  }
   main section.info .carosel {
     block-size: 36vh;
-    inline-size: 47vw !important;
+    inline-size: 28vw !important;
   }
-  main section.info .carosel img {
-    inline-size: 52vw;
+  main section.info .btn-container {
+    bottom: 23vw !important;
+  }
+  main section.info .btn-container button.img-btn {
+    font-size: 4vw !important;
   }
   main section.info .caption {
     bottom: 6.5vh !important;
@@ -2362,7 +2170,7 @@ div.tech-ui-ux {
   main section.info section.bio-container {
     margin-block: 13vh;
     margin-inline: 0 !important;
-    inline-size: 100% !important;
+    inline-size: 36vw !important;
   }
   main section.info section.bio-container h2 {
     font-size: 2em !important;
@@ -2391,16 +2199,15 @@ div.tech-ui-ux {
     text-align: center;
   }
   main section#spec-container .spec-class {
-    margin: 0vh 3vw 4vh;
+    inline-size: 50% !important;
   }
   main section#spec-container .h4-link {
     margin: 0;
     font-size: 3vw !important;
   }
   main section#full-stack .pp {
-    block-size: 24vh;
-    inline-size: 39vw;
-    background-size: 14vw;
+    inline-size: 34vw !important;
+    background-size: 12vw !important;
   }
   main section#full-stack .pp .tech-container {
     inline-size: 56vw;
@@ -2408,9 +2215,13 @@ div.tech-ui-ux {
   main section#full-stack .pp .tech-wrapper {
     inline-size: 23vw !important;
   }
+  main section#full-stack .pp h3 {
+    font-size: 2.5vw !important;
+    inline-size: 100% !important;
+  }
   main section#full-stack .pp p {
+    font-size: 1.4vw !important;
     inline-size: 35vw !important;
-    margin-inline: 2vw;
   }
   main section#full-stack .pp .img-wrapper {
     block-size: 2vh !important;
@@ -2418,90 +2229,9 @@ div.tech-ui-ux {
     margin-inline: 2vw;
   }
   main section#full-stack .pp .img-svg {
-    block-size: 5vh !important;
-  }
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
-  header a {
-    font-size: 0.57em !important;
-  }
-  main section.info .carosel {
-    block-size: 36vh;
-    inline-size: 47vw !important;
-  }
-  main section.info .carosel img {
-    inline-size: 52vw;
-  }
-  main section.info .caption {
-    bottom: 5vh !important;
-  }
-  main section.info .caption div.btn-container {
-    bottom: 38vh !important;
-  }
-  main section.info .caption .img-btn {
-    font-size: 4vw !important;
-  }
-  main section.info section.bio-container {
-    margin-block: 13vh;
-    margin-inline: 0 !important;
-    inline-size: 57vw !important;
-  }
-  main section.info section.bio-container h2 {
-    font-size: 2em !important;
-    text-align: center !important;
-  }
-  main section.info section.bio-container nav.bio-bar button.bio-btn {
-    font-size: 1.5vw !important;
-  }
-  main section.info section.bio-container section.bio-content {
-    inline-size: 86vw !important;
-  }
-  main section.info section.bio-container section.bio-content h3 {
-    font-size: 1.5em !important;
-  }
-  main section.info section.bio-container section.bio-content p {
-    font-size: 1em !important;
-    inline-size: 86vw !important;
-  }
-  main section.info section.bio-container div.btn-container {
-    bottom: 39em !important;
-  }
-  main section.info section.bio-container nav.ext-bar a {
-    margin: 0;
-  }
-  main section#spec-container .spec-class {
-    inline-size: 40vw;
-  }
-  main section#spec-container .h4-link {
-    margin: 0;
-    font-size: 3vw !important;
-  }
-  main section#full-stack form input[type=text] {
-    inline-size: 51vw;
-    margin-block: 2vh;
-  }
-  main section#full-stack .pp {
-    block-size: 100%;
-    inline-size: 50vw;
-    background-size: 14vw;
-  }
-  main section#full-stack .pp .tech-container {
-    inline-size: 56vw;
-  }
-  main section#full-stack .pp .tech-wrapper {
-    inline-size: 23vw !important;
-  }
-  main section#full-stack .pp p {
-    font-size: 3vw !important;
-    margin-inline: 5vw;
-  }
-  main section#full-stack .pp .img-wrapper {
-    padding: 1vh !important;
-    block-size: 8vh !important;
-    inline-size: 48vw !important;
-  }
-  main section#full-stack .pp .img-svg {
-    block-size: 3vh !important;
+    top: 2vh !important;
+    left: 2vw !important;
+    block-size: 4vh !important;
   }
 }
 flex-box, footer {
@@ -2546,8 +2276,4 @@ footer {
 
 .relative {
   position: relative;
-}
-
-.padding {
-  padding: 1vw;
 }/*# sourceMappingURL=style.css.map */

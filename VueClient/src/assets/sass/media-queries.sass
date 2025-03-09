@@ -7,21 +7,22 @@
 $iphone-width: 320px
 $iphone-height: 480px
 
-$Ipad-width: 768px
-$Ipad-height: 1024px
 
 $tablet-width: 600px
 $tablet-height: 1024px
 
+$Ipad-width: 768px
+$Ipad-height: $tablet-height
+
+
+
+
 //  Generally media queries
 //  Portrait
-@media only screen and (min-device-width: $iphone-width) and (max-device-width: $iphone-height) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
+@media only screen and (min-device-width: $iphone-width) and (max-device-width: $iphone-height) and (orientation: portrait)
     header 
         .slogan-wrapper 
-            font-size: 2.09vw
-
-        a
-            font-size: 0.57em !important
+            font-size: 2.36vw
 
     main
         section.info
@@ -30,12 +31,13 @@ $tablet-height: 1024px
                 inline-size: 47vw !important
 
             .caption
-                bottom: 10.5vh
+                bottom: 11.5vh !important
+
                 div.btn-container
-                    bottom: 46em !important
+                    bottom: 35vh !important
 
             section.bio-container
-                margin-block: 13vh
+                margin-block: 13vh !important
                 margin-inline: 0 !important
                 inline-size: 100% !important
 
@@ -46,7 +48,7 @@ $tablet-height: 1024px
                 nav.bio-bar
 
                     button.bio-btn
-                        font-size: 1em !important
+                        font-size: 10vw !important
 
                 section.bio-content
                     inline-size: 86vw !important
@@ -60,39 +62,20 @@ $tablet-height: 1024px
                         inline-size: 86vw !important            
 
                 div.btn-container
-                    bottom: 39em !important
-
-                nav.ext-bar
-                    
-                    a
-                        margin: 0
+                    bottom: 36vh !important
 
         section#full-stack
             .pp
                 block-size: 32vh
 
-                .tech-container
-                    inline-size: 73vw
-
-                .tech-wrapper
-                    inline-size: 23vw !important
-
                 p
                     font-size: 0.8em !important
                     inline-size: 60vw !important
 
-                .img-wrapper
-                    block-size: 0vh !important
-
                 .img-svg
                     block-size: 5vh !important
 
-            .wrap-row-space-between
-                top: 0.7em !important
-                position: relative !important
-                inline-size: 65vw !important
-
-@media only screen and (min-device-width: $tablet-width) and (max-device-width: $tablet-height) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
+@media only screen and (min-device-width: $tablet-width) and (max-device-width: $tablet-height) and (orientation: portrait)
     header 
         .slogan-wrapper 
             font-size: 2.09vw
@@ -105,161 +88,93 @@ $tablet-height: 1024px
                 block-size: 36vh
                 inline-size: 47vw !important
 
-                img
-                    inline-size: 52vw
             .caption
                 bottom: 6.5vh !important
 
+
                 div.btn-container
-                    bottom:31vh !important
+                    bottom: 19vh !important
+                
+                img
+                    inline-size: 100%
 
                 .img-btn
-                    font-size: 6vw !important
+                    font-size: 7vw !important
+
             section.bio-container
                 margin-block: 13vh
                 margin-inline: 0 !important
-                inline-size: 100% !important
 
                 h2
                     font-size: 2em !important
                     text-align: center !important
 
                 nav.bio-bar
-
                     button.bio-btn
-                        font-size: 3vw !important
+                        font-size: 2.4vw !important
 
                 section.bio-content
-                    inline-size: 86vw !important
-                    
-
                     h3
                         font-size: 1.5em !important
 
                     p
-                        font-size: 1em !important
-                        inline-size: 86vw !important            
+                        font-size: 3vw !important         
 
                 div.btn-container
                     bottom: 39em !important
 
                 nav.ext-bar
-                    
                     a
                         margin: 0
 
+        div.msg
+            
+            h2
+                text-align: center
+                font-size: 6vw
+
+        section#spec-container
+            
+            .spec-wrapper
+                display: flex   !important
+                flex-wrap: wrap !important
+                flex-direction: row !important
+                justify-content: space-evenly !important
+
+            .spec-class
+
+                p
+                    inline-size: 100% !important
+                    font-size: 2.5vw !important
         section#full-stack
             .pp
                 block-size: 100%
-                inline-size: 63vw
-                background-size: 22vw
-
-                .tech-container
-                    inline-size: 56vw
+                inline-size: 44vw
+                background-size: 14vw
 
                 .tech-wrapper
                     inline-size: 23vw !important
 
                 p
                     font-size: 3vw !important
-                    inline-size: 60vw !important
+                    inline-size: 43vw !important
+                    margin-inline: 1vw !important
 
                 .img-wrapper
                     block-size: 4vh !important
                     inline-size: 100% !important
 
                 .img-svg
+                    top: 1vh !important
+                    left: 2vw !important
                     block-size: 3vh !important
 
-@media only screen and (min-device-width: $Ipad-width) and (max-device-width: $Ipad-height) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
-    header 
-        a
-            font-size: 0.57em !important
-
-    main
-        section.info
-            .carosel
-                block-size: 36vh
-                inline-size: 47vw !important
-
-                img
-                    inline-size: 52vw
-
-            .caption
-                bottom: 5vh !important
-
-                div.btn-container
-                    bottom: 28vh !important
-
-                .img-btn
-                    font-size: 6vw !important
-
-            section.bio-container
-                margin-block: 13vh
-                margin-inline: 0 !important
-                inline-size: 100% !important
-
-                h2
-                    font-size: 2em !important
-                    text-align: center !important
-
-                nav.bio-bar
-
-                    button.bio-btn
-                        font-size: 3vw !important
-
-                section.bio-content
-                    inline-size: 86vw !important
-                    
-
-                    h3
-                        font-size: 1.5em !important
-
-                    p
-                        font-size: 1em !important
-                        inline-size: 86vw !important            
-
-                div.btn-container
-                    bottom: 39em !important
-
-                nav.ext-bar
-                    
-                    a
-                        margin: 0
-
-        section#full-stack
-            .pp
-                block-size: 100%
-                inline-size: 50vw
-                background-size: 14vw
-
-                .tech-container
-                    inline-size: 56vw
-
-                .tech-wrapper
-                    inline-size: 23vw !important
-
-                p
-                    font-size: 3vw !important
-                    margin-inline: 5vw
-
-                .img-wrapper
-                    padding: 1vh !important
-                    block-size: 4vh !important
-                    inline-size: 48vw !important
-                    
-
-                .img-svg
-                    block-size: 3vh !important
 
 //  Landscape
-@media only screen and (min-device-width: $iphone-height) and (max-device-width: $iphone-width) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
+@media only screen and (min-device-width: $iphone-height) and (max-device-width: $iphone-width) and (orientation: portrait)
     header 
         .slogan-wrapper 
-            font-size: 2.09vw
-
-        a
-            font-size: 0.57em !important
+            font-size: 2.8vw
 
     main
         section.info
@@ -271,7 +186,10 @@ $tablet-height: 1024px
                 bottom: 15.5vh
 
                 div.btn-container
-                    bottom: 46em !important
+                    bottom: 70vh !important
+
+            button.img-btn
+                font-size: 7vw !important
 
             section.bio-container
                 margin-block: 13vh
@@ -285,7 +203,7 @@ $tablet-height: 1024px
                 nav.bio-bar
 
                     button.bio-btn
-                        font-size: 1em !important
+                        font-size: 8vw !important
 
                 section.bio-content
                     inline-size: 86vw !important
@@ -308,9 +226,8 @@ $tablet-height: 1024px
 
         section#full-stack
             .pp
-                block-size: 32vh
-                inline-size: 68vw
-                background-size: 19vw
+                inline-size: 53vw !important
+                background-size: 21vw !important
 
                 .tech-container
                     inline-size: 73vw
@@ -320,16 +237,20 @@ $tablet-height: 1024px
 
                 p
                     font-size: 3vw !important
-                    inline-size: 60vw !important
+                    inline-size: 44vw !important
+                    margin-inline: 7vw !important
 
                 .img-wrapper
-                    block-size: 0vh !important
+                    block-size: 11vh !important
                     margin: 3vh 4vh 0vh 3vw !important
 
                 .img-svg
-                    block-size: 5vh !important
-
-@media only screen and (min-device-width: $tablet-height) and (max-device-width: $tablet-width) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
+                    top: 5vh
+                    left: 4vw
+                    position: relative
+                    block-size: 7vh !important
+                    
+@media only screen and (min-device-width: $tablet-height) and (max-device-width: $tablet-width)  and (orientation: portrait)
     header 
         .slogan-wrapper 
             font-size: 2.09vw
@@ -338,12 +259,19 @@ $tablet-height: 1024px
 
     main
         section.info
+
+            justify-content: space-around !important
+
             .carosel
                 block-size: 36vh
-                inline-size: 47vw !important
+                inline-size: 28vw !important
 
-                img
-                    inline-size: 52vw
+            .btn-container
+                bottom: 23vw !important
+
+                button.img-btn
+                    font-size: 4vw !important
+            
             .caption
                 bottom: 6.5vh !important
 
@@ -356,7 +284,7 @@ $tablet-height: 1024px
             section.bio-container
                 margin-block: 13vh
                 margin-inline: 0 !important
-                inline-size: 100% !important
+                inline-size: 36vw !important
 
                 h2
                     font-size: 2em !important
@@ -391,7 +319,7 @@ $tablet-height: 1024px
 
         section#spec-container
             .spec-class
-                margin: 0vh 3vw 4vh
+                inline-size: 50% !important
 
             .h4-link
                 margin: 0
@@ -399,19 +327,23 @@ $tablet-height: 1024px
 
         section#full-stack
             .pp
-                block-size: 24vh
-                inline-size: 39vw
-                background-size: 14vw
+                inline-size: 34vw !important
+                background-size: 12vw !important
 
                 .tech-container
                     inline-size: 56vw
 
                 .tech-wrapper
                     inline-size: 23vw !important
+                
+                h3
+                    font-size: 2.5vw !important
+                    inline-size: 100% !important
 
                 p
+                    font-size: 1.4vw !important
                     inline-size: 35vw !important
-                    margin-inline: 2vw
+                    
 
                 .img-wrapper
                     block-size: 2vh !important
@@ -419,98 +351,7 @@ $tablet-height: 1024px
                     margin-inline: 2vw
 
                 .img-svg
-                    block-size: 5vh !important
+                    top: 2vh !important
+                    left : 2vw !important
 
-@media only screen and (min-device-width: $Ipad-width) and (max-device-width: $Ipad-height) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
-    header 
-        a
-            font-size: 0.57em !important
-
-    main
-        section.info
-            .carosel
-                block-size: 36vh
-                inline-size: 47vw !important
-
-                img
-                    inline-size: 52vw
-
-            .caption
-                bottom: 5vh !important
-
-                div.btn-container
-                    bottom: 38vh !important
-
-                .img-btn
-                    font-size: 4vw !important
-
-            section.bio-container
-                margin-block: 13vh
-                margin-inline: 0 !important
-                inline-size: 57vw !important
-
-                h2
-                    font-size: 2em !important
-                    text-align: center !important
-
-                nav.bio-bar
-
-                    button.bio-btn
-                        font-size: 1.5vw !important
-
-                section.bio-content
-                    inline-size: 86vw !important
-                    
-
-                    h3
-                        font-size: 1.5em !important
-
-                    p
-                        font-size: 1em !important
-                        inline-size: 86vw !important            
-
-                div.btn-container
-                    bottom: 39em !important
-
-                nav.ext-bar
-                    
-                    a
-                        margin: 0
-
-        section#spec-container
-
-            .spec-class
-                inline-size: 40vw
-
-            .h4-link
-                margin: 0
-                font-size: 3vw !important
-
-        section#full-stack
-
-            form
-                input[type="text"]
-                    inline-size: 51vw
-                    margin-block: 2vh
-            .pp
-                block-size: 100%
-                inline-size: 50vw
-                background-size: 14vw
-
-                .tech-container
-                    inline-size: 56vw
-
-                .tech-wrapper
-                    inline-size: 23vw !important
-
-                p
-                    font-size: 3vw !important
-                    margin-inline: 5vw
-
-                .img-wrapper
-                    padding: 1vh !important
-                    block-size: 8vh !important
-                    inline-size: 48vw !important
-
-                .img-svg
-                    block-size: 3vh !important
+                    block-size: 4vh !important

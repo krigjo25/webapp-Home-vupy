@@ -23,18 +23,17 @@
     function checkDeviceType() {
     
         //  Initialize device breakpoints variables
-        let mobile = 768;
-        let tablet = 1024;
-        let desktop = 1440;
-        let data = {};
+        const mobile = 768;
+        const tabletWidth = 1024;
+        const desktop = 1024;
+        const data = reactive({});
 
         //  Check if the window width is less than 768px
         console.log(window.innerWidth);
         
             // Mobiles
-        if (window.innerWidth < mobile)
+        if (window.innerWidth < tabletWidth)
         {
-            console.log('Mobile');
             data.cls = 'flex-column';
 
         }

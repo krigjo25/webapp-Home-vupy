@@ -3,7 +3,7 @@
         <h2>Technical Repositories</h2>
         <div class="flex-wrap-column-justify-space-between">
             <Navigation class='justify-content-space-evently-row':data="pfolio.Total" @update="pfolio.current = $event" v-if="pfolio.Total"/>
-            <form class="flex-row justify-center">
+            <form class="flex-wrap-row-justify-center">
                 <select v-if = "pfolio.type">
                     <option v-for="type in pfolio.type" :key="type.id">{{ type.type}}</option>
                 </select>
@@ -15,10 +15,10 @@
             </form>
         </div>
         
-        <div class="flex-wrap-row justify-center">
+        <div class="flex-wrap-row-justify-center">
             <div class="pp flex-wrap-row" v-for="data in pfolio.displayData" :key="data.id">
                 <div class="tech-container flex-wrap-column ">
-                    <div v-for="lang in data.lang" :key="lang.id" class="img-wrapper wrap-row-space-between">
+                    <div v-for="lang in data.lang" :key="lang.id" class="img-wrapper flex-wrap-row-space-between">
                         <img class="img-svg" :src="'./src/assets/img/techlogo/' + lang.lang + '.svg'" :alt="lang.lang + '.svg'" />
                         <span class="time">
                             <time v-bind:datetime="data.date">{{ data.date }}</time>
@@ -48,7 +48,6 @@ import { reactive, onMounted, computed } from 'vue';
 
 //  Importing components
 import Link from './misc_components/link.vue';
-import tech from './education_components/tech.vue';
 import Navigation from './misc_components/pagination.vue';
 
 //  Initializing reactive objects
