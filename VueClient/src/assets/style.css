@@ -585,16 +585,22 @@ div.tech-ui-ux {
 section#fullstack h2 {
   text-align: center;
 }
-section#fullstack h2:disabled {
+section#fullstack button.tech-btn {
+  border: none;
+  padding: 1em;
+  border-radius: 10px;
+  background-color: rgb(75, 160, 160);
+}
+section#fullstack button.tech-btn:disabled {
   color: rgb(40, 40, 40);
   cursor: not-allowed;
   background-color: rgb(245, 245, 245) !important;
 }
-section#fullstack h2:hover {
+section#fullstack button.tech-btn:hover {
   background-color: rgb(99, 182, 182);
   transition: 0.5s;
 }
-section#fullstack h2:active {
+section#fullstack button.tech-btn:active {
   background-color: rgb(57, 122, 122);
 }
 section#fullstack .pp {
@@ -836,1104 +842,6 @@ div.tech-ui-ux {
   border-radius: 10px;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  header .slogan-wrapper {
-    font-size: 2.09vw;
-  }
-  header a {
-    font-size: 0.57em !important;
-  }
-  main section.info .carosel {
-    block-size: 36vh;
-    inline-size: 47vw !important;
-  }
-  main section.info .caption {
-    bottom: 10.5vh;
-  }
-  main section.info .caption div.btn-container {
-    bottom: 46em !important;
-  }
-  main section.info section.bio-container {
-    margin-block: 13vh;
-    margin-inline: 0 !important;
-    inline-size: 100% !important;
-  }
-  main section.info section.bio-container h2 {
-    font-size: 2em !important;
-    text-align: center !important;
-  }
-  main section.info section.bio-container nav.bio-bar button.bio-btn {
-    font-size: 1em !important;
-  }
-  main section.info section.bio-container section.bio-content {
-    inline-size: 86vw !important;
-  }
-  main section.info section.bio-container section.bio-content h3 {
-    font-size: 1.5em !important;
-  }
-  main section.info section.bio-container section.bio-content p {
-    font-size: 1em !important;
-    inline-size: 86vw !important;
-  }
-  main section.info section.bio-container div.btn-container {
-    bottom: 39em !important;
-  }
-  main section.info section.bio-container nav.ext-bar a {
-    margin: 0;
-  }
-  main section#full-stack .pp {
-    block-size: 32vh;
-  }
-  main section#full-stack .pp .tech-container {
-    inline-size: 73vw;
-  }
-  main section#full-stack .pp .tech-wrapper {
-    inline-size: 23vw !important;
-  }
-  main section#full-stack .pp p {
-    font-size: 0.8em !important;
-    inline-size: 60vw !important;
-  }
-  main section#full-stack .pp .img-wrapper {
-    block-size: 0vh !important;
-  }
-  main section#full-stack .pp .img-svg {
-    block-size: 5vh !important;
-  }
-  main section#full-stack .wrap-row-space-between {
-    top: 0.7em !important;
-    position: relative !important;
-    inline-size: 65vw !important;
-  }
-}
-@media only screen and (min-width: 375px) and (max-width: 667px) and (orientation: portrait) {
-  header .slogan-wrapper {
-    font-size: 2.09vw;
-  }
-  header a {
-    font-size: 0.57em !important;
-  }
-  main section.info .carosel {
-    block-size: 36vh;
-    inline-size: 47vw !important;
-  }
-  main section.info .caption {
-    bottom: 10.5vh;
-  }
-  main section.info .caption div.btn-container {
-    bottom: 46em !important;
-  }
-  main section.info section.bio-container {
-    margin-block: 13vh;
-    margin-inline: 0 !important;
-    inline-size: 100% !important;
-  }
-  main section.info section.bio-container h2 {
-    font-size: 2em !important;
-    text-align: center !important;
-  }
-  main section.info section.bio-container nav.bio-bar button.bio-btn {
-    font-size: 1em !important;
-  }
-  main section.info section.bio-container section.bio-content {
-    inline-size: 86vw !important;
-  }
-  main section.info section.bio-container section.bio-content h3 {
-    font-size: 1.5em !important;
-  }
-  main section.info section.bio-container section.bio-content p {
-    font-size: 1em !important;
-    inline-size: 86vw !important;
-  }
-  main section.info section.bio-container div.btn-container {
-    bottom: 39em !important;
-  }
-  main section.info section.bio-container nav.ext-bar a {
-    margin: 0;
-  }
-  main section#full-stack .pp {
-    block-size: 32vh;
-  }
-  main section#full-stack .pp .tech-container {
-    inline-size: 73vw;
-  }
-  main section#full-stack .pp .tech-wrapper {
-    inline-size: 23vw !important;
-  }
-  main section#full-stack .pp p {
-    font-size: 0.8em !important;
-    inline-size: 60vw !important;
-  }
-  main section#full-stack .pp .img-wrapper {
-    block-size: 0vh !important;
-  }
-  main section#full-stack .pp .img-svg {
-    block-size: 5vh !important;
-  }
-  main section#full-stack .wrap-row-space-between {
-    top: 0.7em !important;
-    position: relative !important;
-    inline-size: 65vw !important;
-  }
-}
-/* Ipad Air*/
-@media only screen and (min-width: 820px) and (max-width: 1180px) and (orientation: portrait) {
-  header a {
-    font-size: 0.57em;
-  }
-  main section.info {
-    justify-content: flex-start;
-  }
-  main section.info .carosel {
-    block-size: 36vh;
-    inline-size: 30vw;
-    align-items: center;
-  }
-  main section.info .carosel .caption {
-    bottom: 5.5vh;
-  }
-  main section.info .btn-container {
-    bottom: 11em !important;
-  }
-  main section.info section.bio-container {
-    inline-size: 59vw;
-    margin-inline-start: 6vw;
-  }
-  main section.info section.bio-container h2 {
-    font-size: 2em;
-    text-align: center;
-  }
-  main section.info section.bio-container nav.bio-link button.bio-btn {
-    font-size: 1em;
-  }
-  main section.info section.bio-container section.bio-content {
-    inline-size: 60vw;
-  }
-  main section.info section.bio-container section.bio-content h3 {
-    font-size: 1.5em;
-  }
-  main section.info section.bio-container section.bio-content p {
-    font-size: 1em;
-    inline-size: 57vw;
-  }
-  main section.info section.bio-container div.btn-container {
-    bottom: 39em;
-  }
-  main section.spec-wrapper {
-    inline-size: 100%;
-    flex-direction: column;
-  }
-  main section.spec-wrapper .spec-class {
-    inline-size: 84vw;
-    display: flex;
-    flex-direction: column;
-  }
-  main section.spec-wrapper .spec-class .h3-link {
-    margin-block: 1vh;
-  }
-  main section.spec-wrapper .spec-class p {
-    inline-size: 69vw;
-  }
-  main section.spec-wrapper .spec-class .tech-container {
-    inline-size: 87vw;
-  }
-  main section.spec-wrapper .spec-class .spec-course .h4-link {
-    margin-block: 1vh;
-  }
-  main section#full-stack .pp {
-    inline-size: 100%;
-  }
-  main section#full-stack .pp .tech-container {
-    inline-size: 60vw;
-  }
-}
-/* Ipad Pro*/
-@media only screen and (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
-  header a {
-    font-size: 0.57em;
-  }
-  main section.info {
-    justify-content: flex-start;
-  }
-  main section.info .carosel {
-    block-size: 36vh;
-    inline-size: 30vw;
-    align-items: center;
-  }
-  main section.info .carosel .caption {
-    bottom: 5.5vh;
-  }
-  main section.info .btn-container {
-    bottom: 11em !important;
-  }
-  main section.info section.bio-container {
-    inline-size: 52vw;
-    margin-inline-start: 6vw;
-  }
-  main section.info section.bio-container h2 {
-    font-size: 2em;
-    text-align: center;
-  }
-  main section.info section.bio-container nav.bio-link button.bio-btn {
-    font-size: 1em;
-  }
-  main section.info section.bio-container section.bio-content {
-    inline-size: 60vw;
-  }
-  main section.info section.bio-container section.bio-content h3 {
-    font-size: 1.5em;
-  }
-  main section.info section.bio-container section.bio-content p {
-    font-size: 1em;
-    inline-size: 57vw;
-  }
-  main section.info section.bio-container div.btn-container {
-    bottom: 39em;
-  }
-  main section.spec-wrapper {
-    inline-size: 100%;
-    flex-direction: column;
-  }
-  main section.spec-wrapper .spec-class {
-    inline-size: 84vw;
-    display: flex;
-    flex-direction: column;
-  }
-  main section.spec-wrapper .spec-class .h3-link {
-    margin-block: 1vh;
-  }
-  main section.spec-wrapper .spec-class p {
-    inline-size: 69vw;
-  }
-  main section.spec-wrapper .spec-class .tech-container {
-    inline-size: 87vw;
-  }
-  main section.spec-wrapper .spec-class .spec-course .h4-link {
-    margin-block: 1vh;
-  }
-  main section#full-stack .pp {
-    inline-size: 100%;
-  }
-  main section#full-stack .pp .tech-container {
-    inline-size: 60vw;
-  }
-}
-@media only screen and (min-width: 480px) and (max-width: 320px) and (orientation: portrait) {
-  header .slogan-wrapper {
-    font-size: 2.09vw;
-  }
-  header a {
-    font-size: 0.57em !important;
-  }
-  main section.info .carosel {
-    block-size: 36vh;
-    inline-size: 47vw !important;
-  }
-  main section.info .caption {
-    bottom: 10.5vh;
-  }
-  main section.info .caption div.btn-container {
-    bottom: 46em !important;
-  }
-  main section.info section.bio-container {
-    margin-block: 13vh;
-    margin-inline: 0 !important;
-    inline-size: 100% !important;
-  }
-  main section.info section.bio-container h2 {
-    font-size: 2em !important;
-    text-align: center !important;
-  }
-  main section.info section.bio-container nav.bio-bar button.bio-btn {
-    font-size: 1em !important;
-  }
-  main section.info section.bio-container section.bio-content {
-    inline-size: 86vw !important;
-  }
-  main section.info section.bio-container section.bio-content h3 {
-    font-size: 1.5em !important;
-  }
-  main section.info section.bio-container section.bio-content p {
-    font-size: 1em !important;
-    inline-size: 86vw !important;
-  }
-  main section.info section.bio-container div.btn-container {
-    bottom: 39em !important;
-  }
-  main section.info section.bio-container nav.ext-bar a {
-    margin: 0;
-  }
-  main section#full-stack .pp {
-    block-size: 32vh;
-  }
-  main section#full-stack .pp .tech-container {
-    inline-size: 73vw;
-  }
-  main section#full-stack .pp .tech-wrapper {
-    inline-size: 23vw !important;
-  }
-  main section#full-stack .pp p {
-    font-size: 0.8em !important;
-    inline-size: 60vw !important;
-  }
-  main section#full-stack .pp .img-wrapper {
-    block-size: 0vh !important;
-  }
-  main section#full-stack .pp .img-svg {
-    block-size: 5vh !important;
-  }
-  main section#full-stack .wrap-row-space-between {
-    top: 0.7em !important;
-    position: relative !important;
-    inline-size: 65vw !important;
-  }
-}
-/*Iphone 5 - Landscape*/
-@media only screen and (min-width: 375px) and (max-width: 667px) and (orientation: landscape) {
-  main section.info {
-    align-items: center;
-    flex-direction: column;
-  }
-  main section.info section.carosel {
-    inline-size: 46vw !important;
-  }
-  main section.info section.carosel .caption {
-    bottom: 3.2em;
-  }
-  main section.info section.carosel .btn-container {
-    bottom: 17em;
-  }
-  main section.info section#bio {
-    margin: 0;
-    inline-size: 80vw;
-  }
-  main section.info section#bio nav.bio-link {
-    margin: 0;
-    inline-size: 100%;
-  }
-  main section.info section#bio nav.bio-link .bio-btn {
-    transition: 3s;
-  }
-  main section.info section#bio nav.bio-link .bio-btn:hover {
-    transform: scale(1.1);
-  }
-  main section.info section#bio section.bio-content p {
-    inline-size: 70vw;
-  }
-  main section#specialization-container .specialization-class {
-    inline-size: 42vw;
-  }
-  main section#specialization-container .specialization-class p {
-    inline-size: 42vw;
-  }
-  main section#specialization-container .specialization-class .specialization-course .h4-link {
-    font-size: 1.1em;
-  }
-  main section#specialization-container .specialization-class .specialization-course .tech-container {
-    inline-size: 45vw;
-  }
-  main section#full-stack .pp {
-    inline-size: 70vw;
-  }
-  main section#full-stack .pp .tech-container {
-    inline-size: 55vw;
-  }
-}
-/* Iphone XR  / 12 Pro*/
-@media only screen and (min-width: 414px) and (max-width: 896px) and (orientation: landscape) {
-  main section.info {
-    align-items: center;
-    flex-direction: column;
-  }
-  main section.info section.carosel {
-    inline-size: 47vw !important;
-  }
-  main section.info section.carosel .caption {
-    bottom: 3.2em;
-  }
-  main section.info section.carosel .btn-container {
-    bottom: 20em;
-  }
-  main section.info section#bio {
-    margin: 0;
-    inline-size: 80vw;
-  }
-  main section.info section#bio nav.bio-link {
-    margin: 0;
-    inline-size: 100%;
-  }
-  main section.info section#bio nav.bio-link .bio-btn {
-    transition: 3s;
-  }
-  main section.info section#bio nav.bio-link .bio-btn:hover {
-    transform: scale(1.1);
-  }
-  main section.info section#bio section.bio-content p {
-    inline-size: 70vw;
-  }
-  main section#specialization-container .specialization-class {
-    inline-size: 42vw;
-  }
-  main section#specialization-container .specialization-class p {
-    inline-size: 42vw;
-  }
-  main section#specialization-container .specialization-class .specialization-course .h4-link {
-    font-size: 1.1em;
-  }
-  main section#specialization-container .specialization-class .specialization-course .tech-container {
-    inline-size: 45vw;
-  }
-  main section#full-stack .pp {
-    inline-size: 70vw;
-  }
-  main section#full-stack .pp .tech-container {
-    inline-size: 55vw;
-  }
-}
-/* Iphone Pro Max */
-@media only screen and (min-width: 430px) and (max-width: 932px) and (orientation: landscape) {
-  main section.info section.carosel {
-    inline-size: 47vw !important;
-  }
-  main section.info section.carosel .caption {
-    bottom: 3.2em;
-  }
-  main section.info section.carosel .btn-container {
-    bottom: 20em;
-  }
-  main section.info section#bio nav.bio-link {
-    margin: 0;
-    inline-size: 100%;
-  }
-  main section.info section#bio nav.bio-link .bio-btn {
-    transition: 3s;
-  }
-  main section.info section#bio nav.bio-link .bio-btn:hover {
-    transform: scale(1.1);
-  }
-  main section.info section#bio section.bio-content p {
-    inline-size: 41vw;
-  }
-  main section#specialization-container .specialization-class {
-    inline-size: 42vw;
-  }
-  main section#specialization-container .specialization-class .specialization-course .h4-link {
-    font-size: 1.1em;
-  }
-  main section#full-stack .pp {
-    inline-size: 45vw;
-  }
-  main section#full-stack .tech-container {
-    inline-size: 34vw;
-  }
-}
-/* Ipad Air*/
-@media only screen and (min-width: 820px) and (max-width: 1180px) and (orientation: landscape) {
-  main section.info section.carosel {
-    inline-size: 37vw !important;
-  }
-  main section.info section.carosel .caption {
-    bottom: 3.2em;
-  }
-  main section.info section.carosel .btn-container {
-    bottom: 20em;
-  }
-  main section.info section#bio nav.bio-link {
-    margin: 0;
-    inline-size: 100%;
-  }
-  main section.info section#bio nav.bio-link .bio-btn {
-    transition: 3s;
-  }
-  main section.info section#bio nav.bio-link .bio-btn:hover {
-    transform: scale(1.1);
-  }
-  main section#specialization-container .specialization-class {
-    inline-size: 42vw;
-  }
-  main section#specialization-container .specialization-class .specialization-course .h4-link {
-    font-size: 1.1em;
-  }
-  main section#full-stack .pp {
-    inline-size: 45vw;
-  }
-  main section#full-stack .tech-container {
-    inline-size: 34vw;
-  }
-}
-/* Ipad Pro*/
-@media only screen and (min-width: 1024px) and (max-width: 1356px) and (orientation: landscape) {
-  main section.info .carosel {
-    inline-size: 32vw !important;
-  }
-  main section.info .carosel .caption {
-    bottom: 5em;
-  }
-  main section.info .carosel .btn-container {
-    bottom: 20em;
-  }
-  main section.info section#bio nav.bio-link {
-    margin: 0;
-    inline-size: 100%;
-  }
-  main section.info section#bio nav.bio-link .bio-btn {
-    transition: 3s;
-  }
-  main section.info section#bio nav.bio-link .bio-btn:hover {
-    transform: scale(1.1);
-  }
-  main section#specialization-container .specialization-class {
-    inline-size: 42vw;
-  }
-  main section#specialization-container .specialization-class .specialization-course .h4-link {
-    font-size: 1.1em;
-  }
-  main section#full-stack .pp {
-    inline-size: 45vw;
-  }
-  main section#full-stack .tech-container {
-    inline-size: 34vw;
-  }
-}
-/*Samsung Galaxy Foldable*/
-@media only screen and (min-device-width: 344px) and (max-device-width: 882px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
-  header a {
-    font-size: 0.57em;
-  }
-  main section.info .carosel {
-    block-size: 26vh;
-    inline-size: 47vw;
-    align-items: center;
-  }
-  main section.info .carosel div.btn-container {
-    bottom: 11em;
-    inline-size: 47vw;
-  }
-  main section.info .carosel .caption {
-    bottom: 5.8vh;
-  }
-  main section.info section.bio-container {
-    margin-inline-start: 0 !important;
-    inline-size: 100% !important;
-  }
-  main section.info section.bio-container h2 {
-    font-size: 2em !important;
-    text-align: center !important;
-  }
-  main section.info section.bio-container nav.bio-link button.bio-btn {
-    font-size: 1em !important;
-  }
-  main section.info section.bio-container section.bio-content {
-    inline-size: 86vw !important;
-  }
-  main section.info section.bio-container section.bio-content h3 {
-    font-size: 1.5em !important;
-  }
-  main section.info section.bio-container section.bio-content p {
-    font-size: 1em !important;
-  }
-  main section.info section.bio-container .btn-container {
-    bottom: 39em !important;
-  }
-  main section.spec-wrapper {
-    inline-size: 100% !important;
-    flex-direction: column !important;
-  }
-  main section.spec-wrapper .spec-class {
-    inline-size: 84vw !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
-  main section.spec-wrapper .spec-class .h3-link {
-    margin-block: 1vh !important;
-  }
-  main section.spec-wrapper .spec-class .tech-container {
-    inline-size: 87vw !important;
-  }
-  main section.spec-wrapper .spec-class .spec-course .h4-link {
-    margin-block: 1vh !important;
-  }
-  main section#full-stack .pp {
-    inline-size: 100% !important;
-  }
-  main section#full-stack .pp .tech-container {
-    inline-size: 54vw !important;
-  }
-}
-/* Samsung galaxy S8*/
-@media only screen and (min-device-width: 360px) and (max-device-width: 740px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
-  header a {
-    font-size: 0.57em;
-  }
-  main section.info .carosel {
-    block-size: 36vh;
-    inline-size: 49vw;
-    align-items: center;
-  }
-  main section.info .carosel .caption {
-    bottom: 6.9vh;
-  }
-  main section.info .btn-container {
-    bottom: 11em !important;
-  }
-  main section.info section.bio-container {
-    margin-inline: 0;
-    inline-size: 100%;
-  }
-  main section.info section.bio-container h2 {
-    font-size: 2em;
-    text-align: center;
-  }
-  main section.info section.bio-container nav.bio-link button.bio-btn {
-    font-size: 1em;
-  }
-  main section.info section.bio-container section.bio-content {
-    inline-size: 86vw;
-  }
-  main section.info section.bio-container section.bio-content h3 {
-    font-size: 1.5em;
-  }
-  main section.info section.bio-container section.bio-content p {
-    font-size: 1em;
-  }
-  main section.info section.bio-container div.btn-container {
-    bottom: 39em;
-  }
-  main section.spec-wrapper {
-    inline-size: 100%;
-    flex-direction: column;
-  }
-  main section.spec-wrapper .spec-class {
-    inline-size: 84vw;
-    display: flex;
-    flex-direction: column;
-  }
-  main section.spec-wrapper .spec-class .h3-link {
-    margin-block: 1vh;
-  }
-  main section.spec-wrapper .spec-class .tech-container {
-    inline-size: 87vw;
-  }
-  main section.spec-wrapper .spec-class .spec-course .h4-link {
-    margin-block: 1vh;
-  }
-  main section#full-stack .pp {
-    inline-size: 100%;
-  }
-  main section#full-stack .pp .tech-container {
-    inline-size: 60vw;
-  }
-}
-/* Samsung galaxy S20 Ultra*/
-@media only screen and (min-device-width: 412px) and (max-device-width: 915px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
-  header a {
-    font-size: 0.57em;
-  }
-  main section.info .carosel {
-    block-size: 36vh;
-    inline-size: 49vw;
-    align-items: center;
-  }
-  main section.info .carosel .caption {
-    bottom: 5.5vh;
-  }
-  main section.info .btn-container {
-    bottom: 11em !important;
-  }
-  main section.info section.bio-container {
-    margin-inline: 0;
-    inline-size: 100%;
-  }
-  main section.info section.bio-container h2 {
-    font-size: 2em;
-    text-align: center;
-  }
-  main section.info section.bio-container nav.bio-link button.bio-btn {
-    font-size: 1em;
-  }
-  main section.info section.bio-container section.bio-content {
-    inline-size: 86vw;
-  }
-  main section.info section.bio-container section.bio-content h3 {
-    font-size: 1.5em;
-  }
-  main section.info section.bio-container section.bio-content p {
-    font-size: 1em;
-  }
-  main section.info section.bio-container div.btn-container {
-    bottom: 39em;
-  }
-  main section.spec-wrapper {
-    inline-size: 100%;
-    flex-direction: column;
-  }
-  main section.spec-wrapper .spec-class {
-    inline-size: 84vw;
-    display: flex;
-    flex-direction: column;
-  }
-  main section.spec-wrapper .spec-class .h3-link {
-    margin-block: 1vh;
-  }
-  main section.spec-wrapper .spec-class p {
-    inline-size: 69vw;
-  }
-  main section.spec-wrapper .spec-class .tech-container {
-    inline-size: 87vw;
-  }
-  main section.spec-wrapper .spec-class .spec-course .h4-link {
-    margin-block: 1vh;
-  }
-  main section#full-stack .pp {
-    inline-size: 100%;
-  }
-  main section#full-stack .pp .tech-container {
-    inline-size: 60vw;
-  }
-}
-/*Foldable Samsung Galaxy */
-@media only screen and (min-device-width: 344px) and (max-device-width: 882px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
-  main section.info {
-    flex-direction: row;
-  }
-  main section.info section.carosel {
-    inline-size: 46vw !important;
-  }
-  main section.info section.carosel .caption {
-    bottom: 3.2em;
-  }
-  main section.info section.carosel .btn-container {
-    bottom: 20em;
-  }
-  main section.info section#bio nav.bio-link {
-    inline-size: 100%;
-    margin-inline-start: 4em;
-  }
-  main section.info section#bio nav.bio-link .bio-btn {
-    transition: 3s;
-  }
-  main section.info section#bio nav.bio-link .bio-btn:hover {
-    transform: scale(1.1);
-  }
-  main section.info section#bio section.bio-content p {
-    inline-size: 41vw;
-  }
-  main section#specialization-container .spec-wrapper {
-    flex-direction: column;
-  }
-  main section#specialization-container .specialization-class {
-    inline-size: 42vw;
-  }
-  main section#specialization-container .specialization-class p {
-    inline-size: 42vw;
-  }
-  main section#specialization-container .specialization-class .specialization-course .h4-link {
-    font-size: 1.1em;
-  }
-  main section#specialization-container .specialization-class .specialization-course .tech-container {
-    inline-size: 100%;
-  }
-  main section#full-stack .pp {
-    inline-size: 45vw;
-  }
-  main section#full-stack .tech-container {
-    inline-size: 34vw;
-  }
-}
-/*Samsung Galaxy S8+*/
-@media only screen and (min-device-width: 360px) and (max-device-width: 740px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
-  main section.info section.carosel {
-    inline-size: 47vw !important;
-  }
-  main section.info section.carosel .caption {
-    bottom: 3.2em;
-  }
-  main section.info section.carosel .btn-container {
-    bottom: 20em;
-  }
-  main section.info section#bio nav.bio-link {
-    margin: 0;
-    inline-size: 100%;
-  }
-  main section.info section#bio nav.bio-link .bio-btn {
-    transition: 3s;
-  }
-  main section.info section#bio nav.bio-link .bio-btn:hover {
-    transform: scale(1.1);
-  }
-  main section.info section#bio section.bio-content p {
-    inline-size: 41vw;
-  }
-  main section#specialization-container .spec-wrapper {
-    flex-direction: column;
-  }
-  main section#specialization-container .specialization-class {
-    inline-size: 42vw;
-  }
-  main section#specialization-container .specialization-class p {
-    inline-size: 42vw;
-  }
-  main section#specialization-container .specialization-class .specialization-course .h4-link {
-    font-size: 1.1em;
-  }
-  main section#specialization-container .specialization-class .specialization-course .tech-container {
-    inline-size: 100%;
-  }
-  main section#full-stack .pp {
-    inline-size: 45vw;
-  }
-  main section#full-stack .tech-container {
-    inline-size: 34vw;
-  }
-}
-/*Samsung Galaxy Ultra*/
-@media only screen and (min-device-width: 412px) and (max-device-width: 915px) and (orientation: landscape) {
-  main section.info section.carosel {
-    inline-size: 34vw;
-  }
-  main section.info section.carosel .caption {
-    bottom: 3.2em;
-  }
-  main section.info section.carosel .btn-container {
-    bottom: 20em;
-  }
-  main section.info section#bio nav.bio-link {
-    margin: 0;
-    inline-size: 100%;
-  }
-  main section.info section#bio nav.bio-link .bio-btn {
-    transition: 3s;
-  }
-  main section.info section#bio nav.bio-link .bio-btn:hover {
-    transform: scale(1.1);
-  }
-  main section.info section#bio section.bio-content p {
-    inline-size: 41vw;
-  }
-  main section#specialization-container .spec-wrapper {
-    flex-direction: column;
-  }
-  main section#specialization-container .specialization-class {
-    inline-size: 42vw;
-  }
-  main section#specialization-container .specialization-class p {
-    inline-size: 42vw;
-  }
-  main section#specialization-container .specialization-class .specialization-course .h4-link {
-    font-size: 1.1em;
-  }
-  main section#full-stack .pp {
-    inline-size: 45vw;
-  }
-  main section#full-stack .tech-container {
-    inline-size: 34vw;
-  }
-}
-/* Samsung Galaxy A5/71*/
-@media only screen and (min-device-width: 412px) and (max-device-width: 915px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
-  header a {
-    font-size: 0.57em;
-  }
-  main section.info .carosel {
-    block-size: 36vh;
-    inline-size: 49vw;
-    align-items: center;
-  }
-  main section.info .carosel .caption {
-    bottom: 5.5vh;
-  }
-  main section.info section.bio-container {
-    margin-inline: 0;
-    inline-size: 100%;
-  }
-  main section.info section.bio-container h2 {
-    font-size: 2em;
-    text-align: center;
-  }
-  main section.info section.bio-container nav.bio-link button.bio-btn {
-    font-size: 1em;
-  }
-  main section.info section.bio-container section.bio-content {
-    inline-size: 86vw;
-  }
-  main section.info section.bio-container section.bio-content h3 {
-    font-size: 1.5em;
-  }
-  main section.info section.bio-container section.bio-content p {
-    font-size: 1em;
-    inline-size: 86vw;
-  }
-  main section.info section.bio-container div.btn-container {
-    bottom: 39em;
-  }
-  main section.spec-wrapper {
-    inline-size: 100%;
-    flex-direction: column;
-  }
-  main section.spec-wrapper .spec-class {
-    inline-size: 84vw;
-    display: flex;
-    flex-direction: column;
-  }
-  main section.spec-wrapper .spec-class .h3-link {
-    margin-block: 1vh;
-  }
-  main section.spec-wrapper .spec-class p {
-    inline-size: 69vw;
-  }
-  main section.spec-wrapper .spec-class .tech-container {
-    inline-size: 87vw;
-  }
-  main section.spec-wrapper .spec-class .spec-course .h4-link {
-    margin-block: 1vh;
-  }
-  main section#full-stack .pp {
-    inline-size: 100%;
-  }
-  main section#full-stack .pp .tech-container {
-    inline-size: 60vw;
-  }
-}
-@media only screen and (min-device-width: 912px) and (max-device-width: 1368px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
-  header a {
-    font-size: 0.57em;
-  }
-  main section.info {
-    justify-content: flex-start;
-  }
-  main section.info .carosel {
-    block-size: 36vh;
-    inline-size: 30vw;
-    align-items: center;
-  }
-  main section.info .carosel .caption {
-    bottom: 3.7vh;
-  }
-  main section.info .btn-container {
-    bottom: 11em !important;
-  }
-  main section.info section.bio-container {
-    inline-size: 52vw;
-    margin-inline-start: 6vw;
-  }
-  main section.info section.bio-container h2 {
-    font-size: 2em;
-    text-align: center;
-  }
-  main section.info section.bio-container nav.bio-link button.bio-btn {
-    font-size: 1em;
-  }
-  main section.info section.bio-container section.bio-content {
-    inline-size: 60vw;
-  }
-  main section.info section.bio-container section.bio-content h3 {
-    font-size: 1.5em;
-  }
-  main section.info section.bio-container section.bio-content p {
-    font-size: 1em;
-    inline-size: 57vw;
-  }
-  main section.info section.bio-container div.btn-container {
-    bottom: 39em;
-  }
-  main section.spec-wrapper {
-    inline-size: 100%;
-    flex-direction: column;
-  }
-  main section.spec-wrapper .spec-class {
-    inline-size: 84vw;
-    display: flex;
-    flex-direction: column;
-  }
-  main section.spec-wrapper .spec-class .h3-link {
-    margin-block: 1vh;
-  }
-  main section.spec-wrapper .spec-class p {
-    inline-size: 69vw;
-  }
-  main section.spec-wrapper .spec-class .tech-container {
-    inline-size: 87vw;
-  }
-  main section.spec-wrapper .spec-class .spec-course .h4-link {
-    margin-block: 1vh;
-  }
-  main section#full-stack .pp {
-    inline-size: 100%;
-  }
-  main section#full-stack .pp .tech-container {
-    inline-size: 60vw;
-  }
-}
-@media only screen and (min-device-width: 540px) and (max-device-width: 720px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
-  header a {
-    font-size: 0.57em;
-  }
-  main section.info {
-    justify-content: center;
-  }
-  main section.info .carosel {
-    block-size: 47vh;
-    inline-size: 30vw;
-    align-items: center;
-  }
-  main section.info .carosel .caption {
-    bottom: 3em;
-  }
-  main section.info .btn-container {
-    bottom: 11em !important;
-  }
-  main section.info section.bio-container {
-    inline-size: 52vw;
-    margin-inline-start: 6vw;
-  }
-  main section.info section.bio-container h2 {
-    font-size: 2em;
-    text-align: center;
-  }
-  main section.info section.bio-container nav.bio-link button.bio-btn {
-    font-size: 1em;
-  }
-  main section.info section.bio-container section.bio-content {
-    inline-size: 60vw;
-  }
-  main section.info section.bio-container section.bio-content h3 {
-    font-size: 1.5em;
-  }
-  main section.info section.bio-container section.bio-content p {
-    font-size: 1em;
-    inline-size: 57vw;
-  }
-  main section.info section.bio-container div.btn-container {
-    bottom: 39em;
-  }
-  main section.spec-wrapper {
-    inline-size: 100%;
-    flex-direction: column;
-  }
-  main section.spec-wrapper .spec-class {
-    inline-size: 84vw;
-    display: flex;
-    flex-direction: column;
-  }
-  main section.spec-wrapper .spec-class .h3-link {
-    margin-block: 1vh;
-  }
-  main section.spec-wrapper .spec-class p {
-    inline-size: 69vw;
-  }
-  main section.spec-wrapper .spec-class .tech-container {
-    inline-size: 87vw;
-  }
-  main section.spec-wrapper .spec-class .spec-course .h4-link {
-    margin-block: 1vh;
-  }
-  main section#full-stack .pp {
-    inline-size: 100%;
-  }
-  main section#full-stack .pp .tech-container {
-    inline-size: 60vw;
-  }
-}
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
   header .slogan-wrapper {
     font-size: 2.36vw;
@@ -2067,7 +975,110 @@ div.tech-ui-ux {
     block-size: 3vh !important;
   }
 }
-@media only screen and (min-device-width: 480px) and (max-device-width: 320px) and (orientation: portrait) {
+@media only screen and (min-device-width: 1274px) and (max-device-width: 768px) and (orientation: landscape) {
+  header .slogan-wrapper {
+    font-size: 2.09vw;
+  }
+  header a {
+    font-size: 0.57em !important;
+  }
+  main section.info {
+    justify-content: space-around !important;
+  }
+  main section.info .carosel {
+    inline-size: 30vw !important;
+  }
+  main section.info .btn-container {
+    bottom: 35vw !important;
+  }
+  main section.info .btn-container button.img-btn {
+    font-size: 2em !important;
+  }
+  main section.info .caption {
+    bottom: 6.5vh !important;
+  }
+  main section.info .caption div.btn-container {
+    bottom: 27vh !important;
+  }
+  main section.info .caption .img-btn {
+    font-size: 6vw !important;
+  }
+  main section.info section.bio-container {
+    margin-block: 13vh;
+    margin-inline: 0 !important;
+    inline-size: 50vw !important;
+  }
+  main section.info section.bio-container h2 {
+    font-size: 2em !important;
+    text-align: center !important;
+  }
+  main section.info section.bio-container nav.bio-bar button.bio-btn {
+    font-size: 1.5vw !important;
+  }
+  main section.info section.bio-container section.bio-content {
+    inline-size: 86vw !important;
+  }
+  main section.info section.bio-container section.bio-content h3 {
+    font-size: 3vw !important;
+  }
+  main section.info section.bio-container section.bio-content p {
+    font-size: 1em !important;
+  }
+  main section.info section.bio-container div.btn-container {
+    bottom: 39em !important;
+  }
+  main section.info section.bio-container nav.ext-bar a {
+    margin: 0;
+  }
+  main h2.msg {
+    text-align: center;
+  }
+  main section#spec-container .spec-class {
+    inline-size: 50% !important;
+  }
+  main section#spec-container p {
+    inline-size: 40% !important;
+    font-size: 1em !important;
+  }
+  main section#spec-container .h4-link {
+    margin: 0;
+    font-size: 3vw !important;
+  }
+  main section#full-stack form.flex-wrap-row-justify-center {
+    inline-size: 50% !important;
+    justify-content: space-evenly !important;
+  }
+  main section#full-stack .pp {
+    inline-size: 23vw !important;
+    background-size: 9vw !important;
+  }
+  main section#full-stack .pp .tech-container {
+    inline-size: 56vw;
+  }
+  main section#full-stack .pp .tech-wrapper {
+    inline-size: 23vw !important;
+  }
+  main section#full-stack .pp h3 {
+    font-size: 1.2em !important;
+    inline-size: 100% !important;
+  }
+  main section#full-stack .pp p {
+    margin-inline: auto !important;
+    font-size: 1em !important;
+    inline-size: 17vw !important;
+  }
+  main section#full-stack .pp .img-wrapper {
+    block-size: 4vh !important;
+    inline-size: 100% !important;
+    margin-inline: 2vw;
+  }
+  main section#full-stack .pp .img-svg {
+    top: 2vh !important;
+    right: 3vw !important;
+    block-size: 3vh !important;
+  }
+}
+@media only screen and (min-device-width: 480px) and (max-device-width: 320px) and (orientation: landscape) {
   header .slogan-wrapper {
     font-size: 2.8vw;
   }
@@ -2138,7 +1149,7 @@ div.tech-ui-ux {
     block-size: 7vh !important;
   }
 }
-@media only screen and (min-device-width: 1024px) and (max-device-width: 600px) and (orientation: portrait) {
+@media only screen and (min-device-width: 1024px) and (max-device-width: 600px) and (orientation: landscape) {
   header .slogan-wrapper {
     font-size: 2.09vw;
   }

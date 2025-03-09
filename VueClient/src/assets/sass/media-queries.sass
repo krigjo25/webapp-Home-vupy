@@ -1,7 +1,7 @@
 // Media Queries Portrait
-@import media_queries/iphone-media-query
-@import media_queries/samsung-media-query
-@import media_queries/microsoft-media-query
+//@import media_queries/iphone-media-query
+//@import media_queries/samsung-media-query
+//@import media_queries/microsoft-media-query
 
 //  Breakpoints
 $iphone-width: 320px
@@ -10,6 +10,9 @@ $iphone-height: 480px
 
 $tablet-width: 600px
 $tablet-height: 1024px
+
+$wideScreen-width: 1274px
+$wideScreen-height: 768px
 
 $Ipad-width: 768px
 $Ipad-height: $tablet-height
@@ -169,9 +172,123 @@ $Ipad-height: $tablet-height
                     left: 2vw !important
                     block-size: 3vh !important
 
+@media only screen and (min-device-width: $wideScreen-width) and (max-device-width: $wideScreen-height)  and (orientation: landscape)
+    header 
+        .slogan-wrapper 
+            font-size: 2.09vw
+        a
+            font-size: 0.57em !important
+
+    main
+        section.info
+
+            justify-content: space-around !important
+
+            .carosel
+                inline-size: 30vw !important
+
+            .btn-container
+                bottom: 35vw !important
+
+                button.img-btn
+                    font-size: 2em !important
+            
+            .caption
+                bottom: 6.5vh !important
+
+                div.btn-container
+                    bottom: 27vh !important
+
+                .img-btn
+                    font-size: 6vw !important
+
+            section.bio-container
+                margin-block: 13vh
+                margin-inline: 0 !important
+                inline-size: 50vw !important
+
+                h2
+                    font-size: 2em !important
+                    text-align: center !important
+
+                nav.bio-bar
+
+                    button.bio-btn
+                        font-size: 1.5vw !important
+
+                section.bio-content
+                    inline-size: 86vw !important
+                    
+
+                    h3
+                        font-size: 3vw !important
+
+                    p
+                        font-size: 1em !important          
+
+                div.btn-container
+                    bottom: 39em !important
+
+                nav.ext-bar
+                    
+                    a
+                        margin: 0
+
+        h2.msg
+            text-align: center
+
+        section#spec-container
+            .spec-class
+                inline-size: 50% !important
+            
+            p
+                inline-size: 40% !important
+                font-size: 1em !important
+
+            .h4-link
+                margin: 0
+                font-size: 3vw !important
+
+        section#full-stack
+
+            form.flex-wrap-row-justify-center
+                inline-size: 50% !important
+                justify-content: space-evenly !important
+
+            .pp
+                inline-size: 23vw !important
+                background-size: 9vw !important
+
+                .tech-container
+                    inline-size: 56vw
+
+                .tech-wrapper
+                    inline-size: 23vw !important
+                
+                h3
+                    font-size: 1.2em !important
+                    inline-size: 100% !important
+
+                p
+                    margin-inline: auto !important
+                    font-size: 1em !important
+                    inline-size: 17vw !important
+                    
+
+                .img-wrapper
+                    block-size: 4vh !important
+                    inline-size: 100% !important
+                    margin-inline: 2vw
+
+                .img-svg
+                    top: 2vh !important
+                    right : 3vw !important
+
+                    block-size: 3vh !important
+
 
 //  Landscape
-@media only screen and (min-device-width: $iphone-height) and (max-device-width: $iphone-width) and (orientation: portrait)
+@media only screen and (min-device-width: $iphone-height) and (max-device-width: $iphone-width) and (orientation: landscape)
     header 
         .slogan-wrapper 
             font-size: 2.8vw
@@ -250,7 +367,7 @@ $Ipad-height: $tablet-height
                     position: relative
                     block-size: 7vh !important
                     
-@media only screen and (min-device-width: $tablet-height) and (max-device-width: $tablet-width)  and (orientation: portrait)
+@media only screen and (min-device-width: $tablet-height) and (max-device-width: $tablet-width)  and (orientation: landscape)
     header 
         .slogan-wrapper 
             font-size: 2.09vw
