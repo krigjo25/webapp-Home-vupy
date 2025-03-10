@@ -17,8 +17,8 @@
         </section>
         <section id="tech-repo" class="flex-wrap-row-justify-center">
             <div class="pp flex-wrap-row" v-for="data in pfolio.displayData" :key="data.id">
-                <div class="tech-container flex-wrap-column ">
-                    <div v-for="lang in data.lang" :key="lang.id" class="img-wrapper flex-wrap-row-space-between">
+                <div class="tech-container flex-wrap-column  ">
+                    <div v-for="lang in data.lang" :key="lang.id" class="img-wrapper flex-wrap-row-space-between relative">
                         <img class="img-svg" :src="'./src/assets/img/techlogo/' + lang.lang + '.svg'" :alt="lang.lang + '.svg'" />
                         <span class="time">
                             <time v-bind:datetime="data.date">{{ data.date }}</time>

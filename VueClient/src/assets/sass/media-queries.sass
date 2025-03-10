@@ -8,10 +8,10 @@ $iphone-width: 320px
 $iphone-height: 480px
 
 $tablet-width: 600px
-$tablet-height: 1024px
+$tablet-height: 800px
 
 $Ipad-width: 768px
-$Ipad-height: $tablet-height
+$Ipad-height: 1024px
 
 $wideScreen-width: 1274px
 $wideScreen-height: $Ipad-width
@@ -21,7 +21,61 @@ $wideScreen-height: $Ipad-width
 @media only screen and (min-width: $iphone-width) and (min-height: $iphone-height) and (orientation: portrait)
     header 
         .slogan-wrapper 
-            font-size: 2.36vw
+            font-size: 2.621vw
+
+    main
+        section.info
+            .carosel
+                block-size: 36vh
+                inline-size: 47vw
+
+                div.btn-container
+                    bottom: 31vh
+                
+                    button.img-btn
+                        font-size: 10vw
+
+            .caption
+                bottom: 10.5vh !important
+
+            section.bio-container
+                nav.bio-bar
+
+                    button.bio-btn
+                        margin-block: 2vh
+
+                section.bio-content
+                    
+
+                    h3
+                        font-size: 1.5em        
+
+        section#tech-repo
+            .pp
+                block-size: 32vh
+
+                .tech-container
+                    .relative
+                        top: -3vh
+                        left: 0vw
+                p
+                    font-size: 0.8em
+                    inline-size: 75vw
+
+                .img-svg
+                    block-size: 5vh
+
+
+        #tech-bar
+            inline-size: 52vw
+
+        form input[type="text"]
+            margin-block-end: 2vh
+
+@media only screen and (min-width: $tablet-width) and (min-height: $tablet-height) and (orientation: portrait)
+    header 
+        .slogan-wrapper 
+            font-size: 1.7vw
 
     main
         section.info
@@ -29,11 +83,14 @@ $wideScreen-height: $Ipad-width
                 block-size: 36vh
                 inline-size: 47vw !important
 
-            .caption
-                bottom: 11.5vh !important
+                .caption
+                    bottom: 6.2vh !important
 
                 div.btn-container
-                    bottom: 35vh !important
+                    bottom: 29vh !important
+
+                    button.img-btn
+                        font-size: 6vw !important
 
             section.bio-container
                 margin-block: 13vh !important
@@ -65,119 +122,31 @@ $wideScreen-height: $Ipad-width
 
         section#tech-repo
             .pp
-                block-size: 32vh
+                block-size: 17vh
+                inline-size: 53vw 
+                background-size: 16vw 
 
+                .tech-container
+                    inline-size: 50vw
+
+                    .relative
+                        top: 0vh
+                        left: 2vw
+
+                .img-wrapper
+                    block-size: 2vh
+
+                    .img-svg
+                        block-size: 3vh
                 p
-                    font-size: 0.8em !important
-                    inline-size: 60vw !important
-
-                .img-svg
-                    block-size: 5vh !important
-
+                    font-size: 0.8em
+                    inline-size: 43vw 
 
         #tech-bar
             inline-size: 52vw
 
         form input[type="text"]
             margin-block-end: 2vh
-
-@media only screen and (min-width: $tablet-width) and (min-height: $tablet-height) and (orientation: portrait)
-    header 
-        .slogan-wrapper 
-            font-size: 2.09vw
-
-        a
-            font-size: 0.57em !important
-
-    main
-        section.info
-
-            .carosel
-                block-size: 36vh
-                inline-size: 47vw !important
-
-            .caption
-                bottom: 6.5vh !important
-
-
-                div.btn-container
-                    bottom: 19vh !important
-                
-                img
-                    inline-size: 100%
-
-                .img-btn
-                    font-size: 7vw !important
-
-            section.bio-container
-                margin-block: 13vh
-                margin-inline: 0 !important
-
-                h2
-                    font-size: 2em !important
-                    text-align: center !important
-
-                nav.bio-bar
-                    button.bio-btn
-                        font-size: 2.4vw !important
-
-                section.bio-content
-                    h3
-                        font-size: 1.5em !important
-
-                    p
-                        font-size: 3vw !important         
-
-                div.btn-container
-                    bottom: 39em !important
-
-                nav.ext-bar
-                    a
-                        margin: 0
-
-        div.msg
-            
-            h2
-                text-align: center
-                font-size: 6vw
-
-        section#spec-container
-            
-            .spec-wrapper
-                display: flex   !important
-                flex-wrap: wrap !important
-                flex-direction: row !important
-                justify-content: space-evenly !important
-
-            .spec-class
-
-                p
-                    inline-size: 100% !important
-                    font-size: 2.5vw !important
-        
-        section#tech-repo
-            .pp
-                block-size: 100%
-                inline-size: 44vw !important
-                background-size: 14vw !important
-
-                .tech-wrapper
-                    inline-size: 23vw !important
-
-                p
-                    font-size: 3vw !important
-                    inline-size: 43vw !important
-                    margin-inline: 1vw !important
-
-                .img-wrapper
-                    block-size: 4vh !important
-                    inline-size: 100% !important
-
-                .img-svg
-                    top: 1vh !important
-                    left: 2vw !important
-                    block-size: 3vh !important
-
 
 //  Landscape
 @media only screen and (min-device-width: $iphone-height) and (max-device-width: $iphone-width) and (orientation: landscape)
@@ -259,12 +228,11 @@ $wideScreen-height: $Ipad-width
                     position: relative
                     block-size: 7vh !important
                     
-@media only screen and (min-device-width: $tablet-height) and (max-device-width: $tablet-width)  and (orientation: landscape)
+@media only screen and (min-device-width: $tablet-height) and (max-device-width: $tablet-width)  and (orientation: landscape) 
+    
     header 
         .slogan-wrapper 
-            font-size: 2.09vw
-        a
-            font-size: 0.57em !important
+            font-size: 2.8vw
 
     main
         section.info
@@ -460,6 +428,10 @@ $wideScreen-height: $Ipad-width
                 .tech-container
                     inline-size: 56vw
 
+                    .relative
+                        top: 0vh
+                        left: -1vw
+
                 .tech-wrapper
                     inline-size: 23vw
                 
@@ -468,19 +440,17 @@ $wideScreen-height: $Ipad-width
                     inline-size: 100% 
 
                 p
-                    margin-inline: auto 
                     font-size: 1em 
-                    inline-size: 17vw 
+                    inline-size: 19vw 
+                    margin-inline: 3vw
                     
 
                 .img-wrapper
                     block-size: 2vh
-                    inline-size: 19vw 
+                    inline-size: 21vw 
                     margin-inline: 2vw
 
                 .img-svg
-                    top: 0vh
-                    left : -1vw
                     block-size: 3vh
 
         .flex-wrap-column-align-content-center
