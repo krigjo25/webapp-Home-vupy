@@ -1,7 +1,7 @@
 
 
 <template>
-    <header>
+    <header class="flex-wrap-row">
         <Header/>
     </header>
     <main>

@@ -1,21 +1,21 @@
 <template>
     <section id="fullstack" v-if="pfolio.Loaded" class="flex-wrap-column">
         <h2>Technical Repositories</h2>
-        <div class="flex-wrap-column-justify-space-between">
-            <Navigation class='justify-content-space-evently-row':data="pfolio.Total" @update="pfolio.current = $event" v-if="pfolio.Total"/>
+        <section class="flex-wrap-column-align-content-center">
+            <Navigation id="tech-bar" class='flex-wrap-row-space-evenly':data="pfolio.Total" @update="pfolio.current = $event" v-if="pfolio.Total"/>
             <form class="flex-wrap-row-justify-center">
-                <select v-if = "pfolio.type">
-                    <option v-for="type in pfolio.type" :key="type.id">{{ type.type}}</option>
+                <select v-if = "pfolio.lang" placeholder="Choose a type" v-model="filter.lang">
+                    <option value="">Project Type</option>
+                    <option v-for="type in pfolio.type" :key="type.id" value="{{ type }}">{{ type.type}}</option>
                 </select>
                 <input type='text' name="search" v-model="filter.name" placeholder="Search" />
-                <label for="language" v-if="pfolio.lang">Language:</label>
                 <select v-if = "pfolio.lang">
-                    <option v-for="lang in pfolio.lang" :key="lang.id">{{ lang.lang}}</option>
+                    <option value="">Project Language</option>
+                    <option v-for="lang in pfolio.lang" :key="lang.id" value="{{ lang.lang}}">{{ lang.lang}}</option>
                 </select>
             </form>
-        </div>
-        
-        <div class="flex-wrap-row-justify-center">
+        </section>
+        <section id="tech-repo" class="flex-wrap-row-justify-center">
             <div class="pp flex-wrap-row" v-for="data in pfolio.displayData" :key="data.id">
                 <div class="tech-container flex-wrap-column ">
                     <div v-for="lang in data.lang" :key="lang.id" class="img-wrapper flex-wrap-row-space-between">
@@ -32,7 +32,7 @@
                         
                 </div>
             </div>
-        </div>
+        </section>
     </section>
     <section id="fullstack" class="loading" v-else>
         <h2>Technical Portefolio</h2>

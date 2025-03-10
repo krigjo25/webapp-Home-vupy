@@ -92,7 +92,7 @@ flex-row, .flex-row {
   flex-direction: row;
 }
 
-flex-wrap-row, main section.info section.bio-container nav.bio-bar, .align-items-flex-end-row, .align-items-center-row, .align-content-center-row, .justify-content-space-evently-row, .justify-flexstart-row, .flex-wrap-row-justify-center, .flex-wrap-row-space-around, .flex-wrap-row-space-between, .flex-wrap-row-space-evenly, .flex-wrap-row {
+flex-wrap-row, main section.info section.bio-container nav.bio-bar, .flex-wrap-row-align-items-end, .flex-wrap-row-justify-center, .flex-wrap-row-justify-space-around, .flex-wrap-row-justify-space-between, .flex-wrap-row-space-between, .flex-wrap-row-space-evenly, .flex-wrap-row {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -104,17 +104,6 @@ flex-wrap-reversed-row, .flex-reversed-row {
   flex-direction: row-reverse;
 }
 
-flex-column, main section.info .carosel {
-  display: flex;
-  flex-direction: column;
-}
-
-flex-wrap-column, .flex-wrap-column, .flex-column {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-}
-
 .flex-wrap-row-space-evenly {
   justify-content: space-evenly;
 }
@@ -123,7 +112,26 @@ flex-wrap-column, .flex-wrap-column, .flex-column {
   justify-content: space-between;
 }
 
-.flex-wrap-row-space-around {
+flex-column, main section.info .carosel {
+  display: flex;
+  flex-direction: column;
+}
+
+flex-wrap-column, .flex-wrap-column-align-content-center, .flex-wrap-column, .flex-column {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.flex-wrap-column-align-content-center {
+  align-content: center;
+}
+
+.flex-wrap-row-justify-space-between {
+  justify-content: space-between;
+}
+
+.flex-wrap-row-justify-space-around {
   justify-content: space-around;
 }
 
@@ -131,23 +139,7 @@ flex-wrap-column, .flex-wrap-column, .flex-column {
   justify-content: center;
 }
 
-.justify-flexstart-row {
-  justify-content: flex-start;
-}
-
-.justify-content-space-evently-row {
-  justify-content: space-evenly;
-}
-
-.align-content-center-row {
-  align-content: center;
-}
-
-.align-items-center-row {
-  align-items: center;
-}
-
-.align-items-flex-end-row {
+.flex-wrap-row-align-items-end {
   align-items: flex-end;
 }
 
@@ -255,7 +247,7 @@ flex-row, .flex-row {
   flex-direction: row;
 }
 
-flex-wrap-row, .flex-wrap-row, .flex-wrap-row-space-evenly, .flex-wrap-row-space-between, .flex-wrap-row-space-around, .flex-wrap-row-justify-center, .justify-flexstart-row, .justify-content-space-evently-row, .align-content-center-row, .align-items-center-row, .align-items-flex-end-row, main section.info section.bio-container nav.bio-bar {
+flex-wrap-row, .flex-wrap-row, .flex-wrap-row-space-evenly, .flex-wrap-row-space-between, .flex-wrap-row-justify-space-between, .flex-wrap-row-justify-space-around, .flex-wrap-row-justify-center, .flex-wrap-row-align-items-end, main section.info section.bio-container nav.bio-bar {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -267,17 +259,6 @@ flex-wrap-reversed-row, .flex-reversed-row {
   flex-direction: row-reverse;
 }
 
-flex-column, main section.info .carosel {
-  display: flex;
-  flex-direction: column;
-}
-
-flex-wrap-column, .flex-column, .flex-wrap-column {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-}
-
 .flex-wrap-row-space-evenly {
   justify-content: space-evenly;
 }
@@ -286,7 +267,26 @@ flex-wrap-column, .flex-column, .flex-wrap-column {
   justify-content: space-between;
 }
 
-.flex-wrap-row-space-around {
+flex-column, main section.info .carosel {
+  display: flex;
+  flex-direction: column;
+}
+
+flex-wrap-column, .flex-column, .flex-wrap-column, .flex-wrap-column-align-content-center {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.flex-wrap-column-align-content-center {
+  align-content: center;
+}
+
+.flex-wrap-row-justify-space-between {
+  justify-content: space-between;
+}
+
+.flex-wrap-row-justify-space-around {
   justify-content: space-around;
 }
 
@@ -294,23 +294,7 @@ flex-wrap-column, .flex-column, .flex-wrap-column {
   justify-content: center;
 }
 
-.justify-flexstart-row {
-  justify-content: flex-start;
-}
-
-.justify-content-space-evently-row {
-  justify-content: space-evenly;
-}
-
-.align-content-center-row {
-  align-content: center;
-}
-
-.align-items-center-row {
-  align-items: center;
-}
-
-.align-items-flex-end-row {
+.flex-wrap-row-align-items-end {
   align-items: flex-end;
 }
 
@@ -582,28 +566,30 @@ div.tech-ui-ux {
   text-align: center;
 }
 
-section#fullstack h2 {
+h2 {
   text-align: center;
 }
-section#fullstack button.tech-btn {
+
+button.tech-btn {
   border: none;
   padding: 1em;
   border-radius: 10px;
   background-color: rgb(75, 160, 160);
 }
-section#fullstack button.tech-btn:disabled {
+button.tech-btn:disabled {
   color: rgb(40, 40, 40);
   cursor: not-allowed;
   background-color: rgb(245, 245, 245) !important;
 }
-section#fullstack button.tech-btn:hover {
-  background-color: rgb(99, 182, 182);
+button.tech-btn:hover {
   transition: 0.5s;
+  background-color: rgb(99, 182, 182);
 }
-section#fullstack button.tech-btn:active {
+button.tech-btn:active {
   background-color: rgb(57, 122, 122);
 }
-section#fullstack .pp {
+
+.pp {
   margin: 1em;
   block-size: 100%;
   inline-size: 100%;
@@ -612,32 +598,32 @@ section#fullstack .pp {
   box-shadow: 4px 4px 20px 4px rgb(40, 40, 40);
   background-image: url(../assets/img/businessCard/topper-left-corner.svg);
 }
-section#fullstack .pp .tech-container {
+.pp .tech-container {
   justify-content: center;
   inline-size: 100%;
 }
-section#fullstack .pp .img-svg {
+.pp .img-svg {
   top: 3vh;
   left: 4vw;
   position: relative;
   block-size: 7vh;
 }
-section#fullstack .pp .img-wrapper {
+.pp .img-wrapper {
   block-size: 9vh;
   inline-size: 100%;
 }
-section#fullstack .pp h3 {
+.pp h3 {
   text-align: center;
   margin-block: 0vh 1vh;
 }
-section#fullstack .pp p {
+.pp p {
   font-size: 5vw;
   margin-block: 0;
   inline-size: 74vw;
   text-align: center;
   margin-inline: 5vw;
 }
-section#fullstack span.time {
+.pp span.time {
   font-size: 0.8em;
   font-weight: 300;
   display: contents;
@@ -646,42 +632,35 @@ section#fullstack span.time {
   margin-inline: 0.3em;
   justify-content: end;
 }
-section#fullstack a:link, section#fullstack a:visited {
+.pp a:link, .pp a:visited {
   color: inherit;
 }
-section#fullstack form.tech-btn {
+.pp form.tech-btn {
   padding: 0.5em;
   border-radius: 10px;
   background-color: rgb(75, 160, 160);
   border: 1px solid rgb(255, 255, 255);
 }
-section#fullstack form.tech-btn:hover {
+.pp form.tech-btn:hover {
   transition: 1s;
   background-color: rgba(75, 160, 160, 0.8);
   transform: scale(1.2);
 }
-section#fullstack .pro-nav {
+.pp .pro-nav {
   padding: 1em;
   padding: 0.5em;
 }
-section#fullstack .pro-nav .pro-nav.tech-btn {
+.pp .pro-nav .tech-btn {
   padding: 0.5em;
   border-radius: 10px;
   border: 1px solid rgb(255, 255, 255);
 }
-section#fullstack .pro-nav .pro-nav.tech-btn:hover {
+.pp .pro-nav .tech-btn:hover {
   transition: 1s;
   background-color: rgb(103, 58, 183);
   transform: scale(1.2);
 }
-section#fullstack:hover {
-  transform: scale(1.02);
-}
-section#fullstack .tech-wrapper {
-  margin-inline: 0.3em;
-  background-color: rgb(245, 245, 245) !important;
-}
-section#fullstack span.tech-label {
+.pp span.tech-label {
   padding: 1vw;
   font-size: 0.9em;
   font-weight: 300;
@@ -842,7 +821,7 @@ div.tech-ui-ux {
   border-radius: 10px;
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (min-height: 480px) and (orientation: portrait) {
   header .slogan-wrapper {
     font-size: 2.36vw;
   }
@@ -881,18 +860,24 @@ div.tech-ui-ux {
   main section.info section.bio-container div.btn-container {
     bottom: 36vh !important;
   }
-  main section#full-stack .pp {
+  main section#tech-repo .pp {
     block-size: 32vh;
   }
-  main section#full-stack .pp p {
+  main section#tech-repo .pp p {
     font-size: 0.8em !important;
     inline-size: 60vw !important;
   }
-  main section#full-stack .pp .img-svg {
+  main section#tech-repo .pp .img-svg {
     block-size: 5vh !important;
   }
+  main #tech-bar {
+    inline-size: 52vw;
+  }
+  main form input[type=text] {
+    margin-block-end: 2vh;
+  }
 }
-@media only screen and (min-device-width: 600px) and (max-device-width: 1024px) and (orientation: portrait) {
+@media only screen and (min-width: 600px) and (min-height: 1024px) and (orientation: portrait) {
   header .slogan-wrapper {
     font-size: 2.09vw;
   }
@@ -952,129 +937,26 @@ div.tech-ui-ux {
     inline-size: 100% !important;
     font-size: 2.5vw !important;
   }
-  main section#full-stack .pp {
+  main section#tech-repo .pp {
     block-size: 100%;
-    inline-size: 44vw;
-    background-size: 14vw;
+    inline-size: 44vw !important;
+    background-size: 14vw !important;
   }
-  main section#full-stack .pp .tech-wrapper {
+  main section#tech-repo .pp .tech-wrapper {
     inline-size: 23vw !important;
   }
-  main section#full-stack .pp p {
+  main section#tech-repo .pp p {
     font-size: 3vw !important;
     inline-size: 43vw !important;
     margin-inline: 1vw !important;
   }
-  main section#full-stack .pp .img-wrapper {
+  main section#tech-repo .pp .img-wrapper {
     block-size: 4vh !important;
     inline-size: 100% !important;
   }
-  main section#full-stack .pp .img-svg {
+  main section#tech-repo .pp .img-svg {
     top: 1vh !important;
     left: 2vw !important;
-    block-size: 3vh !important;
-  }
-}
-@media only screen and (min-device-width: 1274px) and (max-device-width: 768px) and (orientation: landscape) {
-  header .slogan-wrapper {
-    font-size: 2.09vw;
-  }
-  header a {
-    font-size: 0.57em !important;
-  }
-  main section.info {
-    justify-content: space-around !important;
-  }
-  main section.info .carosel {
-    inline-size: 30vw !important;
-  }
-  main section.info .btn-container {
-    bottom: 35vw !important;
-  }
-  main section.info .btn-container button.img-btn {
-    font-size: 2em !important;
-  }
-  main section.info .caption {
-    bottom: 6.5vh !important;
-  }
-  main section.info .caption div.btn-container {
-    bottom: 27vh !important;
-  }
-  main section.info .caption .img-btn {
-    font-size: 6vw !important;
-  }
-  main section.info section.bio-container {
-    margin-block: 13vh;
-    margin-inline: 0 !important;
-    inline-size: 50vw !important;
-  }
-  main section.info section.bio-container h2 {
-    font-size: 2em !important;
-    text-align: center !important;
-  }
-  main section.info section.bio-container nav.bio-bar button.bio-btn {
-    font-size: 1.5vw !important;
-  }
-  main section.info section.bio-container section.bio-content {
-    inline-size: 86vw !important;
-  }
-  main section.info section.bio-container section.bio-content h3 {
-    font-size: 3vw !important;
-  }
-  main section.info section.bio-container section.bio-content p {
-    font-size: 1em !important;
-  }
-  main section.info section.bio-container div.btn-container {
-    bottom: 39em !important;
-  }
-  main section.info section.bio-container nav.ext-bar a {
-    margin: 0;
-  }
-  main h2.msg {
-    text-align: center;
-  }
-  main section#spec-container .spec-class {
-    inline-size: 50% !important;
-  }
-  main section#spec-container p {
-    inline-size: 40% !important;
-    font-size: 1em !important;
-  }
-  main section#spec-container .h4-link {
-    margin: 0;
-    font-size: 3vw !important;
-  }
-  main section#full-stack form.flex-wrap-row-justify-center {
-    inline-size: 50% !important;
-    justify-content: space-evenly !important;
-  }
-  main section#full-stack .pp {
-    inline-size: 23vw !important;
-    background-size: 9vw !important;
-  }
-  main section#full-stack .pp .tech-container {
-    inline-size: 56vw;
-  }
-  main section#full-stack .pp .tech-wrapper {
-    inline-size: 23vw !important;
-  }
-  main section#full-stack .pp h3 {
-    font-size: 1.2em !important;
-    inline-size: 100% !important;
-  }
-  main section#full-stack .pp p {
-    margin-inline: auto !important;
-    font-size: 1em !important;
-    inline-size: 17vw !important;
-  }
-  main section#full-stack .pp .img-wrapper {
-    block-size: 4vh !important;
-    inline-size: 100% !important;
-    margin-inline: 2vw;
-  }
-  main section#full-stack .pp .img-svg {
-    top: 2vh !important;
-    right: 3vw !important;
     block-size: 3vh !important;
   }
 }
@@ -1123,26 +1005,26 @@ div.tech-ui-ux {
   main section.info section.bio-container nav.ext-bar a {
     margin: 0;
   }
-  main section#full-stack .pp {
+  main section#tech-repo .pp {
     inline-size: 53vw !important;
     background-size: 21vw !important;
   }
-  main section#full-stack .pp .tech-container {
-    inline-size: 73vw;
+  main section#tech-repo .pp .tech-container {
+    inline-size: 73vw !important;
   }
-  main section#full-stack .pp .tech-wrapper {
+  main section#tech-repo .pp .tech-wrapper {
     inline-size: 23vw !important;
   }
-  main section#full-stack .pp p {
+  main section#tech-repo .pp p {
     font-size: 3vw !important;
     inline-size: 44vw !important;
     margin-inline: 7vw !important;
   }
-  main section#full-stack .pp .img-wrapper {
+  main section#tech-repo .pp .img-wrapper {
     block-size: 11vh !important;
     margin: 3vh 4vh 0vh 3vw !important;
   }
-  main section#full-stack .pp .img-svg {
+  main section#tech-repo .pp .img-svg {
     top: 5vh;
     left: 4vw;
     position: relative;
@@ -1245,12 +1127,128 @@ div.tech-ui-ux {
     block-size: 4vh !important;
   }
 }
+@media only screen and (min-device-width: 1274px) and (min-height: 768px) {
+  header .slogan-wrapper {
+    font-size: 0.57vw;
+  }
+  main section.info {
+    justify-content: space-around !important;
+  }
+  main section.info .carosel {
+    inline-size: 30vw !important;
+  }
+  main section.info .btn-container {
+    bottom: 21vw !important;
+  }
+  main section.info .btn-container button.img-btn {
+    font-size: 2em !important;
+  }
+  main section.info .caption {
+    bottom: 5.4vh !important;
+  }
+  main section.info .caption div.btn-container {
+    bottom: 27vh !important;
+  }
+  main section.info .caption .img-btn {
+    font-size: 6vw !important;
+  }
+  main section.info section.bio-container {
+    margin-block: 13vh;
+    margin-inline: 0 !important;
+    inline-size: 50vw !important;
+  }
+  main section.info section.bio-container h2 {
+    font-size: 2em !important;
+    text-align: center !important;
+  }
+  main section.info section.bio-container nav.bio-bar button.bio-btn {
+    font-size: 1.2vw !important;
+  }
+  main section.info section.bio-container section.bio-content {
+    inline-size: 100% !important;
+  }
+  main section.info section.bio-container section.bio-content h3 {
+    font-size: 3vw !important;
+  }
+  main section.info section.bio-container section.bio-content p {
+    font-size: 1em !important;
+  }
+  main section.info section.bio-container div.btn-container {
+    bottom: 39em !important;
+  }
+  main section.info section.bio-container nav.ext-bar a {
+    margin: 0;
+  }
+  main h2.msg {
+    text-align: center;
+  }
+  main section#spec-container .spec-wrapper {
+    margin-block: 5vh;
+    justify-content: flex-end;
+  }
+  main section#spec-container .spec-class {
+    inline-size: 27vw;
+  }
+  main section#spec-container p {
+    inline-size: 27vw;
+    font-size: 1.2em;
+  }
+  main section#spec-container .h4-link {
+    margin: 0;
+    font-size: 1vw;
+  }
+  main section#spec-container .spec-course {
+    display: block;
+  }
+  main section#tech-repo .pp {
+    block-size: 17vh;
+    inline-size: 23vw;
+    background-size: 6vw;
+  }
+  main section#tech-repo .pp .tech-container {
+    inline-size: 56vw;
+  }
+  main section#tech-repo .pp .tech-wrapper {
+    inline-size: 23vw;
+  }
+  main section#tech-repo .pp h3 {
+    font-size: 1.2em;
+    inline-size: 100%;
+  }
+  main section#tech-repo .pp p {
+    margin-inline: auto;
+    font-size: 1em;
+    inline-size: 17vw;
+  }
+  main section#tech-repo .pp .img-wrapper {
+    block-size: 2vh;
+    inline-size: 19vw;
+    margin-inline: 2vw;
+  }
+  main section#tech-repo .pp .img-svg {
+    top: 0vh;
+    left: -1vw;
+    block-size: 3vh;
+  }
+  main .flex-wrap-column-align-content-center #tech-bar {
+    inline-size: 52vw;
+  }
+  main .flex-wrap-column-align-content-center form input[type=text] {
+    inline-size: 50%;
+    margin-block-end: 2vh;
+  }
+}
 flex-box, footer {
   padding: 1vw;
   display: flex;
   flex-wrap: wrap;
   margin: 1vw auto;
   flex-direction: row;
+}
+
+* {
+  box-sizing: border-box;
+  writing-mode: horizontal-tb;
 }
 
 body {
@@ -1278,7 +1276,6 @@ header a {
   padding: 1em;
   font-weight: 300;
   text-decoration: none;
-  background-color: rgb(254, 254, 254);
 }
 
 footer {

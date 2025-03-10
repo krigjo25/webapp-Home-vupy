@@ -1,6 +1,6 @@
 <template>
-    <a href='/'>
-        <div class="align-items-flex-end-row justify-flexstart-row padding">
+    <div class="k-logo">
+        <a href='/' class="flex-wrap-row-align-items-end">
             <Logo />
             <div class="relative slogan-wrapper">
                 <h1>
@@ -10,8 +10,8 @@
                     <span>Solutions</span>
                 </h1>
             </div>
-        </div>
-    </a>
+        </a>
+    </div>
 </template>
 
 <script setup>

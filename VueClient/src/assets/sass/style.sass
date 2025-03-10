@@ -20,8 +20,13 @@ flex-box
   margin: 1vw auto
   flex-direction: row
 
+*
+    box-sizing: border-box
+    writing-mode: horizontal-tb
+
 body
     background-color: $bg-light
+
 
 nav
     margin: auto
@@ -43,7 +48,6 @@ header
         font-weight: 300
         @extend roboto-font
         text-decoration: none
-        background-color: rgb(254, 254, 254)
 
 footer
     padding: 1vw

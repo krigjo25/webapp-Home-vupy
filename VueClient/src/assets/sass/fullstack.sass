@@ -7,59 +7,59 @@
 .cnn-ctr 
     text-align: center
 
-section#fullstack
-    h2 
-        text-align: center
+h2 
+    text-align: center
     
-    button.tech-btn
+button.tech-btn
 
-        border: none
-        padding: 1em
-        border-radius: 10px
-        background-color: $nav-bar
-        &:disabled
+    border: none
+    padding: 1em
+    border-radius: 10px
+    background-color: $nav-bar
+    
+    &:disabled
             
-            color: $dark-grey
-            cursor: not-allowed
-            background-color: $bg-light !important
+        color: $dark-grey
+        cursor: not-allowed
+        background-color: $bg-light !important
 
-        &:hover
-            background-color: rgba(99, 182, 182, 1)
-            transition: 0.5s
-        &:active
+    &:hover
+        transition: 0.5s
+        background-color: rgba(99, 182, 182, 1)
+        
+
+    &:active
             background-color: rgba(57, 122, 122, 1)
 
-    .pp
-        
-        margin: 1em
-        block-size: 100%
+.pp
+    margin: 1em
+    block-size: 100%
+    inline-size: 100%
+    background-size: 32vw
+    background-repeat: no-repeat
+    box-shadow: 4px 4px 20px 4px $dark-grey
+    background-image: url(../assets/img/businessCard/topper-left-corner.svg)
+
+    .tech-container
+        justify-content: center
         inline-size: 100%
-        background-size: 32vw
-        background-repeat: no-repeat
-        box-shadow: 4px 4px 20px 4px $dark-grey
-        background-image: url(../assets/img/businessCard/topper-left-corner.svg)
 
-        .tech-container
-            justify-content: center
-            inline-size: 100%
-            
+    .img-svg
+        top: 3vh
+        left: 4vw
+        position: relative
 
-        .img-svg
-            top: 3vh
-            left: 4vw
-            position: relative
+        block-size: 7vh
 
-            block-size: 7vh
+    .img-wrapper
+        block-size: 9vh
+        inline-size: 100%
 
-        .img-wrapper
-            block-size: 9vh
-            inline-size: 100%
+    h3
+        text-align: center
+        margin-block: 0vh 1vh
 
-        h3
-            text-align: center
-            margin-block: 0vh 1vh
-
-        p
+    p
             
             font-size: 5vw
             margin-block: 0
@@ -93,7 +93,7 @@ section#fullstack
         padding: 1em
         padding: 0.5em
 
-        .pro-nav.tech-btn
+        .tech-btn
             padding: 0.5em
             border-radius: 10px
             border: 1px solid $white
@@ -102,14 +102,6 @@ section#fullstack
                 transition: 1s
                 background-color: $h4
                 transform: scale(1.2)
-                
-    &:hover
-        transform: scale(1.02)
-    
-
-    .tech-wrapper
-        margin-inline: 0.3em
-        background-color: $bg-light !important
 
     span.tech-label
         padding: 1vw
