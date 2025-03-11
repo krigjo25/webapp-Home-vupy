@@ -15,7 +15,7 @@
                 </select>
             </form>
         </section>
-        <section id="tech-repo" class="flex-wrap-row-justify-center">
+        <section id="tech-repo" class="tech-repo flex-wrap-row-justify-center">
             <div class="pp flex-wrap-row" v-for="data in pfolio.displayData" :key="data.id">
                 <div class="tech-container flex-wrap-column  ">
                     <div v-for="lang in data.lang" :key="lang.id" class="img-wrapper flex-wrap-row-space-between relative">
