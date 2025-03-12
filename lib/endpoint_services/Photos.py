@@ -32,7 +32,7 @@ class PhotoLibrary(MethodView):
             response['status'] = 200
 
             #   Path to the images
-            path = "../src/assets/img/carosel/"
+            path = "/src/assets/img/carosel/"
 
 
             #   Ensure the existance of the path
