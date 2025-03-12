@@ -1,0 +1,454 @@
+//  Media Queries For Apple Devices
+@import breakpoints
+
+//  Media Queries Portrait
+@media only screen and (min-width: $iphone-7-width) and (min-height: $iphone-7-height)  and (orientation: portrait)
+    header 
+        .slogan-wrapper 
+            font-size: .8em !important
+
+    main
+        section.info
+            .carosel
+                .caption
+                    bottom: 7.7vh !important
+
+            div.btn-container
+                bottom: 40vh !important
+
+            section.bio-container
+                margin-block: 13vh
+                margin-inline: 0 !important
+                inline-size: 100% !important
+
+                h2
+                    font-size: 2em !important
+                    text-align: center !important
+
+                nav.bio-bar
+
+                    button.bio-btn
+                        font-size: 1em !important
+
+                section.bio-content
+                    inline-size: 86vw !important
+                    
+
+                    h3
+                        font-size: 1.5em !important
+
+                    p
+                        font-size: 1em !important
+                        inline-size: 86vw !important            
+
+                div.btn-container
+                    bottom: 39em !important
+
+                nav.ext-bar
+                    
+                    a
+                        margin: 0
+
+        section.spec-container
+
+            p
+                inline-size: 100%
+                text-align: justify
+
+        section#tech-repo
+            .pp
+                block-size: 26vh
+
+                .tech-wrapper
+                    inline-size: 23vw !important
+
+
+                .tech-container
+                    .relative
+                        top: -2vh !important
+
+                    .img-wrapper
+                        block-size: 3vh !important
+
+                        .img-svg
+                            block-size: 4vh !important
+
+            .wrap-row-space-between
+                top: 0.7em !important
+                position: relative !important
+                inline-size: 65vw !important
+
+@media only screen and (min-width: $iphone-plus-width) and (min-height: $iphone-plus-height)  and (orientation: portrait)
+    header 
+        .slogan-wrapper 
+            font-size: .8em !important
+
+    main
+        section.info
+            .carosel
+                .caption
+                    bottom: 6.7vh !important
+
+                div.btn-container
+                    bottom: 40vh !important
+
+            section.bio-container
+                margin-block: 0vh !important
+                margin-inline: 0 !important
+                inline-size: 100% !important
+
+                h2
+                    font-size: 2em !important
+                    text-align: center !important
+
+                nav.bio-bar
+
+                    button.bio-btn
+                        font-size: 2em !important
+
+                section.bio-content
+                    inline-size: 86vw !important
+                    
+
+                    h3
+                        font-size: 1.5em !important
+
+                    p
+                        font-size: 1em !important
+                        inline-size: 86vw !important            
+
+                div.btn-container
+                    bottom: 39em !important
+
+                nav.ext-bar
+                    
+                    a
+                        margin: 0
+
+        section.spec-container
+
+            p
+                inline-size: 100%
+                text-align: justify
+
+        section#tech-repo
+            .pp
+                block-size: 23vh !important
+
+                p
+                    font-size: 1em !important
+                    inline-size: 69vw !important
+                    
+                .tech-container
+                    .relative
+                        top: -1vh !important
+                        left: 4vw !important
+
+                    .img-wrapper
+                        block-size: 3vh !important
+
+                        .img-svg
+                            block-size: 4vh !important
+
+            .wrap-row-space-between
+                top: 0.7em !important
+                position: relative !important
+                inline-size: 65vw !important
+
+@media only screen and (min-width: $Ipad-Air-width) and (min-height: $Ipad-Air-height)  and (orientation: portrait)
+    
+    header a
+        font-size: 0.57em 
+
+    main
+        section.info
+            justify-content: flex-start
+
+            .carosel
+                block-size: 36vh
+                inline-size: 30vw 
+                align-items: center
+
+                .caption
+                    bottom: 5.5vh
+
+            .btn-container
+                bottom: 11em !important
+
+            section.bio-container
+                inline-size: 59vw
+                margin-inline-start: 6vw
+
+                h2
+                    font-size: 2em
+                    text-align: center
+
+                nav.bio-link
+
+                    button.bio-btn
+                        font-size: 1em 
+
+                section.bio-content
+                    inline-size: 60vw
+
+                    h3
+                        font-size: 1.5em
+
+                    p
+                        font-size: 1em
+                        inline-size: 57vw            
+
+                div.btn-container
+                    bottom: 39em
+
+        section.spec-wrapper
+            inline-size: 100%
+            flex-direction: column
+
+            .spec-class
+                inline-size: 84vw
+                display: flex
+                flex-direction: column
+    
+                .h3-link
+                    margin-block: 1vh
+                
+                p
+                    inline-size: 69vw
+                    
+
+                .tech-container
+                    inline-size: 87vw
+
+                .spec-course
+                    .h4-link
+                        margin-block: 1vh
+
+        section#full-stack
+            .pp
+                inline-size: 100%
+
+                .tech-container
+                    inline-size: 60vw
+
+@media only screen and (min-width: $Ipad-Pro-width) and (min-height: $Ipad-Pro-height)  and (orientation: portrait)
+    main
+        section.info
+            align-items: center
+            flex-direction: column
+
+            section.carosel
+                inline-size: 46vw !important
+
+
+                .caption
+                    bottom: 3.2em
+
+                .btn-container
+                    bottom: 17em
+
+            section#bio
+                margin: 0
+                inline-size: 80vw
+
+                nav.bio-link
+                    margin: 0
+                    inline-size: 100%
+
+                    .bio-btn
+                        transition: 3s
+                        &:hover
+                            transform: scale(1.1)
+
+                section.bio-content
+                    p
+                        inline-size: 70vw    
+
+        section#specialization-container
+
+            .specialization-class
+                inline-size:  42vw
+            
+                p
+                    inline-size: 42vw
+
+                .specialization-course
+                    
+                    .h4-link
+                        font-size: 1.1em
+                    .tech-container
+                        inline-size: 45vw
+
+        section#full-stack
+
+            .pp
+                inline-size: 70vw
+
+                .tech-container
+                    inline-size: 55vw
+
+//  Media Queries Landscape
+@media only screen and (min-width: $iphone-7-width) and (min-height: $iphone-7-height)  and (orientation: landscape)
+    header 
+        .slogan-wrapper 
+            font-size: .8em !important
+
+    main
+        section.info
+            .carosel
+                inline-size: 53vw !important
+
+                .caption
+                    bottom: 13.2vh !important
+
+                    div.btn-container
+                        bottom: 65em !important
+
+            section.bio-container
+                margin-block-end: 2vh
+                margin-inline: 0 !important
+                inline-size: 100% !important
+
+                h2
+                    font-size: 2em !important
+                    text-align: center !important
+
+                nav.bio-bar
+
+                    button.bio-btn
+                        font-size: 1em !important
+
+                section.bio-content
+                    inline-size: 100% !important
+                    
+
+                    h3
+                        font-size: 1.5em !important
+
+                    p
+                        text-align: justify
+                        font-size: 1em !important        
+
+                div.btn-container
+                    bottom: 39em !important
+
+                nav.ext-bar
+                    
+                    a
+                        margin: 0
+
+        section#spec-container
+
+            .spec-class
+                inline-size: 44vw !important
+            p
+                inline-size: 100%
+                text-align: justify
+
+        section#tech-repo
+            .pp
+                block-size: 26vh
+
+                .tech-wrapper
+                    inline-size: 23vw !important
+                
+                h3
+                    margin-inline-start: 6vw
+                p
+                    inline-size: 28vw !important
+                    margin-inline-end: 0vw !important
+                    margin-inline-start: 7vw !important
+
+                .tech-container
+                    .relative
+                        top: 1vh !important
+
+                    .img-wrapper
+                        block-size: 3vh !important
+
+                        .img-svg
+                            block-size: 6vh !important
+
+            .wrap-row-space-between
+                top: 0.7em !important
+                position: relative !important
+                inline-size: 65vw !important
+
+@media only screen and (min-width: $iphone-plus-width) and (min-height: $iphone-plus-height)  and (orientation: portrait)
+    header 
+        .slogan-wrapper 
+            font-size: .8em !important
+
+    main
+        section.info
+            .carosel
+                .caption
+                    bottom: 12.2vh !important
+
+                div.btn-container
+                    bottom: 71vh !important
+
+
+            section.bio-container
+                margin-block: 0vh !important
+                margin-inline: 0 !important
+                inline-size: 100% !important
+
+                h2
+                    font-size: 2em !important
+                    text-align: center !important
+
+                nav.bio-bar
+
+                    button.bio-btn
+                        font-size: 2em !important
+
+                section.bio-content
+                    inline-size: 86vw !important
+                    
+
+                    h3
+                        font-size: 1.5em !important
+
+                    p
+                        font-size: 1em !important
+                        inline-size: 86vw !important            
+
+                div.btn-container
+                    bottom: 39em !important
+
+                nav.ext-bar
+                    
+                    a
+                        margin: 0
+
+        section.spec-container
+            p
+                inline-size: 100%
+                text-align: justify
+
+        section#tech-repo
+            .pp
+                block-size: 23vh !important
+
+                p
+                    font-size: 1em !important
+                    inline-size: 28vw !important
+                    margin-inline-start: 9vw !important
+                    
+                .tech-container
+                    .relative
+                        top: -1vh !important
+                        left: 4vw !important
+
+                    .img-wrapper
+                        block-size: 3vh !important
+
+                        .img-svg
+                            block-size: 4vh !important
+
+            .wrap-row-space-between
+                top: 0.7em !important
+                position: relative !important
+                inline-size: 65vw !important
+
