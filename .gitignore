@@ -11,8 +11,6 @@ tests/assets/
 
 # Environment variables
 *.env
-*.local
-*.production
 
 #  Log files
 *.log
