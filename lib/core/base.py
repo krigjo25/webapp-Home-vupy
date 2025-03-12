@@ -14,7 +14,8 @@ load_dotenv()
 
 #   Requests repositories
 from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestException
-
+log = ApiWatcher()
+log.FileHandler()
 
 class Database(object):
 
@@ -118,8 +119,7 @@ class APIConfig(object):
         self.PATCH = PATCH
         self.DELETE = DELETE
 
-        self.logging = ApiWatcher()
-        self.logging.FileHandler()
+        self.logging = log
         
 
     def ApiCall(self, endpoint: str, head: dict):
