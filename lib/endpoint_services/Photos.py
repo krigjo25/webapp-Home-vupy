@@ -32,11 +32,11 @@ class PhotoLibrary(MethodView):
             response['status'] = 200
 
             #   Path to the images
-            path = "/src/assets/img/carosel/"
+            path = "src/assets/img/carosel/"
 
 
             #   Ensure the existance of the path
-            if os.path.exists('VueClient' + path):
+            if os.path.exists('VueClient/' + path):
 
                 response['code'] = 200
                 response['images'] = []
@@ -45,7 +45,7 @@ class PhotoLibrary(MethodView):
                 #   Add the images to the response object
                 caption = []
                 
-                for i in os.listdir(f'VueClient{path}'):
+                for i in os.listdir(f'VueClient/{path}'):
 
                     #  Fetch description of the images
                     #caption = ReadImage().fetchDescription(i)

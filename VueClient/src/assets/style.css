@@ -1588,7 +1588,7 @@ div.tech-ui-ux {
     bottom: 32vh !important;
   }
   main section.info .carosel div.btn-container button.img-btn {
-    font-size: 4vw !important;
+    font-size: 3em !important;
   }
   main section.info section.bio-container {
     margin-block: 2vh;
@@ -1660,7 +1660,7 @@ div.tech-ui-ux {
     justify-content: space-around !important;
   }
   main section.info .carosel {
-    inline-size: 30vw !important;
+    inline-size: 23vw !important;
   }
   main section.info .btn-container {
     bottom: 21vw !important;
@@ -1672,10 +1672,10 @@ div.tech-ui-ux {
     bottom: 5.4vh !important;
   }
   main section.info .caption div.btn-container {
-    bottom: 27vh !important;
+    bottom: 26vh !important;
   }
   main section.info .caption .img-btn {
-    font-size: 6vw !important;
+    font-size: 3em !important;
   }
   main section.info section.bio-container {
     margin-block: 13vh;
