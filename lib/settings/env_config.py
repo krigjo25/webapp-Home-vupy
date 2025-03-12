@@ -17,14 +17,11 @@ class DevelopmentConfig(DefaulthConfig):
     DEBUG = True
 
 class TestConfig(DefaulthConfig):
+    DEBUG = True
     TESTING = True
     SESSION_TYPE ='filesystem'
-    DEBUG = True
 
 class ProdConfig(DefaulthConfig):
-    DEBUG = False
-    DATABASE_URL = os.getenv("DATABASE_URL")
-    TESTING = True
-    
+    STATIC_FOLDER = 'dist'
     SESSION_TYPE ='filesystem'
     

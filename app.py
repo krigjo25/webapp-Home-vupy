@@ -17,24 +17,15 @@ logger = AppWatcher()
 logger.FileHandler()
 
 #   Initialize Flask app and Extensions
-app = Flask(__name__, static_folder='dist/assets')
+app = Flask(__name__)
 
 #   Configure session to use filesystem (instead of signed cookies)
-
 Session(app)
 
-if app.config['ENV'] == 'production':
-  app.config.from_object(ProdConfig)
-  CORS(app, resources={r"/*": {"origins": f"https://{app.config['DOMAIN']}"}}, supports_credentials=True)
+CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
+app.config.from_object(DevelopmentConfig)
 
-  @app.route("/")
-  def index():
-    return send_from_directory(app.static_folder, 'index.html')
-
-else:
-  CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
-  app.config.from_object(DevelopmentConfig)
-
+print(app.config['ENV'])
 logger.info(f"App running on {app.config}")
 
 
