@@ -4,8 +4,10 @@
 import os
 
 class DefaulthConfig(object):
+    DOMAIN = None
     DEBUG = False
     TESTING = False
+    ENV = 'production'
     SESSION_TYPE = None
     VITE_AUTO_INSERT = True
     SESSION_PERMANENT = False
@@ -13,15 +15,19 @@ class DefaulthConfig(object):
     DATABASE_URL = os.getenv('DATABASE_URL')
 
 class DevelopmentConfig(DefaulthConfig):
-    SESSION_TYPE ='filesystem'
     DEBUG = True
+    ENV = 'development'
+    SESSION_TYPE ='filesystem'
 
 class TestConfig(DefaulthConfig):
     DEBUG = True
+    ENV = 'test'
     TESTING = True
     SESSION_TYPE ='filesystem'
 
 class ProdConfig(DefaulthConfig):
+    ENV = 'production'
     STATIC_FOLDER = 'dist'
     SESSION_TYPE ='filesystem'
+    DOMAIN = os.getenv('Domain_Authorization')
     

@@ -1,6 +1,9 @@
 #  Application entry point
 
 #   Importing required depenedencies
+import os
+
+from dotenv import load_dotenv
 from flask import Flask, send_from_directory
 from flask_cors import CORS
 from flask_session import Session
@@ -12,6 +15,9 @@ from lib.endpoint_services.Photos import PhotoLibrary
 from lib.endpoint_services.announcements import Announcements
 from lib.settings.env_config import DevelopmentConfig, ProdConfig
 
+#   Initialize Enviorment variables
+load_dotenv()
+
 # Initialize the logger
 logger = AppWatcher()
 logger.FileHandler()
@@ -19,16 +25,18 @@ logger.FileHandler()
 #   Initialize Flask app and Extensions
 app = Flask(__name__)
 
-#   Configure session to use filesystem (instead of signed cookies)
-Session(app)
+if os.getenv('ENV') == 'production':
+  app.config.from_object(ProdConfig()) 
+  CORS(app, resources={r"/*": {"origins": f"{app.config['DOMAIN']}"}}, supports_credentials=True)
 
-CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
-app.config.from_object(DevelopmentConfig)
+elif os.getenv('ENV') == 'development':
+  CORS(app, resources={r"/*": {"origins": f"*"}}, supports_credentials=True)
+  app.config.from_object(DevelopmentConfig)
 
-print(app.config['ENV'])
 logger.info(f"App running on {app.config}")
 
-
+#   Configure session to use filesystem (instead of signed cookies)
+Session(app)
 '''
 @app.after_request
 async def after_request(response):
