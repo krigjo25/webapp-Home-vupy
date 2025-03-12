@@ -49,9 +49,9 @@ async def after_request(response):
     return response
 '''
 #   Endpoints
-app.add_url_rule("/", view_func = Announcements().as_view('Index',methods = ["GET"]))
 app.add_url_rule("/api/github", view_func = Github().as_view('Github', methods = ["GET"]))
 app.add_url_rule("/api/photos", view_func = PhotoLibrary().as_view('Photos', methods = ["GET"]))
+app.add_url_rule("/api/announce", view_func = Announcements().as_view('Index',methods = ["GET"]))
 
 #   Webworkers
 if __name__ == "__main__":

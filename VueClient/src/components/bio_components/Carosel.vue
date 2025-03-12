@@ -51,7 +51,7 @@ function PushImages()
 {
     //  Initialize the path to the image
     const key = import.meta.env.VITE_PhotosLibraryKey;
-    const path = import.meta.env.VITE_PhotoLibrary_API;
+    const path = import.meta.env.VITE_PhotoLibrary_local;
 
     const playload = 
     {
