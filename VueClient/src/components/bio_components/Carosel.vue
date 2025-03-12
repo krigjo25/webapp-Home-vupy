@@ -109,8 +109,6 @@ function next()
             Carosel.alt = (i > length) ?  sources[i].alt : sources[i].alt;
             Carosel.caption = (i > length) ? sources[i].caption : sources[i].caption;
             Carosel.source = (i > length) ? path + sources[i].src : path + sources[i].src;
-            
-            return;
         }
     }
 };
@@ -140,7 +138,6 @@ function prev()
             Carosel.caption = (i < length) ? sources[i].caption : sources[i].caption;
             Carosel.source = (i < length) ? path + sources[i].src : path + sources[i].src;
 
-            return;
         }
     }
 };
@@ -156,6 +153,6 @@ function startTimer()
 
 onMounted(() => {
     PushImages();
-    startTimer();
+    //startTimer();
 });
 </script>

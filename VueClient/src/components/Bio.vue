@@ -24,7 +24,7 @@
     
         //  Initialize device breakpoints variables
         const mobile = 768;
-        const tabletWidth = 1024;
+        const tabletWidth = 600;
         const desktop = 1024;
         const data = reactive({});
 
