@@ -1,12 +1,11 @@
 #  Application entry point
 
 #   Importing required depenedencies
-from flask import Flask
+from flask import Flask, send_from_directory
 from flask_cors import CORS
 from flask_session import Session
 
 #   Custom dependencies
-
 from lib.endpoint_services.github_data import Github
 from lib.utils.log_config import AppWatcher
 from lib.endpoint_services.Photos import PhotoLibrary
@@ -18,13 +17,24 @@ logger = AppWatcher()
 logger.FileHandler()
 
 #   Initialize Flask app and Extensions
-app = Flask(__name__)
+app = Flask(__name__, static_folder='dist/assets')
 
 #   Configure session to use filesystem (instead of signed cookies)
-app.config.from_object(DevelopmentConfig)
+
 Session(app)
 
-CORS(app, resources={r"/*": {"origins": f"*"}})
+if app.config['ENV'] == 'production':
+  app.config.from_object(ProdConfig)
+  CORS(app, resources={r"/*": {"origins": f"https://{app.config['DOMAIN']}"}}, supports_credentials=True)
+
+  @app.route("/")
+  def index():
+    return send_from_directory(app.static_folder, 'index.html')
+
+else:
+  CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
+  app.config.from_object(DevelopmentConfig)
+
 logger.info(f"App running on {app.config}")
 
 
