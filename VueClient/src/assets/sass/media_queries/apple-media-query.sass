@@ -155,101 +155,23 @@
                 position: relative !important
                 inline-size: 65vw !important
 
-@media only screen and (min-width: $Ipad-Air-width) and (min-height: $Ipad-Air-height)  and (orientation: portrait)
-    
-    header a
-        font-size: 0.57em 
-
-    main
-        section.info
-            justify-content: flex-start
-
-            .carosel
-                block-size: 36vh
-                inline-size: 30vw 
-                align-items: center
-
-                .caption
-                    bottom: 5.5vh
-
-            .btn-container
-                bottom: 11em !important
-
-            section.bio-container
-                inline-size: 59vw
-                margin-inline-start: 6vw
-
-                h2
-                    font-size: 2em
-                    text-align: center
-
-                nav.bio-link
-
-                    button.bio-btn
-                        font-size: 1em 
-
-                section.bio-content
-                    inline-size: 60vw
-
-                    h3
-                        font-size: 1.5em
-
-                    p
-                        font-size: 1em
-                        inline-size: 57vw            
-
-                div.btn-container
-                    bottom: 39em
-
-        section.spec-wrapper
-            inline-size: 100%
-            flex-direction: column
-
-            .spec-class
-                inline-size: 84vw
-                display: flex
-                flex-direction: column
-    
-                .h3-link
-                    margin-block: 1vh
-                
-                p
-                    inline-size: 69vw
-                    
-
-                .tech-container
-                    inline-size: 87vw
-
-                .spec-course
-                    .h4-link
-                        margin-block: 1vh
-
-        section#full-stack
-            .pp
-                inline-size: 100%
-
-                .tech-container
-                    inline-size: 60vw
-
 @media only screen and (min-width: $Ipad-Pro-width) and (min-height: $Ipad-Pro-height)  and (orientation: portrait)
     main
         section.info
-            align-items: center
-            flex-direction: column
 
-            section.carosel
-                inline-size: 46vw !important
+            .carosel
+                inline-size: 25vw !important
 
 
                 .caption
-                    bottom: 3.2em
+                    bottom: 3.6vh !important
 
                 .btn-container
-                    bottom: 17em
+                    bottom: 16vh !important
 
-            section#bio
+            section.bio-container
                 margin: 0
-                inline-size: 80vw
+                inline-size: 100% !important
 
                 nav.bio-link
                     margin: 0
@@ -257,35 +179,49 @@
 
                     .bio-btn
                         transition: 3s
+
                         &:hover
                             transform: scale(1.1)
 
                 section.bio-content
                     p
-                        inline-size: 70vw    
+                        inline-size: 100% !important    
 
-        section#specialization-container
+        section#spec-container
+            margin-block-end: 0 !important
 
-            .specialization-class
-                inline-size:  42vw
-            
-                p
-                    inline-size: 42vw
+            .spec-class
+                inline-size:  47vw !important
 
-                .specialization-course
+                .spec-course
                     
                     .h4-link
-                        font-size: 1.1em
-                    .tech-container
-                        inline-size: 45vw
+                        font-size: 1.2em !important
 
-        section#full-stack
+        section#tech-repo
 
             .pp
-                inline-size: 70vw
+                block-size: 14vh !important
+                inline-size: 34vw !important
+                background-size: 14vw !important
 
+                p
+                    margin-inline-end: 0 !important
+                    margin-inline-start: 3vw !important
+                    font-size: 1em !important
+                    inline-size: 22vw !important
+                
                 .tech-container
-                    inline-size: 55vw
+                    .relative
+                        top: -2vh !important
+                        left: 2vw !important
+
+                    .img-wrapper
+                        block-size: 3vh !important
+                        inline-size: 39vw !important
+
+                        .img-svg
+                            block-size: 2vh !important
 
 //  Media Queries Landscape
 @media only screen and (min-width: $iphone-7-width) and (min-height: $iphone-7-height)  and (orientation: landscape)
@@ -374,7 +310,7 @@
                 position: relative !important
                 inline-size: 65vw !important
 
-@media only screen and (min-width: $iphone-plus-width) and (min-height: $iphone-plus-height)  and (orientation: portrait)
+@media only screen and (min-width: $iphone-plus-width) and (min-height: $iphone-plus-height)  and (orientation: landscape)
     header 
         .slogan-wrapper 
             font-size: .8em !important
@@ -452,3 +388,74 @@
                 position: relative !important
                 inline-size: 65vw !important
 
+@media only screen and (min-width: $Ipad-Pro-width) and (min-height: $Ipad-Pro-height)  and (orientation: landscape)
+    main
+        section.info
+            .carosel
+                inline-size: 23vw !important
+
+
+                .caption
+                    bottom: 4.9vh !important
+
+                div.btn-container
+                    bottom: 25vh !important
+
+                    .img-btn
+                        font-size: 2.5em !important
+
+            section.bio-container
+                margin: 0
+                inline-size: 100% !important
+
+                nav.bio-link
+                    margin: 0
+                    inline-size: 100%
+
+                    .bio-btn
+                        transition: 3s
+
+                        &:hover
+                            transform: scale(1.1)
+
+                section.bio-content
+                    p
+                        inline-size: 100% !important    
+
+        section#spec-container
+            margin-block-end: 0 !important
+
+            .spec-class
+                inline-size:  47vw !important
+
+                .spec-course
+                    
+                    .h4-link
+                        font-size: 1.2em !important
+
+        section#tech-repo
+            .pp
+                block-size: 14vh !important
+                inline-size: 34vw !important
+                background-size: 14vw !important
+
+                p
+                    margin-inline-end: 0 !important
+                    margin-inline-start: 3vw !important
+                    font-size: 1em !important
+                    inline-size: 22vw !important
+                h2
+                    margin-inline-start: 0 !important
+
+                .tech-container
+                    .relative
+                        top: -1vh !important
+                        left: -1vw !important
+
+                    .img-wrapper
+                        block-size: 3vh !important
+                        inline-size: 39vw !important
+
+                        .img-svg
+                            block-size: 2vh !important
+                    
