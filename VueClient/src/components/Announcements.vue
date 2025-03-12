@@ -22,7 +22,7 @@ const announcement = computed(() => announce.data ? announce.data : announce.def
 //  Fetching data from the server
 const Response = async () =>
 {
-    const path = "http://localhost:5000/";
+    const path =  import.meta.env.VITE_Announcements_local;
     
     await axios.get(path)
     .then((response) => 
