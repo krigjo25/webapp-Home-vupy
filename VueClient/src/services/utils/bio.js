@@ -1,38 +1,6 @@
-<template>
-    <section id='bio'class="bio-container">
-        <h2>{{ bio.current.author.name}}</h2>
-        <h3>{{ bio.current.author.title }}</h3>
-        <Navigation :class='bio.current.cls':data="bio.pages"/>
-        <section class="bio-content">
-            <div class='keywords'>
-                <nav class="ext-bar flex-wrap-row-justify-space-evenly">
-                    <a v-for="link in bio.current.links" :key="link.id" :href="link.url" :class="link.cls" target="_blank">
-                            <i :class="link.icon"></i>
-                    </a>
-                </nav>
-                <h3>{{ bio.current.title  }}</h3>
-                <h4 class="h4-link">{{ bio.current.headline }}</h4>
-                <small class ='abt-author'>Born : {{bio.current.author.born}} ({{ bio.current.author.age }} years old) </small><br>
-            </div>
-            <small>Written by {{ bio.current.author.name }}. Average reading time <b>{{ bio.current.readtime }} min</b><i class="bi bi-stopwatch"></i></small>       
-            
-            <p v-for="msg in bio.current.message">{{ msg }}</p>
-        </section>
-    </section>
+import { ReadTime, CalculateAge, CalculateDate } from './bioTools.js';
 
-    <!--Announcements /-->
-    
-</template>
-
-<script setup>
-//  Importing dependencies
-import { onMounted, reactive, computed } from 'vue';
-import { ReadTime, CalculateAge, CalculateDate } from '@/services/utils/bioTools';
-//  Importing components
-import Navigation from '../misc_components/navigation.vue';
-import { isDesktop } from '@/services/utils/rwd';
-
-function biography()
+export function biography()
 {
     //  Importing the links
     const mail = import.meta.env.VITE_Mail;
@@ -106,9 +74,10 @@ function biography()
             get born() {return CalculateDate([1994, 2, 25, 15])},
         },
     };
+    
 };
 
-function workProfile()
+export function workProfile()
 {
     // Importing the links
     const CV = import.meta.env.VITE_CV;
@@ -148,7 +117,7 @@ function workProfile()
         ],
 
         message:[
-            `As an junior developer
+            `As an Application engineer
             Organization is key to my work, and I am dedicated to delivering
             high-quality code that is easy to read and maintain. I am passionate
             about creating software that is user-friendly and efficient. My
@@ -175,7 +144,7 @@ function workProfile()
         };
 };
 
-function Journey()
+export function Journey()
 {
     bio.current = {
         cls: "bio-bar",
@@ -211,7 +180,7 @@ function Journey()
     };
 };
 
-function WorkoutBlog()
+export function WorkoutBlog()
 {
     bio.current = {
         title: "Workout Blog",
@@ -230,7 +199,7 @@ function WorkoutBlog()
     };
 };
 
-function PersonalBlog()
+export function PersonalBlog()
 {
     bio = {
         title: "Workout Blog",
@@ -248,80 +217,3 @@ function PersonalBlog()
         }, 
     };
 };
-
-const bio = reactive(
-    {
-        current:
-        {
-            readtime: null,
-            title: null,
-            headline:null,
-
-            links:[],
-            message:[],
-            
-            author:
-                {
-                    name:null,
-                    born: null,
-                    age: null,
-
-                },
-        },
-        pages: [
-                {
-                    id      : 0,
-                    exist   : true,
-                    cls     : "bio-btn",
-                    name    : isDesktop() ? "Biography" : null,
-                    function: biography,
-                    icon    : "bi bi-info-circle-fill",
-                },
-                {
-                    id      : 1,
-                    exist   : true,
-                    cls     : "bio-btn",
-                    name    : isDesktop() ? "Work Biography":  null,
-                    function: workProfile,
-                    icon    : "bi bi-person-workspace",
-                },
-                {
-                    id      : 2,
-                    exist   : true,
-                    cls     : "bio-btn",
-                    function: Journey,
-                    name    : isDesktop() ? "Journey So Far" : null,
-                    icon    : "bi bi-activity",
-                },
-                {
-                    id      : 3,
-                    exist   : false,
-                    cls     : "bio-btn",
-                    name    : isDesktop() ? "Common Opinions" : null,
-                    function:"",
-                    icon    : "bi bi-clock-history",
-                },
-                {
-                    id      : 4,
-                    exist   : false,
-                    cls     : "bio-btn",
-                    name    : isDesktop() ? "Workout Blog" : null,
-                    function: WorkoutBlog,
-                    icon    : "bi bi-clock-history",
-                },
-                {
-                    id      : 5,
-                    exist   : false,
-                    cls     : "bio-btn",
-                    name    : isDesktop() ?  "Personal Blog" : null,
-                    function: PersonalBlog,
-                    icon    : "bi bi-clock-history",
-                },
-            ],
-    }
-);
-
-onMounted(() => {
-    biography();
-});
-</script>

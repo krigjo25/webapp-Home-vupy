@@ -13,19 +13,24 @@ flex-wrap-reversed-row
     flex-direction: row-reverse
 
 
-.flex-row 
-    @extend flex-row
-
-.flex-wrap-row
-    @extend flex-wrap-row
-
-.flex-reversed-row
-    @extend flex-wrap-reversed-row
-
-.flex-wrap-row-space-evenly
+//  Justify content
+.flex-wrap-row-justify-space-evenly
     @extend flex-wrap-row
     justify-content: space-evenly
 
-.flex-wrap-row-space-between
+.flex-wrap-row-justify-space-between
     @extend flex-wrap-row
     justify-content: space-between
+
+.flex-wrap-row-justify-space-around
+    @extend flex-wrap-row
+    justify-content: space-around
+
+.flex-wrap-row-justify-center
+    @extend flex-wrap-row
+    justify-content: center
+
+//  Align items
+.flex-wrap-row-align-items-end
+    @extend flex-wrap-row
+    align-items: flex-end

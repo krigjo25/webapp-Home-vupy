@@ -65,7 +65,7 @@ function PushImages()
     //  Collect all images from the server
     axios.get(path, playload) .then((response) => {
         Carosel.images = response.data.images;
-        Carosel.path = '.'+ response.data.path;
+        Carosel.path = '../' + response.data.path;
         setImage();
     }).catch((error) => {
         console.error(error);});

@@ -5,7 +5,7 @@
 @media only screen and (min-width: $iphone-7-width) and (min-height: $iphone-7-height)  and (orientation: portrait)
     header 
         .slogan-wrapper 
-            font-size: .8em !important
+            font-size: .52em !important
 
     main
         section.info
@@ -17,7 +17,7 @@
                 bottom: 40vh !important
 
             section.bio-container
-                margin-block: 13vh
+                margin-block: 1vh
                 margin-inline: 0 !important
                 inline-size: 100% !important
 
@@ -28,11 +28,7 @@
                 nav.bio-bar
 
                     button.bio-btn
-                        font-size: 1em !important
-
-                section.bio-content
-                    inline-size: 86vw !important
-                    
+                        font-size: 2em !important
 
                     h3
                         font-size: 1.5em !important
@@ -57,37 +53,32 @@
 
         section#tech-repo
             .pp
-                block-size: 26vh
+                block-size: 20vh !important
+
+                .tech-container
+                    .img-wrapper
+                        block-size: 3vh !important
+                        inline-size : 87vw !important
+
+                        .img-svg
+                            block-size: 6vh !important
 
                 .tech-wrapper
                     inline-size: 23vw !important
-
-
-                .tech-container
-                    .relative
-                        top: -2vh !important
-
-                    .img-wrapper
-                        block-size: 3vh !important
-
-                        .img-svg
-                            block-size: 4vh !important
-
-            .wrap-row-space-between
-                top: 0.7em !important
-                position: relative !important
-                inline-size: 65vw !important
+                p
+                    font-size: 1em !important
+                    margin-inline-start: 13vw !important
 
 @media only screen and (min-width: $iphone-plus-width) and (min-height: $iphone-plus-height)  and (orientation: portrait)
     header 
-        .slogan-wrapper 
-            font-size: .8em !important
+        .slogan-wrapper
+            font-size: .615em !important
 
     main
         section.info
             .carosel
                 .caption
-                    bottom: 6.7vh !important
+                    bottom: 6.8vh !important
 
                 div.btn-container
                     bottom: 40vh !important
@@ -133,27 +124,20 @@
 
         section#tech-repo
             .pp
-                block-size: 23vh !important
+                block-size: 21vh !important
 
                 p
                     font-size: 1em !important
                     inline-size: 69vw !important
                     
                 .tech-container
-                    .relative
-                        top: -1vh !important
-                        left: 4vw !important
 
                     .img-wrapper
                         block-size: 3vh !important
+                        inline-size: 82vw !important
 
                         .img-svg
                             block-size: 4vh !important
-
-            .wrap-row-space-between
-                top: 0.7em !important
-                position: relative !important
-                inline-size: 65vw !important
 
 @media only screen and (min-width: $Ipad-Pro-width) and (min-height: $Ipad-Pro-height)  and (orientation: portrait)
     main
@@ -199,7 +183,6 @@
                         font-size: 1.2em !important
 
         section#tech-repo
-
             .pp
                 block-size: 14vh !important
                 inline-size: 34vw !important
@@ -221,10 +204,10 @@
                         inline-size: 39vw !important
 
                         .img-svg
-                            block-size: 2vh !important
+                            block-size: 3vh !important
 
 //  Media Queries Landscape
-@media only screen and (min-width: $iphone-7-width) and (min-height: $iphone-7-height)  and (orientation: landscape)
+@media only screen and (min-width: $iphone-7-height) and (min-height: $iphone-7-width)  and (orientation: landscape)
     header 
         .slogan-wrapper 
             font-size: .8em !important
@@ -252,7 +235,7 @@
                 nav.bio-bar
 
                     button.bio-btn
-                        font-size: 1em !important
+                        font-size: 2em !important
 
                 section.bio-content
                     inline-size: 100% !important
@@ -285,9 +268,6 @@
             .pp
                 block-size: 26vh
 
-                .tech-wrapper
-                    inline-size: 23vw !important
-                
                 h3
                     margin-inline-start: 6vw
                 p
@@ -300,17 +280,12 @@
                         top: 1vh !important
 
                     .img-wrapper
-                        block-size: 3vh !important
+                        block-size: 7vh !important
 
                         .img-svg
                             block-size: 6vh !important
 
-            .wrap-row-space-between
-                top: 0.7em !important
-                position: relative !important
-                inline-size: 65vw !important
-
-@media only screen and (min-width: $iphone-plus-width) and (min-height: $iphone-plus-height)  and (orientation: landscape)
+@media only screen and (min-width: $iphone-plus-height) and (min-height: $iphone-plus-width)  and (orientation: landscape)
     header 
         .slogan-wrapper 
             font-size: .8em !important
@@ -365,30 +340,32 @@
 
         section#tech-repo
             .pp
-                block-size: 23vh !important
+                block-size: 33vh !important
+                inline-size: 44vw !important
+                background-size: 14vw !important
 
                 p
                     font-size: 1em !important
-                    inline-size: 28vw !important
-                    margin-inline-start: 9vw !important
+                    inline-size: 35vw !important
+                    margin-inline-start: 7vw !important
                     
                 .tech-container
                     .relative
-                        top: -1vh !important
-                        left: 4vw !important
+                        top: 3vh !important
+                        left: 3vw !important
 
                     .img-wrapper
                         block-size: 3vh !important
 
                         .img-svg
-                            block-size: 4vh !important
+                            block-size: 5vh !important
 
             .wrap-row-space-between
                 top: 0.7em !important
                 position: relative !important
                 inline-size: 65vw !important
 
-@media only screen and (min-width: $Ipad-Pro-width) and (min-height: $Ipad-Pro-height)  and (orientation: landscape)
+@media only screen and (min-width: $Ipad-Pro-height) and (min-height: $Ipad-Pro-width)  and (orientation: landscape)
     main
         section.info
             .carosel
