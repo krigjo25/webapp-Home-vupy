@@ -2,7 +2,7 @@
 @import breakpoints
 
 //  Media Queries Portrait
-@media only screen and (min-width: $iphone-7-width) and (min-height: $iphone-7-height)  and (orientation: portrait)
+@media only screen and (min-width: $iphone-7-width) and (min-height: $iphone-7-height) and (orientation: portrait)
     header 
         .slogan-wrapper 
             font-size: .52em !important
@@ -69,7 +69,7 @@
                     font-size: 1em !important
                     margin-inline-start: 13vw !important
 
-@media only screen and (min-width: $iphone-plus-width) and (min-height: $iphone-plus-height)  and (orientation: portrait)
+@media only screen and (min-width: $iphone-plus-width) and (min-height: $iphone-plus-height) and (orientation: portrait)
     header 
         .slogan-wrapper
             font-size: .615em !important
@@ -139,23 +139,23 @@
                         .img-svg
                             block-size: 4vh !important
 
-@media only screen and (min-width: $Ipad-Pro-width) and (min-height: $Ipad-Pro-height)  and (orientation: portrait)
+//  Media Queries Issue
+@media only screen and (min-width: $Ipad-Pro-width) and (min-height: $Ipad-Pro-height) and (orientation: portrait)
     main
         section.info
-
             .carosel
+                block-size: 14vh !important
                 inline-size: 25vw !important
-
 
                 .caption
                     bottom: 3.6vh !important
 
-                .btn-container
+                div.btn-container
                     bottom: 16vh !important
 
             section.bio-container
                 margin: 0
-                inline-size: 100% !important
+                inline-size: 63vw !important
 
                 nav.bio-link
                     margin: 0
@@ -168,6 +168,7 @@
                             transform: scale(1.1)
 
                 section.bio-content
+                    inline-size: 100% !important 
                     p
                         inline-size: 100% !important    
 
@@ -184,15 +185,15 @@
 
         section#tech-repo
             .pp
-                block-size: 14vh !important
-                inline-size: 34vw !important
+                block-size: 13vh !important
+                inline-size: 46vw !important
                 background-size: 14vw !important
 
                 p
                     margin-inline-end: 0 !important
                     margin-inline-start: 3vw !important
                     font-size: 1em !important
-                    inline-size: 22vw !important
+                    inline-size: 39vw !important
                 
                 .tech-container
                     .relative
@@ -200,14 +201,14 @@
                         left: 2vw !important
 
                     .img-wrapper
-                        block-size: 3vh !important
-                        inline-size: 39vw !important
+                        block-size: 4vh !important
+                        inline-size: 43vw !important
 
                         .img-svg
                             block-size: 3vh !important
 
 //  Media Queries Landscape
-@media only screen and (min-width: $iphone-7-height) and (min-height: $iphone-7-width)  and (orientation: landscape)
+@media only screen and (min-width: $iphone-7-height) and (min-height: $iphone-7-width) and (orientation: landscape)
     header 
         .slogan-wrapper 
             font-size: .8em !important
@@ -285,7 +286,7 @@
                         .img-svg
                             block-size: 6vh !important
 
-@media only screen and (min-width: $iphone-plus-height) and (min-height: $iphone-plus-width)  and (orientation: landscape)
+@media only screen and (min-width: $iphone-plus-height) and (min-height: $iphone-plus-width) and (orientation: landscape)
     header 
         .slogan-wrapper 
             font-size: .8em !important
@@ -365,21 +366,23 @@
                 position: relative !important
                 inline-size: 65vw !important
 
-@media only screen and (min-width: $Ipad-Pro-height) and (min-height: $Ipad-Pro-width)  and (orientation: landscape)
+//  Media Queries Issue
+@media only screen and (min-width: $Ipad-Pro-height) and (min-height: $Ipad-Pro-width) and (orientation: landscape)
     main
         section.info
             .carosel
-                inline-size: 23vw !important
+                block-size: 4vh !important
+                inline-size: 25vw !important
 
 
                 .caption
                     bottom: 4.9vh !important
 
                 div.btn-container
-                    bottom: 25vh !important
+                    bottom: 21vh !important
 
                     .img-btn
-                        font-size: 2.5em !important
+                        font-size: 2em !important
 
             section.bio-container
                 margin: 0
@@ -413,25 +416,25 @@
         section#tech-repo
             .pp
                 block-size: 14vh !important
-                inline-size: 34vw !important
-                background-size: 14vw !important
+                inline-size: 28vw !important
+                background-size: 8vw !important
 
                 p
                     margin-inline-end: 0 !important
                     margin-inline-start: 3vw !important
                     font-size: 1em !important
-                    inline-size: 22vw !important
+                    inline-size: 24vw !important
                 h2
                     margin-inline-start: 0 !important
 
                 .tech-container
                     .relative
-                        top: -1vh !important
+                        top: 1vh !important
                         left: -1vw !important
 
                     .img-wrapper
                         block-size: 3vh !important
-                        inline-size: 39vw !important
+                        inline-size: 26vw !important
 
                         .img-svg
                             block-size: 2vh !important

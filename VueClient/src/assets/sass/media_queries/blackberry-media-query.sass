@@ -1,0 +1,162 @@
+//  Media Query for Blackberry
+@import breakpoints
+
+
+//  Portrait Issues
+@media only screen and (min-width: $bberry-width) and (min-height: $bberry-height) and (orientation: portrait)
+
+    main
+        
+        section.info
+
+            .caption
+                bottom: 6.3vh !important
+
+        section#tech-repo
+            .pp
+                block-size: 32vh !important
+                background-size: 30vw !important
+
+                p
+                    margin-inline-start: 5vw
+
+        form input[type="text"]
+            margin-block-end: 2vh
+
+@media only screen and (min-width: $bberry-bt-width) and (min-height: $bberry-bt-height) and (orientation: portrait)
+
+    header
+        .slogan-wrapper
+            font-size: .76em
+
+    main
+        
+        section.info
+            .carosel
+                .caption
+                    bottom: 7.8vh !important
+                div.btn-container
+                    bottom: 53vh !important
+
+        section#tech-repo
+            .pp
+                block-size: 28vh !important
+                background-size: 30vw !important
+
+                p
+                    font-size: 1em
+                    margin-inline-start: 9vw
+
+        form input[type="text"]
+            margin-block-end: 2vh
+
+@media only screen and (min-width: $bberry-curve-width) and (min-height: $bberry-curve-height) and (orientation: portrait)
+
+    header
+        .slogan-wrapper
+            font-size: .49em
+
+    main
+        section.info
+            .carosel
+                .caption
+                    bottom: 10.4vh !important
+
+                div.btn-container
+                    bottom: 55vh !important
+
+        section#tech-repo
+            .pp
+                p
+                    font-size: 1em !important
+
+                .tech-container
+                    .relative
+                        top: 3vh
+                    .img-wrapper
+                        .img-svg
+                            block-size: 6vh !important
+
+        form input[type="text"]
+            margin-block-end: 2vh
+
+//  Landscape Issues
+@media only screen and (min-width: $bberry-height) and (min-height: $bberry-width) and (orientation: landscape)
+    main
+
+        section.info
+
+            .caption
+                bottom: 10.2vh !important
+
+        section#tech-repo
+            .pp
+                block-size: 28vh !important
+
+        form input[type="text"]
+            margin-block-end: 2vh
+
+@media only screen and (min-width: $bberry-bt-height) and (min-height: $bberry-bt-width) and (orientation: landscape)
+
+    header
+        .slogan-wrapper
+            font-size: .76em
+
+    main
+        
+        section.info
+            .carosel
+                .caption
+                    bottom: 10.7vh !important
+
+                div.btn-container
+                    bottom: 50vh !important
+
+        section#tech-repo
+            .pp
+                block-size: 30vh !important
+                background-size: 17vw !important
+
+                p
+                    font-size: 1em
+                    margin-inline-start: 9vw
+                
+                .tech-container
+                    .img-wrapper
+                        .img-svg
+                            block-size: 6vh
+
+        form input[type="text"]
+            margin-block-end: 2vh
+
+@media only screen and (min-width: $bberry-curve-height) and (min-height: $bberry-curve-width) and (orientation: portrait)
+
+    header
+        .slogan-wrapper
+            font-size: .49em
+
+    main
+        section.info
+            .carosel
+                .caption
+                    bottom: 13.9vh !important
+
+                div.btn-container
+                    bottom: 54vh !important
+
+        section#tech-repo
+            .pp
+                block-size: 40vh !important
+                inline-size: 41vw !important
+                p
+                    font-size: 1em !important
+
+                .tech-container
+                    .relative
+                        top: 3vh
+                    .img-wrapper
+                        .img-svg
+                            block-size: 6vh !important
+
+        form input[type="text"]
+            margin-block-end: 2vh
