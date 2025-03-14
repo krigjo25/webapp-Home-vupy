@@ -837,6 +837,62 @@ div.tech-ui-ux {
   border-radius: 10px;
 }
 
+@media only screen and (min-width: 320px) and (min-height: 533px) and (orientation: portrait) {
+  header .slogan-wrapper {
+    font-size: 0.79em;
+  }
+  main section.info .carosel .caption {
+    bottom: 9.1vh !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 43vh !important;
+  }
+  main section#tech-repo .pp {
+    block-size: 28vh !important;
+  }
+}
+@media only screen and (min-width: 360px) and (min-height: 640px) and (orientation: portrait) {
+  header .slogan-wrapper {
+    font-size: 0.7em;
+  }
+  main section.info .carosel .caption {
+    bottom: 8vh !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 41vh !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 4vh !important;
+  }
+}
+@media only screen and (min-width: 533px) and (min-height: 320px) and (orientation: landscape) {
+  header .slogan-wrapper {
+    font-size: 1.4em !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 67vh !important;
+  }
+  main section#tech-repo .pp {
+    block-size: 42vh !important;
+  }
+}
+@media only screen and (min-width: 360px) and (min-height: 640px) and (orientation: landscape) {
+  header .slogan-wrapper {
+    font-size: 0.7em;
+  }
+  main section.info .carosel .caption {
+    bottom: 14vh !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 66vh !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 4vh !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    inline-size: 37vw !important;
+  }
+}
 @media only screen and (min-width: 375px) and (min-height: 667px) and (orientation: portrait) {
   header .slogan-wrapper {
     font-size: 0.52em !important;

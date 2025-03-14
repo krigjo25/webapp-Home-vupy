@@ -1,0 +1,107 @@
+//  HTC Media Query
+
+//  Importing breakpoints
+@import breakpoints
+
+
+//  Portrait
+@media only screen and (min-width: $htc-desire-width) and (min-height: $htc-desire-height) and (orientation: portrait)
+    header
+        .slogan-wrapper
+            font-size: .79em
+    main
+        section.info
+            .carosel
+                .caption
+                    bottom: 9.1vh !important
+                
+                div.btn-container
+                    bottom: 43vh !important
+
+        section#tech-repo
+            .pp
+                block-size: 28vh !important
+
+//  Issues 
+@media only screen and (min-width: $htc-one-width) and (min-height: $htc-one-height) and (orientation: portrait)
+    header
+        .slogan-wrapper
+            font-size: .7em
+    main
+        section.info
+            .carosel
+                .caption
+                    bottom: 8vh !important
+                
+                div.btn-container
+                    bottom: 41vh !important
+
+        section#tech-repo
+            .pp
+                .tech-container
+                    .img-wrapper
+                        .img-svg
+                            block-size: 4vh !important
+
+@media only screen and (min-width: $htc-sensation-width) and (min-height: $htc-sensation-height) and (orientation: portrait)
+    header
+        .slogan-wrapper
+            font-size: .7em
+    main
+        section.info
+            .carosel
+                .caption
+                    bottom: 8vh !important
+                
+                div.btn-container
+                    bottom: 41vh !important
+
+        section#tech-repo
+            .pp
+                .tech-container
+                    .img-wrapper
+                        .img-svg
+                            block-size: 4vh !important
+
+
+
+//  Landscape
+@media only screen and (min-width: $htc-desire-height) and (min-height: $htc-desire-width) and (orientation: landscape)
+    header
+        .slogan-wrapper
+            font-size: 1.4em !important
+    main
+        section.info
+            .carosel
+                
+                div.btn-container
+                    bottom: 67vh !important
+
+        section#tech-repo
+            .pp
+                block-size: 42vh !important
+
+//  Issues
+@media only screen and (min-width: $htc-one-width) and (min-height: $htc-one-height) and (orientation: landscape)
+    header
+        .slogan-wrapper
+            font-size: .7em
+    main
+        section.info
+            .carosel
+                .caption
+                    bottom: 14vh !important
+                
+                div.btn-container
+                    bottom: 66vh !important
+
+        section#tech-repo
+            .pp
+                .tech-container
+                    
+                    .relative
+                        top: 4vh !important
+
+                    .img-wrapper
+                        inline-size: 37vw !important
+
