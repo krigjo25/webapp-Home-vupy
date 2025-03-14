@@ -1,6 +1,6 @@
-//  HTC Media Query
+//  HTC Devices Media Query
 
-//  Importing breakpoints
+//  Importing dependencies
 @import breakpoints
 
 
@@ -46,24 +46,31 @@
 @media only screen and (min-width: $htc-sensation-width) and (min-height: $htc-sensation-height) and (orientation: portrait)
     header
         .slogan-wrapper
-            font-size: .7em
+            font-size: .9em !important
     main
         section.info
             .carosel
                 .caption
-                    bottom: 8vh !important
+                    bottom: 5.1vh !important
                 
                 div.btn-container
-                    bottom: 41vh !important
+                    bottom: 39vh !important
 
         section#tech-repo
             .pp
+                block-size: 17vh !important
+                inline-size: 65vw !important
+                background-size: 24vw !important
+
                 .tech-container
                     .img-wrapper
+                        inline-size: 59vw !important
+
                         .img-svg
-                            block-size: 4vh !important
-
-
+                            block-size: 3vh !important
+                p
+                    inline-size: 49vw !important
+                    margin-inline-start: 8vw !important
 
 //  Landscape
 @media only screen and (min-width: $htc-desire-height) and (min-height: $htc-desire-width) and (orientation: landscape)
@@ -105,3 +112,38 @@
                     .img-wrapper
                         inline-size: 37vw !important
 
+@media only screen and (min-width: $htc-sensation-height) and (min-height: $htc-sensation-width) and (orientation: landscape)
+    header
+        .slogan-wrapper
+            font-size: .9em !important
+    main
+        section.info
+            .carosel
+                block-size: 14vh !important
+                inline-size: 32vw !important
+
+                .caption
+                    bottom: 9.1vh !important
+                
+                div.btn-container
+                    bottom: 45vh !important
+
+                    .img-btn
+                        font-size: 2.5em !important
+
+        section#tech-repo
+            .pp
+                block-size: 29vh !important
+                inline-size: 37vw !important
+                background-size: 14vw !important
+
+                .tech-container
+                    .img-wrapper
+                        inline-size: 59vw !important
+
+                        .img-svg
+                            block-size: 3vh !important
+                p
+                    font-size: 1em !important
+                    inline-size: 22vw !important
+                    margin-inline-start: 9vw !important

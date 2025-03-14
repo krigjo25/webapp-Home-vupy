@@ -1,4 +1,6 @@
-//  Media Queries for Samsung Devices Portrait
+//  Samsung Devices Media Queries
+
+//  Importing dependencies
 @import breakpoints
 
 //  Portrait Media Queries
@@ -10,87 +12,23 @@
         section.info
             
             .carosel
-                block-size: 26vh
-                inline-size: 47vw
-                align-items: center
             
                 div.btn-container
-                    bottom: 11em
+                    bottom: 42vh
                     inline-size: 47vw
                 
                 .caption
-                    bottom: 5.8vh
-    
-            section.bio-container
-                margin-inline-start: 0 !important
-                inline-size: 100% !important
-
-                h2
-                    font-size: 2em !important
-                    text-align: center !important
-
-                nav.bio-link
-
-                    button.bio-btn
-                        font-size: 1em !important
-
-                section.bio-content
-                    inline-size: 86vw !important
-                    
-
-                    h3
-                        font-size: 1.5em !important
-
-                    p
-                        font-size: 1em !important
-
-                .btn-container
-                    bottom: 39em !important
-
-        section.spec-wrapper
-            inline-size: 100% !important
-            flex-direction: column !important
-
-            .spec-class
-                inline-size: 84vw !important
-                display: flex !important
-                flex-direction: column !important
-    
-                .h3-link
-                    margin-block: 1vh !important
-
-                .tech-container
-                    inline-size: 87vw !important
-
-                .spec-course
-                    .h4-link
-                        margin-block: 1vh !important
+                    bottom: 7.4vh
 
         section#tech-repo
             .pp
-                block-size: 24vh !important
-                inline-size: 100% !important
-                margin-inline-start: 6vw !important
-
-                p
-                    inline-size: 79vw !important
-
                 .tech-container
-                    inline-size: 54vw !important
-
-                    .relative
-                        top: -1vh !important
-
                     .img-wrapper
-                        block-size: 4vh !important
-                        inline-size: 79vw !important
-
                         .img-svg
                             block-size: 4vh !important
 
-
 /*Samsung Galaxy Foldable*/
-@media only screen and (min-device-width: 344px) and (max-device-width: 882px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
+@media only screen and (min-device-width: 344px) and (max-device-width: 882px) and (orientation: portrait)
     header a
         font-size: 0.57em
 
@@ -162,7 +100,7 @@
                     inline-size: 54vw !important
 
 /* Samsung galaxy S8*/
-@media only screen and (min-device-width: 360px) and (max-device-width: 740px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
+@media only screen and (min-device-width: 360px) and (max-device-width: 740px)  and (orientation: portrait)
     
     header a
         font-size: 0.57em 
@@ -235,7 +173,7 @@
                     inline-size: 60vw
 
 /* Samsung galaxy S20 Ultra*/
-@media only screen and (min-device-width: 412px) and (max-device-width: 915px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
+@media only screen and (min-device-width: 412px) and (max-device-width: 915px) and (orientation: portrait)
     
     header a
         font-size: 0.57em 
@@ -315,84 +253,5 @@
     main
         section.info
             .carosel
-                block-size: 26vh
-                inline-size: 47vw
-                align-items: center
-
                 .caption
-                    bottom: 5.8vh
-            
-                div.btn-container
-                    bottom: 70vh
-                    inline-size: 47vw
-                
-                
-    
-            section.bio-container
-                margin-inline-start: 0 !important
-                inline-size: 100% !important
-
-                h2
-                    font-size: 2em !important
-                    text-align: center !important
-
-                nav.bio-link
-
-                    button.bio-btn
-                        font-size: 1em !important
-
-                section.bio-content
-                    inline-size: 100% !important
-
-                    h3
-                        font-size: 1.5em !important
-
-                    p
-                        font-size: 1em !important
-
-                .btn-container
-                    bottom: 39em !important
-
-        section.spec-wrapper
-            inline-size: 100% !important
-            flex-direction: column !important
-
-            .spec-class
-                inline-size: 84vw !important
-                display: flex !important
-                flex-direction: column !important
-    
-                .h3-link
-                    margin-block: 1vh !important
-
-                .tech-container
-                    inline-size: 87vw !important
-
-                .spec-course
-                    .h4-link
-                        margin-block: 1vh !important
-
-        section#tech-repo
-            .pp
-                block-size: 24vh !important
-                inline-size: 100% !important
-                margin-inline-start: 6vw !important
-
-                p
-                    inline-size: 79vw !important
-
-                .tech-container
-                    inline-size: 54vw !important
-
-                    .relative
-                        top: -1vh !important
-
-                    .img-wrapper
-                        block-size: 4vh !important
-                        inline-size: 79vw !important
-
-                        .img-svg
-                            block-size: 4vh !important
-            form
-                input[type="text"]
-                    background-position: 1vw 4vh  
+                    bottom: 12.5vh

@@ -1,0 +1,22 @@
+//  Motorola Media Queries
+
+//  Breakpoints
+@import breakpoints
+//  Portraits
+@media only screen and (min-width: $motorola-mobility-milestone-width) and (min-height: $motorola-mobility-milestone-height) and (orientation: portrait)
+    header 
+        .slogan-wrapper 
+            font-size: 0.398em !important
+
+    main
+        section.info
+            .carosel
+
+                .caption
+                    bottom: 6.5vh !important
+
+                div.btn-container
+                    bottom: 9.1vh !important
+
+//  Landscape
+@media only screen and (min-width: $motorola-mobility-milestone-height) and (min-height: $motorola-mobility-milestone-width) and (orientation: landscape)

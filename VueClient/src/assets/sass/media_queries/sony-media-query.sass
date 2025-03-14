@@ -1,0 +1,70 @@
+//  Sony Devices Media Queries
+
+//  Importing dependencies
+@import breakpoints
+
+// Ericsson Portrait
+@media only screen and (min-device-width: $sony-ericsson-u-width) and (min-height: $sony-ericsson-u-height) and (orientation: portrait)
+
+    main
+        section.info
+            .carosel
+                div.btn-container
+                    bottom: 39vh !important
+                
+                .caption
+                    bottom: 6vh !important
+        
+        section#tech-repo
+            .pp
+                block-size: 16vh !important
+                inline-size: 57vw !important
+                background-size: 22vw !important
+            
+                .tech-container
+                    .relative
+                        top: 1vh !important
+                        left: 4vw !important
+
+                    .img-wrapper
+                        inline-size: 52vw !important
+
+                        .img-svg
+                            block-size: 3vh !important
+                p
+                    inline-size: 39vw !important
+
+// Ericsson Lanscape
+@media only screen and (min-device-width: $sony-ericsson-u-height) and (min-height: $sony-ericsson-u-width) and (orientation: landscape)
+
+    main
+        section.info
+            .carosel
+                .caption
+                    bottom: 10.6vh !important
+
+                div.btn-container
+                    bottom: 68vh !important
+
+                    .img-btn
+                        font-size: 3em
+        
+        
+        section#tech-repo
+            .pp
+                block-size: 16vh !important
+                inline-size: 37vw !important
+                background-size: 13vw !important
+            
+                .tech-container
+                    .relative
+                        top: 1vh !important
+                        left: 2vw !important
+
+                    .img-wrapper
+                        inline-size: 34vw !important
+
+                        .img-svg
+                            block-size: 3vh !important
+                p
+                    inline-size: 25vw !important
