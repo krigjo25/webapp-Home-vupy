@@ -1,7 +1,7 @@
-//  Desktop Media Queries
-
+//  Display Media Queries
+@import breakpoints
 //  Portrait
-@media only screen and (min-device-width: $desktop-17-width) and (min-height: $desktop-17-width) and (orientation: portrait)
+@media only screen and (min-device-width: $display-17-width) and (min-height: $display-17-width) and (orientation: portrait)
     main
         section#tech-repo
             .pp
@@ -33,7 +33,7 @@
                             block-size: 2vh !important 
 
 //  Landscape
-@media only screen and (min-device-width: $desktop-17-height) and (min-height: $desktop-17-width) and (orientation: landscape)
+@media only screen and (min-device-width: $display-17-height) and (min-height: $display-17-width) and (orientation: landscape)
     main
         section.info
 
@@ -41,3 +41,17 @@
                 nav.bio-bar
                     button.bio-btn
                         font-size: 1.2em !important
+
+@media only screen and (min-device-width: $display-hd-1080p-width) and (min-height: $display-hd-1080p-width) and (min-height : $display-hd-1080p-height) and (orientation: landscape)
+    main
+        section.info
+            .carosel
+                block-size: 25vh !important
+                inline-size: 23vw !important
+                margin-inline-end: 0 !important
+
+                .caption
+                    bottom: 1.8vh !important   
+             
+                div.btn-container
+                    bottom: 32vh !important
