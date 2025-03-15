@@ -79,23 +79,17 @@ function biography()
 
         message:
         [
-            `The ideal lifestyle involves a balance between the passion 
-            of technology and wellness. The free time is dedicated to
-            Software developing, meditation, and physical activity and
-            always on the outlook for a new challenge / adventure.`, 
+            `My lifestyle embodies a balance of technological passion and dedication to wellness. 
+            Free time is spent in pursuits that enrich both mind and body: software development, 
+            meditation, and physical activity, all while embracing new challenges.`, 
 
-            `In my spare time, I primarily focus on enhancing my proficiency
-            in Python libraries, database management, piano, and philosophy.
-            I am dedicated to both improving my less stronger areas and
-            further developing my existing strengths. To achieve this, I
-            regularly leverage a network of developers and online resources.`,
+            `I demonstrate a commitment to self-improvement by actively developing proficiency in Python libraries, 
+            database management, piano, and philosophy. My proactive approach to growth includes utilizing a network 
+            of developers and online resources.`,
 
-            `Some common opinions which has been encountered through my carerrier.
-            Known for my dedication and strong work ethic, my colleagues appreciate
-            my presence and contributions to our projects. I'm passionate about
-            fostering a supportive work environment and excel at recognizing and
-            utilizing the unique strengths of my team members. This makes me a valuable
-            asset to the team`,
+            `Throughout my career, dedication and a strong work ethic have been consistently evident. 
+            Colleagues appreciate my contributions to projects, and I excel at fostering supportive
+            team environments and recognizing individual strengths.`,
         ],
         
 
@@ -148,21 +142,11 @@ function workProfile()
         ],
 
         message:[
-            `As an junior developer
-            Organization is key to my work, and I am dedicated to delivering
-            high-quality code that is easy to read and maintain. I am passionate
-            about creating software that is user-friendly and efficient. My
-            experience in software development has taught me the importance of
-            writing clean code that is easy to understand and maintain. I am
-            dedicated to delivering high-quality software that meets the needs.
-            of my clients and users. software is organized with comments, to give
-            out a greater understanding of the develoment which is written,
-            The projects are also organized  with a documentation.
-            for a greater understanding of the project. The process of development
-            includes a lot of simplicity at first, then Optimizion for a better
-            performance. Through the journey as a software engineer, I have
-            experienced that the best practice to ensure code quality is through
-            test frameworks.`,
+            `Early in my career as a junior developer, I've come to appreciate the power of organization.
+            I'm committed to delivering high-quality, maintainable code because I want to build software
+            that's both intuitive and efficient. I use comments and documentation to share my understanding
+            of the code. My development philosophy is to begin with simplicity and then refine for performance.
+            Most importantly, I've seen firsthand how test frameworks are essential for building reliable software.`,
         ],
         
         author:
@@ -185,22 +169,16 @@ function Journey()
         
         message :
         [
-            `The journey into coding began in my teens when I discovered HTML and CSS.
-            Joining the SitePoint community fueled the passion for software engineering,
-            after a while and I was introduced to JavaScript. While I explored JavaScript,
-            I found an amazing calling in back-end development. I chose to specialize in Python
-            and database management, gaining practical experience through Discord projects. While
-            prosuing the passion of programming I went to Get Academy vocational school To persue
-            more complex understanding of fullstack development while doing classes at
-            Harvard University' CS50.I am excited to apply my skills to more complex projects and
-            continue growing as a developer. As a Get Academy student, I am dedicated to continuous
-            learning and growth. I am available for part-time work and seeking a challenging role
-            where I can apply my academic knowledge and gain practical experience under the mentorship
-            of Industry expertise.`,
-                    
-            `I'm interested in joining a team that prioritizes continuous learning, mentorship, and
-            Agile practices. the ideal career path involves progressing to a Senior Data Scientist
-            position within an innovative and collaborative environment.`,
+            `My coding journey started in my teens with HTML and CSS, and the SitePoint community sparked my passion
+            for software engineering,  leading me to explore JavaScript. It was in JavaScript that I found my calling
+            in back-end development. I specialized in Python and database management, gaining practical experience through
+            Discord projects. To expand my full-stack knowledge, I attended Get Academy vocational school while completing
+            Harvard University's CS50. I am excited to apply my skills to complex projects and continue my growth as a
+            developer. As a Get Academy student, I am committed to continuous learning and seek a challenging part-time
+            role that offers industry mentorship and the opportunity to apply my academic knowledge.`,
+
+            `I am drawn to teams that foster continuous learning, mentorship, and Agile practices. My ideal career path
+            involves advancing to a Senior Data Scientist position within a dynamic and collaborative environment.`
         ],
         author:
         {
