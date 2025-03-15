@@ -1,0 +1,43 @@
+//  Desktop Media Queries
+
+//  Portrait
+@media only screen and (min-device-width: $desktop-17-width) and (min-height: $desktop-17-width) and (orientation: portrait)
+    main
+        section#tech-repo
+            .pp
+                block-size: 16vh !important
+
+@media only screen and (min-device-width: $apple-cd-width) and (min-height: $apple-cd-height) and (orientation: portrait)
+    main
+        section.info
+            .carosel
+                inline-size: 23vw !important
+                block-size: 3vh !important
+
+                .caption
+                    bottom: 1.8vh !important                
+                div.btn-container
+                    bottom: 10vh !important
+
+        section#tech-repo
+            .pp
+                block-size: 9vh !important
+                background-size: 12vw !important
+
+                .tech-container
+                    .relative
+                        top: 1vh !important
+                        left: 0vw !important
+                    .img-wrapper
+                        .img-svg
+                            block-size: 2vh !important 
+
+//  Landscape
+@media only screen and (min-device-width: $desktop-17-height) and (min-height: $desktop-17-width) and (orientation: landscape)
+    main
+        section.info
+
+            section.bio-container
+                nav.bio-bar
+                    button.bio-btn
+                        font-size: 1.2em !important

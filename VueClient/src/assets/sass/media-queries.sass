@@ -3,17 +3,22 @@
 @import media_queries/breakpoints
 @import media_queries/htc-media-query
 @import media_queries/sony-media-query
+@import media_queries/sharp-media-query
 @import media_queries/apple-media-query
 @import media_queries/samsung-media-query
 @import media_queries/motorola-media-query
-//@import media_queries/desktop-media-query
+@import media_queries/amazon-media-query
+@import media_queries/desktop-media-query
 @import media_queries/blackberry-media-query
-//@import media_queries/microsoft-media-query
+@import media_queries/microsoft-media-query
 
 //  Generally media queries
 //  Portrait
 @media only screen and (min-width: $iphone-width) and (min-height: $iphone-height) and (orientation: portrait)
 
+    header 
+        .slogan-wrapper 
+            font-size: 0.459em !important
     main
         
         section.info
@@ -61,14 +66,17 @@
             margin-block-end: 2vh
 
 @media only screen and (min-width: $tablet-width) and (min-height: $tablet-height) and (orientation: portrait)
-    header 
+    header
+        img
+            inline-size: 15vw !important
+
         .slogan-wrapper 
-            font-size: 1.7vw
+            font-size: .7em !important
 
     main
         section.info
             .carosel
-
+                block-size: 100% !important
                 inline-size: 74vw !important
                 margin-inline: 2vw
 
@@ -77,6 +85,8 @@
 
                 div.btn-container
                     bottom: 40vh !important
+                    inline-size: 100% !important
+                    
 
                     button.img-btn
                         font-size: 3em !important
@@ -133,27 +143,24 @@
                 background-size: 17vw !important
 
                 h3
+                    margin-block: 2vh 0vh !important
                     font-size: 1em !important
                 p
                     font-size: 1em !important
-                    margin-inline: 6vw !important
                     inline-size: 36vw !important
+                    margin-inline-start: 6vw !important
 
                 .tech-container
-                    inline-size: 100% !important
-
                     .relative
                         top: 1vh !important
                         left: 2vw !important
 
-                
+                    .img-wrapper
+                        block-size: 2vh !important
+                        inline-size: 39vw !important
 
-                .img-wrapper
-                    block-size: 2vh !important
-                    inline-size: 39vw !important
-
-                    .img-svg
-                        block-size: 3vh !important
+                        .img-svg
+                            block-size: 3vh !important
 
         form input[type="text"]
             inline-size: 77vw !important
@@ -174,7 +181,7 @@
                     bottom: 5vh !important
 
                 div.btn-container
-                    bottom: 27vh !important
+                    bottom: 26vh !important
 
                     button.img-btn
                         font-size: 2.5em !important
@@ -240,7 +247,7 @@
 @media only screen and (min-width: $iphone-height) and (min-height: $iphone-width) and (orientation: landscape)
     header 
         .slogan-wrapper 
-            font-size: 1.7vw
+            font-size: 0.459em !important
 
     main
         section.info
@@ -270,7 +277,7 @@
 
         section#tech-repo
             .pp
-                block-size: 35vh
+                block-size: 42vh
                 inline-size: 41vw
                 background-size: 17vw
             
@@ -286,10 +293,10 @@
 
                 .tech-container
                     .relative
-                        top: 2vh !important
-
+                        top: 3vh
+                        left: 3vw 
                     .img-wrapper
-                        inline-size: 35vw
+                        inline-size: 37vw
 
                         .img-svg
                             block-size: 6vh
@@ -298,29 +305,33 @@
             margin-block-end: 2vh
 
 @media only screen and (min-width: $tablet-height) and (min-height: $tablet-width) and (orientation: landscape)
-    header 
+    header
+        img
+            inline-size: 10vw !important
+
         .slogan-wrapper 
-            font-size: 1.7vw
+            font-size: .7em !important
 
     main
         section.info
             .carosel
+                block-size: 0vh !important
                 inline-size: 47vw !important
                 margin-inline-end: 1vw !important
 
                 .caption
-                    bottom: 8.2vh !important
+                    bottom: 8.3vh !important
 
                 div.btn-container
                     bottom: 43vh !important
 
                     button.img-btn
-                        font-size: 4vw !important
+                        font-size: 2em !important
 
             section.bio-container
+                inline-size: 54vw !important
                 margin-block: 2vh !important
                 margin-inline: 2vw !important
-                inline-size: 54vw !important
 
                 h2
                     font-size: 2em !important
@@ -366,7 +377,7 @@
 
                 p
                     font-size: 0.8em !important
-                    inline-size: 25vw !important
+                    inline-size: 26vw !important
                     margin-inline: 2vw !important
 
                 .tech-container
@@ -407,7 +418,7 @@
                     bottom: 32vh !important
 
                     button.img-btn
-                        font-size: 3em !important
+                        font-size: 2.5em !important
 
             section.bio-container
                 margin-block: 2vh

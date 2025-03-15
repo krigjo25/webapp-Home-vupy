@@ -1,0 +1,107 @@
+//  Amazon Media Query
+@import breakpoints
+//  Portrait
+@media only screen and (min-width: $amazon-kindle-fire-width) and (min-height: $amazon-kindle-fire-height) and (orientation: portrait)
+    header
+        img
+            inline-size: 15vw !important
+
+        .slogan-wrapper 
+            font-size: .7em !important
+
+    main
+        section.info
+            .carosel
+                block-size: 100% !important
+                inline-size: 74vw !important
+                margin-inline: 2vw
+
+                .caption
+                    bottom: 4.8vh !important
+
+                div.btn-container
+                    bottom: 30vh !important
+                    inline-size: 100% !important
+
+@media only screen and (min-width: $amazon-kindle-fire-hd-width) and (min-height: $amazon-kindle-fire-hd-height) and (orientation: portrait)
+
+    header
+        .slogan-wrapper 
+            font-size: .7em !important
+
+    main
+        section.info
+            .carosel
+                inline-size: 53vw !important
+                margin-inline: 2vw
+
+                .caption
+                    bottom: 4.8vh !important
+
+                div.btn-container
+                    bottom: 17h !important
+                    inline-size: 100% !important
+            
+            section.bio-container
+                inline-size: 53vw !important
+        section#tech-repo
+            .pp
+                block-size: 13vh !important
+
+
+//  Landscape
+@media only screen and (min-width: $amazon-kindle-fire-height) and (min-height: $amazon-kindle-fire-width) and (orientation: landscape)
+    header
+        img
+            inline-size: 15vw !important
+
+        .slogan-wrapper 
+            font-size: .7em !important
+
+    main
+        section.info
+            .carosel
+                block-size: 28vh !important
+                inline-size: 74vw !important
+                margin-inline: 2vw
+
+                .caption
+                    bottom: 4.8vh !important
+
+                div.btn-container
+                    bottom: 51vh !important
+                    inline-size: 100% !important
+
+        section#tech-repo
+            .pp
+                .tech-container
+                    .relative
+                        top: 2vh !important
+
+@media only screen and (min-width: $amazon-kindle-fire-hd-height) and (min-height: $amazon-kindle-fire-hd-width) and (orientation: portrait)
+
+    header
+        .slogan-wrapper 
+            font-size: .7em !important
+
+    main
+        section.info
+            .carosel
+                inline-size: 25vw !important
+                margin-inline: 2vw
+
+                .caption
+                    bottom: 6.3vh !important
+
+                div.btn-container
+                    bottom: 30vh !important
+
+            
+        section#tech-repo
+            .pp
+                block-size: 13vh !important
+                .tech-container
+                    .relative
+                        top: 1vh !important
+                    
+                
