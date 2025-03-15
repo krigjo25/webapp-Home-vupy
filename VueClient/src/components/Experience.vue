@@ -26,7 +26,7 @@
                     </div>
                     <h3>{{ data.name[1] }}</h3>
                     <p>{{ data.description }}</p>
-                    <nav class="pro-nav flex-wrap-row-space-evenly">
+                    <nav class="pro-nav flex-wrap-row-justify-space-evenly">
                         <Link :link="url" v-for=" url in data.links"/>
                     </nav>
                 </div>
@@ -130,7 +130,7 @@ const filter = reactive(
 //  Fetching data from the server
 const Response = async () =>
 {
-    const path = import.meta.env.VITE_Github_local;
+    const path = import.meta.env.VITE_Github;
     
 
     await axios.get(path)

@@ -90,6 +90,11 @@ class GithubAPI(APIConfig):
                 case "c#":
                     lang = "CS"
 
+                case "c++":
+                    lang = "CP"
+                
+                case "jupyter notebook":
+                    lang = "jp-nb"
                 case None:
                     lang = "Unkown"
 
