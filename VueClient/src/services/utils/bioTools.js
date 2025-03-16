@@ -59,7 +59,9 @@ export function ReadTime(messages)
         //  Count the words
         count += words.length;
     }
+
     //  Calculate the reading time
     const WPM = 238;
+    //  Calculate the reading time
     return Math.round(count/WPM);
 };

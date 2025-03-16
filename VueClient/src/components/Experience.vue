@@ -2,7 +2,7 @@
     <section id="fullstack" v-if="pfolio.Loaded" class="flex-wrap-column">
         <h2>Technical Repositories</h2>
         <section class="flex-wrap-column-align-content-center">
-            <Navigation id="tech-bar" class='flex-wrap-row-space-evenly':data="pfolio.Total" @update="pfolio.current = $event" v-if="pfolio.Total"/>
+            <Navigation id="tech-bar" class='flex-wrap-row-justify-space-evenly':data="pfolio.Total" @update="pfolio.current = $event" v-if="pfolio.Total"/>
             <form class="flex-wrap-row-justify-center">
                 <select v-if = "pfolio.lang" placeholder="Choose a type" v-model="filter.lang">
                     <option value="">Project Type</option>
@@ -130,7 +130,7 @@ const filter = reactive(
 //  Fetching data from the server
 const Response = async () =>
 {
-    const path = import.meta.env.VITE_Github;
+    const path = import.meta.env.VITE_Github_local;
     
 
     await axios.get(path)

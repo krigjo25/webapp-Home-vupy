@@ -6,7 +6,7 @@
         <section class="bio-content">
             <div class='keywords'>
                 <nav class="ext-bar flex-wrap-row-justify-space-evenly">
-                    <a v-for="link in bio.current.links" :key="link.id" :href="link.url" :class="link.cls" target="_blank">
+                    <a v-for="link in bio.current.links" :key="link.id" :href="link.url" :class="link.cls" target="_blank" >
                             <i :class="link.icon"></i>
                     </a>
                 </nav>
@@ -14,7 +14,7 @@
                 <h4 class="h4-link">{{ bio.current.headline }}</h4>
                 <small class ='abt-author'>Born : {{bio.current.author.born}} ({{ bio.current.author.age }} years old) </small><br>
             </div>
-            <small>Written by {{ bio.current.author.name }}. Average reading time <b>{{ bio.current.readtime }} min</b><i class="bi bi-stopwatch"></i></small>       
+            <small>Written by {{ bio.current.author.name }}. with {{bio.current.author. contributor}} for content enhancement and language optimization. Average reading time <b>{{ bio.current.readtime }} min</b><i class="bi bi-stopwatch"></i></small>       
             
             <p v-for="msg in bio.current.message">{{ msg }}</p>
         </section>
@@ -26,13 +26,13 @@
 
 <script setup>
 //  Importing dependencies
-import { onMounted, reactive, computed } from 'vue';
+import { onMounted, reactive } from 'vue';
 import { ReadTime, CalculateAge, CalculateDate } from '@/services/utils/bioTools';
 //  Importing components
 import Navigation from '../misc_components/navigation.vue';
 import { isDesktop } from '@/services/utils/rwd';
 
-function biography()
+function profile()
 {
     //  Importing the links
     const mail = import.meta.env.VITE_Mail;
@@ -42,7 +42,7 @@ function biography()
 
     bio.current = {
         cls: "bio-bar",
-        title: "Biography",
+        title: "Kristoffer Gjøsund",
         get readtime() { return ReadTime(this.message)},
         headline: "Passionate Programmer And Fitness Enthusiast",                
         links:
@@ -79,23 +79,27 @@ function biography()
 
         message:
         [
-            `My lifestyle embodies a balance of technological passion and dedication to wellness. 
-            Free time is spent in pursuits that enrich both mind and body: software development, 
-            meditation, and physical activity, all while embracing new challenges.`, 
+            `My childhood was marked by significant challenges, which have culminated
+            in the development of a lifestyle that harmonizes technological passion
+            with a dedication to wellness.`, 
 
-            `I demonstrate a commitment to self-improvement by actively developing proficiency in Python libraries, 
-            database management, piano, and philosophy. My proactive approach to growth includes utilizing a network 
-            of developers and online resources.`,
+            ` Driven by philosophical questions since childhood, my curiosity has led me to seek
+            an understanding of context instead of content. This inherent analytical thinking enables
+            me to grasp complex challenges and discern underlying patterns, a skill that has been highly
+            appreciated throughout my adult life.`,
 
-            `Throughout my career, dedication and a strong work ethic have been consistently evident. 
-            Colleagues appreciate my contributions to projects, and I excel at fostering supportive
-            team environments and recognizing individual strengths.`,
+            `This way of thinking also influences how I interact with others. I value deep conversations
+            and genuine connections, I prefer to listen and understand rather than dominate the
+            conversation. I strive for clear and contextual communication as i sense that true understanding
+            arises from considering the surrounding circumstances, not merly from the spoken words. Therefore,
+            my focus lies on listening before speaking.`,
         ],
         
 
         author:
         {
             name:"Kristoffer Gjøsund",
+            contributor: "Google Gemini",
             get age() {return CalculateAge([1994, 2, 25])},
             get born() {return CalculateDate([1994, 2, 25, 15])},
         },
@@ -112,9 +116,9 @@ function workProfile()
     bio.current = {
         cls: "bio-bar",
         get readtime() { return ReadTime(this.message)},
-        title: "Work Biography",
+        title: "Professional Profile",
         
-        headline: "Junior Software Developer",
+        headline: "Collaborative Development",
 
         links:
         [
@@ -132,26 +136,37 @@ function workProfile()
                 cls :"bio-link",
                 icon:"bi bi-github",
             },
-            {
-                id  :2,
-                url :CV,
-                exist: true,
-                cls :"bio-link",
-                icon:"bi bi-file-person",
-            },
         ],
 
         message:[
-            `Early in my career as a junior developer, I've come to appreciate the power of organization.
-            I'm committed to delivering high-quality, maintainable code because I want to build software
-            that's both intuitive and efficient. I use comments and documentation to share my understanding
-            of the code. My development philosophy is to begin with simplicity and then refine for performance.
-            Most importantly, I've seen firsthand how test frameworks are essential for building reliable software.`,
+            `Driven by a lifelong curiosity and a desire to understand the underlying context,
+            I approach application development with a philosophical mindset, seeking to contribute
+            to the world as a reflection of my personal journey.`,
+            
+            `My technical portfolio development has been driven by a deep desire to learn and
+            create impactful solutions. I am committed to delivering high-quality, maintainable
+            code, fueled by empathy for the end-user. I value open communication and knowledge
+            sharing, employing comprehensive comments and documentation. My development philosophy
+            emphasizes simplicity and ongoing learning, refining for performance with a strong emphasis
+            on test frameworks to ensure reliability, user-friendly applications, and respect for the
+            work of others.`,
+
+            `I leverage AI tools such as Google Gemini as a powerful aid in expressing
+            and refining my thoughts throughout the development process. Gemini assists me to explore 
+            and articulate complex ideas, translate them into clear and concise language. This allows me
+            to focus on the creative and strategic aspects of development, while Gemini assists in the
+            technical articulation of my thought process.`,
+
+            `Throughout my previous career, dedication and a strong work ethic have been the foundation
+            of my professional approach. Colleagues acknowledge the value of my project contributions,
+            and I actively cultivate collaborative team environments where individual strengths are
+            recognized and leveraged.`
         ],
         
         author:
             {
                 name:"Kristoffer Gjøsund",
+                contributor: "Google Gemini",
                 get age() {return CalculateAge([1994, 2, 25])},
                 get born() {return CalculateDate([1994, 2, 25, 15])},
 
@@ -159,37 +174,55 @@ function workProfile()
         };
 };
 
-function Journey()
+function autoBiography()
 {
     bio.current = {
         cls: "bio-bar",
-        title   : "Journey",
-        headline: "The Journey So Far",
+        title   : "An Autobiography",
+        headline: "Journey of growth and self-discovery",
         get readtime() { return ReadTime(this.message)},
         
         message :
         [
-            `My coding journey started in my teens with HTML and CSS, and the SitePoint community sparked my passion
-            for software engineering,  leading me to explore JavaScript. It was in JavaScript that I found my calling
-            in back-end development. I specialized in Python and database management, gaining practical experience through
-            Discord projects. To expand my full-stack knowledge, I attended Get Academy vocational school while completing
-            Harvard University's CS50. I am excited to apply my skills to complex projects and continue my growth as a
-            developer. As a Get Academy student, I am committed to continuous learning and seek a challenging part-time
-            role that offers industry mentorship and the opportunity to apply my academic knowledge.`,
+            `My journey began subtly in my youth, influenced by my father and brother's involvement in the IT industry,
+            I wasn't consciously aware of my future aspirations. My childhood was characterized by gaming and family time,
+            a consequence of other children's unwillingness to spend time with me. The upside of this consequence, the
+            challenge solving skill unconsciously increased.`,
 
-            `I am drawn to teams that foster continuous learning, mentorship, and Agile practices. My ideal career path
-            involves advancing to a Senior Data Scientist position within a dynamic and collaborative environment.`
+            `Throughout my childhood I encountered numerous challenges that adversely affected my academic performance.
+            This was a consequence of a combination of the school environment and my internal struggles at that time, which
+            compounded the existing difficulties, which only served to worsen the situation.`,
+
+            `In my teens, I started exploring basic front-end development, captivated by the idea of creating "cool" web-based
+            applications. Simultaneously, I faced internal challenges that demanded attention, but I was unaware of and lacked
+            access to the resources needed to address them. These internal challenges remained subconsciously suppressed until
+            my late 20s, when a transformative event occurred. I frequently refer to this era as the "dark ages." Despite the
+            perceived difficulties of my teenage years, they ultimately became a natural part of my personal growth.`,
+
+            `In my early 20s, I consistently worked at a job that offered little personal fulfillment. It wasn't until I experienced
+            a shift in mindset, a desire to be more productive, that I began to actively develop my skills. Work time was used to
+            enhance critical thinking by listening to audiobooks. Lunch breaks became opportunities to improve my challenge-solving
+            skills through Python and SQL projects at a bachelor's/master's level. After two years, a sudden urge to resign left me
+            unemployed for six months. During this period, I concentrated on further strengthening my critical thinking and challenge-solving
+            skills. By participating in CS50 Introduction to Python.`,
+
+            `A beneficial side effect of this period of self-study was the substantial development of other previously underdeveloped and
+            suppressed skills, with particular emphasis on emotional intelligence.`,
+
+            `Consequently, I chose to work alongside my studies to support them. This position lasted until I began my studies at GetAcademy,
+            finally pursuing the passion that had been suppressed since my teenage years.`,
         ],
         author:
         {
             name:"Kristoffer Gjøsund",
+            contributor: "Google Gemini",
             get age() {return CalculateAge([1994, 2, 25])},
             get born() {return CalculateDate([1994, 2, 25, 15])},
         }, 
     };
 };
 
-function WorkoutBlog()
+function workoutLog()
 {
     bio.current = {
         title: "Workout Blog",
@@ -208,7 +241,7 @@ function WorkoutBlog()
     };
 };
 
-function PersonalBlog()
+function personalBlog()
 {
     bio = {
         title: "Workout Blog",
@@ -241,6 +274,7 @@ const bio = reactive(
             author:
                 {
                     name:null,
+                    contributor: "Google Gemini",
                     born: null,
                     age: null,
 
@@ -251,15 +285,15 @@ const bio = reactive(
                     id      : 0,
                     exist   : true,
                     cls     : "bio-btn",
-                    name    : isDesktop() ? "Biography" : null,
-                    function: biography,
+                    name    : isDesktop() ? "Personal Philiosophy" : null,
+                    function: profile,
                     icon    : "bi bi-info-circle-fill",
                 },
                 {
                     id      : 1,
                     exist   : true,
                     cls     : "bio-btn",
-                    name    : isDesktop() ? "Work Biography":  null,
+                    name    : isDesktop() ? "Professional Profile":  null,
                     function: workProfile,
                     icon    : "bi bi-person-workspace",
                 },
@@ -267,32 +301,24 @@ const bio = reactive(
                     id      : 2,
                     exist   : true,
                     cls     : "bio-btn",
-                    function: Journey,
-                    name    : isDesktop() ? "Journey So Far" : null,
+                    function: autoBiography,
+                    name    : isDesktop() ? "Personal Background" : null,
                     icon    : "bi bi-activity",
-                },
-                {
-                    id      : 3,
-                    exist   : false,
-                    cls     : "bio-btn",
-                    name    : isDesktop() ? "Common Opinions" : null,
-                    function:"",
-                    icon    : "bi bi-clock-history",
                 },
                 {
                     id      : 4,
                     exist   : false,
                     cls     : "bio-btn",
-                    name    : isDesktop() ? "Workout Blog" : null,
-                    function: WorkoutBlog,
+                    name    : isDesktop() ? "My fitness Insights" : null,
+                    function: workoutLog,
                     icon    : "bi bi-clock-history",
                 },
                 {
                     id      : 5,
                     exist   : false,
                     cls     : "bio-btn",
-                    name    : isDesktop() ?  "Personal Blog" : null,
-                    function: PersonalBlog,
+                    name    : isDesktop() ?  "My Personal Journey" : null,
+                    function: personalBlog,
                     icon    : "bi bi-clock-history",
                 },
             ],
@@ -300,6 +326,6 @@ const bio = reactive(
 );
 
 onMounted(() => {
-    biography();
+    profile();
 });
 </script>
