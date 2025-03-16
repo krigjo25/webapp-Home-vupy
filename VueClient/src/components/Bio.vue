@@ -7,7 +7,7 @@
 
 <script setup>
     //  Importing   Dependencies
-    import { reactive, computed } from 'vue';
+    import { reactive} from 'vue';
     import { isMobile, isDesktop } from '../services/utils/rwd.js';
     import { biography, workProfile, Journey, WorkoutBlog, PersonalBlog } from '../services/utils/bio.js';
 
