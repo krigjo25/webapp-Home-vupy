@@ -110,7 +110,7 @@ function workProfile()
 {
     // Importing the links
     const CV = import.meta.env.VITE_CV;
-    const github = import.meta.env.VITE_Github;
+    const github = import.meta.env.VITE_GithubLink;
     const linkedin = import.meta.env.VITE_LinkedIn;
             
     bio.current = {

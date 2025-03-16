@@ -4,7 +4,7 @@
 import os
 
 from dotenv import load_dotenv
-from flask import Flask, send_from_directory
+from flask import Flask, render_template
 from flask_cors import CORS
 from flask_session import Session
 
@@ -29,11 +29,12 @@ if os.getenv('ENV') == 'production':
   app.config.from_object(ProdConfig()) 
   CORS(app, resources={r"/*": {"origins": f"{app.config['DOMAIN']}"}}, supports_credentials=True)
 
+  
 elif os.getenv('ENV') == 'development':
   CORS(app, resources={r"/*": {"origins": f"*"}}, supports_credentials=True)
   app.config.from_object(DevelopmentConfig)
 
-logger.info(f"App running on {app.config}")
+logger.info(f"App running on {app.config['ENV']}")
 
 #   Configure session to use filesystem (instead of signed cookies)
 Session(app)
@@ -48,6 +49,8 @@ async def after_request(response):
     logger.info(f"Response: {response}")
     return response
 '''
+
+
 #   Endpoints
 app.add_url_rule("/api/github", view_func = Github().as_view('Github', methods = ["GET"]))
 app.add_url_rule("/api/photos", view_func = PhotoLibrary().as_view('Photos', methods = ["GET"]))

@@ -118,7 +118,6 @@ class APIConfig(object):
         self.API_KEY = KEY
         self.PATCH = PATCH
         self.DELETE = DELETE
-
         self.logging = log
         
 
@@ -130,20 +129,22 @@ class APIConfig(object):
 
         #   Initialize the start time
         start = perf_counter()
-
+        self.logging.info(f"Attempting to fetch data from {self.API_URL}{endpoint}")
         try:
             r = requests.get(f"{endpoint}", timeout=30, headers=head)
 
+            #   Ensure the request is successful
             if r.status_code in [200]:
                 
                 self.logging.info(f"Succsess : Recieved request code :{r.status_code} Time elapsed: {perf_counter()-start}")
                 return r.json()
 
+            #   Ensure the request is not successful
             if r.status_code in [401, 403]: raise ConnectionError('Unauthorized Access')
             elif r.status_code in [404]: raise HTTPError('Resource not found')     
         except (HTTPError, ConnectionError, Timeout, RequestException) as e: 
             self.logging.error(f"request code :{r.status_code}\n Error: {e}, Time elapsed: {perf_counter()-start}")
         
-        self.logging.warning(f" Time elapsed: {perf_counter()-start}\t Request code: {r.status_code}")
+        self.logging.warn(f" Time elapsed: {perf_counter()-start}\t Request code: {r.status_code}")
         return 
 

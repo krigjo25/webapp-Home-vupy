@@ -11,6 +11,9 @@ from lib.utils.log_config import GithubWatcher
 #  Loading the environment variables
 load_dotenv()
 
+logger = GithubWatcher()
+logger.FileHandler()
+
 class GithubAPI(APIConfig):
 
     """ Github API Configuration
@@ -26,9 +29,7 @@ class GithubAPI(APIConfig):
         self.PATCH = PATCH
         self.API_KEY = KEY
         self.DELETE = DELETE
-
-        self.logging = GithubWatcher()
-        self.logging.FileHandler()
+        self.logging = logger
 
         self.head = {'Content-Type': 'application/json','Authorization': f"{self.API_KEY}"}
         return
@@ -64,7 +65,6 @@ class GithubAPI(APIConfig):
                     'url': response[i]['html_url'],
                 }]
             if response[i]['homepage'] or response[i]['homepage'] == "None":
-                print(response[i]['homepage'])
 
                 repoObject['links'].append(
                     {
