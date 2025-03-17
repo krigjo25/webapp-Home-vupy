@@ -224,9 +224,6 @@ main section.info section.bio-container section.bio-content h4 {
   margin-block-end: 0em;
   color: rgb(103, 58, 183) !important;
 }
-main section.info nav.ext-bar {
-  padding: 1vw;
-}
 main section.info nav.ext-bar span {
   padding: 1vw;
   font-size: 1em;
@@ -1211,15 +1208,11 @@ div.tech-ui-ux {
   main section.info section.bio-container nav.bio-bar button.bio-btn {
     font-size: 2em !important;
   }
-  main section.info section.bio-container section.bio-content {
-    inline-size: 86vw !important;
-  }
   main section.info section.bio-container section.bio-content h3 {
     font-size: 1.5em !important;
   }
   main section.info section.bio-container section.bio-content p {
     font-size: 1em !important;
-    inline-size: 86vw !important;
   }
   main section.info section.bio-container div.btn-container {
     bottom: 39em !important;
@@ -1518,7 +1511,6 @@ div.tech-ui-ux {
   }
   main section.info .carosel div.btn-container {
     bottom: 42vh;
-    inline-size: 47vw;
   }
   main section.info .carosel .caption {
     bottom: 7.4vh;
@@ -1801,56 +1793,27 @@ div.tech-ui-ux {
     margin-block-end: 2vh;
   }
 }
-@media only screen and (min-device-width: 912px) and (max-device-width: 1368px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
-  header a {
-    font-size: 0.57em;
-  }
-  main section.info {
-    justify-content: flex-start;
-  }
-  main section.info .carosel {
-    block-size: 36vh;
-    inline-size: 30vw;
-    align-items: center;
+@media only screen and (min-width: 912px) and (min-height: 1368px) and (orientation: portrait) {
+  header .slogan-wrapper {
+    font-size: 0.9em !important;
   }
   main section.info .carosel .caption {
-    bottom: 3.7vh;
+    bottom: 3.8vh !important;
   }
-  main section.info .btn-container {
-    bottom: 11em !important;
+  main section.info .carosel div.btn-container {
+    bottom: 22vh !important;
   }
-  main section.info section.bio-container {
-    inline-size: 52vw;
-    margin-inline-start: 6vw;
+  main section.info .carosel section.bio-content {
+    inline-size: 100% !important;
   }
-  main section.info section.bio-container h2 {
-    font-size: 2em;
-    text-align: center;
-  }
-  main section.info section.bio-container nav.bio-link button.bio-btn {
-    font-size: 1em;
-  }
-  main section.info section.bio-container section.bio-content {
-    inline-size: 60vw;
-  }
-  main section.info section.bio-container section.bio-content h3 {
-    font-size: 1.5em;
-  }
-  main section.info section.bio-container section.bio-content p {
-    font-size: 1em;
-    inline-size: 57vw;
-  }
-  main section.info section.bio-container div.btn-container {
-    bottom: 39em;
+  main section.info .carosel section.bio-content p {
+    inline-size: 100% !important;
   }
   main section.spec-wrapper {
     inline-size: 100%;
-    flex-direction: column;
   }
   main section.spec-wrapper .spec-class {
     inline-size: 84vw;
-    display: flex;
-    flex-direction: column;
   }
   main section.spec-wrapper .spec-class .h3-link {
     margin-block: 1vh;
@@ -1864,30 +1827,111 @@ div.tech-ui-ux {
   main section.spec-wrapper .spec-class .spec-course .h4-link {
     margin-block: 1vh;
   }
-  main section#full-stack .pp {
-    inline-size: 100%;
+  main section#tech-repo .pp {
+    block-size: 13vh !important;
+    inline-size: 35vw !important;
+    background-size: 14vw !important;
   }
-  main section#full-stack .pp .tech-container {
-    inline-size: 60vw;
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 1vh !important;
+    inline-size: 32vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 2vh !important;
+  }
+  main section#tech-repo .pp p {
+    inline-size: 24vw !important;
   }
 }
-@media only screen and (min-device-width: 540px) and (max-device-width: 720px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
-  header a {
-    font-size: 0.57em;
-  }
-  main section.info {
-    justify-content: center;
+@media only screen and (min-width: 540px) and (min-height: 720px) and (orientation: portrait) {
+  header .slogan-wrapper {
+    font-size: 0.9em !important;
   }
   main section.info .carosel {
-    block-size: 47vh;
-    inline-size: 30vw;
-    align-items: center;
+    block-size: 100%;
+    inline-size: 100%;
   }
   main section.info .carosel .caption {
-    bottom: 3em;
+    bottom: 3em !important;
   }
-  main section.info .btn-container {
-    bottom: 11em !important;
+  main section.info div.btn-container {
+    bottom: 50vh !important;
+  }
+  main section.info section.bio-container {
+    inline-size: 52vw;
+    margin-inline-start: 6vw;
+  }
+  main section.info section.bio-container h2 {
+    font-size: 2em;
+    text-align: center;
+  }
+  main section.info section.bio-container nav.bio-link button.bio-btn {
+    font-size: 1em;
+  }
+  main section.info section.bio-container section.bio-content h3 {
+    font-size: 1.5em;
+  }
+  main section.info section.bio-container section.bio-content p {
+    font-size: 1em;
+  }
+  main section.info section.bio-container div.btn-container {
+    bottom: 39em;
+  }
+  main section.spec-wrapper {
+    inline-size: 100%;
+  }
+  main section.spec-wrapper .spec-class {
+    inline-size: 84vw;
+  }
+  main section.spec-wrapper .spec-class .h3-link {
+    margin-block: 1vh;
+  }
+  main section.spec-wrapper .spec-class p {
+    inline-size: 69vw;
+  }
+  main section.spec-wrapper .spec-class .tech-container {
+    inline-size: 87vw;
+  }
+  main section.spec-wrapper .spec-class .spec-course .h4-link {
+    margin-block: 1vh;
+  }
+  main section#tech-repo .pp {
+    block-size: 21vh !important;
+    inline-size: 63vw !important;
+    background-size: 22vw !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 2vh !important;
+    left: 4vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 3vh !important;
+    inline-size: 58vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 4vh !important;
+  }
+  main section#tech-repo .pp p {
+    inline-size: 51vw !important;
+    margin-inline-start: 10vw !important;
+  }
+}
+@media only screen and (min-width: 720px) and (min-height: 540px) and (orientation: landscape) {
+  header img {
+    inline-size: 13vw !important;
+  }
+  header .slogan-wrapper {
+    font-size: 0.9em !important;
+  }
+  main section.info .carosel {
+    block-size: 100%;
+    inline-size: 100%;
+  }
+  main section.info .carosel .caption {
+    bottom: 3em !important;
+  }
+  main section.info div.btn-container {
+    bottom: 50vh !important;
   }
   main section.info section.bio-container {
     inline-size: 52vw;
@@ -1908,19 +1952,15 @@ div.tech-ui-ux {
   }
   main section.info section.bio-container section.bio-content p {
     font-size: 1em;
-    inline-size: 57vw;
   }
   main section.info section.bio-container div.btn-container {
     bottom: 39em;
   }
   main section.spec-wrapper {
     inline-size: 100%;
-    flex-direction: column;
   }
   main section.spec-wrapper .spec-class {
     inline-size: 84vw;
-    display: flex;
-    flex-direction: column;
   }
   main section.spec-wrapper .spec-class .h3-link {
     margin-block: 1vh;
@@ -1934,11 +1974,28 @@ div.tech-ui-ux {
   main section.spec-wrapper .spec-class .spec-course .h4-link {
     margin-block: 1vh;
   }
-  main section#full-stack .pp {
-    inline-size: 100%;
+  main section#tech-repo .pp {
+    block-size: 21vh !important;
+    inline-size: 38vw !important;
+    background-size: 14vw !important;
   }
-  main section#full-stack .pp .tech-container {
-    inline-size: 60vw;
+  main section#tech-repo .pp .tech-container .relative {
+    top: 2vh !important;
+    left: 2vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 3vh !important;
+    inline-size: 35vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 4vh !important;
+  }
+  main section#tech-repo .pp h3 {
+    margin-inline-start: 0 !important;
+  }
+  main section#tech-repo .pp p {
+    inline-size: 30vw !important;
+    margin-inline-start: 5vw !important;
   }
 }
 @media only screen and (min-width: 320px) and (min-height: 480px) and (orientation: portrait) {
@@ -2002,7 +2059,7 @@ div.tech-ui-ux {
     inline-size: 100% !important;
   }
   main section.info .carosel div.btn-container button.img-btn {
-    font-size: 3em !important;
+    font-size: 2.5em !important;
   }
   main section.info section.bio-container {
     margin-block: 1vh !important;
@@ -2014,9 +2071,6 @@ div.tech-ui-ux {
   }
   main section.info section.bio-container nav.bio-bar button.bio-btn {
     font-size: 2em !important;
-  }
-  main section.info section.bio-container section.bio-content {
-    inline-size: 86vw !important;
   }
   main section.info section.bio-container section.bio-content h3 {
     font-size: 1.5em !important;
@@ -2101,9 +2155,6 @@ div.tech-ui-ux {
   }
   main section.info section.bio-container nav.bio-bar button.bio-btn {
     font-size: 2em !important;
-  }
-  main section.info section.bio-container section.bio-content {
-    inline-size: 86vw !important;
   }
   main section.info section.bio-container section.bio-content h3 {
     font-size: 1.5em !important;
@@ -2360,13 +2411,13 @@ div.tech-ui-ux {
     inline-size: 23vw !important;
   }
   main section.info .carosel div.btn-container {
-    bottom: 33vh !important;
+    bottom: 30vh !important;
   }
   main section.info .carosel button.img-btn {
     font-size: 2em !important;
   }
   main section.info .carosel .caption {
-    bottom: 5.4vh !important;
+    bottom: 4.7vh !important;
   }
   main section.info section.bio-container {
     margin-block: 13vh;

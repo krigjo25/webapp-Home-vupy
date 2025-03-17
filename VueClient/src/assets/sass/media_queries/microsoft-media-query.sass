@@ -1,30 +1,170 @@
 //  Microsoft Devices Media Queries
 
 //  Importing dependencies
-$surface-pro-width: 912px
-$surface-pro-height: 1368px
+@import breakpoints
 
-$surface-duo-width: 540px
-$surface-duo-height: 720px
-@media only screen and (min-device-width: $surface-pro-width) and (max-device-width: $surface-pro-height) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
+//  Portrait
+@media only screen and (min-width: $surface-pro-width) and (min-height: $surface-pro-height) and (orientation: portrait)
     
-    header a
-        font-size: 0.57em 
+    header
+        .slogan-wrapper
+            font-size: 0.9em  !important
 
     main
         section.info
-            justify-content: flex-start
-
             .carosel
-                block-size: 36vh
-                inline-size: 30vw 
-                align-items: center
+                .caption
+                    bottom: 3.8vh !important
+
+                div.btn-container
+                    bottom: 22vh !important
+
+                section.bio-content
+                    inline-size: 100% !important
+
+                    p
+                        inline-size: 100% !important
+
+        section.spec-wrapper
+
+            inline-size: 100%
+
+            .spec-class
+                inline-size: 84vw
+    
+                .h3-link
+                    margin-block: 1vh
+                
+                p
+                    inline-size: 69vw
+
+                .tech-container
+                    inline-size: 87vw
+
+                .spec-course
+                    .h4-link
+                        margin-block: 1vh
+
+        section#tech-repo
+            .pp
+                block-size: 13vh !important
+                inline-size: 35vw !important
+                background-size: 14vw !important
+
+                .tech-container
+                    .img-wrapper
+                        block-size: 1vh !important
+                        inline-size: 32vw !important
+
+                        .img-svg
+                            block-size: 2vh !important
+                p
+                    inline-size: 24vw !important
+
+
+@media only screen and (min-width: $surface-duo-width) and (min-height: $surface-duo-height) and (orientation: portrait)
+    
+    header
+        .slogan-wrapper
+            font-size: 0.9em  !important
+
+    main
+        section.info
+            .carosel
+                block-size: 100%
+                inline-size: 100% 
 
                 .caption
-                    bottom: 3.7vh
+                    bottom: 3em !important
 
-            .btn-container
-                bottom: 11em !important
+            div.btn-container
+                bottom: 50vh !important
+
+            section.bio-container
+                inline-size: 52vw
+                margin-inline-start: 6vw
+
+                h2
+                    font-size: 2em
+                    text-align: center
+
+                nav.bio-link
+
+                    button.bio-btn
+                        font-size: 1em 
+
+                section.bio-content
+
+                    h3
+                        font-size: 1.5em
+
+                    p
+                        font-size: 1em        
+
+                div.btn-container
+                    bottom: 39em
+
+        section.spec-wrapper
+            inline-size: 100%
+
+            .spec-class
+                inline-size: 84vw
+    
+                .h3-link
+                    margin-block: 1vh
+                
+                p
+                    inline-size: 69vw
+
+                .tech-container
+                    inline-size: 87vw
+
+                .spec-course
+                    .h4-link
+                        margin-block: 1vh
+
+        section#tech-repo
+
+            .pp
+                block-size: 21vh !important
+                inline-size: 63vw !important
+                background-size: 22vw !important
+
+                .tech-container
+                    .relative
+                        top: 2vh !important
+                        left: 4vw !important
+                    
+                    .img-wrapper
+                        block-size: 3vh !important
+                        inline-size: 58vw !important
+
+                        .img-svg
+                            block-size: 4vh !important
+                p
+                    inline-size: 51vw !important
+                    margin-inline-start: 10vw !important
+
+//  Landscape
+@media only screen and (min-width: $surface-duo-height) and (min-height: $surface-duo-width) and (orientation: landscape)
+    
+    header
+        img
+            inline-size: 13vw !important
+        .slogan-wrapper
+            font-size: 0.9em  !important 
+
+    main
+        section.info
+            .carosel
+                block-size: 100%
+                inline-size: 100% 
+
+                .caption
+                    bottom: 3em !important
+
+            div.btn-container
+                bottom: 50vh !important
 
             section.bio-container
                 inline-size: 52vw
@@ -46,21 +186,16 @@ $surface-duo-height: 720px
                         font-size: 1.5em
 
                     p
-                        font-size: 1em
-                        inline-size: 57vw            
+                        font-size: 1em        
 
                 div.btn-container
                     bottom: 39em
 
         section.spec-wrapper
-
             inline-size: 100%
-            flex-direction: column
 
             .spec-class
                 inline-size: 84vw
-                display: flex
-                flex-direction: column
     
                 .h3-link
                     margin-block: 1vh
@@ -75,85 +210,27 @@ $surface-duo-height: 720px
                     .h4-link
                         margin-block: 1vh
 
-        section#full-stack
+        section#tech-repo
+
             .pp
-                inline-size: 100%
+                block-size: 21vh !important
+                inline-size: 38vw !important
+                background-size: 14vw !important
 
                 .tech-container
-                    inline-size: 60vw
+                    .relative
+                        top: 2vh !important
+                        left: 2vw !important
+                    
+                    .img-wrapper
+                        block-size: 3vh !important
+                        inline-size: 35vw !important
 
-@media only screen and (min-device-width: $surface-duo-width) and (max-device-width: $surface-duo-height) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
-    
-    header a
-        font-size: 0.57em 
-
-    main
-        section.info
-            justify-content: center
-
-            .carosel
-                block-size: 47vh
-                inline-size: 30vw 
-                align-items: center
-
-                .caption
-                    bottom: 3em
-
-            .btn-container
-                bottom: 11em !important
-
-            section.bio-container
-                inline-size: 52vw
-                margin-inline-start: 6vw
-
-                h2
-                    font-size: 2em
-                    text-align: center
-
-                nav.bio-link
-
-                    button.bio-btn
-                        font-size: 1em 
-
-                section.bio-content
-                    inline-size: 60vw
-
-                    h3
-                        font-size: 1.5em
-
-                    p
-                        font-size: 1em
-                        inline-size: 57vw            
-
-                div.btn-container
-                    bottom: 39em
-
-        section.spec-wrapper
-            inline-size: 100%
-            flex-direction: column
-
-            .spec-class
-                inline-size: 84vw
-                display: flex
-                flex-direction: column
-    
-                .h3-link
-                    margin-block: 1vh
-                
+                        .img-svg
+                            block-size: 4vh !important
+                h3
+                    margin-inline-start: 0 !important
                 p
-                    inline-size: 69vw
+                    inline-size: 30vw !important
+                    margin-inline-start: 5vw !important
 
-                .tech-container
-                    inline-size: 87vw
-
-                .spec-course
-                    .h4-link
-                        margin-block: 1vh
-
-        section#full-stack
-
-            .pp
-                inline-size: 100%
-
-                .tech-container
-                    inline-size: 60vw
