@@ -79,10 +79,6 @@ function profile()
 
         message:
         [
-            `My childhood was marked by significant challenges, which have culminated
-            in the development of a lifestyle that harmonizes technological passion
-            with a dedication to wellness.`, 
-
             ` Driven by philosophical questions since childhood, my curiosity has led me to seek
             an understanding of context instead of content. This inherent analytical thinking enables
             me to grasp complex challenges and discern underlying patterns, a skill that has been highly
