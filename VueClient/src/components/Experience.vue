@@ -139,7 +139,6 @@ const Response = async () =>
         pfolio.data = res.data.data;
         pfolio.Total = res.data.page;
         pfolio.lang = res.data.lang;
-        console.log(pfolio.lang);
     })
     .catch((err) => 
     {
