@@ -34,11 +34,11 @@
         form input[type="text"]
             margin-block-end: 2vh
 
-@media only screen and (min-width: $bberry-bt-width) and (min-height: $bberry-bt-height) and (max-height: 700px) and (orientation: portrait)
+@media only screen and (min-width: $bberry-bt-width) and (min-height: $bberry-bt-height)  and (orientation: portrait)
 
     header
         .slogan-wrapper
-            font-size: .76em
+            font-size: .7em !important
 
     main
         
@@ -48,16 +48,25 @@
                     bottom: 7.8vh !important
 
                 div.btn-container
-                    bottom: 53vh !important
+                    bottom: 49vh !important
 
         section#tech-repo
             .pp
                 block-size: 28vh !important
                 background-size: 30vw !important
 
+                .tech-container
+                    .relative
+                        top: 3vh !important
+
+                    .img-wrapper
+                        inline-size: 83vw !important
+
+                        .img-svg
+                            block-size: 5vh !important
                 p
-                    font-size: 1em
-                    margin-inline-start: 9vw
+                    inline-size: 81vw !important
+                    margin-inline-start: 5vw !important
 
         form input[type="text"]
             margin-block-end: 2vh
@@ -133,12 +142,13 @@
 
     header
         .slogan-wrapper
-            font-size: .76em
+            font-size: .7em !important
 
     main
         
         section.info
             .carosel
+                inline-size: 50vw !important
                 .caption
                     bottom: 10.7vh !important
 
@@ -147,22 +157,31 @@
 
         section#tech-repo
             .pp
-                block-size: 30vh !important
+                inline-size: 40vw !important
+                block-size: 35vh !important
                 background-size: 17vw !important
 
+                .tech-container
+                    .relative
+                        top: 2vh !important
+                        left: 3vw !important
+
+                    .img-wrapper
+                        inline-size: 36vw !important
+
+                        .img-svg
+                            block-size: 6vh !important
+
                 p
-                    font-size: 1em
+                    inline-size: 29vw !important
                     margin-inline-start: 9vw
                 
-                .tech-container
-                    .img-wrapper
-                        .img-svg
-                            block-size: 6vh
+                
 
         form input[type="text"]
             margin-block-end: 2vh
 
-@media only screen and (min-width: $bberry-curve-height) and (min-height: $bberry-curve-width) and (max-width: 413px )  and (orientation: portrait)
+@media only screen and (min-width: $bberry-curve-height) and (max-width: 500px) and (min-height: $bberry-curve-width) and (orientation: landscape)
 
     header
         .slogan-wrapper
@@ -179,15 +198,17 @@
 
         section#tech-repo
             .pp
-                block-size: 40vh !important
-                inline-size: 41vw !important
+                block-size: 41vh !important
+                inline-size: 40vw !important
                 p
                     font-size: 1em !important
 
                 .tech-container
                     .relative
                         top: 3vh
+
                     .img-wrapper
+                        inline-size: 36vw !important
                         .img-svg
                             block-size: 6vh !important
 
