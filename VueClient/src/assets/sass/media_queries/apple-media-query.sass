@@ -4,7 +4,7 @@
 @import breakpoints
 
 //  Media Queries Portrait
-@media only screen and (min-width: $iphone-7-width) and (min-height: $iphone-7-height) and (orientation: portrait)
+@media only screen and (min-width: $iphone-7-width) and (max-width: 413px ) and (min-height: $iphone-7-height) and (orientation: portrait)
     header 
         .slogan-wrapper 
             font-size: .52em !important
@@ -13,7 +13,7 @@
         section.info
             .carosel
                 .caption
-                    bottom: 7.4vh !important
+                    bottom: 7.5vh !important
 
             div.btn-container
                 bottom: 40vh !important
@@ -58,12 +58,15 @@
                 block-size: 20vh !important
 
                 .tech-container
+                    .relative
+                        top: 2vh
+
                     .img-wrapper
                         block-size: 3vh !important
                         inline-size : 87vw !important
 
                         .img-svg
-                            block-size: 6vh !important
+                            block-size: 4vh !important
 
                 .tech-wrapper
                     inline-size: 23vw !important
@@ -71,7 +74,7 @@
                     font-size: 1em !important
                     margin-inline-start: 13vw !important
 
-@media only screen and (min-width: $iphone-plus-width) and (min-height: $iphone-plus-height) and (orientation: portrait)
+@media only screen and (min-width: $iphone-plus-width) and (max-width: 479px )and (min-height: $iphone-plus-height) and (orientation: portrait)
     header 
         .slogan-wrapper
             font-size: .615em !important
@@ -127,14 +130,16 @@
                 block-size: 21vh !important
 
                 p
-                    font-size: 1em !important
-                    inline-size: 69vw !important
+                    margin-inline-start: 17vw
+                    inline-size: 51vw !important
+                    
                     
                 .tech-container
+                    .relative
+                        top: 2vh !important
 
                     .img-wrapper
                         block-size: 3vh !important
-                        inline-size: 82vw !important
 
                         .img-svg
                             block-size: 4vh !important
@@ -208,7 +213,7 @@
                             block-size: 3vh !important
 
 //  Media Queries Landscape
-@media only screen and (min-width: $iphone-7-height) and (min-height: $iphone-7-width) and (orientation: landscape)
+@media only screen and (min-width: $iphone-7-height) and (max-width: 700px) and (min-height: $iphone-7-width) and (orientation: landscape)
     header 
         .slogan-wrapper 
             font-size: .8em !important
@@ -278,15 +283,15 @@
 
                 .tech-container
                     .relative
-                        top: 1vh !important
+                        top: 3vh !important
 
                     .img-wrapper
-                        block-size: 7vh !important
+                        block-size: 8vh !important
 
                         .img-svg
-                            block-size: 6vh !important
+                            block-size: 7vh !important
 
-@media only screen and (min-width: $iphone-plus-height) and (min-height: $iphone-plus-width) and (orientation: landscape)
+@media only screen and (min-width: $iphone-plus-height) and (max-width: 750px) and (min-height: $iphone-plus-width) and (orientation: landscape)
     header 
         .slogan-wrapper 
             font-size: .8em !important
@@ -298,7 +303,10 @@
                     bottom: 12.2vh !important
 
                 div.btn-container
-                    bottom: 71vh !important
+                    bottom: 66vh !important
+
+                    .img-btn
+                        font-size: 2.5em
 
 
             section.bio-container
@@ -342,13 +350,13 @@
         section#tech-repo
             .pp
                 block-size: 33vh !important
-                inline-size: 44vw !important
+                inline-size: 41vw !important
                 background-size: 14vw !important
 
                 p
                     font-size: 1em !important
                     inline-size: 35vw !important
-                    margin-inline-start: 7vw !important
+                    margin-inline-start: 6vw !important
                     
                 .tech-container
                     .relative
@@ -359,7 +367,7 @@
                         block-size: 3vh !important
 
                         .img-svg
-                            block-size: 5vh !important
+                            block-size: 6vh !important
 
             .wrap-row-space-between
                 top: 0.7em !important

@@ -1,39 +1,14 @@
 //  Media query Breakpoints
 
-//  General Breakpoints
-$iphone-width: 320px
-$iphone-height: 480px
+//  Mobile Breakpoints
+$bberry-width: 480px
+$bberry-height: 800px
 
-$iphone-7-width: 375px
-$iphone-7-height: 667px
-
-$iphone-plus-width : 414px
-$iphone-plus-height: 736px
-
-$tablet-width: 600px
-$tablet-height: 800px
-
-$Ipad-width: 768px
-$Ipad-height: 1024px
-
-$wideScreen-width: 1274px
-$wideScreen-height: $Ipad-width
-
-//  Android / Blackberry / Kindle / HTC / Motorola / Samsung / Sony / Sharp / Apple Breakpoints
-$amazon-kindle-fire-width: $tablet-width
-$amazon-kindle-fire-height: $Ipad-height
-
-$amazon-kindle-fire-hd-width: $tablet-height
-$amazon-kindle-fire-hd-height: 1280px
-
-$bberry-width: $iphone-height
-$bberry-height: $tablet-height
-
-$bberry-bt-width: $iphone-height
+$bberry-bt-width: $bberry-width
 $bberry-bt-height: 640px
 
 $bberry-curve-width: 360px
-$bberry-curve-height: $iphone-height
+$bberry-curve-height: $bberry-width
 
 $htc-desire-width: 320px
 $htc-desire-height: 533px
@@ -44,26 +19,51 @@ $htc-one-height: $bberry-bt-height
 $htc-sensation-width: 540px
 $htc-sensation-height: 960px
 
-$Ipad-Air-width: 820px
-$Ipad-Air-height: 1180px
+$iphone-width: $htc-desire-width
+$iphone-height: $bberry-width
 
-$Ipad-Pro-width: $Ipad-height
-$Ipad-Pro-height: 1366px
+$iphone-7-width: 375px
+$iphone-7-height: 667px
+
+$iphone-plus-width : 414px
+$iphone-plus-height: 736px
 
 $motorola-mobility-milestone-width: $iphone-width
 $motorola-mobility-milestone-height: 570px
 
-$samsung-tab-width: 400px
-$samsung-tab-height: 683px
-
-$sony-ericsson-u-width: $iphone-width
+$sony-ericsson-u-width: $motorola-mobility-milestone-width
 $sony-ericsson-u-height: 854px
 
 $sharp-sx862-width: $iphone-height
 $sharp-sx862-height: $sony-ericsson-u-height
 
 $sharp-941sh-width: $iphone-height
-$sharp-941sh-height: $Ipad-height
+$sharp-941sh-height: 1024px
+
+//  Tablet Breakpoints
+$tablet-width: 600px
+$tablet-height: 800px
+
+$amazon-kindle-fire-width: $tablet-width
+$amazon-kindle-fire-height: 1024px
+
+$amazon-kindle-fire-hd-width: $tablet-height
+$amazon-kindle-fire-hd-height: 1280px
+
+$Ipad-width: 768px
+$Ipad-height: 1024px
+
+$Ipad-Air-width: 820px
+$Ipad-Air-height: 1180px
+
+$Ipad-Pro-width: $Ipad-height
+$Ipad-Pro-height: 1366px
+
+$surface-pro-width: 912px
+$surface-pro-height: 1368px
+
+$samsung-tab-width: 400px
+$samsung-tab-height: 683px
 
 $sharp-is03-width: $htc-one-height
 $sharp-is03-height: $htc-sensation-height
@@ -71,10 +71,11 @@ $sharp-is03-height: $htc-sensation-height
 $surface-duo-width: $htc-sensation-width
 $surface-duo-height: 720px
 
-$surface-pro-width: 912px
-$surface-pro-height: 1368px
 
 // Big Screens Breakpoints
+
+$wideScreen-width: 1274px
+$wideScreen-height: $Ipad-width
 
 $display-17-width: 1024px
 $display-17-height: 768px

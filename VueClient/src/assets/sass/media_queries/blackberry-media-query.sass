@@ -11,21 +11,30 @@
         
         section.info
 
-            .caption
-                bottom: 6.3vh !important
+            .carosel
+                div.btn-container
+                    bottom: 41vh !important
+            
+                .caption
+                    bottom: 6.3vh !important
 
         section#tech-repo
             .pp
-                block-size: 32vh !important
-                background-size: 30vw !important
+                .tech-container
+                    .relative
+                        top: 2vh
 
+                    .img-wrapper
+                        inline-size: 85vw
+                        .img-svg
+                            block-size: 4vh !important
                 p
                     margin-inline-start: 5vw
 
         form input[type="text"]
             margin-block-end: 2vh
 
-@media only screen and (min-width: $bberry-bt-width) and (min-height: $bberry-bt-height) and (orientation: portrait)
+@media only screen and (min-width: $bberry-bt-width) and (min-height: $bberry-bt-height) and (max-height: 700px) and (orientation: portrait)
 
     header
         .slogan-wrapper
@@ -37,6 +46,7 @@
             .carosel
                 .caption
                     bottom: 7.8vh !important
+
                 div.btn-container
                     bottom: 53vh !important
 
@@ -52,7 +62,7 @@
         form input[type="text"]
             margin-block-end: 2vh
 
-@media only screen and (min-width: $bberry-curve-width) and (min-height: $bberry-curve-height) and (orientation: portrait)
+@media only screen and (min-width: $bberry-curve-width) and (max-width: 374px) and (min-height: $bberry-curve-height) and (orientation: portrait)
 
     header
         .slogan-wrapper
@@ -84,21 +94,42 @@
 
 //  Landscape Issues
 @media only screen and (min-width: $bberry-height) and (min-height: $bberry-width) and (orientation: landscape)
+    header
+        .slogan-wrapper
+            font-size: .9em !important
     main
-
         section.info
+            .carosel
+                inline-size: 43vw
 
-            .caption
-                bottom: 10.2vh !important
+                .caption
+                    bottom: 10.5vh !important
+
+                div.btn-container
+                    bottom: 54vh !important
 
         section#tech-repo
             .pp
-                block-size: 28vh !important
+                block-size: 32vh !important
+                inline-size: 37vw !important
+                background-size: 14vw !important
+
+                .tech-container
+                    .relative
+                        top: 2vh 
+                        left: 2vw
+                    .img-wrapper
+                        inline-size: 32vw !important
+
+                        .img-svg
+                            block-size: 6vh !important
+                p
+                    inline-size: 30vw !important
 
         form input[type="text"]
             margin-block-end: 2vh
 
-@media only screen and (min-width: $bberry-bt-height) and (min-height: $bberry-bt-width) and (orientation: landscape)
+@media only screen and (min-width: $bberry-bt-height) and (max-width:  640px) and (min-height: $bberry-bt-width) and (orientation: landscape)
 
     header
         .slogan-wrapper
@@ -131,7 +162,7 @@
         form input[type="text"]
             margin-block-end: 2vh
 
-@media only screen and (min-width: $bberry-curve-height) and (min-height: $bberry-curve-width) and (orientation: portrait)
+@media only screen and (min-width: $bberry-curve-height) and (min-height: $bberry-curve-width) and (max-width: 413px )  and (orientation: portrait)
 
     header
         .slogan-wrapper

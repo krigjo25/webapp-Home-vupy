@@ -5,20 +5,22 @@
 @import media_queries/sony-media-query
 @import media_queries/sharp-media-query
 @import media_queries/apple-media-query
-@import media_queries/samsung-media-query
-@import media_queries/motorola-media-query
 @import media_queries/amazon-media-query
 @import media_queries/display-media-query
-@import media_queries/blackberry-media-query
+@import media_queries/samsung-media-query
+@import media_queries/motorola-media-query
 @import media_queries/microsoft-media-query
+@import media_queries/blackberry-media-query
+
 
 //  Generally media queries
 //  Portrait
-@media only screen and (min-width: $iphone-width) and (min-height: $iphone-height) and (orientation: portrait)
+@media only screen and (min-width: $iphone-width) and (max-width: $bberry-curve-width) and (min-height: $iphone-height) and (orientation: portrait)
 
     header 
         .slogan-wrapper 
             font-size: 0.459em !important
+
     main
         
         section.info
@@ -27,10 +29,10 @@
                     bottom: 48vh
                 
                     button.img-btn
-                        font-size: 10vw
+                        font-size: 2.5em
 
             .caption
-                bottom: 10.5vh !important
+                bottom: 10.4vh !important
 
             section.bio-container
 
@@ -65,7 +67,7 @@
         form input[type="text"]
             margin-block-end: 2vh
 
-@media only screen and (min-width: $tablet-width) and (min-height: $tablet-height) and (orientation: portrait)
+@media only screen and (min-width: $tablet-width) and (max-width: $sharp-is03-width) and (min-height: $tablet-height) and (orientation: portrait)
     header
         img
             inline-size: 15vw !important
@@ -239,7 +241,7 @@
                 margin-block-end: 2vh
 
 //  Landscape
-@media only screen and (min-width: $iphone-height) and (min-height: $iphone-width) and (orientation: landscape)
+@media only screen and (min-width: $iphone-height)  and (max-width: 500px) and (min-height: $iphone-width) and (orientation: landscape)
     header 
         .slogan-wrapper 
             font-size: 0.459em !important
@@ -250,10 +252,7 @@
                 inline-size: 47vw
 
                 div.btn-container
-                    bottom: 61vh
-                
-                    button.img-btn
-                        font-size: 6vw
+                    bottom: 59vh
 
             .caption
                 bottom: 15.9vh !important
@@ -466,7 +465,7 @@
                 margin-block-end: 2vh
 
 //  WideScreen
-@media only screen and (min-device-width: $wideScreen-width) and (min-height: $wideScreen-height)
+@media only screen and (min-width: $wideScreen-width) and (min-height: $wideScreen-height)
     header 
         .slogan-wrapper 
             font-size: 0.57vw

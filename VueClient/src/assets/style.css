@@ -184,7 +184,7 @@ main section.info .carosel .btn-container {
 main section.info .carosel .btn-container button.img-btn {
   border: none;
   opacity: 0.3;
-  font-size: 12vw;
+  font-size: 2em;
   cursor: pointer;
   background-color: transparent;
 }
@@ -629,7 +629,7 @@ button.tech-btn section#tech-bar {
   margin-block: 0vh 1vh;
 }
 .pp p {
-  font-size: 5vw;
+  font-size: 1em;
   margin-block: 0;
   inline-size: 74vw;
   text-align: center;
@@ -834,7 +834,7 @@ div.tech-ui-ux {
   border-radius: 10px;
 }
 
-@media only screen and (min-width: 320px) and (min-height: 533px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 360px) and (min-height: 533px) and (orientation: portrait) {
   header .slogan-wrapper {
     font-size: 0.79em;
   }
@@ -848,7 +848,7 @@ div.tech-ui-ux {
     block-size: 28vh !important;
   }
 }
-@media only screen and (min-width: 360px) and (min-height: 640px) and (orientation: portrait) {
+@media only screen and (min-width: 360px) and (max-width: 414px) and (min-height: 640px) and (orientation: portrait) {
   header .slogan-wrapper {
     font-size: 0.7em;
   }
@@ -888,7 +888,7 @@ div.tech-ui-ux {
     margin-inline-start: 8vw !important;
   }
 }
-@media only screen and (min-width: 533px) and (min-height: 320px) and (orientation: landscape) {
+@media only screen and (min-width: 533px) and (max-width: 500px) and (min-height: 320px) and (orientation: landscape) {
   header .slogan-wrapper {
     font-size: 1.4em !important;
   }
@@ -899,7 +899,7 @@ div.tech-ui-ux {
     block-size: 42vh !important;
   }
 }
-@media only screen and (min-width: 360px) and (min-height: 640px) and (orientation: landscape) {
+@media only screen and (min-width: 640px) and (min-height: 360px) and (max-height: 414px) and (orientation: landscape) {
   header .slogan-wrapper {
     font-size: 0.7em;
   }
@@ -950,7 +950,7 @@ div.tech-ui-ux {
     margin-inline-start: 9vw !important;
   }
 }
-@media only screen and (min-device-width: 320px) and (min-height: 854px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 360px) and (min-height: 854px) and (orientation: portrait) {
   main section.info .carosel div.btn-container {
     bottom: 39vh !important;
   }
@@ -976,7 +976,7 @@ div.tech-ui-ux {
     inline-size: 39vw !important;
   }
 }
-@media only screen and (min-device-width: 854px) and (min-height: 320px) and (orientation: landscape) {
+@media only screen and (min-width: 854px) and (min-height: 320px) and (orientation: landscape) {
   main section.info .carosel .caption {
     bottom: 10.6vh !important;
   }
@@ -1129,12 +1129,12 @@ div.tech-ui-ux {
     block-size: 16vh !important;
   }
 }
-@media only screen and (min-width: 375px) and (min-height: 667px) and (orientation: portrait) {
+@media only screen and (min-width: 375px) and (max-width: 413px) and (min-height: 667px) and (orientation: portrait) {
   header .slogan-wrapper {
     font-size: 0.52em !important;
   }
   main section.info .carosel .caption {
-    bottom: 7.4vh !important;
+    bottom: 7.5vh !important;
   }
   main section.info div.btn-container {
     bottom: 40vh !important;
@@ -1171,12 +1171,15 @@ div.tech-ui-ux {
   main section#tech-repo .pp {
     block-size: 20vh !important;
   }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 2vh;
+  }
   main section#tech-repo .pp .tech-container .img-wrapper {
     block-size: 3vh !important;
     inline-size: 87vw !important;
   }
   main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
-    block-size: 6vh !important;
+    block-size: 4vh !important;
   }
   main section#tech-repo .pp .tech-wrapper {
     inline-size: 23vw !important;
@@ -1186,7 +1189,7 @@ div.tech-ui-ux {
     margin-inline-start: 13vw !important;
   }
 }
-@media only screen and (min-width: 414px) and (min-height: 736px) and (orientation: portrait) {
+@media only screen and (min-width: 414px) and (max-width: 479px) and (min-height: 736px) and (orientation: portrait) {
   header .slogan-wrapper {
     font-size: 0.615em !important;
   }
@@ -1228,12 +1231,14 @@ div.tech-ui-ux {
     block-size: 21vh !important;
   }
   main section#tech-repo .pp p {
-    font-size: 1em !important;
-    inline-size: 69vw !important;
+    margin-inline-start: 17vw;
+    inline-size: 51vw !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 2vh !important;
   }
   main section#tech-repo .pp .tech-container .img-wrapper {
     block-size: 3vh !important;
-    inline-size: 82vw !important;
   }
   main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
     block-size: 4vh !important;
@@ -1302,7 +1307,7 @@ div.tech-ui-ux {
     block-size: 3vh !important;
   }
 }
-@media only screen and (min-width: 667px) and (min-height: 375px) and (orientation: landscape) {
+@media only screen and (min-width: 667px) and (max-width: 700px) and (min-height: 375px) and (orientation: landscape) {
   header .slogan-wrapper {
     font-size: 0.8em !important;
   }
@@ -1362,16 +1367,16 @@ div.tech-ui-ux {
     margin-inline-start: 7vw !important;
   }
   main section#tech-repo .pp .tech-container .relative {
-    top: 1vh !important;
+    top: 3vh !important;
   }
   main section#tech-repo .pp .tech-container .img-wrapper {
-    block-size: 7vh !important;
+    block-size: 8vh !important;
   }
   main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
-    block-size: 6vh !important;
+    block-size: 7vh !important;
   }
 }
-@media only screen and (min-width: 736px) and (min-height: 414px) and (orientation: landscape) {
+@media only screen and (min-width: 736px) and (max-width: 750px) and (min-height: 414px) and (orientation: landscape) {
   header .slogan-wrapper {
     font-size: 0.8em !important;
   }
@@ -1379,7 +1384,10 @@ div.tech-ui-ux {
     bottom: 12.2vh !important;
   }
   main section.info .carosel div.btn-container {
-    bottom: 71vh !important;
+    bottom: 66vh !important;
+  }
+  main section.info .carosel div.btn-container .img-btn {
+    font-size: 2.5em;
   }
   main section.info section.bio-container {
     margin-block: 0vh !important;
@@ -1415,13 +1423,13 @@ div.tech-ui-ux {
   }
   main section#tech-repo .pp {
     block-size: 33vh !important;
-    inline-size: 44vw !important;
+    inline-size: 41vw !important;
     background-size: 14vw !important;
   }
   main section#tech-repo .pp p {
     font-size: 1em !important;
     inline-size: 35vw !important;
-    margin-inline-start: 7vw !important;
+    margin-inline-start: 6vw !important;
   }
   main section#tech-repo .pp .tech-container .relative {
     top: 3vh !important;
@@ -1431,7 +1439,7 @@ div.tech-ui-ux {
     block-size: 3vh !important;
   }
   main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
-    block-size: 5vh !important;
+    block-size: 6vh !important;
   }
   main section#tech-repo .wrap-row-space-between {
     top: 0.7em !important;
@@ -1503,39 +1511,6 @@ div.tech-ui-ux {
   }
   main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
     block-size: 2vh !important;
-  }
-}
-@media only screen and (min-width: 400px) and (min-height: 683px) and (orientation: portrait) {
-  header.slogan-wrapper {
-    font-size: 0.549em;
-  }
-  main section.info .carosel div.btn-container {
-    bottom: 42vh;
-  }
-  main section.info .carosel .caption {
-    bottom: 7.4vh;
-  }
-  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
-    block-size: 4vh !important;
-  }
-}
-/*Samsung Galaxy Foldable*/
-/* Samsung galaxy S8*/
-/* Samsung galaxy S20 Ultra*/
-@media only screen and (min-width: 400px) and (min-height: 683px) and (orientation: landscape) {
-  main section.info .carosel .caption {
-    bottom: 12.5vh;
-  }
-}
-@media only screen and (min-width: 320px) and (min-height: 570px) and (orientation: portrait) {
-  header .slogan-wrapper {
-    font-size: 0.398em !important;
-  }
-  main section.info .carosel .caption {
-    bottom: 6.5vh !important;
-  }
-  main section.info .carosel div.btn-container {
-    bottom: 9.1vh !important;
   }
 }
 @media only screen and (min-width: 600px) and (min-height: 1024px) and (orientation: portrait) {
@@ -1624,12 +1599,12 @@ div.tech-ui-ux {
     top: 1vh !important;
   }
 }
-@media only screen and (min-device-width: 1024px) and (min-height: 1024px) and (orientation: portrait) {
+@media only screen and (min-width: 1024px) and (min-height: 1024px) and (orientation: portrait) {
   main section#tech-repo .pp {
     block-size: 16vh !important;
   }
 }
-@media only screen and (min-device-width: 1600px) and (min-height: 2560px) and (orientation: portrait) {
+@media only screen and (min-width: 1600px) and (min-height: 2560px) and (orientation: portrait) {
   main section.info .carosel {
     inline-size: 23vw !important;
     block-size: 3vh !important;
@@ -1652,12 +1627,12 @@ div.tech-ui-ux {
     block-size: 2vh !important;
   }
 }
-@media only screen and (min-device-width: 768px) and (min-height: 1024px) and (orientation: landscape) {
+@media only screen and (min-width: 768px) and (min-height: 1024px) and (orientation: landscape) {
   main section.info section.bio-container nav.bio-bar button.bio-btn {
     font-size: 1.2em !important;
   }
 }
-@media only screen and (min-device-width: 1920px) and (min-height: 1920px) and (min-height: 1080px) and (orientation: landscape) {
+@media only screen and (min-width: 1920px) and (min-height: 1080px) and (orientation: landscape) {
   main section.info .carosel {
     block-size: 25vh !important;
     inline-size: 23vw !important;
@@ -1670,127 +1645,37 @@ div.tech-ui-ux {
     bottom: 32vh !important;
   }
 }
-@media only screen and (min-width: 480px) and (min-height: 800px) and (orientation: portrait) {
-  main section.info .caption {
-    bottom: 6.3vh !important;
-  }
-  main section#tech-repo .pp {
-    block-size: 32vh !important;
-    background-size: 30vw !important;
-  }
-  main section#tech-repo .pp p {
-    margin-inline-start: 5vw;
-  }
-  main form input[type=text] {
-    margin-block-end: 2vh;
-  }
-}
-@media only screen and (min-width: 480px) and (min-height: 640px) and (orientation: portrait) {
-  header .slogan-wrapper {
-    font-size: 0.76em;
-  }
-  main section.info .carosel .caption {
-    bottom: 7.8vh !important;
+@media only screen and (min-width: 400px) and (max-width: 413px) and (min-height: 683px) and (orientation: portrait) {
+  header.slogan-wrapper {
+    font-size: 0.549em;
   }
   main section.info .carosel div.btn-container {
-    bottom: 53vh !important;
-  }
-  main section#tech-repo .pp {
-    block-size: 28vh !important;
-    background-size: 30vw !important;
-  }
-  main section#tech-repo .pp p {
-    font-size: 1em;
-    margin-inline-start: 9vw;
-  }
-  main form input[type=text] {
-    margin-block-end: 2vh;
-  }
-}
-@media only screen and (min-width: 360px) and (min-height: 480px) and (orientation: portrait) {
-  header .slogan-wrapper {
-    font-size: 0.49em;
+    bottom: 42vh;
   }
   main section.info .carosel .caption {
-    bottom: 10.4vh !important;
-  }
-  main section.info .carosel div.btn-container {
-    bottom: 55vh !important;
-  }
-  main section#tech-repo .pp p {
-    font-size: 1em !important;
-  }
-  main section#tech-repo .pp .tech-container .relative {
-    top: 3vh;
+    bottom: 7.4vh;
   }
   main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
-    block-size: 6vh !important;
-  }
-  main form input[type=text] {
-    margin-block-end: 2vh;
+    block-size: 4vh !important;
   }
 }
-@media only screen and (min-width: 800px) and (min-height: 480px) and (orientation: landscape) {
-  main section.info .caption {
-    bottom: 10.2vh !important;
-  }
-  main section#tech-repo .pp {
-    block-size: 28vh !important;
-  }
-  main form input[type=text] {
-    margin-block-end: 2vh;
+/*Samsung Galaxy Foldable*/
+/* Samsung galaxy S8*/
+/* Samsung galaxy S20 Ultra*/
+@media only screen and (min-width: 400px) and (min-height: 683px) and (orientation: landscape) {
+  main section.info .carosel .caption {
+    bottom: 12.5vh;
   }
 }
-@media only screen and (min-width: 640px) and (min-height: 480px) and (orientation: landscape) {
+@media only screen and (min-width: 320px) and (max-width: 360px) and (min-height: 570px) and (orientation: portrait) {
   header .slogan-wrapper {
-    font-size: 0.76em;
+    font-size: 0.398em !important;
   }
   main section.info .carosel .caption {
-    bottom: 10.7vh !important;
+    bottom: 6.5vh !important;
   }
   main section.info .carosel div.btn-container {
-    bottom: 50vh !important;
-  }
-  main section#tech-repo .pp {
-    block-size: 30vh !important;
-    background-size: 17vw !important;
-  }
-  main section#tech-repo .pp p {
-    font-size: 1em;
-    margin-inline-start: 9vw;
-  }
-  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
-    block-size: 6vh;
-  }
-  main form input[type=text] {
-    margin-block-end: 2vh;
-  }
-}
-@media only screen and (min-width: 480px) and (min-height: 360px) and (orientation: portrait) {
-  header .slogan-wrapper {
-    font-size: 0.49em;
-  }
-  main section.info .carosel .caption {
-    bottom: 13.9vh !important;
-  }
-  main section.info .carosel div.btn-container {
-    bottom: 54vh !important;
-  }
-  main section#tech-repo .pp {
-    block-size: 40vh !important;
-    inline-size: 41vw !important;
-  }
-  main section#tech-repo .pp p {
-    font-size: 1em !important;
-  }
-  main section#tech-repo .pp .tech-container .relative {
-    top: 3vh;
-  }
-  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
-    block-size: 6vh !important;
-  }
-  main form input[type=text] {
-    margin-block-end: 2vh;
+    bottom: 9.1vh !important;
   }
 }
 @media only screen and (min-width: 912px) and (min-height: 1368px) and (orientation: portrait) {
@@ -1998,7 +1883,162 @@ div.tech-ui-ux {
     margin-inline-start: 5vw !important;
   }
 }
-@media only screen and (min-width: 320px) and (min-height: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 480px) and (min-height: 800px) and (orientation: portrait) {
+  main section.info .carosel div.btn-container {
+    bottom: 41vh !important;
+  }
+  main section.info .carosel .caption {
+    bottom: 6.3vh !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 2vh;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    inline-size: 85vw;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 4vh !important;
+  }
+  main section#tech-repo .pp p {
+    margin-inline-start: 5vw;
+  }
+  main form input[type=text] {
+    margin-block-end: 2vh;
+  }
+}
+@media only screen and (min-width: 480px) and (min-height: 640px) and (max-height: 700px) and (orientation: portrait) {
+  header .slogan-wrapper {
+    font-size: 0.76em;
+  }
+  main section.info .carosel .caption {
+    bottom: 7.8vh !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 53vh !important;
+  }
+  main section#tech-repo .pp {
+    block-size: 28vh !important;
+    background-size: 30vw !important;
+  }
+  main section#tech-repo .pp p {
+    font-size: 1em;
+    margin-inline-start: 9vw;
+  }
+  main form input[type=text] {
+    margin-block-end: 2vh;
+  }
+}
+@media only screen and (min-width: 360px) and (max-width: 374px) and (min-height: 480px) and (orientation: portrait) {
+  header .slogan-wrapper {
+    font-size: 0.49em;
+  }
+  main section.info .carosel .caption {
+    bottom: 10.4vh !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 55vh !important;
+  }
+  main section#tech-repo .pp p {
+    font-size: 1em !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 3vh;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 6vh !important;
+  }
+  main form input[type=text] {
+    margin-block-end: 2vh;
+  }
+}
+@media only screen and (min-width: 800px) and (min-height: 480px) and (orientation: landscape) {
+  header .slogan-wrapper {
+    font-size: 0.9em !important;
+  }
+  main section.info .carosel {
+    inline-size: 43vw;
+  }
+  main section.info .carosel .caption {
+    bottom: 10.5vh !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 54vh !important;
+  }
+  main section#tech-repo .pp {
+    block-size: 32vh !important;
+    inline-size: 37vw !important;
+    background-size: 14vw !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 2vh;
+    left: 2vw;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    inline-size: 32vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 6vh !important;
+  }
+  main section#tech-repo .pp p {
+    inline-size: 30vw !important;
+  }
+  main form input[type=text] {
+    margin-block-end: 2vh;
+  }
+}
+@media only screen and (min-width: 640px) and (max-width: 640px) and (min-height: 480px) and (orientation: landscape) {
+  header .slogan-wrapper {
+    font-size: 0.76em;
+  }
+  main section.info .carosel .caption {
+    bottom: 10.7vh !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 50vh !important;
+  }
+  main section#tech-repo .pp {
+    block-size: 30vh !important;
+    background-size: 17vw !important;
+  }
+  main section#tech-repo .pp p {
+    font-size: 1em;
+    margin-inline-start: 9vw;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 6vh;
+  }
+  main form input[type=text] {
+    margin-block-end: 2vh;
+  }
+}
+@media only screen and (min-width: 480px) and (min-height: 360px) and (max-width: 413px) and (orientation: portrait) {
+  header .slogan-wrapper {
+    font-size: 0.49em;
+  }
+  main section.info .carosel .caption {
+    bottom: 13.9vh !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 54vh !important;
+  }
+  main section#tech-repo .pp {
+    block-size: 40vh !important;
+    inline-size: 41vw !important;
+  }
+  main section#tech-repo .pp p {
+    font-size: 1em !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 3vh;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 6vh !important;
+  }
+  main form input[type=text] {
+    margin-block-end: 2vh;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 360px) and (min-height: 480px) and (orientation: portrait) {
   header .slogan-wrapper {
     font-size: 0.459em !important;
   }
@@ -2006,10 +2046,10 @@ div.tech-ui-ux {
     bottom: 48vh;
   }
   main section.info .carosel div.btn-container button.img-btn {
-    font-size: 10vw;
+    font-size: 2.5em;
   }
   main section.info .caption {
-    bottom: 10.5vh !important;
+    bottom: 10.4vh !important;
   }
   main section.info section.bio-container h2 {
     font-size: 2em !important;
@@ -2039,7 +2079,7 @@ div.tech-ui-ux {
     margin-block-end: 2vh;
   }
 }
-@media only screen and (min-width: 600px) and (min-height: 800px) and (orientation: portrait) {
+@media only screen and (min-width: 600px) and (max-width: 640px) and (min-height: 800px) and (orientation: portrait) {
   header img {
     inline-size: 15vw !important;
   }
@@ -2196,7 +2236,7 @@ div.tech-ui-ux {
     margin-block-end: 2vh;
   }
 }
-@media only screen and (min-width: 480px) and (min-height: 320px) and (orientation: landscape) {
+@media only screen and (min-width: 480px) and (max-width: 500px) and (min-height: 320px) and (orientation: landscape) {
   header .slogan-wrapper {
     font-size: 0.459em !important;
   }
@@ -2204,10 +2244,7 @@ div.tech-ui-ux {
     inline-size: 47vw;
   }
   main section.info .carosel div.btn-container {
-    bottom: 61vh;
-  }
-  main section.info .carosel div.btn-container button.img-btn {
-    font-size: 6vw;
+    bottom: 59vh;
   }
   main section.info .caption {
     bottom: 15.9vh !important;
@@ -2399,7 +2436,7 @@ div.tech-ui-ux {
     margin-block-end: 2vh;
   }
 }
-@media only screen and (min-device-width: 1274px) and (min-height: 768px) {
+@media only screen and (min-width: 1274px) and (min-height: 768px) {
   header .slogan-wrapper {
     font-size: 0.57vw;
   }
