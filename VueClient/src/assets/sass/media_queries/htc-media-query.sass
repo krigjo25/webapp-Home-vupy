@@ -5,40 +5,35 @@
 
 
 //  Portrait
-@media only screen and (min-width: $htc-desire-width) and (max-width: $bberry-curve-width) and (min-height: $htc-desire-height) and (orientation: portrait)
-    header
-        .slogan-wrapper
-            font-size: .79em
+@media only screen and (min-width: $htc-desire-width) and (max-width: 359px) and (min-height: $htc-desire-height) and (orientation: portrait)
     main
         section.info
             .carosel
                 .caption
-                    bottom: 9.1vh !important
+                    bottom: 9.4vh !important
                 
                 div.btn-container
                     bottom: 43vh !important
 
-        section#tech-repo
-            .pp
-                block-size: 28vh !important
-
-//  Issues 
-@media only screen and (min-width: $htc-one-width)  and (max-width: 414px) and (min-height: $htc-one-height) and (orientation: portrait)
+@media only screen and (min-width: $htc-one-width)  and (max-width: 413px) and (min-height: $htc-one-height) and (orientation: portrait)
     header
         .slogan-wrapper
-            font-size: .7em
+            font-size: .496em !important
     main
         section.info
             .carosel
                 .caption
-                    bottom: 8vh !important
+                    bottom: 7.8vh !important
                 
                 div.btn-container
-                    bottom: 41vh !important
+                    bottom: 38vh !important
 
         section#tech-repo
             .pp
                 .tech-container
+                    .relative
+                        top: 2vh !important
+
                     .img-wrapper
                         .img-svg
                             block-size: 4vh !important
@@ -46,7 +41,7 @@
 @media only screen and (min-width: $htc-sensation-width) and (min-height: $htc-sensation-height) and (orientation: portrait)
     header
         .slogan-wrapper
-            font-size: .9em !important
+            font-size: .7em !important
     main
         section.info
             .carosel
@@ -54,17 +49,22 @@
                     bottom: 5.1vh !important
                 
                 div.btn-container
-                    bottom: 39vh !important
+                    bottom: 36vh !important
 
         section#tech-repo
             .pp
-                block-size: 17vh !important
+                block-size: 16vh !important
                 inline-size: 65vw !important
                 background-size: 24vw !important
 
                 .tech-container
+                    .relative
+                        top: 1vh !important
+
                     .img-wrapper
+                        block-size: 4vh !important
                         inline-size: 59vw !important
+                        
 
                         .img-svg
                             block-size: 3vh !important
@@ -73,44 +73,68 @@
                     margin-inline-start: 8vw !important
 
 //  Landscape
-@media only screen and (min-width: $htc-desire-height) and (max-width: 500px) and (min-height: $htc-desire-width) and (orientation: landscape)
+@media only screen and (min-width: $htc-desire-height) and (max-width: 550px) and (min-height: $htc-desire-width) and (orientation: landscape)
     header
         .slogan-wrapper
-            font-size: 1.4em !important
+            font-size: .7em !important
     main
         section.info
             .carosel
-                
+                inline-size: 47vw !important
+
+                .caption
+                    bottom: 15.5vh !important
+
                 div.btn-container
-                    bottom: 67vh !important
+                    bottom: 63vh !important
 
         section#tech-repo
             .pp
-                block-size: 42vh !important
+                block-size: 49vh !important
+                inline-size: 40vw !important
+                background-size: 16vw !important
 
-//  Issues
-@media only screen and (min-width: $htc-one-height) and (min-height: $htc-one-width) and (max-height: 414px) and (orientation: landscape)
+                .tech-container
+                    .relative
+                        left: 2vw !important
+
+                    .img-wrapper
+                        inline-size: 32vw !important
+
+                        .img-svg
+                            block-size: 6vh !important
+                p
+                    inline-size: 32vw !important
+
+@media only screen and (min-width: $htc-one-height) and (max-height: $htc-one-width) and (max-height: 414px) and (orientation: landscape)
     header
         .slogan-wrapper
-            font-size: .7em
+            font-size: .7em !important
     main
         section.info
             .carosel
+                inline-size: 63vw !important
+
                 .caption
                     bottom: 14vh !important
                 
                 div.btn-container
-                    bottom: 66vh !important
+                    bottom: 78vh !important
 
         section#tech-repo
             .pp
+                inline-size: 40vw !important
+                background-size: 16vw !important
+
                 .tech-container
-                    
                     .relative
-                        top: 4vh !important
+                        top: 3vh !important
+                        left: 2vw !important
 
                     .img-wrapper
                         inline-size: 37vw !important
+                p
+                    inline-size: 34vw !important
 
 @media only screen and (min-width: $htc-sensation-height) and (min-height: $htc-sensation-width) and (orientation: landscape)
     header
@@ -119,30 +143,33 @@
     main
         section.info
             .carosel
-                block-size: 14vh !important
                 inline-size: 32vw !important
 
                 .caption
-                    bottom: 9.1vh !important
+                    bottom: 9.3vh !important
                 
                 div.btn-container
-                    bottom: 45vh !important
+                    bottom: 43vh !important
 
                     .img-btn
                         font-size: 2.5em !important
 
         section#tech-repo
             .pp
-                block-size: 29vh !important
+                block-size: 33vh !important
                 inline-size: 37vw !important
                 background-size: 14vw !important
 
                 .tech-container
+                    .relative
+                        top: 2vh !important
+                        left: 2vw !important
+
                     .img-wrapper
-                        inline-size: 59vw !important
+                        inline-size: 34vw !important
 
                         .img-svg
-                            block-size: 3vh !important
+                            block-size: 5vh !important
                 p
                     font-size: 1em !important
                     inline-size: 22vw !important

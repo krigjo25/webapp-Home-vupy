@@ -4,7 +4,7 @@
 @import breakpoints
 
 //  Portrait
-@media only screen and (min-width: $sharp-sx862-width) and (min-height: $sharp-sx862-height) and (orientation: portrait)
+@media only screen and (min-width: $sharp-sx862-width) and (min-height: $sharp-sx862-height) and (max-height: 959px) and (orientation: portrait)
     header 
         .slogan-wrapper 
             font-size: .7em !important
@@ -69,10 +69,8 @@
                     .img-svg
                         block-size: 3vh !important
 
-
-
 //  Landscape
-@media only screen and (min-width: $sharp-sx862-height) and (min-height: $sharp-sx862-width) and (orientation: landscape)
+@media only screen and (min-width: $sharp-sx862-height) and (max-width: 899px) and (min-height: $sharp-sx862-width) and (orientation: landscape)
     header
         img
             inline-size: 10vw !important

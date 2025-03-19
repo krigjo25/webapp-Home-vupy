@@ -5,7 +5,7 @@
 
 
 //  Portrait Issues
-@media only screen and (min-width: $bberry-width) and (min-height: $bberry-height) and (orientation: portrait)
+@media only screen and (min-width: $bberry-width) and (max-width: 539px) and (min-height: $bberry-height) and (orientation: portrait)
 
     main
         
@@ -13,10 +13,10 @@
 
             .carosel
                 div.btn-container
-                    bottom: 41vh !important
+                    bottom: 40vh !important
             
                 .caption
-                    bottom: 6.3vh !important
+                    bottom: 6.2vh !important
 
         section#tech-repo
             .pp
@@ -34,7 +34,7 @@
         form input[type="text"]
             margin-block-end: 2vh
 
-@media only screen and (min-width: $bberry-bt-width) and (min-height: $bberry-bt-height)  and (orientation: portrait)
+@media only screen and (min-width: $bberry-bt-width) and (max-width: 539px) and (min-height: $bberry-bt-height) and (max-height: 799px) and (orientation: portrait)
 
     header
         .slogan-wrapper
@@ -71,11 +71,11 @@
         form input[type="text"]
             margin-block-end: 2vh
 
-@media only screen and (min-width: $bberry-curve-width) and (max-width: 374px) and (min-height: $bberry-curve-height) and (orientation: portrait)
+@media only screen and (min-width: $bberry-curve-width) and (max-width: 374px) and (min-height: $bberry-curve-height) and (max-height: 639px) and (orientation: portrait)
 
     header
         .slogan-wrapper
-            font-size: .49em
+            font-size: .496em !important
 
     main
         section.info
@@ -84,7 +84,7 @@
                     bottom: 10.4vh !important
 
                 div.btn-container
-                    bottom: 55vh !important
+                    bottom: 51vh !important
 
         section#tech-repo
             .pp
@@ -102,7 +102,7 @@
             margin-block-end: 2vh
 
 //  Landscape Issues
-@media only screen and (min-width: $bberry-height) and (min-height: $bberry-width) and (orientation: landscape)
+@media only screen and (min-width: $bberry-height) and (max-width: 853px) and (min-height: $bberry-width) and (orientation: landscape)
     header
         .slogan-wrapper
             font-size: .9em !important
@@ -150,7 +150,7 @@
             .carosel
                 inline-size: 50vw !important
                 .caption
-                    bottom: 10.7vh !important
+                    bottom: 10.4vh !important
 
                 div.btn-container
                     bottom: 50vh !important
@@ -173,8 +173,8 @@
                             block-size: 6vh !important
 
                 p
-                    inline-size: 29vw !important
-                    margin-inline-start: 9vw
+                    inline-size: 35vw !important
+                    margin-inline-start: 4vw
                 
                 
 
@@ -190,6 +190,8 @@
     main
         section.info
             .carosel
+                inline-size: 50vw !important
+
                 .caption
                     bottom: 13.9vh !important
 
@@ -198,10 +200,8 @@
 
         section#tech-repo
             .pp
-                block-size: 41vh !important
+                block-size: 46vh !important
                 inline-size: 40vw !important
-                p
-                    font-size: 1em !important
 
                 .tech-container
                     .relative
@@ -209,8 +209,13 @@
 
                     .img-wrapper
                         inline-size: 36vw !important
+
                         .img-svg
                             block-size: 6vh !important
+
+                p
+                    font-size: 1em !important
+                    inline-size: 34vw !important
 
         form input[type="text"]
             margin-block-end: 2vh

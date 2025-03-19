@@ -62,7 +62,7 @@
                     inline-size: 24vw !important
 
 
-@media only screen and (min-width: $surface-duo-width) and (min-height: $surface-duo-height) and (orientation: portrait)
+@media only screen and (min-width: $surface-duo-width) and (min-height: $surface-duo-height) and (max-height: 853px)  and (orientation: portrait)
     
     header
         .slogan-wrapper
@@ -81,8 +81,6 @@
                 bottom: 50vh !important
 
             section.bio-container
-                inline-size: 52vw
-                margin-inline-start: 6vw
 
                 h2
                     font-size: 2em
@@ -112,9 +110,6 @@
     
                 .h3-link
                     margin-block: 1vh
-                
-                p
-                    inline-size: 69vw
 
                 .tech-container
                     inline-size: 87vw
@@ -146,7 +141,7 @@
                     margin-inline-start: 10vw !important
 
 //  Landscape
-@media only screen and (min-width: $surface-duo-height) and (min-height: $surface-duo-width) and (orientation: landscape)
+@media only screen and (min-width: $surface-duo-height) and (max-width: 799px) and (min-height: $surface-duo-width) and (orientation: landscape)
     
     header
         img
