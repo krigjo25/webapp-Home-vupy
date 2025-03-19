@@ -77,6 +77,53 @@
                     inline-size: 81vw !important
                     margin-inline-start: 7vw !important
 
+@media only screen and (min-width: $sharp-is03-width) and (min-height: $sharp-is03-height) and (orientation: portrait)
+    header 
+        img
+            inline-size: 11vw !important
+
+        .slogan-wrapper 
+            font-size: .7em !important
+
+    main
+        section.info
+            .carosel
+                inline-size: 50vw !important
+
+                .caption
+                    bottom: 5.2vh !important
+
+                div.btn-container
+                    bottom: 25vh !important
+
+                button.img-btn
+                    font-size: 2.5em !important
+
+        section.spec-wrapper
+            .spec-class
+                inline-size: 45vw !important
+        
+        section#tech-repo
+            .pp
+                block-size: 20vh !important
+                inline-size: 43vw !important
+                background-size: 20vw !important
+
+                .tech-container
+                    .relative
+                        top: 1vh !important
+                        left: 2vw !important
+
+                    .img-wrapper
+                        block-size: 3vh !important
+                        inline-size: 38vw !important
+
+                        .img-svg
+                            block-size: 3vh !important
+                p
+                    inline-size: 22vw !important
+
+
 //  Landscape
 @media only screen and (min-width: $sharp-sx862-height) and (max-width: 899px) and (min-height: $sharp-sx862-width) and (orientation: landscape)
     header
@@ -133,13 +180,14 @@
                     inline-size: 32vw !important
                     margin-inline-start: 4vw !important
 
-@media only screen and (min-width: $sharp-941sh-height) and (min-height: $sharp-941sh-width) and (orientation: lanscape)
-    header 
-        .slogan-wrapper 
-            font-size: .7em !important
-        
+// Issues
+@media only screen and (min-width: $sharp-941sh-height) and (min-height: $sharp-941sh-width) and (orientation: landscape)
+    header
         img
             inline-size: 11vw !important
+
+        .slogan-wrapper 
+            font-size: .7em !important
 
     main
         section.info
@@ -153,6 +201,10 @@
                 div.btn-container
                     bottom: 51vh !important
                     inline-size: 100% !important
+
+        section.spec-wrapper
+            section.spec-class
+                inline-size: 47vw !important
 
         section#tech-repo
             .pp
@@ -171,26 +223,50 @@
                         .img-svg
                             block-size: 3vh !important
 
-@media only screen and (min-width: $sharp-is03-width) and (min-height: $sharp-is03-height) and (orientation: landscape)
+@media only screen and (min-width: $sharp-is03-height) and (min-height: $sharp-is03-width) and (orientation: lanscape)
     header 
+        img
+            inline-size: 11vw !important
+
         .slogan-wrapper 
             font-size: .7em !important
 
     main
         section.info
             .carosel
-                block-size: 16vh !important
-                .caption
-                    bottom: 7.9vh !important
+                block-size: 26vh !important
+                inline-size: 50vw !important
 
-            div.btn-container
-                bottom: 46vh !important
-                inline-size: 100% !important
+                .caption
+                    bottom: 8vh !important
+
+                div.btn-container
+                    bottom: 45vh !important
 
                 button.img-btn
                     font-size: 2.5em !important
 
+        section.spec-wrapper
+            .spec-class
+                inline-size: 45vw !important
+        
         section#tech-repo
             .pp
-                block-size: 16vh !important
+                block-size: 20vh !important
+                inline-size: 28vw !important
+                background-size: 10vw !important
 
+                .tech-container
+                    .relative
+                        top: 1vh !important
+                        left: 2vw !important
+
+                    .img-wrapper
+                        block-size: 3vh !important
+                        inline-size: 26vw !important
+
+                        .img-svg
+                            block-size: 4vh !important
+                p
+                    inline-size: 23vw !important
+                    margin-inline-start: 4vw !important
