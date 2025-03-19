@@ -24,6 +24,7 @@
                             <time v-bind:datetime="data.date">{{ data.date }}</time>
                         </span>
                     </div>
+                    
                     <h3>{{ data.name[1] }}</h3>
                     <p>{{ data.description }}</p>
                     <nav class="pro-nav flex-wrap-row-justify-space-evenly">
@@ -34,8 +35,7 @@
         </section>
     </section>
     <section id="fullstack" class="loading" v-else>
-        <h2>Technical Portefolio</h2>
-        <p>Loading elements...</p>
+        <p>Loading Technical Repositories...</p>
     </section>
 </template>
 

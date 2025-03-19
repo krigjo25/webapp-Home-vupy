@@ -67,7 +67,7 @@
         form input[type="text"]
             margin-block-end: 2vh
 
-@media only screen and (min-width: $tablet-width) and (max-width: 639px) and (min-height: $tablet-height) and (orientation: portrait)
+@media only screen and (min-width: $tablet-width) and (max-width: 639px) and (min-height: $tablet-height)  and (max-height: 1023px) and (orientation: portrait)
     header
         img
             inline-size: 15vw !important
@@ -139,16 +139,8 @@
         section#tech-repo
             .pp
                 block-size: 19vh !important
-                inline-size: 43vw !important
+                inline-size: 41vw !important
                 background-size: 17vw !important
-
-                h3
-                    margin-block: 2vh 0vh !important
-                    font-size: 1em !important
-                p
-                    font-size: 1em !important
-                    inline-size: 36vw !important
-                    margin-inline-start: 6vw !important
 
                 .tech-container
                     .relative
@@ -157,16 +149,24 @@
 
                     .img-wrapper
                         block-size: 2vh !important
-                        inline-size: 39vw !important
+                        inline-size: 38vw !important
 
                         .img-svg
                             block-size: 3vh !important
+
+                h3
+                    margin-block: 2vh 0vh !important
+                    font-size: 1em !important
+                p
+                    font-size: 1em !important
+                    inline-size: 36vw !important
+                    margin-inline-start: 5vw !important
 
         form input[type="text"]
             inline-size: 77vw !important
             margin-block-end: 2vh
 
-@media only screen and (min-width: $Ipad-width) and (min-height: $Ipad-height) and (orientation: portrait)
+@media only screen and (min-width: $Ipad-width) and (max-width: 799px) and (min-height: $Ipad-height) and (orientation: portrait)
     header 
         .slogan-wrapper 
             font-size: 0.7em
@@ -174,8 +174,7 @@
     main
         section.info
             .carosel
-                block-size: 36vh
-                inline-size: 47vw !important
+                inline-size: 50vw !important
 
                 .caption
                     bottom: 5vh !important
@@ -212,26 +211,20 @@
 
         section#tech-repo
             .pp
-                block-size: 17vh
-                inline-size: 44vw 
-                background-size: 16vw 
+                block-size: 16vh !important
+                inline-size: 42vw !important
+                background-size: 16vw !important
 
                 .tech-container
-                    inline-size: 100%
+                    .img-wrapper
+                        block-size: 2vh
+                        inline-size: 41vw
 
-                    .relative
-                        top: -1vh
-                        left: 2vw
-
-                .img-wrapper
-                    block-size: 2vh
-                    inline-size: 41vw
-
-                    .img-svg
-                        block-size: 3vh !important
+                        .img-svg
+                            block-size: 3vh !important
                 p
-                    inline-size: 37vw
-                    margin-inline-start : 2vw 
+                    inline-size: 37vw !important
+                    margin-inline-start : 5vw !important
 
         #tech-bar
             inline-size: 62vw
@@ -309,15 +302,15 @@
     main
         section.info
             .carosel
-                block-size: 0vh !important
+                block-size: 5vh !important
                 inline-size: 47vw !important
                 margin-inline-end: 1vw !important
 
                 .caption
-                    bottom: 8.3vh !important
+                    bottom: 8.4vh !important
 
                 div.btn-container
-                    bottom: 43vh !important
+                    bottom: 42vh !important
 
                     button.img-btn
                         font-size: 2em !important
@@ -365,7 +358,7 @@
         section#tech-repo
 
             .pp
-                block-size: 20vh !important
+                block-size: 22vh !important
                 inline-size: 28vw !important 
                 background-size: 10vw !important
 
@@ -394,7 +387,7 @@
         form input[type="text"]
             margin-block-end: 2vh
 
-@media only screen and (min-width: $Ipad-height) and (min-height: $Ipad-width) and (orientation: landscape)
+@media only screen and (min-width: $Ipad-height) and (min-height: $Ipad-width) and (max-height: 799px) and (orientation: landscape)
     header 
         .slogan-wrapper 
             font-size: 0.7em !important
@@ -402,14 +395,14 @@
     main
         section.info
             .carosel
-                block-size: 0vh
-                inline-size: 31vw !important
+                block-size: 16vh !important
+                inline-size: 50vw !important
 
                 .caption
-                    bottom: 6.5vh !important
+                    bottom: 6.6vh !important
 
                 div.btn-container
-                    bottom: 32vh !important
+                    bottom: 31vh !important
 
                     button.img-btn
                         font-size: 2.5em !important
@@ -428,34 +421,33 @@
 
         section#spec-container
             .spec-class
-                inline-size: 50%
+                inline-size: 47vw
             
                 p 
-                    inline-size: 46vw
                     text-align: justify  
 
         section#tech-repo
             .pp
-                block-size: 17vh
-                inline-size: 32vw 
-                background-size: 10vw 
+                block-size: 16vh !important
+                inline-size: 24vw !important
+                background-size: 10vw !important
 
                 .tech-container
                     .relative
-                        top: 1vh
-                        left: 1vw
+                        top: 1vh !important
+                        left: 1vw !important
 
                     .img-wrapper
-                        block-size: 2vh
-                        inline-size: 26vw !important
+                        block-size: 2vh !important
+                        inline-size: 21vw !important
 
                         .img-svg
                             block-size: 4vh !important
                 h3
                     margin-inline-start: 0 !important
                 p
-                    font-size: 0.8em
-                    inline-size: 26vw 
+                    inline-size: 17vw !important 
+                    margin-inline-start: 6vw !important
 
         #tech-bar
             inline-size: 100% !important
@@ -465,10 +457,10 @@
                 margin-block-end: 2vh
 
 //  WideScreen
-@media only screen and (min-width: $wideScreen-width) and (min-height: $wideScreen-height)
+@media only screen and (min-width: $wideScreen-width) and (min-height: $wideScreen-height) and (max-height: 799px)
     header 
         .slogan-wrapper 
-            font-size: 0.57vw
+            font-size: 0.7em !important
 
     main
         section.info
@@ -500,7 +492,7 @@
                 nav.bio-bar
 
                     button.bio-btn
-                        font-size: 1.2em !important
+                        font-size: 1em !important
 
                 section.bio-content
                     inline-size: 100% !important
@@ -530,11 +522,10 @@
                 justify-content: flex-end
 
             .spec-class
-                inline-size: 27vw
+                inline-size: 29vw
 
             p
-                inline-size: 27vw
-                font-size: 1.2em
+                font-size: 1em
 
             .h4-link
                 margin: 0
