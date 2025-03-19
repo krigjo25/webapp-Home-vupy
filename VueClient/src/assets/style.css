@@ -842,7 +842,7 @@ div.tech-ui-ux {
     bottom: 43vh !important;
   }
 }
-@media only screen and (min-width: 360px) and (max-width: 700px) and (min-height: 640px) and (orientation: portrait) {
+@media only screen and (min-width: 360px) and (max-width: 399px) and (min-height: 640px) and (orientation: portrait) {
   header .slogan-wrapper {
     font-size: 0.496em !important;
   }
@@ -1276,7 +1276,7 @@ div.tech-ui-ux {
     margin-inline-start: 4vw !important;
   }
 }
-@media only screen and (min-width: 375px) and (max-width: 413px) and (min-height: 667px) and (orientation: portrait) {
+@media only screen and (min-width: 375px) and (max-width: 399px) and (min-height: 667px) and (orientation: portrait) {
   header .slogan-wrapper {
     font-size: 0.52em !important;
   }
@@ -1854,21 +1854,59 @@ div.tech-ui-ux {
     font-size: 0.549em;
   }
   main section.info .carosel div.btn-container {
-    bottom: 42vh;
+    bottom: 40vh;
+  }
+  main section.info .carosel div.btn-container button.img-btn {
+    font-size: 2.5em;
   }
   main section.info .carosel .caption {
     bottom: 7.4vh;
   }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 2vh;
+    left: 3vw;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 5vh !important;
+  }
   main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
     block-size: 4vh !important;
+  }
+  main section#tech-repo .pp p {
+    inline-size: 70vw;
   }
 }
 /*Samsung Galaxy Foldable*/
 /* Samsung galaxy S8*/
 /* Samsung galaxy S20 Ultra*/
-@media only screen and (min-width: 400px) and (min-height: 683px) and (orientation: landscape) {
+@media only screen and (min-width: 683px) and (min-height: 400px) and (orientation: landscape) {
+  header img {
+    inline-size: 15vw !important;
+  }
+  header .slogan-wrapper {
+    font-size: 0.7em !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 40vh;
+  }
+  main section.info .carosel div.btn-container button.img-btn {
+    font-size: 2.5em;
+  }
   main section.info .carosel .caption {
-    bottom: 12.5vh;
+    bottom: 7.4vh;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 2vh;
+    left: 3vw;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 5vh !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 4vh !important;
+  }
+  main section#tech-repo .pp p {
+    inline-size: 70vw;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 359px) and (min-height: 570px) and (orientation: portrait) {
@@ -1882,7 +1920,7 @@ div.tech-ui-ux {
     bottom: 38vh !important;
   }
 }
-@media only screen and (min-width: 570px) and (max-width: 850px) and (min-height: 320px) and (orientation: landscape) {
+@media only screen and (min-width: 570px) and (max-width: 642px) and (min-height: 320px) and (orientation: landscape) {
   header .slogan-wrapper {
     font-size: 0.7em !important;
   }

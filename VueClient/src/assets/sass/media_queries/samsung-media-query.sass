@@ -14,17 +14,27 @@
             .carosel
             
                 div.btn-container
-                    bottom: 42vh
+                    bottom: 40vh
                 
+                    button.img-btn
+                        font-size: 2.5em
+
                 .caption
                     bottom: 7.4vh
 
         section#tech-repo
             .pp
                 .tech-container
+                    .relative
+                        top: 2vh
+                        left: 3vw
                     .img-wrapper
+                        block-size: 5vh !important
+
                         .img-svg
                             block-size: 4vh !important
+                p
+                    inline-size: 70vw
 
 /*Samsung Galaxy Foldable*/
 @media only screen and (min-device-width: 344px) and (max-device-width: 882px) and (orientation: portrait)
@@ -35,11 +45,39 @@
 /* Samsung galaxy S20 Ultra*/
 @media only screen and (min-device-width: 412px) and (max-device-width: 915px) and (orientation: portrait)
 
-
 //  Landscape Media Queries
-@media only screen and (min-width: $samsung-tab-width) and (min-height: $samsung-tab-height) and (orientation: landscape)
+//issues
+@media only screen and (min-width: $samsung-tab-height) and (min-height: $samsung-tab-width) and (orientation: landscape)
+    header
+        img
+            inline-size: 15vw !important
+
+        .slogan-wrapper
+            font-size: .7em !important
+
     main
         section.info
             .carosel
+            
+                div.btn-container
+                    bottom: 40vh
+                
+                    button.img-btn
+                        font-size: 2.5em
+
                 .caption
-                    bottom: 12.5vh
+                    bottom: 7.4vh
+
+        section#tech-repo
+            .pp
+                .tech-container
+                    .relative
+                        top: 2vh
+                        left: 3vw
+                    .img-wrapper
+                        block-size: 5vh !important
+
+                        .img-svg
+                            block-size: 4vh !important
+                p
+                    inline-size: 70vw
