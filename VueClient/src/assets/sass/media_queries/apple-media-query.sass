@@ -5,7 +5,10 @@
 
 //  Media Queries Portrait
 @media only screen and (min-width: $iphone-7-width) and (max-width: 399px ) and (min-height: $iphone-7-height) and (orientation: portrait)
-    header 
+    header
+        img
+            inline-size: 15vw !important
+
         .slogan-wrapper 
             font-size: .52em !important
 
@@ -63,7 +66,7 @@
 
                     .img-wrapper
                         block-size: 3vh !important
-                        inline-size : 87vw !important
+                        inline-size : 82vw !important
 
                         .img-svg
                             block-size: 4vh !important
@@ -75,21 +78,23 @@
                     margin-inline-start: 13vw !important
 
 @media only screen and (min-width: $iphone-plus-width) and (max-width: 479px )and (min-height: $iphone-plus-height) and (orientation: portrait)
-    header 
+    header
+        img
+            inline-size: 15vw !important
+
         .slogan-wrapper
-            font-size: .7em !important
+            font-size: .592em !important
 
     main
         section.info
             .carosel
-                block-size:  22vh !important
                 inline-size: 50vw !important
 
                 .caption
-                    bottom: 3.8vh !important
+                    bottom: 6.8vh !important
 
                 div.btn-container
-                    bottom: 15vh !important
+                    bottom: 23vh !important
 
             section.bio-container
                 margin-block: 0vh !important
@@ -265,8 +270,8 @@
 
         section#tech-repo
             .pp
+                block-size: 40vh !important
                 inline-size: 41vw !important
-                block-size: 38vh !important
                 background-size: 16vw !important
 
                 h3

@@ -13,6 +13,17 @@ main
         align-items: center
         justify-content: center
 
+        .tool-tip
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0
+            opacity: 0
+            position: absolute
+            background-color: $overlay
+        
+        &:hover
+            opacity: 0.8
         .carosel
             inline-size: 100%
             @extend flex-column
@@ -22,13 +33,14 @@ main
                 border-radius: 0.5vw
             
             .caption
-                bottom: 21.5vh
                 color: $bg-light
                 inline-size: 100%
-                position: relative
                 background-color: $overlay
                 border-bottom-left-radius: 1em
                 border-bottom-right-radius: 1em
+
+                bottom: 20.9vh
+                position: relative
 
                 display: flex
                 justify-content: center
@@ -38,8 +50,8 @@ main
                 block-size: 100%
                 inline-size: 100%
                 
+                bottom: 74vh
                 position: relative
-                bottom: 78vh
                 
                 display: flex
                 justify-content: space-between

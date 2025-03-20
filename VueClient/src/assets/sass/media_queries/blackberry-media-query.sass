@@ -4,13 +4,14 @@
 @import breakpoints
 
 
-//  Portrait Issues
+//  Portrait
 @media only screen and (min-width: $bberry-width) and (max-width: 539px) and (min-height: $bberry-height) and (max-height: 853px) and (orientation: portrait)
-
+    header
+        .slogan-wrapper
+            font-size: .7em !important
     main
         
         section.info
-
             .carosel
                 div.btn-container
                     bottom: 40vh !important
@@ -20,15 +21,22 @@
 
         section#tech-repo
             .pp
+                block-size: 22vh !important
+                inline-size: 50vw !important
+                background-size: 20vw !important
+
                 .tech-container
                     .relative
                         top: 2vh
 
                     .img-wrapper
-                        inline-size: 85vw
+                        block-size: 5vh !important
+                        inline-size: 47vw !important
+
                         .img-svg
                             block-size: 4vh !important
                 p
+                    inline-size: 44vw !important
                     margin-inline-start: 5vw
 
         form input[type="text"]
@@ -60,7 +68,7 @@
                         top: 3vh !important
 
                     .img-wrapper
-                        inline-size: 83vw !important
+                        inline-size: 81vw !important
 
                         .img-svg
                             block-size: 5vh !important
@@ -101,11 +109,15 @@
         form input[type="text"]
             margin-block-end: 2vh
 
-//  Landscape Issues
+//  Landscape
 @media only screen and (min-width: $bberry-height) and (max-width: 853px) and (min-height: $bberry-width) and (orientation: landscape)
     header
+        img
+            inline-size: 11vw !important
+
         .slogan-wrapper
             font-size: .9em !important
+
     main
         section.info
             .carosel
@@ -127,13 +139,16 @@
                     .relative
                         top: 2vh 
                         left: 2vw
+
                     .img-wrapper
-                        inline-size: 32vw !important
+                        inline-size: 34vw !important
 
                         .img-svg
                             block-size: 6vh !important
                 p
+                    
                     inline-size: 30vw !important
+                    margin-inline-start: 4vw !important
 
         form input[type="text"]
             margin-block-end: 2vh
@@ -141,6 +156,9 @@
 @media only screen and (min-width: $bberry-bt-height) and (max-width:  640px) and (min-height: $bberry-bt-width) and (orientation: landscape)
 
     header
+        img
+            inline-size: 15vw !important
+
         .slogan-wrapper
             font-size: .7em !important
 
@@ -184,6 +202,9 @@
 @media only screen and (min-width: $bberry-curve-height) and (max-width: 500px) and (min-height: $bberry-curve-width) and (orientation: landscape)
 
     header
+        img
+            inline-size: 15vw !important
+
         .slogan-wrapper
             font-size: .49em
 

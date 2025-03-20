@@ -154,6 +154,18 @@ main section.info {
   align-items: center;
   justify-content: center;
 }
+main section.info .tool-tip {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  position: absolute;
+  background-color: rgba(40, 40, 40, 0.7);
+}
+main section.info:hover {
+  opacity: 0.8;
+}
 main section.info .carosel {
   inline-size: 100%;
 }
@@ -162,13 +174,13 @@ main section.info .carosel img {
   border-radius: 0.5vw;
 }
 main section.info .carosel .caption {
-  bottom: 21.5vh;
   color: rgb(245, 245, 245);
   inline-size: 100%;
-  position: relative;
   background-color: rgba(40, 40, 40, 0.7);
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
+  bottom: 20.9vh;
+  position: relative;
   display: flex;
   justify-content: center;
 }
@@ -176,8 +188,8 @@ main section.info .carosel .btn-container {
   cursor: pointer;
   block-size: 100%;
   inline-size: 100%;
+  bottom: 74vh;
   position: relative;
-  bottom: 78vh;
   display: flex;
   justify-content: space-between;
 }
@@ -839,7 +851,7 @@ div.tech-ui-ux {
     bottom: 9.4vh !important;
   }
   main section.info .carosel div.btn-container {
-    bottom: 43vh !important;
+    bottom: 42vh !important;
   }
 }
 @media only screen and (min-width: 360px) and (max-width: 399px) and (min-height: 640px) and (orientation: portrait) {
@@ -1277,6 +1289,9 @@ div.tech-ui-ux {
   }
 }
 @media only screen and (min-width: 375px) and (max-width: 399px) and (min-height: 667px) and (orientation: portrait) {
+  header img {
+    inline-size: 15vw !important;
+  }
   header .slogan-wrapper {
     font-size: 0.52em !important;
   }
@@ -1323,7 +1338,7 @@ div.tech-ui-ux {
   }
   main section#tech-repo .pp .tech-container .img-wrapper {
     block-size: 3vh !important;
-    inline-size: 87vw !important;
+    inline-size: 82vw !important;
   }
   main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
     block-size: 4vh !important;
@@ -1337,18 +1352,20 @@ div.tech-ui-ux {
   }
 }
 @media only screen and (min-width: 414px) and (max-width: 479px) and (min-height: 736px) and (orientation: portrait) {
+  header img {
+    inline-size: 15vw !important;
+  }
   header .slogan-wrapper {
-    font-size: 0.7em !important;
+    font-size: 0.592em !important;
   }
   main section.info .carosel {
-    block-size: 22vh !important;
     inline-size: 50vw !important;
   }
   main section.info .carosel .caption {
-    bottom: 3.8vh !important;
+    bottom: 6.8vh !important;
   }
   main section.info .carosel div.btn-container {
-    bottom: 15vh !important;
+    bottom: 23vh !important;
   }
   main section.info section.bio-container {
     margin-block: 0vh !important;
@@ -1495,8 +1512,8 @@ div.tech-ui-ux {
     text-align: justify;
   }
   main section#tech-repo .pp {
+    block-size: 40vh !important;
     inline-size: 41vw !important;
-    block-size: 38vh !important;
     background-size: 16vw !important;
   }
   main section#tech-repo .pp h3 {
@@ -1803,11 +1820,6 @@ div.tech-ui-ux {
     margin-inline-start: 6vw !important;
   }
 }
-@media only screen and (min-width: 1024px) and (min-height: 1024px) and (orientation: portrait) {
-  main section#tech-repo .pp {
-    block-size: 16vh !important;
-  }
-}
 @media only screen and (min-width: 1600px) and (min-height: 2560px) and (orientation: portrait) {
   main section.info .carosel {
     inline-size: 23vw !important;
@@ -1820,33 +1832,231 @@ div.tech-ui-ux {
     bottom: 10vh !important;
   }
   main section#tech-repo .pp {
+    inline-size: 30vw !important;
     block-size: 9vh !important;
     background-size: 12vw !important;
   }
   main section#tech-repo .pp .tech-container .relative {
     top: 1vh !important;
-    left: 0vw !important;
+    left: 2vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 2vh !important;
+    inline-size: 27vw !important;
   }
   main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
     block-size: 2vh !important;
   }
-}
-@media only screen and (min-width: 768px) and (min-height: 1024px) and (orientation: landscape) {
-  main section.info section.bio-container nav.bio-bar button.bio-btn {
-    font-size: 1.2em !important;
+  main section#tech-repo .pp p {
+    inline-size: 21vw !important;
   }
 }
-@media only screen and (min-width: 1920px) and (min-height: 1080px) and (orientation: landscape) {
+@media only screen and (min-width: 1920px) and (min-height: 1080px) and (orientation: portrait) {
   main section.info .carosel {
     block-size: 25vh !important;
     inline-size: 23vw !important;
     margin-inline-end: 0 !important;
   }
   main section.info .carosel .caption {
-    bottom: 1.8vh !important;
+    bottom: 4.6vh !important;
   }
   main section.info .carosel div.btn-container {
-    bottom: 32vh !important;
+    bottom: 25vh !important;
+  }
+  main section#tech-repo .pp {
+    block-size: 19vh !important;
+    inline-size: 25vw !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 1vh !important;
+    left: 2vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 2vh !important;
+    inline-size: 23vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 2vh !important;
+  }
+  main section#tech-repo .pp p {
+    inline-size: 19vw !important;
+  }
+}
+@media only screen and (min-width: 1080px) and (min-height: 1440px) and (orientation: portrait) {
+  main section.info .carosel {
+    block-size: 14vh !important;
+    inline-size: 33vw !important;
+    margin-inline-end: 0 !important;
+  }
+  main section.info .carosel .caption {
+    bottom: 3.6vh !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 18vh !important;
+  }
+  main section.bio-container nav.bio-bar button.bio-btn {
+    font-size: 1.138em !important;
+  }
+  main section#tech-repo .pp {
+    block-size: 13vh !important;
+    inline-size: 29vw !important;
+    background-size: 13vw !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 1vh !important;
+    left: 1vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 3vh !important;
+    inline-size: 22vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 3vh !important;
+  }
+  main section#tech-repo .pp p {
+    inline-size: 25vw !important;
+    margin-inline-start: 4vw !important;
+  }
+}
+@media only screen and (min-width: 720px) and (min-height: 1280px) and (orientation: portrait) {
+  main section.info .carosel {
+    inline-size: 50vw !important;
+    margin-inline-end: 0 !important;
+  }
+  main section.info .carosel .caption {
+    bottom: 3.9vh !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 21vh !important;
+  }
+  main section.info .carosel div.btn-container button.img-btn {
+    font-size: 3em !important;
+  }
+  main section.bio-container nav.bio-bar button.bio-btn {
+    font-size: 2em !important;
+  }
+  main section#tech-repo .pp {
+    block-size: 13vh !important;
+    inline-size: 43vw !important;
+    background-size: 19vw !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 1vh !important;
+    left: 2vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 3vh !important;
+    inline-size: 41vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 3vh !important;
+  }
+  main section#tech-repo .pp p {
+    inline-size: 37vw !important;
+    margin-inline-start: 4vw !important;
+  }
+}
+@media only screen and (min-width: 1080px) and (min-height: 1920px) and (orientation: landscape) {
+  main section.info .carosel {
+    block-size: 25vh !important;
+    inline-size: 23vw !important;
+    margin-inline-end: 0 !important;
+  }
+  main section.info .carosel .caption {
+    bottom: 4.6vh !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 25vh !important;
+  }
+  main section#tech-repo .pp {
+    block-size: 19vh !important;
+    inline-size: 25vw !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 1vh !important;
+    left: 2vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 2vh !important;
+    inline-size: 23vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 2vh !important;
+  }
+  main section#tech-repo .pp p {
+    inline-size: 19vw !important;
+  }
+}
+@media only screen and (min-width: 1440px) and (min-height: 1080px) and (orientation: landscape) {
+  main section.info .carosel {
+    block-size: 44vh !important;
+    inline-size: 33vw !important;
+    margin-inline-end: 0 !important;
+  }
+  main section.info .carosel .caption {
+    bottom: 4.6vh !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 31vh !important;
+  }
+  main section#tech-repo .pp {
+    block-size: 15vh !important;
+    inline-size: 25vw !important;
+    background-size: 9vw !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 1vh !important;
+    left: 1vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 3vh !important;
+    inline-size: 22vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 3vh !important;
+  }
+  main section#tech-repo .pp p {
+    inline-size: 19vw !important;
+  }
+}
+@media only screen and (min-width: 1280px) and (min-height: 720px) and (orientation: landscape) {
+  main section.info .carosel {
+    block-size: 50vh !important;
+    margin-inline-end: 0 !important;
+  }
+  main section.info .carosel .caption {
+    bottom: 7vh !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 42vh !important;
+  }
+  main section.info .carosel div.btn-container button.img-btn {
+    font-size: 2.5em !important;
+  }
+  main section.info section.bio-container nav.bio-bar button.bio-btn {
+    font-size: 1.37em !important;
+  }
+  main section.spec-wrapper .spec-class {
+    inline-size: 48vw !important;
+  }
+  main section#tech-repo .pp {
+    block-size: 21vh !important;
+    inline-size: 29vw !important;
+    background-size: 9vw !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 1vh !important;
+    left: 1vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 3vh !important;
+    inline-size: 26vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 4vh !important;
+  }
+  main section#tech-repo .pp p {
+    inline-size: 23vw !important;
   }
 }
 @media only screen and (min-width: 400px) and (max-width: 413px) and (min-height: 683px) and (orientation: portrait) {
@@ -1879,7 +2089,7 @@ div.tech-ui-ux {
 /*Samsung Galaxy Foldable*/
 /* Samsung galaxy S8*/
 /* Samsung galaxy S20 Ultra*/
-@media only screen and (min-width: 683px) and (min-height: 400px) and (orientation: landscape) {
+@media only screen and (min-width: 683px) and (max-width: 799px) and (min-height: 400px) and (orientation: landscape) {
   header img {
     inline-size: 15vw !important;
   }
@@ -1950,7 +2160,7 @@ div.tech-ui-ux {
     margin-inline-start: 4vw !important;
   }
 }
-@media only screen and (min-width: 912px) and (min-height: 1368px) and (orientation: portrait) {
+@media only screen and (min-width: 912px) and (max-width: 1023px) and (min-height: 1368px) and (orientation: portrait) {
   header .slogan-wrapper {
     font-size: 0.9em !important;
   }
@@ -2149,22 +2359,32 @@ div.tech-ui-ux {
   }
 }
 @media only screen and (min-width: 480px) and (max-width: 539px) and (min-height: 800px) and (max-height: 853px) and (orientation: portrait) {
+  header .slogan-wrapper {
+    font-size: 0.7em !important;
+  }
   main section.info .carosel div.btn-container {
     bottom: 40vh !important;
   }
   main section.info .carosel .caption {
     bottom: 6.2vh !important;
   }
+  main section#tech-repo .pp {
+    block-size: 22vh !important;
+    inline-size: 50vw !important;
+    background-size: 20vw !important;
+  }
   main section#tech-repo .pp .tech-container .relative {
     top: 2vh;
   }
   main section#tech-repo .pp .tech-container .img-wrapper {
-    inline-size: 85vw;
+    block-size: 5vh !important;
+    inline-size: 47vw !important;
   }
   main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
     block-size: 4vh !important;
   }
   main section#tech-repo .pp p {
+    inline-size: 44vw !important;
     margin-inline-start: 5vw;
   }
   main form input[type=text] {
@@ -2189,7 +2409,7 @@ div.tech-ui-ux {
     top: 3vh !important;
   }
   main section#tech-repo .pp .tech-container .img-wrapper {
-    inline-size: 83vw !important;
+    inline-size: 81vw !important;
   }
   main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
     block-size: 5vh !important;
@@ -2226,6 +2446,9 @@ div.tech-ui-ux {
   }
 }
 @media only screen and (min-width: 800px) and (max-width: 853px) and (min-height: 480px) and (orientation: landscape) {
+  header img {
+    inline-size: 11vw !important;
+  }
   header .slogan-wrapper {
     font-size: 0.9em !important;
   }
@@ -2248,19 +2471,23 @@ div.tech-ui-ux {
     left: 2vw;
   }
   main section#tech-repo .pp .tech-container .img-wrapper {
-    inline-size: 32vw !important;
+    inline-size: 34vw !important;
   }
   main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
     block-size: 6vh !important;
   }
   main section#tech-repo .pp p {
     inline-size: 30vw !important;
+    margin-inline-start: 4vw !important;
   }
   main form input[type=text] {
     margin-block-end: 2vh;
   }
 }
 @media only screen and (min-width: 640px) and (max-width: 640px) and (min-height: 480px) and (orientation: landscape) {
+  header img {
+    inline-size: 15vw !important;
+  }
   header .slogan-wrapper {
     font-size: 0.7em !important;
   }
@@ -2297,6 +2524,9 @@ div.tech-ui-ux {
   }
 }
 @media only screen and (min-width: 480px) and (max-width: 500px) and (min-height: 360px) and (orientation: landscape) {
+  header img {
+    inline-size: 15vw !important;
+  }
   header .slogan-wrapper {
     font-size: 0.49em;
   }
@@ -2444,7 +2674,7 @@ div.tech-ui-ux {
     inline-size: 38vw !important;
   }
   main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
-    block-size: 3vh !important;
+    block-size: 4vh !important;
   }
   main section#tech-repo .pp h3 {
     margin-block: 2vh 0vh !important;
@@ -2468,7 +2698,7 @@ div.tech-ui-ux {
     inline-size: 50vw !important;
   }
   main section.info .carosel .caption {
-    bottom: 5vh !important;
+    bottom: 4.9vh !important;
   }
   main section.info .carosel div.btn-container {
     bottom: 26vh !important;
@@ -2522,7 +2752,7 @@ div.tech-ui-ux {
 }
 @media only screen and (min-width: 480px) and (max-width: 500px) and (min-height: 320px) and (orientation: landscape) {
   header .slogan-wrapper {
-    font-size: 0.459em !important;
+    font-size: 0.7em !important;
   }
   main section.info .carosel {
     inline-size: 47vw;
@@ -2531,7 +2761,7 @@ div.tech-ui-ux {
     bottom: 59vh;
   }
   main section.info .caption {
-    bottom: 15.9vh !important;
+    bottom: 15.5vh !important;
   }
   main section.info section.bio-container nav.bio-bar button.bio-btn {
     font-size: 1.5em !important;
@@ -2561,7 +2791,7 @@ div.tech-ui-ux {
     inline-size: 37vw;
   }
   main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
-    block-size: 6vh;
+    block-size: 7vh;
   }
   main form input[type=text] {
     margin-block-end: 2vh;
@@ -2575,7 +2805,7 @@ div.tech-ui-ux {
     font-size: 0.7em !important;
   }
   main section.info .carosel {
-    block-size: 5vh !important;
+    block-size: 6.3vh !important;
     inline-size: 47vw !important;
     margin-inline-end: 1vw !important;
   }
@@ -2626,12 +2856,7 @@ div.tech-ui-ux {
   main section#tech-repo .pp {
     block-size: 22vh !important;
     inline-size: 28vw !important;
-    background-size: 10vw !important;
-  }
-  main section#tech-repo .pp p {
-    font-size: 0.8em !important;
-    inline-size: 26vw !important;
-    margin-inline: 2vw !important;
+    background-size: 11vw !important;
   }
   main section#tech-repo .pp .tech-container {
     inline-size: 100% !important;
@@ -2645,7 +2870,15 @@ div.tech-ui-ux {
     inline-size: 25vw !important;
   }
   main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
-    block-size: 4vh !important;
+    block-size: 5vh !important;
+  }
+  main section#tech-repo .pp h3 {
+    margin-inline-start: 4vw !important;
+  }
+  main section#tech-repo .pp p {
+    font-size: 0.8em !important;
+    inline-size: 22vw !important;
+    margin-inline-start: 4vw !important;
   }
   main #tech-bar {
     inline-size: 62vw;
@@ -2690,7 +2923,7 @@ div.tech-ui-ux {
     text-align: justify;
   }
   main section#tech-repo .pp {
-    block-size: 16vh !important;
+    block-size: 22vh !important;
     inline-size: 24vw !important;
     background-size: 10vw !important;
   }
@@ -2699,18 +2932,18 @@ div.tech-ui-ux {
     left: 1vw !important;
   }
   main section#tech-repo .pp .tech-container .img-wrapper {
-    block-size: 2vh !important;
-    inline-size: 21vw !important;
+    block-size: 3vh !important;
+    inline-size: 22vw !important;
   }
   main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
     block-size: 4vh !important;
   }
   main section#tech-repo .pp h3 {
-    margin-inline-start: 0 !important;
+    margin-inline-start: 2vw !important;
   }
   main section#tech-repo .pp p {
-    inline-size: 17vw !important;
-    margin-inline-start: 6vw !important;
+    inline-size: 21vw !important;
+    margin-inline-start: 3vw !important;
   }
   main #tech-bar {
     inline-size: 100% !important;
