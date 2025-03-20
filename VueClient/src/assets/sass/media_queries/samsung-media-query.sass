@@ -3,12 +3,13 @@
 //  Importing dependencies
 @import breakpoints
 
-
 //  Portrait Media Queries
 @media only screen and (min-width: $samsung-tab-width) and (max-width: 413px) and (min-height: $samsung-tab-height) and (orientation: portrait)
 
-    header.slogan-wrapper
-        font-size: .549em
+    header
+        .slogan-wrapper
+            font-size: .6em !important
+
     main
         section.info
             .carosel
@@ -20,7 +21,7 @@
                         font-size: 2.5em
 
                 .caption
-                    bottom: 7.4vh
+                    bottom: 7.3vh
 
         section#tech-repo
             .pp
@@ -30,6 +31,7 @@
                         left: 3vw
                     .img-wrapper
                         block-size: 5vh !important
+                        inline-size: 84vw !important
 
                         .img-svg
                             block-size: 4vh !important
@@ -60,24 +62,21 @@
             .carosel
             
                 div.btn-container
-                    bottom: 40vh
+                    bottom: 64vh !important
                 
                     button.img-btn
                         font-size: 2.5em
 
                 .caption
-                    bottom: 7.4vh
+                    bottom: 12.4vh !important
 
         section#tech-repo
             .pp
                 .tech-container
-                    .relative
-                        top: 2vh
-                        left: 3vw
                     .img-wrapper
-                        block-size: 5vh !important
+                        block-size: 7vh !important
 
                         .img-svg
-                            block-size: 4vh !important
+                            block-size: 6vh !important
                 p
-                    inline-size: 70vw
+                    inline-size: 31vw !important

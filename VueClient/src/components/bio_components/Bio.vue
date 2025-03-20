@@ -14,7 +14,14 @@
                 <h4 class="h4-link">{{ bio.current.headline }}</h4>
                 <small class ='abt-author'>Born : {{bio.current.author.born}} ({{ bio.current.author.age }} years old) </small><br>
             </div>
-            <small>Written by {{ bio.current.author.name }}. with {{bio.current.author. contributor}} for content enhancement and language optimization. Average reading time <b>{{ bio.current.readtime }} min</b><i class="bi bi-stopwatch"></i></small>       
+            <small>
+                Written by {{ bio.current.author.name }}.
+                <span v-if="bio.current.author.contributor"> 
+                    with {{bio.current.author. contributor}} <div class="tool-tip">for content enhancement and language optimization.</div>
+                </span>
+                Approximatly <b>{{ bio.current.readtime }} min reading time</b>
+                <i class="bi bi-stopwatch"></i>
+            </small>       
             
             <p v-for="msg in bio.current.message">{{ msg }}</p>
         </section>
@@ -95,7 +102,7 @@ function profile()
         author:
         {
             name:"Kristoffer Gjøsund",
-            contributor: "Google Gemini",
+            //contributor: "Google Gemini",
             get age() {return CalculateAge([1994, 2, 25])},
             get born() {return CalculateDate([1994, 2, 25, 15])},
         },
@@ -162,7 +169,7 @@ function workProfile()
         author:
             {
                 name:"Kristoffer Gjøsund",
-                contributor: "Google Gemini",
+                //contributor: "Google Gemini",
                 get age() {return CalculateAge([1994, 2, 25])},
                 get born() {return CalculateDate([1994, 2, 25, 15])},
 
@@ -211,7 +218,7 @@ function autoBiography()
         author:
         {
             name:"Kristoffer Gjøsund",
-            contributor: "Google Gemini",
+            //contributor: "Google Gemini",
             get age() {return CalculateAge([1994, 2, 25])},
             get born() {return CalculateDate([1994, 2, 25, 15])},
         }, 
