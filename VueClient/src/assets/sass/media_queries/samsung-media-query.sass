@@ -38,17 +38,66 @@
                 p
                     inline-size: 70vw
 
-/*Samsung Galaxy Foldable*/
-@media only screen and (min-device-width: 344px) and (max-device-width: 882px) and (orientation: portrait)
+/*Samsung Galaxy Continuous*/
+@media only screen and (min-width: $samsung-gcz5-width) and (max-width: 359px) and (min-height: $samsung-gcz5-height) and (orientation: portrait)
+    main
+        section.info
+            .carosel
 
-/* Samsung galaxy S8*/
-@media only screen and (min-device-width: 360px) and (max-device-width: 740px)  and (orientation: portrait)
+                div.btn-container
+                    bottom: 27vh !important
 
-/* Samsung galaxy S20 Ultra*/
-@media only screen and (min-device-width: 412px) and (max-device-width: 915px) and (orientation: portrait)
+                    button.img-btn
+                        font-size: 2.5em !important
+                .caption
+                    bottom: 5.7vh !important
+
+
+@media only screen and (min-width: $samsung-gs8-width) and (min-height: $samsung-gs8-height) and (orientation: portrait)
+    header
+        img
+            inline-size: 15vw !important
+
+        .slogan-wrapper
+            font-size: .7em !important
+
+    main
+        section.info
+            .carosel
+            
+                div.btn-container
+                    bottom: 35vh !important
+
+                .caption
+                    bottom: 6.8vh !important
+
+@media only screen and (min-width: $samsung-gs20u-width) and (min-height: $samsung-gs20u-height) and (orientation: portrait)
+    header
+
+        .slogan-wrapper
+            font-size: .699em !important
+
+    main
+        section.info
+            .carosel
+                inline-size: 50vw !important
+
+                div.btn-container
+                    bottom: 31vh !important
+
+                .caption
+                    bottom: 5.5vh !important
+        section#tech-repo
+            .pp
+                .tech-container
+                    .relative
+                        top: 1vh
+                        left: 3vw
+
+                    .img-wrapper
+                        block-size: 4vh !important
 
 //  Landscape Media Queries
-//issues
 @media only screen and (min-width: $samsung-tab-height) and (max-width: 799px) and (min-height: $samsung-tab-width) and (orientation: landscape)
     header
         img
@@ -80,3 +129,62 @@
                             block-size: 6vh !important
                 p
                     inline-size: 31vw !important
+
+@media only screen and (min-width: $samsung-gs8-height) and (min-height: $samsung-gs8-width) and (orientation: landscape)
+    header
+        img
+            inline-size: 15vw !important
+
+        .slogan-wrapper
+            font-size: .7em !important
+
+    main
+        section.info
+            .carosel
+                inline-size: 50vw !important
+
+                div.btn-container
+                    bottom: 71vh !important
+
+                .caption
+                    bottom: 13.8vh !important
+        
+        section#tech-repo
+            .pp
+                background-size: 13vw !important
+            
+                p
+                    inline-size: 36vw !important
+
+@media only screen and (min-width: $samsung-gs20u-height) and (min-height: $samsung-gs20u-width) and (orientation: landscape)
+    header
+
+        .slogan-wrapper
+            font-size: .699em !important
+
+    main
+        section.info
+            .carosel
+                block-size: 21vh
+
+                div.btn-container
+                    bottom: 55vh !important
+
+                    button.img-btn
+                        font-size: 2.5em !important
+                .caption
+                    bottom: 12.1vh !important
+
+        section#tech-repo
+            .pp
+                .tech-container
+                    .relative
+                        top: 1vh
+                        left: 3vw
+                    
+                    .img-wrapper
+                        block-size: 6vh !important
+                p
+                    inline-size: 30vw !important
+                    margin-inline-start: 5vw !important
+

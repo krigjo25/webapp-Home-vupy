@@ -38,17 +38,16 @@ logger.info(f"App running on {app.config['ENV']}")
 
 #   Configure session to use filesystem (instead of signed cookies)
 Session(app)
-'''
+
 @app.after_request
 async def after_request(response):
     """Ensure the responses aren't cached"""
-    response.headers['Cache-Control'] = "no-cache, no-store, must-revalidate"
     response.headers['Expires'] = 0
     response.headers['Paragma'] = 'no-cache'
+    response.headers['Cache-Control'] = "no-cache, no-store, must-revalidate"
     
     logger.info(f"Response: {response}")
     return response
-'''
 
 
 #   Endpoints
