@@ -1,21 +1,16 @@
 // Media Queries
 
-@import media_queries/breakpoints
-@import media_queries/htc-media-query
-@import media_queries/sony-media-query
-@import media_queries/sharp-media-query
-@import media_queries/apple-media-query
-@import media_queries/amazon-media-query
-@import media_queries/display-media-query
-@import media_queries/samsung-media-query
-@import media_queries/motorola-media-query
-@import media_queries/microsoft-media-query
+@import media_queries/breakpoints, media_queries/htc-media-query
+@import media_queries/sony-media-query, media_queries/sharp-media-query
+@import media_queries/apple-media-query, media_queries/amazon-media-query
+@import media_queries/display-media-query, media_queries/samsung-media-query
+@import media_queries/motorola-media-query, media_queries/microsoft-media-query
 @import media_queries/blackberry-media-query
 
 //  Generally media queries
 
 //  Portrait
-@media only screen and (min-width: $iphone-width) and (max-width: 359px) and (min-height: $iphone-height) and (orientation: portrait)
+@media only screen and (min-width: $iphone-width) and (max-width: 343px) and (min-height: $iphone-height) and (orientation: portrait)
 
     header 
         .slogan-wrapper 
@@ -292,7 +287,7 @@
         form input[type="text"]
             margin-block-end: 2vh
 
-@media only screen and (min-width: $tablet-height) and (max-width: 959px) and (min-height: $tablet-width) and (orientation: landscape)
+@media only screen and (min-width: $tablet-height) and (max-width: 828px) and (min-height: $tablet-width) and (min-height: 689px) and (orientation: landscape)
     header
         img
             inline-size: 10vw !important

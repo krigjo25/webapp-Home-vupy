@@ -846,7 +846,7 @@ div.tech-ui-ux {
   border-radius: 10px;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 359px) and (min-height: 533px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 343px) and (min-height: 533px) and (orientation: portrait) {
   main section.info .carosel .caption {
     bottom: 9.4vh !important;
   }
@@ -2674,22 +2674,63 @@ div.tech-ui-ux {
     inline-size: 70vw;
   }
 }
-/*Samsung Galaxy Continuous*/
 @media only screen and (min-width: 344px) and (max-width: 359px) and (min-height: 882px) and (orientation: portrait) {
-  main section.info .carosel {
-    block-size: 21vh;
+  header .slogan-wrapper {
+    font-size: 0.5em !important;
   }
   main section.info .carosel div.btn-container {
-    bottom: 55vh !important;
-  }
-  main section.info .carosel div.btn-container button.img-btn {
-    font-size: 2.5em !important;
+    bottom: 28vh !important;
   }
   main section.info .carosel .caption {
-    bottom: 12.1vh !important;
+    bottom: 5.6vh !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 1vh !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 3vh !important;
+    inline-size: 80vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 4vh !important;
   }
 }
-@media only screen and (min-width: 360px) and (min-height: 740px) and (orientation: portrait) {
+@media only screen and (min-width: 690px) and (min-height: 829px) and (orientation: portrait) {
+  header .slogan-wrapper {
+    font-size: 0.5em !important;
+  }
+  main section.info .carosel {
+    inline-size: 50vw !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 31vh !important;
+  }
+  main section.info .carosel .caption {
+    bottom: 6vh !important;
+  }
+  main section.spec-wrapper .spec-class {
+    inline-size: 45vw !important;
+  }
+  main section#tech-repo .pp {
+    inline-size: 43vw !important;
+    background-size: 20vw !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 1vh !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 4vh !important;
+    inline-size: 38vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 4vh !important;
+  }
+  main section#tech-repo .pp p {
+    inline-size: 31vw !important;
+    margin-inline-start: 11vw !important;
+  }
+}
+@media only screen and (min-width: 360px) and (max-width: 374px) and (min-height: 740px) and (orientation: portrait) {
   header img {
     inline-size: 15vw !important;
   }
@@ -2721,6 +2762,20 @@ div.tech-ui-ux {
     left: 3vw;
   }
   main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 4vh !important;
+  }
+}
+@media only screen and (min-width: 412px) and (min-height: 914px) and (orientation: portrait) {
+  main section.info .carosel .caption {
+    bottom: 5.5vh !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 1vh !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 4vh !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
     block-size: 4vh !important;
   }
 }
@@ -2801,7 +2856,116 @@ div.tech-ui-ux {
     margin-inline-start: 5vw !important;
   }
 }
-@media only screen and (min-width: 320px) and (max-width: 359px) and (min-height: 570px) and (orientation: portrait) {
+@media only screen and (min-width: 882px) and (min-height: 344px) and (orientation: landscape) {
+  header .slogan-wrapper {
+    font-size: 0.5em !important;
+  }
+  main section.info .carosel {
+    block-size: 19vh !important;
+    inline-size: 50vw !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 65vh !important;
+  }
+  main section.info .carosel .caption {
+    bottom: 14.7vh !important;
+  }
+  main section.spec-wrapper .spec-class {
+    inline-size: 45vw;
+  }
+  main section#tech-repo .pp {
+    block-size: 45vh !important;
+    inline-size: 28vw !important;
+    background-size: 11vw !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 2vh !important;
+    left: 2vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 8vh !important;
+    inline-size: 23vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 7vh !important;
+  }
+  main section#tech-repo .pp p {
+    inline-size: 23vw !important;
+    margin-inline-start: 3vw !important;
+  }
+}
+@media only screen and (min-width: 829px) and (min-height: 690px) and (orientation: landscape) {
+  header .slogan-wrapper {
+    font-size: 0.5em !important;
+  }
+  main section.info .carosel {
+    block-size: 4vh !important;
+    inline-size: 50vw !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 37vh !important;
+  }
+  main section.info .carosel .caption {
+    bottom: 7.3vh !important;
+  }
+  main section.spec-wrapper .spec-class {
+    inline-size: 45vw !important;
+  }
+  main section#tech-repo .pp {
+    block-size: 20vh !important;
+    inline-size: 43vw !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 1vh !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 4vh !important;
+    inline-size: 40vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 4vh !important;
+  }
+  main section#tech-repo .pp p {
+    inline-size: 40vw !important;
+  }
+}
+@media only screen and (min-width: 914px) and (min-height: 412px) and (orientation: landscape) {
+  header .slogan-wrapper {
+    font-size: 0.5em !important;
+  }
+  main section.info .carosel {
+    block-size: 20vh !important;
+    inline-size: 50vw !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 54vh !important;
+  }
+  main section.info .carosel .caption {
+    bottom: 11.9vh !important;
+  }
+  main section.spec-wrapper .spec-class {
+    inline-size: 45vw !important;
+  }
+  main section#tech-repo .pp {
+    block-size: 40vh !important;
+    inline-size: 28vw !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 2vh !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 8vh !important;
+    inline-size: 25vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 6vh !important;
+  }
+  main section#tech-repo .pp p {
+    inline-size: 23vw !important;
+    margin-inline-start: 3vw !important;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 343px) and (min-height: 570px) and (orientation: portrait) {
   header .slogan-wrapper {
     font-size: 0.398em !important;
   }
@@ -2912,7 +3076,7 @@ div.tech-ui-ux {
     inline-size: 24vw !important;
   }
 }
-@media only screen and (min-width: 540px) and (min-height: 720px) and (max-height: 853px) and (orientation: portrait) {
+@media only screen and (min-width: 540px) and (min-height: 720px) and (max-height: 828px) and (orientation: portrait) {
   header .slogan-wrapper {
     font-size: 0.9em !important;
   }
@@ -3147,7 +3311,7 @@ div.tech-ui-ux {
     margin-block-end: 2vh;
   }
 }
-@media only screen and (min-width: 800px) and (max-width: 853px) and (min-height: 480px) and (orientation: landscape) {
+@media only screen and (min-width: 800px) and (max-width: 828px) and (min-height: 480px) and (orientation: landscape) {
   header img {
     inline-size: 11vw !important;
   }
@@ -3262,7 +3426,7 @@ div.tech-ui-ux {
     margin-block-end: 2vh;
   }
 }
-@media only screen and (min-width: 320px) and (max-width: 359px) and (min-height: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 343px) and (min-height: 480px) and (orientation: portrait) {
   header .slogan-wrapper {
     font-size: 0.424em !important;
   }
@@ -3499,7 +3663,7 @@ div.tech-ui-ux {
     margin-block-end: 2vh;
   }
 }
-@media only screen and (min-width: 800px) and (max-width: 959px) and (min-height: 600px) and (orientation: landscape) {
+@media only screen and (min-width: 800px) and (max-width: 828px) and (min-height: 600px) and (min-height: 689px) and (orientation: landscape) {
   header img {
     inline-size: 10vw !important;
   }
