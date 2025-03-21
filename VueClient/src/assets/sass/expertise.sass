@@ -2,8 +2,9 @@
 //  Education    
 @import misc, fonts, colour, lang-filter
 
-
+//  Education
 main
+    
     section.spec-wrapper
         margin-block: 5vh
         inline-size: 100%
@@ -24,20 +25,20 @@ main
             .h3-link
                 margin: auto
                 font-size: 2em
-                @extend work-sans-font
+                @extend %work-sans-font
                 transition: 0.3s ease-in-out
             
                 &:hover
                     font-size: 2em
                     transform: scale(1.1)
-                    @extend work-sans-font
+                    @extend %work-sans-font
                     text-decoration: underline
             .no-select
                 @extend %user-select
 
             p
                 inline-size: 100%
-                @extend roboto-font
+                @extend %roboto-font
                 
             .tech-container
                 inline-size: 100%
@@ -65,7 +66,7 @@ main
                     color: $h4 !important
                     margin: auto
                     font-size: 1.3em
-                    @extend work-sans-font
+                    @extend %work-sans-font
                     transition: 0.3s ease-in-out
 
                 .tech-wrapper

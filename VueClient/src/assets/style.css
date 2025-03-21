@@ -6,12 +6,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
-roboto-font, header a, main section.spec-wrapper .spec-class p, .tech-wrapper, main section.info section.bio-container section.bio-content {
+header a, main section.spec-wrapper .spec-class p, .tech-wrapper, main section.info section.bio-container section.bio-content {
   color: rgb(40, 40, 40);
   font-family: "Roboto", sans-serif;
 }
 
-work-sans-font, main section.spec-wrapper .spec-class .spec-course .h4-link, main section.spec-wrapper .spec-class .h3-link:hover, main section.spec-wrapper .spec-class .h3-link, main section.info section.bio-container section.bio-content h3, main section.info section.bio-container h2 {
+main section.spec-wrapper .spec-class .spec-course .h4-link, main section.spec-wrapper .spec-class .h3-link:hover, main section.spec-wrapper .spec-class .h3-link, main section.info section.bio-container section.bio-content h3, main section.info section.bio-container h2 {
   font-weight: 100;
   color: rgb(40, 40, 40);
   font-family: "Work Sans", sans-serif;
@@ -69,12 +69,12 @@ ext-btn-functionallity .msg, main section.info nav.ext-bar a .msg, main section.
   font-size: 2em;
 }
 
-roboto-font, header a, main section.spec-wrapper .spec-class p, .tech-wrapper, main section.info section.bio-container section.bio-content {
+header a, main section.spec-wrapper .spec-class p, .tech-wrapper, main section.info section.bio-container section.bio-content {
   color: rgb(40, 40, 40);
   font-family: "Roboto", sans-serif;
 }
 
-work-sans-font, main section.spec-wrapper .spec-class .spec-course .h4-link, main section.spec-wrapper .spec-class .h3-link:hover, main section.spec-wrapper .spec-class .h3-link, main section.info section.bio-container section.bio-content h3, main section.info section.bio-container h2 {
+main section.spec-wrapper .spec-class .spec-course .h4-link, main section.spec-wrapper .spec-class .h3-link:hover, main section.spec-wrapper .spec-class .h3-link, main section.info section.bio-container section.bio-content h3, main section.info section.bio-container h2 {
   font-weight: 100;
   color: rgb(40, 40, 40);
   font-family: "Work Sans", sans-serif;
@@ -325,12 +325,12 @@ ext-btn-functionallity .msg, main section.info .carosel .btn-container button.im
   font-size: 2em;
 }
 
-roboto-font, header a, main section.spec-wrapper .spec-class p, .tech-wrapper, main section.info section.bio-container section.bio-content {
+header a, main section.spec-wrapper .spec-class p, .tech-wrapper, main section.info section.bio-container section.bio-content {
   color: rgb(40, 40, 40);
   font-family: "Roboto", sans-serif;
 }
 
-work-sans-font, main section.spec-wrapper .spec-class .spec-course .h4-link, main section.spec-wrapper .spec-class .h3-link:hover, main section.spec-wrapper .spec-class .h3-link, main section.info section.bio-container h2, main section.info section.bio-container section.bio-content h3 {
+main section.spec-wrapper .spec-class .spec-course .h4-link, main section.spec-wrapper .spec-class .h3-link:hover, main section.spec-wrapper .spec-class .h3-link, main section.info section.bio-container h2, main section.info section.bio-container section.bio-content h3 {
   font-weight: 100;
   color: rgb(40, 40, 40);
   font-family: "Work Sans", sans-serif;
@@ -360,12 +360,12 @@ ext-btn-functionallity .msg, main section.info .carosel .btn-container button.im
   font-size: 2em;
 }
 
-roboto-font, header a, main section.spec-wrapper .spec-class p, .tech-wrapper, main section.info section.bio-container section.bio-content {
+header a, main section.spec-wrapper .spec-class p, .tech-wrapper, main section.info section.bio-container section.bio-content {
   color: rgb(40, 40, 40);
   font-family: "Roboto", sans-serif;
 }
 
-work-sans-font, main section.spec-wrapper .spec-class .spec-course .h4-link, main section.spec-wrapper .spec-class .h3-link:hover, main section.spec-wrapper .spec-class .h3-link, main section.info section.bio-container h2, main section.info section.bio-container section.bio-content h3 {
+main section.spec-wrapper .spec-class .spec-course .h4-link, main section.spec-wrapper .spec-class .h3-link:hover, main section.spec-wrapper .spec-class .h3-link, main section.info section.bio-container h2, main section.info section.bio-container section.bio-content h3 {
   font-weight: 100;
   color: rgb(40, 40, 40);
   font-family: "Work Sans", sans-serif;
@@ -491,12 +491,12 @@ ext-btn-functionallity .msg, main section.info .carosel .btn-container button.im
   font-size: 2em;
 }
 
-roboto-font, header a, main section.info section.bio-container section.bio-content, .tech-wrapper, main section.spec-wrapper .spec-class p {
+header a, main section.info section.bio-container section.bio-content, .tech-wrapper, main section.spec-wrapper .spec-class p {
   color: rgb(40, 40, 40);
   font-family: "Roboto", sans-serif;
 }
 
-work-sans-font, main section.info section.bio-container h2, main section.info section.bio-container section.bio-content h3, main section.spec-wrapper .spec-class .h3-link, main section.spec-wrapper .spec-class .h3-link:hover, main section.spec-wrapper .spec-class .spec-course .h4-link {
+main section.info section.bio-container h2, main section.info section.bio-container section.bio-content h3, main section.spec-wrapper .spec-class .h3-link, main section.spec-wrapper .spec-class .h3-link:hover, main section.spec-wrapper .spec-class .spec-course .h4-link {
   font-weight: 100;
   color: rgb(40, 40, 40);
   font-family: "Work Sans", sans-serif;
@@ -526,12 +526,12 @@ ext-btn-functionallity .msg, main section.info .carosel .btn-container button.im
   font-size: 2em;
 }
 
-roboto-font, header a, main section.info section.bio-container section.bio-content, .tech-wrapper, main section.spec-wrapper .spec-class p {
+header a, main section.info section.bio-container section.bio-content, .tech-wrapper, main section.spec-wrapper .spec-class p {
   color: rgb(40, 40, 40);
   font-family: "Roboto", sans-serif;
 }
 
-work-sans-font, main section.info section.bio-container h2, main section.info section.bio-container section.bio-content h3, main section.spec-wrapper .spec-class .h3-link, main section.spec-wrapper .spec-class .h3-link:hover, main section.spec-wrapper .spec-class .spec-course .h4-link {
+main section.info section.bio-container h2, main section.info section.bio-container section.bio-content h3, main section.spec-wrapper .spec-class .h3-link, main section.spec-wrapper .spec-class .h3-link:hover, main section.spec-wrapper .spec-class .spec-course .h4-link {
   font-weight: 100;
   color: rgb(40, 40, 40);
   font-family: "Work Sans", sans-serif;
@@ -797,12 +797,12 @@ ext-btn-functionallity .msg, main section.info .carosel .btn-container button.im
   font-size: 2em;
 }
 
-roboto-font, header a, main section.info section.bio-container section.bio-content, .tech-wrapper, main section.spec-wrapper .spec-class p {
+header a, main section.info section.bio-container section.bio-content, .tech-wrapper, main section.spec-wrapper .spec-class p {
   color: rgb(40, 40, 40);
   font-family: "Roboto", sans-serif;
 }
 
-work-sans-font, main section.info section.bio-container h2, main section.info section.bio-container section.bio-content h3, main section.spec-wrapper .spec-class .h3-link, main section.spec-wrapper .spec-class .h3-link:hover, main section.spec-wrapper .spec-class .spec-course .h4-link {
+main section.info section.bio-container h2, main section.info section.bio-container section.bio-content h3, main section.spec-wrapper .spec-class .h3-link, main section.spec-wrapper .spec-class .h3-link:hover, main section.spec-wrapper .spec-class .spec-course .h4-link {
   font-weight: 100;
   color: rgb(40, 40, 40);
   font-family: "Work Sans", sans-serif;
@@ -840,28 +840,248 @@ div.tech-ui-ux {
 }
 
 @media only screen and (min-width: 1600px) and (min-height: 2560px) and (orientation: portrait) {
-  /*Style*/
+  main section.info .carosel {
+    block-size: 3vh !important;
+    inline-size: 23vw !important;
+  }
+  main section.info .carosel .caption {
+    bottom: 1.8vh !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 11vh !important;
+  }
+  main section#tech-repo .pp {
+    block-size: 9vh !important;
+    inline-size: 30vw !important;
+    background-size: 12vw !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 1vh !important;
+    left: 2vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 2vh !important;
+    inline-size: 27vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 2vh !important;
+  }
+  main section#tech-repo .pp p {
+    inline-size: 21vw !important;
+  }
 }
 @media only screen and (min-width: 1920px) and (min-height: 1920px) and (orientation: portrait) {
-  /*Style*/
+  main section.info .carosel {
+    block-size: 25vh !important;
+    inline-size: 23vw !important;
+    margin-inline-end: 0 !important;
+  }
+  main section.info .carosel .caption {
+    bottom: 4.6vh !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 25vh !important;
+  }
+  main section#tech-repo .pp {
+    block-size: 19vh !important;
+    inline-size: 25vw !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 1vh !important;
+    left: 2vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 2vh !important;
+    inline-size: 23vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 2vh !important;
+  }
+  main section#tech-repo .pp p {
+    inline-size: 19vw !important;
+  }
 }
 @media only screen and (min-width: 1440px) and (min-height: 1080px) and (orientation: portrait) {
-  /*Style*/
+  main section.info .carosel {
+    block-size: 14vh !important;
+    inline-size: 33vw !important;
+    margin-inline-end: 0 !important;
+  }
+  main section.info .carosel .caption {
+    bottom: 3.6vh !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 18vh !important;
+  }
+  main section.bio-container nav.bio-bar button.bio-btn {
+    font-size: 1.138em !important;
+  }
+  main section#tech-repo .pp {
+    block-size: 13vh !important;
+    inline-size: 29vw !important;
+    background-size: 13vw !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 1vh !important;
+    left: 1vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 3vh !important;
+    inline-size: 22vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 3vh !important;
+  }
+  main section#tech-repo .pp p {
+    inline-size: 25vw !important;
+    margin-inline-start: 4vw !important;
+  }
 }
 @media only screen and (min-width: 1280px) and (min-height: 720px) and (orientation: portrait) {
-  /*Style*/
+  main section.info .carosel {
+    inline-size: 50vw !important;
+    margin-inline-end: 0 !important;
+  }
+  main section.info .carosel .caption {
+    bottom: 3.9vh !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 21vh !important;
+  }
+  main section.info .carosel div.btn-container button.img-btn {
+    font-size: 3em !important;
+  }
+  main section.bio-container nav.bio-bar button.bio-btn {
+    font-size: 2em !important;
+  }
+  main section#tech-repo .pp {
+    block-size: 13vh !important;
+    inline-size: 43vw !important;
+    background-size: 19vw !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 1vh !important;
+    left: 2vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 3vh !important;
+    inline-size: 41vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 3vh !important;
+  }
+  main section#tech-repo .pp p {
+    inline-size: 37vw !important;
+    margin-inline-start: 4vw !important;
+  }
 }
-@media only screen and (min-width: 853px) and (min-height: 1280px) and (orientation: landscape) {
-  /*Style*/
+@media only screen and (min-width: 1280px) and (min-height: 853px) and (orientation: portrait) {
+  main section.info .carosel {
+    inline-size: 23vw !important;
+  }
 }
 @media only screen and (min-width: 1080px) and (min-height: 1920px) and (orientation: landscape) {
-  /*Style*/
+  main section.info .carosel {
+    block-size: 25vh !important;
+    inline-size: 23vw !important;
+    margin-inline-end: 0 !important;
+  }
+  main section.info .carosel .caption {
+    bottom: 4.6vh !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 25vh !important;
+  }
+  main section#tech-repo .pp {
+    block-size: 19vh !important;
+    inline-size: 25vw !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 1vh !important;
+    left: 2vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 2vh !important;
+    inline-size: 23vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 2vh !important;
+  }
+  main section#tech-repo .pp p {
+    inline-size: 19vw !important;
+  }
 }
 @media only screen and (min-width: 1080px) and (min-height: 1440px) and (orientation: landscape) {
-  /*Style*/
+  main section.info .carosel {
+    block-size: 44vh !important;
+    inline-size: 33vw !important;
+    margin-inline-end: 0 !important;
+  }
+  main section.info .carosel .caption {
+    bottom: 4.6vh !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 31vh !important;
+  }
+  main section#tech-repo .pp {
+    block-size: 15vh !important;
+    inline-size: 25vw !important;
+    background-size: 9vw !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 1vh !important;
+    left: 1vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 3vh !important;
+    inline-size: 22vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 3vh !important;
+  }
+  main section#tech-repo .pp p {
+    inline-size: 19vw !important;
+  }
 }
 @media only screen and (min-width: 720px) and (min-height: 1280px) and (orientation: landscape) {
-  /*Style*/
+  main section.info .carosel {
+    block-size: 50vh !important;
+    margin-inline-end: 0 !important;
+  }
+  main section.info .carosel .caption {
+    bottom: 7vh !important;
+  }
+  main section.info .carosel div.btn-container {
+    bottom: 42vh !important;
+  }
+  main section.info .carosel div.btn-container button.img-btn {
+    font-size: 2.5em !important;
+  }
+  main section.info section.bio-container nav.bio-bar button.bio-btn {
+    font-size: 1.37em !important;
+  }
+  main section.spec-wrapper .spec-class {
+    inline-size: 48vw !important;
+  }
+  main section#tech-repo .pp {
+    block-size: 21vh !important;
+    inline-size: 29vw !important;
+    background-size: 9vw !important;
+  }
+  main section#tech-repo .pp .tech-container .relative {
+    top: 1vh !important;
+    left: 1vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper {
+    block-size: 3vh !important;
+    inline-size: 26vw !important;
+  }
+  main section#tech-repo .pp .tech-container .img-wrapper .img-svg {
+    block-size: 4vh !important;
+  }
+  main section#tech-repo .pp p {
+    inline-size: 23vw !important;
+  }
 }
 @media only screen and (min-width: 320px) and (max-width: 343px) and (min-height: 480px) and (orientation: portrait) {
   header .slogan-wrapper {
