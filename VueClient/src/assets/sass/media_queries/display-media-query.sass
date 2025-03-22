@@ -246,6 +246,7 @@
     header
         img
             inline-size: 8vw !important
+
         .slogan-wrapper
             font-size: .7vw !important
     main
@@ -267,11 +268,17 @@
                         font-size: 3em !important
 
             section.bio-container
-                inline-size: 50vw !important
+                inline-size: 50vw
+
+                p 
+                    text-align: justify
 
         section.spec-wrapper
             .spec-class
-                inline-size: 25vw !important
+                inline-size: 34vw
+
+                p
+                    text-align: justify
 
         section#tech-repo
             .pp
@@ -295,7 +302,6 @@
                     margin-inline-start: 4vw !important
             nav#tech-bar
                 inline-size: 47vw !important
-
 
 @media only screen and (min-width: $display-hd-1080i-height) and (min-height : $display-hd-1080i-width) and (orientation: landscape)
     main

@@ -2640,10 +2640,16 @@ div.tech-ui-ux {
     font-size: 3em !important;
   }
   main section.info section.bio-container {
-    inline-size: 50vw !important;
+    inline-size: 50vw;
+  }
+  main section.info section.bio-container p {
+    text-align: justify;
   }
   main section.spec-wrapper .spec-class {
-    inline-size: 25vw !important;
+    inline-size: 34vw;
+  }
+  main section.spec-wrapper .spec-class p {
+    text-align: justify;
   }
   main section#tech-repo .pp {
     block-size: 18vh !important;
