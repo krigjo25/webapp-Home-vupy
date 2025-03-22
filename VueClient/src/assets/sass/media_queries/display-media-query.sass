@@ -37,7 +37,7 @@
                     inline-size: 21vw !important
 
 //  Issues
-@media only screen and (min-width: $display-hd-1080p-width) and (min-height : $display-hd-1080p-width) and (orientation: portrait)
+@media only screen and (min-width: $display-hd-1080p-height) and (min-height : $display-hd-1080p-width) and (orientation: portrait)
     main
         section.info
             .carosel
@@ -110,7 +110,7 @@
                     inline-size: 25vw !important
                     margin-inline-start: 4vw !important
 
-@media only screen and (min-width: $display-hd-720p-width) and (min-height : $display-hd-720p-height) and (orientation: portrait)
+@media only screen and (min-width: $display-hd-720p-width) and (max-width: 1365px) and (min-height : $display-hd-720p-height) and (orientation: portrait)
     main
         section.info
             .carosel
@@ -152,32 +152,34 @@
                     inline-size: 37vw !important
                     margin-inline-start: 4vw !important
 
-@media only screen and (min-width: $display-asus-zbf-height) and (min-height: $display-asus-zbf-width) and (orientation: portrait)
-    main
-        section.info
-            .carosel
-                inline-size: 23vw !important
+@media only screen and (min-width: $display-asus-zbc-width) and (min-height: $display-asus-zbc-height) and (orientation: portrait)
+    header
+        .slogan-wrapper
+            font-size: .7em !important
+        img
+            inline-size: 15vw !important
 
-//  Landscape
-//  Issues
-@media only screen and (min-width: $display-hd-1080p-height) and (min-height : $display-hd-1080p-width) and (orientation: landscape)
     main
         section.info
             .carosel
-                block-size: 25vh !important
-                inline-size: 23vw !important
-                margin-inline-end: 0 !important
+                block-size: 3vh !important
+                inline-size: 50vw !important
 
                 .caption
-                    bottom: 4.6vh !important   
+                    bottom: 3.9vh !important
 
                 div.btn-container
-                    bottom: 25vh !important
+                    bottom: 17vh !important
+
+        section.spec-wrapper
+            .spec-class
+                inline-size: 45vw !important
 
         section#tech-repo
             .pp
-                block-size: 19vh !important
-                inline-size: 25vw !important
+                block-size: 14vh !important
+                inline-size: 43vw !important
+                background-size: 17vw !important
 
                 .tech-container
                     .relative
@@ -186,12 +188,114 @@
 
                     .img-wrapper
                         block-size: 2vh !important
-                        inline-size: 23vw !important
+                        inline-size: 38vw !important
+
+                        .img-svg
+                            block-size: 3vh !important
+                p
+                    inline-size: 25vw !important
+
+@media only screen and (min-width: $display-asus-zbf-height) and (min-height: $display-asus-zbf-width) and (orientation: portrait)
+    header
+        .slogan-wrapper
+            font-size: .7em !important
+        img
+            inline-size: 15vw !important
+
+    main
+        section.info
+            .carosel
+                block-size: 20vh !important
+                inline-size: 50vw !important
+
+                .caption
+                    bottom: 2.9vh !important
+
+                div.btn-container
+                    bottom: 24vh !important
+
+        section.spec-wrapper
+            .spec-class
+                inline-size: 45vw !important
+
+        section#tech-repo
+            .pp
+                block-size: 11vh !important
+                inline-size: 28vw !important
+                background-size: 11vw !important
+
+                .tech-container
+                    .relative
+                        top: 1vh !important
+                        left: 2vw !important
+
+                    .img-wrapper
+                        block-size: 2vh !important
+                        inline-size: 25vw !important
 
                         .img-svg
                             block-size: 2vh !important
                 p
-                    inline-size: 19vw !important
+                    inline-size: 23vw !important
+                    margin-inline-start: 4vw !important
+
+
+//  Landscape
+//  Does not load
+@media only screen and (min-width: $display-hd-1080p-width) and (min-height : $display-hd-1080p-height) and (orientation: landscape)
+    header
+        img
+            inline-size: 8vw !important
+        .slogan-wrapper
+            font-size: .7vw !important
+    main
+        section.info
+            margin-block-end: 17vh !important
+
+            .carosel
+                block-size: 55vh !important
+                inline-size: 26vw !important
+                margin-inline-end: 0 !important
+
+                .caption
+                    bottom: 5.3vh !important   
+
+                div.btn-container
+                    bottom: 35vh !important
+
+                    button.img-btn
+                        font-size: 3em !important
+
+            section.bio-container
+                inline-size: 50vw !important
+
+        section.spec-wrapper
+            .spec-class
+                inline-size: 25vw !important
+
+        section#tech-repo
+            .pp
+                block-size: 18vh !important
+                inline-size: 23vw !important
+                background-size: 7vw !important
+
+                .tech-container
+                    .relative
+                        top: 1vh !important
+                        left: 1vw !important
+
+                    .img-wrapper
+                        block-size: 2vh !important
+                        inline-size: 18vw !important
+
+                        .img-svg
+                            block-size: 4vh !important
+                p
+                    inline-size: 16vw !important
+                    margin-inline-start: 4vw !important
+            nav#tech-bar
+                inline-size: 47vw !important
+
 
 @media only screen and (min-width: $display-hd-1080i-height) and (min-height : $display-hd-1080i-width) and (orientation: landscape)
     main
@@ -271,3 +375,95 @@
                             block-size: 4vh !important
                 p
                     inline-size: 23vw !important
+
+@media only screen and (min-width: $display-asus-zbc-height) and (max-width: 1300px) and (min-height: $display-asus-zbc-width) and (max-height: 1023px) and (orientation: landscape)
+    header
+        .slogan-wrapper
+            font-size: .7em !important
+        img
+            inline-size: 15vw !important
+
+    main
+        section.info
+            .carosel
+                block-size: 44vh !important
+                inline-size: 50vw !important
+
+                .caption
+                    bottom: 5.9vh !important
+
+                div.btn-container
+                    bottom: 35vh !important
+
+        section.spec-wrapper
+            .spec-class
+                inline-size: 45vw !important
+
+        section#tech-repo
+            .pp
+                block-size: 16vh !important
+                inline-size: 28vw !important
+                background-size: 9vw !important
+
+                .tech-container
+                    .relative
+                        top: 1vh !important
+                        left: 2vw !important
+
+                    .img-wrapper
+                        block-size: 2vh !important
+                        inline-size: 25vw !important
+
+                        .img-svg
+                            block-size: 3vh !important
+                p
+                    inline-size: 23vw !important
+                    margin-inline-start: 4vw !important
+
+@media only screen and (min-width: $display-asus-zbf-width) and (min-height: $display-asus-zbf-height) and (orientation: landscape)
+    header
+        .slogan-wrapper
+            font-size: .7em !important
+
+        img
+            inline-size: 15vw !important
+
+    main
+        section.info
+            .carosel
+                block-size: 28vh !important
+                inline-size: 31vw !important
+
+                .caption
+                    bottom: 3.9vh !important
+
+                div.btn-container
+                    bottom: 24vh !important
+
+                    button.img-btn
+                        font-size: 3em !important
+
+        section.spec-wrapper
+            .spec-class
+                inline-size: 45vw !important
+
+        section#tech-repo
+            .pp
+                block-size: 16vh !important
+                inline-size: 28vw !important
+                background-size: 11vw !important
+
+                .tech-container
+                    .relative
+                        top: 1vh !important
+                        left: 2vw !important
+
+                    .img-wrapper
+                        block-size: 5vh !important
+                        inline-size: 25vw !important
+
+                        .img-svg
+                            block-size: 3vh !important
+                p
+                    inline-size: 19vw !important
+                    margin-inline-start: 4vw !important

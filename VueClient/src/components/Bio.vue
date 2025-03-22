@@ -17,7 +17,7 @@
 
 
     const bio = reactive({
-        cls: isMobile() ? 'flex-column' : 'flex-row',
+        cls: isMobile() ? 'flex-column' : 'flex-wrap-row-justify-space-evenly flex-wrap-row-align-items-end',
         id: 'about-kristoffer',
         pages: [
                 {

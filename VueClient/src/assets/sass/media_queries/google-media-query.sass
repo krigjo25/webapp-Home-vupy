@@ -1,5 +1,10 @@
-/*Pixel*/
-@media only screen and (min-width: 414px) and (max-width: 896px) and (orientation: portrait)
+//  Google Devices Media Query
+
+//  import dependencies
+@import breakpoints
+
+//  Portrait
+@media only screen and (min-width: $google-pixel-width) and (max-width: $google-pixel-height) and (orientation: portrait)
     
     header a
         font-size: 0.57em 
@@ -8,60 +13,58 @@
         section.info
 
             .carosel
-                block-size: 36vh
-                inline-size: 49vw 
-                align-items: center
+                inline-size: 63vw !important
 
-                .caption
-                    bottom: 5.5vh
-
-            section.bio-container
-                margin-inline: 0
-                inline-size: 100%
-
-                h2
-                    font-size: 2em
-                    text-align: center
-
-                nav.bio-link
-
-                    button.bio-btn
-                        font-size: 1em 
-
-                section.bio-content
-                    inline-size: 86vw
-
-                    h3
-                        font-size: 1.5em
-
-                    p
-                        font-size: 1em
- 
                 div.btn-container
-                    bottom: 39em
+                    bottom: 23vh !important
+                    button.img-btn
+                        font-size: 2em !important
 
-        section.spec-wrapper
-            inline-size: 100%
-            flex-direction: column
+// Landscape
+@media only screen and (min-width: $google-nh-width) and (max-width: 1113px) and (min-height: $google-nh-height) and (orientation: landscape)
+    main
+        section.info
+            .carosel
+                .caption
+                    bottom: 8.4vh !important
 
-            .spec-class
-                inline-size: 84vw
-                display: flex
-                flex-direction: column
-    
-                .h3-link
-                    margin-block: 1vh
+                div.btn-container
+                    bottom: 41vh !important
 
-                .tech-container
-                    inline-size: 87vw
-
-                .spec-course
-                    .h4-link
-                        margin-block: 1vh
-
-        section#full-stack
+                    button.img-btn
+                        font-size: 2em !important
+        section#tech-repo
             .pp
-                inline-size: 100%
+                block-size: 29vh !important
 
                 .tech-container
-                    inline-size: 60vw
+                    .img-wrapper
+                        inline-size: 25vw !important
+                    
+                        .img-svg
+                            block-size: 5vh !important
+
+@media only screen and (min-width: $google-nhm-width) and (max-width: 1113px) and (min-height: $google-nhm-height) and (orientation: landscape)
+    main
+        section.info
+            .carosel
+                block-size: 44vh !important
+                .caption
+                    bottom: 6.4vh !important
+
+                div.btn-container
+                    bottom: 35vh !important
+
+                    button.img-btn
+                        font-size: 2.5em !important
+
+        section#tech-repo
+            .pp
+                block-size: 20vh !important
+
+                .tech-container
+                    .img-wrapper
+                        inline-size: 25vw !important
+                    
+                        .img-svg
+                            block-size: 5vh !important

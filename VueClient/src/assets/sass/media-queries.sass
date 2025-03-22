@@ -1,11 +1,12 @@
 // Media Queries
 
-//@import media_queries/breakpoints, media_queries/htc-media-query
-//@import media_queries/sony-media-query, media_queries/sharp-media-query
-//@import media_queries/apple-media-query, media_queries/amazon-media-query
-@import media_queries/display-media-query
-//@import media_queries/motorola-media-query, media_queries/microsoft-media-query
-//@import media_queries/blackberry-media-query
+@import media_queries/breakpoints, media_queries/htc-media-query
+@import media_queries/sony-media-query, media_queries/sharp-media-query
+@import media_queries/apple-media-query, media_queries/amazon-media-query
+@import media_queries/display-media-query, media_queries/samsung-media-query
+@import media_queries/blackberry-media-query, media_queries/google-media-query
+@import media_queries/motorola-media-query, media_queries/microsoft-media-query
+
 
 //  Generally media queries
 
@@ -384,7 +385,7 @@
         form input[type="text"]
             margin-block-end: 2vh
 
-@media only screen and (min-width: $Ipad-height) and (min-height: $Ipad-width) and (max-height: 799px) and (orientation: landscape)
+@media only screen and (min-width: $Ipad-height) and (max-width: 1114px) and (min-height: $Ipad-width) and (max-height: 799px) and (orientation: landscape)
     header 
         .slogan-wrapper 
             font-size: 0.7em !important
