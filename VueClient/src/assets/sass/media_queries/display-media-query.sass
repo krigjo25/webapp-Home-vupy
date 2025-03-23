@@ -109,7 +109,7 @@
                     inline-size: 25vw !important
                     margin-inline-start: 4vw !important
 
-@media only screen and (min-width: $display-hd-720p-width) and (max-width: 1365px) and (min-height : $display-hd-720p-height) and (orientation: portrait)
+@media only screen and ($display-hd-720p-width <= width <= 1365px) and (min-height : $display-hd-720p-height) and (orientation: portrait)
     main
         section.info
             .carosel
@@ -151,7 +151,7 @@
                     inline-size: 37vw !important
                     margin-inline-start: 4vw !important
 
-@media only screen and (min-width: $display-asus-zbc-width) and (max-width: 1023px) and (min-height: $display-asus-zbc-height) and (orientation: portrait)
+@media only screen and ($display-asus-zbc-width <= width <=  1023px) and (min-height: $display-asus-zbc-height) and (orientation: portrait)
     header
         .slogan-wrapper
             font-size: .7em !important
@@ -249,7 +249,6 @@
 
 
 //  Landscape
-//  Does not load
 @media only screen and (min-width: $display-hd-1080p-width) and (min-height : $display-hd-1080p-height) and (orientation: landscape)
     header
         img
@@ -391,7 +390,7 @@
                 p
                     inline-size: 23vw !important
 
-@media only screen and (min-width: $display-asus-zbc-height) and (max-width: 1300px) and (min-height: $display-asus-zbc-width) and (max-height: 1023px) and (orientation: landscape)
+@media only screen and ($display-asus-zbc-height <= width <= 1300px)and ($display-asus-zbc-width <= height <= 1023px) and (orientation: landscape)
     header
         .slogan-wrapper
             font-size: .7em !important

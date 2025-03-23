@@ -2,7 +2,7 @@
 @import breakpoints
 
 //  Portrait
-@media only screen and (min-width: $amazon-kindle-fire-width)  and (max-width: 799px) and (min-height: $amazon-kindle-fire-height) and (orientation: portrait)
+@media only screen and ($amazon-kindle-fire-width <= width <= 799px) and (min-height: $amazon-kindle-fire-height) and (orientation: portrait)
     header
         img
             inline-size: 15vw !important
@@ -50,7 +50,7 @@
                     inline-size: 36vw !important
                     margin-inline-start: 5vw !important
 
-@media only screen and (min-width: $amazon-kindle-fire-hd-width) and (max-width: 852px) and (min-height: $amazon-kindle-fire-hd-height) and (orientation: portrait)
+@media only screen and ($amazon-kindle-fire-hd-width <= width <= 852px) and (min-height: $amazon-kindle-fire-hd-height) and (orientation: portrait)
 
     header
         .slogan-wrapper 
@@ -80,7 +80,7 @@
                     margin-inline-start: 5vw !important
 
 //  Landscape
-@media only screen and (min-width: $amazon-kindle-fire-height) and (max-width: 1113px) and (min-height: $amazon-kindle-fire-width) and (max-height: 799px) and (orientation: landscape)
+@media only screen and ($amazon-kindle-fire-height <= width <= 1113px) and ($amazon-kindle-fire-width <= height <= 799px) and (orientation: landscape)
     header
         img
             inline-size: 11vw !important
@@ -126,7 +126,7 @@
                     inline-size: 23vw !important
                     margin-inline-start: 4vw !important
 
-@media only screen and (min-width: $amazon-kindle-fire-hd-height) and (max-width: 1300px) and (min-height: $amazon-kindle-fire-hd-width) and (max-height: 1023px) and (orientation: landscape)
+@media only screen and ($amazon-kindle-fire-hd-height <= width <= 1300px) and ($amazon-kindle-fire-hd-width <= height <= 1023px) and (orientation: landscape)
 
     main
         section.info

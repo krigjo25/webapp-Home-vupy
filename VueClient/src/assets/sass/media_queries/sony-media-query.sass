@@ -4,7 +4,7 @@
 @import breakpoints
 
 // Ericsson Portrait
-@media only screen and (min-width: $sony-ericsson-u-width) and (max-width: 499px) and (min-height: $sony-ericsson-u-height) and (max-height: 900px) and (orientation: portrait)
+@media only screen and ($sony-ericsson-u-width <= width <= 499px) and ($sony-ericsson-u-height <= height <= 900px) and (orientation: portrait)
 
     main
         section.info
@@ -38,7 +38,7 @@
                     inline-size: 39vw !important
 
 // Ericsson Lanscape
-@media only screen and (min-width: $sony-ericsson-u-height) and (max-width: 899px) and (min-height: $sony-ericsson-u-width) and (orientation: landscape)
+@media only screen and ($sony-ericsson-u-height <= width <= 899px) and (min-height: $sony-ericsson-u-width) and (orientation: landscape)
 
     main
         section.info

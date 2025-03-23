@@ -4,7 +4,7 @@
 @import breakpoints
 
 //  Portrait
-@media only screen and (min-width: $bberry-width) and (max-width: 539px) and (min-height: $bberry-height) and (max-height: 853px) and (orientation: portrait)
+@media only screen and ($bberry-width <= width <= 539px) and ($bberry-height <= height <= 853px) and (orientation: portrait)
     header
         .slogan-wrapper
             font-size: .7em !important
@@ -46,7 +46,7 @@
         form input[type="text"]
             margin-block-end: 2vh
 
-@media only screen and (min-width: $bberry-bt-width) and (max-width: 539px) and (min-height: $bberry-bt-height) and (max-height: 799px) and (orientation: portrait)
+@media only screen and ( $bberry-bt-width <= width <= 539px)and ($bberry-bt-height <= height <= 799px) and (orientation: portrait)
 
     header
         .slogan-wrapper
@@ -89,7 +89,7 @@
         form input[type="text"]
             margin-block-end: 2vh
 
-@media only screen and (min-width: $bberry-curve-width) and (max-width: 374px) and (min-height: $bberry-curve-height) and (max-height: 639px) and (orientation: portrait)
+@media only screen and ($bberry-curve-width <= width <= 374px) and ($bberry-curve-height <= height <= 639px)and (orientation: portrait)
 
     header
         .slogan-wrapper
@@ -123,7 +123,7 @@
             margin-block-end: 2vh
 
 //  Landscape
-@media only screen and (min-width: $bberry-height) and (max-width: 828px) and (min-height: $bberry-width) and (max-height: 599px) and (orientation: landscape)
+@media only screen and ($bberry-height <= width <= 828)and ($bberry-width <= height <= 599px) and (orientation: landscape)
     header
         img
             inline-size: 11vw !important
@@ -170,7 +170,7 @@
         form input[type="text"]
             margin-block-end: 2vh
 
-@media only screen and (min-width: $bberry-bt-height) and (max-width:  640px) and (min-height: $bberry-bt-width) and (orientation: landscape)
+@media only screen and ($bberry-bt-height<= width <= 640px) and (min-height: $bberry-bt-width) and (orientation: landscape)
 
     header
         img
@@ -229,7 +229,7 @@
         form input[type="text"]
             margin-block-end: 2vh
 
-@media only screen and (min-width: $bberry-curve-height) and (max-width: 500px) and (min-height: $bberry-curve-width) and (orientation: landscape)
+@media only screen and ($bberry-curve-height <= width <=  500px) and (min-height: $bberry-curve-width) and (orientation: landscape)
 
     header
         img

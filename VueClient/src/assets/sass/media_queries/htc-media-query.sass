@@ -5,7 +5,7 @@
 
 
 //  Portrait
-@media only screen and (min-width: $htc-desire-width) and (max-width: 343px) and (min-height: $htc-desire-height) and (orientation: portrait)
+@media only screen and ($htc-desire-width <= width <= 343px) and (min-height: $htc-desire-height) and (orientation: portrait)
     main
         section.info
             .carosel
@@ -31,7 +31,7 @@
                         .img-svg
                             block-size: 6vh !important
 
-@media only screen and (min-width: $htc-one-width) and (max-width: 399px) and (min-height: $htc-one-height) and (orientation: portrait)
+@media only screen and ($htc-one-width <= width <= 399px) and (min-height: $htc-one-height) and (orientation: portrait)
     header
         .slogan-wrapper
             font-size: .496em !important
@@ -60,7 +60,7 @@
                         .img-svg
                             block-size: 4vh !important
 
-@media only screen and (min-width: $htc-sensation-width)  and (max-width: 600px) and (min-height: $htc-sensation-height) and (orientation: portrait)
+@media only screen and ($htc-sensation-width <= width <= 600px)and (min-height: $htc-sensation-height) and (orientation: portrait)
     header
         .slogan-wrapper
             font-size: .7em !important
@@ -103,7 +103,7 @@
                     margin-inline-start: 8vw !important
 
 //  Landscape
-@media only screen and (min-width: $htc-desire-height) and (max-width: 550px) and (min-height: $htc-desire-width) and (orientation: landscape)
+@media only screen and ($htc-desire-height <= width <= 550px) and (min-height: $htc-desire-width) and (orientation: landscape)
     header
         .slogan-wrapper
             font-size: .7em !important

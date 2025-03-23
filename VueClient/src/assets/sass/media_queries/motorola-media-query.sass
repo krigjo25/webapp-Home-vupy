@@ -4,7 +4,7 @@
 @import breakpoints
 
 //  Portraits
-@media only screen and (min-width: $motorola-mobility-milestone-width) and (max-width: 343px) and (min-height: $motorola-mobility-milestone-height) and (orientation: portrait)
+@media only screen and ($motorola-mobility-milestone-width <= width <= 343px) and (min-height: $motorola-mobility-milestone-height) and (orientation: portrait)
     header 
         .slogan-wrapper 
             font-size: 0.398em !important
@@ -40,7 +40,7 @@
                     margin-inline-start: 7vw !important
 
 //  Landscape
-@media only screen and (min-width: $motorola-mobility-milestone-height)  and (max-width: 639px) and (min-height: $motorola-mobility-milestone-width) and (orientation: landscape)
+@media only screen and ($motorola-mobility-milestone-height <= width <= 639px) and (min-height: $motorola-mobility-milestone-width) and (orientation: landscape)
     header 
         img
             inline-size: 15vw !important
