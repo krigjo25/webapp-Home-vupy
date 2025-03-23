@@ -54,7 +54,6 @@
 
             p
                 inline-size: 100%
-                text-align: justify
 
         section#tech-repo
             .pp
@@ -88,13 +87,13 @@
     main
         section.info
             .carosel
-                inline-size: 50vw !important
+                inline-size: 60vw !important
 
                 .caption
                     bottom: 6.8vh !important
 
                 div.btn-container
-                    bottom: 23vh !important
+                    bottom: 27vh !important
 
             section.bio-container
                 margin-block: 0vh !important
@@ -312,16 +311,20 @@
     main
         section.info
             .carosel
+                inline-size: 87vw !important
                 .caption
                     bottom: 5.3vh !important
 
                 div.btn-container
-                    bottom: 31vh !important
+                    bottom: 27vh !important
 
             section.bio-container
                 margin-block: 1vh
                 margin-inline: 0 !important
                 inline-size: 100% !important
+                
+                button.img-btn
+                    font-size: 2em !important
 
                 h2
                     font-size: 2em !important
@@ -378,20 +381,20 @@
     main
         section.info
             .carosel
-                block-size: 25vh !important
-                inline-size: 50vw !important
+                block-size: 28vh !important
+                inline-size: 35vw !important
 
                 .caption
-                    bottom: 3.6vh !important
+                    bottom: 3.7vh !important
 
                 div.btn-container
-                    bottom: 23vh !important
+                    bottom: 19vh !important
 
                     .img-btn
-                        font-size: 3em !important
+                        font-size: 2.5em !important
 
             section.bio-container
-                inline-size: 63vw !important
+                inline-size: 47vw !important
 
                 section.bio-content
                     inline-size: 100% !important 
@@ -411,8 +414,8 @@
         section#tech-repo
             .pp
                 block-size: 13vh !important
-                inline-size: 46vw !important
-                background-size: 17vw !important
+                inline-size: 44vw !important
+                background-size: 15vw !important
 
                 .tech-container
                     .relative
@@ -421,7 +424,7 @@
 
                     .img-wrapper
                         block-size: 4vh !important
-                        inline-size: 43vw !important
+                        inline-size: 41vw !important
 
                         .img-svg
                             block-size: 3vh !important
@@ -442,8 +445,8 @@
     main
         section.info
             .carosel
-                block-size: 0vh !important
-                inline-size: 50vw !important
+                block-size: 27vh !important
+                inline-size: 35vw !important
 
                 .caption
                     bottom: 4.3vh !important
@@ -457,7 +460,7 @@
             section.bio-container
                 margin-block: 1vh
                 margin-inline: 0 !important
-                inline-size: 100% !important
+                inline-size: 50vw !important
 
                 h2
                     font-size: 2em !important
@@ -575,6 +578,7 @@
 
         section#tech-repo
             .pp
+                margin-inline: 1em
                 block-size: 40vh !important
                 inline-size: 41vw !important
                 background-size: 16vw !important
@@ -599,9 +603,12 @@
                             block-size: 7vh !important
 
 @media only screen and (min-width: $iphone-plus-height) and (max-width: 750px) and (min-height: $iphone-plus-width) and (orientation: landscape)
-    header 
+    header
+        img
+            inline-size: 11vw !important
+
         .slogan-wrapper 
-            font-size: .8em !important
+            font-size: .7em !important
 
     main
         section.info
@@ -609,10 +616,10 @@
                 inline-size: 45vw !important
 
                 .caption
-                    bottom: 12.1vh !important
+                    bottom: 12.3vh !important
 
                 div.btn-container
-                    bottom: 60vh !important
+                    bottom: 59vh !important
 
                     .img-btn
                         font-size: 2.5em
@@ -651,13 +658,14 @@
                     a
                         margin: 0
 
-        section.spec-container
-            p
-                inline-size: 100%
-                text-align: justify
+        section#spec-container
+
+            .spec-class
+                inline-size: 40vw !important
 
         section#tech-repo
             .pp
+                margin-inline: 1em
                 inline-size: 40vw !important
                 block-size: 43vh !important
                 background-size: 16vw !important
@@ -681,7 +689,7 @@
 @media only screen and (min-width: $iphone-xr-height) and (max-width: 900px ) and (min-height: $iphone-xr-width) and (orientation: landscape)
     header
         img
-            inline-size: 15vw !important
+            inline-size: 11vw !important
 
         .slogan-wrapper 
             font-size: .52em !important
@@ -689,15 +697,19 @@
     main
         section.info
             .carosel
-                inline-size: 50vw !important
+                block-size: 81vh !important
+                inline-size: 35vw !important
 
                 .caption
                     bottom: 11.9vh !important
+                
+                div.btn-container
+                    bottom: 55vh !important
 
             section.bio-container
                 margin-block: 1vh
                 margin-inline: 0 !important
-                inline-size: 100% !important
+                inline-size: 50vw !important
 
                 h2
                     font-size: 2em !important
@@ -754,7 +766,7 @@
                     inline-size: 28vw !important
                     margin-inline-start: 7vw !important
 
-@media only screen and (min-width: $iphone-pro-height) and (max-width: 819px ) and (min-height: $iphone-pro-width) and (orientation: landscape)
+@media only screen and (min-width: $iphone-pro-height) and (max-width: 850px ) and (min-height: $iphone-pro-width) and (orientation: landscape)
     header
         img
             inline-size: 11vw !important
@@ -765,21 +777,19 @@
     main
         section.info
             .carosel
-                inline-size: 50vw !important
+                block-size: 81vh !important
+                inline-size: 35vw !important
 
                 .caption
-                    bottom: 12.9vh !important
+                    bottom: 13vh !important
 
                 div.btn-container
-                    bottom: 76vh !important
-
-                    button.img-btn
-                        font-size: 2.5em !important
+                    bottom: 56vh !important
 
             section.bio-container
                 margin-block: 1vh
                 margin-inline: 0 !important
-                inline-size: 100% !important
+                inline-size: 50vw !important
 
                 h2
                     font-size: 2em !important
@@ -837,7 +847,7 @@
                     inline-size: 32vw !important
                     margin-inline-start: 6vw !important
 
-@media only screen and (min-width: $iphone-pro-max-height) and (max-width: 1000px ) and (min-height: $iphone-pro-max-width) and (orientation: landscape)
+@media only screen and (min-width: $iphone-pro-max-height) and (max-width: 959px ) and (min-height: $iphone-pro-max-width) and (orientation: landscape)
     header
         img
             inline-size: 15vw !important
@@ -848,19 +858,22 @@
     main
         section.info
             .carosel
-                block-size: 0vh !important
-                inline-size: 40vw !important
+                block-size: 82vh !important
+                inline-size: 35vw !important
 
                 .caption
                     bottom: 11.9vh !important
 
                 div.btn-container
-                    bottom: 47vh !important
+                    bottom: 58vh !important
+
+                    button.img-btn
+                        font-size: 2.5em !important
 
             section.bio-container
                 margin-block: 1vh
                 margin-inline: 0 !important
-                inline-size: 100% !important
+                inline-size: 50vw !important
 
                 h2
                     font-size: 2em !important
@@ -915,86 +928,7 @@
                     inline-size: 21vw !important
                     margin-inline-start: 4vw !important
 
-//  Media Queries Issue
-@media only screen and (min-width: $Ipad-Pro-height) and (min-height: $Ipad-Pro-width) and (orientation: landscape)
-    header
-        img
-            inline-size: 11vw !important
-
-        .slogan-wrapper 
-            font-size: .7em !important
-
-    main
-        section.info
-            .carosel
-                block-size: 42vh !important
-                inline-size: 50vw !important
-
-                div.btn-container
-                    bottom: 31vh !important
-
-                    button.img-btn
-                        font-size: 3em !important
-
-                .caption
-                    bottom: 4.8vh !important
-
-            section.bio-container
-                margin: 0
-                inline-size: 100% !important
-
-                nav.bio-link
-                    margin: 0
-                    inline-size: 100%
-
-                    .bio-btn
-                        transition: 3s
-
-                    &:hover
-                        transform: scale(1.1)
-
-                section.bio-content
-                    p
-                        inline-size: 100% !important    
-
-        section.spec-wrapper
-            margin-block-end: 0 !important
-
-            .spec-class
-                inline-size:  47vw !important
-
-                .spec-course
-                    .h4-link
-                        font-size: 1.2em !important
-
-        section#tech-repo
-            .pp
-                block-size: 14vh !important
-                inline-size: 28vw !important
-                background-size: 8vw !important
-
-                p
-                    margin-inline-end: 0 !important
-                    margin-inline-start: 3vw !important
-                    font-size: 1em !important
-                    inline-size: 24vw !important
-                h2
-                    margin-inline-start: 0 !important
-
-                .tech-container
-                    .relative
-                        top: 1vh !important
-                        left: 1vw !important
-
-                    .img-wrapper
-                        block-size: 3vh !important
-                        inline-size: 26vw !important
-
-                        .img-svg
-                            block-size: 3vh !important
-
-//  Media Queries Issue
-@media only screen and (min-width: $Ipad-air-height) and (max-width: 1200px ) and (min-height: $Ipad-air-width) and (orientation: lanscape)
+@media only screen and (min-width: $Ipad-air-height) and (max-width: 1200px) and (min-height: $Ipad-air-width) and (orientation: landscape)
     header
         img
             inline-size: 11vw !important
@@ -1005,8 +939,8 @@
     main
         section.info
             .carosel
-                block-size: 0vh !important
-                inline-size: 50vw !important
+                block-size: 54vh !important
+                inline-size: 35vw !important
 
                 .caption
                     bottom: 6.1vh !important
@@ -1020,7 +954,7 @@
             section.bio-container
                 margin-block: 1vh
                 margin-inline: 0 !important
-                inline-size: 100% !important
+                inline-size: 50vw !important
 
                 h2
                     font-size: 2em !important
@@ -1075,4 +1009,71 @@
                 p
                     inline-size: 21vw !important
                     margin-inline-start: 4vw !important
+
+@media only screen and (min-width: $Ipad-Pro-height) and (min-height: $Ipad-Pro-width) and (orientation: landscape)
+    header
+        img
+            inline-size: 11vw !important
+
+        .slogan-wrapper 
+            font-size: .7em !important
+
+    main
+        section.info
+            .carosel
+                block-size: 48vh !important
+                inline-size: 35vw !important
+
+                div.btn-container
+                    bottom: 31vh !important
+
+                    button.img-btn
+                        font-size: 3em !important
+
+                .caption
+                    bottom: 4.8vh !important
+
+            section.bio-container
+                inline-size: 50vw !important
+                
+                .bio-btn
+                    font-size: 1em !important
+                    
+        section.spec-wrapper
+            margin-block-end: 0 !important
+
+            .spec-class
+                inline-size:  47vw !important
+
+                .spec-course
+                    .h4-link
+                        font-size: 1.2em !important
+
+        section#tech-repo
+            .pp
+                block-size: 14vh !important
+                inline-size: 28vw !important
+                background-size: 8vw !important
+
+                p
+                    margin-inline-end: 0 !important
+                    margin-inline-start: 3vw !important
+                    font-size: 1em !important
+                    inline-size: 24vw !important
+                h2
+                    margin-inline-start: 0 !important
+
+                .tech-container
+                    .relative
+                        top: 1vh !important
+                        left: 1vw !important
+
+                    .img-wrapper
+                        block-size: 3vh !important
+                        inline-size: 26vw !important
+
+                        .img-svg
+                            block-size: 3vh !important
+
+//  Media Queries Issue
 

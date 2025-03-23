@@ -4,7 +4,7 @@
 @import breakpoints
 
 //  Portrait
-@media only screen and (min-width: $google-pixel-width) and (max-width: $google-pixel-height) and (orientation: portrait)
+@media only screen and (min-width: $google-pixel-width) and (max-width: 429px) and (min-height: $google-pixel-height) and (orientation: portrait)
     
     header a
         font-size: 0.57em 
@@ -21,7 +21,29 @@
                         font-size: 2em !important
 
 // Landscape
-@media only screen and (min-width: $google-nh-width) and (max-width: 1113px) and (min-height: $google-nh-height) and (orientation: landscape)
+@media only screen and (min-width: $google-pixel-height) and (max-width: 1000px) and (min-height: $google-pixel-width) and (orientation: landscape)
+    
+    header a
+        font-size: 0.57em 
+
+    main
+        section.info
+
+            .carosel
+                block-size: 82vh !important
+                inline-size: 35vw !important
+
+                div.btn-container
+                    bottom: 56vh !important
+
+            section.bio-container
+                    inline-size: 50vw !important
+
+        section#tech-repo
+            .pp
+                background-size: 11vw !important
+
+@media only screen and (min-width: $google-nh-width) and (max-width: 1100px) and (min-height: $google-nh-height) and (orientation: landscape)
     main
         section.info
             .carosel
@@ -33,6 +55,11 @@
 
                     button.img-btn
                         font-size: 2em !important
+
+            section.bio-container
+                button.bio-btn
+                    font-size: .85em !important
+
         section#tech-repo
             .pp
                 block-size: 29vh !important
@@ -44,7 +71,7 @@
                         .img-svg
                             block-size: 5vh !important
 
-@media only screen and (min-width: $google-nhm-width) and (max-width: 1113px) and (min-height: $google-nhm-height) and (orientation: landscape)
+@media only screen and (min-width: $google-nhm-width) and (max-width: 852px) and (min-height: $google-nhm-height) and (orientation: landscape)
     main
         section.info
             .carosel

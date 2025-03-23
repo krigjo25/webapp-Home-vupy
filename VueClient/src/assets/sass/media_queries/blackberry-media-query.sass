@@ -12,30 +12,33 @@
         
         section.info
             .carosel
+                inline-size: 50vw !important
+
                 div.btn-container
-                    bottom: 40vh !important
+                    bottom: 24vh !important
             
                 .caption
                     bottom: 6.2vh !important
 
         section#tech-repo
             .pp
-                block-size: 22vh !important
-                inline-size: 50vw !important
+                block-size: 20vh !important
+                inline-size: 67vw !important
                 background-size: 20vw !important
 
                 .tech-container
                     .relative
-                        top: 2vh
+                        top: 1vh
+                        left: 2vw
 
                     .img-wrapper
                         block-size: 5vh !important
-                        inline-size: 47vw !important
+                        inline-size: 61vw !important
 
                         .img-svg
                             block-size: 4vh !important
                 p
-                    inline-size: 44vw !important
+                    inline-size: 60vw !important
                     margin-inline-start: 5vw
 
         form input[type="text"]
@@ -45,35 +48,37 @@
 
     header
         .slogan-wrapper
-            font-size: .7em !important
+            font-size: .7em
 
     main
         
         section.info
             .carosel
+                inline-size: 50vw
                 .caption
-                    bottom: 7.8vh !important
+                    bottom: 7.8vh
 
                 div.btn-container
-                    bottom: 49vh !important
+                    bottom: 30vh
 
         section#tech-repo
             .pp
-                block-size: 28vh !important
-                background-size: 30vw !important
+                block-size: 28vh 
+                inline-size: 70vw
+                background-size: 30vw 
 
                 .tech-container
                     .relative
-                        top: 3vh !important
+                        top: 3vh
 
                     .img-wrapper
-                        inline-size: 81vw !important
+                        inline-size: 65vw
 
                         .img-svg
-                            block-size: 5vh !important
+                            block-size: 5vh 
                 p
-                    inline-size: 81vw !important
-                    margin-inline-start: 5vw !important
+                    inline-size: 59vw
+                    margin-inline-start: 9vw
 
         form input[type="text"]
             margin-block-end: 2vh
@@ -109,7 +114,7 @@
             margin-block-end: 2vh
 
 //  Landscape
-@media only screen and (min-width: $bberry-height) and (max-width: 828px) and (min-height: $bberry-width) and (orientation: landscape)
+@media only screen and (min-width: $bberry-height) and (max-width: 828px) and (min-height: $bberry-width) and (max-height: 599px) and (orientation: landscape)
     header
         img
             inline-size: 11vw !important
@@ -130,6 +135,7 @@
 
         section#tech-repo
             .pp
+                margin-inline: 1em
                 block-size: 32vh !important
                 inline-size: 37vw !important
                 background-size: 14vw !important
@@ -166,14 +172,20 @@
         section.info
             .carosel
                 inline-size: 50vw !important
+
                 .caption
                     bottom: 10.4vh !important
 
                 div.btn-container
                     bottom: 50vh !important
 
+        section#spec-container
+            .spec-class
+                inline-size: 40vw
+
         section#tech-repo
             .pp
+                margin-inline: 1em 
                 inline-size: 40vw !important
                 block-size: 35vh !important
                 background-size: 17vw !important
@@ -221,21 +233,22 @@
         section#tech-repo
             .pp
                 block-size: 46vh !important
-                inline-size: 40vw !important
+                inline-size: 60vw !important
+                background-size: 20vw !important
 
                 .tech-container
                     .relative
                         top: 3vh
 
                     .img-wrapper
-                        inline-size: 36vw !important
+                        inline-size: 56vw !important
 
                         .img-svg
-                            block-size: 6vh !important
+                            block-size: 7vh !important
 
                 p
                     font-size: 1em !important
-                    inline-size: 34vw !important
+                    inline-size: 50vw !important
 
         form input[type="text"]
             margin-block-end: 2vh

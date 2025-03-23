@@ -74,20 +74,24 @@
     main
         section.info
             .carosel
-                inline-size: 50vw !important
+                block-size: 42vh 
+                inline-size: 35vw !important
 
                 div.btn-container
                     bottom: 31vh !important
 
                 .caption
                     bottom: 6vh !important
-        
+            section.bio-container
+                inline-size: 40vw !important
         section.spec-wrapper
             .spec-class
                 inline-size: 45vw !important
 
         section#tech-repo
             .pp
+                margin-inline: 1em
+                block-size: 21vh
                 inline-size: 43vw !important
                 background-size: 20vw !important
 
@@ -123,7 +127,7 @@
                 .caption
                     bottom: 6.8vh !important
 
-@media only screen and (min-width: $samsung-gs20u-width) and (min-height: $samsung-gs20u-height) and (max-height: 940px) and (orientation: portrait)
+@media only screen and (min-width: $samsung-gs20u-width) and (max-width: 429px) and (min-height: $samsung-gs20u-height) and (max-height: 940px) and (orientation: portrait)
     header
 
         .slogan-wrapper
@@ -149,11 +153,10 @@
                     .img-wrapper
                         block-size: 4vh !important
 
-@media only screen and (min-width: $samsung-ga5171-width) and (min-height: $samsung-ga5171-height) and (orientation: portrait)
+@media only screen and (min-width: $samsung-ga5171-width) and (max-width: 429px) and (min-height: $samsung-ga5171-height) and (orientation: portrait)
     main
         section.info
             .carosel
-
                 .caption
                     bottom: 5.5vh !important
 
@@ -170,7 +173,7 @@
                             block-size: 4vh !important
 
 //  Landscape Media Queries
-@media only screen and (min-width: $samsung-tab-height) and (max-width: 799px) and (min-height: $samsung-tab-width) and (orientation: landscape)
+@media only screen and (min-width: $samsung-tab-height) and (max-width: 735px) and (min-height: $samsung-tab-width) and (orientation: landscape)
     header
         img
             inline-size: 15vw !important
@@ -181,16 +184,18 @@
     main
         section.info
             .carosel
-            
+                block-size: 74vh !important
+                inline-size: 40vw !important
+
                 div.btn-container
-                    bottom: 64vh !important
-                
-                    button.img-btn
-                        font-size: 2.5em
+                    bottom: 52vh !important
+
 
                 .caption
                     bottom: 12.4vh !important
 
+            section.bio-container
+                inline-size: 50vw !important
         section#tech-repo
             .pp
                 .tech-container
@@ -213,13 +218,16 @@
     main
         section.info
             .carosel
-                inline-size: 50vw !important
+                inline-size: 35vw !important
 
                 div.btn-container
-                    bottom: 71vh !important
+                    bottom: 55vh !important
 
                 .caption
                     bottom: 13.8vh !important
+            
+            section.bio-container
+                inline-size: 50vw !important
         
         section#tech-repo
             .pp
@@ -228,7 +236,7 @@
                 p
                     inline-size: 36vw !important
 
-@media only screen and (min-width: $samsung-gs20u-height) and (max-width: 1023px) and (min-height: $samsung-gs20u-width) and (orientation: landscape)
+@media only screen and (min-width: $samsung-gs20u-height) and (max-width: 925px) and (min-height: $samsung-gs20u-width) and (orientation: landscape)
     header
 
         .slogan-wrapper
@@ -260,7 +268,7 @@
                     inline-size: 30vw !important
                     margin-inline-start: 5vw !important
 
-@media only screen and (min-width: $samsung-gcz5-height) and (max-width: 913px) and (min-height: $samsung-gcz5-width) and (orientation: landscape)
+@media only screen and (min-width: $samsung-gcz5-height) and (max-width: 895px) and (min-height: $samsung-gcz5-width) and (orientation: landscape)
     header
         .slogan-wrapper
             font-size: 0.5em !important
@@ -268,8 +276,8 @@
     main
         section.info
             .carosel
-                block-size: 19vh !important
-                inline-size: 50vw !important
+                block-size: 95vh !important
+                inline-size: 35vw !important
 
                 div.btn-container
                     bottom: 65vh !important
@@ -277,12 +285,16 @@
                 .caption
                     bottom: 14.7vh !important
 
+            section.bio-container
+                inline-size: 50vw !important
+
         section.spec-wrapper
             .spec-class
                 inline-size: 45vw 
 
         section#tech-repo
             .pp
+                margin-inline: 1em
                 block-size: 45vh !important
                 inline-size: 28vw !important
                 background-size: 11vw !important
@@ -310,15 +322,17 @@
     main
         section.info
             .carosel
-                block-size: 4vh !important
-                inline-size: 50vw !important
+                block-size: 45vh !important
+                inline-size: 35vw !important
 
                 div.btn-container
                     bottom: 37vh !important
 
                 .caption
                     bottom: 7.3vh !important
-        
+
+            section.bio-container
+                inline-size: 50vw         
         section.spec-wrapper
             .spec-class
                 inline-size: 45vw !important
@@ -341,7 +355,7 @@
                 p
                     inline-size: 40vw !important
 
-@media only screen and (min-width: $samsung-ga5171-height) and (max-width: 1023px) and (min-height: $samsung-ga5171-width) and (orientation: landscape)
+@media only screen and (min-width: $samsung-ga5171-height) and (max-width: 925px) and (min-height: $samsung-ga5171-width) and (orientation: landscape)
     header
         .slogan-wrapper
             font-size: 0.5em !important
@@ -349,15 +363,17 @@
     main
         section.info
             .carosel
-                block-size: 20vh !important
-                inline-size: 50vw !important
+                block-size: 82vh !important
+                inline-size: 35vw !important
 
                 div.btn-container
                     bottom: 54vh !important
 
                 .caption
                     bottom: 11.9vh !important
-        
+            section.bio-container
+                inline-size: 50vw
+
         section.spec-wrapper
             .spec-class
                 inline-size: 45vw !important
@@ -366,6 +382,7 @@
             .pp
                 block-size: 40vh !important
                 inline-size: 28vw !important
+                background-size: 11vw !important
 
                 .tech-container
                     .relative

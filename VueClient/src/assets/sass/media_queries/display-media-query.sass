@@ -36,7 +36,6 @@
                 p
                     inline-size: 21vw !important
 
-//  Issues
 @media only screen and (min-width: $display-hd-1080p-height) and (min-height : $display-hd-1080p-width) and (orientation: portrait)
     main
         section.info
@@ -152,7 +151,7 @@
                     inline-size: 37vw !important
                     margin-inline-start: 4vw !important
 
-@media only screen and (min-width: $display-asus-zbc-width) and (min-height: $display-asus-zbc-height) and (orientation: portrait)
+@media only screen and (min-width: $display-asus-zbc-width) and (max-width: 1023px) and (min-height: $display-asus-zbc-height) and (orientation: portrait)
     header
         .slogan-wrapper
             font-size: .7em !important
@@ -162,15 +161,18 @@
     main
         section.info
             .carosel
-                block-size: 3vh !important
-                inline-size: 50vw !important
+                block-size: 25vh
+                inline-size: 35vw !important
 
                 .caption
-                    bottom: 3.9vh !important
-
+                    bottom: 4vh !important
+        
                 div.btn-container
                     bottom: 17vh !important
 
+            section.bio-container
+                    inline-size: 50vw !important
+            
         section.spec-wrapper
             .spec-class
                 inline-size: 45vw !important
@@ -200,19 +202,25 @@
         .slogan-wrapper
             font-size: .7em !important
         img
-            inline-size: 15vw !important
+            inline-size: 11vw !important
 
     main
         section.info
             .carosel
-                block-size: 20vh !important
-                inline-size: 50vw !important
+                block-size: 27vh !important
+                inline-size: 35vw !important
 
                 .caption
                     bottom: 2.9vh !important
 
                 div.btn-container
-                    bottom: 24vh !important
+                    bottom: 18vh !important
+
+            section.bio-container
+                inline-size: 50vw !important
+
+                button.bio-btn
+                    font-size: 1em !important
 
         section.spec-wrapper
             .spec-class
@@ -293,13 +301,14 @@
 
                     .img-wrapper
                         block-size: 2vh !important
-                        inline-size: 18vw !important
+                        inline-size: 21vw !important
 
                         .img-svg
                             block-size: 4vh !important
                 p
                     inline-size: 16vw !important
                     margin-inline-start: 4vw !important
+
             nav#tech-bar
                 inline-size: 47vw !important
 
@@ -387,13 +396,13 @@
         .slogan-wrapper
             font-size: .7em !important
         img
-            inline-size: 15vw !important
+            inline-size: 11vw !important
 
     main
         section.info
             .carosel
-                block-size: 44vh !important
-                inline-size: 50vw !important
+                block-size: 54vh !important
+                inline-size: 35vw !important
 
                 .caption
                     bottom: 5.9vh !important
@@ -437,8 +446,8 @@
     main
         section.info
             .carosel
-                block-size: 28vh !important
-                inline-size: 31vw !important
+                block-size: 34vh !important
+                inline-size: 25vw !important
 
                 .caption
                     bottom: 3.9vh !important

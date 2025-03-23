@@ -1,9 +1,9 @@
 <template>
     <section id="fullstack" v-if="pfolio.Loaded" class="flex-wrap-column">
         <h2>Technical Repositories</h2>
-        <section class="flex-wrap-column-align-content-center">
-            <Navigation id="tech-bar" class='flex-wrap-row-justify-space-evenly':data="pfolio.Total" @update="pfolio.current = $event" v-if="pfolio.Total"/>
-            <form class="flex-wrap-row-justify-center">
+        <section class="flex-wrap-column-align-items-center">
+            <Navigation class='flex-wrap-row-justify-space-evenly tech-bar':data="pfolio.Total" @update="pfolio.current = $event" v-if="pfolio.Total"/>
+            <form class="flex-wrap-row-justify-space-evenly">
                 <select v-if = "pfolio.lang" placeholder="Choose a type" v-model="filter.lang">
                     <option value="">Project Type</option>
                     <option v-for="type in pfolio.type" :key="type.id" value="{{ type }}">{{ type.type}}</option>

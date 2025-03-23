@@ -3,43 +3,6 @@
 //  Import dependencies
 @import breakpoints
 
-//  Portrait
-@media only screen and (min-width: $sharp-sx862-width) and (min-height: $sharp-sx862-height) and (max-height: 959px) and (orientation: portrait)
-    header 
-        .slogan-wrapper 
-            font-size: .7em !important
-
-    main
-        section.info
-            .carosel
-                .caption
-                    bottom: 5.9vh !important
-
-            div.btn-container
-                bottom: 36vh !important
-
-        section#tech-repo
-            .pp
-                block-size: 17vh !important
-                inline-size: 64vw !important
-                background-size: 24vw !important
-
-                .tech-container
-
-                    .relative
-                        top: 1vh !important
-                        left: 4vw !important
-
-                    .img-wrapper
-                        block-size: 3vh !important
-                        inline-size: 58vw !important
-
-
-                        .img-svg
-                            block-size: 3vh !important
-                p
-                    inline-size: 53vw !important
-                    margin-inline-start: 9vw !important
 
 @media only screen and (min-width: $sharp-941sh-width) and (min-height: $sharp-941sh-height) and (orientation: portrait)
     header 
@@ -59,23 +22,23 @@
         section#tech-repo
             .pp
                 block-size: 14vh !important
-                inline-size: 100% !important
+                inline-size: 65vw !important
                 background-size: 25vw !important
 
                 .tech-container
 
                     .relative
-                        top: 2vh !important
+                        top: 1vh !important
 
                 .img-wrapper
                     block-size: 3vh !important
-                    inline-size: 81vw !important
+                    inline-size: 60vw !important
 
                     .img-svg
-                        block-size: 3vh !important
+                        block-size: 4vh !important
                 p
-                    inline-size: 81vw !important
-                    margin-inline-start: 7vw !important
+                    inline-size: 56vw !important
+                    margin-inline-start: 6vw !important
 
 @media only screen and (min-width: $sharp-is03-width) and (min-height: $sharp-is03-height) and (orientation: portrait)
     header 
@@ -88,16 +51,16 @@
     main
         section.info
             .carosel
-                inline-size: 50vw !important
+                inline-size: 35vw !important
 
                 .caption
                     bottom: 5.2vh !important
 
                 div.btn-container
-                    bottom: 25vh !important
-
-                button.img-btn
-                    font-size: 2.5em !important
+                    bottom: 19vh !important
+            
+            div.bio-container
+                inline-size: 50vw
 
         section.spec-wrapper
             .spec-class
@@ -105,6 +68,7 @@
         
         section#tech-repo
             .pp
+                margin-inline: 1em
                 block-size: 22vh !important
                 inline-size: 43vw !important
                 background-size: 20vw !important
@@ -124,65 +88,6 @@
                     inline-size: 35vw !important
                     margin-inline-start: 4vw !important
 
-//  Landscape
-@media only screen and (min-width: $sharp-sx862-height) and (max-width: 899px) and (min-height: $sharp-sx862-width) and (orientation: landscape)
-    header
-        img
-            inline-size: 15vw !important
-
-        .slogan-wrapper
-            font-size: .7em !important
-
-        
-    main
-        section.info
-            .carosel
-                block-size: 0vh !important
-                inline-size: 31vw !important
-
-                .caption
-                    bottom: 10.4vh !important
-
-                div.btn-container
-                    bottom: 44vh !important
-
-
-                    button.img-btn
-                        font-size: 2em !important  
-      
-        section.bio-container
-            inline-size: 53vw !important
-
-            .bio-content
-                p
-                    inline-size: 54vw !important
-
-        section.spec-wrapper
-            inline-size: 100% !important
-
-            .spec-class
-                inline-size: 47vw !important
-        
-        section#tech-repo
-            .pp
-                block-size: 33vh !important
-                inline-size: 41vw !important
-                background-size: 16vw !important
-
-                .tech-container
-                    .relative
-                        top: 3vh !important
-                        left: 3vw !important
-
-                    .img-wrapper
-                        inline-size: 36vw !important
-
-                        .img-svg
-                            block-size: 6vh !important
-
-                p
-                    inline-size: 32vw !important
-                    margin-inline-start: 4vw !important
 
 @media only screen and (min-width: $sharp-941sh-height) and (max-width: 1113px) and (min-height: $sharp-941sh-width) and (max-height: 599px) and (orientation: landscape)
     header
@@ -195,8 +100,8 @@
     main
         section.info
             .carosel
-                block-size: 32vh !important
-                inline-size: 50vw !important
+                block-size: 78vh !important
+                inline-size: 35vw !important
 
                 .caption
                     bottom: 10.3vh !important
@@ -207,6 +112,8 @@
                 
                     button.img-btn
                         font-size: 2.5em !important
+            section.bio-container
+                inline-size: 50vw
 
         section.spec-wrapper
             .spec-class

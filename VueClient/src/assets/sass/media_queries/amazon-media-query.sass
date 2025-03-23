@@ -22,9 +22,15 @@
 
                 div.btn-container
                     bottom: 22vh !important
-        
+            // section.bio-container
+            
+        section.spec-wrapper
+            .spec-class
+                inline-size: 40vw !important
+
         section#tech-repo
             .pp
+                margin-inline: 1em
                 block-size: 15vh !important
                 inline-size: 42vw !important
                 background-size: 17vw !important
@@ -44,8 +50,7 @@
                     inline-size: 36vw !important
                     margin-inline-start: 5vw !important
 
-//  Amazon Kindle Fire HD Issues on load
-@media only screen and (min-width: $amazon-kindle-fire-hd-width) and (max-width: 959px) and (min-height: $amazon-kindle-fire-hd-height) and (orientation: portrait)
+@media only screen and (min-width: $amazon-kindle-fire-hd-width) and (max-width: 852px) and (min-height: $amazon-kindle-fire-hd-height) and (orientation: portrait)
 
     header
         .slogan-wrapper 
@@ -54,16 +59,17 @@
     main
         section.info
             .carosel
-                block-size: 0vh !important
-                inline-size: 53vw !important
-                margin-inline: 2vw !important
+                inline-size: 47vw !important
+                block-size: 100% !important
 
                 .caption
                     bottom: 3.9vh !important
 
                 div.btn-container
-                    bottom: 23vh !important
-
+                    bottom: 20vh !important
+                
+                    button.img-btn
+                        font-size: 2.5em
         section#tech-repo
             .pp
                 
@@ -85,9 +91,8 @@
     main
         section.info
             .carosel
-                block-size: 20vh !important
-                inline-size: 50vw !important
-                margin-inline: 2vw
+                block-size: 62vh !important
+                inline-size: 35vw !important
 
                 .caption
                     bottom: 8.5vh !important
@@ -96,9 +101,13 @@
                     bottom: 40vh !important
                     inline-size: 100% !important
 
+            section.bio-container
+                inline-size: 50vw
+
         section.spec-container
             .spec-class
                 inline-size: 47vw !important
+
         section#tech-repo
             .pp
                 block-size: 29vh !important
@@ -117,35 +126,28 @@
                     inline-size: 23vw !important
                     margin-inline-start: 4vw !important
 
-@media only screen and (min-width: $amazon-kindle-fire-hd-height) and (max-width: 1366px) and (min-height: $amazon-kindle-fire-hd-width) and (max-height: 1023px) and (orientation: landscape)
-
-    header
-        img
-            inline-size: 11vw !important
-
-        .slogan-wrapper 
-            font-size: .7em !important
+@media only screen and (min-width: $amazon-kindle-fire-hd-height) and (max-width: 1300px) and (min-height: $amazon-kindle-fire-hd-width) and (max-height: 1023px) and (orientation: landscape)
 
     main
         section.info
             .carosel
-                block-size: 42.2vh !important
-                inline-size: 50vw !important
-                margin-inline-start: 2vw
-
+                block-size: 59vh !important
+                inline-size: 35vw !important
 
                 .caption
-                    bottom: 6.2vh !important
+                    bottom: 6.1vh !important
 
                 div.btn-container
                     bottom: 37vh !important
 
                     button.img-btn
-                        font-size: 2.5em !important
+                        font-size: 3em
 
-        section.bio-container
-            .bio-btn
-                font-size: 2em !important
+            section.bio-container
+                inline-size: 50vw
+
+                .bio-btn
+                    font-size: 1em !important
 
         section.spec-wrapper
             .spec-class

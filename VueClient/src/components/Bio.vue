@@ -1,5 +1,5 @@
 <template>
-    <section id="about-kristoffer" :class="'info ' + bio.cls ">
+    <section :id="bio.id" :class="'info ' + bio.cls ">
         <Carosel />
         <bio />
     </section>
@@ -17,8 +17,8 @@
 
 
     const bio = reactive({
-        cls: isMobile() ? 'flex-column' : 'flex-wrap-row-justify-space-evenly flex-wrap-row-align-items-end',
-        id: 'about-kristoffer',
+        cls:  'flex-wrap-row-justify-space-evenly flex-wrap-row-align-items-end',
+        id: 'auto-bigoraphy',
         pages: [
                 {
                     id      : 0,
