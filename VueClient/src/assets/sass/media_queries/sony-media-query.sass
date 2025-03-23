@@ -4,20 +4,23 @@
 @import breakpoints
 
 // Ericsson Portrait
-@media only screen and (min-width: $sony-ericsson-u-width) and (max-width: 359px) and (min-height: $sony-ericsson-u-height) and (orientation: portrait)
+@media only screen and (min-width: $sony-ericsson-u-width) and (max-width: 499px) and (min-height: $sony-ericsson-u-height) and (max-height: 900px) and (orientation: portrait)
 
     main
         section.info
             .carosel
                 div.btn-container
-                    bottom: 36vh !important
+                    bottom: 34vh !important
                 
                 .caption
-                    bottom: 6vh !important
+                    font-size: 1em !important
+
+                .relative
+                    bottom: 5.9vh !important
         
         section#tech-repo
             .pp
-                block-size: 16vh !important
+                block-size: 27vh !important
                 inline-size: 57vw !important
                 background-size: 22vw !important
             

@@ -2,7 +2,16 @@
 @import flexbox/flexbox-row
 @import flexbox/flexbox-column
 
+
+%flex-box
+    display: flex
+
 //  Flexbox row classes / styles
+.flex-justify-center
+    @extend %flex-box
+    justify-content: center
+
+
 .flex-row 
     @extend flex-row
 

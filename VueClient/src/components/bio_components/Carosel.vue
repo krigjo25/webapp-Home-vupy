@@ -1,7 +1,7 @@
 <template>
     <section v-if='Carosel.source' id="carosel-container" class="carosel">
         <img id="car-img" :src="Carosel.source" :alt="Carosel.alt" />
-        <div v-if="Carosel.caption" class="caption">
+        <div v-if="Carosel.caption" class="caption relative flex-justify-center">
             <p>{{ Carosel.caption }}</p>
         </div>
         <div class="btn-container">

@@ -11,7 +11,7 @@
 //  Generally media queries
 
 //  Portrait
-@media only screen and (min-width: $iphone-width) and (max-width: 343px) and (min-height: $iphone-height) and (orientation: portrait)
+@media only screen and (min-width: $iphone-width) and (max-width: 343px) and (min-height: $iphone-height) and (max-height: 532px) and (orientation: portrait)
 
     header 
         .slogan-wrapper 
@@ -27,8 +27,11 @@
                     button.img-btn
                         font-size: 2.5em
 
-            .caption
-                bottom: 10.4vh !important
+                .caption
+                    font-size: 1em !important
+                
+                .relative
+                    bottom: 10.4vh !important
 
             section.bio-container
 
@@ -79,7 +82,11 @@
                 margin-inline: 2vw
 
                 .caption
-                    bottom: 6.2vh !important
+                    font-size: 1em !important
+
+                .relative
+                    bottom: 6.3vh !important
+
 
                 div.btn-container
                     bottom: 28vh !important
@@ -172,7 +179,11 @@
                 inline-size: 35vw !important
 
                 .caption
-                    bottom: 4.9vh !important
+                    font-size: .9em !important
+
+                .relative
+                    bottom: 4.5vh !important
+
 
                 div.btn-container
                     bottom: 20vh !important
@@ -230,10 +241,10 @@
                 inline-size: 47vw
 
                 div.btn-container
-                    bottom: 59vh
+                    bottom: 54vh
 
-            .caption
-                bottom: 15.5vh !important
+                .relative
+                    bottom: 10.5vh
 
             section.bio-container
                 nav.bio-bar
@@ -289,14 +300,18 @@
     main
         section.info
             .carosel
-                inline-size: 47vw !important
-                margin-inline-end: 1vw !important
+                block-size: 51vh !important
+                inline-size: 35vw !important
 
                 .caption
-                    bottom: 8.4vh !important
+                    font-size: 1em !important
+
+                .relative
+                    bottom: 8.3vh !important
+
 
                 div.btn-container
-                    bottom: 42vh !important
+                    bottom: 35vh !important
 
                     button.img-btn
                         font-size: 2em !important
@@ -384,6 +399,9 @@
                 inline-size: 35vw !important
 
                 .caption
+                    font-size: 1em !important
+
+                .relative
                     bottom: 6.6vh !important
 
                 div.btn-container
