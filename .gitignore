@@ -19,3 +19,4 @@ tests/assets/
 node_modules/
 /coverage/
 /build
+/routes
