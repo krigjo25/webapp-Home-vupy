@@ -9,14 +9,17 @@ __pycache__/
 flask_session/
 tests/assets/
 
-# Environment variables
-*.env
+# Other folders and files
+routes/
 
-#  Log files
+*.env
 *.log
 
 #   VueClient related files & folders
-node_modules/
-/coverage/
 /build
-/routes
+/coverage/
+node_modules/
+
+
+
+
