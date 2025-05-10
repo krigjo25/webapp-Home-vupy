@@ -14,6 +14,7 @@
 
 //  Importing dependencies
 import { ref, reactive, onMounted } from 'vue';
+import { FetchApiResponse } from '../../assets/js/utils/apiHandler.js';
 
 //  Importing components
 import Btn from '../misc_components/button.vue';
@@ -46,20 +47,11 @@ const Carosel = reactive(
     }
 );
 
-function PushImages()
+async function PushImages()
 {
-
-    const playload = 
-    {
-        headers: 
-        {
-            ContentType: "application/json",
-            Authorization:`${import.meta.env.VITE_PhotosLibraryKey}`,
-        }
-    };
-    const test = reactive(); 
-
-    //console.log("Carousel API Response :", test);
+    console.log("Pushing Images");
+    const test = await FetchApiResponse(import.meta.env.VITE_PhotoLibrary_local, import.meta.env.VITE_PhotosLibraryKey); 
+    console.log("Carousel API Response :", test);
     setImage();
 
 };

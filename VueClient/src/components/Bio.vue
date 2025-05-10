@@ -15,7 +15,6 @@
     import Bio from './bio_components/Bio.vue';
     import Carosel from './bio_components/Carosel.vue';
 
-
     const bio = reactive({
         cls:  'flex-wrap-row-justify-space-evenly flex-wrap-row-align-items-end',
         id: 'auto-bigoraphy',

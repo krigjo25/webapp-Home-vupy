@@ -9,45 +9,27 @@ const response =  reactive({
     data: null,
 });
 
-export async function FetchApiResponse(path, payload = null)
+export async function FetchApiResponse(path, key = null)
 {
+    const payload = {
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            authorization: key,
+        },
+    };
 
-    //  Ensure that the payload is an object
-    if (!payload)
+    await axios.get(path, payload).then((res) => 
     {
-        console.log("No payload provided, using default value.", path, payload);
-        await axios.get(path).then((res) => 
-        {
-            response.data = res.data.data;
-            response.Total = res.data.page;
+        response.data = res.data.data;
+        response.Total = res.data.page;
 
-            console.log("Response.js :", response);
-        }).catch((err) => 
-        {
-            throw new Error("[Error] Response.js :" ,err);
-        });
-    }
-    else
+        console.log("Response.js :", response);
+    }).catch((err) => 
     {
-        await axios.post(path, payload).then((res) => 
-        {
-            response.data = res.data.data;
-            response.Total = res.data.page;
-
-            console.log("with payload, Response.js :", response);
-        }).catch((err) => 
-        {
-            throw new Error("[Error] Response.js :" ,err);
-        });
-    }
-    return response;
-
-}
-export async function clearResponse(path, payload = null)
-{
-    response =  reactive({
-        Total: null,
-        data: null,
+        console.error("[Error] Response.js :" ,err);
     });
+
+    return response;
 
 }

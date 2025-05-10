@@ -15,8 +15,6 @@ load_dotenv()
 logger = APIWatcher('Photo API')
 logger.FileHandler()
 
-logger.info("Loading the Photo Library Endpoint")
-
 class PhotoLibrary(MethodView):
 
     def __init__(self, *args, **kwargs):
@@ -31,48 +29,53 @@ class PhotoLibrary(MethodView):
 
         #   Get the request data
         #   Ensure the request is a GET request and the Authorization is valid
-        if request.method == "GET" and request.headers.get('Authorization') == os.getenv("Photo_Authorization"):
+        if request.method == "GET" and request.headers.get('authorization') == os.getenv("Photo_Authorization"):
             
             response['status'] = 200
 
             #   Path to the images
-            path = "./VueClient/src/assets/img/carosel/"
+            root = find_project_root()
 
+
+            path = root +"VueClient/src/assets/img/carosel/"
+            
+            self.log.info(f"Root: {root} + {path}")
+            self.log.info(f"Path: {path}")
 
             #   Ensure the existance of the path
-            if os.path.exists('VueClient/' + path):
+            if os.path.exists(path):
 
-                response['code'] = 200
+                response['status'] = 200
                 response['images'] = []
 
-                
                 #   Add the images to the response object
                 caption = []
                 
-                for i in os.listdir(f'VueClient/{path}'):
+                for i in os.listdir(f'{path}'):
 
                     #  Fetch description of the images
-                    #caption = ReadImage().fetchDescription(i)
-                    #   Add the image to the response object
-                    response['images'].append({
-                    'id': uuid.uuid4().hex,
-                    'alt': i, 'src': i,
-                    'caption': caption if caption else i
-                    
-                    })
-                response['status'] = 200
+                    # caption = ReadImage().fetchDescription(i)
+
+                    response['images'].append(
+                        {
+                            'id': uuid.uuid4().hex,
+                            'alt': i, 'src': i,
+                            'caption': caption if caption else i
+                        })
+
                 response['path'] = path
 
                 self.log.info(f"{response['code']}")
+
             else:
                 response['status'] = 404
-                response['images'] = "No images found"
+                response['images'] = "No images found // Path not found"
 
                 self.log.error(f"Images : {response['images']}\t Path:{path}")
         else:
             response['status'] = 401
             response['message'] = "Unauthorized"
 
-            self.log.error(f"Request: {request.headers}")  
+            self.log.warn(f"Request: {request.headers}\n request method : {request.method}\nResponse: {response}")  
 
         return jsonify(response)
