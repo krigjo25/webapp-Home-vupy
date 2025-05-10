@@ -7,18 +7,22 @@ from dotenv import load_dotenv
 from flask.views import MethodView
 from flask import jsonify, request
 
-from lib.utils.log_config import ApiWatcher
+from lib.utils.log_config import APIWatcher
 
 #   Load the environment variables
 load_dotenv()
+
+logger = APIWatcher('Photo API')
+logger.FileHandler()
+
+logger.info("Loading the Photo Library Endpoint")
 
 class PhotoLibrary(MethodView):
 
     def __init__(self, *args, **kwargs):
 
         #   Initialize the logger
-        self.log = ApiWatcher()
-        self.log.FileHandler()
+        self.log = logger
 
     async def get(self):
 
@@ -32,7 +36,7 @@ class PhotoLibrary(MethodView):
             response['status'] = 200
 
             #   Path to the images
-            path = "src/assets/img/carosel/"
+            path = "./VueClient/src/assets/img/carosel/"
 
 
             #   Ensure the existance of the path

@@ -1,5 +1,5 @@
 <template>
-    <h2 class="msg" v-if="announcement">{{ announcement}}</h2>
+    <h2 class="msg" v-if="announce.data">{{ announce.data}}</h2>
 </template>
 
 <script setup>
@@ -11,16 +11,16 @@ import { Response } from '../assets/js/utils/response.js';
 //  Initializing reactive objects
 const announce = reactive(
 {
-    exists  : false,
-    data    : null,
+    data    : null ,
     default : "Certified Specializations / Diplomas"
 });
 
-//  Computed properties
-const announcement = computed(() => announce.data ? announce.data : announce.default);
+console.log("Announcements API Response :",Response(import.meta.env.VITE_Announcements_local).data);
 
 //  Fetching data from the server
-onMounted(Response(import.meta.env.VITE_Announcements_local));
+onMounted(
+    announce.data = Response(import.meta.env.VITE_Announcements_local).data ? Response(import.meta.env.VITE_Announcements_local).data : announce.default
+);
 
 
 </script>

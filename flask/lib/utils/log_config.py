@@ -98,24 +98,14 @@ class AppWatcher(Logger):
     def __init__(self):
         super().__init__(name=f"{self.__class__.__name__}")
 
-class GithubWatcher(Logger):
-
-    def __init__(self):
-        super().__init__(name=f"{self.__class__.__name__}")
-
-class HeavyWatcher(Logger):
-
-    def __init__(self):
-        super().__init__(name=f"{self.__class__.__name__}")
-
-class ApiWatcher(Logger):
+class APIWatcher(Logger):
     
-    def __init__(self):
-        super().__init__(name=f"{self.__class__.__name__}")
+    def __init__(self, name:Optional[str] = None):
+        super().__init__(name=f"{self.__class__.__name__} -- {name}")
 
 class DatabaseWatcher(Logger):
 
-    def __init__(self):
-        super().__init__(name=f"{self.__class__.__name__}")
+    def __init__(self, name:Optional[str] = None):
+        super().__init__(name=f"{self.__class__.__name__} -- {name}")
         
         

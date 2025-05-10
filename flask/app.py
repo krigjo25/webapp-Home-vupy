@@ -32,18 +32,19 @@ match os.getenv('ENV'):
   case 'production':
     app.config.from_object(ProdConfig())
     CORS(app, resources={r"/*": {"origins": f"{app.config['DOMAIN']}"}}, supports_credentials=True)
+    
+    logger.info("Loading the Production Environment")
 
   case 'development':
     app.config.from_object(DevelopmentConfig)
     CORS(app, resources={r"/*": {"origins": f"*"}}, supports_credentials=True)
+    
+    logger.info("Loading the Development Environment")
 
   case _:
     raise ValueError("Invalid environment variable. Set ENV to either 'production' or 'development'.")
+    logger.error("Invalid environment variable. Set ENV to either 'production' or 'development'.")
   
-if os.getenv('ENV') == 'production':
-  app.config.from_object(ProdConfig()) 
-  CORS(app, resources={r"/*": {"origins": f"{app.config['DOMAIN']}"}}, supports_credentials=True)
-
 logger.info(f"App running on {app.config['ENV']}")
 
 #   Configure session to use filesystem (instead of signed cookies)

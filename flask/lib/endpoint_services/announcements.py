@@ -29,7 +29,7 @@ class Announcements(MethodView):
 
         if request.method == "GET" and announcement:
 
-            response['announcement'] = f"{announcement}"
+            response['data'] = f"{announcement}"
 
         return jsonify(response)
 

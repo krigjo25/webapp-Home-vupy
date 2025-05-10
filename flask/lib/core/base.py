@@ -7,15 +7,18 @@ from time import perf_counter
 from dotenv import load_dotenv
 
 #   Imporiting custom dependencies
-from lib.utils.log_config import DatabaseWatcher, ApiWatcher
+from lib.utils.log_config import DatabaseWatcher, APIWatcher
 
 #  Loading the environment variables
 load_dotenv()
 
 #   Requests repositories
 from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestException
-log = ApiWatcher()
-log.FileHandler()
+DBlog = DatabaseWatcher()
+DBlog.FileHandler()
+
+APILog = APIWatcher('API')
+APILog.FileHandler()
 
 class Database(object):
 
@@ -27,9 +30,8 @@ class Database(object):
         self.db = database
         self.statements = ['CREATE', "ALTER", 'DROP', 'INSERT', 'SELECT']
 
-        self.log = DatabaseWatcher()
-        self.log.FileHandler()
-    
+        self.log = DBlog
+
     def configure_columns(self,  table:str, statement:str, columns:list | tuple):
         
         #   Initialize variables
@@ -118,7 +120,7 @@ class APIConfig(object):
         self.API_KEY = KEY
         self.PATCH = PATCH
         self.DELETE = DELETE
-        self.logging = log
+        self.logging = APILog
         
 
     def ApiCall(self, endpoint: str, head: dict):

@@ -7,8 +7,12 @@ load_dotenv()
 
 #   Custom libraries
 from lib.core.base import APIConfig
-from lib.utils.log_config import HeavyWatcher
+from lib.utils.log_config import APIWatcher
 from lib.utils.mathlibrary import MathInterPreter 
+
+logger = APIWatcher('Heavy API')
+logger.FileHandler()
+
 
 class HeavyAPI(APIConfig):
 
@@ -24,8 +28,7 @@ class HeavyAPI(APIConfig):
 
         self.head = {"accept": "application/json", "api-key": f"{self.API_KEY}"}
 
-        self.logger = HeavyWatcher()
-        self.logger.FileHandler()
+        self.logger = logger
     
     def FetchWorkouts(self, endpoint: str):
         """
