@@ -49,26 +49,20 @@ const Carosel = reactive(
 
 function PushImages()
 {
-    //  Initialize the path to the image
-    const key = import.meta.env.VITE_PhotosLibraryKey;
-    const path = import.meta.env.VITE_PhotoLibrary_local;
 
     const playload = 
     {
         headers: 
         {
             ContentType: "application/json",
-            Authorization:`${key}`,
+            Authorization:`${import.meta.env.VITE_PhotosLibraryKey}`,
         }
     };
+    const test = reactive(new Response(import.meta.env.VITE_PhotoLibrary_local, playload)); 
 
-    //  Collect all images from the server
-    axios.get(path, playload) .then((response) => {
-        Carosel.images = response.data.images;
-        Carosel.path = '../' + response.data.path;
-        setImage();
-    }).catch((error) => {
-        console.error(error);});
+    console.log(test);
+    setImage();
+
 };
 
 function setImage()

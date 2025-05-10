@@ -42,8 +42,8 @@
 <script setup>
 
 //  Importing dependencies
-import axios from 'axios';
 import { reactive, onMounted, computed } from 'vue';
+import { Response } from '../assets/js/utils/response.js';
 
 //  Importing components
 import Link from './misc_components/link.vue';
@@ -127,28 +127,7 @@ const filter = reactive(
     category: ''
 });
 
-//  Fetching data from the server
-const Response = async () =>
-{
-    const path = import.meta.env.VITE_Github_local;
-    
-
-    await axios.get(path)
-    .then((res) => 
-    {
-        pfolio.data = res.data.data;
-        pfolio.Total = res.data.page;
-        pfolio.lang = res.data.lang;
-    })
-    .catch((err) => 
-    {
-        console.log(err);
-    }).finally(() => 
-    {
-       pfolio.Loaded = true;
-    });
-}
 
 //  Fetching data from the server
-onMounted(Response);
+onMounted(Response(import.meta.env.VITE_Github_local));
 </script>

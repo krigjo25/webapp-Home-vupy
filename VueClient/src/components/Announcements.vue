@@ -5,8 +5,8 @@
 <script setup>
 
 //  Importing the required modules
-import axios from 'axios';
 import { onMounted, reactive, computed } from 'vue';
+import { Response } from '../assets/js/utils/response.js';
 
 //  Initializing reactive objects
 const announce = reactive(
@@ -20,26 +20,7 @@ const announce = reactive(
 const announcement = computed(() => announce.data ? announce.data : announce.default);
 
 //  Fetching data from the server
-const Response = async () =>
-{
-    const path =  import.meta.env.VITE_Announcements_local;
-    
-    await axios.get(path)
-    .then((response) => 
-    {
-        announce.exists = true;
-        announce.data = response.data.announcement;
-        
-
-    })
-    .catch((err) => 
-    {
-        console.log(err);
-    })
-}
-
-//  Fetching data from the server
-onMounted(Response);
+onMounted(Response(import.meta.env.VITE_Announcements_local));
 
 
 </script>
