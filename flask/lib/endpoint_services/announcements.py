@@ -20,15 +20,16 @@ class Announcements(MethodView):
 
     def __init__(self, *args, **kwargs) -> None:
         super().__init__()
-
-            
+  
     async def get(self): 
-        tools = UtilityTools()
+        
         response = {}
+        
+        tools = UtilityTools()
         announcement = tools.Announcements(datetime.now())
 
         if request.method == "GET" and announcement:
-
+            response['status'] = 200
             response['data'] = f"{announcement}"
 
         return jsonify(response)

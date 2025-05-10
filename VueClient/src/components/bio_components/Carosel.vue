@@ -13,9 +13,7 @@
 <script setup>
 
 //  Importing dependencies
-import axios from 'axios';
 import { ref, reactive, onMounted } from 'vue';
-import { Response } from '../../assets/js/utils/response.js';
 
 //  Importing components
 import Btn from '../misc_components/button.vue';
@@ -59,7 +57,7 @@ function PushImages()
             Authorization:`${import.meta.env.VITE_PhotosLibraryKey}`,
         }
     };
-    const test = reactive(Response(import.meta.env.VITE_PhotoLibrary_local, playload)); 
+    const test = reactive(); 
 
     //console.log("Carousel API Response :", test);
     setImage();

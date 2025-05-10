@@ -1,22 +1,22 @@
 <template>
-    <section id="fullstack" v-if="pfolio.Loaded" class="flex-wrap-column">
+    <section id="fullstack" v-if="repo.data" class="flex-wrap-column">
         <h2>Technical Repositories</h2>
         <section class="flex-wrap-column-align-items-center">
-            <Navigation class='flex-wrap-row-justify-space-evenly tech-bar':data="pfolio.Total" @update="pfolio.current = $event" v-if="pfolio.Total"/>
+            <Navigation class='flex-wrap-row-justify-space-evenly tech-bar':data="repo.data.Total" @update="repo.current = $event" v-if="repo.data.Total"/>
             <form class="flex-wrap-row-justify-space-evenly">
-                <select v-if = "pfolio.lang" placeholder="Choose a type" v-model="filter.lang">
+                <select v-if = "repo.data.lang" placeholder="Choose a type" v-model="filter.lang">
                     <option value="">Project Type</option>
-                    <option v-for="type in pfolio.type" :key="type.id" value="{{ type }}">{{ type.type}}</option>
+                    <option v-for="type in repo.data.type" :key="type.id" value="{{ type }}">{{ type.type}}</option>
                 </select>
                 <input type='text' name="search" v-model="filter.name" placeholder="Search" />
-                <select v-if = "pfolio.lang">
+                <select v-if = "repo.data.lang">
                     <option value="">Project Language</option>
-                    <option v-for="lang in pfolio.lang" :key="lang.id" value="{{ lang.lang}}">{{ lang.lang}}</option>
+                    <option v-for="lang in repo.data.lang" :key="lang.id" value="{{ lang.lang}}">{{ lang.lang}}</option>
                 </select>
             </form>
         </section>
         <section id="tech-repo" class="tech-repo flex-wrap-row-justify-center">
-            <div class="pp flex-wrap-row" v-for="data in pfolio.displayData" :key="data.id">
+            <div class="pp flex-wrap-row" v-for="data in repo.displayData" :key="data.id">
                 <div class="tech-container flex-wrap-column  ">
                     <div v-for="lang in data.lang" :key="lang.id" class="img-wrapper flex-wrap-row-justify-space-between relative">
                         <img class="img-svg" :src="'./src/assets/img/techlogo/' + lang.lang + '.svg'" :alt="lang.lang + '.svg'" />
@@ -24,8 +24,8 @@
                             <time v-bind:datetime="data.date">{{ data.date }}</time>
                         </span>
                     </div>
-                    
-                    <h3>{{ data.name[1] }}</h3>
+                    <h3 v-if="Array.isArray(data.name)">{{ data.name[1] }}</h3>
+                    <h3 v-else>{{ data.name }}</h3>
                     <p>{{ data.description }}</p>
                     <nav class="pro-nav flex-wrap-row-justify-space-evenly">
                         <Link :link="url" v-for=" url in data.links"/>
@@ -43,22 +43,20 @@
 
 //  Importing dependencies
 import { reactive, onMounted, computed } from 'vue';
-import { Response } from '../assets/js/utils/response.js';
+import { FetchApiResponse } from '../assets/js/utils/apiHandler.js';
 
 //  Importing components
 import Link from './misc_components/link.vue';
 import Navigation from './misc_components/pagination.vue';
 
+
 //  Initializing reactive objects
-const pfolio = reactive(
+const repo = reactive(
 {
-    n           :9,
-    current     :1,
-    data        :[],
-    lang        :[],
-    type        :[],
-    Total       :null,
-    Loaded      :false,
+    n           : 9,
+    current     : 1,
+    data        : null,
+    
     btn   :[
         {
             id: 1,
@@ -76,49 +74,27 @@ const pfolio = reactive(
     {
         if (filter.name)
         {
-            let search = pfolio.data.filter((data) => 
-            {
-                if (filter.name.toLowerCase() === data.name[0].toLowerCase())
-                {
-                    return data.name[0].toLowerCase().includes(filter.name.toLowerCase());
-                }
-                else if (filter.name.toLowerCase() === data.name[1].toLowerCase())
-                {
-                    return data.name[1].toLowerCase().includes(filter.name.toLowerCase());
-                }
-                else if (filter.name.toLowerCase() === data.name[2].toLowerCase())
-                {
-                    return data.name[2].toLowerCase().includes(filter.name.toLowerCase());
-                    
-                }
-                return data.name[1].toLowerCase().includes(filter.name.toLowerCase());
-            });
-
-            return search;
+            return repo.data.filter((data) => {filterData (data.name, filter.name.toLowerCase())});
         }
         else
         {
-            const end = (pfolio.current * pfolio.n);
-            const start = (pfolio.current-1) * pfolio.n;
+            const end = (repo.current * repo.n);
+            const start = (repo.current-1) * repo.n;
 
-            let data = pfolio.data.slice(start, end);
+            let data =  repo.data.slice(start, end);
 
             for (let i = 0; i< data.length; i++)
             {
                 if (data[i].name.includes('-'))
-                    {
-                        data[i].name = data[i].name.split('-');
-                    }
-                
+                {
+                    data[i].name = data[i].name.split('-');
+                }
             }
-            
-
-            //pfolio.type = name[0];
             return data;
         }
     })
-    
 });
+
 
 const filter = reactive(
 {
@@ -127,7 +103,31 @@ const filter = reactive(
     category: ''
 });
 
+function filterData (name, filter)
+{
+    for (let i = 0; i< name.length; i++)
+    {
+        if (name[i].includes(filter).toLowerCase())
+        {
+            return name[i];
+        }
+    }
+}
 
 //  Fetching data from the server
-onMounted(Response(import.meta.env.VITE_Github_local));
+onMounted(
+    async () => {
+        try {
+        const response = await FetchApiResponse(import.meta.env.VITE_Github_local);
+
+        repo.data = response.data;
+        repo.data.Total = response.Total;
+
+        console.log("Pfolio API Response :", repo.data);
+    }
+
+        catch (error){console.error("Error fetching announcements :", error);}
+    });
+
+//  Fetching the data from the server
 </script>
