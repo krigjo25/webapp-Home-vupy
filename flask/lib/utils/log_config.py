@@ -1,15 +1,17 @@
 #  Handling the application logging
 
 #   Importing required dependencies
-import logging as Log
+import os, logging as Log
 from typing import Optional, Union
+
+from os_utils import OSUtils, OSUtilsMisc
 
 class Logger(object):
 
     """
         Logger class to handle application logging
     """
-    def __init__(self, name:Optional[str] = None):
+    def __init__(self, name:str, log_dir:Optional[str] = None):
 
         """
             *   Initialize the logger
@@ -29,7 +31,28 @@ class Logger(object):
         self.file_handler = False
         self.console_handler = False
 
-    def SetupHandler(self, handler:Union[Log.FileHandler | Log.StreamHandler]):
+        #   Initialize the log directory
+        if log_dir:
+            self.save_log(log_dir)
+
+
+    def save_log(self, dir:str):
+        #   Find root directory
+        
+        #   find the log directory
+        
+        #   Ensure the directory exists
+        if os.path.exists(dir):
+
+            #   Save the directory
+            return
+
+        #   Create the directory
+        OSUtils().create_directory(dir)
+
+
+        
+    def setup_handler(self, handler:Union[Log.FileHandler | Log.StreamHandler]):
         
         """
             *   Setup the Log handler
@@ -40,7 +63,7 @@ class Logger(object):
         handler.setFormatter(formatter)
         self.log.addHandler(handler)
     
-    def ConsoleHandler(self):
+    def console_handler(self):
 
 
         """
@@ -55,12 +78,12 @@ class Logger(object):
             
             #   Initializing the handler
             handler = Log.StreamHandler()
-            self.SetupHandler(handler)
+            self.setup_handler(handler)
 
             #   Send message to the console
             self.log.info(f"{self.name} has been initialized.")
 
-    def FileHandler(self):
+    def file_handler(self):
 
         """
             *   Add a file handler to the logger
@@ -70,7 +93,7 @@ class Logger(object):
 
             #   Initializing the handler
             handler = Log.FileHandler(f"{self.name}.log")
-            self.SetupHandler(handler)
+            self.setup_handler(handler)
 
             #   Send message to the console
             self.log.info(f"{self.name} has been initialized.")
@@ -98,10 +121,11 @@ class AppWatcher(Logger):
     def __init__(self):
         super().__init__(name=f"{self.__class__.__name__}")
 
-class APIWatcher(Logger):
+class UtilsWatcher(Logger):
     
-    def __init__(self, name:Optional[str] = None):
-        super().__init__(name=f"{self.__class__.__name__} -- {name}")
+    def __init__(self, name:Optional[str] = None, log_dir:Optional[str] = None):
+        super().__init__(name=f"{self.__class__.__name__} -- {name}", log_dir=log_dir)
+
 
 class DatabaseWatcher(Logger):
 
