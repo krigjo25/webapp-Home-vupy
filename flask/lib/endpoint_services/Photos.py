@@ -8,7 +8,7 @@ from flask.views import MethodView
 from flask import jsonify, request
 
 from lib.utils.os_utils import OsUtils
-from lib.utils.logger_config import UtilsWatcher
+from lib.utils.logger_config import APIWatcher
 from lib.utils.exception_handler import NotFoundError
 from flask.app import HTTPException
 
@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 #   Load the logger
-logger = UtilsWatcher(dir="logs", name='Photo API')
+logger = APIWatcher(dir="logs", name='Photo-API')
 logger.file_handler()
 
 class PhotoLibrary(MethodView):

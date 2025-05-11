@@ -7,17 +7,17 @@ from time import perf_counter
 from dotenv import load_dotenv
 
 #   Imporiting custom dependencies
-from lib.utils.logger_config import DatabaseWatcher, UtilsWatcher
+from lib.utils.logger_config import DatabaseWatcher, APIWatcher, APIWatcher
 
 #  Loading the environment variables
 load_dotenv()
 
 #   Requests repositories
 from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestException
-DBlog = DatabaseWatcher()
+DBlog = DatabaseWatcher(dir="logs", name='Database Base')
 DBlog.file_handler()
 
-APILog = UtilsWatcher(dir="logs", name='API Calls')
+APILog = APIWatcher(dir="logs", name='API-Calls')
 APILog.file_handler()
 
 class Database(object):

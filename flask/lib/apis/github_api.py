@@ -6,12 +6,12 @@ from dotenv import load_dotenv
 from lib.core.base import APIConfig
 
 
-from lib.utils.logger_config import UtilsWatcher
+from lib.utils.logger_config import APIWatcher
 
 #  Loading the environment variables
 load_dotenv()
 
-logger = UtilsWatcher(dir="logs", name='Github API')
+logger = APIWatcher(dir="logs", name='Github-API')
 logger.file_handler()
 
 class GithubAPI(APIConfig):
@@ -29,7 +29,6 @@ class GithubAPI(APIConfig):
         self.PATCH = PATCH
         self.API_KEY = KEY
         self.DELETE = DELETE
-        self.logging = logger
 
         self.head = {'Content-Type': 'application/json','Authorization': f"{self.API_KEY}"}
         return
@@ -73,7 +72,7 @@ class GithubAPI(APIConfig):
                     })
 
             repo.append(repoObject)
-        self.logging.info(f"Repositories fetched successfully. {repo}")
+        logger.info(f"Repositories fetched successfully. {repo}")
         return repo
 
     async def fetch_languages(self, repo: object, endpoint: str):
@@ -95,11 +94,12 @@ class GithubAPI(APIConfig):
                 
                 case "jupyter notebook":
                     lang = "jp-nb"
-                case None:
-                    lang = "Unkown"
+                case _:
+                    lang = "Unknown"
 
         language['lang'].append(lang)
         language['id'] = uuid.uuid4().hex
 
-        self.logging.info(f"Languages fetched successfully. {language}")
+        logger.info(f"Languages fetched successfully. {language}")
+
         return language

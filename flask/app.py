@@ -5,7 +5,7 @@ import os
 
 from dotenv import load_dotenv
 
-from flask import Flask, render_template
+from flask import Flask
 from flask_cors import CORS
 from flask_session import Session
 
@@ -22,7 +22,7 @@ from lib.settings.env_config import DevelopmentConfig, ProdConfig
 load_dotenv()
 
 # Initialize the logger
-logger = AppWatcher(dir="logs", name='Flask App')
+logger = AppWatcher(dir="logs", name='Flask-App')
 logger.file_handler()
 
 #   Initialize Flask app and Extensions

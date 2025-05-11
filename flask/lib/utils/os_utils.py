@@ -4,10 +4,10 @@
 import os
 from pathlib import Path
 
-from logger_config import UtilsWatcher
-from exception_handler import NotFoundError
+from lib.utils.logger_config import APIWatcher
+from lib.utils.exception_handler import NotFoundError
 
-logger = UtilsWatcher('OS Utils', 'logs')
+logger = APIWatcher('OS-Utils', 'logs')
 logger.file_handler()
 
 class OsUtils(object):
