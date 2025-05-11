@@ -6,13 +6,13 @@ from dotenv import load_dotenv
 from lib.core.base import APIConfig
 
 
-from lib.utils.log_config import APIWatcher
+from lib.utils.log_config import UtilsWatcher
 
 #  Loading the environment variables
 load_dotenv()
 
-logger = APIWatcher('Github API')
-logger.FileHandler()
+logger = UtilsWatcher('Github API')
+logger.file_handler()
 
 class GithubAPI(APIConfig):
 

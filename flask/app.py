@@ -23,7 +23,7 @@ load_dotenv()
 
 # Initialize the logger
 logger = AppWatcher()
-logger.FileHandler()
+logger.file_handler()
 
 #   Initialize Flask app and Extensions
 app = Flask(__name__)
