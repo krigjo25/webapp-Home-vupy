@@ -1,5 +1,7 @@
 #   Error handler
 
+from typing import Optional
+
 class OperationalError(Exception):
     """ Raises when duplicated is not allowed """
 
@@ -9,21 +11,24 @@ class OperationalError(Exception):
         404:"Table does not exist in the database",
         500:'Column has to be a type of list'}
 
-    def __init__(self, code) -> None:
-        super().__init__(code)
-        self.code = code
+    def __init__(self, code, message:Optional[str]) -> None:
+        
+        super().__init__(code, message)
+        self.status_code = code
+        self.message = message
 
-    def __str__(self):
-        return self.error[self.code]
+        if message is None:
+            self.message = self.error[code]
 
 class NotFoundError(Exception):
     """ Raises when the requested resource is not found """
 
-    error = {
-        404: "404: Resource not found",
-        500: "500: Internal server error"
-    }
+    error = {404: "404: Resource not found"}
 
-    def __init__(self, code) -> None:
-        super().__init__(code)
-        self.code = code
+    def __init__(self, code, message:Optional[str]) -> None:
+        super().__init__(code, message)
+        self.status_code = code
+        self.message = message
+
+        if message is None:
+            self.message = self.error[code]
