@@ -22,11 +22,17 @@ logger.file_handler()
 
 class PhotoLibrary(MethodView):
 
+    def __init__(self, *args, **kwargs):
+        
+        #   Initialize the os utils
+        self.oum = OsUtils()
+
+
     async def get(self):
 
         #   Initialize response object
         response = {}
-        oum = OsUtils()
+
         logger.warn(f"Request: {request.headers}\n request method : {request.method}\n")
 
         try:
@@ -35,8 +41,8 @@ class PhotoLibrary(MethodView):
                 response['status'] = 200
 
                 #   Path to the project root
-                root = oum.find_project_root()
-                path = root + oum.find_directory(request.headers.get('path'))
+                root = self.oum.find_project_root(request.headers.get('marker'))
+                path = root + self.oum.find_directory(request.headers.get('path'))
                 
                 logger.info(f"Root: {root}\n{path}")
 
@@ -77,9 +83,12 @@ class PhotoLibrary(MethodView):
 
 
         except Exception as e:
-            response['status'] = e.status_code
-            response['message'] = e.message
-
-            logger.error(f"Error code: {e.status_code}\nError message: {e.message}\nRequest: {request.headers}\nRequest method : {request.method}\n")
-        
-        return jsonify(response)
+            #response['status'] = e.status_code
+            #response['message'] = e.message
+            #logger.error(f"Error code: {e.status_code}\nError message: {e.message}\nRequest: {request.headers}\nRequest method : {request.method}\n")
+            
+            response['message'] = e
+            logger.error(f"Error: {e}\nRequest: {request.headers}\nRequest method : {request.method}\n")
+        print(response)
+        return jsonify()
+        #return jsonify(response)
