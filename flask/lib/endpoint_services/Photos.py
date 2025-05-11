@@ -3,17 +3,21 @@
 #   Importing libraries
 import os, uuid
 
-from dotenv import load_dotenv
+
 from flask.views import MethodView
 from flask import jsonify, request
 
-from lib.utils.log_config import APIWatcher
+from lib.utils.os_utils import OsUtilsMisc
+from lib.utils.log_config import UtilsWatcher
+
 
 #   Load the environment variables
+from dotenv import load_dotenv
 load_dotenv()
 
-logger = APIWatcher('Photo API')
-logger.FileHandler()
+#   Load the logger
+logger = UtilsWatcher('Photo API')
+logger.file_handler()
 
 class PhotoLibrary(MethodView):
 
@@ -26,18 +30,18 @@ class PhotoLibrary(MethodView):
 
         #   Initialize response object
         response = {}
-
+        oum = OsUtilsMisc()
         #   Get the request data
         #   Ensure the request is a GET request and the Authorization is valid
         if request.method == "GET" and request.headers.get('authorization') == os.getenv("Photo_Authorization"):
             
             response['status'] = 200
 
-            #   Path to the images
-            root = find_project_root()
+            #   Path to the project root
+            root = oum.find_project_root()
 
 
-            path = root +"VueClient/src/assets/img/carosel/"
+            path = root + find_directory()
             
             self.log.info(f"Root: {root} + {path}")
             self.log.info(f"Path: {path}")
