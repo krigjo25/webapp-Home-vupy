@@ -7,7 +7,7 @@ import os, uuid
 from flask.views import MethodView
 from flask import jsonify, request
 
-from lib.utils.os_utils import OsUtilsMisc
+from lib.utils.os_utils import OsUtils
 from lib.utils.log_config import UtilsWatcher
 
 
@@ -30,7 +30,7 @@ class PhotoLibrary(MethodView):
 
         #   Initialize response object
         response = {}
-        oum = OsUtilsMisc()
+        oum = OsUtils()
         #   Get the request data
         #   Ensure the request is a GET request and the Authorization is valid
         if request.method == "GET" and request.headers.get('authorization') == os.getenv("Photo_Authorization"):

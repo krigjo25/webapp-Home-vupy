@@ -4,7 +4,7 @@
 import os, logging as Log
 from typing import Optional, Union
 
-from os_utils import OSUtils, OSUtilsMisc
+from os_utils import OSUtils
 
 class Logger(object):
 
@@ -26,25 +26,23 @@ class Logger(object):
         
         self.log = Log.getLogger(f"{self.name}")
         self.log.setLevel(Log.DEBUG)
+        self.log_dir = log_dir
         
         #   Initialize the Flags
         self.file_handler = False
         self.console_handler = False
 
-        #   Initialize the log directory
-        if log_dir:
-            self.save_log(log_dir)
 
-
-    def save_log(self, dir:str):
+    def save_path(self, dir:str):
         #   Find root directory
-        
+
         #   find the log directory
         
         #   Ensure the directory exists
         if os.path.exists(dir):
 
             #   Save the directory
+            self.log.file
             return
 
         #   Create the directory
@@ -91,6 +89,9 @@ class Logger(object):
         #   Ensure that the Flag is not set to True
         if not self.file_handler:
 
+            #   Initialize the log directory
+            if self.log_dir:
+                self.save_path(self.log_dir)
             #   Initializing the handler
             handler = Log.FileHandler(f"{self.name}.log")
             self.setup_handler(handler)
