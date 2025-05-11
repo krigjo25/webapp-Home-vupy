@@ -9,15 +9,8 @@ const response =  reactive({
     data: null,
 });
 
-export async function FetchApiResponse(path, key = null)
+export async function FetchApiResponse(path, payload = null)
 {
-    const payload = {
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            authorization: key,
-        },
-    };
 
     await axios.get(path, payload).then((res) => 
     {

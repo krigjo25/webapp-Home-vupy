@@ -50,7 +50,16 @@ const Carosel = reactive(
 async function PushImages()
 {
     console.log("Pushing Images");
-    const test = await FetchApiResponse(import.meta.env.VITE_PhotoLibrary_local, import.meta.env.VITE_PhotosLibraryKey); 
+    const payload = {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            path: import.meta.env.VITE_PhotoPath_local,
+            authorization: import.meta.env.VITE_PhotosLibraryKey,
+            
+        },
+    };
+    const test = await FetchApiResponse(import.meta.env.VITE_PhotoLibrary_local, payload); 
     console.log("Carousel API Response :", test);
     setImage();
 
