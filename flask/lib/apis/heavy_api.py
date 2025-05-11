@@ -7,7 +7,7 @@ load_dotenv()
 
 #   Custom libraries
 from lib.core.base import APIConfig
-from lib.utils.log_config import UtilsWatcher
+from flask.lib.utils.logger_config import UtilsWatcher
 from lib.utils.mathlibrary import MathInterPreter 
 
 logger = UtilsWatcher('Heavy API')

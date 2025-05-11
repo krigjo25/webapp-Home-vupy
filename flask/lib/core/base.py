@@ -7,7 +7,7 @@ from time import perf_counter
 from dotenv import load_dotenv
 
 #   Imporiting custom dependencies
-from lib.utils.log_config import DatabaseWatcher, UtilsWatcher
+from flask.lib.utils.logger_config import DatabaseWatcher, UtilsWatcher
 
 #  Loading the environment variables
 load_dotenv()

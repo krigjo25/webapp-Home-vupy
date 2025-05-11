@@ -10,7 +10,7 @@ from flask_cors import CORS
 from flask_session import Session
 
 #   Custom dependencies
-from lib.utils.log_config import AppWatcher
+from flask.lib.utils.logger_config import AppWatcher
 
 #   Endpoint services
 from lib.endpoint_services.github_data import Github

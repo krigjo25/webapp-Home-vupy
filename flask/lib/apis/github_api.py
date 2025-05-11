@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from lib.core.base import APIConfig
 
 
-from lib.utils.log_config import UtilsWatcher
+from flask.lib.utils.logger_config import UtilsWatcher
 
 #  Loading the environment variables
 load_dotenv()

@@ -8,7 +8,7 @@ from flask.views import MethodView
 from flask import jsonify, request
 
 from lib.utils.os_utils import OsUtils
-from lib.utils.log_config import UtilsWatcher
+from flask.lib.utils.logger_config import UtilsWatcher
 
 
 #   Load the environment variables
