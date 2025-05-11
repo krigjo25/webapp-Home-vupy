@@ -8,78 +8,78 @@ from flask.views import MethodView
 from flask import jsonify, request
 
 from lib.utils.os_utils import OsUtils
-from flask.lib.utils.logger_config import UtilsWatcher
-
+from lib.utils.logger_config import UtilsWatcher
+from lib.utils.exception_handler import NotFoundError
+from flask.app import HTTPException
 
 #   Load the environment variables
 from dotenv import load_dotenv
 load_dotenv()
 
 #   Load the logger
-logger = UtilsWatcher('Photo API')
+logger = UtilsWatcher(dir="logs", name='Photo API')
 logger.file_handler()
 
 class PhotoLibrary(MethodView):
-
-    def __init__(self, *args, **kwargs):
-
-        #   Initialize the logger
-        self.log = logger
 
     async def get(self):
 
         #   Initialize response object
         response = {}
         oum = OsUtils()
-        #   Get the request data
-        #   Ensure the request is a GET request and the Authorization is valid
-        if request.method == "GET" and request.headers.get('authorization') == os.getenv("Photo_Authorization"):
-            
-            response['status'] = 200
+        logger.warn(f"Request: {request.headers}\n request method : {request.method}\n")
 
-            #   Path to the project root
-            root = oum.find_project_root()
-
-
-            path = root + find_directory()
-            
-            self.log.info(f"Root: {root} + {path}")
-            self.log.info(f"Path: {path}")
-
-            #   Ensure the existance of the path
-            if os.path.exists(path):
-
-                response['status'] = 200
-                response['images'] = []
-
-                #   Add the images to the response object
-                caption = []
+        try:
+            if request.method == "GET" and request.headers.get('authorization') == os.getenv("Photo_Authorization"):
                 
-                for i in os.listdir(f'{path}'):
+                response['status'] = 200
 
-                    #  Fetch description of the images
-                    # caption = ReadImage().fetchDescription(i)
+                #   Path to the project root
+                root = oum.find_project_root()
+                path = root + oum.find_directory(request.headers.get('path'))
+                
+                logger.info(f"Root: {root}\n{path}")
 
-                    response['images'].append(
-                        {
-                            'id': uuid.uuid4().hex,
-                            'alt': i, 'src': i,
-                            'caption': caption if caption else i
-                        })
+                #   Ensure the existance of the path
+                try:
 
-                response['path'] = path
+                    if os.path.exists(path):
 
-                self.log.info(f"{response['code']}")
+                        response['status'] = 200
+                        response['images'] = []
 
-            else:
-                response['status'] = 404
-                response['images'] = "No images found // Path not found"
+                        caption = [] # remove this line if you want to fetch the description of the images
+                        for i in os.listdir(path):
 
-                self.log.error(f"Images : {response['images']}\t Path:{path}")
-        else:
-            response['status'] = 401
-            response['message'] = "Unauthorized"
+                            #  Fetch description of the images
+                            
+                            # caption = ReadImage().fetchDescription(i)
 
-            self.log.warn(f"Request: {request.headers}\n request method : {request.method}\nResponse: {response}")  
+                            response['images'].append(
+                                {
+                                    'id': uuid.uuid4().hex,
+                                    'alt': i, 'src': i,
+                                    'caption': caption if caption else i
+                                })
 
+                        response['path'] = path
+
+                        logger.info(response)
+
+                    else:
+                        raise NotFoundError(404, "Path not found", path)
+                        
+                except NotFoundError as e:
+                    response['error'] = e.message
+                    response['status'] = e.status_code
+                    
+                    logger.error(f"Images : {response['error']}\t Path:{path}")
+
+
+        except Exception as e:
+            response['status'] = e.status_code
+            response['message'] = e.message
+
+            logger.error(f"Error code: {e.status_code}\nError message: {e.message}\nRequest: {request.headers}\nRequest method : {request.method}\n")
+        
         return jsonify(response)
