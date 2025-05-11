@@ -21,7 +21,7 @@ class Logger(object):
         """
         
         #   Initialize the handler
-        self.dir = dir
+        self.dir = '.' + dir
         self.name = name or self.__class__.__name__
 
         self.log = Log.getLogger(f"{self.name}")
@@ -105,8 +105,8 @@ class Logger(object):
 
 class AppWatcher(Logger):
 
-    def __init__(self):
-        super().__init__(name=f"{self.__class__.__name__}.log")
+    def __init__(self, name:Optional[str] = None, dir:Optional[str] = None):
+        super().__init__(dir = dir, name=f"{self.__class__.__name__} -- {name}.log")
 
 class UtilsWatcher(Logger):
     
@@ -116,7 +116,7 @@ class UtilsWatcher(Logger):
 
 class DatabaseWatcher(Logger):
 
-    def __init__(self, name:Optional[str] = None):
-        super().__init__(name=f"logs/{self.__class__.__name__} -- {name}.log")
+    def __init__(self, name:Optional[str] = None, dir:Optional[str] = None):
+        super().__init__(dir = dir, name=f"{self.__class__.__name__} -- {name}.log")
         
         
