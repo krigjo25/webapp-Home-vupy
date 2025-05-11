@@ -4,10 +4,10 @@
 import os
 from pathlib import Path
 
-from log_config import UtilsWatcher
+from logger_config import UtilsWatcher
 from exception_handler import NotFoundError
 
-logger = UtilsWatcher('OS Utils Misc')
+logger = UtilsWatcher('OS Utils', 'logs')
 logger.file_handler()
 
 class OsUtils(object):
@@ -57,6 +57,7 @@ class OsUtils(object):
         :param path: The path to the directory.
         :return: None
         """
+
         try:
             if not os.path.exists(path):
                 os.makedirs(path)

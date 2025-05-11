@@ -6,12 +6,12 @@ from dotenv import load_dotenv
 from lib.core.base import APIConfig
 
 
-from flask.lib.utils.logger_config import UtilsWatcher
+from lib.utils.logger_config import UtilsWatcher
 
 #  Loading the environment variables
 load_dotenv()
 
-logger = UtilsWatcher('Github API')
+logger = UtilsWatcher(dir="logs", name='Github API')
 logger.file_handler()
 
 class GithubAPI(APIConfig):

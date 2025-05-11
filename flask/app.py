@@ -10,7 +10,7 @@ from flask_cors import CORS
 from flask_session import Session
 
 #   Custom dependencies
-from flask.lib.utils.logger_config import AppWatcher
+from lib.utils.logger_config import AppWatcher
 
 #   Endpoint services
 from lib.endpoint_services.github_data import Github
@@ -22,7 +22,7 @@ from lib.settings.env_config import DevelopmentConfig, ProdConfig
 load_dotenv()
 
 # Initialize the logger
-logger = AppWatcher()
+logger = AppWatcher(dir="logs", name='Flask App')
 logger.file_handler()
 
 #   Initialize Flask app and Extensions

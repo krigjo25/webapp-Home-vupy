@@ -7,7 +7,7 @@ from time import perf_counter
 from dotenv import load_dotenv
 
 #   Imporiting custom dependencies
-from flask.lib.utils.logger_config import DatabaseWatcher, UtilsWatcher
+from lib.utils.logger_config import DatabaseWatcher, UtilsWatcher
 
 #  Loading the environment variables
 load_dotenv()
@@ -17,7 +17,7 @@ from requests.exceptions import HTTPError, ConnectionError, Timeout, RequestExce
 DBlog = DatabaseWatcher()
 DBlog.file_handler()
 
-APILog = UtilsWatcher('API')
+APILog = UtilsWatcher(dir="logs", name='API Calls')
 APILog.file_handler()
 
 class Database(object):
