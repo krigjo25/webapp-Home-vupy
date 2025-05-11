@@ -36,15 +36,15 @@ class PhotoLibrary(MethodView):
         logger.warn(f"Request: {request.headers}\n request method : {request.method}\n")
 
         try:
-            if request.method == "GET" and request.headers.get('authorization') == os.getenv("Photo_Authorization"):
+            if request.method == "GET" and request.headers.get('Authorization') == os.getenv("Photo_Authorization"):
                 
                 response['status'] = 200
 
                 #   Path to the project root
-                root = self.oum.find_project_root(request.headers.get('marker'))
-                path = root + self.oum.find_directory(request.headers.get('path'))
-                
-                logger.info(f"Root: {root}\n{path}")
+                path = await self.oum.find_directory('flask', 'carousel')
+
+                print(path)
+                logger.info(f"Root: {path}")
 
                 #   Ensure the existance of the path
                 try:
@@ -52,7 +52,7 @@ class PhotoLibrary(MethodView):
                     if os.path.exists(path):
 
                         response['status'] = 200
-                        response['images'] = []
+                        response['data'] = []
 
                         caption = [] # remove this line if you want to fetch the description of the images
                         for i in os.listdir(path):
@@ -61,7 +61,7 @@ class PhotoLibrary(MethodView):
                             
                             # caption = ReadImage().fetchDescription(i)
 
-                            response['images'].append(
+                            response['data'].append(
                                 {
                                     'id': uuid.uuid4().hex,
                                     'alt': i, 'src': i,
@@ -89,6 +89,6 @@ class PhotoLibrary(MethodView):
             
             response['message'] = e
             logger.error(f"Error: {e}\nRequest: {request.headers}\nRequest method : {request.method}\n")
-        print(response)
+
         return jsonify()
         #return jsonify(response)

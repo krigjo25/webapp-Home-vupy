@@ -55,9 +55,7 @@ async function PushImages()
         {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            marker: import.meta.env.VITE_PhotoMarker,
-            path: import.meta.env.VITE_PhotoPath_local,
-            authorization: import.meta.env.VITE_PhotosLibraryKey,
+            'Authorization': import.meta.env.VITE_PhotosLibraryKey,
         },
     };
     const test = await FetchApiResponse(import.meta.env.VITE_PhotoLibrary_local, payload); 
