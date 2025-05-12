@@ -22,7 +22,7 @@ import Btn from '../misc_components/button.vue';
 const Carosel = reactive(
     {
         n       : 0,
-        images  : [],
+        data    : null,
         source  : null,
         alt     : null,
         caption : null,
@@ -58,8 +58,12 @@ async function PushImages()
             'Authorization': import.meta.env.VITE_PhotosLibraryKey,
         },
     };
-    const test = FetchApiResponse(import.meta.env.VITE_PhotoLibrary_local, payload); 
-    console.log("Carousel API Response :", test);
+    const data = FetchApiResponse(import.meta.env.VITE_PhotoLibrary_local, payload);
+    
+    Carosel.data = (await data).data;
+    Carosel.n = (await data).data.length - 1;
+    
+    console.log("Carousel API Response :", Carosel, data);
     setImage();
 
 };
@@ -70,18 +74,18 @@ function setImage()
     const n = ref(Carosel.n);
 
     //  Ensure the images array is not empty
-    if (Carosel.images && Carosel.images.length > 0)
+    if (Carosel.data && Carosel.n.length > 0)
     {
-        Carosel.alt = Carosel.images[n.value].alt;
-        Carosel.caption = Carosel.images[n.value].caption;
-        Carosel.source = Carosel.path + Carosel.images[n.value].src;
+        Carosel.alt = Carosel.data[n.value].alt;
+        Carosel.caption = Carosel.data[n.value].caption;
+        Carosel.source = Carosel.data[n.value].src;
     }
 };
 
 function next()
 {
     //  fetch the images
-    const sources = Carosel.images;
+    const sources = Carosel.data;
 
     //  Swap through the images
     for (let i = 0; i < sources.length; i++)
@@ -109,7 +113,7 @@ function next()
 function prev()
 {
     //  fetch the images
-    const sources = Carosel.images;
+    const sources = Carosel.data;
 
     //  Swap through the images
     for (let i = 0; i < sources.length; i++)
