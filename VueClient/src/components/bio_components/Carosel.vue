@@ -58,12 +58,12 @@ async function PushImages()
             'Authorization': import.meta.env.VITE_PhotosLibraryKey,
         },
     };
-    const test = await FetchApiResponse(import.meta.env.VITE_PhotoLibrary_local, payload); 
+    const test = FetchApiResponse(import.meta.env.VITE_PhotoLibrary_local, payload); 
     console.log("Carousel API Response :", test);
     setImage();
 
 };
-
+// 
 function setImage()
 {
     //  Constant number
