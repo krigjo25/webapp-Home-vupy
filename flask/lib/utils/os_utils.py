@@ -5,8 +5,8 @@ import os, time
 from pathlib import Path
 from typing import Optional
 
-from logger_config import APIWatcher
-from exception_handler import NotFoundError
+from lib.utils.logger_config import APIWatcher
+from lib.utils.exception_handler import NotFoundError
 
 logger = APIWatcher('OS-Utils', 'logs')
 logger.file_handler()
@@ -14,7 +14,6 @@ logger.file_handler()
 class OsUtils(object):
 
     def __init__(self):
-        self.find_project_root
         pass
 
     @staticmethod
@@ -25,99 +24,71 @@ class OsUtils(object):
         """
 
         path = Path(os.getcwd()).resolve()
-
-        try:
-            while path.name != path.parent.name:
-            
-                #   Ensure that the marker is located in the directory
-                if (path / marker).exists():
-                    logger.info(f"{marker} found in {path}\n")
-
-                    return path
-                
-                #   updating the path
-                path = path.parent
-
-                logger.info(f"Checking {path} for marker '{marker}'")
-            
-            raise NotFoundError(404)
         
-        except NotFoundError as e:
-            logger.error(f"Marker '{marker}' not found in the directory tree.\n Code {e}\n")
+        while path.name != path.parent.name:
+            
+            #   Ensure that the marker is located in the directory
+            if (path / marker).exists():
+                logger.info(f"{marker} found in {path}\n")
 
-            return e
+                return path
+                
+            #   updating the path
+            path = path.parent
 
     @staticmethod
-    def create_directory(self, path:str):
+    def create_directory(self, path:str, dir:str | tuple[str]):
         """
         Create a directory if it does not exist.
         :param path: The path to the directory.
         :return: None
         """
+        if not os.path.exists(path):  os.makedirs(dir) 
+        else: logger.info(f"Directory {path} already exists.")
 
-        try:
-            if not os.path.exists(path):
-                os.makedirs(path)
-                logger.info(f"Directory {path} created.")
-
-            else: logger.info(f"Directory {path} already exists.")
-
-        except Exception as e: logger.error(f"Error creating directory {path}: {e}")
-
-
-    def find_directory(self, marker:str, DIR:Optional[str] = None) -> Path:
+    def find_directory(self, root:str, marker:Optional[str] ):
         """
         Get the root directory of the script.
         :return: The root directory of the script.
         """
-
-        root = self.find_project_root(marker)
-
-        if not DIR: return root
-
-        try:
-            if os.path.isdir(DIR): return Path(DIR)
-            
-            
-        except NotFoundError as e:
-            logger.error(f"Directory '{DIR}' not found in the directory tree.\n Code {e}\n")
-
-            return e
         start = time.perf_counter()
 
+        try:
+            root = self.find_project_root(root)
 
-        with os.scandir(root) as dir:
+            if os.path.isdir(marker): return Path(marker)
+            if not root: raise NotFoundError(404, "Root directory not found", root)
 
-            list_dir = [entry.path for entry in dir if entry.is_dir() and entry.name == "VueClient"]
+        except NotFoundError as e:
+            logger.error(f"Error code: {e.status_code}\nError message: {e.message} Error Arg: {e.arg} \nTime Complexity: {start-time.perf_counter()}\n")
+            return
 
-        
-        for i in list_dir:
+        finally:
+            list_dir = [os.path.join(root, marker) for root, dir, f in os.walk(root) if marker in dir]
 
-            with os.scandir(i) as dir:
-                list_dir = [entry.path for entry in dir if entry.is_dir()]
+            logger.info(f"Found '{marker}' in {root} results {list_dir} \nTime Complexity: {start-time.perf_counter()}\n")
+            
+            return list_dir
 
-        for i in list_dir:
+    def find_file(self, root:str, marker:Optional[str] ):
+        """
+        Get the root directory of the script.
+        :return: The root directory of the script.
+        """
+        start = time.perf_counter()
 
-            with os.scandir(i) as dir:
-                list_dir = [entry.path for entry in dir if entry.is_dir() and entry.name == "assets"]
+        try:
+            root = self.find_project_root(root)
+            if os.path.isfile(marker): return Path(marker)
+            if not root: raise NotFoundError(404, "'{marker}' Not found in Root")
 
- 
-        for i in list_dir:
-            with os.scandir(i) as dir:
-                list_dir = [entry.path for entry in dir if entry.is_dir() and entry.name == "img"]
+        except NotFoundError as e:
+            logger.error(f"Error code: {e.status_code}\nError message: {e.message} \nTime Complexity: {start-time.perf_counter()}\n")
 
-        for i in list_dir:
+            return e
 
-            with os.scandir(i) as dir:
-                list_dir = [entry.path for entry in dir]
-        
-        end = time.perf_counter()
-        print(f"Time taken to find the directory: {end - start} seconds")
+        list_dir = [os.path.join(root,marker) for root, dir, f in os.walk(root) if marker in f]
 
-        print(list_dir)
+        logger.info(f"Found '{marker}' in {root} results {list_dir} \nTime Complexity: {start-time.perf_counter()}\n")
 
-if __name__ == "__main__":
-    pass
-    #   Test the function
-    oum = OsUtils()
-    print(oum.find_directory('flask', 'carousel'))
+        return list_dir
