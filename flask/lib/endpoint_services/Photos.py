@@ -37,8 +37,10 @@ class PhotoLibrary(MethodView):
 
                 #   Path to the project root
                 path = oum.find_directory('flask', 'carousel')
-                
-                path
+
+                #  Mofify the path to the directory
+                #   Split the path from 'src'
+
                 if not path: raise NotFoundError(404, "Path not found", path)
 
                 caption = [] # remove this line if you want to fetch the description of the images
@@ -49,7 +51,7 @@ class PhotoLibrary(MethodView):
                     response['data'].append(
                     {
                         'id': uuid.uuid4().hex,
-                        'alt': i, 'src': path[0] + i,
+                        'alt': i, 'src': path[0] + "/" + i,
                         'caption': caption if caption else None,
                     })
 
@@ -61,6 +63,6 @@ class PhotoLibrary(MethodView):
         except (ExceptionHandler, NotFoundError) as e:
             response['status'] = e.status_code
             response['message'] = e.message
-            logger.error(f"Error code: {e.status_code}\nError message: {e.message} Error Arg: {e.arg}\nRequest: {request.headers}\nRequest method : {request.method}\n")
+            logger.error(f"Error code: {e.status_code}\nError message: {e.message} \nRequest: {request.headers}\nRequest method : {request.method}\n")
 
         return jsonify(response)

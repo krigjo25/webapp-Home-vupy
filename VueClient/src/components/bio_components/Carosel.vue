@@ -1,5 +1,5 @@
 <template>
-    <section v-if='Carosel.source' id="carosel-container" class="carosel">
+    <section id="carosel-container" class="carosel">
         <img id="car-img" :src="Carosel.source" :alt="Carosel.alt" />
         <div v-if="Carosel.caption" class="caption relative flex-justify-center">
             <p>{{ Carosel.caption }}</p>
@@ -49,7 +49,6 @@ const Carosel = reactive(
 
 async function PushImages()
 {
-    console.log("Pushing Images");
     const payload = {
         headers: 
         {
@@ -62,24 +61,24 @@ async function PushImages()
     
     Carosel.data = (await data).data;
     Carosel.n = (await data).data.length - 1;
-    
-    console.log("Carousel API Response :", Carosel, data);
+
     setImage();
 
 };
-// 
+
 function setImage()
 {
     //  Constant number
     const n = ref(Carosel.n);
 
     //  Ensure the images array is not empty
-    if (Carosel.data && Carosel.n.length > 0)
+    if (Carosel.data && Carosel.n > 0)
     {
         Carosel.alt = Carosel.data[n.value].alt;
         Carosel.caption = Carosel.data[n.value].caption;
         Carosel.source = Carosel.data[n.value].src;
     }
+    console.log("Carosel Data :", Carosel, Carosel.n);
 };
 
 function next()
