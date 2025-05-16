@@ -1,15 +1,15 @@
 #   Github API
 #   Fetching the repositories
-import os, uuid, datetime
+import os, uuid, datetime, time
 
 from dotenv import load_dotenv
-from lib.core.base import APIConfig
-
-
-from lib.utils.logger_config import APIWatcher
 
 #  Loading the environment variables
 load_dotenv()
+
+from lib.core.base import APIConfig
+from lib.utils.logger_config import APIWatcher
+from lib.utils.exception_handler import NotFoundError
 
 logger = APIWatcher(dir="logs", name='Github-API')
 logger.file_handler()
@@ -31,7 +31,6 @@ class GithubAPI(APIConfig):
         self.DELETE = DELETE
 
         self.head = {'Content-Type': 'application/json','Authorization': f"{self.API_KEY}"}
-        return
 
     async def FetchAPI(self, endpoint):
         """
@@ -39,13 +38,17 @@ class GithubAPI(APIConfig):
             API : https://api.github.com/users/repos
         """
 
+        start = time.perf_counter()
+
         #   Initialize an API call
+
         response = self.ApiCall(f"{self.API_URL}{endpoint}", head=self.head)
+        
+        if not response: return NotFoundError(404, "No repositories found", response)
         
         #   Initialize a list
         repo = []
-        
-        counter = 0
+
         #   fetch the response
         for i in range(len(response)):
 
@@ -72,7 +75,8 @@ class GithubAPI(APIConfig):
                     })
 
             repo.append(repoObject)
-        logger.info(f"Repositories fetched successfully. {repo}")
+
+        logger.info(f"Repositories fetched successfully. {repo}\nTime Complexity: {time.perf_counter() - start:.2f}s\n")
         return repo
 
     async def fetch_languages(self, repo: object, endpoint: str):
@@ -94,6 +98,7 @@ class GithubAPI(APIConfig):
                 
                 case "jupyter notebook":
                     lang = "jp-nb"
+
                 case _:
                     lang = "Unknown"
 

@@ -40,7 +40,6 @@ class PhotoLibrary(MethodView):
 
                 if not path: raise NotFoundError(404, "Path not found", path)
 
-                caption = [] # remove this line if you want to fetch the description of the images
                 response['data'] = []
                 
                 for i in os.listdir(path):
@@ -49,16 +48,15 @@ class PhotoLibrary(MethodView):
                     {
                         'id': uuid.uuid4().hex,
                         'alt': i, 'src': i,
-                        'caption': caption if caption else None,
+                        #'caption': caption if caption else None,
                     })
 
-                response['path'] = f"{oum.combine_path(path, 'src')}/"
-                response['status'] = 200
+                response['status'], response['path'] = 200, f"{oum.combine_path(path, 'src')}/"
 
                 logger.info(f"Request: {request.headers}\nRequest method : {request.method}\nPath: {path}\nResponse: {response}\n")
         except (ExceptionHandler, NotFoundError) as e:
-            response['status'] = e.status_code
-            response['message'] = e.message
+            response['message'], response['status'] = e.message, e.status_code
+
             logger.error(f"Error code: {e.status_code}\nError message: {e.message} \nRequest: {request.headers}\nRequest method : {request.method}\n")
 
         return jsonify(response)

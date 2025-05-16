@@ -24,11 +24,15 @@ class Github(MethodView):
         #   Ensure the request method is GET
         if request.method == "GET":
 
-            #   Set the response
-            response['status'] = 200
-            
-            response['data'] = await GithubAPI().FetchAPI(os.getenv('GithubRepos'))
+            try:
+                response['data'] = await GithubAPI().FetchAPI(os.getenv('GithubRepos'))
 
-            response['page'] = math.ceil(len(response['data']) / 9)
+            except Exception as e:
+                response['message'], response['status'] = str(e), 500
+            
+            finally:
+                #   Set the response
+                response['status'] = 200
+                response['page'] = math.ceil(len(response['data']) / 9)
         return jsonify(response)
 
