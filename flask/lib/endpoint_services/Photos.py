@@ -29,7 +29,7 @@ class PhotoLibrary(MethodView):
     async def get(self):
 
         oum = OsUtils()
-        #   Initialize response object
+
         response = {}
 
         try:
@@ -38,28 +38,24 @@ class PhotoLibrary(MethodView):
                 #   Path to the project root
                 path = oum.find_directory('flask', 'carousel')
 
-                #  Mofify the path to the directory
-                #   Split the path from 'src'
-
                 if not path: raise NotFoundError(404, "Path not found", path)
 
                 caption = [] # remove this line if you want to fetch the description of the images
                 response['data'] = []
-                    
-                for i in os.listdir(path[0]):
+                
+                for i in os.listdir(path):
 
                     response['data'].append(
                     {
                         'id': uuid.uuid4().hex,
-                        'alt': i, 'src': path[0] + "/" + i,
+                        'alt': i, 'src': i,
                         'caption': caption if caption else None,
                     })
 
-                response['path'] = path
+                response['path'] = f"{oum.combine_path(path, 'src')}/"
                 response['status'] = 200
 
                 logger.info(f"Request: {request.headers}\nRequest method : {request.method}\nPath: {path}\nResponse: {response}\n")
-
         except (ExceptionHandler, NotFoundError) as e:
             response['status'] = e.status_code
             response['message'] = e.message

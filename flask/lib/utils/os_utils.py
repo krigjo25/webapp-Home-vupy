@@ -46,6 +46,21 @@ class OsUtils(object):
         if not os.path.exists(path):  os.makedirs(dir) 
         else: logger.info(f"Directory {path} already exists.")
 
+    def combine_path(self, path: str, marker: str) -> str:
+        """
+        Combine the path with the marker.
+        :param path: The path to the directory.
+        :param marker: The marker to combine with the path.
+        :return: The combined path.
+        """
+
+        part = path.split(os.sep)
+
+        start_dir = part.index(marker)
+        rel_path = os.sep.join(part[start_dir:])
+
+        return rel_path
+
     def find_directory(self, root:str, marker:Optional[str] ):
         """
         Get the root directory of the script.
@@ -64,11 +79,12 @@ class OsUtils(object):
             return
 
         finally:
+
             list_dir = [os.path.join(root, marker) for root, dir, f in os.walk(root) if marker in dir]
 
             logger.info(f"Found '{marker}' in {root} results {list_dir} \nTime Complexity: {start-time.perf_counter()}\n")
-            
-            return list_dir
+
+            return list_dir[0] if list_dir else None
 
     def find_file(self, root:str, marker:Optional[str] ):
         """

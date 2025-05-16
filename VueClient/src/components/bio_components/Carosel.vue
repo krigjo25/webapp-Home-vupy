@@ -21,12 +21,6 @@ import Btn from '../misc_components/button.vue';
 
 const Carosel = reactive(
     {
-        n       : 0,
-        data    : null,
-        source  : null,
-        alt     : null,
-        caption : null,
-        path    : null,
         buttons :
 [
             {
@@ -59,6 +53,7 @@ async function PushImages()
     };
     const data = FetchApiResponse(import.meta.env.VITE_PhotoLibrary_local, payload);
     
+    Carosel.path = (await data).path;
     Carosel.data = (await data).data;
     Carosel.n = (await data).data.length - 1;
 
@@ -70,27 +65,26 @@ function setImage()
 {
     //  Constant number
     const n = ref(Carosel.n);
+    const path = Carosel.path;
 
     //  Ensure the images array is not empty
     if (Carosel.data && Carosel.n > 0)
     {
         Carosel.alt = Carosel.data[n.value].alt;
         Carosel.caption = Carosel.data[n.value].caption;
-        Carosel.source = Carosel.data[n.value].src;
+        Carosel.source = path + Carosel.data[n.value].src;
     }
-    console.log("Carosel Data :", Carosel, Carosel.n);
 };
 
 function next()
 {
     //  fetch the images
     const sources = Carosel.data;
+    const length = sources.length - 1;
 
     //  Swap through the images
-    for (let i = 0; i < sources.length; i++)
+    for (let i = 0; i < length; i++)
     { 
-        //  Get the length of the array
-        const length = sources.length - 1;
         
         //  Ensure the path points to the image
         if (sources[i].src.includes(Carosel.alt))
