@@ -20,7 +20,7 @@ DBlog.file_handler()
 APILog = APIWatcher(dir="logs", name='API-Calls')
 APILog.file_handler()
 
-class Database(object):
+class DBConfig(object):
 
     """ Base: Universal class for all database operations """
     def __init__(self, database: str, port: Optional[int] = None, host: Optional[str] = None):
@@ -29,8 +29,6 @@ class Database(object):
         self.port = port
         self.db = database
         self.statements = ['CREATE', "ALTER", 'DROP', 'INSERT', 'SELECT']
-
-        self.log = DBlog
 
     def configure_columns(self,  table:str, statement:str, columns:list | tuple):
         
@@ -120,7 +118,6 @@ class APIConfig(object):
         self.API_KEY = KEY
         self.PATCH = PATCH
         self.DELETE = DELETE
-        self.logging = APILog
         
 
     def ApiCall(self, endpoint: str, head: dict):
@@ -131,22 +128,27 @@ class APIConfig(object):
 
         #   Initialize the start time
         start = perf_counter()
-        self.logging.info(f"Attempting to fetch data from {self.API_URL}{endpoint}")
+        APILog.info(f"Attempting to fetch data from {self.API_URL}{endpoint}")
+        
         try:
             r = requests.get(f"{endpoint}", timeout=30, headers=head)
 
             #   Ensure the request is successful
             if r.status_code in [200]:
                 
-                self.logging.info(f"Succsess : Recieved request code :{r.status_code} Time elapsed: {perf_counter()-start}")
+                APILog.info(f"Succsess : Recieved request code :{r.status_code} Time elapsed: {perf_counter()-start}")
                 return r.json()
 
             #   Ensure the request is not successful
             if r.status_code in [401, 403]: raise ConnectionError('Unauthorized Access')
-            elif r.status_code in [404]: raise HTTPError('Resource not found')     
+            elif r.status_code in [404]: raise HTTPError('Resource not found')
+            
         except (HTTPError, ConnectionError, Timeout, RequestException) as e: 
-            self.logging.error(f"request code :{r.status_code}\n Error: {e}, Time elapsed: {perf_counter()-start}")
+            APILog.error(f"request code :{r.status_code}\n Error: {e}, Time elapsed: {perf_counter()-start}")
         
-        self.logging.warn(f" Time elapsed: {perf_counter()-start}\t Request code: {r.status_code}")
+        APILog.warn(f" Time elapsed: {perf_counter()-start}\t Request code: {r.status_code}")
         return 
 
+    def calculate_n(self, endpoint: str, header: dict = None):
+
+        return self.ApiCall(endpoint = f"{self.API_URL}{self.APIV}{endpoint}", head = header)
