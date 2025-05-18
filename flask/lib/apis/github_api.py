@@ -32,7 +32,7 @@ class GithubAPI(APIConfig):
 
         self.head = {'Content-Type': 'application/json','Authorization': f"{self.API_KEY}"}
 
-    async def FetchAPI(self, endpoint):
+    async def fetch_data(self, endpoint):
         """
             Fetching the repositories
             API : https://api.github.com/users/repos

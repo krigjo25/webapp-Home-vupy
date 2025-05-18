@@ -1,5 +1,7 @@
 #   Heavy workout app API
 import os, datetime
+
+from typing import Optional
 from dotenv import load_dotenv
 
 #  Loading the environment variables
@@ -16,7 +18,8 @@ logger.file_handler()
 
 class HeavyAPI(APIConfig):
 
-    def __init__(self, URL = f"{os.getenv("HeavyBase")}", KEY=os.getenv("HeavyToken"), GET = "GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE'):
+    def __init__(self, URL = f"{os.getenv("HeavyBase")}", KEY = os.getenv("HeavyToken"), GET = "GET", POST = "POST", PUT='PUT', PATCH='PATCH', DELETE = 'DELETE'):
+        super().__init__(GET, POST, PUT, PATCH, DELETE)
         self.GET = GET
         self.PUT = PUT
         self.POST = POST
@@ -24,20 +27,20 @@ class HeavyAPI(APIConfig):
         self.API_URL = URL
         self.PATCH = PATCH
         self.DELETE = DELETE
-        self.APIV = os.getenv("HeaVy")
 
+        self.APIV = os.getenv("HeaVy")
         self.head = {"accept": "application/json", "api-key": f"{self.API_KEY}"}
 
-    def FetchWorkouts(self, endpoint: str):
+    def fetch_data(self, endpoint: str):
         """
             Fetching the workouts
             param: endpoint: str - The endpoint to fetch the workouts
         """
         
-        pages = [{"pages": self.FetchN(endpoint),}]
+        pages = [{"pages": self.calculate_n(endpoint, self.head),}]
 
         # Fetch one page of workouts
-        response = self.ApiCall(endpoint = f"{self.API_URL}{self.APIV}{endpoint}", head = self.head)
+        response = self.ApiCall(endpoint = f"{self.API_URL}{endpoint}", head = self.head)
         
         #   Initialize the workout Page
         workout= {}
@@ -87,6 +90,6 @@ class HeavyAPI(APIConfig):
             
         return pages
 
-    def FetchN(self, endpoint: str):
+    def calculate_n(self, endpoint: str):
 
         return self.ApiCall(endpoint = f"{self.API_URL}{self.APIV}{endpoint}", head = self.head)

@@ -25,7 +25,7 @@ class Github(MethodView):
         if request.method == "GET":
 
             try:
-                response['data'] = await GithubAPI().FetchAPI(os.getenv('GithubRepos'))
+                response['data'] = await GithubAPI().fetch_data(os.getenv('GithubRepos'))
 
             except Exception as e:
                 response['message'], response['status'] = str(e), 500
