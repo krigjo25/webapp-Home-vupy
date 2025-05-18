@@ -1,4 +1,4 @@
-# krigjo25 | Home V1
+# krigjo25 | Home
 The project was inteded to create as a personal home page, and not as a CS50x assignment, but it killed two birds with one stone.
 
 This project was not intended to use as an assignment for CS50x, but it kills two birds with one stone. The purpose of this website is to use it as a biography of who I am,  what's been done through my journey.
@@ -15,10 +15,13 @@ In the frontend the project is equipped with
 
 The project uses HTML to structure the content of the web pages.
 
-
 ###   Backend
 The project is equpped with technologies such as
 -   Flask serves as the server for the project.
+
+### APIS
+[Visual representation](./flask/model/apis.md) of the API Classes
+
 
 ### Installation and Configurations
 
@@ -58,6 +61,7 @@ GITHUB_TOKEN = "Bearer <Your Github Token>"
 ## Testing Framework And Datasets
 
 ####    Test Execution
+[Visual representation](./flask/model/testmodel.md) of the test cases
 To run the tests, use the following commands from the project's root directory
 
 ```sh
@@ -66,7 +70,10 @@ pytest -v
 #   This command will output a report of the tests.
 pytest --html=reports.html
 ```
+
 ####    API Testing
+[Visual representation](./flask/model/apis.md) of the classes
+[Visual representation](./flask/model/testmodel.md) of the test cases
 API tests are conducted using:
 
 - The [GITHUB REST API](https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28)
@@ -87,6 +94,7 @@ It achives this by mocking the relevant URL from
 the GitHub REST API: [Get A Repos](https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#get-a-repository)
 
 ####    Databases
+[Visual representation](./flask/model/database.md) of the database
 Database tests are designed according to the principles
 outlined in this unit testing documentation: [test/sqlite.html](https://python-basics-tutorial.readthedocs.io/en/24.1.0/test/sqlite.html)
 
