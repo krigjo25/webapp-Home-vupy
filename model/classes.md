@@ -1,8 +1,9 @@
-#   Visual representation of the API classes
+#   Visual representation of the Classes
 
+##  API Classes
 ```mermaid
 ---
-title: API classes
+title: API Classes
 ---
 classDiagram
     APIConfig <|--|>  GithubAPI
