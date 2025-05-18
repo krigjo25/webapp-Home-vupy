@@ -1,9 +1,9 @@
 #   Importing repositories
 import pytest, os
 
-from APIS.heavy import HeavyAPI
+from ...flask.lib.apis.heavy_api import HeavyAPI
 from unittest.mock import patch
-from APIS.github import GithubAPI
+from ...flask.lib.apis.github_api import GithubAPI
 
 class TestResponsesAPI:
 

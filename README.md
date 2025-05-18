@@ -6,6 +6,8 @@ This project was not intended to use as an assignment for CS50x, but it kills tw
 The application will create a new file called app.log, where Server information will be logged to control its behavior
 
 ## Description
+[Visual representation of the directory tree](./model/directoryTree.md)
+[Future Projects](https://github.com/users/krigjo25/projects/17)
 
 ###    Frontend
 In the frontend the project is equipped with
@@ -20,7 +22,7 @@ The project is equpped with technologies such as
 -   Flask serves as the server for the project.
 
 ### APIS
-[Visual representation](./flask/model/apis.md) of the API Classes
+[Visual representation](./model/apis.md) of the API Classes
 
 
 ### Installation and Configurations
@@ -61,7 +63,7 @@ GITHUB_TOKEN = "Bearer <Your Github Token>"
 ## Testing Framework And Datasets
 
 ####    Test Execution
-[Visual representation](./flask/model/testmodel.md) of the test cases
+[Visual representation](./model/testmodel.md) of the test cases
 To run the tests, use the following commands from the project's root directory
 
 ```sh
@@ -72,8 +74,8 @@ pytest --html=reports.html
 ```
 
 ####    API Testing
-[Visual representation](./flask/model/apis.md) of the classes
-[Visual representation](./flask/model/testmodel.md) of the test cases
+[Visual representation](./model/apis.md) of the classes
+[Visual representation](./model/testmodel.md) of the test cases
 API tests are conducted using:
 
 - The [GITHUB REST API](https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28)
@@ -94,7 +96,7 @@ It achives this by mocking the relevant URL from
 the GitHub REST API: [Get A Repos](https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#get-a-repository)
 
 ####    Databases
-[Visual representation](./flask/model/database.md) of the database
+[Visual representation](./model/database.md) of the database
 Database tests are designed according to the principles
 outlined in this unit testing documentation: [test/sqlite.html](https://python-basics-tutorial.readthedocs.io/en/24.1.0/test/sqlite.html)
 
@@ -108,7 +110,7 @@ A test report is generated to provide a clear visualization of the test results.
 
 * Flask and Flask-Session:
     * Developed by: The Pallets Project
-    * URL: [https://pypi.org/project/Flask/](https://pypi.org/project/Flask/)
+    * URL: [https://pypi.org/project/](https://pypi.org/project/)
     * Purpose: Web framework and session management
 
 * python-dotenv:
