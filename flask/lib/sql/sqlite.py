@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from typing import Tuple
 
 #   Custom libraries
-from lib.core.base import Database
+from lib.core.base import DBConfig
 
 #   errorHandler
 from lib.utils.exception_handler import OperationalError
@@ -13,10 +13,7 @@ from lib.utils.exception_handler import OperationalError
 #  Loading the environment variables
 load_dotenv()
 
-
-
-
-class SQL(Database):
+class SQL(DBConfig):
 
         def __init__(self, database: str): 
             super().__init__(database)
