@@ -54,6 +54,7 @@ class PhotoLibrary(MethodView):
                 response['status'], response['path'] = 200, f"{oum.combine_path(path, 'src')}/"
 
                 logger.info(f"Request: {request.headers}\nRequest method : {request.method}\nPath: {path}\nResponse: {response}\n")
+
         except (ExceptionHandler, NotFoundError) as e:
             response['message'], response['status'] = e.message, e.status_code
 
