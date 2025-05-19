@@ -143,6 +143,6 @@ function startTimer()
 
 onMounted(() => {
     PushImages();
-    //startTimer();
+    startTimer();
 });
 </script>
