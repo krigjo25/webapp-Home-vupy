@@ -26,7 +26,7 @@ class Announcements(MethodView):
         response = {}
         
         tools = UtilityTools()
-        announcement = tools.Announcements(datetime.now())
+        announcement = tools.announcements(datetime.now())
 
         if request.method == "GET" and announcement:
             response['status'] = 200
