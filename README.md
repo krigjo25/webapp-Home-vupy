@@ -18,21 +18,20 @@ In the frontend the project is equipped with
 The project uses HTML to structure the content of the web pages.
 
 ###   Backend
-The project is equpped with technologies such as
--   Flask serves as the server for the project.
+The project is equipped with technologies such as
+-   Flask serves as API for the project.
 
-#### System Architecture
-[Visual representation](./model/system-architecture.md) of the API Classes
+#### [Visual representation](./model/system-architecture.md) of the Web Architecture
 
-#### Endpoints
-[Visual representation](./model/endpoints.md) of the Endpoints
+#### [Visual representation](./model/endpoints.md) of the Endpoints
 
-#### APIS
-[Visual representation](./model/apis.md) of the API Classes
+#### [Visual representation](./model/apis.md) of the API Classes
+
+#### [Visual representation](./model/utils.md) of the Utils Classes
 
 #### Database
-
-#### Utils
+[Visual representation](./model/database.md) of the Database Classes
+As a consequence of the project not requires a server to handle database functionallity, SQLite was choosen to keep the records.
 
 ### Installation and Configurations
 
@@ -82,9 +81,9 @@ pytest -v
 pytest --html=reports.html
 ```
 
-####    API Testing
+#####    API Testing
 [Visual representation](./model/apis.md) of the apis classes
-[Visual representation](./model/testmodel.md) of the test cases
+[Visual representation](./model/testmodel.md) of the test
 API tests are conducted using:
 
 - The [GITHUB REST API](https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28)
@@ -104,7 +103,7 @@ The test ensures the availability of repositories.
 It achives this by mocking the relevant URL from
 the GitHub REST API: [Get A Repos](https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#get-a-repository)
 
-####    Databases
+#####    Databases
 [Visual representation](./model/database.md) of the database
 Database tests are designed according to the principles
 outlined in this unit testing documentation: [test/sqlite.html](https://python-basics-tutorial.readthedocs.io/en/24.1.0/test/sqlite.html)
@@ -139,6 +138,11 @@ A test report is generated to provide a clear visualization of the test results.
 ###   License
 The project's licensing information can be found in the separate [LICENSE](./license) file.
 
+
+##  Summary
+
+During the project i have faced some challanges to solve. 
+
 ###   Model Implementation
 Challenges were encountered during the implementation of the data model, specifically related to the API interactions.
 
@@ -156,6 +160,7 @@ Key skills acquired during testing include exception handling, API testing using
 * **Automated API Function Testing:**
     * Challenge: Securely storing expected test results without exposing sensitive account information.
     * Solution: Utilizing the API request itself to retrieve and validate sensitive information, ensuring its presence in successful test cases.
+  
 * **API Connection Testing:**
     * Challenge: Testing API connectivity without revealing sensitive information associated with the test account.
 
@@ -166,6 +171,6 @@ Key skills acquired during testing include exception handling, API testing using
     * Objective: Verify that appropriate exceptions are raised to inform users of operation failures.
 
 
-Sincerely,
-@krigjo25
+have a glorious rest of your day,
+[@krigjo25](https://github.com/krigjo25)
 
