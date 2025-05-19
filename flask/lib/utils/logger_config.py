@@ -88,6 +88,7 @@ class Logger(object):
         else:
             self.log.warning(f"{self.name} File handler already initialized")
 
+    
     def info(self, message):
         self.log.info(message)
     
@@ -107,11 +108,6 @@ class AppWatcher(Logger):
 
 class APIWatcher(Logger):
     
-    def __init__(self, name:Optional[str] = None, dir:Optional[str] = None):
-        super().__init__(dir = dir, name=f"{self.__class__.__name__} -- {name}.log")
-
-class APIWatcher(Logger):
-
     def __init__(self, name:Optional[str] = None, dir:Optional[str] = None):
         super().__init__(dir = dir, name=f"{self.__class__.__name__} -- {name}.log")
 
