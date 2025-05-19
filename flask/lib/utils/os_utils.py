@@ -16,35 +16,28 @@ class OsUtils(object):
     def __init__(self):
         pass
 
-    @staticmethod
-    def find_project_root(marker: str) -> Path:
+    def find_file(self, root:str, marker:Optional[str] ):
         """
-        Find the root directory of the project.
-        :return: The root directory of the project.
+        Get the root directory of the script.
+        :return: The root directory of the script.
         """
+        start = time.perf_counter()
 
-        path = Path(os.getcwd()).resolve()
-        
-        while path.name != path.parent.name:
-            
-            #   Ensure that the marker is located in the directory
-            if (path / marker).exists():
-                logger.info(f"{marker} found in {path}\n")
+        try:
+            root = self.find_project_root(root)
+            if os.path.isfile(marker): return Path(marker)
+            if not root: raise NotFoundError(404, "'{marker}' Not found in Root")
 
-                return path
-                
-            #   updating the path
-            path = path.parent
+        except NotFoundError as e:
+            logger.error(f"Error code: {e.status_code}\nError message: {e.message} \nTime Complexity: {start-time.perf_counter()}\n")
 
-    @staticmethod
-    def create_directory(self, path:str, dir:str | tuple[str]):
-        """
-        Create a directory if it does not exist.
-        :param path: The path to the directory.
-        :return: None
-        """
-        if not os.path.exists(path):  os.makedirs(dir) 
-        else: logger.info(f"Directory {path} already exists.")
+            return e
+
+        list_dir = [os.path.join(root,marker) for root, dir, f in os.walk(root) if marker in f]
+
+        logger.info(f"Found '{marker}' in {root} results {list_dir} \nTime Complexity: {start-time.perf_counter()}\n")
+
+        return list_dir
 
     def combine_path(self, path: str, marker: str) -> str:
         """
@@ -86,25 +79,32 @@ class OsUtils(object):
 
             return list_dir[0] if list_dir else None
 
-    def find_file(self, root:str, marker:Optional[str] ):
+    @staticmethod
+    def find_project_root(marker: str) -> Path:
         """
-        Get the root directory of the script.
-        :return: The root directory of the script.
+        Find the root directory of the project.
+        :return: The root directory of the project.
         """
-        start = time.perf_counter()
 
-        try:
-            root = self.find_project_root(root)
-            if os.path.isfile(marker): return Path(marker)
-            if not root: raise NotFoundError(404, "'{marker}' Not found in Root")
+        path = Path(os.getcwd()).resolve()
+        
+        while path.name != path.parent.name:
+            
+            #   Ensure that the marker is located in the directory
+            if (path / marker).exists():
+                logger.info(f"{marker} found in {path}\n")
 
-        except NotFoundError as e:
-            logger.error(f"Error code: {e.status_code}\nError message: {e.message} \nTime Complexity: {start-time.perf_counter()}\n")
+                return path
+                
+            #   updating the path
+            path = path.parent
 
-            return e
-
-        list_dir = [os.path.join(root,marker) for root, dir, f in os.walk(root) if marker in f]
-
-        logger.info(f"Found '{marker}' in {root} results {list_dir} \nTime Complexity: {start-time.perf_counter()}\n")
-
-        return list_dir
+    @staticmethod
+    def create_directory(self, path:str, dir:str | tuple[str]):
+        """
+        Create a directory if it does not exist.
+        :param path: The path to the directory.
+        :return: None
+        """
+        if not os.path.exists(path):  os.makedirs(dir) 
+        else: logger.info(f"Directory {path} already exists.")
