@@ -80,12 +80,12 @@ function next()
 {
     //  fetch the images
     const sources = Carosel.data;
-    const length = sources.length - 1;
+    
 
     //  Swap through the images
-    for (let i = 0; i < length; i++)
+    for (let i = 0; i < sources.length; i++)
     { 
-        
+        const length = sources.length - 1;
         //  Ensure the path points to the image
         if (sources[i].src.includes(Carosel.alt))
         {
