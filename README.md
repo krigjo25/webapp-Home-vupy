@@ -21,9 +21,18 @@ The project uses HTML to structure the content of the web pages.
 The project is equpped with technologies such as
 -   Flask serves as the server for the project.
 
-### APIS
+#### System Architecture
+[Visual representation](./model/system-architecture.md) of the API Classes
+
+#### Endpoints
+[Visual representation](./model/endpoints.md) of the Endpoints
+
+#### APIS
 [Visual representation](./model/apis.md) of the API Classes
 
+#### Database
+
+#### Utils
 
 ### Installation and Configurations
 
@@ -74,7 +83,7 @@ pytest --html=reports.html
 ```
 
 ####    API Testing
-[Visual representation](./model/apis.md) of the classes
+[Visual representation](./model/apis.md) of the apis classes
 [Visual representation](./model/testmodel.md) of the test cases
 API tests are conducted using:
 

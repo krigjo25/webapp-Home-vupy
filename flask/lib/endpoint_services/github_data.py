@@ -34,5 +34,6 @@ class Github(MethodView):
                 #   Set the response
                 response['status'] = 200
                 response['page'] = math.ceil(len(response['data']) / 9)
+
         return jsonify(response)
 

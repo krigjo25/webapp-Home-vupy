@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 #  Loading the environment variables
 load_dotenv()
 
-from lib.core.base import APIConfig
+from lib.core.APIConfig import APIConfig
 from lib.utils.logger_config import APIWatcher
 from lib.utils.exception_handler import NotFoundError
 
