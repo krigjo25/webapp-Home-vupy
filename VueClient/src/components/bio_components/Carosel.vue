@@ -24,7 +24,7 @@ const Carosel = reactive(
         buttons :
 [
             {
-                exist: true,
+                exist   :true,
                 action  :prev,
                 cls     :"img-btn",
                 icon    :"bi bi-arrow-left-square-fill",
