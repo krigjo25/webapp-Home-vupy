@@ -1,10 +1,13 @@
 <template>
-    <section id="carosel-container" class="carosel">
+    <section id="carosel-container" :class="Carosel.cls">
         <img id="car-img" :src="Carosel.source" :alt="Carosel.alt" />
-        <div v-if="Carosel.caption" class="caption relative flex-justify-center">
-            <p>{{ Carosel.caption }}</p>
+        <div v-if="Carosel.caption.text" :class="Carosel.caption.cls">
+            <p>{{ Carosel.caption.text }}</p>
         </div>
-        <div class="btn-container">
+        <div v-else :class="Carosel.caption.cls">
+            <p>testr</p>
+        </div>
+        <div :class="Carosel.btnCls">
              <Btn :class="btn.cls" v-for="btn in Carosel.buttons" :key="btn.id" :btn="btn" @click="btn.action"/>
         </div>
     </section>
@@ -21,8 +24,15 @@ import Btn from '../misc_components/button.vue';
 
 const Carosel = reactive(
     {
+        cls     : "carosel flex-wrap-column-justify-center",
+        btnCls  : "btn-container absolute flex-align-items-center-justify-content-space-between",
+        caption :
+        {
+            text: null,
+            cls : "caption absolute flex-align-items-flex-end-justify-center",
+        },     
         buttons :
-[
+        [
             {
                 exist   :true,
                 action  :prev,
@@ -71,7 +81,7 @@ function setImage()
     if (Carosel.data && Carosel.n > 0)
     {
         Carosel.alt = Carosel.data[n.value].alt;
-        Carosel.caption = Carosel.data[n.value].caption;
+        Carosel.caption.text = Carosel.data[n.value].caption;
         Carosel.source = path + Carosel.data[n.value].src;
     }
 };
@@ -97,7 +107,7 @@ function next()
 
             //  Update variables with next media
             Carosel.alt = (i > length) ?  sources[i].alt : sources[i].alt;
-            Carosel.caption = (i > length) ? sources[i].caption : sources[i].caption;
+            Carosel.caption.text = (i > length) ? sources[i].caption : sources[i].caption;
             Carosel.source = (i > length) ? path + sources[i].src : path + sources[i].src;
         }
     }
@@ -125,7 +135,7 @@ function prev()
 
             //  Update variables with next media
             Carosel.alt = ( i < length) ?  sources[i].alt : sources[i].alt;
-            Carosel.caption = (i < length) ? sources[i].caption : sources[i].caption;
+            Carosel.caption.text = (i < length) ? sources[i].caption : sources[i].caption;
             Carosel.source = (i < length) ? path + sources[i].src : path + sources[i].src;
 
         }
