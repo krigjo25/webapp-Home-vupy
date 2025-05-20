@@ -1,9 +1,6 @@
 # krigjo25 | Home
-The project was inteded to create as a personal home page, and not as a CS50x assignment, but it killed two birds with one stone.
-
-This project was not intended to use as an assignment for CS50x, but it kills two birds with one stone. The purpose of this website is to use it as a biography of who I am,  what's been done through my journey.
-
-The application will create a new file called app.log, where Server information will be logged to control its behavior
+The project was inteded to create as a personal home page, show my what i have done so far
+and not as a CS50x assignment, but it killed two birds with one stone.
 
 ## Description
 [Visual representation of the directory tree](./model/directoryTree.md)
@@ -140,16 +137,17 @@ The project's licensing information can be found in the separate [LICENSE](./lic
 
 
 ##  Summary
-
-During the project i have faced some challanges to solve. 
+During the project i some challanges were faced to solve.
 
 ###   Model Implementation
-Challenges were encountered during the implementation of the data model, specifically related to the API interactions.
-
+During the implementation of the data model, i had to learn how to create a model, 
+- I wanted to describe a class and describe its relationship between its subclasses and its functionallity
+- 
 ###   GitHub API Integration
-A challenge arose when fetching data from the GitHub API. It was observed that every GET request returned the complete repository data. To optimize this process, a scheduling mechanism was implemented to limit data fetching to once per day or when changes in the repository are detected.
+during the implementation of the API Itegration, it was observed that every GET request returned the complete data. 
+In order to optimize this process, a scheduling mechanism was implemented to limit data fetching to once per day or when changes in the repository are detected.
 
-Difficulties were also experienced with language filtering through the API, as the functionality to add custom languages to the filter list did not operate as expected.
+the ideal possibility is to create a database
 
 ###   Testing
 The testing phase provided valuable learning experiences in utilizing Python's built-in `pytest` framework for unit testing.
