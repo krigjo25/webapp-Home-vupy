@@ -6,21 +6,31 @@
 %flex-box
     display: flex
 
+flex-box-align-items-center
+    display: flex
+    align-items: center
+
+.flex-box-space-between
+    @extend %flex-box
+    justify-content: space-between
+
 //  Flexbox row classes / styles
 .flex-justify-center
     @extend %flex-box
     justify-content: center
 
-
 .flex-row 
     @extend flex-row
+
+.flex-align-items-center-space-between
+    @extend flex-box-align-items-center
+    justify-content: space-between
 
 .flex-wrap-row
     @extend flex-wrap-row
 
 .flex-wrap-reversed-row
     @extend flex-wrap-reversed-row
-
 
 .flex-column
     @extend flex-column

@@ -6,8 +6,86 @@
     font-size: 2.22vw
 
 main 
-    section.info
+    section.bio-container
         block-size: 100%
+
+        .carosel
+            inline-size:  35em
+
+            img
+                inline-size: 100%
+                border-radius: 0.5vw
+            
+            .caption
+                z-index: 1
+                font-size: .7em
+                color: $bg-light
+                inline-size: inherit
+                background-color: $overlay
+                border-bottom-left-radius: 1em
+                border-bottom-right-radius: 1em
+            
+            .absolute
+                position: absolute
+
+            .btn-container
+                z-index: 2
+                cursor: pointer
+                inline-size: inherit
+                
+
+                button.img-btn
+                    border: none
+                    opacity: 0.3
+                    font-size: 2em
+                    cursor: pointer
+                    background-color: transparent
+                    @extend ext-btn-functionallity
+
+        .bio-wrapper
+            block-size: 100%
+            inline-size: 100%
+            align-items: center
+
+            h2
+                font-size: 2em
+                text-align: center
+                margin-block-start: 0
+                @extend %work-sans-font
+        
+            article.bio-article
+                inline-size: 35em
+
+                section.bio-content
+                    inline-size: 100%
+                    @extend %roboto-font
+                    
+                    h3
+                        margin-block-end: 0em 
+                        @extend %work-sans-font
+                    h4
+                        margin-block-end: 0em
+                        color: $highlight-color !important
+  
+        nav.bio-bar
+            inline-size: 100%    
+            background-color: transparent
+            border-top: 1px solid $nav-bar
+            border-bottom: 1px solid $nav-bar
+            margin-block: 1em
+            
+            button.bio-nav-btn
+                border: none
+                padding: 1em
+                font-size: 1.45em
+                cursor: pointer
+                background-color: inherit
+                @extend ext-btn-functionallity
+                    
+
+            &:hover
+                color: $highlight-color !important
+                background-color: rgb(207, 222, 226)
 
         .tool-tip
             top: 0
@@ -20,94 +98,8 @@ main
         
         &:hover
             opacity: 0.8
-        .carosel
-            inline-size: 100%
-            @extend flex-column
 
-            img
-                inline-size: 100%
-                border-radius: 0.5vw
-            
-            .caption
-                font-size: .7em
-                color: $bg-light
-                inline-size: 100%
-                background-color: $overlay
-                border-bottom-left-radius: 1em
-                border-bottom-right-radius: 1em
-            
-            .relative
-                bottom: 14.1vh
-
-            .btn-container
-                cursor: pointer
-                block-size: 100%
-                inline-size: 100%
-                
-                bottom: 74vh
-                position: relative
-                
-                display: flex
-                justify-content: space-between
-
-                button.img-btn
-                    border: none
-                    opacity: 0.3
-                    font-size: 2em
-                    cursor: pointer
-                    background-color: transparent
-                    @extend ext-btn-functionallity
-  
-        nav.bio-bar
-            inline-size: 100%    
-            background-color: transparent
-            border-top: 1px solid $nav-bar
-            border-bottom: 1px solid $nav-bar
-
-            @extend flex-wrap-row
-            justify-content: space-evenly
-     
-        section.bio-container
-            inline-size: 100%
-
-            .bio-wrapper
-                block-size: 100%
-                inline-size: 36em
-                justify-content: center
-                align-items: center
-
-            h2
-                font-size: 2em
-                text-align: center
-                margin-block-start: 0
-                @extend %work-sans-font
-
-                button.bio-btn
-
-                    border: none
-                    padding: 1em
-                    font-size: 1.45em
-                    cursor: pointer
-                    background-color: inherit
-                    @extend ext-btn-functionallity
-                    
-
-                    &:hover
-                        color: $highlight-color
-                        background-color: rgb(207, 222, 226)
-                        
-
-            section.bio-content
-                inline-size: 100%
-                @extend %roboto-font
-                
-                h3
-                    margin-block-end: 0em 
-                    @extend %work-sans-font
-                h4
-                    margin-block-end: 0em
-                    color: $highlight-color !important
-
+        
         nav.ext-bar
 
             span 
