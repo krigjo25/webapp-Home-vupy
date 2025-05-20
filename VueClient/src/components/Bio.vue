@@ -1,9 +1,9 @@
 <template>
-    <section :id="bio.id" :class="'info'">
-        <Navigation :class='bio.nav.cls':data="bio.pages"/>
-        <section class="bio-container flex-wrap-row-justify-space-evenly">
+    <section :id="bio.id" :class="bio.cls">
+        <Navigation :class='nav.cls':data="nav.pages"/>
+        <section :class="bio.sub_cls">
             <Carosel />
-            <section id='bio'class="bio-wrapper">
+            <article id='bio' class="bio-article">
                 <h2>{{ bio.current.author.name}}</h2>
                 <h3>{{ bio.current.author.title }}</h3>
                 <section class="bio-content">
@@ -28,7 +28,7 @@
                     
                     <p v-for="msg in bio.current.message">{{ msg }}</p>
                 </section>
-            </section>
+            </article>
         </section>
     </section>
 
@@ -47,6 +47,76 @@ import { ReadTime, CalculateAge, CalculateDate } from '@/services/utils/bioTools
 import Carosel from './bio_components/Carosel.vue';
 import Navigation from './misc_components/navigation.vue';
 
+const nav =
+{
+    cls: "bio-bar flex-wrap-row-justify-space-evenly",
+    pages: 
+    [
+        {
+            id      : 0,
+            exist   : true,
+            cls     : "bio-nav-btn",
+            name    : isDesktop() ? "Personal Philiosophy" : null,
+            function: profile,
+            icon    : "bi bi-info-circle-fill",
+        },
+        {
+            id      : 1,
+            exist   : true,
+            cls     : "bio-nav-btn",
+            name    : isDesktop() ? "Professional Profile":  null,
+            function: workProfile,
+            icon    : "bi bi-person-workspace",
+        },
+        {
+            id      : 2,
+            exist   : true,
+            cls     : "bio-nav-btn",
+            function: autoBiography,
+            name    : isDesktop() ? "Personal Background" : null,
+            icon    : "bi bi-activity",
+        },
+        {
+            id      : 4,
+            exist   : false,
+            cls     : "bio-nav-btn",
+            name    : isDesktop() ? "My fitness Insights" : null,
+            function: workoutLog,
+            icon    : "bi bi-clock-history",
+        },
+        {
+            id      : 5,
+            exist   : false,
+            cls     : "bio-nav-btn",
+            name    : isDesktop() ?  "My Personal Journey" : null,
+            function: personalBlog,
+            icon    : "bi bi-clock-history",
+        },
+    ],
+}
+
+const bio = reactive(
+    {
+        cls: "bio-container",
+        sub_cls : "bio-wrapper flex-wrap-row-justify-space-evenly",
+        current:
+        {    links: null,
+            title: null,
+            headline:null,
+            message: null,
+            readtime: null,
+            author:
+            {
+                name:null,
+                contributor: "Google Gemini",
+                born: null,
+                age: null,
+
+            },
+        },
+    },
+);
+
 function profile()
 {
     //  Importing the links
@@ -56,7 +126,6 @@ function profile()
     const instagram = import.meta.env.VITE_Instagram;
 
     bio.current = {
-        cls: "bio-bar",
         title: "Kristoffer Gjøsund",
         get readtime() { return ReadTime(this.message)},
         headline: "Passionate Programmer And Fitness Enthusiast",                
@@ -187,7 +256,6 @@ function workProfile()
 function autoBiography()
 {
     bio.current = {
-        cls: "bio-bar",
         title   : "An Autobiography",
         headline: "Journey of growth and self-discovery",
         get readtime() { return ReadTime(this.message)},
@@ -270,73 +338,7 @@ function personalBlog()
     };
 };
 
-const bio = reactive(
-    {
-        nav: {
-            cls: "bio-bar flex-wrap-row"
-        },
-        current:
-        {
-            readtime: null,
-            title: null,
-            headline:null,
 
-            links:[],
-            message:[],
-            
-            author:
-                {
-                    name:null,
-                    contributor: "Google Gemini",
-                    born: null,
-                    age: null,
-
-                },
-        },
-        pages: [
-                {
-                    id      : 0,
-                    exist   : true,
-                    cls     : "bio-btn",
-                    name    : isDesktop() ? "Personal Philiosophy" : null,
-                    function: profile,
-                    icon    : "bi bi-info-circle-fill",
-                },
-                {
-                    id      : 1,
-                    exist   : true,
-                    cls     : "bio-btn",
-                    name    : isDesktop() ? "Professional Profile":  null,
-                    function: workProfile,
-                    icon    : "bi bi-person-workspace",
-                },
-                {
-                    id      : 2,
-                    exist   : true,
-                    cls     : "bio-btn",
-                    function: autoBiography,
-                    name    : isDesktop() ? "Personal Background" : null,
-                    icon    : "bi bi-activity",
-                },
-                {
-                    id      : 4,
-                    exist   : false,
-                    cls     : "bio-btn",
-                    name    : isDesktop() ? "My fitness Insights" : null,
-                    function: workoutLog,
-                    icon    : "bi bi-clock-history",
-                },
-                {
-                    id      : 5,
-                    exist   : false,
-                    cls     : "bio-btn",
-                    name    : isDesktop() ?  "My Personal Journey" : null,
-                    function: personalBlog,
-                    icon    : "bi bi-clock-history",
-                },
-            ],
-    }
-);
 
 onMounted(() => {
     profile();
