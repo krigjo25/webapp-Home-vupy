@@ -3,7 +3,7 @@
 @import flexbox/flexbox-column
 
 
-%flex-box
+flex-box
     display: flex
 
 flex-box-align-items-center
@@ -11,20 +11,27 @@ flex-box-align-items-center
     align-items: center
 
 .flex-box-space-between
-    @extend %flex-box
+    @extend flex-box
     justify-content: space-between
+
+.flex-align-items-flex-end-justify-center
+    @extend flex-box
+    align-items: flex-end 
+    justify-content: center
+
+.flex-align-items-center-justify-content-space-between
+    @extend flex-box-align-items-center
+    justify-content: space-between
+
+
 
 //  Flexbox row classes / styles
 .flex-justify-center
-    @extend %flex-box
+    @extend flex-box
     justify-content: center
 
 .flex-row 
     @extend flex-row
-
-.flex-align-items-center-space-between
-    @extend flex-box-align-items-center
-    justify-content: space-between
 
 .flex-wrap-row
     @extend flex-wrap-row
