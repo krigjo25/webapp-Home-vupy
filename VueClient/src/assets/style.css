@@ -58,14 +58,14 @@ main section.spec-wrapper .spec-class .no-select, .tech-wrapper {
   border-radius: 10px;
 }
 
-ext-btn-functionallity, main section.info nav.ext-bar a, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info .carosel .btn-container button.img-btn {
+ext-btn-functionallity, main section.info nav.ext-bar a, main section.info section.bio-container h2 button.bio-btn, main section.info .carosel .btn-container button.img-btn {
   transition: 2s;
 }
-ext-btn-functionallity:hover, main section.info nav.ext-bar a:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info .carosel .btn-container button.img-btn:hover {
+ext-btn-functionallity:hover, main section.info nav.ext-bar a:hover, main section.info section.bio-container h2 button.bio-btn:hover, main section.info .carosel .btn-container button.img-btn:hover {
   transform: scale(1.1);
   opacity: 1;
 }
-ext-btn-functionallity .msg, main section.info nav.ext-bar a .msg, main section.info section.bio-container nav.bio-bar button.bio-btn .msg, main section.info .carosel .btn-container button.img-btn .msg {
+ext-btn-functionallity .msg, main section.info nav.ext-bar a .msg, main section.info section.bio-container h2 button.bio-btn .msg, main section.info .carosel .btn-container button.img-btn .msg {
   font-size: 2em;
 }
 
@@ -85,7 +85,7 @@ flex-row, .flex-row {
   flex-direction: row;
 }
 
-flex-wrap-row, main section.info section.bio-container nav.bio-bar, .flex-wrap-row, .flex-wrap-row-align-items-end, .flex-wrap-row-justify-center, .flex-wrap-row-justify-space-around, .flex-wrap-row-justify-space-between, .flex-wrap-row-justify-space-evenly {
+flex-wrap-row, main section.info nav.bio-bar, .flex-wrap-row, .flex-wrap-row-align-items-end, .flex-wrap-row-justify-center, .flex-wrap-row-justify-space-around, .flex-wrap-row-justify-space-between, .flex-wrap-row-justify-space-evenly {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -203,29 +203,35 @@ main section.info .carosel .btn-container button.img-btn {
   cursor: pointer;
   background-color: transparent;
 }
-main section.info section.bio-container {
-  inline-size: 100%;
-}
-main section.info section.bio-container h2 {
-  font-size: 2em;
-  text-align: center;
-  margin-block-start: 0;
-}
-main section.info section.bio-container nav.bio-bar {
+main section.info nav.bio-bar {
   inline-size: 100%;
   background-color: transparent;
   border-top: 1px solid rgb(75, 160, 160);
   border-bottom: 1px solid rgb(75, 160, 160);
   justify-content: space-evenly;
 }
-main section.info section.bio-container nav.bio-bar button.bio-btn {
+main section.info section.bio-container {
+  inline-size: 100%;
+}
+main section.info section.bio-container .bio-wrapper {
+  block-size: 100%;
+  inline-size: 36em;
+  justify-content: center;
+  align-items: center;
+}
+main section.info section.bio-container h2 {
+  font-size: 2em;
+  text-align: center;
+  margin-block-start: 0;
+}
+main section.info section.bio-container h2 button.bio-btn {
   border: none;
   padding: 1em;
   font-size: 1.45em;
   cursor: pointer;
   background-color: inherit;
 }
-main section.info section.bio-container nav.bio-bar button.bio-btn:hover {
+main section.info section.bio-container h2 button.bio-btn:hover {
   color: rgb(103, 58, 183);
   background-color: rgb(207, 222, 226);
 }
@@ -258,7 +264,7 @@ flex-row, .flex-row {
   flex-direction: row;
 }
 
-flex-wrap-row, .flex-wrap-row-justify-space-evenly, .flex-wrap-row-justify-space-between, .flex-wrap-row-justify-space-around, .flex-wrap-row-justify-center, .flex-wrap-row-align-items-end, .flex-wrap-row, main section.info section.bio-container nav.bio-bar {
+flex-wrap-row, .flex-wrap-row-justify-space-evenly, .flex-wrap-row-justify-space-between, .flex-wrap-row-justify-space-around, .flex-wrap-row-justify-center, .flex-wrap-row-align-items-end, .flex-wrap-row, main section.info nav.bio-bar {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -336,14 +342,14 @@ main section.spec-wrapper .spec-class .no-select, .tech-wrapper {
   border-radius: 10px;
 }
 
-ext-btn-functionallity, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info nav.ext-bar a {
+ext-btn-functionallity, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container h2 button.bio-btn, main section.info nav.ext-bar a {
   transition: 2s;
 }
-ext-btn-functionallity:hover, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info nav.ext-bar a:hover {
+ext-btn-functionallity:hover, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container h2 button.bio-btn:hover, main section.info nav.ext-bar a:hover {
   transform: scale(1.1);
   opacity: 1;
 }
-ext-btn-functionallity .msg, main section.info .carosel .btn-container button.img-btn .msg, main section.info section.bio-container nav.bio-bar button.bio-btn .msg, main section.info nav.ext-bar a .msg {
+ext-btn-functionallity .msg, main section.info .carosel .btn-container button.img-btn .msg, main section.info section.bio-container h2 button.bio-btn .msg, main section.info nav.ext-bar a .msg {
   font-size: 2em;
 }
 
@@ -371,14 +377,14 @@ main section.spec-wrapper .spec-class .no-select, .tech-wrapper {
   border-radius: 10px;
 }
 
-ext-btn-functionallity, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info nav.ext-bar a {
+ext-btn-functionallity, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container h2 button.bio-btn, main section.info nav.ext-bar a {
   transition: 2s;
 }
-ext-btn-functionallity:hover, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info nav.ext-bar a:hover {
+ext-btn-functionallity:hover, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container h2 button.bio-btn:hover, main section.info nav.ext-bar a:hover {
   transform: scale(1.1);
   opacity: 1;
 }
-ext-btn-functionallity .msg, main section.info .carosel .btn-container button.img-btn .msg, main section.info section.bio-container nav.bio-bar button.bio-btn .msg, main section.info nav.ext-bar a .msg {
+ext-btn-functionallity .msg, main section.info .carosel .btn-container button.img-btn .msg, main section.info section.bio-container h2 button.bio-btn .msg, main section.info nav.ext-bar a .msg {
   font-size: 2em;
 }
 
@@ -503,14 +509,14 @@ div.tech-interpreted, div.tech-compiled, div.tech-db, div.tech-ui-ux, .tech-work
   border-radius: 10px;
 }
 
-ext-btn-functionallity, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info nav.ext-bar a {
+ext-btn-functionallity, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container h2 button.bio-btn, main section.info nav.ext-bar a {
   transition: 2s;
 }
-ext-btn-functionallity:hover, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info nav.ext-bar a:hover {
+ext-btn-functionallity:hover, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container h2 button.bio-btn:hover, main section.info nav.ext-bar a:hover {
   transform: scale(1.1);
   opacity: 1;
 }
-ext-btn-functionallity .msg, main section.info .carosel .btn-container button.img-btn .msg, main section.info section.bio-container nav.bio-bar button.bio-btn .msg, main section.info nav.ext-bar a .msg {
+ext-btn-functionallity .msg, main section.info .carosel .btn-container button.img-btn .msg, main section.info section.bio-container h2 button.bio-btn .msg, main section.info nav.ext-bar a .msg {
   font-size: 2em;
 }
 
@@ -538,14 +544,14 @@ div.tech-interpreted, div.tech-compiled, div.tech-db, div.tech-ui-ux, .tech-work
   border-radius: 10px;
 }
 
-ext-btn-functionallity, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info nav.ext-bar a {
+ext-btn-functionallity, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container h2 button.bio-btn, main section.info nav.ext-bar a {
   transition: 2s;
 }
-ext-btn-functionallity:hover, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info nav.ext-bar a:hover {
+ext-btn-functionallity:hover, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container h2 button.bio-btn:hover, main section.info nav.ext-bar a:hover {
   transform: scale(1.1);
   opacity: 1;
 }
-ext-btn-functionallity .msg, main section.info .carosel .btn-container button.img-btn .msg, main section.info section.bio-container nav.bio-bar button.bio-btn .msg, main section.info nav.ext-bar a .msg {
+ext-btn-functionallity .msg, main section.info .carosel .btn-container button.img-btn .msg, main section.info section.bio-container h2 button.bio-btn .msg, main section.info nav.ext-bar a .msg {
   font-size: 2em;
 }
 
@@ -813,14 +819,14 @@ div.tech-interpreted, div.tech-compiled, div.tech-db, div.tech-ui-ux, .tech-work
   border-radius: 10px;
 }
 
-ext-btn-functionallity, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container nav.bio-bar button.bio-btn, main section.info nav.ext-bar a {
+ext-btn-functionallity, main section.info .carosel .btn-container button.img-btn, main section.info section.bio-container h2 button.bio-btn, main section.info nav.ext-bar a {
   transition: 2s;
 }
-ext-btn-functionallity:hover, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container nav.bio-bar button.bio-btn:hover, main section.info nav.ext-bar a:hover {
+ext-btn-functionallity:hover, main section.info .carosel .btn-container button.img-btn:hover, main section.info section.bio-container h2 button.bio-btn:hover, main section.info nav.ext-bar a:hover {
   transform: scale(1.1);
   opacity: 1;
 }
-ext-btn-functionallity .msg, main section.info .carosel .btn-container button.img-btn .msg, main section.info section.bio-container nav.bio-bar button.bio-btn .msg, main section.info nav.ext-bar a .msg {
+ext-btn-functionallity .msg, main section.info .carosel .btn-container button.img-btn .msg, main section.info section.bio-container h2 button.bio-btn .msg, main section.info nav.ext-bar a .msg {
   font-size: 2em;
 }
 

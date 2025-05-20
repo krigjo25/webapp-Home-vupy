@@ -35,6 +35,7 @@
 //  Importing dependencies
 import { onMounted, reactive } from 'vue';
 import { ReadTime, CalculateAge, CalculateDate } from '@/services/utils/bioTools';
+
 //  Importing components
 import Navigation from '../misc_components/navigation.vue';
 import { isDesktop } from '@/services/utils/rwd';

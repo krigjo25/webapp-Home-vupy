@@ -58,8 +58,23 @@ main
                     background-color: transparent
                     @extend ext-btn-functionallity
   
+        nav.bio-bar
+            inline-size: 100%    
+            background-color: transparent
+            border-top: 1px solid $nav-bar
+            border-bottom: 1px solid $nav-bar
+
+            @extend flex-wrap-row
+            justify-content: space-evenly
+     
         section.bio-container
             inline-size: 100%
+
+            .bio-wrapper
+                block-size: 100%
+                inline-size: 36em
+                justify-content: center
+                align-items: center
 
             h2
                 font-size: 2em
@@ -67,17 +82,6 @@ main
                 margin-block-start: 0
                 @extend %work-sans-font
 
-            nav.bio-bar
-                inline-size: 100%
-                
-                background-color: transparent
-                border-top: 1px solid $nav-bar
-                border-bottom: 1px solid $nav-bar
-                
-                @extend flex-wrap-row
-                justify-content: space-evenly
-
-            
                 button.bio-btn
 
                     border: none

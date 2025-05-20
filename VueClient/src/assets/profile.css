@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+ext-btn-functionallity, main section.info nav.ext-bar a, main section.info section.bio-container h2 button.bio-btn, main section.info .carosel .btn-container button.img-btn {
+  transition: 2s;
+}
+ext-btn-functionallity:hover, main section.info nav.ext-bar a:hover, main section.info section.bio-container h2 button.bio-btn:hover, main section.info .carosel .btn-container button.img-btn:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+ext-btn-functionallity .msg, main section.info nav.ext-bar a .msg, main section.info section.bio-container h2 button.bio-btn .msg, main section.info .carosel .btn-container button.img-btn .msg {
+  font-size: 2em;
+}
+
+main section.info section.bio-container section.bio-content {
+  color: rgb(40, 40, 40);
+  font-family: "Roboto", sans-serif;
+}
+
+main section.info section.bio-container section.bio-content h3, main section.info section.bio-container h2 {
+  font-weight: 100;
+  color: rgb(40, 40, 40);
+  font-family: "Work Sans", sans-serif;
+}
+
+flex-row, .flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+flex-wrap-row, main section.info nav.bio-bar, .flex-wrap-row, .flex-wrap-row-align-items-end, .flex-wrap-row-justify-center, .flex-wrap-row-justify-space-around, .flex-wrap-row-justify-space-between, .flex-wrap-row-justify-space-evenly {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+flex-wrap-reversed-row, .flex-wrap-reversed-row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+}
+
+.flex-wrap-row-justify-space-evenly {
+  justify-content: space-evenly;
+}
+
+.flex-wrap-row-justify-space-between {
+  justify-content: space-between;
+}
+
+.flex-wrap-row-justify-space-around {
+  justify-content: space-around;
+}
+
+.flex-wrap-row-justify-center {
+  justify-content: center;
+}
+
+.flex-wrap-row-align-items-end {
+  align-items: flex-end;
+}
+
+flex-column, main section.info .carosel, .flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+flex-wrap-column, .flex-wrap-column, .flex-wrap-column-align-items-center, .flex-wrap-column-align-content-center {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+flex-wrap-reversed-column, .flex-wrap-reversed-column {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column-reverse;
+}
+
+.flex-wrap-column-align-content-center {
+  align-content: center;
+}
+
+.flex-wrap-column-align-items-center {
+  align-items: center;
+}
+
+.flex-justify-center {
+  display: flex;
+}
+
+.flex-justify-center {
+  justify-content: center;
+}
+
+.slogan-wrapper {
+  font-size: 2.22vw;
+}
+
+main section.info {
+  block-size: 100%;
+}
+main section.info .tool-tip {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  position: absolute;
+  background-color: rgba(40, 40, 40, 0.7);
+}
+main section.info:hover {
+  opacity: 0.8;
+}
+main section.info .carosel {
+  inline-size: 100%;
+}
+main section.info .carosel img {
+  inline-size: 100%;
+  border-radius: 0.5vw;
+}
+main section.info .carosel .caption {
+  font-size: 0.7em;
+  color: rgb(245, 245, 245);
+  inline-size: 100%;
+  background-color: rgba(40, 40, 40, 0.7);
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
+main section.info .carosel .relative {
+  bottom: 14.1vh;
+}
+main section.info .carosel .btn-container {
+  cursor: pointer;
+  block-size: 100%;
+  inline-size: 100%;
+  bottom: 74vh;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+main section.info .carosel .btn-container button.img-btn {
+  border: none;
+  opacity: 0.3;
+  font-size: 2em;
+  cursor: pointer;
+  background-color: transparent;
+}
+main section.info nav.bio-bar {
+  inline-size: 100%;
+  background-color: transparent;
+  border-top: 1px solid rgb(75, 160, 160);
+  border-bottom: 1px solid rgb(75, 160, 160);
+  justify-content: space-evenly;
+}
+main section.info section.bio-container {
+  inline-size: 100%;
+}
+main section.info section.bio-container .bio-wrapper {
+  block-size: 100%;
+  inline-size: 36em;
+  justify-content: center;
+  align-items: center;
+}
+main section.info section.bio-container h2 {
+  font-size: 2em;
+  text-align: center;
+  margin-block-start: 0;
+}
+main section.info section.bio-container h2 button.bio-btn {
+  border: none;
+  padding: 1em;
+  font-size: 1.45em;
+  cursor: pointer;
+  background-color: inherit;
+}
+main section.info section.bio-container h2 button.bio-btn:hover {
+  color: rgb(103, 58, 183);
+  background-color: rgb(207, 222, 226);
+}
+main section.info section.bio-container section.bio-content {
+  inline-size: 100%;
+}
+main section.info section.bio-container section.bio-content h3 {
+  margin-block-end: 0em;
+}
+main section.info section.bio-container section.bio-content h4 {
+  margin-block-end: 0em;
+  color: rgb(103, 58, 183) !important;
+}
+main section.info nav.ext-bar span {
+  padding: 1vw;
+  font-size: 1em;
+}
+main section.info nav.ext-bar a {
+  padding: 1vw;
+  font-size: 1.5em;
+  text-decoration: none;
+  display: inline-block;
+}
+main section.info nav.ext-bar:hover, main section.info nav.ext-bar :visited {
+  color: inherit;
+}/*# sourceMappingURL=profile.css.map */
