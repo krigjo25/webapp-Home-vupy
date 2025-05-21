@@ -10,16 +10,16 @@ main
         block-size: 100%
 
         .carosel
-            inline-size:  35em
+            max-inline-size:  35em
 
             img
                 inline-size: 100%
                 border-radius: 0.5vw
             
             .caption
-                z-index: 1
                 font-size: .7em
                 color: $bg-light
+                text-align: center
                 inline-size: inherit
                 background-color: $overlay
                 border-bottom-left-radius: 1em
@@ -29,11 +29,9 @@ main
                 position: absolute
 
             .btn-container
-                z-index: 2
                 cursor: pointer
                 inline-size: inherit
                 
-
                 button.img-btn
                     border: none
                     opacity: 0.3

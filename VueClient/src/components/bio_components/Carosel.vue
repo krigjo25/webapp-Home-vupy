@@ -24,12 +24,12 @@ import Btn from '../misc_components/button.vue';
 
 const Carosel = reactive(
     {
-        cls     : "carosel flex-wrap-column-justify-center",
-        btnCls  : "btn-container absolute flex-align-items-center-justify-content-space-between",
+        cls     : "carosel grid-container",
+        btnCls  : "btn-container grid-item-1 flex-align-items-center-justify-content-space-between",
         caption :
         {
             text: null,
-            cls : "caption absolute flex-align-items-flex-end-justify-center",
+            cls : "caption grid-item-1",
         },     
         buttons :
         [
