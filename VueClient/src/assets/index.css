@@ -256,7 +256,7 @@ main section.bio-container nav.bio-bar button.bio-nav-btn {
   cursor: pointer;
   background-color: inherit;
 }
-main section.bio-container nav.bio-bar:hover {
+main section.bio-container nav.bio-bar button.bio-nav-btn:hover {
   color: rgb(103, 58, 183) !important;
   background-color: rgb(207, 222, 226);
 }
