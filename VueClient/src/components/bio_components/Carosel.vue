@@ -4,9 +4,6 @@
         <div v-if="Carosel.caption.text" :class="Carosel.caption.cls">
             <p>{{ Carosel.caption.text }}</p>
         </div>
-        <div v-else :class="Carosel.caption.cls">
-            <p>testr</p>
-        </div>
         <div :class="Carosel.btnCls">
              <Btn :class="btn.cls" v-for="btn in Carosel.buttons" :key="btn.id" :btn="btn" @click="btn.action"/>
         </div>
