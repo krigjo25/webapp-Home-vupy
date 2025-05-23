@@ -52,6 +52,7 @@ class OsUtils(object):
         start_dir = part.index(marker)
         rel_path = os.sep.join(part[start_dir:])
 
+        logger.info(f"Relative path: {rel_path} \n")
         return rel_path
 
     def find_directory(self, root:str, marker:Optional[str] ):

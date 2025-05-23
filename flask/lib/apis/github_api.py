@@ -100,7 +100,7 @@ class GithubAPI(APIConfig):
                     lang = "jp-nb"
 
                 case _:
-                    lang = "Unknown"
+                    lang = lang
 
         language['lang'].append(lang)
         language['id'] = uuid.uuid4().hex
