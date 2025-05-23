@@ -28,7 +28,8 @@
                     <h3 v-else>{{ data.name }}</h3>
                     <p>{{ data.description }}</p>
                     <nav class="pro-nav flex-wrap-row-justify-space-evenly">
-                        <Link :link="url" v-for=" url in data.links"/>
+                        <Link :link="url" v-for="url in data.links"/>
+
                     </nav>
                 </div>
             </div>
