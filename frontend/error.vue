@@ -1,13 +1,13 @@
 <template>
-    <template v-if="error.status == 404">
-        <h2>{{ notFoundError.title }} </h2>
+    <template v-if="error && error.status == 404">
+        <h2>{{ notFoundError?.title }} </h2>
 
     </template>
     <template v-else>
-        <h2>  {{ unkownError.title }} </h2>
+        <h2>  {{ unkownError?.title }} </h2>
         <section>
-        Gå tilbake til
-        <NavigationButton :data="btn" />
+            Gå tilbake til
+            <NavigationButton :data="btn" />
         </section>
     </template>
 
