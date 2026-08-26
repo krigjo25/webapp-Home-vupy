@@ -1,3 +1,10 @@
+# [1.37.0](https://github.com/NexusWeave/webapp-Portfolio/compare/v1.36.2...v1.37.0) (2026-08-26)
+
+
+### Features
+
+* **error:** Introduce error page. ([b3dbc92](https://github.com/NexusWeave/webapp-Portfolio/commit/b3dbc92f3712cbd15e75cbbf4e7483ff82fa87ff))
+
 ## [1.36.2](https://github.com/NexusWeave/webapp-Portfolio/compare/v1.36.1...v1.36.2) (2026-08-17)
 
 
