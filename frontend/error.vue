@@ -1,18 +1,12 @@
 <template>
     <LayoutHeader />
-    <template v-if="error && error.status == 404">
-        <h2>{{ notFoundError?.title }} </h2>
+    <section class="page-error">
+        <h2 v-if="error && error.status == 404">{{ notFoundError?.title }} </h2>
+        <h2 v-else >{{ notFoundError?.title }} </h2>
 
-    </template>
-    <template v-else>
-        <h2>  {{ unkownError?.title }} </h2>
-        <section>
-            Gå tilbake til
-            <NavigationButton :data="btn" />
-        </section>
-    </template>
-
-    <LayoutFooter/>
+        <p>Gå tilbake til <NavigationButton :data="btn" /></p>
+    </section>
+    <LayoutFooter />
 </template>
 <script setup lang="ts">
 

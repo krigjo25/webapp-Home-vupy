@@ -14,7 +14,7 @@ export async function fetchCollection<T, R>(path:any, cacheKey:string, mapper: (
         return query.all();
     }, { lazy: true });
 
-    if (error.value) throw error.value;
+    if (error.value) throw createError({ statusCode: 404, statusMessage: `Artikkelen "${path}" ble ikke funnet.`, fatal: true });
 
     return computed(() => (data.value ? mapper(data.value as T[]) : [] as any)) as Ref<R>;
 };
