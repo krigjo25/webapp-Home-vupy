@@ -1,4 +1,5 @@
 <template>
+    <Header />
     <template v-if="error && error.status == 404">
         <h2>{{ notFoundError?.title }} </h2>
 
@@ -11,6 +12,7 @@
         </section>
     </template>
 
+    <Footer/>
 </template>
 <script setup lang="ts">
 
@@ -20,6 +22,8 @@
     //  --- Import types
     import type { NuxtError } from '#app';
     import type { ButtonItem } from './types/navigation';
+import Header from './components/layout/Header.vue';
+import Footer from './components/layout/Footer.vue';
 
 
     const route = useRoute();
