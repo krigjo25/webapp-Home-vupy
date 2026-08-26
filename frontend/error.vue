@@ -1,6 +1,6 @@
 <template>
     <LayoutHeader />
-    <section class="page-error">
+    <section class="page-alert">
         <h2 v-if="error && error.status == 404">{{ notFoundError?.title }} </h2>
         <h2 v-else >{{ notFoundError?.title }} </h2>
 
@@ -30,9 +30,10 @@
 
     const jokes = {
         404: [
-            `Denne siden ${route.path} er på kaffepause`,    
-            `Denne siden ${route.path} har tatt tidelig helg`,
-            `Denne siden ${route.path} er sporløst forsvunnet`
+            `Denne siden '${route.path}' er på kaffepause`,    
+            `Denne siden '${route.path}' er frakoblet helg`,
+            `Denne siden '${route.path}' har tatt tidelig helg`,
+            `Denne siden '${route.path}' er sporløst forsvunnet`
         ]
     }
     const errorTexts: Record<string, Record<string, string | undefined>> = reactive({
