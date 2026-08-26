@@ -22,8 +22,8 @@ describe("Timeline module tests", () => {
         describe("Card component", () => {
 
             it("Renders suspense correctly", async () => {
-                const dummyData: TimelineItem = dummyTimelineCard[0].data;
-                const wrapper = await mountSuspended<Component>(Card, { props: { data: dummyData }, global: { stubs: { MDC: { props: ['value'], template: '<div><slot /></div>' }, ContentRenderer: { props: ['value'], template: '<div><slot /></div>' } }}});
+                const scenario: TimelineItem = dummyTimelineCard[0].data;
+                const wrapper = await mountSuspended<Component>(Card, { props: { data: scenario }, global: { stubs: { MDC: { props: ['value'], template: '<div><slot /></div>' }, ContentRenderer: { props: ['value'], template: '<div><slot /></div>' } }}});
                 await flushPromises();
 
                 const tags: string[] = ['section', 'header', 'h2', 'h3', 'span',]// 'summary','address', 'details', 'ul', 'li'];
@@ -39,8 +39,8 @@ describe("Timeline module tests", () => {
             });
 
             it("Renders fallback correctly", async() => {
-                const dummyData: TimelineItem = dummyTimelineCard[1]?.data
-                const wrapper = await mountSuspended<Component>(Card, { props: { data: dummyData }});
+                const scenario: TimelineItem = dummyTimelineCard[1]?.data
+                const wrapper = await mountSuspended<Component>(Card, { props: { data: scenario }});
 
                 const tags: string[] = ['section', 'p'];
                 const classes:string[] = ['alert-info'];
@@ -54,8 +54,8 @@ describe("Timeline module tests", () => {
 
         describe("Filter component", () => {
             it("Renders component correctly", async () => {
-                const dummyData = dummyTimelineFilter[0];
-                const wrapper = await mountSuspended<Component>(Filter, { props: dummyData });
+                const scenario = dummyTimelineFilter[0];
+                const wrapper = await mountSuspended<Component>(Filter, { props: scenario });
                 await flushPromises();
 
                 const tags: string[] = ['section', 'h2'];
@@ -67,8 +67,8 @@ describe("Timeline module tests", () => {
             });
 
             it("Renders emits correctly", async () => {
-                const dummyData = dummyTimelineFilter[0];
-                const wrapper = await mountSuspended<Component>(Filter, { props: dummyData });
+                const scenario = dummyTimelineFilter[0];
+                const wrapper = await mountSuspended<Component>(Filter, { props: scenario });
                 await flushPromises();
 
                 // Emitting toggleVisibility from modelValue update
@@ -80,9 +80,9 @@ describe("Timeline module tests", () => {
 
         describe("Timeline component", () => {
             it("Renders component correctly", async () => {
-                const dummyData = dummyTimeline[0];
+                const scenario = dummyTimeline[0];
                 const wrapper = await mountSuspended<Component>(Timeline, { 
-                    props: dummyData });
+                    props: scenario });
                 await flushPromises();
 
                 const tags: string[] = ['section', 'h2', 'div'];
@@ -99,37 +99,37 @@ describe("Timeline module tests", () => {
     describe("Edge cases and Fallbacks", () => {
         describe("Card component", () => {
             it("Renders fallback text 'Pågående' when end date is missing", async () => {
-                const dummyData: TimelineItem = dummyTimelineCard[1].data;
-                const wrapper = await mountSuspended<Component>(Card, { props: { data: dummyData } });
+                const scenario: TimelineItem = dummyTimelineCard[1].data;
+                const wrapper = await mountSuspended<Component>(Card, { props: { data: scenario } });
                 expect(wrapper.text()).toContain('Pågående');
             });
 
             it("Renders plain title text instead of NavigationAnchor when href is missing", async () => {
-                const dummyData: TimelineItem = dummyTimelineCard[1].data;
-                const wrapper = await mountSuspended<Component>(Card, { props: { data: dummyData } });
+                const scenario: TimelineItem = dummyTimelineCard[1].data;
+                const wrapper = await mountSuspended<Component>(Card, { props: { data: scenario } });
                 expect(wrapper.findComponent({ name: 'NavigationAnchor' }).exists()).toBe(false);
             });
         });
 
         describe("Filter component", () => {
             it("Renders fallback title 'Untitled Timeline' when title is empty", async () => {
-                const dummyData = dummyTimelineFilter[1];
-                const wrapper = await mountSuspended<Component>(Filter, { props: dummyData });
+                const scenario = dummyTimelineFilter[1];
+                const wrapper = await mountSuspended<Component>(Filter, { props: scenario });
                 expect(wrapper.find('h2').text()).toBe('Untitled Timeline');
             });
 
             it("Hides range input when rangeMax <= 0", async () => {
-                const dummyData = dummyTimelineFilter[1];
-                const wrapper = await mountSuspended<Component>(Filter, { props: dummyData });
+                const scenario = dummyTimelineFilter[1];
+                const wrapper = await mountSuspended<Component>(Filter, { props: scenario });
                 expect(wrapper.findComponent({ name: 'FormInputs' }).exists()).toBe(false);
             });
         });
 
         describe("Timeline component", () => {
             it("Auto-initializes first item as visible when no item has isVisible=true", async () => {
-                const dummyData = dummyTimeline[1]; // All items initially isVisible = false
+                const scenario = dummyTimeline[1]; // All items initially isVisible = false
                 const wrapper = await mountSuspended<Component>(Timeline, { 
-                    props: dummyData,
+                    props: scenario,
                     global: { stubs: { MDC: { props: ['value'], template: '<div><slot /></div>' }, ContentRenderer: { props: ['value'], template: '<div><slot /></div>' } }}
                 });
                 await flushPromises();
@@ -140,9 +140,9 @@ describe("Timeline module tests", () => {
             });
 
             it("Handles empty timeline list without crashing", async () => {
-                const dummyData = dummyTimeline[2]; // Empty data array
+                const scenario = dummyTimeline[2]; // Empty data array
                 const wrapper = await mountSuspended<Component>(Timeline, { 
-                    props: dummyData,
+                    props: scenario,
                     global: { stubs: { MDC: { props: ['value'], template: '<div><slot /></div>' }, ContentRenderer: { props: ['value'], template: '<div><slot /></div>' } }}
                 });
                 expect(wrapper.exists()).toBe(true);

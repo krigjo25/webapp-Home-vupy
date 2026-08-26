@@ -32,7 +32,7 @@ describe("Repository module tests", () => {
 
 describe("BusinessCard component renders correctly", () => {
     let wrapper: any;
-    beforeEach(async() => { const dummyData = cardDummyData[0] as unknown as GithubData; wrapper = await mountSuspended(BusinessCard, { props: { data: dummyData } }); });
+    beforeEach(async() => { const scenario = cardDummyData[0] as unknown as GithubData; wrapper = await mountSuspended(BusinessCard, { props: { data: scenario } }); });
 
     it("renders HTML & CSS correctly", async () => {
         const txt = ['Andre teknologi(er) -', '2026-05-05', '@owner-name', '@collab'];
@@ -57,17 +57,17 @@ describe("BusinessCard component renders correctly", () => {
     });
 
     it("renders child components correctly", async () => {
-        const dummyData = cardDummyData[0] as unknown as GithubData;
+        const scenario = cardDummyData[0] as unknown as GithubData;
         const media = wrapper.findComponent(MediaFigure);
         const anchor = wrapper.findAllComponents(NavigationAnchor);
         const links: (AnchorItem | undefined)[] = [
-            dummyData?.anchor?.[0],
-            { label: `@${dummyData?.owner}`, href: dummyData?.owner_url || '' },
-            { href: dummyData?.collaborators?.[0]?.profile_url || '', label: `@${dummyData?.collaborators?.[0]?.name || ''}` }
+            scenario?.anchor?.[0],
+            { label: `@${scenario?.owner}`, href: scenario?.owner_url || '' },
+            { href: scenario?.collaborators?.[0]?.profile_url || '', label: `@${scenario?.collaborators?.[0]?.name || ''}` }
         ];
 
             expect(media.exists()).toBe(true);
-            expect(media.props('data')).toEqual(dummyData?.media?.[0]);
+            expect(media.props('data')).toEqual(scenario?.media?.[0]);
 
         for (let i = 0; i < anchor.length; i++) {
             const link = anchor[i];
@@ -77,16 +77,16 @@ describe("BusinessCard component renders correctly", () => {
     });
 
     it("Renders short descriptions correctly", async() => { 
-        const dummyData = cardDummyData[0] as unknown as GithubData;
+        const scenario = cardDummyData[0] as unknown as GithubData;
         const p = wrapper.find('p');
 
         expect(p.exists()).toBe(true);
-        expect(p.text()).toContain(dummyData.description);
+        expect(p.text()).toContain(scenario.description);
     });
 
     it("Renders long descriptions correctly", async() => { 
-        const dummyData = cardDummyData[4] as unknown as GithubData;
-        wrapper = await mountSuspended(BusinessCard, { props: { data: dummyData } });
+        const scenario = cardDummyData[4] as unknown as GithubData;
+        wrapper = await mountSuspended(BusinessCard, { props: { data: scenario } });
         const p = wrapper.find('p');
         
         expect(p.exists()).toBe(true);
@@ -97,8 +97,8 @@ describe("BusinessCard component renders correctly", () => {
 describe("Edge / Fallback cases for BusinessCard", () => {
 
     it("Renders component correctly with no languages", async() => {
-        const dummyData = cardDummyData[1] as unknown as GithubData;  
-        const wrapper = await mountSuspended(BusinessCard, { props: { data: dummyData } }); 
+        const scenario = cardDummyData[1] as unknown as GithubData;  
+        const wrapper = await mountSuspended(BusinessCard, { props: { data: scenario } }); 
 
         const elements: string[] = ['figure', 'img'];
         const classes:string[] = ['tech-figure', 'tech-img'];
@@ -110,8 +110,8 @@ describe("Edge / Fallback cases for BusinessCard", () => {
     });
 
     it("Renders component correctly with no anchor", async () => {
-        const dummyData = cardDummyData[2] as unknown as GithubData;  
-        const wrapper = await mountSuspended(BusinessCard, { props: { data: dummyData } }); 
+        const scenario = cardDummyData[2] as unknown as GithubData;  
+        const wrapper = await mountSuspended(BusinessCard, { props: { data: scenario } }); 
 
         const anchors = wrapper.findAll('a');
         const spans = wrapper.findAll('span');
@@ -126,8 +126,8 @@ describe("Edge / Fallback cases for BusinessCard", () => {
     });
 
     it("Renders component correctly with no collaborators", async() => {
-        const dummyData = cardDummyData[3] as unknown as GithubData;  
-        const wrapper = await mountSuspended(BusinessCard, { props: { data: dummyData } }); 
+        const scenario = cardDummyData[3] as unknown as GithubData;  
+        const wrapper = await mountSuspended(BusinessCard, { props: { data: scenario } }); 
 
         const anchors = wrapper.findAll('a');
         const spans = wrapper.findAll('span');
@@ -142,8 +142,8 @@ describe("Edge / Fallback cases for BusinessCard", () => {
     });
 
     it("Renders less than 6 collaborators", async() => { 
-        const dummyData = cardDummyData[6] as unknown as GithubData;
-        const wrapper = await mountSuspended(BusinessCard, { props: { data: dummyData }});
+        const scenario = cardDummyData[6] as unknown as GithubData;
+        const wrapper = await mountSuspended(BusinessCard, { props: { data: scenario }});
 
         const credits = wrapper.find('.credits');
         const collaborators = wrapper.findAll('.collab-name')[0]?.findAllComponents(NavigationAnchor);
@@ -156,8 +156,8 @@ describe("Edge / Fallback cases for BusinessCard", () => {
     });
 
     it("Filter bots corretly", async() => { 
-        const dummyData = cardDummyData[7] as unknown as GithubData;
-        const wrapper = await mountSuspended(BusinessCard, { props: { data: dummyData }});
+        const scenario = cardDummyData[7] as unknown as GithubData;
+        const wrapper = await mountSuspended(BusinessCard, { props: { data: scenario }});
 
         const credits = wrapper.find('.credits');
         const collaborators = wrapper.findAll('.collab-name')[1];
@@ -172,8 +172,8 @@ describe("Edge / Fallback cases for BusinessCard", () => {
     });
 
     it("Filter repo owner from collaboration correctly", async() => {
-        const dummyData = cardDummyData[8] as unknown as GithubData;
-        const wrapper = await mountSuspended(BusinessCard, { props: { data: dummyData }});
+        const scenario = cardDummyData[8] as unknown as GithubData;
+        const wrapper = await mountSuspended(BusinessCard, { props: { data: scenario }});
 
         const credits = wrapper.find('.credits');
 
@@ -182,8 +182,8 @@ describe("Edge / Fallback cases for BusinessCard", () => {
     });
 
     it("Renders Missing titles correctly", async() => {
-        const dummyData = cardDummyData[9] as unknown as GithubData;
-        const wrapper = await mountSuspended(BusinessCard, { props: { data: dummyData }});
+        const scenario = cardDummyData[9] as unknown as GithubData;
+        const wrapper = await mountSuspended(BusinessCard, { props: { data: scenario }});
         const element = wrapper.find('h2');
 
         expect(element.exists()).toBe(true);
@@ -191,8 +191,8 @@ describe("Edge / Fallback cases for BusinessCard", () => {
     });
 
     it("Renders Missing dates correctly", async() => {
-        const dummyData = cardDummyData[10] as unknown as GithubData;
-        const wrapper = await mountSuspended(BusinessCard, { props: { data: dummyData }});
+        const scenario = cardDummyData[10] as unknown as GithubData;
+        const wrapper = await mountSuspended(BusinessCard, { props: { data: scenario }});
 
         const elements:string[] = ['b', 'time'];
         const classes: string[] = ['date-container'];
@@ -202,8 +202,8 @@ describe("Edge / Fallback cases for BusinessCard", () => {
     });
 
     it("Renders Missing description correctly", async() => { 
-        const dummyData = cardDummyData[11] as unknown as GithubData;
-        const wrapper = await mountSuspended(BusinessCard, { props: { data: dummyData }});
+        const scenario = cardDummyData[11] as unknown as GithubData;
+        const wrapper = await mountSuspended(BusinessCard, { props: { data: scenario }});
         const tag = wrapper.find('.description');
 
         expect(tag.exists()).toBe(true);
@@ -212,8 +212,8 @@ describe("Edge / Fallback cases for BusinessCard", () => {
     });
 
     it("Renders single language correctly", async() => { 
-        const dummyData = cardDummyData[13] as unknown as GithubData;
-        const wrapper = await mountSuspended(BusinessCard, { props: { data: dummyData }});
+        const scenario = cardDummyData[13] as unknown as GithubData;
+        const wrapper = await mountSuspended(BusinessCard, { props: { data: scenario }});
 
         const figure = wrapper.findAllComponents(MediaFigure);
         const elements: string[] = ['figure', ' img' ];
