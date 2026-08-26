@@ -5,12 +5,8 @@
     </template>
     <template v-else>
         <h2>  {{ unkownError.title }} </h2>
-        
-        <template v-for="p in unkownError.text">
-            <p>{{ p }}</p>
-        </template>
         <section>
-            Gå tilbake til
+        Gå tilbake til
         <NavigationButton :data="btn" />
         </section>
     </template>
@@ -45,15 +41,8 @@
         ]
     }
     const errorTexts: Record<string, Record<string, string | undefined>> = reactive({
-        notFound: {
-            title: 'Siden du leter etter er ikke funnet.',
-            text: ''
-        },
-        internalServer: 
-        {
-            title: 'Noe gikk galt ({{ error?.statusCode }}',
-            text : 'En uventet feil oppstod. Gå tilbake til'
-        }
+        notFound: { title: 'Siden du leter etter er ikke funnet.' },
+        internalServer:  { title: 'Noe gikk galt ({{ error?.statusCode }}' }
     });
 
     const random404Joke = () => {
