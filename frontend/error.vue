@@ -1,10 +1,14 @@
 <template>
     <LayoutHeader />
     <section class="page-alert">
-        <h2 v-if="error && error.status == 404">{{ notFoundError?.title }} </h2>
-        <h2 v-else >{{ notFoundError?.title }} </h2>
-
-        <p>Gå tilbake til <NavigationButton :data="btn" /></p>
+        <template v-if="error?.status == 404">
+            <h2>{{ notFoundError?.title }} </h2>
+            <p v-html="notFoundError?.message"></p>
+            <p>Gå tilbake til <NavigationButton :data="btn" class="orange-btn"/></p>
+        </template>
+        <template v-else>
+            <h2>{{ unkownError?.title }} </h2>
+        </template>
     </section>
     <LayoutFooter />
 </template>
@@ -21,6 +25,7 @@
 
     // --- defineprops
     const props = defineProps({ error: Object as () => NuxtError });
+    const error = props.error;
 
     //  --- handle error
     const btn:ButtonItem = {
@@ -36,8 +41,9 @@
             `Denne siden '${route.path}' er sporløst forsvunnet`
         ]
     }
+
     const errorTexts: Record<string, Record<string, string | undefined>> = reactive({
-        notFound: { title: 'Siden du leter etter er ikke funnet.' },
+        notFound: { title: 'Siden du leter etter er ikke funnet.', message: 'Kunne ikke finne ønsket side' },
         internalServer:  { title: 'Noe gikk galt ({{ error?.statusCode }}' }
     });
 
@@ -49,6 +55,6 @@
 
     //  --- Computed propteries
     const unkownError = computed(() => {const data = errorTexts.internalServer; return data} );
-    const notFoundError = computed(() => { const data = errorTexts.notFound; data.title = random404Joke(); return data });
+    const notFoundError = computed(() => { const data = errorTexts.notFound; data.title = random404Joke(); data.message = error?.statusText; return data });
 
 </script>
