@@ -31,7 +31,7 @@
         const data = devPosts.value;
         const currentSlug = String(slug);
 
-        const findBlog = (collection: PostItem[]) => { if (!data) return {}; return collection.find(blog => String(blog.path) === currentSlug) || {} as PostItem; };
+        const findBlog = (collection: PostItem[]) => { if (!data) return {}; return collection.find(blog => String(blog.path) === currentSlug) || null };
 
         return findBlog(data);
     });

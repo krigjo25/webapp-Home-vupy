@@ -1,16 +1,10 @@
 <template>
     <LayoutHeader />
     <section class="page-alert">
-        <template v-if="error?.statusCode === 404">
-            <h2>{{error.statusCode}} - {{ notFoundError?.title }} </h2>
-            <p>{{ notFoundError?.message }}. Gå tilbake til <NavigationButton :data="btn" class="orange-btn"/></p>
-        </template>
-
-        <template v-if="error?.statusCode === 500">
-            <h2>{{error?.statusCode}} - {{ internalError?.title }} </h2>
-            <p>{{ notFoundError?.message }}. Gå tilbake til <NavigationButton :data="btn" class="orange-btn"/></p>
-        </template>
-
+        <h2 v-if="error?.statusCode === 404" v-html="error.statusCode + ' - ' + notFoundError.title"></h2>
+        <h2 v-else-if="error?.statusCode === 500" v-html="error.statusCode + ' - ' + internalError.title"></h2>
+        <h2 v-else v-html="error?.statusCode + ' - ' + unkownError.title"></h2>
+        <p>Gå tilbake til <NavigationButton :data="btn" :class="btn.cls"/></p>
     </section>
     <LayoutFooter />
 </template>
@@ -32,16 +26,18 @@
     //  --- handle error
     const btn:ButtonItem = {
         label: 'Portfolio',
+        cls: ['button', 'primary-btn'],
         action: () => {clearError( { redirect: '/'} )}
     }
 
     const jokes = {
         notFound: [
-            `Denne siden '${route.path}' er på kaffepause`,    
-            `Denne siden '${route.path}' er frakoblet helg`,
-            `Denne siden '${route.path}' har tatt tidelig helg`,
-            `Denne siden '${route.path}' er sporløst forsvunnet`
+            `Denne siden <q><strong>${route.path}</strong></q> er på kaffepause`,    
+            `Denne siden <q><strong>${route.path}</strong></q> er frakoblet helg`,
+            `Denne siden <q><strong>${route.path}</strong></q> har tatt tidelig helg`,
+            `Denne siden <q><strong>${route.path}</strong></q> er sporløst forsvunnet`
         ],
+
         itenralServer: [`Woups, det sjedde noe krøll, når vi skulle hente informasjonen fra server`],
         unkownError: [`Denne gangen er det våres feil. Vi møtte veggen med en ukjent feilkode.`]
     }
@@ -49,8 +45,8 @@
     const randomErrorJoke = (data:string[]) => {return data[Math.floor(Math.random() * data.length)] };
 
     //  --- Error handling
-    const notFoundError = computed(() => {  return {title: randomErrorJoke(jokes.notFound), message: error?.statusMessage }});
-    const unkownError = computed(() => { return { title: randomErrorJoke(jokes.unkownError), message: error?.statusMessage }});
-    const internalError = computed(() => { return { title: randomErrorJoke(jokes.unkownError), message: error?.statusMessage }});
+    const notFoundError = computed(() => {  return {title: randomErrorJoke(jokes.notFound) }});
+    const unkownError = computed(() => { return { title: randomErrorJoke(jokes.unkownError) }});
+    const internalError = computed(() => { return { title: randomErrorJoke(jokes.unkownError) }});
 
 </script>
