@@ -1,9 +1,9 @@
 <template>
     <LayoutHeader />
     <section class="page-alert">
-        <h2 v-if="error?.statusCode === 404" v-html="error.statusCode + ' - ' + notFoundError.title"></h2>
-        <h2 v-else-if="error?.statusCode === 500" v-html="error.statusCode + ' - ' + internalError.title"></h2>
-        <h2 v-else v-html="error?.statusCode + ' - ' + unkownError.title"></h2>
+        <h2 v-if="error?.statusCode === 404" v-html="notFoundError"></h2>
+        <h2 v-else-if="error?.statusCode === 500" v-html="error.statusCode + ' - ' + internalError"></h2>
+        <h2 v-else v-html="error?.statusCode + ' - ' + unkownError"></h2>
         <p>Gå tilbake til <NavigationButton :data="btn" :class="btn.cls"/></p>
     </section>
     <LayoutFooter />
@@ -30,23 +30,21 @@
         action: () => {clearError( { redirect: '/'} )}
     }
 
-    const jokes = {
-        notFound: [
-            `Denne siden <q><strong>${route.path}</strong></q> er på kaffepause`,    
-            `Denne siden <q><strong>${route.path}</strong></q> er frakoblet helg`,
-            `Denne siden <q><strong>${route.path}</strong></q> har tatt tidelig helg`,
-            `Denne siden <q><strong>${route.path}</strong></q> er sporløst forsvunnet`
-        ],
-
-        itenralServer: [`Woups, det sjedde noe krøll, når vi skulle hente informasjonen fra server`],
-        unkownError: [`Denne gangen er det våres feil. Vi møtte veggen med en ukjent feilkode.`]
-    }
+    //  --- Custom error message
+    const path = `${error?.statusCode} - Siden <q><strong>${route.path}</strong></q>`;
+    const notFound:string[] = [
+        `${path} er frakoblet.`,        
+        `${path} er på kaffepause.`,    
+        `${path} har tatt tidelig helg.`,
+        `${path} er sporløst forsvunnet.`
+        ];
+    const unkown:string[] = [`Denne gangen er det våres feil. Vi møtte veggen med en ukjent feilkode.`];
+    const internalServer:string[] = [`Woups, det sjedde noe krøll, når vi skulle hente informasjonen fra server`];
 
     const randomErrorJoke = (data:string[]) => {return data[Math.floor(Math.random() * data.length)] };
 
-    //  --- Error handling
-    const notFoundError = computed(() => {  return {title: randomErrorJoke(jokes.notFound) }});
-    const unkownError = computed(() => { return { title: randomErrorJoke(jokes.unkownError) }});
-    const internalError = computed(() => { return { title: randomErrorJoke(jokes.unkownError) }});
+    const unkownError = computed(() => randomErrorJoke(unkown) );
+    const notFoundError = computed(() =>  randomErrorJoke(notFound) );
+    const internalError = computed(() => randomErrorJoke(internalServer));
 
 </script>
