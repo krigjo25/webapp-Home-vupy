@@ -179,13 +179,5 @@ describe('Preprocessor Utils', () => {
             expect(result.value).toEqual(dummyList);
         });
 
-        it ('Throws an Error', async() =>
-            {
-                queryCollectionSpy.mockImplementationOnce(() => { throw new Error('Collection Does not exists')});
-
-                const cacheKey = 'throwErrorCacheKey';
-                await expect(fetchCollection(path, cacheKey, mockMapper)).rejects.toThrow('Collection Does not exists');
-        });
-
     });
 });

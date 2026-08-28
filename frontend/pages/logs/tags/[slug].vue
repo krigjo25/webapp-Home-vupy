@@ -57,94 +57,97 @@
     import type { ButtonItem } from '~/types/navigation';
     import type { DevPostsCollectionItem } from '@nuxt/content';
 
+
     const route = useRoute();
     const router = useRouter();
     const slug = computed(() => route.params.slug as string);
     const displaySlug = computed(() => slug.value.charAt(0).toUpperCase() + slug.value.slice(1).replace(/-/g, ' '));
 
-//  --- Dev Data Logic
-const devPostPath = 'devPosts';
-const devPostCache = 'devPostCache';
-const rawDevPosts = await fetchCollection<DevPostsCollectionItem, ReturnType<typeof mapBlogData>>(devPostPath, devPostCache, mapBlogData);
+    //  --- Dev Data Logic
+    const devPostPath = 'devPosts';
+    const devPostCache = 'devPostCache';
+    const rawDevPosts = await fetchCollection<DevPostsCollectionItem, ReturnType<typeof mapBlogData>>(devPostPath, devPostCache, mapBlogData);
 
-const rawPosts = computed(() => {
-    return rawDevPosts.value;
-});
+    const rawPosts = computed(() => 
+    {
+        if (rawDevPosts.value) return rawDevPosts;
+        else throw createError({ status: 404, statusMessage: `Artikkelen <q><strong>${route.path}</strong></q> Ble ikke funnet`})
+    } );
 
-//  --- Pagination logic
-const n = 3;
-const num:number = 1;
-const label = computed(() => String(slug.value));
-const currentPage: Ref<number> = ref(1);
+    //  --- Pagination logic
+    const n = 3;
+    const num:number = 1;
+    const label = computed(() => String(slug.value));
+    const currentPage: Ref<number> = ref(1);
 
-const current =  computed(() => {return blogPagination(rawPosts.value.filter(post => !post.isArchived), num, n, label.value);});
-const archived =  computed(() => {currentPage.value; return blogPagination(rawPosts.value.filter(post => post.isArchived), currentPage.value, n, label.value);});
+    const current =  computed(() => {return blogPagination(rawPosts.value.filter(post => !post.isArchived), num, n, label.value);});
+    const archived =  computed(() => {currentPage.value; return blogPagination(rawPosts.value.filter(post => post.isArchived), currentPage.value, n, label.value);});
 
-const totalPages = computed(() => {
-    const filtered = rawPosts.value.filter(post => post.isPublished && post.tags.some(t => t.labels?.includes(label.value)));
-    return Math.ceil(filtered.length / n) - 1 || 0;
-});
-const prevPage = computed<ButtonItem>(() => { return { label: 'Forrige',  action: (): number => currentPage.value -- }; });
-const nextPage = computed<ButtonItem>(() =>  { return {label: 'Neste', action: ():number => { if (typeof currentPage.value === 'number') return currentPage.value++; else return 0;}};});
+    const totalPages = computed(() => {
+        const filtered = rawPosts.value.filter(post => post.isPublished && post.tags.some(t => t.labels?.includes(label.value)));
+        return Math.ceil(filtered.length / n) - 1 || 0;
+    });
+    const prevPage = computed<ButtonItem>(() => { return { label: 'Forrige',  action: (): number => currentPage.value -- }; });
+    const nextPage = computed<ButtonItem>(() =>  { return {label: 'Neste', action: ():number => { if (typeof currentPage.value === 'number') return currentPage.value++; else return 0;}};});
 
-//  --- Tag filtering logic
-const openGroup = ref<string | null>(null);
+    //  --- Tag filtering logic
+    const openGroup = ref<string | null>(null);
 
-const tagGroups = computed(() => {
-    const groups: Record<string, { root: any, children: any[] }> = {};
-    rawDevPosts.value.forEach(post => {
-        if (post.tags && post.tags.length > 0) {
-            const rootTag = post.tags[0];
-            const rootName = rootTag.name;
-            if (!groups[rootName]) {
-                groups[rootName] = { 
-                    root: { ...rootTag }, 
-                    children: [] 
-                };
-            }
-            
-            for (let i = 1; i < post.tags.length; i++) {
-                const childTag = post.tags[i];
-                if (!groups[rootName].children.find(c => c.name === childTag.name)) {
-                    groups[rootName].children.push({ ...childTag });
+    const tagGroups = computed(() => {
+        const groups: Record<string, { root: any, children: any[] }> = {};
+        rawDevPosts.value.forEach(post => {
+            if (post.tags && post.tags.length > 0) {
+                const rootTag = post.tags[0];
+                const rootName = rootTag.name;
+                if (!groups[rootName]) {
+                    groups[rootName] = { 
+                        root: { ...rootTag }, 
+                        children: [] 
+                    };
+                }
+                
+                for (let i = 1; i < post.tags.length; i++) {
+                    const childTag = post.tags[i];
+                    if (!groups[rootName].children.find(c => c.name === childTag.name)) {
+                        groups[rootName].children.push({ ...childTag });
+                    }
                 }
             }
+        });
+        return Object.values(groups);
+    });
+
+    import { watchEffect } from 'vue';
+    watchEffect(() => {
+        const currentSlug = slug.value;
+        const group = tagGroups.value.find(g => 
+            g.root.name.toLowerCase() === currentSlug || 
+            g.children.some((c: any) => c.name.toLowerCase() === currentSlug)
+        );
+        if (group) {
+            openGroup.value = group.root.name;
         }
     });
-    return Object.values(groups);
-});
 
-import { watchEffect } from 'vue';
-watchEffect(() => {
-    const currentSlug = slug.value;
-    const group = tagGroups.value.find(g => 
-        g.root.name.toLowerCase() === currentSlug || 
-        g.children.some((c: any) => c.name.toLowerCase() === currentSlug)
-    );
-    if (group) {
-        openGroup.value = group.root.name;
-    }
-});
+    const handleRootClick = (groupName: string) => {
+        if (openGroup.value === groupName && label.value === groupName.toLowerCase()) {
+            openGroup.value = null;
+            router.push('/logs');
+        } else {
+            openGroup.value = groupName;
+            router.push(`/logs/tags/${groupName.toLowerCase()}`);
+        }
+    };
 
-const handleRootClick = (groupName: string) => {
-    if (openGroup.value === groupName && label.value === groupName.toLowerCase()) {
-        openGroup.value = null;
-        router.push('/logs');
-    } else {
-        openGroup.value = groupName;
-        router.push(`/logs/tags/${groupName.toLowerCase()}`);
-    }
-};
+    const handleChildClick = (childName: string) => {
+        router.push(`/logs/tags/${childName.toLowerCase()}`);
+    };
 
-const handleChildClick = (childName: string) => {
-    router.push(`/logs/tags/${childName.toLowerCase()}`);
-};
-
-const activeGroupChildren = computed(() => {
-    if (!openGroup.value) return [];
-    const group = tagGroups.value.find(g => g.root.name === openGroup.value);
-    return group ? group.children : [];
-});
+    const activeGroupChildren = computed(() => {
+        if (!openGroup.value) return [];
+        const group = tagGroups.value.find(g => g.root.name === openGroup.value);
+        return group ? group.children : [];
+    });
 
     const resetButton: ButtonItem = { label: 'Tilbakestill', action: () => { router.push('/logger') }};
 

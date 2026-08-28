@@ -2,12 +2,19 @@
     <LayoutHeader />
     <section class="page-alert">
         <template v-if="error?.status == 404">
-            <h2>{{ notFoundError?.title }} </h2>
+            <h2>{{error.statusCode}} - {{ notFoundError?.title }} </h2>
+            <p v-html="notFoundError?.message"></p>
+            <p>Gå tilbake til <NavigationButton :data="btn" class="orange-btn"/></p>
+        </template>
+        <template v-if="error?.status == 500">
+            <h2>{{error?.statusCode}} -{{ unkownError?.title }} </h2>
             <p v-html="notFoundError?.message"></p>
             <p>Gå tilbake til <NavigationButton :data="btn" class="orange-btn"/></p>
         </template>
         <template v-else>
-            <h2>{{ unkownError?.title }} </h2>
+            <h2>{{error?.statusCode}} -{{ unkownError?.title }} </h2>
+            <p v-html="notFoundError?.message"></p>
+            <p>Gå tilbake til <NavigationButton :data="btn" class="orange-btn"/></p>
         </template>
     </section>
     <LayoutFooter />
@@ -34,27 +41,21 @@
     }
 
     const jokes = {
-        404: [
+        notFound: [
             `Denne siden '${route.path}' er på kaffepause`,    
             `Denne siden '${route.path}' er frakoblet helg`,
             `Denne siden '${route.path}' har tatt tidelig helg`,
             `Denne siden '${route.path}' er sporløst forsvunnet`
-        ]
+        ],
+        itenralServer: [`Woups, det sjedde noe krøll, når vi skulle hente informasjonen fra server`],
+        unkownError: [`Denne gangen er det våres feil. Vi møtte veggen med en ukjent feilkode.`]
     }
 
-    const errorTexts: Record<string, Record<string, string | undefined>> = reactive({
-        notFound: { title: 'Siden du leter etter er ikke funnet.', message: 'Kunne ikke finne ønsket side' },
-        internalServer:  { title: 'Noe gikk galt ({{ error?.statusCode }}' }
-    });
+    const randomErrorJoke = (data:string[]) => {return data[Math.floor(Math.random() * data.length)] };
 
-    const random404Joke = () => {
-        const data = jokes[404];
-        const randomIndex = Math.floor(Math.random() * data.length);
-        return data[randomIndex];
-    }
-
-    //  --- Computed propteries
-    const unkownError = computed(() => {const data = errorTexts.internalServer; return data} );
-    const notFoundError = computed(() => { const data = errorTexts.notFound; data.title = random404Joke(); data.message = error?.statusText; return data });
+    //  --- Error handling
+    const notFoundError = computed(() => {  return {title: randomErrorJoke(jokes.notFound), message: error?.statusMessage }});
+    const unkownError = computed(() => { return { title: randomErrorJoke(jokes.unkownError), message: error?.statusMessage }});
+    const internalError = computed(() => { return { title: randomErrorJoke(jokes.unkownError), message: error?.statusMessage }});
 
 </script>

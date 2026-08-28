@@ -91,7 +91,6 @@
 
     //  --- Pagination logic
     const n = 3;
-    const num:number = 1;
     const label = ref('blog-post');
     const currentPage: Ref<number> = ref(1);
 
@@ -104,6 +103,7 @@
 
         return blogPagination(rawPosts.value.filter(post => post.tags.some(t => t.labels?.includes(label.value))), 1, rawPosts.value.length, label.value);
     });
+
     const totalPages = ref(Math.ceil((rawPosts.value.length) / n) - 1 || 0);
     const prevPage = computed<ButtonItem>(() => { return { label: 'Forrige',  action: (): number => currentPage.value -- }; });
     const nextPage = computed<ButtonItem>(() =>  { return {label: 'Neste', action: ():number => { if (typeof currentPage.value === 'number') return currentPage.value++; else return 0;}};});
@@ -161,11 +161,4 @@
     // --- Watchers
     watch(label, (newValue) => { label.value = newValue; });
 
-    //  --- Debugging Logic
-    //console.log("All Tags: ", tags.value);
-    //console.log("ALl Posts: ", rawPosts.value);
-    //console.log("Mapped Posts: ", current.value);
-    //console.log("Archived Posts: ", archived.value);
-    
-    
 </script>

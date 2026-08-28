@@ -4,7 +4,6 @@
 
 <script lang="ts" setup>
 
-    
     //  --- Import dependencies & types
     import { useRoute } from 'vue-router';
     import { fetchCollection } from '#imports';
@@ -22,7 +21,14 @@
     //  --- Dev Data Logic
     const devPath = 'devPosts';
     const devCache = 'devCache';
-    const devPosts = await fetchCollection<DevPostsCollectionItem, ReturnType<typeof mapBlogData>>(devPath, devCache, mapBlogData);
+    const rawDevPosts = await fetchCollection<DevPostsCollectionItem, ReturnType<typeof mapBlogData>>(devPath, devCache, mapBlogData);
+
+    const devPosts = computed(() => 
+    {
+        if (rawDevPosts.value) return rawDevPosts;
+        else throw createError({ status: 404, statusMessage: `Artikkelen <q><strong>${route.path}</strong></q> Ble ikke funnet`})
+    } );
+    
 
     const posts = computed<PostItem >(() => 
     {
@@ -89,8 +95,4 @@
         }
     });
 
-    //  --- Debug Logic
-    //console.log("Articles in page: ", article.value);
-    //console.log("Article Page loaded with article: ", article.value?.ingress);
-    //console.error("Slug from route: ", slug);
 </script>
