@@ -14,6 +14,4 @@
     const props = withDefaults(defineProps<iconProps>(),{ cls: () => ['default'], label: () => ''});
     const label = computed<string>(() => props.label);
 
-    console.log(label.value);
-
 </script>
