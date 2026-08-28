@@ -48,7 +48,7 @@
 </template>
 <script lang="ts" setup>
 
-    import { ref, computed } from 'vue';
+    import { ref, computed, watchEffect } from 'vue';
     import { fetchCollection } from '#imports';
     import { useRoute, useRouter } from 'vue-router';
     import { blogPagination } from '@/composables/pagination';
@@ -66,13 +66,7 @@
     //  --- Dev Data Logic
     const devPostPath = 'devPosts';
     const devPostCache = 'devPostCache';
-    const rawDevPosts = await fetchCollection<DevPostsCollectionItem, ReturnType<typeof mapBlogData>>(devPostPath, devPostCache, mapBlogData);
-
-    const rawPosts = computed(() => 
-    {
-        if (rawDevPosts.value) return rawDevPosts;
-        else throw createError({ status: 404, statusMessage: `Artikkelen <q><strong>${route.path}</strong></q> Ble ikke funnet`})
-    } );
+    const rawPosts = await fetchCollection<DevPostsCollectionItem, ReturnType<typeof mapBlogData>>(devPostPath, devPostCache, mapBlogData);
 
     //  --- Pagination logic
     const n = 3;
@@ -95,7 +89,7 @@
 
     const tagGroups = computed(() => {
         const groups: Record<string, { root: any, children: any[] }> = {};
-        rawDevPosts.value.forEach(post => {
+        rawPosts.value.forEach(post => {
             if (post.tags && post.tags.length > 0) {
                 const rootTag = post.tags[0];
                 const rootName = rootTag.name;
@@ -117,7 +111,7 @@
         return Object.values(groups);
     });
 
-    import { watchEffect } from 'vue';
+    
     watchEffect(() => {
         const currentSlug = slug.value;
         const group = tagGroups.value.find(g => 
