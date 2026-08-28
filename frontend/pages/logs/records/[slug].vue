@@ -9,6 +9,7 @@
     import { fetchCollection } from '#imports';
     import { mapBlogData } from '~/composables/maps/mapBlogPost';
 
+    import type { SeoOptions } from '~/types/utils';
     import type { PostItem } from '~/types/documents';
     import type { DevPostsCollectionItem } from '@nuxt/content';
 
@@ -21,78 +22,32 @@
     //  --- Dev Data Logic
     const devPath = 'devPosts';
     const devCache = 'devCache';
-    const rawDevPosts = await fetchCollection<DevPostsCollectionItem, ReturnType<typeof mapBlogData>>(devPath, devCache, mapBlogData);
-
-    const devPosts = computed(() => 
-    {
-        if (rawDevPosts.value) return rawDevPosts;
-        else throw createError({ status: 404, statusMessage: `Artikkelen <q><strong>${route.path}</strong></q> Ble ikke funnet`})
-    } );
+    const devPosts = await fetchCollection<DevPostsCollectionItem, ReturnType<typeof mapBlogData>>(devPath, devCache, mapBlogData);
     
 
+    
     const posts = computed<PostItem >(() => 
     {
-        
+        const data = devPosts.value;
         const currentSlug = String(slug);
 
-        const findBlog = (collection: PostItem[]) => {
-            if (!collection) return {} as PostItem;
-            return collection.find(blog => String(blog.path) === currentSlug) || {} as PostItem;
-        };
+        const findBlog = (collection: PostItem[]) => { if (!data) return {}; return collection.find(blog => String(blog.path) === currentSlug) || {} as PostItem; };
 
-        return findBlog(devPosts.value);
-
+        return findBlog(data);
     });
+
+    //  --- Error Handling
+    if (!posts.value) throw createError({statusCode: 404, statusMessage: `Artikkelen <q><strong>${slug}</strong></q> ble ikke funnet.`, fatal: true})
 
     //  --- Dynamic SEO Meta & Schema
-    const pageTitle = computed(() => {
-        if (!posts.value) return undefined;
-        return posts.value.meta?.title || (posts.value.title ? `${posts.value.title} - Tekniske Logger` : undefined);
-    });
-    const pageDescription = computed(() => {
-        if (!posts.value) return undefined;
-        return posts.value.meta?.description || posts.value.ingress || posts.value.info || (posts.value.title ? `Teknisk logg av Kristoffer Gjøsund om ${posts.value.title}` : undefined);
-    });
-    const pageImage = computed(() => posts.value?.meta?.image || posts.value?.image);
-    const fullUrl = computed(() => `https://krigjo25.no/logs/records/${slug}`);
+    const seoData: SeoOptions = 
+    { 
+        image: posts.value?.meta?.image ?? posts.value?.image,
+        urlPath: `https://krigjo25.no/logs/records/${slug}`, 
+        title: posts.value ? posts.value.meta?.title : undefined, 
+        description: posts.value.meta?.title || posts.value.title ? `${posts.value.title} - Tekniske Logger` : undefined
+    };
 
-    useCustomSeo({
-        title: pageTitle,
-        description: pageDescription,
-        image: pageImage,
-        urlPath: computed(() => `/logs/records/${slug}`),
-        type: 'article'
-    });
-
-    watchEffect(() => {
-        if (posts.value && posts.value.title) {
-            useHead({
-                script: [
-                    {
-                        type: 'application/ld+json',
-                        children: JSON.stringify({
-                            '@context': 'https://schema.org',
-                            '@type': 'BlogPosting',
-                            '@id': `${fullUrl.value}/#article`,
-                            'mainEntityOfPage': fullUrl.value,
-                            'headline': posts.value.title,
-                            'description': pageDescription.value,
-                            'author': {
-                                '@type': 'Person',
-                                '@id': 'https://krigjo25.no/#person',
-                                'name': 'Kristoffer Gjøsund',
-                                'url': 'https://krigjo25.no'
-                            },
-                            'publisher': {
-                                '@type': 'Person',
-                                '@id': 'https://krigjo25.no/#person'
-                            },
-                            'datePublished': posts.value.date?.date || undefined
-                        })
-                    }
-                ]
-            });
-        }
-    });
+    useCustomSeo(seoData);
 
 </script>

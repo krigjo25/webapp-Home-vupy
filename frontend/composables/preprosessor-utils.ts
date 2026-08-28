@@ -5,11 +5,19 @@ import type { DateItem } from '~/types/date';
 import type { RouterItem } from '~/types/navigation';
 
 //  --- Data Fetching Logic
-export async function fetchCollection<T, R>(path:any, cacheKey:string, mapper?: (data:T[]) => R): Promise<Ref<R>>
+export async function fetchCollection<T, R>(path:any, cacheKey:string, mapper: (data:T[]) => R, queryModifier?: (query: any) => any): Promise<Ref<R>>
 {
-    const { data } = await useAsyncData(cacheKey, () =>  {return queryCollection(path).all();});
-    return (data.value ? ref(mapper ? mapper(data.value) : data.value) : ref([])) as Ref<R>;
-}
+    const {data, error} = await useAsyncData(cacheKey, () =>  {
+        const query = queryCollection(path);
+        if (queryModifier) return queryModifier(query).all();
+        
+        return query.all();
+    }, { lazy: true });
+
+    if (error.value) throw createError({ statusCode: 404, statusMessage: `Artikkelen "${path}" ble ikke funnet.`, fatal: true });
+
+    return computed(() => (data.value ? mapper(data.value as T[]) : [] as any)) as Ref<R>;
+};
 
 //  --- Data Processing Logic
 export function sortbyDate<T extends { created?: any }>(data: T[], sort: string = ''): T[] {

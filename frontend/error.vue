@@ -1,21 +1,16 @@
 <template>
     <LayoutHeader />
     <section class="page-alert">
-        <template v-if="error?.status == 404">
+        <template v-if="error?.statusCode === 404">
             <h2>{{error.statusCode}} - {{ notFoundError?.title }} </h2>
-            <p v-html="notFoundError?.message"></p>
-            <p>Gå tilbake til <NavigationButton :data="btn" class="orange-btn"/></p>
+            <p>{{ notFoundError?.message }}. Gå tilbake til <NavigationButton :data="btn" class="orange-btn"/></p>
         </template>
-        <template v-if="error?.status == 500">
-            <h2>{{error?.statusCode}} -{{ unkownError?.title }} </h2>
-            <p v-html="notFoundError?.message"></p>
-            <p>Gå tilbake til <NavigationButton :data="btn" class="orange-btn"/></p>
+
+        <template v-if="error?.statusCode === 500">
+            <h2>{{error?.statusCode}} - {{ internalError?.title }} </h2>
+            <p>{{ notFoundError?.message }}. Gå tilbake til <NavigationButton :data="btn" class="orange-btn"/></p>
         </template>
-        <template v-else>
-            <h2>{{error?.statusCode}} -{{ unkownError?.title }} </h2>
-            <p v-html="notFoundError?.message"></p>
-            <p>Gå tilbake til <NavigationButton :data="btn" class="orange-btn"/></p>
-        </template>
+
     </section>
     <LayoutFooter />
 </template>
